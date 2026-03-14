@@ -1,0 +1,16 @@
+{
+  "name": "Paranjape Forest Trails",
+  "short_name": "Forest Trails",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#B3302A",
+  "description": "The Only Lifestyle NA Gated Bungalow Plots in West Pune. A 190-Acre Masterpiece.",
+  "icons": [
+    {
+      "src": "hero.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.pscl.in/projects/township/forest-trails/sitemap.xml
+
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
