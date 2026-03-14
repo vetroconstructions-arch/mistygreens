@@ -5,5 +5,26 @@
     <lastmod>2026-03-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.pscl.in/projects/township/forest-trails/images/drone-aerial.jpg</image:loc>
+      <image:title>Real Drone Aerial View of Paranjape Forest Trails Bhugaon Pune</image:title>
+      <image:geo_location>Bhugaon, Pune, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pscl.in/projects/township/forest-trails/images/master-plan.jpg</image:loc>
+      <image:title>Official 190-Acre Township Master Plan - Paranjape Forest Trails</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pscl.in/projects/township/forest-trails/images/shopping-plaza.jpg</image:loc>
+      <image:title>Mediterranean Lifestyle Shopping Plaza at Forest Trails Bhugaon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pscl.in/projects/township/forest-trails/images/cliff-club.jpg</image:loc>
+      <image:title>The Cliff Club - Luxury Lifestyle Hub in West Pune</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.pscl.in/projects/township/forest-trails/images/misty-greens-gate.jpg</image:loc>
+      <image:title>Misty Greens Gated Community Entrance - Forest Trails</image:title>
+    </image:image>
   </url>
 </urlset>

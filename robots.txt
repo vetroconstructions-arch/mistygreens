@@ -1,5 +1,14 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
+
+# Prioritize Image Indexing for Official Assets
+User-agent: Googlebot-Image
+Allow: /images/
+
+User-agent: Pinterestbot
+Allow: /images/
+
 Sitemap: https://www.pscl.in/projects/township/forest-trails/sitemap.xml
 
 User-agent: Googlebot
