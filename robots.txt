@@ -9,7 +9,7 @@ Allow: /images/
 User-agent: Pinterestbot
 Allow: /images/
 
-Sitemap: https://www.pscl.in/projects/township/forest-trails/sitemap.xml
+Sitemap: https://paranjape-mistygreens.in/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
