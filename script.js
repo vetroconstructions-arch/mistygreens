@@ -12,9 +12,10 @@ function processBrokenImage(img) {
 }
 
 // Handle skeleton dismissal on load
-document.addEventListener('load', function(e) {
+window.addEventListener('load', function(e) {
     if (e.target.tagName === 'IMG') {
-        e.target.closest('.skeleton')?.classList.remove('skeleton');
+        const skeleton = e.target.closest('.skeleton');
+        if (skeleton) skeleton.classList.remove('skeleton');
     }
 }, true);
 
@@ -346,25 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 16. Global Currency Engine Logic
-    const currBtns = document.querySelectorAll('.curr-btn');
-    const rates = { INR: 1, USD: 0.012, AED: 0.044 };
-    const symbols = { INR: '₹', USD: '$', AED: 'د.إ' };
-
-    currBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const curr = btn.getAttribute('data-curr');
-            currBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Find elements with price data and update
-            document.querySelectorAll('[data-price-inr]').forEach(el => {
-                const priceInr = parseFloat(el.getAttribute('data-price-inr'));
-                const converted = (priceInr * rates[curr]).toLocaleString(undefined, { maximumFractionDigits: 0 });
-                el.innerText = `${symbols[curr]}${converted}*`;
-            });
-        });
-    });
+    // 16. Localized Authority Verification
+    console.log("Sovereign Phase 39: Final Polish Active");
     // 17. Technical Ledger Logic
     const ledgerBtns = document.querySelectorAll('.ledger-trigger');
     const ledgerModals = document.querySelectorAll('.ledger-modal');
