@@ -10,8 +10,21 @@ User-agent: Pinterestbot
 Allow: /images/
 
 Sitemap: https://paranjape-mistygreens.in/sitemap.xml
+# Freshness Signal Feed
+Sitemap: https://paranjape-mistygreens.in/rss.xml
 
 User-agent: Googlebot
 Allow: /
+Allow: /luxury-forest-villas-bhugaon/
+Allow: /premium-apartments-forest-trails/
+Allow: /na-bungalow-plots-bhugaon/
+Allow: /kaleidoscope-apartments-bhugaon/
+Allow: /verandah-luxury-flats-bhugaon/
+Allow: /whistling-meadows-villas-bhugaon/
+Allow: /misty-greens-plots-pune/
+Allow: /property-investment-bhugaon-pune/
+Allow: /forest-trails-location-proximity/
+Allow: /forest-trails-price-list-brochure/
+
 User-agent: Bingbot
 Allow: /

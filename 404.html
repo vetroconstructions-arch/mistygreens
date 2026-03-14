@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Paranjape Forest Trails</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .error-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: #050505;
+            color: #fff;
+            padding: 2rem;
+        }
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+            max-width: 900px;
+        }
+        .error-grid a {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+        .error-grid a:hover {
+            background: rgba(140, 115, 47, 0.1);
+            border-color: #8C732F;
+            color: #8C732F;
+        }
+        @media (max-width: 768px) {
+            .error-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="container">
+            <h1 style="font-family: serif; font-size: 5rem; color: #8C732F; margin-bottom: 1rem;">404</h1>
+            <p style="font-size: 1.25rem; color: rgba(255,255,255,0.5); letter-spacing: 0.2em;">THE PATH HAS FADED INTO THE FOREST</p>
+            
+            <div class="error-grid">
+                <a href="/">MAIN SITE</a>
+                <a href="/luxury-forest-villas-bhugaon/">VILLAS HUB</a>
+                <a href="/premium-apartments-forest-trails/">APARTMENTS HUB</a>
+                <a href="/na-bungalow-plots-bhugaon/">BUNGALOW PLOTS</a>
+                <a href="/kaleidoscope-apartments-bhugaon/">KALEIDOSCOPE</a>
+                <a href="/verandah-luxury-flats-bhugaon/">VERANDAH PHASE</a>
+                <a href="/misty-greens-plots-pune/">MISTY GREENS</a>
+                <a href="/property-investment-bhugaon-pune/">INVESTMENT DATA</a>
+                <a href="/forest-trails-location-proximity/">LOCATION GUIDE</a>
+            </div>
+
+            <a href="/" class="btn-primary" style="margin-top: 4rem; display: inline-block;">RETURN TO HERITAGE</a>
+        </div>
+    </div>
+</body>
+</html>
