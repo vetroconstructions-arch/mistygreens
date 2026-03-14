@@ -11,21 +11,65 @@
       <image:title>Real Drone Aerial View of Paranjape Forest Trails Bhugaon Pune</image:title>
       <image:geo_location>Bhugaon, Pune, India</image:geo_location>
     </image:image>
-    <image:image>
-      <image:loc>https://paranjape-mistygreens.in/images/master-plan.jpg</image:loc>
-      <image:title>Official 190-Acre Township Master Plan - Paranjape Forest Trails</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://paranjape-mistygreens.in/images/shopping-plaza.jpg</image:loc>
-      <image:title>Mediterranean Lifestyle Shopping Plaza at Forest Trails Bhugaon</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://paranjape-mistygreens.in/images/cliff-club.jpg</image:loc>
-      <image:title>The Cliff Club - Luxury Lifestyle Hub in West Pune</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://paranjape-mistygreens.in/images/misty-greens-gate.jpg</image:loc>
-      <image:title>Misty Greens Gated Community Entrance - Forest Trails</image:title>
-    </image:image>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/luxury-forest-villas-bhugaon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/premium-apartments-forest-trails/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/na-bungalow-plots-bhugaon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/kaleidoscope-apartments-bhugaon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/verandah-luxury-flats-bhugaon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/whistling-meadows-villas-bhugaon/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/misty-greens-plots-pune/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/property-investment-bhugaon-pune/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/forest-trails-location-proximity/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://paranjape-mistygreens.in/forest-trails-price-list-brochure/</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
