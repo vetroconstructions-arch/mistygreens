@@ -378,7 +378,7 @@ img {
 
 .secondary-silo-nav {
     position: sticky;
-    top: 125px;
+    top: 100px;
     left: 0;
     width: 100%;
     background: rgba(255,255,255,0.95);
@@ -387,12 +387,17 @@ img {
     border-bottom: 2px solid var(--pscl-dark);
     padding: 1.2rem 0;
     box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    transition: top 0.5s var(--ease-editorial);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s var(--ease-editorial);
 }
 
 .header-main.scrolled + .secondary-silo-nav,
 body.scrolled .secondary-silo-nav {
-    top: 100px;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
 }
 
 .secondary-silo-nav .container {
@@ -1959,17 +1964,28 @@ body.mode-night::after {
 }
 .c-prompt:hover { background: var(--pscl-gray); color: var(--pscl-dark); border-color: var(--pscl-forest); }
 
-/* Enquiry Form Refinement: Contrast & Focus */
-#enquiry-form-modal input::placeholder,
+/* Enquiry Form Refinement: High-Contrast & Focus */
+#enquiry-form-modal input,
 #enquiry-form-modal select {
-    color: rgba(255,255,255,0.7) !important;
+    background: #000 !important;
+    border: 2px solid rgba(212,175,55,0.4) !important;
+    color: #fff !important;
+    padding: 1.1rem 1.5rem !important;
+    font-size: 0.85rem !important;
+    border-radius: 4px !important;
+    outline: none !important;
+    transition: all 0.3s ease !important;
+}
+
+#enquiry-form-modal input::placeholder {
+    color: rgba(255,255,255,0.5) !important;
 }
 
 #enquiry-form-modal input:focus,
 #enquiry-form-modal select:focus {
     border-color: var(--pscl-gold) !important;
-    background: rgba(0,0,0,0.5) !important;
-    box-shadow: 0 0 15px rgba(212,175,55,0.1);
+    background: #000 !important;
+    box-shadow: 0 0 15px rgba(212,175,55,0.2) !important;
 }
 
 #concierge-input {
