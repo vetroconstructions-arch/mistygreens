@@ -817,7 +817,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const hours = istTime.getHours();
         const globalEnquiryBtn = document.getElementById('nav-enquire');
         if (globalEnquiryBtn && (hours >= 20 || hours < 8)) {
-            globalEnquiryBtn.innerText = 'BOOK VIDEO TOUR';
+            globalEnquiryBtn.innerText = 'ENQUIRE NOW';
             globalEnquiryBtn.style.background = 'var(--pscl-gold)';
             globalEnquiryBtn.style.color = '#000';
             trackEvent('timezone_cta_adapt', { 'hour': hours });
