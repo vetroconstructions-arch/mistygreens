@@ -79,9 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     ScrollTrigger.create({
         start: "top -80",
         onUpdate: (self) => {
-            const nav = document.querySelector('.nav-main');
-            if (self.direction === 1) nav.classList.add('scrolled');
-            else if (self.scroll() < 50) nav.classList.remove('scrolled');
+            const header = document.querySelector('.header-main');
+            if (header) {
+                if (self.direction === 1) header.classList.add('scrolled');
+                else if (self.scroll() < 50) header.classList.remove('scrolled');
+            }
         }
     });
 
