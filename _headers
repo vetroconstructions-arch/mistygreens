@@ -1,0 +1,34 @@
+/*
+  Crawler & Performance Headers for GitHub Pages / Cloudflare Pages
+*/
+
+/*
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: interest-cohort=()
+
+/*.html
+  Cache-Control: public, max-age=3600, s-maxage=86400
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large
+
+/images/*
+  Cache-Control: public, max-age=2592000, immutable
+  X-Robots-Tag: index, follow, max-image-preview:large
+
+/*.css
+  Cache-Control: public, max-age=604800, immutable
+
+/*.js
+  Cache-Control: public, max-age=604800, immutable
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+
+/rss.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/rss+xml
+
+/robots.txt
+  Cache-Control: public, max-age=86400
