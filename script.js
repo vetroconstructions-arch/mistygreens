@@ -768,5 +768,60 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 20. Global Currency Intelligence (SEO Phase 18)
+    const currencyButtons = document.querySelectorAll('.currency-btn');
+    let currentCurrency = 'INR';
+    const exchangeRates = { 'INR': 1, 'USD': 0.012, 'AED': 0.044, 'GBP': 0.0094 };
+    const currencySymbols = { 'INR': '₹', 'USD': '$', 'AED': 'د.إ', 'GBP': '£' };
+
+    function updateCalculations() {
+        if (!loanAmount || !interestRate || !loanTenure || !emiOutput) return;
+        const p = parseFloat(loanAmount.value);
+        const r = parseFloat(interestRate.value) / 1200;
+        const n = parseFloat(loanTenure.value) * 12;
+        
+        if (p > 0 && r > 0 && n > 0) {
+            const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            const convertedEmi = emi * exchangeRates[currentCurrency];
+            emiOutput.innerText = `${currencySymbols[currentCurrency]}${Math.round(convertedEmi).toLocaleString('en-IN')}`;
+        }
+    }
+
+    currencyButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currencyButtons.forEach(b => {
+                b.classList.remove('active');
+                b.style.background = 'rgba(255,255,255,0.1)';
+                b.style.color = '#fff';
+            });
+            btn.classList.add('active');
+            btn.style.background = 'var(--pscl-gold)';
+            btn.style.color = '#000';
+            currentCurrency = btn.dataset.currency;
+            updateCalculations();
+            trackEvent('currency_switch', { 'target': currentCurrency });
+        });
+    });
+
+    // Link original EMI function to respect currency
+    const baseCalculateEMI = calculateEMI;
+    calculateEMI = function() {
+        updateCalculations();
+    };
+
+    // 21. Timezone-Aware Behavioral CTAs (SEO Phase 18)
+    function adaptCTAsForTimezone() {
+        const istTime = new Date(new Date().getTime() + (new Date().getTimezoneOffset() * 60000) + (5.5 * 60 * 60 * 1000));
+        const hours = istTime.getHours();
+        const globalEnquiryBtn = document.getElementById('nav-enquire');
+        if (globalEnquiryBtn && (hours >= 20 || hours < 8)) {
+            globalEnquiryBtn.innerText = 'BOOK VIDEO TOUR';
+            globalEnquiryBtn.style.background = 'var(--pscl-gold)';
+            globalEnquiryBtn.style.color = '#000';
+            trackEvent('timezone_cta_adapt', { 'hour': hours });
+        }
+    }
+    adaptCTAsForTimezone();
+
 });
 
