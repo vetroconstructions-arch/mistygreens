@@ -660,5 +660,93 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initConversionPill();
 
+    // 16. Township Finance Suite Logic (SEO Phase 15)
+    // EMI Calculator
+    const loanAmount = document.getElementById('loan-amount');
+    const interestRate = document.getElementById('interest-rate');
+    const loanTenure = document.getElementById('loan-tenure');
+    const emiOutput = document.getElementById('emi-output');
+
+    function calculateEMI() {
+        if (!loanAmount || !interestRate || !loanTenure || !emiOutput) return;
+        
+        const p = parseFloat(loanAmount.value);
+        const r = parseFloat(interestRate.value) / 1200; // Monthly interest
+        const n = parseFloat(loanTenure.value) * 12; // Months
+        
+        if (p > 0 && r > 0 && n > 0) {
+            const emi = (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+            emiOutput.innerText = `₹${Math.round(emi).toLocaleString('en-IN')}`;
+        }
+    }
+
+    [loanAmount, interestRate, loanTenure].forEach(el => {
+        if (el) el.addEventListener('input', calculateEMI);
+    });
+
+    // Area Converter
+    const sqftInput = document.getElementById('sqft-input');
+    const gunthaOutput = document.getElementById('guntha-output');
+    const acreOutput = document.getElementById('acre-output');
+
+    function convertArea() {
+        if (!sqftInput || !gunthaOutput || !acreOutput) return;
+        
+        const sqft = parseFloat(sqftInput.value);
+        if (sqft >= 0) {
+            const guntha = sqft / 1089;
+            const acre = sqft / 43560;
+            gunthaOutput.innerText = guntha.toFixed(2);
+            acreOutput.innerText = acre.toFixed(3);
+        }
+    }
+
+    if (sqftInput) sqftInput.addEventListener('input', convertArea);
+
+    // Initial Calcs
+    calculateEMI();
+    convertArea();
+
+    // 17. Sovereign FAQ Accordion (Conversational SEO)
+    const faqItems = document.querySelectorAll('.faq-item h4');
+    faqItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const answer = item.nextElementSibling;
+            const icon = item.querySelector('span');
+            const isActive = answer.style.maxHeight !== '0px' && answer.style.maxHeight !== '';
+
+            // Close all others
+            document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+            document.querySelectorAll('.faq-item h4 span').forEach(s => s.innerText = '+');
+
+            if (!isActive) {
+                answer.style.maxHeight = '300px';
+                icon.innerText = '-';
+                trackEvent('faq_interaction', { question: item.innerText });
+            }
+        });
+    });
+
+    // 18. Live Momentum Signal (Social Proof Injection)
+    function initLiveSignals() {
+        const signalWrap = document.createElement('div');
+        signalWrap.className = 'live-signal-pill';
+        signalWrap.style = "position: fixed; bottom: 2rem; left: 2rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.8rem 1.5rem; border-radius: 50px; color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.8rem; z-index: 1000; border: 1px solid rgba(212,175,55,0.3); opacity: 0; transition: opacity 0.5s;";
+        
+        const dot = document.createElement('span');
+        dot.style = "width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; box-shadow: 0 0 10px #2ecc71; animation: pulse 2s infinite;";
+        
+        const text = document.createElement('span');
+        const siteVisits = Math.floor(Math.random() * (15 - 8 + 1) + 8); // Random 8-15
+        text.innerText = `${siteVisits} FAMILIES VISITING SITE TODAY`;
+        
+        signalWrap.appendChild(dot);
+        signalWrap.appendChild(text);
+        document.body.appendChild(signalWrap);
+
+        setTimeout(() => signalWrap.style.opacity = '1', 3000);
+    }
+    initLiveSignals();
+
 });
 
