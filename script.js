@@ -561,4 +561,46 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run freshness injection after a slight delay
     setTimeout(injectFreshnessSignals, 500);
 
+    // 11. Conversion Tracking Layer (SEO Phase 6)
+    function trackEvent(eventName, eventDetails = {}) {
+        console.log(`📊 Tracking Event: ${eventName}`, eventDetails);
+        // Prepare for GTM/GA4 if present
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                'event': eventName,
+                ...eventDetails
+            });
+        }
+    }
+
+    // Monitor Phone & WhatsApp Clicks
+    document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', () => {
+            const type = link.href.includes('tel:') ? 'Phone' : 'WhatsApp';
+            trackEvent('conversion_click', { 'type': type, 'url': link.href });
+        });
+    });
+
+    // Monitor Tech Ledger (High Intent) Reveals
+    document.querySelectorAll('.ledger-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            trackEvent('intent_view_ledger', { 'target': trigger.dataset.target || 'General' });
+        });
+    });
+
+    // Monitor Form Submissions
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', () => {
+            trackEvent('form_submission', { 'form_id': form.id || 'anonymous_form' });
+        });
+    });
+
+    // Monitor ROI Simulator Adjustments
+    const roiSlider = document.getElementById('years-slider');
+    if (roiSlider) {
+        roiSlider.addEventListener('change', () => {
+            trackEvent('interactive_roi_sim', { 'years': roiSlider.value });
+        });
+    }
+
 });
