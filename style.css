@@ -1820,3 +1820,66 @@ body.mode-night::after {
 }
 .curr-btn.active { border-color: var(--pscl-red); color: var(--pscl-red); }
 .curr-btn:hover { border-color: var(--pscl-dark); color: var(--pscl-dark); }
+
+/* --- Behavioral Conversion Pill (Phase 10) --- */
+.conversion-pill {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(150%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--pscl-gold);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 1000;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.conversion-pill.active {
+    transform: translateX(-50%) translateY(0);
+}
+
+.pill-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--pscl-dark);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.pill-btn {
+    background: var(--pscl-maroon);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.pill-btn:hover {
+    background: #800000;
+}
+
+@media (max-width: 768px) {
+    .conversion-pill {
+        bottom: 1.5rem;
+        width: 90%;
+        padding: 0.6rem 1rem;
+        gap: 0.8rem;
+    }
+    .pill-text {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+}
+

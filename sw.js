@@ -4,8 +4,10 @@ const ASSETS = [
   './index.html',
   './style.css',
   './script.js',
-  './hero.jpg',
-  './landscape.jpg'
+  './images/misty-greens-gate.jpg',
+  './images/cove-duet.jpg',
+  './images/cascade-villas.jpg',
+  './images/master-plan.jpg'
 ];
 
 self.addEventListener('install', (event) => {

@@ -603,4 +603,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+
+    // 13. Behavioral Conversion Pill (70% Scroll Depth)
+    function initConversionPill() {
+        const pill = document.createElement('div');
+        pill.className = 'conversion-pill';
+        pill.innerHTML = `
+            <span class="pill-text">EXPERT ADVISORY AVAILABLE TODAY</span>
+            <button class="pill-btn open-enquiry-modal" onclick="trackEvent('conversion_pill_click')">REQUEST CALLBACK</button>
+        `;
+        document.body.appendChild(pill);
+
+        let hasShown = false;
+        window.addEventListener('scroll', () => {
+            if (hasShown) return;
+            
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPos = window.scrollY;
+            const scrollDepth = (scrollPos / scrollHeight) * 100;
+
+            if (scrollDepth > 70) {
+                pill.classList.add('active');
+                hasShown = true;
+                trackEvent('conversion_pill_reveal');
+            }
+        });
+    }
+    initConversionPill();
+
 });
+
