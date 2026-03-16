@@ -90,19 +90,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = ['township', 'clusters', 'master-layout', 'amenities', 'location', 'intel', 'enquire'];
     
     sections.forEach(id => {
-        ScrollTrigger.create({
-            trigger: `#${id}`,
-            start: "top 20%",
-            end: "bottom 20%",
-            onToggle: self => {
-                if (self.isActive) {
-                    navItems.forEach(item => {
-                        const onclickStr = item.getAttribute('onclick') || '';
-                        item.classList.toggle('active', onclickStr.includes(id));
-                    });
+        const target = document.getElementById(id);
+        if (target) {
+            ScrollTrigger.create({
+                trigger: target,
+                start: "top 20%",
+                end: "bottom 20%",
+                onToggle: self => {
+                    if (self.isActive) {
+                        navItems.forEach(item => {
+                            const onclickStr = item.getAttribute('onclick') || '';
+                            item.classList.toggle('active', onclickStr.includes(id));
+                        });
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     // 3. Editorial Reveal System
@@ -268,48 +271,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 14. Sovereign Qualifier Logic
-    const qualifierForm = document.getElementById('qualifier-form');
-    if (qualifierForm) {
-        const steps = qualifierForm.querySelectorAll('.survey-step');
-        const progressFill = document.getElementById('progress-fill');
-        const stepCountText = document.getElementById('step-count');
-        const options = qualifierForm.querySelectorAll('.q-opt');
-        let currentStep = 1;
-        const totalSteps = 4;
-
-        options.forEach(opt => {
-            opt.addEventListener('click', () => {
-                const nextStep = parseInt(opt.getAttribute('data-next'));
-                if (nextStep <= totalSteps) {
-                    goToStep(nextStep);
-                }
-            });
-        });
-
-        function goToStep(step) {
-            steps.forEach(s => s.classList.remove('active'));
-            const targetStep = qualifierForm.querySelector(`.survey-step[data-step="${step}"]`);
-            if (targetStep) targetStep.classList.add('active');
-            currentStep = step;
-            updateProgress();
-        }
-
-        function updateProgress() {
-            const percentage = (currentStep / totalSteps) * 100;
-            progressFill.style.width = `${percentage}%`;
-            stepCountText.innerText = `STEP 0${currentStep}/0${totalSteps}`;
-        }
-
-        qualifierForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            qualifierForm.style.display = 'none';
-            const prog = document.querySelector('.qualifier-progress');
-            if (prog) prog.style.display = 'none';
-            const succ = document.getElementById('qualifier-success');
-            if (succ) succ.style.display = 'block';
-        });
-    }
+    // 14. Sovereign Qualifier Logic (Consolidated with sendEnquiry)
+    // Removed old submit listener to avoid duplication with the one below
 
     // 15. Heritage Concierge Logic
     const conciergeModal = document.getElementById('heritage-concierge');
@@ -354,6 +317,176 @@ document.addEventListener('DOMContentLoaded', () => {
     const ledgerModals = document.querySelectorAll('.ledger-modal');
     const ledgerCloses = document.querySelectorAll('.ledger-close');
 
+    /**
+ * Unified Enquiry Submission to Formspree
+ * Sends form data to propsmartrealty@gmail.com via Formspree
+ */
+async function sendEnquiry(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Add source identifier if not present
+    if (!data.source) {
+        data.source = window.location.pathname;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
+    
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'SENDING...';
+    }
+
+    try {
+        // Formspree endpoint for propsmartrealty@gmail.com
+        // Note: The user will need to confirm the first submission via email
+        const response = await fetch('https://formspree.io/f/xvgzezpw', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your enquiry has been sent successfully. We will get back to you soon.',
+                icon: 'success',
+                confirmButtonColor: '#c5a059'
+            });
+            form.reset();
+            
+            // Close modal if it's in one
+            const modal = form.closest('.heritage-concierge');
+            if (modal) modal.classList.remove('active');
+        } else {
+            throw new Error('Form submission failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        Swal.fire({
+            title: 'Error!',
+            text: 'There was an error sending your enquiry. Please try again or call us directly.',
+            icon: 'error',
+            confirmButtonColor: '#c5a059'
+        });
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = originalBtnText;
+        }
+    }
+}
+
+// Intercept form submissions
+document.addEventListener('DOMContentLoaded', function() {
+    const enquiryForm = document.getElementById('enquiry-form-modal');
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Basic Phone Validation
+            const phoneInput = enquiryForm.querySelector('input[name="phone"]');
+            if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                Swal.fire({
+                    title: 'Invalid Phone Number',
+                    text: 'Please enter a valid 10-digit mobile number.',
+                    icon: 'warning',
+                    confirmButtonColor: '#c5a059'
+                });
+                return;
+            }
+            
+            sendEnquiry('enquiry-form-modal');
+        });
+    }
+
+    const qualifierForm = document.getElementById('qualifier-form');
+    if (qualifierForm) {
+        // Redefine step logic if needed, but the submit listener is the key
+        const steps = qualifierForm.querySelectorAll('.survey-step');
+        const progressFill = document.getElementById('progress-fill');
+        const stepCountText = document.getElementById('step-count');
+        const options = qualifierForm.querySelectorAll('.q-opt');
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        options.forEach(opt => {
+            opt.addEventListener('click', () => {
+                const nextStep = parseInt(opt.getAttribute('data-next'));
+                if (nextStep <= totalSteps) {
+                    goToStep(nextStep);
+                }
+            });
+        });
+
+        function goToStep(step) {
+            steps.forEach(s => s.classList.remove('active'));
+            const targetStep = qualifierForm.querySelector(`.survey-step[data-step="${step}"]`);
+            if (targetStep) targetStep.classList.add('active');
+            currentStep = step;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const percentage = (currentStep / totalSteps) * 100;
+            progressFill.style.width = `${percentage}%`;
+            stepCountText.innerText = `STEP 0${currentStep}/0${totalSteps}`;
+        }
+
+        qualifierForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Basic Phone Validation
+            const phoneInput = qualifierForm.querySelector('input[name="phone"]');
+            if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                Swal.fire({
+                    title: 'Invalid Phone Number',
+                    text: 'Please enter a valid 10-digit mobile number.',
+                    icon: 'warning',
+                    confirmButtonColor: '#c5a059'
+                });
+                return;
+            }
+
+            // UI feedback for qualifier form
+            qualifierForm.style.display = 'none';
+            const prog = document.querySelector('.qualifier-progress');
+            if (prog) prog.style.display = 'none';
+            const succ = document.getElementById('qualifier-success');
+            if (succ) succ.style.display = 'block';
+
+            sendEnquiry('qualifier-form');
+        });
+    }
+
+    // Open modal triggers
+    const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
+    const modal = document.querySelector('#heritage-concierge');
+    const closeBtn = document.querySelector('#concierge-close');
+
+    if (openTriggers && modal) {
+        openTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+    }
+
+    if (closeBtn && modal) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+});
     ledgerBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
