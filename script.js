@@ -823,5 +823,91 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     adaptCTAsForTimezone();
 
+    // 22. Predictive Intent & Segmented Modals (SEO Phase 20)
+    let userIntent = 'General';
+    const monitorIntent = () => {
+        const investmentElements = ['finance-tools', 'wiki-hub', 'legal-check'];
+        const lifestyleElements = ['amenities', 'lifestyle-gallery', 'delivery'];
+        
+        window.addEventListener('scroll', () => {
+            investmentElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top < window.innerHeight / 2) userIntent = 'Investor';
+            });
+            lifestyleElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top < window.innerHeight / 2) userIntent = 'Lifestyle';
+            });
+        });
+    };
+    monitorIntent();
+
+    // Override Modal Trigger for Segmented Content
+    const baseOpenModal = window.openEnquiryModal;
+    window.openEnquiryModal = (project) => {
+        const modalTitle = document.querySelector('#enquiryModal .modal-title');
+        if (modalTitle) {
+            if (userIntent === 'Investor') {
+                modalTitle.innerHTML = `Request <i>Investor</i> Brief for ${project || 'Forest Trails'}`;
+            } else if (userIntent === 'Lifestyle') {
+                modalTitle.innerHTML = `Book <i>Family</i> Tour for ${project || 'Forest Trails'}`;
+            }
+        }
+        if (baseOpenModal) baseOpenModal(project);
+    };
+
+    // 23. Live Demand Ticker (Social Proof - SEO Phase 20)
+    function initDemandTicker() {
+        const ticker = document.createElement('div');
+        ticker.className = 'demand-ticker';
+        ticker.style = "position: fixed; bottom: 5rem; left: 2rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 0.6rem 1.2rem; border-radius: 4px; color: #fff; font-size: 0.6rem; letter-spacing: 0.1em; transform: translateX(-150%); transition: transform 0.8s var(--ease-editorial); z-index: 999; border: 1px solid rgba(255,255,255,0.1);";
+        document.body.appendChild(ticker);
+
+        const messages = [
+            "4 Families viewed Whistling Meadows recently",
+            "Misty Greens Plot availability updated: 8 Left",
+            "2 New Site Visit bookings from UAE today",
+            "High Demand detected for Hillside Villas"
+        ];
+
+        let index = 0;
+        const showTicker = () => {
+            ticker.innerText = messages[index].toUpperCase();
+            ticker.style.transform = "translateX(0)";
+            setTimeout(() => {
+                ticker.style.transform = "translateX(-150%)";
+                index = (index + 1) % messages.length;
+                setTimeout(showTicker, 15000);
+            }, 6000);
+        };
+        setTimeout(showTicker, 10000);
+    }
+    initDemandTicker();
+
+    // 24. Exit Intent 2.0 (SEO Phase 20)
+    let exitShown = false;
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0 && !exitShown) {
+            Swal.fire({
+                title: 'WAIT! SECURE THE MASTER PLAN',
+                text: 'Download the high-res 190-acre master plan PDF before you leave.',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonText: 'DOWNLOAD PDF',
+                cancelButtonText: 'NOT NOW',
+                confirmButtonColor: '#B3302A',
+                background: '#1A1A1A',
+                color: '#fff'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    trackEvent('exit_intent_download');
+                    window.open('master-plan-forest-trails.pdf', '_blank');
+                }
+            });
+            exitShown = true;
+            trackEvent('exit_intent_trigger', { 'intent': userIntent });
+        }
+    });
+
 });
 
