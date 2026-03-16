@@ -10,6 +10,7 @@ Allow: /images/
 
 # Sitemaps & Feeds
 Sitemap: https://paranjape-mistygreens.in/sitemap.xml
+Sitemap: https://paranjape-mistygreens.in/video-sitemap.xml
 Sitemap: https://paranjape-mistygreens.in/rss.xml
 
 # Googlebot: Full Access with Priority Directives
