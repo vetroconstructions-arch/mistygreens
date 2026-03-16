@@ -1959,6 +1959,19 @@ body.mode-night::after {
 }
 .c-prompt:hover { background: var(--pscl-gray); color: var(--pscl-dark); border-color: var(--pscl-forest); }
 
+/* Enquiry Form Refinement: Contrast & Focus */
+#enquiry-form-modal input::placeholder,
+#enquiry-form-modal select {
+    color: rgba(255,255,255,0.7) !important;
+}
+
+#enquiry-form-modal input:focus,
+#enquiry-form-modal select:focus {
+    border-color: var(--pscl-gold) !important;
+    background: rgba(0,0,0,0.5) !important;
+    box-shadow: 0 0 15px rgba(212,175,55,0.1);
+}
+
 #concierge-input {
     width: 100%;
     background: #fff;
