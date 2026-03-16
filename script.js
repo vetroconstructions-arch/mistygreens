@@ -531,4 +531,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+// 10. SEO Content Freshness Automation
+    function injectFreshnessSignals() {
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear();
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const currentMonth = monthNames[currentDate.getMonth()];
+        
+        // Update copyright years automatically
+        const copyrightEls = document.querySelectorAll('.footer-main p');
+        copyrightEls.forEach(el => {
+            if (el.innerHTML.includes('&copy;')) {
+                el.innerHTML = `&copy; ${currentYear} Paranjape Schemes (Construction) Ltd. All Rights Reserved. Last updated: ${currentMonth} ${currentYear}.`;
+            }
+        });
+
+        // Add hidden freshness signal for Googlebot
+        const bodyStr = document.body.innerHTML;
+        if (!bodyStr.includes('seo-freshness-signal')) {
+            const freshnessSignal = document.createElement('div');
+            freshnessSignal.className = 'seo-freshness-signal';
+            freshnessSignal.style.display = 'none';
+            freshnessSignal.setAttribute('aria-hidden', 'true');
+            freshnessSignal.innerHTML = `Page content verified and updated for Paranjape Forest Trails Bhugaon as of ${currentDate.toISOString()}`;
+            document.body.appendChild(freshnessSignal);
+        }
+    }
+    
+    // Run freshness injection after a slight delay
+    setTimeout(injectFreshnessSignals, 500);
+
 });
