@@ -886,24 +886,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initDemandTicker();
 
-    // 24. Exit Intent 2.0 (SEO Phase 20)
+    // 24. Tactical Exit-Intent Conversion (Lead Hub)
     let exitShown = false;
     document.addEventListener('mouseleave', (e) => {
         if (e.clientY < 0 && !exitShown) {
             Swal.fire({
                 title: 'WAIT! SECURE THE MASTER PLAN',
-                text: 'Download the high-res 190-acre master plan PDF before you leave.',
+                text: 'Get the high-res 190-acre master plan and exclusive plot details directly in your inbox.',
                 icon: 'info',
                 showCancelButton: true,
-                confirmButtonText: 'DOWNLOAD PDF',
+                confirmButtonText: 'SEND DETAILS NOW',
                 cancelButtonText: 'NOT NOW',
                 confirmButtonColor: '#B3302A',
                 background: '#1A1A1A',
                 color: '#fff'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    trackEvent('exit_intent_download');
-                    window.open('master-plan-forest-trails.pdf', '_blank');
+                    trackEvent('exit_intent_enquiry_trigger');
+                    const enquiryTrigger = document.querySelector('#nav-enquire');
+                    if (enquiryTrigger) {
+                        enquiryTrigger.setAttribute('data-project', 'Master Plan Exclusive');
+                        enquiryTrigger.click();
+                    }
                 }
             });
             exitShown = true;
