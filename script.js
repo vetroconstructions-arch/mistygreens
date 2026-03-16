@@ -748,5 +748,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     initLiveSignals();
 
+    // 19. Sovereign Knowledge Base (Wiki) Interactivity (SEO Phase 17)
+    const wikiTriggers = document.querySelectorAll('.wiki-trigger');
+    wikiTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const content = trigger.nextElementSibling;
+            const span = trigger.querySelector('span');
+            const isOpen = content.style.maxHeight !== '0px' && content.style.maxHeight !== '';
+
+            // Close all other wiki items
+            document.querySelectorAll('.wiki-content').forEach(c => c.style.maxHeight = '0px');
+            document.querySelectorAll('.wiki-trigger span').forEach(s => s.innerText = '+');
+
+            if (!isOpen) {
+                content.style.maxHeight = '500px';
+                span.innerText = '-';
+                trackEvent('wiki_interaction', { 'topic': trigger.innerText.replace('+', '').trim() });
+            }
+        });
+    });
+
 });
 
