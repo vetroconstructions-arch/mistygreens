@@ -274,6 +274,33 @@
           "name": "Misty Greens",
           "item": "https://paranjape-mistygreens.in/misty-greens-plots-pune/"
         }]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "contentUrl": "https://paranjape-mistygreens.in/images/master-plan.jpg",
+        "license": "https://paranjape-mistygreens.in/legal",
+        "acquireLicensePage": "https://paranjape-mistygreens.in/contact",
+        "creditText": "Paranjape Schemes (Construction) Ltd",
+        "creator": {
+          "@type": "Organization",
+          "name": "Paranjape Schemes"
+        },
+        "caption": "Official Master Plan Layout of Paranjape Forest Trails 190-Acre Township in Bhugaon West Pune",
+        "representativeOfPage": "true"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ImageObject",
+        "contentUrl": "https://paranjape-mistygreens.in/images/drone-aerial.jpg",
+        "caption": "Panoramic Drone Aerial View of Misty Mountains and Gated Township at Forest Trails Bhugaon",
+        "exifData": [
+          {
+            "@type": "PropertyValue",
+            "name": "Location",
+            "value": "Bhugaon, Pune"
+          }
+        ]
       }
     ]
     </script>
@@ -341,7 +368,28 @@
     <link rel="preconnect" href="https://pscl.in">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <!-- Critical CSS (SEO Phase 16) -->
+    <style id="critical-css">
+        :root { --pscl-red: #B3302A; --pscl-maroon: #6B0D0D; --pscl-dark: #1A1A1A; --pscl-bg: #FDFCF8; --pscl-gold: #8C732F; --pscl-gray: #F5F5F0; --pscl-muted: #666666; --pscl-white: #FFFFFF; --pscl-forest: #2D4F3C; --font-heading: 'Inter', sans-serif; --font-serif: 'Playfair Display', serif; --font-body: 'Inter', sans-serif; --container-max: 1440px; --container-padding: 5vw; --header-height: 100px; --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { background: var(--pscl-bg); color: var(--pscl-dark); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        img { max-width: 100%; height: auto; object-fit: cover; display: block; background: var(--pscl-gray); }
+        .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); width: 100%; }
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 10000; display: flex; align-items: center; justify-content: center; color: #fff; }
+        .loader-logo { font-size: 2rem; font-weight: 600; letter-spacing: 0.5em; margin-bottom: 2rem; }
+        .loader-line { width: 200px; height: 1px; background: rgba(255,255,255,0.1); margin: 0 auto 1.5rem; position: relative; overflow: hidden; }
+        .loader-line span { position: absolute; top: 0; left: 0; height: 100%; width: 0; background: var(--pscl-red); }
+        .nav-main { position: fixed; top: 0; left: 0; width: 100%; height: 90px; background: var(--pscl-maroon); z-index: 1000; display: flex; align-items: center; transition: all 0.5s var(--ease-editorial); }
+        .hero-section { height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; background: #000; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 110%; background-size: cover; background-position: center; z-index: 0; }
+        .hero-vignette { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(75deg, rgba(253, 252, 248, 0.6) 20%, transparent 100%); z-index: 1; }
+        .hero-container { position: relative; z-index: 2; }
+    </style>
+
+    <!-- Async non-critical CSS -->
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     <link rel="manifest" href="manifest.json">
     <!-- Core Web Vitals LCP Preload -->
     <link rel="preload" as="image" href="images/drone-aerial.jpg">
@@ -493,7 +541,11 @@
                 <div class="anthology-timeline col-12">
                     <div class="timeline-step reveal-up" style="display: flex; gap: 3rem; align-items: center; margin-bottom: 4rem;">
                         <div class="step-image" style="flex: 0 0 280px; height: 180px; overflow: hidden; border-radius: 0.5rem;">
-                            <img loading="lazy" decoding="async" src="images/township-aerial.jpg" alt="Paranjape Forest Trails Bhugaon 190 Acre Gated Township Aerial View - Premium NA Bungalow Plots in West Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                        <picture>
+                            <source srcset="images/township-aerial.avif" type="image/avif">
+                            <source srcset="images/township-aerial.webp" type="image/webp">
+                            <img loading="lazy" decoding="async" src="images/township-aerial.jpg" alt="High-Altitude Drone Aerial View of 190-Acre Paranjape Forest Trails Township in Bhugaon West Pune - Featuring Luxury Villas and NA Bungalow Plots" style="width: 100%; height: 100%; object-fit: cover;">
+                        </picture>
                         </div>
                         <div>
                             <div class="step-year">2010</div>
@@ -505,7 +557,11 @@
                     </div>
                     <div class="timeline-step reveal-up" style="display: flex; gap: 3rem; align-items: center; margin-bottom: 4rem; transition-delay: 0.1s;">
                         <div class="step-image" style="flex: 0 0 280px; height: 180px; overflow: hidden; border-radius: 0.5rem;">
-                            <img loading="lazy" decoding="async" src="images/cliff-club.jpg" alt="The Cliff Club Lifestyle Hub at Paranjape Forest Trails Bhugaon - Landscaped Gardens and Luxury Amenities in West Pune Township" style="width: 100%; height: 100%; object-fit: cover;">
+                        <picture>
+                            <source srcset="images/cliff-club.avif" type="image/avif">
+                            <source srcset="images/cliff-club.webp" type="image/webp">
+                            <img loading="lazy" decoding="async" src="images/cliff-club.jpg" alt="The Cliff Club Lifestyle Hub at Paranjape Forest Trails Bhugaon - Featuring Olympic Size Pool and Fine Dining Amenities" style="width: 100%; height: 100%; object-fit: cover;">
+                        </picture>
                         </div>
                         <div>
                             <div class="step-year">2015</div>
@@ -643,7 +699,11 @@
                     <div class="col-4 reveal-up">
                             <div class="cluster-image" style="height: 250px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--pscl-maroon); position: relative;">
                                 <div class="urgency-badge" style="background: var(--pscl-red); color: #fff; font-size: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 2px; letter-spacing: 0.1em; font-weight: 700; position: absolute; top: 1rem; right: 1rem; z-index: 10;">HIGH DEMAND</div>
-                                <img loading="lazy" decoding="async" src="images/misty-greens-gate.jpg" alt="Misty Greens Entrance Gate at Paranjape Forest Trails Bhugaon - Premium NA Bungalow Plots 1850 to 7000 Sqft with Branded Paranjape Entry Experience West Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                                <picture>
+                                    <source srcset="images/misty-greens-gate.avif" type="image/avif">
+                                    <source srcset="images/misty-greens-gate.webp" type="image/webp">
+                                    <img loading="lazy" decoding="async" src="images/misty-greens-gate.jpg" alt="Entrance Gateway to Misty Greens NA Bungalow Plots at Forest Trails Bhugaon - Secure Gated Plotting Community in West Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                                </picture>
                             </div>
                             <span class="meta-label" style="color: var(--pscl-maroon); font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em;">MISTY GREENS</span>
                             <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 1rem 0;">Misty Greens Villa Plots</h3>
@@ -1192,7 +1252,11 @@
                 </div>
                 <div class="col-7 reveal-right">
                     <div class="master-plan-wrap skeleton">
-                        <img loading="lazy" decoding="async" src="images/master-plan.jpg" alt="Paranjape Forest Trails Bhugaon Official 190 Acre Township Master Plan with 40 Labeled Zones - Cascade Crescent Cliff Club Shopping Plaza SSRVM School Equestrian Center Cricket Ground Meadows Highlands Athashri NA Plots Layout West Pune" class="skeleton-target" style="width: 100%; height: auto; object-fit: contain;">
+                        <picture>
+                            <source srcset="images/master-plan.avif" type="image/avif">
+                            <source srcset="images/master-plan.webp" type="image/webp">
+                            <img loading="lazy" decoding="async" src="images/master-plan.jpg" alt="Official Master Layout Plan for 190-Acre Paranjape Forest Trails Township in Bhugaon - High-Resolution Mapping of Plots and Villas" class="skeleton-target" style="width: 100%; height: auto; object-fit: contain;">
+                        </picture>
                         <div class="plan-hotspot" style="top: 45%; left: 48%;" 
                              data-title="The Cliff Club" 
                              data-desc="Operational 5-star lifestyle hub with Olympic pools, gym, fine dining and valley-view terrace." 
