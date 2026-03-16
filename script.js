@@ -470,12 +470,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
     const modal = document.querySelector('#heritage-concierge');
     const closeBtn = document.querySelector('#concierge-close');
+    const modalTitle = modal ? modal.querySelector('.concierge-header h3') : null;
+    const projectInterest = modal ? modal.querySelector('select[name="interest"]') : null;
+    const modalLabel = modal ? modal.querySelector('.concierge-body p') : null;
 
     if (openTriggers && modal) {
         openTriggers.forEach(trigger => {
             trigger.addEventListener('click', () => {
+                const project = trigger.getAttribute('data-project') || 'General Township';
+                
+                // Contextual Rewriting
+                if (modalTitle) modalTitle.innerHTML = `Enquiry for <i>${project}</i>`;
+                if (modalLabel) modalLabel.innerHTML = `Get Exclusive ${project} Details & Private Price List`;
+                
+                // Smart Interest Selection
+                if (projectInterest) {
+                    if (project.includes('Plots')) projectInterest.value = 'plots';
+                    else if (project.includes('Villas')) projectInterest.value = 'villas';
+                    else projectInterest.value = 'investment';
+                }
+
+                // Inject Scarcity Trigger
+                const existingScarcity = modal.querySelector('.scarcity-alert');
+                if (existingScarcity) existingScarcity.remove();
+                
+                const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 Enquiries in the last 24h";
+                const scarcityDiv = document.createElement('div');
+                scarcityDiv.className = 'scarcity-alert';
+                scarcityDiv.style = "background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.2); color: #ff4d4d; padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; text-align: center; border-radius: 4px; animation: pulse 2s infinite;";
+                scarcityDiv.innerHTML = scarcityMsg;
+                modal.querySelector('.concierge-body').prepend(scarcityDiv);
+
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
+                
+                trackEvent('modal_open_contextual', { project: project });
             });
         });
     }
