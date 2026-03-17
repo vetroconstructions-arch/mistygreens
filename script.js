@@ -20,9 +20,35 @@ window.addEventListener('load', function(e) {
 }, true);
 
 document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+    const loader = document.getElementById('loader');
+    
+    // 0. Safety Fallback: Ensure loader is dismissed even if GSAP fails
+    const loaderFallback = setTimeout(() => {
+        if (loader) {
+            console.warn('Overture: Safety fallback triggered');
+            loader.style.transition = 'transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+            loader.style.transform = 'translateY(-100%)';
+            // Reveal content manually if GSAP deadlocked
+            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translate(0,0)';
+            });
+        }
+    }, 4000);
 
-    // 0. Hero Text Stabilization (Pre-Timeline Split)
+    if (typeof gsap === 'undefined') {
+        console.error('Overture: GSAP not detected. Reverting to structural rendering.');
+        if (loader) loader.style.display = 'none';
+        return;
+    }
+
+    try {
+        gsap.registerPlugin(ScrollTrigger);
+    } catch (e) {
+        console.warn('Overture: ScrollTrigger plugin failed to register.');
+    }
+
+    // 0.5. Hero Text Stabilization (Pre-Timeline Split)
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const text = heroTitle.innerHTML;
@@ -31,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 1. Overture Loader (Stable Reveal)
-    const tlLoader = gsap.timeline();
+    const tlLoader = gsap.timeline({
+        onComplete: () => clearTimeout(loaderFallback)
+    });
     
     tlLoader.to(".loader-line span", {
         width: "100%",
@@ -43,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 1.5,
         ease: "expo.inOut"
     })
-    .from(".hero-title span span", { // Fixed target for stabilized split
+    .from(".hero-title span span", { 
         y: 100,
         opacity: 0,
         stagger: 0.1,
@@ -58,9 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         y: 0,
         stagger: 0.3,
         delay: 0.5,
-        clearProps: "transform" // Stabilize after animation
+        clearProps: "transform"
     });
-    tlLoader.add(heroTl, "-=1"); // Add heroTl to the main loader timeline, starting 1 second before the end of the previous animation
+    tlLoader.add(heroTl, "-=1"); 
 
     // 2. Stable Scroll Orchestration
     // Subtle Background Parallax

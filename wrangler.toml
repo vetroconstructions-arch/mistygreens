@@ -6,5 +6,5 @@ pages_build_output_dir = "."
 bucket = "."
 
 [build]
-command = "bash scripts/propagate-form.js" # Ensure forms are propagated before deploy
+command = "node scripts/propagate-form.js" # Ensure forms are propagated before deploy
 watch_dir = "."
