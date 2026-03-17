@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_DIR = '/Users/vikasyewle/paranjapeplots';
+const BASE_DIR = process.cwd();
 
 // Sleek Light Centered Modal HTML
 const MODAL_HTML = `
