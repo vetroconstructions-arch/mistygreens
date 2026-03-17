@@ -1,10 +1,3 @@
-name = "paranjape-mistygreens"
+name = "mistygreens"
 compatibility_date = "2024-03-17"
 pages_build_output_dir = "."
-
-[site]
-bucket = "."
-
-[build]
-command = "node scripts/propagate-form.js" # Ensure forms are propagated before deploy
-watch_dir = "."
