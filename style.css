@@ -288,9 +288,9 @@ img {
 .search-links {
     display: flex;
     gap: 2rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--pscl-white);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.08em;
 }
@@ -2030,7 +2030,13 @@ body.mode-night::after {
 }
 .search-links {
     gap: 1.5rem !important;
-    color: var(--pscl-white) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+}
+.nav-item-new {
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
 }
 .nav-item-new:hover {
     color: var(--pscl-gold) !important;
