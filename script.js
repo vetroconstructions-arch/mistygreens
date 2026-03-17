@@ -431,12 +431,14 @@ async function sendEnquiry(formId) {
     try {
         // Formspree endpoint for propsmartrealty@gmail.com
         // Note: The user will need to confirm the first submission via email
+        // Use FormData for better compatibility with Formspree standard processing
+        const bodyData = new FormData(form);
+        
         const response = await fetch('https://formspree.io/f/xvgzezpw', {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: bodyData,
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json'
             }
         });
 
@@ -463,6 +465,7 @@ async function sendEnquiry(formId) {
             icon: 'error',
             confirmButtonColor: '#c5a059'
         });
+        throw error; // Re-throw so the caller knows it failed
     } finally {
         if (submitBtn) {
             submitBtn.disabled = false;
@@ -505,6 +508,14 @@ async function sendEnquiry(formId) {
 
         options.forEach(opt => {
             opt.addEventListener('click', () => {
+                const step = opt.closest('.survey-step').getAttribute('data-step');
+                const val = opt.getAttribute('data-value');
+                
+                // Map step to hidden input
+                if (step === '1') qualifierForm.querySelector('input[name="interest"]').value = val;
+                if (step === '2') qualifierForm.querySelector('input[name="magnitude"]').value = val;
+                if (step === '3') qualifierForm.querySelector('input[name="lifestyle"]').value = val;
+
                 const nextStep = parseInt(opt.getAttribute('data-next'));
                 if (nextStep <= totalSteps) {
                     goToStep(nextStep);
@@ -541,14 +552,17 @@ async function sendEnquiry(formId) {
                 return;
             }
 
-            // UI feedback for qualifier form
-            qualifierForm.style.display = 'none';
-            const prog = document.querySelector('.qualifier-progress');
-            if (prog) prog.style.display = 'none';
-            const succ = document.getElementById('qualifier-success');
-            if (succ) succ.style.display = 'block';
-
-            sendEnquiry('qualifier-form');
+            // Submit using sendEnquiry with success callback
+            sendEnquiry('qualifier-form').then(() => {
+                // UI feedback only on success
+                qualifierForm.style.display = 'none';
+                const prog = document.querySelector('.qualifier-progress');
+                if (prog) prog.style.display = 'none';
+                const succ = document.getElementById('qualifier-success');
+                if (succ) succ.style.display = 'block';
+            }).catch(err => {
+                console.error('Qualifier submission failed:', err);
+            });
         });
     }
 
@@ -1080,5 +1094,72 @@ async function sendEnquiry(formId) {
         }
     }
 
+    // 14. Opening Modal Auto-Trigger (Phase 19)
+    const openingModal = document.getElementById('main-opening-modal');
+    if (openingModal) {
+        const modalClose = document.getElementById('opening-close');
+        const modalForm = document.getElementById('opening-intent-form');
+
+        // Delay reveal for impact
+        setTimeout(() => {
+            if (!localStorage.getItem('opening_modal_seen')) {
+                openingModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                if (typeof gsap !== 'undefined') {
+                    gsap.from(".opening-modal-container", {
+                        y: 50,
+                        opacity: 0,
+                        duration: 1.2,
+                        ease: "expo.out"
+                    });
+                }
+            }
+        }, 5000);
+
+        modalClose?.addEventListener('click', () => {
+            openingModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            localStorage.setItem('opening_modal_seen', 'true');
+        });
+
+        modalForm?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = modalForm.querySelector('button');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'VERIFYING...';
+
+            const formData = new FormData(modalForm);
+            formData.append('source', 'Opening Modal');
+
+            try {
+                const response = await fetch('https://formspree.io/f/xvgzezpw', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: 'Access Granted',
+                            text: 'Your priority access has been secured.',
+                            icon: 'success',
+                            confirmButtonColor: '#B3302A'
+                        });
+                    }
+                    openingModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    localStorage.setItem('opening_modal_seen', 'true');
+                }
+            } catch (err) {
+                console.error('Submission error:', err);
+            } finally {
+                btn.disabled = false;
+                btn.innerText = originalText;
+            }
+        });
+    }
 });
 

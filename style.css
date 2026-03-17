@@ -208,8 +208,10 @@ img {
 
 .header-main.scrolled .nav-main {
     height: 75px;
-    background: #5A0A0A;
-    backdrop-filter: blur(15px);
+    background: rgba(90, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .nav-content {
@@ -440,7 +442,72 @@ body.scrolled .secondary-silo-nav {
     background: transparent;
     color: var(--pscl-red);
     transform: translateY(-3px);
-    box-shadow: 0 10px 30px rgba(183, 28, 28, 0.2);
+    box-shadow: 0 10px 30px rgba(179, 48, 42, 0.2);
+}
+
+/* Premium Button Shimmer (Phase 18) */
+.btn-primary, .tour-btn, .whatsapp-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before, .tour-btn::before, .whatsapp-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: all 0.6s;
+}
+
+.btn-primary:hover::before, .tour-btn:hover::before, .whatsapp-btn:hover::before {
+    left: 100%;
+}
+
+/* Premium Breadcrumb UI (Phase 18) */
+.breadcrumb-nav {
+    padding: 2rem 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 0.8rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+}
+
+.breadcrumb-item a {
+    color: var(--pscl-gold);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--pscl-red);
+}
+
+.breadcrumb-item.active {
+    color: var(--pscl-muted);
+    pointer-events: none;
+}
+
+.breadcrumb-separator {
+    color: rgba(0,0,0,0.2);
+    font-size: 0.8rem;
 }
 
 /* Heritage Ticker: Momentum & Social Proof */
@@ -1922,17 +1989,20 @@ body.mode-night::after {
     right: 0;
     top: 0;
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
     height: 100%;
     background: var(--pscl-dark);
-    border-left: 2px solid var(--pscl-gold);
-    padding: 4rem;
+    border-left: 1px solid rgba(212,175,55,0.2);
+    padding: 3rem 2rem;
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.6s var(--ease-editorial);
     box-shadow: -20px 0 50px rgba(0,0,0,0.5);
+    overflow-y: auto; /* Enable scrolling if content is too long */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
+.concierge-panel::-webkit-scrollbar { display: none; } /* Hide scrollbar for Chrome/Safari */
 .concierge-modal.active .concierge-panel { transform: translateX(0); }
 
 .concierge-header h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; color: #fff; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -1970,14 +2040,21 @@ body.mode-night::after {
 /* Enquiry Form Refinement: High-Contrast & Focus */
 #enquiry-form-modal input,
 #enquiry-form-modal select {
-    background: #000 !important;
-    border: 2px solid rgba(212,175,55,0.4) !important;
+    background: rgba(255,255,255,0.02) !important;
+    border: 1px solid rgba(212,175,55,0.2) !important;
     color: #fff !important;
     padding: 1.1rem 1.5rem !important;
     font-size: 0.85rem !important;
     border-radius: 4px !important;
     outline: none !important;
-    transition: all 0.3s ease !important;
+    transition: all 0.3s var(--ease-editorial) !important;
+}
+
+#enquiry-form-modal input:focus,
+#enquiry-form-modal select:focus {
+    background: rgba(255,255,255,0.05) !important;
+    border-color: var(--pscl-gold) !important;
+    box-shadow: 0 0 15px rgba(140, 115, 47, 0.2);
 }
 
 #enquiry-form-modal input::placeholder {

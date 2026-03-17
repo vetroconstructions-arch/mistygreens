@@ -1,0 +1,142 @@
+
+/* 
+    Phase 19: Elegant Opening Modal & Redesign 
+    - Full-screen Glassmorphic intent capture
+    - Refined typography (Playfair Display)
+    - Smooth GSAP orchestrations
+*/
+
+.opening-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5000;
+    display: none; /* Controlled by JS */
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.opening-modal-container {
+    background: #0d0d0d;
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    max-height: 90vh;
+    border: 1px solid rgba(212,175,55,0.2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+}
+
+.opening-modal-visual {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.opening-modal-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(75deg, rgba(13,13,13,0.95) 10%, transparent 100%);
+}
+
+.opening-modal-content {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #0d0d0d;
+    position: relative;
+}
+
+.opening-modal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    line-height: 1.1;
+    color: var(--pscl-gold);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.opening-modal-content p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+}
+
+#opening-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+#opening-close:hover { opacity: 1; }
+
+.opening-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.opening-form input {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(212,175,55,0.2) !important;
+    padding: 1.1rem 1.5rem !important;
+    color: #fff !important;
+    font-size: 0.85rem !important;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.opening-form input:focus {
+    border-color: var(--pscl-red) !important;
+    background: rgba(255,255,255,0.05) !important;
+}
+
+.opening-btn {
+    background: var(--pscl-red);
+    color: #fff;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s;
+    box-shadow: 0 15px 30px rgba(179, 48, 42, 0.4);
+}
+
+.opening-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(179, 48, 42, 0.5);
+}
+
+@media (max-width: 768px) {
+    .opening-modal-container {
+        grid-template-columns: 1fr;
+        max-height: 95vh;
+        width: 95%;
+    }
+    .opening-modal-visual { display: none; }
+    .opening-modal-content { padding: 3rem 2rem; }
+    .opening-modal-content h2 { font-size: 2.2rem; }
+}
