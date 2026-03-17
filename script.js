@@ -597,11 +597,13 @@ async function sendEnquiry(formId) {
                 const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 Enquiries in the last 24h";
                 const scarcityDiv = document.createElement('div');
                 scarcityDiv.className = 'scarcity-alert';
-                scarcityDiv.style = "background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.2); color: #ff4d4d; padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem; text-align: center; border-radius: 4px; animation: pulse 2s infinite;";
-                scarcityDiv.innerHTML = scarcityMsg;
-                modal.querySelector('.concierge-body').prepend(scarcityDiv);
-
-                modal.classList.add('active');
+                scarcityDiv.style = "background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2); color: var(--pscl-gold); padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 4px; animation: pulse 2s infinite;";
+                scarcityDiv.innerText = scarcityMsg;
+                
+                const formHeader = modal.querySelector('.form-header');
+                if (formHeader) formHeader.after(scarcityDiv);
+                
+                modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
                 
                 trackEvent('modal_open_contextual', { project: project });
@@ -610,10 +612,13 @@ async function sendEnquiry(formId) {
     }
 
     if (closeBtn && modal) {
-        closeBtn.addEventListener('click', () => {
-            modal.classList.remove('active');
+        const closeModal = () => {
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        });
+        };
+
+        closeBtn.addEventListener('click', closeModal);
+        document.querySelector('.concierge-overlay')?.addEventListener('click', closeModal);
     }
     ledgerBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -732,32 +737,23 @@ async function sendEnquiry(formId) {
     }
 
 
-    // 13. Behavioral Conversion Pill (70% Scroll Depth)
-    function initConversionPill() {
-        const pill = document.createElement('div');
-        pill.className = 'conversion-pill';
-        pill.innerHTML = `
-            <span class="pill-text">EXPERT ADVISORY AVAILABLE TODAY</span>
-            <button class="pill-btn open-enquiry-modal" onclick="trackEvent('conversion_pill_click')">REQUEST CALLBACK</button>
-        `;
-        document.body.appendChild(pill);
+    // 13. Elite Conversion Pill Visibility (After 20% Scroll)
+    function initEliteCallbackPill() {
+        const pill = document.getElementById('callback-pill');
+        if (!pill) return;
 
-        let hasShown = false;
         window.addEventListener('scroll', () => {
-            if (hasShown) return;
-            
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrollPos = window.scrollY;
-            const scrollDepth = (scrollPos / scrollHeight) * 100;
-
-            if (scrollDepth > 70) {
+            const threshold = window.innerHeight * 0.2; // 20% Scroll Depth
+            
+            if (scrollPos > threshold) {
                 pill.classList.add('active');
-                hasShown = true;
-                trackEvent('conversion_pill_reveal');
+            } else {
+                pill.classList.remove('active');
             }
         });
     }
-    initConversionPill();
+    initEliteCallbackPill();
 
     // 16. Township Finance Suite Logic (SEO Phase 15)
     // EMI Calculator

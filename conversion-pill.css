@@ -1,0 +1,86 @@
+/* 
+ * Conversion Pill: Elite Request Callback Trigger 
+ * Premium glassmorphic design with gold pulse
+ */
+
+.conversion-pill {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s var(--ease-editorial);
+    transform: translateY(150%);
+    opacity: 0;
+}
+
+.conversion-pill.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.conversion-pill:hover {
+    background: var(--pscl-gold);
+    transform: translateY(-5px) scale(1.05);
+}
+
+.conversion-pill:hover .pill-text,
+.conversion-pill:hover .pill-icon {
+    color: #000;
+}
+
+.pill-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--pscl-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.pill-icon::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border: 1px solid var(--pscl-gold);
+    border-radius: 50%;
+    animation: pill-pulse 2s infinite;
+}
+
+.pill-text {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+@keyframes pill-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .conversion-pill {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 0.6rem 1.2rem;
+    }
+    .pill-text {
+        font-size: 0.65rem;
+    }
+}
