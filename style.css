@@ -1924,18 +1924,21 @@ body.mode-night::after {
     width: 100%;
     max-width: 500px;
     height: 100%;
-    background: var(--pscl-bg);
-    border-left: 1px solid rgba(0,0,0,0.05);
+    background: var(--pscl-dark);
+    border-left: 2px solid var(--pscl-gold);
     padding: 4rem;
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.6s var(--ease-editorial);
+    box-shadow: -20px 0 50px rgba(0,0,0,0.5);
 }
 .concierge-modal.active .concierge-panel { transform: translateX(0); }
 
-.concierge-header h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; color: var(--pscl-dark); }
-.concierge-header button { background: none; border: none; color: var(--pscl-dark); font-size: 2rem; position: absolute; top: 2rem; right: 2rem; cursor: pointer; }
+.concierge-header h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; color: #fff; text-transform: uppercase; letter-spacing: 0.1em; }
+.concierge-header h3 i { color: var(--pscl-gold); font-style: italic; }
+.concierge-header button { background: none; border: none; color: #fff; font-size: 2.5rem; position: absolute; top: 2rem; right: 2rem; cursor: pointer; transition: color 0.3s; }
+.concierge-header button:hover { color: var(--pscl-gold); }
 
 .c-prompt {
     display: block;
@@ -2073,3 +2076,109 @@ body.mode-night::after {
     }
 }
 
+/* --- Phase 11: Premium Design & Animation Enhancements --- */
+
+/* Global Box Enhancements */
+.box-maroon, .township-card, .info-card, .news-card, .proximity-item, .wiki-item, .silo-card, .comparison-card, .wealth-projection-card, .stat-bubble, .tracker-card {
+    border-radius: 8px; /* Consistent rounded corners */
+    transition: all 0.5s var(--ease-editorial);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+/* Glassmorphism for Light Boxes */
+.box-maroon, .info-card, .trust-card, .wealth-projection-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(107, 13, 13, 0.1) !important;
+}
+
+/* Deep Aesthetics for Dark Boxes */
+.proximity-item, .news-card, .tracker-card, .wiki-item, .silo-card, .vault-item {
+    background: rgba(10, 10, 10, 0.6) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Hover States: Elevation & Glow */
+.box-maroon:hover, .township-card:hover, .info-card:hover, .news-card:hover, .proximity-item:hover, .wiki-item:hover, .silo-card:hover, .comparison-card:hover, .vault-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+    border-color: var(--pscl-gold) !important;
+}
+
+/* Special Shadow for Maroon Boxes */
+.box-maroon:hover {
+    box-shadow: 0 40px 80px rgba(107, 13, 13, 0.1);
+}
+
+/* Image Reveal Refinement */
+.cluster-image, .lifestyle-image, .step-image, .news-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.cluster-image img, .lifestyle-image img, .step-image img, .news-image img {
+    transition: transform 1.2s var(--ease-editorial);
+}
+
+.cluster-image:hover img, .lifestyle-image:hover img, .step-image:hover img, .news-image:hover img {
+    transform: scale(1.1);
+}
+
+/* Inner Glow for Premium Cards */
+.box-maroon::before, .info-card::before, .news-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.05), transparent 60%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Wiki Trigger Refinement */
+.wiki-trigger {
+    padding: 1rem 0;
+    transition: color 0.3s ease;
+}
+
+.wiki-trigger:hover {
+    color: var(--pscl-red) !important;
+}
+
+/* Staggered Reveal Logic Hooks */
+.reveal-up, .reveal-left, .reveal-right {
+    will-change: transform, opacity;
+}
+
+/* ROI Catalyst Chips - Premium Update */
+.catalyst-chip {
+    border-radius: 50px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    font-weight: 600;
+}
+
+.catalyst-chip.active {
+    box-shadow: 0 10px 20px rgba(179, 48, 42, 0.2);
+}
+
+/* Infographic Circle Pulse */
+@keyframes circlePulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+.info-card:hover .stat-circle {
+    box-shadow: 0 0 30px rgba(107, 13, 13, 0.3);
+}
+
+/* High-Contrast Modal Field Glow */
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 0 4px rgba(179, 48, 42, 0.1) !important;
+}

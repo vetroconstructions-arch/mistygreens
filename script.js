@@ -110,21 +110,73 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Editorial Reveal System
-    const reveals = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+    // 3. Editorial Reveal System (Enhanced with Staggered Grids)
+    const revealContainers = document.querySelectorAll('.grid-12, .cluster-grid, .infographic-grid, .wiki-grid, .matrix-grid');
     
-    reveals.forEach(el => {
+    revealContainers.forEach(container => {
+        const items = container.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+        if (items.length > 0) {
+            gsap.to(items, {
+                y: 0,
+                x: 0,
+                opacity: 1,
+                duration: 1.2,
+                stagger: 0.15,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: container,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+        }
+    });
+
+    // Individual reveals for non-grid elements
+    const individualReveals = document.querySelectorAll('.reveal-up:not(.grid-12 *), .reveal-left:not(.grid-12 *), .reveal-right:not(.grid-12 *)');
+    individualReveals.forEach(el => {
         gsap.to(el, {
             y: 0,
             x: 0,
             opacity: 1,
-            duration: 1.5,
+            duration: 1.2,
             ease: "power4.out",
             scrollTrigger: {
                 trigger: el,
                 start: "top 85%",
                 toggleActions: "play none none none"
             }
+        });
+    });
+
+    // 3.5 Premium 3D Tilt Effect
+    const tiltElements = document.querySelectorAll('.box-maroon, .info-card, .news-card, .cluster-item, .silo-card, .township-card, .stat-bubble, .tracker-card, .wealth-projection-card');
+    tiltElements.forEach(el => {
+        el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+
+            gsap.to(el, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                duration: 0.5,
+                ease: "power2.out",
+                transformPerspective: 1000
+            });
+        });
+
+        el.addEventListener('mouseleave', () => {
+            gsap.to(el, {
+                rotateX: 0,
+                rotateY: 0,
+                duration: 1,
+                ease: "elastic.out(1, 0.3)"
+            });
         });
     });
 
@@ -326,6 +378,11 @@ document.addEventListener('DOMContentLoaded', () => {
 async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
+    
+    // Safety: Ensure no default submission happens
+    if (form.getAttribute('method')?.toUpperCase() !== 'POST') {
+        form.setAttribute('method', 'POST');
+    }
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
@@ -386,8 +443,7 @@ async function sendEnquiry(formId) {
     }
 }
 
-// Intercept form submissions
-document.addEventListener('DOMContentLoaded', function() {
+    // Intercept form submissions
     const enquiryForm = document.getElementById('enquiry-form-modal');
     if (enquiryForm) {
         enquiryForm.addEventListener('submit', function(e) {
@@ -517,7 +573,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.style.overflow = 'auto';
         });
     }
-});
     ledgerBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -890,30 +945,112 @@ document.addEventListener('DOMContentLoaded', function() {
     let exitShown = false;
     document.addEventListener('mouseleave', (e) => {
         if (e.clientY < 0 && !exitShown) {
-            Swal.fire({
-                title: 'WAIT! SECURE THE MASTER PLAN',
-                text: 'Get the high-res 190-acre master plan and exclusive plot details directly in your inbox.',
-                icon: 'info',
-                showCancelButton: true,
-                confirmButtonText: 'SEND DETAILS NOW',
-                cancelButtonText: 'NOT NOW',
-                confirmButtonColor: '#B3302A',
-                background: '#1A1A1A',
-                color: '#fff'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    trackEvent('exit_intent_enquiry_trigger');
-                    const enquiryTrigger = document.querySelector('#nav-enquire');
-                    if (enquiryTrigger) {
-                        enquiryTrigger.setAttribute('data-project', 'Master Plan Exclusive');
-                        enquiryTrigger.click();
-                    }
-                }
-            });
+            const modalTrigger = document.querySelector('#concierge-open');
+            if (modalTrigger) {
+                // Pre-configure for exit intent
+                modalTrigger.setAttribute('data-project', 'Sovereign Master Plan');
+                modalTrigger.click();
+                trackEvent('exit_intent_modal_trigger', { 'intent': userIntent });
+            }
             exitShown = true;
-            trackEvent('exit_intent_trigger', { 'intent': userIntent });
         }
     });
+
+    // 25. Master Plan Lead Magnet Logic
+    const mpModal = document.getElementById('master-plan-modal');
+    const mpClose = document.getElementById('master-plan-close');
+    const mpTriggers = document.querySelectorAll('.master-plan-trigger');
+    const mpForm = document.getElementById('master-plan-form');
+
+    if (mpModal && mpTriggers.length > 0) {
+        mpTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                mpModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                gsap.from("#master-plan-modal .modal-container", { scale: 0.9, opacity: 0, duration: 0.6, ease: "expo.out" });
+                trackEvent('master_plan_modal_open');
+            });
+        });
+
+        if (mpClose) {
+            mpClose.addEventListener('click', () => {
+                mpModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+
+        // Close on overlay click
+        mpModal.querySelector('.modal-overlay').addEventListener('click', () => {
+            mpModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        if (mpForm) {
+            mpForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = mpForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerText;
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'PREPARING DOWNLOAD...';
+
+                const formData = new FormData(mpForm);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    const response = await fetch(mpForm.action, {
+                        method: 'POST',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        trackEvent('master_plan_download_success');
+                        
+                        // Success Feedback
+                        Swal.fire({
+                            title: 'Access Granted!',
+                            text: 'Your high-res master plan download is starting.',
+                            icon: 'success',
+                            confirmButtonColor: '#800000',
+                            timer: 3000,
+                            timerProgressBar: true
+                        });
+
+                        // Trigger Automatic Download
+                        const link = document.createElement('a');
+                        link.href = 'images/master-plan.jpg'; // Path to the high-res file
+                        link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                        // Close modal after delay
+                        setTimeout(() => {
+                            mpModal.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 2000);
+
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Verification failed. Please check your connection and try again.',
+                        icon: 'error',
+                        confirmButtonColor: '#800000'
+                    });
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = originalText;
+                }
+            });
+        }
+    }
 
 });
 

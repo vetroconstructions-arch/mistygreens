@@ -20,15 +20,16 @@ git add -A
 git commit -m "$COMMIT_MSG" || echo "  ℹ️  Nothing to commit"
 echo ""
 
+# Step 2: Pushing to origin/main (Triggers Cloudflare Build)
 echo "🚀 Step 2: Pushing to origin/main..."
 git push origin main
 echo "  ✅ Push complete"
 echo ""
 
-# Step 3: Wait for deploy
-echo "⏳ Step 3: Waiting 10s for GitHub Pages deploy..."
-sleep 10
-echo "  ✅ Deploy window passed"
+# Step 3: Wait for Cloudflare Edge Propagation
+echo "⏳ Step 3: Waiting 3s for Cloudflare propagation..."
+sleep 3
+echo "  ✅ Ready for indexing"
 echo ""
 
 # Step 4: Run indexing ping
