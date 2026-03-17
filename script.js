@@ -570,9 +570,9 @@ async function sendEnquiry(formId) {
     const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
     const modal = document.querySelector('#heritage-concierge');
     const closeBtn = document.querySelector('#concierge-close');
-    const modalTitle = modal ? modal.querySelector('.concierge-header h3') : null;
+    const modalTitle = modal ? modal.querySelector('.form-header h3') : null;
     const projectInterest = modal ? modal.querySelector('select[name="interest"]') : null;
-    const modalLabel = modal ? modal.querySelector('.concierge-body p') : null;
+    const modalLabel = modal ? modal.querySelector('.form-header p') : null;
 
     if (openTriggers && modal) {
         openTriggers.forEach(trigger => {
@@ -580,14 +580,15 @@ async function sendEnquiry(formId) {
                 const project = trigger.getAttribute('data-project') || 'General Township';
                 
                 // Contextual Rewriting
-                if (modalTitle) modalTitle.innerHTML = `Enquiry for <i>${project}</i>`;
-                if (modalLabel) modalLabel.innerHTML = `Get Exclusive ${project} Details & Private Price List`;
+                if (modalTitle) modalTitle.innerHTML = `${project} <i>Callback</i>`;
+                if (modalLabel) modalLabel.innerHTML = `Get exclusive ${project} pricing & priority schedule.`;
                 
                 // Smart Interest Selection
                 if (projectInterest) {
                     if (project.includes('Plots')) projectInterest.value = 'plots';
                     else if (project.includes('Villas')) projectInterest.value = 'villas';
-                    else projectInterest.value = 'investment';
+                    else if (project.includes('Apartment')) projectInterest.value = 'apartments';
+                    else projectInterest.value = '';
                 }
 
                 // Inject Scarcity Trigger
@@ -597,7 +598,7 @@ async function sendEnquiry(formId) {
                 const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 Enquiries in the last 24h";
                 const scarcityDiv = document.createElement('div');
                 scarcityDiv.className = 'scarcity-alert';
-                scarcityDiv.style = "background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.2); color: var(--pscl-gold); padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 4px; animation: pulse 2s infinite;";
+                scarcityDiv.style = "background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 6px; animation: pulse 2s infinite;";
                 scarcityDiv.innerText = scarcityMsg;
                 
                 const formHeader = modal.querySelector('.form-header');
