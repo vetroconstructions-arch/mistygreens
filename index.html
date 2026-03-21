@@ -853,6 +853,10 @@
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 110%; background-size: cover; background-position: center; z-index: 0; }
         .hero-vignette { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(75deg, rgba(253, 252, 248, 0.6) 20%, transparent 100%); z-index: 1; }
         .hero-container { position: relative; z-index: 2; }
+        /* Prevent FOUC: hide off-canvas and sticky elements before style.css loads */
+        .mobile-menu { display: none; position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%; background: var(--pscl-maroon); z-index: 2001; }
+        .mobile-menu.active { display: flex; right: 0; }
+        .secondary-silo-nav { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 
     <!-- Async non-critical CSS -->
