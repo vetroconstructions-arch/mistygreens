@@ -477,19 +477,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const ledgerCloses = document.querySelectorAll('.ledger-close');
 
     /**
- * Unified Enquiry Submission to Formspree
- * Sends form data to propsmartrealty@gmail.com via Formspree
+ * Unified Enquiry Submission via Formsubmit.co
+ * Sends form data to propsmartrealty@gmail.com (no API key required)
  */
 async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
     
-    // Use form's action attribute or fall back to known endpoint
-    const formEndpoint = form.action || 'https://formspree.io/f/xvgznoal';
-    
-    if (form.getAttribute('method')?.toUpperCase() !== 'POST') {
-        form.setAttribute('method', 'POST');
-    }
+    const formEndpoint = 'https://formsubmit.co/ajax/propsmartrealty@gmail.com';
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
@@ -509,18 +504,22 @@ async function sendEnquiry(formId) {
             bodyData.append('source', window.location.pathname);
         }
         
-        // Use URLSearchParams for maximum cross-origin stability with Formspree
-        const params = new URLSearchParams();
+        // Build JSON payload for Formsubmit.co
+        const jsonData = {};
         for (const pair of bodyData) {
-            params.append(pair[0], pair[1]);
+            jsonData[pair[0]] = pair[1];
         }
+        // Formsubmit.co config: disable captcha, set subject
+        jsonData['_captcha'] = false;
+        jsonData['_subject'] = 'New Enquiry - Paranjape Forest Trails';
+        jsonData['_template'] = 'table';
 
         const response = await fetch(formEndpoint, {
             method: 'POST',
-            body: params,
+            body: JSON.stringify(jsonData),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             }
         });
 
