@@ -83,7 +83,8 @@ function propagate() {
         let html = fs.readFileSync(filePath, 'utf8');
         const relativePath = path.relative(BASE_DIR, filePath);
         const dirName = path.dirname(relativePath);
-        const isRoot = relativePath === 'index.html' || relativePath === '404.html';
+        const fileName = path.basename(relativePath);
+        const isRoot = dirName === '.';
 
         // Skip master file itself for component injection to avoid recursion mess, 
         // but handle its paths/versioning
@@ -126,7 +127,17 @@ function propagate() {
         html = html.replace(/(href|src)="([^"]*\/)?script\.js(\?v=[^"]*)?"/g, `$1="/script.js?v=${VERSION}"`);
 
         // E. SEO: Canonical Hardening
-        const canonicalUrl = isRoot ? `${SITE_URL}/` : `${SITE_URL}/${dirName}/`;
+        let canonicalUrl;
+        if (isRoot) {
+            if (fileName === 'index.html') {
+                canonicalUrl = `${SITE_URL}/`;
+            } else {
+                canonicalUrl = `${SITE_URL}/${fileName}`;
+            }
+        } else {
+            canonicalUrl = `${SITE_URL}/${dirName}/`;
+        }
+
         const canonicalTag = `<link rel="canonical" href="${canonicalUrl}">`;
         if (html.includes('<link rel="canonical"')) {
             html = html.replace(/<link rel="canonical" href="[^"]*">/, canonicalTag);
@@ -135,10 +146,21 @@ function propagate() {
         }
 
         // F. SEO: Breadcrumb Injection
-        if (!isRoot && html.includes('<main>')) {
-            const lastPart = dirName.split(/[/\\]/).pop();
-            const breadcrumbName = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-            const breadcrumbHtml = `
+        if (html.includes('<main>')) {
+            let breadcrumbName;
+            if (isRoot) {
+                if (fileName === 'index.html') {
+                    breadcrumbName = "Home"; // Usually not visible on home
+                } else {
+                    breadcrumbName = fileName.replace('.html', '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                }
+            } else {
+                const lastPart = dirName.split(/[/\\]/).pop();
+                breadcrumbName = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            }
+
+            if (!isRoot || fileName !== 'index.html') {
+                const breadcrumbHtml = `
     <!-- Breadcrumb UI (Phase 26 Consolidated) -->
     <nav class="breadcrumb-nav" aria-label="Breadcrumb">
         <div class="container">
@@ -149,11 +171,10 @@ function propagate() {
             </ol>
         </div>
     </nav>`;
-            
-            if (!html.includes('class="breadcrumb-nav"')) {
-                html = html.replace('<main>', `<main>${breadcrumbHtml}`);
-            } else {
-                html = html.replace(/<!-- Breadcrumb UI[\s\S]*?<\/nav>/, breadcrumbHtml.trim());
+                
+                // Clean old breadcrumbs
+                html = html.replace(/<!-- Breadcrumb UI[\s\S]*?<\/nav>/g, '');
+                html = html.replace('<main>', `<main>\n    ${breadcrumbHtml.trim()}`);
             }
         }
 
