@@ -300,11 +300,11 @@ img {
 
 @media (max-width: 1200px) {
     .search-proxy { padding: 0.7rem 1.5rem; }
-    .search-links { gap: 1.2rem !important; }
+    .search-links { gap: 1rem !important; }
 }
 
-@media (max-width: 1024px) {
-    .nav-search-box { display: none; } /* Hide complex search on small tablets/mobile */
+@media (max-width: 1100px) {
+    .nav-search-box { display: none; } /* Hide complex search earlier to prevent wrapping */
 }
 
 .search-proxy:hover {
@@ -320,6 +320,8 @@ img {
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.08em;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .nav-links {
