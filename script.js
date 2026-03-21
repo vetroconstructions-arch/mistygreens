@@ -595,17 +595,25 @@ async function sendEnquiry(formId) {
                 const existingScarcity = modal.querySelector('.scarcity-alert');
                 if (existingScarcity) existingScarcity.remove();
                 
-                const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 Enquiries in the last 24h";
+                const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 enquiries in the last 24h";
                 const scarcityDiv = document.createElement('div');
                 scarcityDiv.className = 'scarcity-alert';
-                scarcityDiv.style = "background: #fff5f5; border: 1px solid #feb2b2; color: #c53030; padding: 0.8rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 6px; animation: pulse 2s infinite;";
-                scarcityDiv.innerText = scarcityMsg;
+                scarcityDiv.style = "background: rgba(183, 48, 42, 0.05); border: 1px solid rgba(183, 48, 42, 0.2); color: var(--pscl-red); padding: 1rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 8px; position: relative; overflow: hidden;";
+                scarcityDiv.innerHTML = `<span style="position: relative; z-index: 1;">${scarcityMsg}</span><div class="scarcity-shimmer" style="position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(183, 48, 42, 0.1), transparent); width: 50%; transform: skewX(-20deg); animation: scarcity-shimmer 3s infinite;"></div>`;
                 
                 const formHeader = modal.querySelector('.form-header');
                 if (formHeader) formHeader.after(scarcityDiv);
                 
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+
+                // GSAP Entrance for Modal and Scarcity
+                gsap.from(modal.querySelector('.concierge-panel'), {
+                    y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
+                });
+                gsap.from(scarcityDiv, {
+                    x: -20, opacity: 0, duration: 1, delay: 0.3, ease: "power4.out"
+                });
                 
                 trackEvent('modal_open_contextual', { project: project });
             });
@@ -1156,6 +1164,30 @@ async function sendEnquiry(formId) {
                 btn.disabled = false;
                 btn.innerText = originalText;
             }
+        });
+    }
+
+    // 15. Mobile Navigation Toggle (Phase 1: Overhaul)
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+
+    if (mobileToggle && mobileMenu) {
+        mobileToggle.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        mobileMenuClose?.addEventListener('click', closeMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
         });
     }
 });

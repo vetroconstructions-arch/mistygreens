@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Township Facilities & Infrastructure | Paranjape Forest Trails</title>
+    <meta name="description" content="Explore the unparalleled infrastructure of Paranjape Forest Trails—featuring retail, polyclinic, fire stations, and nature trails spanning 190 acres in Bhugaon.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .club-hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('images/drone-aerial.jpg') center/cover fixed; /* Placeholder background */
+        }
+        .club-hero::before {
+            content: '';
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, #080808 100%);
+        }
+        .club-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .feature-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+        .feature-item:hover {
+            background: rgba(212,175,55,0.05);
+            border-color: var(--pscl-gold);
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body style="background: var(--pscl-bg); color: var(--pscl-white); font-family: 'Plus Jakarta Sans', sans-serif;">
+
+    <!-- Navbar -->
+    <header style="position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(8,8,8,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <nav class="nav-main" style="padding: 1rem 0;">
+            <div class="container nav-content" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+                <a href="index.html" class="nav-brand" style="text-decoration: none;">
+                    <div style="font-family: 'Playfair Display', serif; line-height: 1;">
+                        <span style="display: block; font-size: 1.2rem; color: #fff; letter-spacing: 0.1em;">Paranjape</span>
+                        <span style="display: block; font-size: 0.9rem; color: var(--pscl-gold); font-style: italic;">Forest Trails</span>
+                    </div>
+                </a>
+                <div class="nav-actions" style="display: flex; gap: 1rem;">
+                    <a href="index.html" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; padding: 0.8rem 1.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 5px;">HOME</a>
+                    <button class="open-enquiry-modal" style="background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; padding: 0.8rem 1.5rem; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; border-radius: 5px; cursor: pointer;">ENQUIRE</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Parallax Hero -->
+    <section class="club-hero">
+        <div class="club-hero-content">
+            <span style="color: var(--pscl-gold); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem; display: block;">190-Acre Masterplan</span>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 4.5rem; margin-bottom: 1.5rem; line-height: 1.1;">Central <i style="color: var(--pscl-gold);">Facilities</i></h1>
+            <p style="font-size: 1.2rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; line-height: 1.6;">A fully-integrated nature township offering world-class infrastructure, ensuring your family's daily needs—and emergencies—are instantly met.</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section style="background: #080808;">
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🏥</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Dedicated Polyclinic</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">Health is paramount. The township features an in-house polyclinic and pharmacy for immediate medical assistance and routine healthcare.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚒</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Central Fire Station</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">Equipped with state-of-the-art firefighting apparatus, an exclusive 24/7 fire station ensures rapid emergency response for the entire ecosystem.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🛍️</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Retail Plazas</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">Fulfill daily needs without leaving home. The commercial arcades feature supermarkets, ATMs, salons, and boutique lifestyle stores.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌿</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Nature Trails</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">Walk through kilometers of curated pedestrian trails seamlessly blending with the natural topography and the serene Misty Greens water body.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Multi-Tier Security</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">CCTV surveillance, automated access control at majestic entrance gates, and 24/7 patrolling provide unmatched safety for your family.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔌</div>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1rem;">Underground Utilities</h3>
+                <p style="color: rgba(255,255,255,0.5); line-height: 1.6; font-size: 0.95rem;">Unobstructed skies and safe streets with advanced underground power lines, fiber-optic internet nodes, and sophisticated drainage.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Township Encyclopedia Footer (Phase 2 & 3: "Masterpiece" Strategy) -->
+    <footer class="footer-main" style="background: #0a0a0a; padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="grid-12" style="margin-bottom: 4rem;">
+                <div class="col-6">
+                    <h3 style="color: var(--pscl-gold); font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem;">Paranjape Schemes</h3>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 0.85rem; max-width: 400px;">
+                        <strong>Corporate Headquarters:</strong><br>
+                        PSC House, Anand Colony, Near Suvarnarekha Dining Hall, Old Karve Road, Kothrud, Pune - 411004.
+                    </p>
+                    <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
+                        <a href="tel:+917744009295" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); padding: 0.7rem 1.5rem; border-radius: 4px;">📞 CALL GALLERY</a>
+                        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="color: #25D366; text-decoration: none; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(37, 211, 102, 0.2); padding: 0.7rem 1.5rem; border-radius: 4px;">📱 WHATSAPP</a>
+                    </div>
+                </div>
+                <div class="col-6" style="text-align: right;">
+                    <a href="index.html" style="display: inline-block; color: var(--pscl-gold); text-decoration: none; font-weight: 800; letter-spacing: 0.2em; font-size: 0.7rem; border: 1px solid var(--pscl-gold); padding: 1rem 2rem; border-radius: 4px; transition: all 0.3s;" onmouseover="this.style.background='var(--pscl-gold)';this.style.color='#000'" onmouseout="this.style.background='transparent';this.style.color='var(--pscl-gold)'">RETURN TO MAIN SITE</a>
+                </div>
+            </div>
+
+            <div class="footer-seo-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                <!-- Township Masterpiece -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">The Township</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="paranjape-schemes-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">190-Acre Master Plan</a></li>
+                        <li><a href="about-paranjape-schemes/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">PSCL 35+ Year Trust</a></li>
+                        <li><a href="township-facilities.html" style="color: rgba(255,255,255,1); text-decoration: none; font-size: 0.75rem; font-weight: 700;">Infrastructure Node</a></li>
+                        <li><a href="sustainability/green-township-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Forest Conservation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Residential Encyclopedia -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Clusters</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="misty-greens-plots-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Misty Greens Plots</a></li>
+                        <li><a href="whistling-meadows-villas-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Whistling Meadows</a></li>
+                        <li><a href="kaleidoscope-apartments-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Kaleidoscope Flats</a></li>
+                        <li><a href="verandah-luxury-flats-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Verandah Luxury</a></li>
+                    </ul>
+                </div>
+
+                <!-- Lifestyle & Education -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Lifestyle</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="amenities-the-cliff-club.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">The Cliff Club</a></li>
+                        <li><a href="amenities-equestrian.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Equestrian Academy</a></li>
+                        <li><a href="amenities-sri-sri-school.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">SSRVM School</a></li>
+                    </ul>
+                </div>
+
+                <!-- West Pune Intelligence -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Intel</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Bhugaon ROI Data</a></li>
+                        <li><a href="investment/pmrda-ring-road-impact/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Ring Road Impact</a></li>
+                        <li><a href="blogs/na-bungalow-plots-pune-west-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">NA Plot Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Expert Resources -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Resources</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="forest-trails-price-list-brochure/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Download Prices</a></li>
+                        <li><a href="legal/rera-compliance-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">RERA Transparency</a></li>
+                        <li><a href="why-choose-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Why Forest Trails?</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <p style="margin-top: 4rem; color: #444; font-size: 0.7rem; text-align: center;">&copy; 2026 Paranjape Schemes (Construction) Ltd. RERA Authorized Township Operations.</p>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+</body>
+</html>
