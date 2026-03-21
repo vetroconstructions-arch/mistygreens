@@ -6,8 +6,249 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE = '/Users/vikasyewle/paranjapeplots';
+const BASE = process.cwd();
 const SITE = 'https://paranjape-mistygreens.in';
+const VERSION = '1.7';
+
+// Elite Global Components (Sync from propagate-form.js)
+const NAVBAR_HTML = `
+    <!-- Architectural Navigation (Propagated Phase 26) -->
+    <header class="header-main">
+        <div class="heritage-ticker">
+            <div class="ticker-content">
+                <div class="ticker-item">New Milestone: 2,000+ Resident Families</div>
+                <div class="ticker-item">Plots Booking Rapidly: 85% Sold Case in Misty Greens</div>
+                <div class="ticker-item">The Cliff Club: Voted Pune's Best Township Amenity</div>
+                <div class="ticker-item">Connectivity Update: Ring Road Phase 1 Operational</div>
+                <div class="ticker-item">New Milestone: 2,000+ Resident Families</div>
+                <div class="ticker-item">Plots Booking Rapidly: 85% Sold Case in Misty Greens</div>
+            </div>
+        </div>
+
+        <nav class="nav-main">
+        <div class="container nav-content">
+            <a href="/" class="nav-brand">
+                <div class="brand-logo-text">
+                    <span class="brand-main">Paranjape</span>
+                    <span class="brand-sub">Forest Trails</span>
+                </div>
+            </a>
+
+            <button class="mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-search-box">
+                <div class="search-proxy" role="navigation" aria-label="Main Navigation">
+                    <div class="search-links">
+                        <a href="/township-facilities.html" class="nav-item-new">TOWNSHIP</a>
+                        <a href="/clusters-villas.html" class="nav-item-new">VILLAS & PLOTS</a>
+                        <a href="/clusters-apartments.html" class="nav-item-new">APARTMENTS</a>
+                        <a href="/amenities-the-cliff-club.html" class="nav-item-new">THE CLIFF CLUB</a>
+                        <a href="/amenities-equestrian.html" class="nav-item-new">EQUESTRIAN</a>
+                        <a href="/amenities-sri-sri-school.html" class="nav-item-new">SCHOOL</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/917744009295?text=Hi%2C%20I%27m%20interested%20in%20Forest%20Trails%20Bhugaon%20plots.%20Please%20share%20details." target="_blank" rel="noopener" class="whatsapp-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                <span>WHATSAPP</span>
+            </a>
+            <button class="nav-item-new open-enquiry-modal tour-btn" id="nav-enquire" data-project="General Township" aria-label="Open global enquiry form">ENQUIRY</button>
+        </div>
+    </div>
+</nav>
+</header>
+`;
+
+// Sovereign Light Centered Modal HTML
+const MODAL_HTML = `
+    <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
+    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+
+            <!-- Premium Accent Bar -->
+            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
+
+            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
+                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f0; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.6;">&times;</button>
+                
+                <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
+                    <div style="display: inline-block; background: rgba(140,115,47,0.08); border: 1px solid rgba(140,115,47,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                        <span style="color: var(--pscl-gold); font-weight: 800; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-top: 0.5rem; color: #1a1a1a; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-top: 1rem; letter-spacing: 0.02em;">Secure exclusive pricing & priority site-visit guidance.</p>
+                </div>
+
+                <form id="enquiry-form-modal" method="POST" action="https://formspree.io/f/xvgznoal" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    <style>
+                        .concierge-panel input::placeholder { color: #999 !important; font-size: 0.8rem; letter-spacing: 0.05em; }
+                        .concierge-panel select { color: #1a1a1a; font-size: 0.85rem; }
+                        .concierge-panel select:invalid { color: #999; }
+                        
+                        @keyframes enquiry-modal-entry {
+                            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+                            to { opacity: 1; transform: scale(1) translateY(0); }
+                        }
+                        @keyframes scarcity-shimmer {
+                            0% { left: -100%; }
+                            100% { left: 200%; }
+                        }
+                        .enquiry-input-premium {
+                            width: 100%; padding: 1.2rem 1.5rem; 
+                            background: #f5f5f0; 
+                            border: 2px solid #b0a890; 
+                            color: #1a1a1a; border-radius: 12px; 
+                            font-size: 0.9rem; outline: none; 
+                            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                        }
+                        .enquiry-input-premium:focus {
+                            border-color: var(--pscl-gold);
+                            background: #fff;
+                            box-shadow: 0 0 0 4px rgba(140,115,47,0.15);
+                        }
+                    </style>
+                    
+                    <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
+                    <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
+                    <input type="email" name="email" placeholder="EMAIL ADDRESS" class="enquiry-input-premium">
+                    
+                    <div style="position: relative;">
+                        <select name="interest" required class="enquiry-input-premium" style="appearance: none; -webkit-appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%238C732F%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 1.2rem center; background-size: 1.2rem;">
+                            <option value="">SELECT INTEREST *</option>
+                            <option value="plots">NA Bungalow Plots</option>
+                            <option value="villas">Independent Villas</option>
+                            <option value="apartments">Luxury Apartments</option>
+                            <option value="visit">Schedule Site Visit</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem; background: #fffcf0; padding: 1.2rem; border: 1px solid #f9f1d0; border-radius: 12px;">
+                        <input type="checkbox" name="whatsapp_optin" id="wa-optin" checked style="margin-top: 0.3rem; width: 18px; height: 18px; accent-color: var(--pscl-maroon);">
+                        <label for="wa-optin" style="font-size: 0.75rem; line-height: 1.5; color: #555; cursor: pointer; font-weight: 500;">I agree to receive the brochure, price list and updates on WhatsApp.</label>
+                    </div>
+
+                    <button type="submit" class="enquiry-submit-btn" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(107,13,13,0.35);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">⬥ SECURE ADVISORY ⬥</button>
+                    <input type="hidden" name="source" value="Premium Sovereign Modal">
+                </form>
+            </div>
+        </div>
+    </div>`;
+
+// Elite Conversion Pill HTML
+const PILL_HTML = `
+    <!-- Elite Conversion Pill -->
+    <div class="conversion-pill open-enquiry-modal" id="callback-pill">
+        <div class="pill-icon">📞</div>
+        <div class="pill-text">Request Callback</div>
+    </div>
+    <link rel="stylesheet" href="/conversion-pill.css">`;
+
+// Master Plan Lead Magnet Modal
+const MASTER_PLAN_HTML = `
+    <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
+    <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        
+        <div class="modal-container" style="position: relative; background: #ffffff; width: 100%; max-width: 1050px; display: grid; grid-template-columns: 1.1fr 1fr; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 120px rgba(0,0,0,0.5); border: none; animation: mp-modal-entry 0.7s cubic-bezier(0.16, 1, 0.3, 1);">
+            
+            <button id="master-plan-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f0; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.6;">&times;</button>
+            
+            <div class="modal-visual" style="position: relative; background: #1a1a1a; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+                <img src="/images/master-plan.jpg" alt="Paranjape Forest Trails 190-Acre Master Plan" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transform: scale(1.05); transition: transform 10s linear; animation: mp-zoom 20s infinite alternate;">
+                <div class="visual-overlay" style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.6), transparent);"></div>
+                
+                <div class="visual-content" style="position: absolute; bottom: 4rem; left: 4rem; right: 4rem;">
+                    <div style="display: inline-block; background: var(--pscl-gold); color: #000; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.6rem; font-weight: 900; letter-spacing: 0.2rem; text-transform: uppercase; margin-bottom: 2rem; box-shadow: 0 10px 20px rgba(140,115,47,0.3);">Blueprints</div>
+                    <h2 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 3.2rem; line-height: 1.1; margin-bottom: 1.5rem;">Explore the <i style="color: var(--pscl-gold);">Sovereign</i> Plan.</h2>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.6; max-width: 380px;">Download the ultra high-resolution 190-acre blueprint and discover your future sanctuary.</p>
+                </div>
+            </div>
+
+            <div class="modal-form-side" style="padding: 5rem 4.5rem; background: #ffffff;">
+                <style>
+                    @keyframes mp-modal-entry {
+                        from { opacity: 0; transform: scale(0.9) translateY(40px); }
+                        to { opacity: 1; transform: scale(1) translateY(0); }
+                    }
+                    @keyframes mp-zoom {
+                        from { transform: scale(1.05); }
+                        to { transform: scale(1.2); }
+                    }
+                    .mp-input-premium {
+                        width: 100%; padding: 1.2rem 1.5rem; 
+                        background: #f8f8f4; 
+                        border: 1px solid #e5e5e0; 
+                        color: #1a1a1a; border-radius: 12px; 
+                        font-size: 0.9rem; outline: none; 
+                        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                    }
+                    .mp-input-premium:focus {
+                        border-color: var(--pscl-gold);
+                        background: #fff;
+                        box-shadow: 0 0 0 4px rgba(140,115,47,0.1);
+                    }
+                    .mp-submit-btn {
+                        width: 100%; padding: 1.5rem; 
+                        background: #1a1a1a; color: #fff; 
+                        border: none; border-radius: 12px; 
+                        font-weight: 800; font-size: 0.9rem; 
+                        letter-spacing: 0.2rem; text-transform: uppercase; 
+                        cursor: pointer; transition: all 0.4s; 
+                        margin-top: 1rem; position: relative; overflow: hidden;
+                        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+                    }
+                    .mp-submit-btn:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 20px 45px rgba(0,0,0,0.3);
+                        background: #000;
+                    }
+                    .mp-submit-btn::after {
+                        content: '';
+                        position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                        animation: mp-shimmer 3s infinite;
+                    }
+                    @keyframes mp-shimmer {
+                        0% { left: -100%; }
+                        100% { left: 200%; }
+                    }
+                </style>
+
+                <div class="form-header" style="margin-bottom: 3rem;">
+                    <div style="display: inline-block; background: rgba(107,13,13,0.06); border: 1px solid rgba(107,13,13,0.15); padding: 0.4rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem;">
+                        <span style="color: var(--pscl-maroon); font-weight: 800; font-size: 0.6rem; letter-spacing: 0.2rem; text-transform: uppercase;">✦ Verification Required</span>
+                    </div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; line-height: 1.2;">Secure High-Res <i style="color: var(--pscl-gold);">Blueprint</i></h3>
+                </div>
+
+                <form id="master-plan-form" method="POST" action="https://formspree.io/f/xvgzezpw" style="display: flex; flex-direction: column; gap: 1.4rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <input type="text" name="name" placeholder="FULL NAME *" required class="mp-input-premium">
+                        <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="mp-input-premium">
+                    </div>
+                    <input type="email" name="email" placeholder="EMAIL ADDRESS *" required class="mp-input-premium">
+                    
+                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem; background: #fffcf0; padding: 1.2rem; border: 1px solid #f9f1d0; border-radius: 12px;">
+                        <input type="checkbox" name="whatsapp_optin" id="mp-wa-optin-new" checked style="margin-top: 0.3rem; width: 18px; height: 18px; accent-color: var(--pscl-maroon);">
+                        <label for="mp-wa-optin-new" style="font-size: 0.75rem; line-height: 1.5; color: #555; cursor: pointer; font-weight: 500;">I agree to receive the high-res master plan and township updates on WhatsApp and Email.</label>
+                    </div>
+
+                    <button type="submit" class="mp-submit-btn">Download Blueprint</button>
+                    <input type="hidden" name="source" value="Premium Master Plan Modal">
+                </form>
+            </div>
+        </div>
+    </div>`;
+
+
 
 const pages = [
     {
@@ -150,14 +391,11 @@ const crossLinkFooter = `
         <div class="container">
             <h4 style="color: var(--pscl-gold); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; text-align: center;">EXPLORE FOREST TRAILS</h4>
             <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; text-align: center;">
-                <a href="../na-bungalow-plots-bhugaon/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; transition: all 0.3s;">NA Bungalow Plots</a>
-                <a href="../luxury-forest-villas-bhugaon/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; transition: all 0.3s;">Luxury Villas</a>
-                <a href="../premium-apartments-forest-trails/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; transition: all 0.3s;">Premium Apartments</a>
-                <a href="../property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px; transition: all 0.3s;">Investment Data</a>
-                <a href="../paranjape-schemes-forest-trails-bhugaon/" style="color: var(--pscl-gold); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(140,115,47,0.3); border-radius: 3px; transition: all 0.3s; font-weight: 600;">Paranjape Schemes</a>
-                <a href="../forest-trails-vs-kothrud-apartments/" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 3px; transition: all 0.3s;">Vs Kothrud</a>
-                <a href="../forest-trails-vs-bavdhan-projects/" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 3px; transition: all 0.3s;">Vs Bavdhan</a>
-                <a href="../why-choose-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.05em; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 3px; transition: all 0.3s;">Why Choose Us</a>
+                <a href="/na-bungalow-plots-bhugaon/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px;">NA Bungalow Plots</a>
+                <a href="/luxury-forest-villas-bhugaon/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px;">Luxury Villas</a>
+                <a href="/premium-apartments-forest-trails/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px;">Premium Apartments</a>
+                <a href="/property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 3px;">Investment Data</a>
+                <a href="/paranjape-schemes-forest-trails-bhugaon/" style="color: var(--pscl-gold); text-decoration: none; font-size: 0.65rem; padding: 0.4rem 0.8rem; border: 1px solid rgba(140,115,47,0.3); border-radius: 3px; font-weight: 600;">Paranjape Schemes</a>
             </div>
         </div>
     </section>`;
@@ -176,20 +414,15 @@ function generateHTML(page) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
     <title>${page.title}</title>
     <meta name="description" content="${page.desc}">
-    <meta name="keywords" content="${page.keywords}">
     <link rel="canonical" href="${SITE}/${page.dir}/">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
-
-    <!-- Core Web Vitals LCP Preload -->
-    <link rel="preload" as="image" href="../images/cliff-club.jpg">
+    <link rel="stylesheet" href="/style.css?v=${VERSION}">
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
@@ -215,93 +448,56 @@ ${faqEntries}
     </script>
 </head>
 <body>
-    <nav class="nav-main">
-        <div class="container nav-content">
-            <a href="../" class="nav-brand">
-                <div class="brand-logo-text">
-                    <span style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 1.6rem; color: #fff; text-transform: uppercase;">Paranjape</span>
-                    <span style="font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 0.7rem; color: #8C732F; text-transform: uppercase;">Forest Trails</span>
-                </div>
-            </a>
-            <div class="nav-actions">
-                <a href="../#enquire" class="btn-primary open-enquiry-modal" style="padding: 0.7rem 1.4rem;">ENQUIRE NOW</a>
-            </div>
-        </div>
-    </nav>
+    ${NAVBAR_HTML}
     <main>
-        <section class="hero-section" style="height: 70vh;">
-            <div class="hero-bg" style="background-image: url('../images/cliff-club.jpg'); opacity: 0.8; transform: scale(1.05); filter: contrast(1.1);"></div>
-            <div class="hero-container container">
-                <div class="hero-content">
-                    <span class="top-label">Buyer's Intelligence</span>
-                    <h1 class="hero-title">${page.h1}</h1>
-                    <p class="hero-subtitle">${page.subtitle}</p>
-                </div>
+        <section class="hero-section" style="height: 60vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #000;">
+            <div class="hero-bg" style="position: absolute; inset: 0; background-image: url('/images/cliff-club.jpg'); background-size: cover; background-position: center; opacity: 0.6;"></div>
+            <div class="container" style="position: relative; z-index: 2; text-align: center;">
+                <h1 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.5rem; letter-spacing: 0.5rem; text-transform: uppercase; margin-bottom: 1rem;">Buyer's Intelligence</h1>
+                <h2 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem;">${page.h1}</h2>
+                <p style="color: var(--pscl-gold); font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase;">${page.subtitle}</p>
             </div>
         </section>
-        <section class="section" style="background: #fafafa; padding: 8rem 0;">
-            <div class="container">
-                <div class="grid-12">
-                    <div class="col-10" style="margin: 0 auto;">
-                        <p style="font-size: 1.25rem; line-height: 1.8; color: #444; border-left: 4px solid var(--pscl-gold); padding-left: 2rem;">
-                            ${page.intro}
-                        </p>
-                        
-                        ${page.tableHtml}
 
-                        <div style="text-align: center; margin-top: 5rem;">
-                            <a href="../#enquire" class="btn-primary open-enquiry-modal" style="padding: 1.2rem 3rem; font-size: 1rem;">SCHEDULE A VIP SITE VISIT</a>
-                        </div>
+        <section class="section" style="background: #fafafa; padding: 6rem 0;">
+            <div class="container">
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <p style="font-size: 1.25rem; line-height: 1.8; color: #444; border-left: 4px solid var(--pscl-gold); padding-left: 2rem; margin-bottom: 3rem;">
+                        ${page.intro}
+                    </p>
+                    
+                    ${page.tableHtml}
+
+                    <div style="text-align: center; margin-top: 5rem;">
+                        <button class="open-enquiry-modal btn-primary" style="padding: 1.5rem 3.5rem; font-size: 1rem; border-radius: 50px; font-weight: 800; cursor: pointer;">SCHEDULE A VIP SITE VISIT</button>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     
-    <!-- The Enquiry Form: Lead Capture -->
-    <div class="concierge-trigger" id="concierge-open" role="button" aria-label="Open Enquiry Form">
-        <div class="concierge-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <span class="concierge-label">ENQUIRE</span>
-    </div>
+    ${crossLinkFooter}
 
-    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true">
-        <div class="concierge-overlay"></div>
-        <div class="concierge-panel">
-            <div class="concierge-header">
-                <h3>Enquiry <i>Form</i></h3>
-                <button id="concierge-close" aria-label="Close Enquiry Form">&times;</button>
-            </div>
-            <div class="concierge-body" style="padding: 2rem;">
-                <p style="color: var(--pscl-gold); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem;">Get Exclusive Details & Price List</p>
-                <form id="enquiry-form-modal" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <input type="text" name="name" placeholder="Full Name *" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 1rem 1.5rem; font-size: 0.85rem; border-radius: 4px; outline: none;">
-                    <input type="tel" name="phone" placeholder="Phone Number *" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 1rem 1.5rem; font-size: 0.85rem; border-radius: 4px; outline: none;">
-                    <input type="email" name="email" placeholder="Email Address (Optional)" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 1rem 1.5rem; font-size: 0.85rem; border-radius: 4px; outline: none;">
-                    <button type="submit" style="background: var(--pscl-maroon); color: #fff; padding: 1.2rem 2rem; border: none; cursor: pointer; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; border-radius: 4px; transition: background 0.3s;">SUBMIT ENQUIRY</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-${crossLinkFooter}
-    <footer class="footer-main">
-        <div class="container text-center" style="padding: 5rem 0;">
-            <a href="../" style="color: #fff; text-decoration: none; font-weight: 800; letter-spacing: 0.2em;">RETURN TO MAIN SITE</a>
-            <p style="margin-top: 2rem; color: #666;">&copy; 2026 Paranjape Schemes (Construction) Ltd. All Rights Reserved.</p>
+    <footer class="footer-main" style="background: #000; padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <a href="/" style="color: #fff; text-decoration: none; font-weight: 800; letter-spacing: 0.2em; border: 1px solid rgba(255,255,255,0.2); padding: 1rem 2.5rem; border-radius: 50px;">RETURN TO MAIN SITE</a>
+            <p style="margin-top: 3rem; color: rgba(255,255,255,0.4); font-size: 0.8rem;">&copy; 2026 Paranjape Schemes (Construction) Ltd. All Rights Reserved.</p>
         </div>
     </footer>
+
+    ${MODAL_HTML}
+    ${MASTER_PLAN_HTML}
+    ${PILL_HTML}
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../script.js"></script>
+    <script src="/script.js?v=${VERSION}"></script>
 </body>
 </html>`;
 }
+
 
 // Generate the files
 for (const page of pages) {

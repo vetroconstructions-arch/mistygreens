@@ -1,46 +1,17 @@
 User-agent: *
 Allow: /
 
+# Sitemap & Feeds
+Sitemap: https://paranjape-mistygreens.in/sitemap.xml
+Sitemap: https://paranjape-mistygreens.in/video-sitemap.xml
+Sitemap: https://paranjape-mistygreens.in/rss.xml
+
 # Prioritize Image Indexing for Official Assets
 User-agent: Googlebot-Image
 Allow: /images/
 
 User-agent: Pinterestbot
 Allow: /images/
-
-# Sitemaps & Feeds
-Sitemap: https://paranjape-mistygreens.in/sitemap.xml
-Sitemap: https://paranjape-mistygreens.in/video-sitemap.xml
-Sitemap: https://paranjape-mistygreens.in/rss.xml
-
-# Googlebot: Full Access with Priority Directives
-User-agent: Googlebot
-Allow: /
-Allow: /luxury-forest-villas-bhugaon/
-Allow: /premium-apartments-forest-trails/
-Allow: /na-bungalow-plots-bhugaon/
-Allow: /kaleidoscope-apartments-bhugaon/
-Allow: /verandah-luxury-flats-bhugaon/
-Allow: /whistling-meadows-villas-bhugaon/
-Allow: /misty-greens-plots-pune/
-Allow: /property-investment-bhugaon-pune/
-Allow: /forest-trails-location-proximity/
-Allow: /forest-trails-price-list-brochure/
-Allow: /paranjape-schemes-forest-trails-bhugaon/
-Allow: /paranjape-schemes-forest-trails-plots/
-Allow: /paranjape-schemes-forest-trails-villas/
-Allow: /paranjape-schemes-forest-trails-bungalows/
-Allow: /paranjape-schemes-forest-trails-apartments/
-Allow: /paranjape-schemes-forest-trails-price/
-Allow: /blogs/
-
-# Bingbot
-User-agent: Bingbot
-Allow: /
-
-# Yandex
-User-agent: YandexBot
-Allow: /
 
 # Block AI Training Crawlers (preserve content exclusivity)
 User-agent: GPTBot

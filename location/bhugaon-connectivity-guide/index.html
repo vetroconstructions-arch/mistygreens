@@ -856,9 +856,9 @@
     </style>
 
     <!-- Async non-critical CSS -->
-    <link rel="preload" href="style.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/style.css?v=1.7" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="opening-modal.css">
-    <noscript><link rel="stylesheet" href="style.css?v=1.1"></noscript>
+    <noscript><link rel="stylesheet" href="/style.css?v=1.7"></noscript>
     <link rel="manifest" href="manifest.json">
     <!-- Core Web Vitals LCP Preload -->
     <link rel="preload" as="image" href="images/drone-aerial.jpg">
@@ -873,7 +873,7 @@
                 <h2>The Sovereign <i>Experience</i></h2>
                 <p>Unlock private pricing and exclusive site visit slots for the 190-acre Forest Trails township. Limited inventory available.</p>
                 
-                <form class="opening-form" id="opening-intent-form">
+                <form class="opening-form" id="opening-intent-form" method="POST" action="https://formspree.io/f/xvgzezpw">
                     <input type="text" name="name" placeholder="Full Name *" required>
                     <input type="tel" name="phone" placeholder="Phone Number *" required>
                     <button type="submit" class="opening-btn">SECURE EXCLUSIVE ACCESS</button>
@@ -894,9 +894,13 @@
         </div>
     </div>
 
-    <!-- Architectural Navigation -->
-    <!-- Architectural Navigation (Propagated Phase 25) -->
-    <header class="header-main">
+    
+    
+    
+        
+    
+    <!-- Architectural Navigation (Global Sync v1.7) -->
+<header class="header-main">
         <div class="heritage-ticker">
             <div class="ticker-content">
                 <div class="ticker-item">New Milestone: 2,000+ Resident Families</div>
@@ -917,15 +921,21 @@
                 </div>
             </a>
 
+            <button class="mobile-toggle" id="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <div class="nav-search-box">
                 <div class="search-proxy" role="navigation" aria-label="Main Navigation">
                     <div class="search-links">
-                        <a href="/paranjape-schemes-forest-trails-bhugaon/" class="nav-item-new">TOWNSHIP</a>
-                        <a href="/na-bungalow-plots-bhugaon/" class="nav-item-new">CLUSTERS</a>
-                        <a href="/amenities/the-cliff-club/" class="nav-item-new">LIFESTYLE</a>
-                        <a href="/forest-trails-location-proximity/" class="nav-item-new">LOCATION</a>
-                        <a href="/property-investment-bhugaon-pune/" class="nav-item-new">INTELLIGENCE</a>
-                        <a href="/blogs/na-bungalow-plots-pune-west-guide/" class="nav-item-new">JOURNAL</a>
+                        <a href="/township-facilities.html" class="nav-item-new">TOWNSHIP</a>
+                        <a href="/clusters-villas.html" class="nav-item-new">VILLAS & PLOTS</a>
+                        <a href="/clusters-apartments.html" class="nav-item-new">APARTMENTS</a>
+                        <a href="/amenities-the-cliff-club.html" class="nav-item-new">THE CLIFF CLUB</a>
+                        <a href="/amenities-equestrian.html" class="nav-item-new">EQUESTRIAN</a>
+                        <a href="/amenities-sri-sri-school.html" class="nav-item-new">SCHOOL</a>
                     </div>
                 </div>
             </div>
@@ -944,26 +954,25 @@
     <!-- Project-Focused Context Navigation (Sticky) -->
     <div class="secondary-silo-nav context-nav-fixed">
         <div class="container">
-            <a href="/na-bungalow-plots-bhugaon/">NA BUNGALOW PLOTS</a>
-            <a href="/luxury-forest-villas-bhugaon/">FOREST VILLAS</a>
-            <a href="/premium-apartments-forest-trails/">LUXURY APARTMENTS</a>
-            <a href="/location/bhugaon-connectivity-guide/">BHUGAON CONNECTIVITY</a>
+            <a href="/clusters-villas.html">NA BUNGALOW PLOTS</a>
+            <a href="/clusters-villas.html">FOREST VILLAS</a>
+            <a href="/clusters-apartments.html">LUXURY APARTMENTS</a>
+            <a href="/amenities-the-cliff-club.html">THE CLIFF CLUB</a>
             <a href="/amenities/equestrian-academy-pune/">AMENITIES</a>
         </div>
     </div>
 
     <main>
-        <!-- Breadcrumb UI (Phase 18) -->
-        
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-            <div class="container">
-                <ol class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="https://paranjape-mistygreens.in/">Home</a></li>
-                    <li class="breadcrumb-separator">/</li>
-                    <li class="breadcrumb-item active" aria-current="page">Connectivity</li>
-                </ol>
-            </div>
-        </nav>
+        <!-- Breadcrumb UI (Phase 26 Consolidated) -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item active" aria-current="page">Bhugaon Connectivity Guide</li>
+            </ol>
+        </div>
+    </nav>
 
         <!-- Section: Hero Overture -->
         <section class="hero-section">
@@ -2317,7 +2326,7 @@
                             <span id="step-count" style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted);">STEP 01/04</span>
                         </div>
 
-                        <form class="sovereign-survey" id="qualifier-form" method="POST">
+                        <form class="sovereign-survey" id="qualifier-form" method="POST" action="https://formspree.io/f/xvgzezpw">
                             <!-- Step 1: Interest Level -->
                             <div class="survey-step active" data-step="1">
                                 <label style="display: block; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 2rem; color: var(--pscl-gold);">01. DEFINE YOUR INTEREST</label>
@@ -2881,99 +2890,83 @@
             </div>
         </section>
 
-    <footer class="footer-main">
-        <div class="container grid-12">
-            <div class="col-6">
-                <h3 class="footer-logo" style="color: var(--pscl-gold);">Paranjape Schemes</h3>
-                <p style="color: rgba(255,255,255,0.7); line-height: 1.8; font-size: 0.9rem;">
-                    <strong>Headquarters:</strong><br>
-                    PSC House, CTS No. 111+111/2, Anand Colony,<br>
-                    Near Suvarnarekha Dining Hall, Old Karve Road,<br>
-                    Kothrud, Pune - 411004.
-                </p>
-                <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.8rem;">
-                    <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="color: #25D366; text-decoration: none; font-size: 0.9rem; font-weight: 700;">📱 WhatsApp: +91 7744009295</a>
-                    <a href="tel:+917744009295" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 600;">📞 Call: +91 7744009295</a>
+    <footer class="footer-main" style="background: #0a0a0a; padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="grid-12" style="margin-bottom: 4rem;">
+                <div class="col-6">
+                    <h3 style="color: var(--pscl-gold); font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem;">Paranjape Schemes</h3>
+                    <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 0.85rem; max-width: 400px;">
+                        <strong>Site Address: Paranjape Forest Trails</strong><br>
+                        Paud Road, Bhugaon, Pune - 412115.
+                    </p>
+                    <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
+                        <a href="tel:+917744009295" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(255,255,255,0.1); padding: 0.7rem 1.5rem; border-radius: 4px;">📞 CALL GALLERY</a>
+                        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="color: #25D366; text-decoration: none; font-size: 0.8rem; font-weight: 700; border: 1px solid rgba(37, 211, 102, 0.2); padding: 0.7rem 1.5rem; border-radius: 4px;">📱 WHATSAPP</a>
+                    </div>
+                </div>
+                <div class="col-6" style="text-align: right;">
+                    <div style="display: inline-block; background: rgba(140,115,47,0.05); border: 1px solid rgba(140,115,47,0.2); padding: 2rem; border-radius: 12px; text-align: left;">
+                        <span style="color: var(--pscl-gold); font-weight: 800; font-size: 0.6rem; letter-spacing: 0.3rem; text-transform: uppercase; display: block; margin-bottom: 1rem;">✦ Authority Node</span>
+                        <p style="color: #fff; font-size: 0.9rem; line-height: 1.5; margin: 0;">190 Acres of Sovereign Living.<br>35 Years of Paranjape Legacy.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-3">
-                <h4>Clusters</h4>
-                <ul>
-                    <li>Misty Greens</li>
-                    <li>Kaleidoscope</li>
-                    <li>Pebble Bay</li>
-                </ul>
+
+            <div class="footer-seo-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); text-align: left;">
+                <!-- Township Masterpiece -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">The Township</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="/paranjape-schemes-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">190-Acre Master Plan</a></li>
+                        <li><a href="/about-paranjape-schemes/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">PSCL 35+ Year Trust</a></li>
+                        <li><a href="/township-facilities.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Infrastructure Node</a></li>
+                        <li><a href="/sustainability/green-township-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Forest Conservation</a></li>
+                    </ul>
+                </div>
+
+                <!-- Residential Encyclopedia -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Clusters</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="/misty-greens-plots-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Misty Greens Plots</a></li>
+                        <li><a href="/whistling-meadows-villas-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Whistling Meadows</a></li>
+                        <li><a href="/kaleidoscope-apartments-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Kaleidoscope Flats</a></li>
+                        <li><a href="/verandah-luxury-flats-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Verandah Luxury</a></li>
+                    </ul>
+                </div>
+
+                <!-- Lifestyle & Education -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Lifestyle</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="/amenities-the-cliff-club.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">The Cliff Club</a></li>
+                        <li><a href="/amenities-equestrian.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Equestrian Academy</a></li>
+                        <li><a href="/amenities-sri-sri-school.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">SSRVM School</a></li>
+                    </ul>
+                </div>
+
+                <!-- West Pune Intelligence -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Intel</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="/property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Bhugaon ROI Data</a></li>
+                        <li><a href="/investment/pmrda-ring-road-impact/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Ring Road Impact</a></li>
+                        <li><a href="/blogs/na-bungalow-plots-pune-west-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">NA Plot Guide</a></li>
+                    </ul>
+                </div>
+
+                <!-- Expert Resources -->
+                <div class="footer-col">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Resources</h4>
+                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+                        <li><a href="/forest-trails-price-list-brochure/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Download Prices</a></li>
+                        <li><a href="/legal/rera-compliance-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">RERA Transparency</a></li>
+                        <li><a href="/why-choose-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Why Forest Trails?</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-3">
-                <h4>Company</h4>
-                <ul>
-                    <li>PSCL Legacy</li>
-                    <li>Sustainability</li>
-                    <li>Privacy Policy</li>
-                </ul>
-            </div>
-        </div>
-        
             
-            <div class="footer-seo-grid" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 4rem; text-align: left;">
-                <!-- Clusters & Sectors -->
-                <div class="footer-col">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Estate Clusters</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <li><a href="/na-bungalow-plots-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Misty Greens Plots</a></li>
-                        <li><a href="/kaleidoscope-apartments-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Kaleidoscope Homes</a></li>
-                        <li><a href="/luxury-forest-villas-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Heritage Forest Villas</a></li>
-                        <li><a href="/sectors/sector-a-skyline-villas/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Sector A: Skyline</a></li>
-                        <li><a href="/sectors/sector-b-misty-heights/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Sector B: Heights</a></li>
-                        <li><a href="/sectors/sector-c-riverview-plots/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Sector C: Riverview</a></li>
-                    </ul>
-                </div>
-
-                <!-- Lifestyle & Amenities -->
-                <div class="footer-col">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Township Life</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <li><a href="/amenities/the-cliff-club/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">The Cliff Club</a></li>
-                        <li><a href="/amenities/equestrian-academy-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Equestrian Academy</a></li>
-                        <li><a href="/amenities/olympic-sports-complex/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Sports Complex</a></li>
-                        <li><a href="/amenities/forest-walks-trails/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Nature Trails</a></li>
-                        <li><a href="/amenities/wellness-spa-retreat/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Wellness Spa</a></li>
-                    </ul>
-                </div>
-
-                <!-- Connectivity & Location -->
-                <div class="footer-col">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Connectivity</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <li><a href="/location/bhugaon-connectivity-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Paud Road Guide</a></li>
-                        <li><a href="/location/nearby-schools-hospitals/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Social Infrastructure</a></li>
-                        <li><a href="/location/it-hub-proximity-hinjewadi/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">IT Hub Proximity</a></li>
-                        <li><a href="/forest-trails-location-proximity/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Micromarket Intel</a></li>
-                    </ul>
-                </div>
-
-                <!-- Investment & Intel -->
-                <div class="footer-col">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Invest & Insights</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <li><a href="/investment/rental-yield-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Rental Yield Analysis</a></li>
-                        <li><a href="/investment/appreciation-forecast-2030/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Appreciation 2030</a></li>
-                        <li><a href="/investment/pmrda-ring-road-impact/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Ring Road Impact</a></li>
-                        <li><a href="/property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Asset Protection</a></li>
-                    </ul>
-                </div>
-
-                <!-- Comparative Intel -->
-                <div class="footer-col">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Township Duels</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
-                        <li><a href="/comparisons/forest-trails-vs-magarpatta/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">vs Magarpatta City</a></li>
-                        <li><a href="/comparisons/bhugaon-vs-mulshi-investment/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">vs Mulshi Estates</a></li>
-                        <li><a href="/comparisons/premium-townships-pune-west/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">Top Pune Townships</a></li>
-                        <li><a href="/legal/rera-compliance-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.7rem;">RERA Transparency</a></li>
-                    </ul>
-                </div>
-            </div>
+            <p style="margin-top: 4rem; color: #444; font-size: 0.7rem; text-align: center;">&copy; 2026 Paranjape Schemes (Construction) Ltd. RERA Authorized Township Operations.</p>
         </div>
     </footer>
 
@@ -3019,12 +3012,42 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="script.min.js?v=1.2"></script>
+    <script src="/script.js?v=1.7" defer"></script>
 
         
-        <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
-        <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
-    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+        <div class="pill-text">Request Callback</div>
+    </div>
+    
+
+    
+    
+        <div class="pill-text">Request Callback</div>
+    </div>
+    
+
+    
+    
+        <div class="pill-text">Request Callback</div>
+    </div>
+    
+<div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
         
         <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
@@ -3032,7 +3055,7 @@
             <!-- Premium Accent Bar -->
             <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
 
-            <div style="padding: 4rem 3.5rem 3.5rem;">
+            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
                 <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f0; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.6;">&times;</button>
                 
                 <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
@@ -3059,8 +3082,8 @@
                         }
                         .enquiry-input-premium {
                             width: 100%; padding: 1.2rem 1.5rem; 
-                            background: #f8f8f4; 
-                            border: 1px solid #e5e5e0; 
+                            background: #f5f5f0; 
+                            border: 2px solid #b0a890; 
                             color: #1a1a1a; border-radius: 12px; 
                             font-size: 0.9rem; outline: none; 
                             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3068,12 +3091,12 @@
                         .enquiry-input-premium:focus {
                             border-color: var(--pscl-gold);
                             background: #fff;
-                            box-shadow: 0 0 0 4px rgba(140,115,47,0.1);
+                            box-shadow: 0 0 0 4px rgba(140,115,47,0.15);
                         }
                     </style>
                     
                     <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
-                    <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
+                    <input type="tel" name="phone" id="concierge-phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
                     <input type="email" name="email" placeholder="EMAIL ADDRESS" class="enquiry-input-premium">
                     
                     <div style="position: relative;">
@@ -3091,12 +3114,13 @@
                         <label for="wa-optin" style="font-size: 0.75rem; line-height: 1.5; color: #555; cursor: pointer; font-weight: 500;">I agree to receive the brochure, price list and updates on WhatsApp.</label>
                     </div>
 
-                    <button type="submit" class="enquiry-submit-btn" style="width: 100%; padding: 1.5rem; background: #1a1a1a; color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(0,0,0,0.2);">Secure Advisory</button>
+                    <button type="submit" class="enquiry-submit-btn" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(107,13,13,0.35);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">⬥ SECURE ADVISORY ⬥</button>
+                    <input type="hidden" name="_subject" value="Callback Request - Forest Trails (Global Sync)">
                     <input type="hidden" name="source" value="Premium Sovereign Modal">
                 </form>
             </div>
         </div>
-    </div>    <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
+    </div>
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
         
@@ -3172,10 +3196,10 @@
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; line-height: 1.2;">Secure High-Res <i style="color: var(--pscl-gold);">Blueprint</i></h3>
                 </div>
 
-                <form id="master-plan-form" method="POST" action="https://formspree.io/f/xvgzezpw" style="display: flex; flex-direction: column; gap: 1.4rem;">
+                <form id="master-plan-form" method="POST" action="https://formspree.io/f/xvgznoal" style="display: flex; flex-direction: column; gap: 1.4rem;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <input type="text" name="name" placeholder="FULL NAME *" required class="mp-input-premium">
-                        <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="mp-input-premium">
+                        <input type="tel" name="phone" id="mp-phone" placeholder="MOBILE NUMBER *" required class="mp-input-premium">
                     </div>
                     <input type="email" name="email" placeholder="EMAIL ADDRESS *" required class="mp-input-premium">
                     
@@ -3189,11 +3213,11 @@
                 </form>
             </div>
         </div>
-    </div><div class="conversion-pill open-enquiry-modal" id="callback-pill">
+    </div>
+    <div class="conversion-pill open-enquiry-modal" id="callback-pill">
         <div class="pill-icon">📞</div>
         <div class="pill-text">Request Callback</div>
     </div>
     <link rel="stylesheet" href="/conversion-pill.css">
-    
 </body>
 </html>

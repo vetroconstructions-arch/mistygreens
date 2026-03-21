@@ -863,9 +863,9 @@
     </style>
 
     <!-- Async non-critical CSS -->
-    <link rel="preload" href="style.css?v=1.1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/style.css?v=1.7" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" href="opening-modal.css">
-    <noscript><link rel="stylesheet" href="style.css?v=1.1"></noscript>
+    <noscript><link rel="stylesheet" href="/style.css?v=1.7"></noscript>
     <link rel="manifest" href="manifest.json">
     <!-- Core Web Vitals LCP Preload -->
     <link rel="preload" as="image" href="images/drone-aerial.jpg">
@@ -880,9 +880,9 @@
                 <h2>The Sovereign <i>Experience</i></h2>
                 <p>Unlock private pricing and exclusive site visit slots for the 190-acre Forest Trails township. Limited inventory available.</p>
                 
-                <form class="opening-form" id="opening-intent-form">
+                <form class="opening-form" id="opening-intent-form" method="POST" action="https://formspree.io/f/xvgznoal">
                     <input type="text" name="name" placeholder="Full Name *" required>
-                    <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    <input type="tel" name="phone" id="opening-phone" placeholder="Phone Number *" required>
                     <button type="submit" class="opening-btn">SECURE EXCLUSIVE ACCESS</button>
                     <div style="font-size: 0.6rem; color: var(--pscl-gold); text-align: center; margin-top: 0.5rem; letter-spacing: 0.1em; opacity: 0.8;">
                         RERA AUTHORIZED &bull; 35+ YEAR LEGACY
@@ -901,8 +901,9 @@
         </div>
     </div>
 
-    <!-- Architectural Navigation -->
-    <!-- Architectural Navigation (Propagated Phase 25) -->
+    
+    
+    
     <header class="header-main">
         <div class="heritage-ticker">
             <div class="ticker-content">
@@ -933,12 +934,12 @@
             <div class="nav-search-box">
                 <div class="search-proxy" role="navigation" aria-label="Main Navigation">
                     <div class="search-links">
-                        <a href="township-facilities.html" class="nav-item-new">TOWNSHIP</a>
-                        <a href="clusters-villas.html" class="nav-item-new">VILLAS & PLOTS</a>
-                        <a href="clusters-apartments.html" class="nav-item-new">APARTMENTS</a>
-                        <a href="amenities-the-cliff-club.html" class="nav-item-new">THE CLIFF CLUB</a>
-                        <a href="amenities-equestrian.html" class="nav-item-new">EQUESTRIAN</a>
-                        <a href="amenities-sri-sri-school.html" class="nav-item-new">SCHOOL</a>
+                        <a href="/township-facilities.html" class="nav-item-new">TOWNSHIP</a>
+                        <a href="/clusters-villas.html" class="nav-item-new">VILLAS & PLOTS</a>
+                        <a href="/clusters-apartments.html" class="nav-item-new">APARTMENTS</a>
+                        <a href="/amenities-the-cliff-club.html" class="nav-item-new">THE CLIFF CLUB</a>
+                        <a href="/amenities-equestrian.html" class="nav-item-new">EQUESTRIAN</a>
+                        <a href="/amenities-sri-sri-school.html" class="nav-item-new">SCHOOL</a>
                     </div>
                 </div>
             </div>
@@ -2352,7 +2353,7 @@
                             <span id="step-count" style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted);">STEP 01/04</span>
                         </div>
 
-                        <form class="sovereign-survey" id="qualifier-form" method="POST">
+                        <form class="sovereign-survey" id="qualifier-form" method="POST" action="https://formspree.io/f/xvgznoal">
                             <input type="hidden" name="interest" value="Not specified">
                             <input type="hidden" name="magnitude" value="Not specified">
                             <input type="hidden" name="lifestyle" value="Not specified">
@@ -2415,7 +2416,7 @@
                                 <label style="display: block; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 2rem; color: var(--pscl-gold);">04. SECURE YOUR ADVISORY</label>
                                 <div class="form-inputs" style="margin-top: 2rem;">
                                     <input type="text" name="name" aria-label="Full Name" placeholder="FULL NAME" required style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; margin-bottom: 1rem; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
-                                    <input type="tel" name="phone" aria-label="Mobile Number" placeholder="PRIVATE MOBILE" required style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; margin-bottom: 1rem; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
+                                    <input type="tel" name="phone" id="qualifier-phone" aria-label="Mobile Number" placeholder="PRIVATE MOBILE" required style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; margin-bottom: 1rem; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
                                     <input type="email" name="email" aria-label="Email Address" placeholder="EMAIL ADDRESS (OPTIONAL)" style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
                                 </div>
                                 <button type="submit" class="enquiry-submit-btn" style="width: 100%; margin-top: 3rem; padding: 1.5rem 2rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 10px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 30px rgba(107,13,13,0.4); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 40px rgba(107,13,13,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(107,13,13,0.4)'">⬥ SUBMIT ENQUIRY ⬥</button>
@@ -2994,15 +2995,11 @@
         </div>
     </div>
 
-    </footer>
-
     <!-- Scripts -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="conversion-pill.css">
-    <script src="script.min.js?v=1.2"></script>
-
+    <script src="/script.js?v=1.7" defer></script>
 
     <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
     <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
@@ -3054,7 +3051,7 @@
                     </style>
                     
                     <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
-                    <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
+                    <input type="tel" name="phone" id="concierge-phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
                     <input type="email" name="email" placeholder="EMAIL ADDRESS" class="enquiry-input-premium">
                     
                     <div style="position: relative;">
@@ -3073,32 +3070,14 @@
                     </div>
 
                     <button type="submit" class="enquiry-submit-btn" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(107,13,13,0.35);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">⬥ SECURE ADVISORY ⬥</button>
+                    <input type="hidden" name="_subject" value="Callback Request - Forest Trails (Global Sync)">
                     <input type="hidden" name="source" value="Premium Sovereign Modal">
                 </form>
             </div>
         </div>
     </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 0.6rem; color: var(--pscl-gold); font-weight: 700; letter-spacing: 0.15em;">RERA</div>
-                        <div style="font-size: 0.55rem; color: rgba(255,255,255,0.3); margin-top: 2px;">AUTHORIZED</div>
-                    </div>
-                    <div style="width: 1px; background: rgba(255,255,255,0.08);"></div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 0.6rem; color: var(--pscl-gold); font-weight: 700; letter-spacing: 0.15em;">35+ YEARS</div>
-                        <div style="font-size: 0.55rem; color: rgba(255,255,255,0.3); margin-top: 2px;">LEGACY</div>
-                    </div>
-                    <div style="width: 1px; background: rgba(255,255,255,0.08);"></div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 0.6rem; color: var(--pscl-gold); font-weight: 700; letter-spacing: 0.15em;">200+</div>
-                        <div style="font-size: 0.55rem; color: rgba(255,255,255,0.3); margin-top: 2px;">PROJECTS</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
-    <!-- Master Plan Lead Magnet Modal -->
-        <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
+    <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
         
@@ -3174,10 +3153,10 @@
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; line-height: 1.2;">Secure High-Res <i style="color: var(--pscl-gold);">Blueprint</i></h3>
                 </div>
 
-                <form id="master-plan-form" method="POST" action="https://formspree.io/f/xvgzezpw" style="display: flex; flex-direction: column; gap: 1.4rem;">
+                <form id="master-plan-form" method="POST" action="https://formspree.io/f/xvgznoal" style="display: flex; flex-direction: column; gap: 1.4rem;">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <input type="text" name="name" placeholder="FULL NAME *" required class="mp-input-premium">
-                        <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="mp-input-premium">
+                        <input type="tel" name="phone" id="mp-phone" placeholder="MOBILE NUMBER *" required class="mp-input-premium">
                     </div>
                     <input type="email" name="email" placeholder="EMAIL ADDRESS *" required class="mp-input-premium">
                     

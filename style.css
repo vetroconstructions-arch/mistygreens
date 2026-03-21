@@ -2049,6 +2049,7 @@ body.mode-night::after {
     scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 .concierge-panel::-webkit-scrollbar { display: none; } /* Hide scrollbar for Chrome/Safari */
+.concierge-modal.active { display: flex !important; }
 .concierge-modal.active .concierge-panel { transform: translateX(0); }
 
 .concierge-header h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 2rem; color: #fff; text-transform: uppercase; letter-spacing: 0.1em; }
@@ -2091,12 +2092,14 @@ body.mode-night::after {
 
 /* Enquiry Form Refinement: High-Contrast & Focus */
 #enquiry-form-modal input,
-#enquiry-form-modal select {
-    background: rgba(255,255,255,0.02) !important;
-    border: 1px solid rgba(212,175,55,0.2) !important;
+#enquiry-form-modal select,
+#enquiry-form-modal textarea {
+    background: rgba(255,255,255,0.08) !important;
+    border: 1px solid rgba(212,175,55,0.5) !important;
     color: #fff !important;
     padding: 1.1rem 1.5rem !important;
     font-size: 0.85rem !important;
+    font-weight: 500 !important;
     border-radius: 4px !important;
     outline: none !important;
     transition: all 0.3s var(--ease-editorial) !important;
@@ -2109,15 +2112,17 @@ body.mode-night::after {
     box-shadow: 0 0 15px rgba(140, 115, 47, 0.2);
 }
 
-#enquiry-form-modal input::placeholder {
-    color: rgba(255,255,255,0.5) !important;
+#enquiry-form-modal input::placeholder,
+#enquiry-form-modal textarea::placeholder {
+    color: rgba(255,255,255,0.8) !important;
 }
 
 #enquiry-form-modal input:focus,
-#enquiry-form-modal select:focus {
+#enquiry-form-modal select:focus,
+#enquiry-form-modal textarea:focus {
     border-color: var(--pscl-gold) !important;
-    background: #000 !important;
-    box-shadow: 0 0 15px rgba(212,175,55,0.2) !important;
+    background: rgba(10,10,10,0.95) !important;
+    box-shadow: 0 0 15px rgba(212,175,55,0.4) !important;
 }
 
 #concierge-input {

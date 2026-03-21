@@ -1,4 +1,29 @@
+// High-Resilience Universal Fail-Safe for Preloader
+// This runs even if GSAP or other dependencies crash
+(function() {
+    const dismissLoader = () => {
+        const loader = document.getElementById('loader');
+        if (loader && loader.style.display !== 'none') {
+            console.warn('Overture: Universal Fail-Safe Triggered');
+            loader.style.transition = 'opacity 0.8s ease, transform 1s ease';
+            loader.style.opacity = '0';
+            loader.style.transform = 'translateY(-100%)';
+            setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1100);
+            document.body.style.overflow = 'auto';
+            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+                el.style.opacity = '1';
+                el.style.transform = 'translate(0,0)';
+            });
+        }
+    };
+    // Multiple checkpoints for maximum certainty
+    setTimeout(dismissLoader, 3000);
+    setTimeout(dismissLoader, 5000);
+    window.addEventListener('load', () => setTimeout(dismissLoader, 1000));
+})();
+
 // 1. ImageGuardian: Resilience Engine
+
 window.addEventListener('error', function(e) {
     if (e.target.tagName === 'IMG') {
         processBrokenImage(e.target);
@@ -19,22 +44,13 @@ window.addEventListener('load', function(e) {
     }
 }, true);
 
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     
-    // 0. Safety Fallback: Ensure loader is dismissed even if GSAP fails
-    const loaderFallback = setTimeout(() => {
-        if (loader) {
-            console.warn('Overture: Safety fallback triggered');
-            loader.style.transition = 'transform 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
-            loader.style.transform = 'translateY(-100%)';
-            // Reveal content manually if GSAP deadlocked
-            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translate(0,0)';
-            });
-        }
-    }, 4000);
+
 
     if (typeof gsap === 'undefined') {
         console.error('Overture: GSAP not detected. Reverting to structural rendering.');
@@ -58,17 +74,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 1. Overture Loader (Stable Reveal)
     const tlLoader = gsap.timeline({
-        onComplete: () => clearTimeout(loaderFallback)
+        onComplete: () => {
+            if (loader) loader.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
     });
+
     
     tlLoader.to(".loader-line span", {
         width: "100%",
-        duration: 2.5,
+        duration: 1.2,
         ease: "power2.inOut"
     })
     .to("#loader", {
         yPercent: -100,
-        duration: 1.5,
+        duration: 1.0,
         ease: "expo.inOut"
     })
     .from(".hero-title span span", { 
@@ -283,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const roiPercentEl = document.getElementById('roi-percent');
 
     function updateROI() {
+        if (!yearsSlider || !projectedValEl || !roiPercentEl) return;
         const years = parseInt(yearsSlider.value);
         let multiplier = 1;
         
@@ -365,11 +386,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (openConcierge && conciergeModal) {
         openConcierge.addEventListener('click', () => {
-            conciergeModal.classList.add('active');
-            gsap.from(".concierge-panel > *", { opacity: 0, x: 50, stagger: 0.1, duration: 0.8, ease: "expo.out" });
+            if (conciergeModal) {
+                conciergeModal.style.display = 'flex';
+                conciergeModal.classList.add('active');
+                gsap.from(".concierge-panel > *", { opacity: 0, x: 50, stagger: 0.1, duration: 0.8, ease: "expo.out" });
+            }
         });
 
-        closeConcierge.addEventListener('click', () => conciergeModal.classList.remove('active'));
+        closeConcierge?.addEventListener('click', () => {
+            if (conciergeModal) {
+                conciergeModal.classList.remove('active');
+                setTimeout(() => { conciergeModal.style.display = 'none'; }, 600);
+            }
+        });
 
         const responses = {
             roi: "Forest Trails has documented a 21.2% CAGR over the last 15 years, significantly outperforming West Pune averages due to its integrated 190-acre scale.",
@@ -380,20 +409,68 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prompts.forEach(p => {
             p.addEventListener('click', () => {
-                const query = p.getAttribute('data-query');
-                responseArea.innerHTML = `<p style="color: var(--pscl-gold); margin-top: 2rem;">Searching Heritage Archives...</p>`;
-                
-                setTimeout(() => {
-                    responseArea.innerHTML = `<div style="background: rgba(212,175,55,0.1); padding: 2rem; border-left: 2px solid var(--pscl-gold); margin-top: 2rem;">
-                        <p style="font-size: 0.9rem; line-height: 1.8;">${responses[query]}</p>
-                    </div>`;
-                }, 1000);
+                const type = p.dataset.type;
+                if (responseArea) {
+                    responseArea.innerHTML = `<p style="color: var(--pscl-gold); margin-top: 2rem;">Searching Heritage Archives...</p>`;
+                    setTimeout(() => {
+                        responseArea.innerHTML = `<div style="background: rgba(212,175,55,0.1); padding: 2rem; border-left: 2px solid var(--pscl-gold); margin-top: 2rem;">
+                            <p style="color: #fff; font-size: 0.95rem; line-height: 1.6; margin: 0;">${responses[type]}</p>
+                        </div>`;
+                    }, 800);
+                }
             });
         });
     }
 
     // 16. Localized Authority Verification
     console.log("Sovereign Phase 39: Final Polish Active");
+
+    // 16.5 Global Enquiry Button Interceptor
+    // Catches ALL "Enquire" or "Brochure" buttons dynamically
+    document.body.addEventListener('click', function(e) {
+        const btn = e.target.closest('button, a.btn, .btn');
+        if (!btn) return;
+        
+        const txt = (btn.innerText || '').toLowerCase();
+        if ((txt.includes('enquire') || txt.includes('enquiry') || txt.includes('brochure') || txt.includes('price list') || txt.includes('download')) 
+            && !btn.classList.contains('open-enquiry-modal') 
+            && btn.id !== 'concierge-open' 
+            && btn.id !== 'concierge-close'
+            && !btn.closest('#heritage-concierge')
+            && !btn.closest('.ledger-modal')) {
+            
+            // Prevent default if it's an anchor tag aiming nowhere
+            if (btn.tagName === 'A' && (!btn.href || btn.href.endsWith('#'))) {
+                e.preventDefault();
+            }
+
+            const modalToOpen = document.querySelector('#heritage-concierge');
+            if (modalToOpen) {
+                // Determine context
+                const modalTitle = modalToOpen.querySelector('.form-header h3');
+                const projectInterest = modalToOpen.querySelector('select[name="interest"]');
+                const project = btn.getAttribute('data-project') || 'General Township';
+                
+                if (modalTitle) modalTitle.innerHTML = `${project} <i>Callback</i>`;
+                if (projectInterest) {
+                    if (project.includes('Plots') || txt.includes('plots')) projectInterest.value = 'plots';
+                    else if (project.includes('Villas') || txt.includes('villas')) projectInterest.value = 'villas';
+                    else if (project.includes('Apartment') || txt.includes('apartments')) projectInterest.value = 'apartments';
+                    else projectInterest.value = '';
+                }
+
+                modalToOpen.style.display = 'flex';
+                modalToOpen.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                if (typeof gsap !== 'undefined') {
+                    gsap.from(modalToOpen.querySelector('.concierge-panel'), {
+                        y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
+                    });
+                }
+            }
+        }
+    });
+
     // 17. Technical Ledger Logic
     const ledgerBtns = document.querySelectorAll('.ledger-trigger');
     const ledgerModals = document.querySelectorAll('.ledger-modal');
@@ -407,65 +484,84 @@ async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
     
-    // Safety: Ensure no default submission happens
+    // Use form's action attribute or fall back to known endpoint
+    const formEndpoint = form.action || 'https://formspree.io/f/xvgznoal';
+    
     if (form.getAttribute('method')?.toUpperCase() !== 'POST') {
         form.setAttribute('method', 'POST');
     }
 
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Add source identifier if not present
-    if (!data.source) {
-        data.source = window.location.pathname;
-    }
-
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
+    const loadingText = (formId === 'master-plan-form') ? 'PREPARING DOWNLOAD...' : 
+                        (formId === 'opening-intent-form') ? 'VERIFYING...' : 
+                        (formId === 'qualifier-form') ? 'SUBMITTING SURVEY...' : 'SENDING...';
     
     if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.innerText = 'SENDING...';
+        submitBtn.innerText = loadingText;
     }
 
     try {
-        // Formspree endpoint for propsmartrealty@gmail.com
-        // Note: The user will need to confirm the first submission via email
-        // Use FormData for better compatibility with Formspree standard processing
         const bodyData = new FormData(form);
+        // Ensure source exists
+        if (!bodyData.get('source')) {
+            bodyData.append('source', window.location.pathname);
+        }
         
-        const response = await fetch('https://formspree.io/f/xvgzezpw', {
+        // Use URLSearchParams for maximum cross-origin stability with Formspree
+        const params = new URLSearchParams();
+        for (const pair of bodyData) {
+            params.append(pair[0], pair[1]);
+        }
+
+        const response = await fetch(formEndpoint, {
             method: 'POST',
-            body: bodyData,
+            body: params,
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
             }
         });
 
         if (response.ok) {
             Swal.fire({
                 title: 'Success!',
-                text: 'Your enquiry has been sent successfully. We will get back to you soon.',
+                text: (formId === 'master-plan-form') ? 'Your high-res master plan download is starting.' : 'Your enquiry has been sent successfully.',
                 icon: 'success',
                 confirmButtonColor: '#c5a059'
             });
+            
+            // Special trigger for Master Plan download
+            if (formId === 'master-plan-form') {
+                const link = document.createElement('a');
+                link.href = 'images/master-plan.jpg'; 
+                link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
             form.reset();
             
-            // Close modal if it's in one
-            const modal = form.closest('.heritage-concierge');
-            if (modal) modal.classList.remove('active');
+            // Close modals natively
+            const modal = form.closest('.heritage-concierge, #master-plan-modal, #main-opening-modal, .concierge-modal');
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         } else {
             throw new Error('Form submission failed');
         }
     } catch (error) {
         console.error('Error:', error);
         Swal.fire({
-            title: 'Error!',
-            text: 'There was an error sending your enquiry. Please try again or call us directly.',
+            title: 'Submission Error',
+            text: 'We could not process your request. Please try again or call +91-7744009295.',
             icon: 'error',
             confirmButtonColor: '#c5a059'
         });
-        throw error; // Re-throw so the caller knows it failed
+        throw error;
     } finally {
         if (submitBtn) {
             submitBtn.disabled = false;
@@ -1033,68 +1129,9 @@ async function sendEnquiry(formId) {
         });
 
         if (mpForm) {
-            mpForm.addEventListener('submit', async function(e) {
+            mpForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                const submitBtn = mpForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerText;
-                submitBtn.disabled = true;
-                submitBtn.innerText = 'PREPARING DOWNLOAD...';
-
-                const formData = new FormData(mpForm);
-                const data = Object.fromEntries(formData.entries());
-
-                try {
-                    const response = await fetch(mpForm.action, {
-                        method: 'POST',
-                        body: JSON.stringify(data),
-                        headers: {
-                            'Accept': 'application/json',
-                            'Content-Type': 'application/json'
-                        }
-                    });
-
-                    if (response.ok) {
-                        trackEvent('master_plan_download_success');
-                        
-                        // Success Feedback
-                        Swal.fire({
-                            title: 'Access Granted!',
-                            text: 'Your high-res master plan download is starting.',
-                            icon: 'success',
-                            confirmButtonColor: '#800000',
-                            timer: 3000,
-                            timerProgressBar: true
-                        });
-
-                        // Trigger Automatic Download
-                        const link = document.createElement('a');
-                        link.href = 'images/master-plan.jpg'; // Path to the high-res file
-                        link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-
-                        // Close modal after delay
-                        setTimeout(() => {
-                            mpModal.style.display = 'none';
-                            document.body.style.overflow = 'auto';
-                        }, 2000);
-
-                    } else {
-                        throw new Error('Submission failed');
-                    }
-                } catch (error) {
-                    Swal.fire({
-                        title: 'Error',
-                        text: 'Verification failed. Please check your connection and try again.',
-                        icon: 'error',
-                        confirmButtonColor: '#800000'
-                    });
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.innerText = originalText;
-                }
+                sendEnquiry('master-plan-form');
             });
         }
     }
@@ -1130,40 +1167,7 @@ async function sendEnquiry(formId) {
 
         modalForm?.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const btn = modalForm.querySelector('button');
-            const originalText = btn.innerText;
-            btn.disabled = true;
-            btn.innerText = 'VERIFYING...';
-
-            const formData = new FormData(modalForm);
-            formData.append('source', 'Opening Modal');
-
-            try {
-                const response = await fetch('https://formspree.io/f/xvgzezpw', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    if (typeof Swal !== 'undefined') {
-                        Swal.fire({
-                            title: 'Access Granted',
-                            text: 'Your priority access has been secured.',
-                            icon: 'success',
-                            confirmButtonColor: '#B3302A'
-                        });
-                    }
-                    openingModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    localStorage.setItem('opening_modal_seen', 'true');
-                }
-            } catch (err) {
-                console.error('Submission error:', err);
-            } finally {
-                btn.disabled = false;
-                btn.innerText = originalText;
-            }
+            sendEnquiry('opening-intent-form'); // Use the refactored sendEnquiry
         });
     }
 
