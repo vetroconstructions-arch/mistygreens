@@ -477,14 +477,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const ledgerCloses = document.querySelectorAll('.ledger-close');
 
 /**
- * Unified Enquiry Submission via Web3Forms (Placeholder)
- * IMPORTANT: Replace YOUR_WEB3FORMS_ACCESS_KEY_HERE with the real key
+ * Unified Enquiry Submission via Getform.io (Placeholder)
+ * IMPORTANT: Replace YOUR_GETFORM_ENDPOINT_ID with your real endpoint
  */
 async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
     
-    const formEndpoint = 'https://api.web3forms.com/submit';
+    // Replace YOUR_GETFORM_ENDPOINT_ID below
+    const formEndpoint = 'https://getform.io/f/YOUR_GETFORM_ENDPOINT_ID';
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
@@ -504,16 +505,11 @@ async function sendEnquiry(formId) {
             bodyData.append('source', window.location.pathname);
         }
         
-        // Build JSON payload for Web3Forms
+        // Build JSON payload for Getform.io
         const jsonData = {};
         for (const pair of bodyData) {
             jsonData[pair[0]] = pair[1];
         }
-        
-        // Web3Forms config: add Access Key and email settings
-        jsonData['access_key'] = 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
-        jsonData['subject'] = 'New Enquiry - Paranjape Forest Trails';
-        jsonData['from_name'] = 'Paranjape Forest Trails Website';
 
         const response = await fetch(formEndpoint, {
             method: 'POST',
