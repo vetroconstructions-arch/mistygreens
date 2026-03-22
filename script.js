@@ -476,15 +476,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const ledgerModals = document.querySelectorAll('.ledger-modal');
     const ledgerCloses = document.querySelectorAll('.ledger-close');
 
-    /**
- * Unified Enquiry Submission via Formsubmit.co
- * Sends form data to propsmartrealty@gmail.com (no API key required)
+/**
+ * Unified Enquiry Submission via Web3Forms (Placeholder)
+ * IMPORTANT: Replace YOUR_WEB3FORMS_ACCESS_KEY_HERE with the real key
  */
 async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
     
-    const formEndpoint = 'https://formsubmit.co/ajax/propsmartrealty@gmail.com';
+    const formEndpoint = 'https://api.web3forms.com/submit';
 
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
@@ -504,15 +504,16 @@ async function sendEnquiry(formId) {
             bodyData.append('source', window.location.pathname);
         }
         
-        // Build JSON payload for Formsubmit.co
+        // Build JSON payload for Web3Forms
         const jsonData = {};
         for (const pair of bodyData) {
             jsonData[pair[0]] = pair[1];
         }
-        // Formsubmit.co config: disable captcha, set subject
-        jsonData['_captcha'] = false;
-        jsonData['_subject'] = 'New Enquiry - Paranjape Forest Trails';
-        jsonData['_template'] = 'table';
+        
+        // Web3Forms config: add Access Key and email settings
+        jsonData['access_key'] = 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
+        jsonData['subject'] = 'New Enquiry - Paranjape Forest Trails';
+        jsonData['from_name'] = 'Paranjape Forest Trails Website';
 
         const response = await fetch(formEndpoint, {
             method: 'POST',
