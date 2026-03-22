@@ -477,16 +477,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ledgerCloses = document.querySelectorAll('.ledger-close');
 
 /**
- * Unified Enquiry Submission via Getform.io (Placeholder)
- * IMPORTANT: Replace YOUR_GETFORM_ENDPOINT_ID with your real endpoint
+ * Unified Enquiry Submission via Zero-Setup Formsubmit Iframe
+ * No API Keys, No CORS errors, No Account Verification Required
  */
 async function sendEnquiry(formId) {
     const form = document.getElementById(formId);
     if (!form) return;
     
-    // Replace YOUR_GETFORM_ENDPOINT_ID below
-    const formEndpoint = 'https://getform.io/f/YOUR_GETFORM_ENDPOINT_ID';
-
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
     const loadingText = (formId === 'master-plan-form') ? 'PREPARING DOWNLOAD...' : 
@@ -498,72 +495,87 @@ async function sendEnquiry(formId) {
         submitBtn.innerText = loadingText;
     }
 
-    try {
-        const bodyData = new FormData(form);
-        // Ensure source exists
-        if (!bodyData.get('source')) {
-            bodyData.append('source', window.location.pathname);
-        }
+    // 1. Set pure native form action to formsubmit
+    form.action = 'https://formsubmit.co/propsmartrealty@gmail.com';
+    form.method = 'POST';
+
+    // 2. Inject hidden iframe if missing
+    let bgIframe = document.getElementById('form_target_iframe');
+    if (!bgIframe) {
+        bgIframe = document.createElement('iframe');
+        bgIframe.name = 'form_target_iframe';
+        bgIframe.id = 'form_target_iframe';
+        bgIframe.style.display = 'none';
+        document.body.appendChild(bgIframe);
         
-        // Build JSON payload for Getform.io
-        const jsonData = {};
-        for (const pair of bodyData) {
-            jsonData[pair[0]] = pair[1];
-        }
+        bgIframe.onload = function() {
+            if (window.isFormSubmitting) {
+                // Success trigger
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Your enquiry has been delivered successfully.',
+                    icon: 'success',
+                    confirmButtonColor: '#c5a059'
+                });
+                
+                window.isFormSubmitting = false;
+                if (window.currentFormToReset) {
+                    window.currentFormToReset.reset();
 
-        const response = await fetch(formEndpoint, {
-            method: 'POST',
-            body: JSON.stringify(jsonData),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        });
+                    // Master plan download trigger
+                    if (window.currentFormToReset.id === 'master-plan-form') {
+                        const link = document.createElement('a');
+                        link.href = 'images/master-plan.jpg'; 
+                        link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                    }
+                }
+                
+                // Restore button
+                const btn = document.getElementById('current_submit_btn');
+                if (btn) {
+                    btn.disabled = false;
+                    btn.innerText = window.originalBtnText;
+                }
 
-        if (response.ok) {
-            Swal.fire({
-                title: 'Success!',
-                text: (formId === 'master-plan-form') ? 'Your high-res master plan download is starting.' : 'Your enquiry has been sent successfully.',
-                icon: 'success',
-                confirmButtonColor: '#c5a059'
-            });
-            
-            // Special trigger for Master Plan download
-            if (formId === 'master-plan-form') {
-                const link = document.createElement('a');
-                link.href = 'images/master-plan.jpg'; 
-                link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-
-            form.reset();
-            
-            // Close modals natively
-            const modal = form.closest('.heritage-concierge, #master-plan-modal, #main-opening-modal, .concierge-modal');
-            if (modal) {
-                modal.style.display = 'none';
+                // Close all modals natively
+                const modals = document.querySelectorAll('.heritage-concierge, #master-plan-modal, #main-opening-modal, .concierge-modal');
+                modals.forEach(m => m.style.display = 'none');
                 document.body.style.overflow = 'auto';
             }
-        } else {
-            throw new Error('Form submission failed');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        Swal.fire({
-            title: 'Submission Error',
-            text: 'We could not process your request. Please try again or call +91-7744009295.',
-            icon: 'error',
-            confirmButtonColor: '#c5a059'
-        });
-        throw error;
-    } finally {
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            submitBtn.innerText = originalBtnText;
-        }
+        };
     }
+    
+    form.target = 'form_target_iframe';
+    
+    // 3. Inject configuration fields
+    if (!form.querySelector('input[name="_captcha"]')) {
+        const c = document.createElement('input');
+        c.type = 'hidden';
+        c.name = '_captcha';
+        c.value = 'false';
+        form.appendChild(c);
+    }
+    if (!form.querySelector('input[name="_subject"]')) {
+        const s = document.createElement('input');
+        s.type = 'hidden';
+        s.name = '_subject';
+        s.value = 'New Enquiry - Paranjape Forest Trails';
+        form.appendChild(s);
+    }
+
+    // Capture state for iframe onload handler
+    window.isFormSubmitting = true;
+    window.currentFormToReset = form;
+    if (submitBtn) {
+        submitBtn.id = 'current_submit_btn';
+        window.originalBtnText = originalBtnText;
+    }
+
+    // Submit natively into the silent iframe
+    form.submit();
 }
 
     // Intercept form submissions
