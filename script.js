@@ -929,7 +929,7 @@ async function sendEnquiry(formId) {
     // 18. Live Momentum Signal (Social Proof Injection)
     function initLiveSignals() {
         const signalWrap = document.createElement('div');
-        signalWrap.className = 'live-signal-pill';
+        signalWrap.className = 'live-signal-pill mobile-hidden';
         signalWrap.style = "position: fixed; bottom: 2rem; left: 2rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.8rem 1.5rem; border-radius: 50px; color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.8rem; z-index: 1000; border: 1px solid rgba(212,175,55,0.3); opacity: 0; transition: opacity 0.5s;";
         
         const dot = document.createElement('span');
@@ -1058,7 +1058,7 @@ async function sendEnquiry(formId) {
     // 23. Live Demand Ticker (Social Proof - SEO Phase 20)
     function initDemandTicker() {
         const ticker = document.createElement('div');
-        ticker.className = 'demand-ticker';
+        ticker.className = 'demand-ticker mobile-hidden';
         ticker.style = "position: fixed; bottom: 5rem; left: 2rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 0.6rem 1.2rem; border-radius: 4px; color: #fff; font-size: 0.6rem; letter-spacing: 0.1em; transform: translateX(-150%); transition: transform 0.8s var(--ease-editorial); z-index: 999; border: 1px solid rgba(255,255,255,0.1);";
         document.body.appendChild(ticker);
 
