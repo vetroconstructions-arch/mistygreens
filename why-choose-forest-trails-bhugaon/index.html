@@ -64,6 +64,7 @@
     
     
     
+    
     <!-- Architectural Navigation (Global Sync v1.7) -->
 <header class="header-main">
         <div class="heritage-ticker">
@@ -127,6 +128,7 @@
             </ol>
         </div>
     </nav>
+    
     
     
     
@@ -298,6 +300,12 @@
         }
     </style>
 
+
+    
+    
+        <div class="pill-text">Request Callback</div>
+    </div>
+    
 
     
     
@@ -480,5 +488,17 @@
         <div class="pill-text">Request Callback</div>
     </div>
     <link rel="stylesheet" href="/conversion-pill.css">
+    
+    <!-- Speculation Rules API (Zero-ms Load) -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "where": {"href_matches": "/*"},
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
 </body>
 </html>

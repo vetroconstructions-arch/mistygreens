@@ -69,11 +69,26 @@ function propagate() {
     const newPill = conversionPillMatch ? makeAbsolute(conversionPillMatch[0]) : '';
     const newPillCss = '<link rel="stylesheet" href="/conversion-pill.css">';
 
+    const SPECULATION_RULES = `
+    <!-- Speculation Rules API (Zero-ms Load) -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "where": {"href_matches": "/*"},
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
+    `;
+
     const MODALS_BLOCK = `
     ${newConcierge}
     ${newMasterPlan}
     ${newPill}
     ${newPillCss}
+    ${SPECULATION_RULES}
     `;
 
     const allFiles = getAllHtmlFiles(BASE_DIR);
