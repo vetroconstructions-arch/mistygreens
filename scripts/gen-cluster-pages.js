@@ -385,6 +385,27 @@ ${faqEntries}
         ]
     }
     </script>
+
+    <!-- RealEstateListing & Product Schema (SEO Phase Advanced JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "RealEstateListing",
+        "name": "${page.title.split(' |')[0]}",
+        "description": "${page.desc.replace(/"/g, '\\"')}",
+        "image": "${SITE}${page.bgImage.replace('.png', '.webp').replace('.jpg', '.webp')}",
+        "url": "${SITE}/${page.dir}/",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "itemOffered": {
+                "@type": "Product",
+                "name": "Luxury Real Estate: ${page.title.split(' |')[0]}",
+                "description": "${page.intro.replace(/"/g, '\\"')}"
+            }
+        }
+    }
+    </script>
 </head>
 <body style="background:var(--pscl-bg);">
     ${NAVBAR_HTML}
