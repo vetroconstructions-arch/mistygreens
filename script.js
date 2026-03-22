@@ -1053,26 +1053,33 @@ document.addEventListener('DOMContentLoaded', () => {
         // Native Formsubmit handling allows the form to redirect naturally
     }
 
-    // 15. Mobile Navigation Toggle (Phase 1: Overhaul)
-    const mobileToggle = document.getElementById('mobile-nav-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // 15. Premium Mobile Slide-Out Overhaul
+    const mobileToggle = document.querySelector('.mobile-toggle') || document.getElementById('mobile-nav-toggle');
+    const navSearchBox = document.querySelector('.nav-search-box') || document.getElementById('mobile-menu'); // Fallback
     const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileLinks = document.querySelectorAll('.mobile-menu-links a');
+    const navLinks = document.querySelectorAll('.nav-search-box a, .search-links a, .nav-item-new');
 
-    if (mobileToggle && mobileMenu) {
+    if (mobileToggle && navSearchBox) {
         mobileToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            mobileToggle.classList.toggle('active');
+            navSearchBox.classList.toggle('active-mobile-menu');
+            
+            if (mobileToggle.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
 
         const closeMenu = () => {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = 'auto';
+            mobileToggle.classList.remove('active');
+            navSearchBox.classList.remove('active-mobile-menu');
+            document.body.style.overflow = '';
         };
 
         mobileMenuClose?.addEventListener('click', closeMenu);
         
-        mobileLinks.forEach(link => {
+        navLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
         });
     }
