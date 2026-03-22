@@ -506,9 +506,19 @@ async function sendEnquiry(formId) {
         bgIframe.name = 'form_target_iframe';
         bgIframe.id = 'form_target_iframe';
         bgIframe.style.display = 'none';
+        
+        // Flag to prevent the immediate about:blank load from triggering success
+        bgIframe.isInitialized = false;
+        
         document.body.appendChild(bgIframe);
         
         bgIframe.onload = function() {
+            // Ignore the very first native load event when the iframe is mounted
+            if (!bgIframe.isInitialized) {
+                bgIframe.isInitialized = true;
+                return;
+            }
+            
             if (window.isFormSubmitting) {
                 // Success trigger
                 Swal.fire({
