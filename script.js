@@ -474,139 +474,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // 17. Technical Ledger Logic
     const ledgerBtns = document.querySelectorAll('.ledger-trigger');
     const ledgerModals = document.querySelectorAll('.ledger-modal');
-    const ledgerCloses = document.querySelectorAll('.ledger-close');
-
-/**
- * Unified Enquiry Submission via Zero-Setup Formsubmit Iframe
- * No API Keys, No CORS errors, No Account Verification Required
- */
-async function sendEnquiry(formId) {
-    const form = document.getElementById(formId);
-    if (!form) return;
+    // The `sendEnquiry` Javascript interception strategy has been completely 
+    // removed per the user's request for the absolute simplest, most 
+    // bulletproof solution. Forms will now submit natively via HTML action.
     
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn ? submitBtn.innerText : 'SUBMIT';
-    const loadingText = (formId === 'master-plan-form') ? 'PREPARING DOWNLOAD...' : 
-                        (formId === 'opening-intent-form') ? 'VERIFYING...' : 
-                        (formId === 'qualifier-form') ? 'SUBMITTING SURVEY...' : 'SENDING...';
-    
-    if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = loadingText;
-    }
-
-    // 1. Set pure native form action to formsubmit
-    form.action = 'https://formsubmit.co/propsmartrealty@gmail.com';
-    form.method = 'POST';
-
-    // 2. Inject hidden iframe if missing
-    let bgIframe = document.getElementById('form_target_iframe');
-    if (!bgIframe) {
-        bgIframe = document.createElement('iframe');
-        bgIframe.name = 'form_target_iframe';
-        bgIframe.id = 'form_target_iframe';
-        bgIframe.style.display = 'none';
-        
-        // Flag to prevent the immediate about:blank load from triggering success
-        bgIframe.isInitialized = false;
-        
-        document.body.appendChild(bgIframe);
-        
-        bgIframe.onload = function() {
-            // Ignore the very first native load event when the iframe is mounted
-            if (!bgIframe.isInitialized) {
-                bgIframe.isInitialized = true;
-                return;
-            }
-            
-            if (window.isFormSubmitting) {
-                // Success trigger
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Your enquiry has been delivered successfully.',
-                    icon: 'success',
-                    confirmButtonColor: '#c5a059'
-                });
-                
-                window.isFormSubmitting = false;
-                if (window.currentFormToReset) {
-                    window.currentFormToReset.reset();
-
-                    // Master plan download trigger
-                    if (window.currentFormToReset.id === 'master-plan-form') {
-                        const link = document.createElement('a');
-                        link.href = 'images/master-plan.jpg'; 
-                        link.download = 'Paranjape-Forest-Trails-190-Acre-Master-Plan.jpg';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    }
-                }
-                
-                // Restore button
-                const btn = document.getElementById('current_submit_btn');
-                if (btn) {
-                    btn.disabled = false;
-                    btn.innerText = window.originalBtnText;
-                }
-
-                // Close all modals natively
-                const modals = document.querySelectorAll('.heritage-concierge, #master-plan-modal, #main-opening-modal, .concierge-modal');
-                modals.forEach(m => m.style.display = 'none');
-                document.body.style.overflow = 'auto';
-            }
-        };
-    }
-    
-    form.target = 'form_target_iframe';
-    
-    // 3. Inject configuration fields
-    if (!form.querySelector('input[name="_captcha"]')) {
-        const c = document.createElement('input');
-        c.type = 'hidden';
-        c.name = '_captcha';
-        c.value = 'false';
-        form.appendChild(c);
-    }
-    if (!form.querySelector('input[name="_subject"]')) {
-        const s = document.createElement('input');
-        s.type = 'hidden';
-        s.name = '_subject';
-        s.value = 'New Enquiry - Paranjape Forest Trails';
-        form.appendChild(s);
-    }
-
-    // Capture state for iframe onload handler
-    window.isFormSubmitting = true;
-    window.currentFormToReset = form;
-    if (submitBtn) {
-        submitBtn.id = 'current_submit_btn';
-        window.originalBtnText = originalBtnText;
-    }
-
-    // Submit natively into the silent iframe
-    form.submit();
-}
-
-    // Intercept form submissions
+    // Basic Phone Validation for forms before native submit
     const enquiryForm = document.getElementById('enquiry-form-modal');
     if (enquiryForm) {
         enquiryForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Basic Phone Validation
             const phoneInput = enquiryForm.querySelector('input[name="phone"]');
             if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                e.preventDefault();
                 Swal.fire({
                     title: 'Invalid Phone Number',
                     text: 'Please enter a valid 10-digit mobile number.',
                     icon: 'warning',
                     confirmButtonColor: '#c5a059'
                 });
-                return;
             }
-            
-            sendEnquiry('enquiry-form-modal');
         });
     }
 
@@ -652,31 +537,18 @@ async function sendEnquiry(formId) {
         }
 
         qualifierForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
             // Basic Phone Validation
             const phoneInput = qualifierForm.querySelector('input[name="phone"]');
             if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                e.preventDefault();
                 Swal.fire({
                     title: 'Invalid Phone Number',
                     text: 'Please enter a valid 10-digit mobile number.',
                     icon: 'warning',
                     confirmButtonColor: '#c5a059'
                 });
-                return;
             }
-
-            // Submit using sendEnquiry with success callback
-            sendEnquiry('qualifier-form').then(() => {
-                // UI feedback only on success
-                qualifierForm.style.display = 'none';
-                const prog = document.querySelector('.qualifier-progress');
-                if (prog) prog.style.display = 'none';
-                const succ = document.getElementById('qualifier-success');
-                if (succ) succ.style.display = 'block';
-            }).catch(err => {
-                console.error('Qualifier submission failed:', err);
-            });
+            // If valid, native HTML submission to formsubmit.co takes over
         });
     }
 
@@ -1146,12 +1018,7 @@ async function sendEnquiry(formId) {
             document.body.style.overflow = 'auto';
         });
 
-        if (mpForm) {
-            mpForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                sendEnquiry('master-plan-form');
-            });
-        }
+        // Form submits natively
     }
 
     // 14. Opening Modal Auto-Trigger (Phase 19)
@@ -1182,11 +1049,8 @@ async function sendEnquiry(formId) {
             document.body.style.overflow = 'auto';
             localStorage.setItem('opening_modal_seen', 'true');
         });
-
-        modalForm?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            sendEnquiry('opening-intent-form'); // Use the refactored sendEnquiry
-        });
+        
+        // Native Formsubmit handling allows the form to redirect naturally
     }
 
     // 15. Mobile Navigation Toggle (Phase 1: Overhaul)
