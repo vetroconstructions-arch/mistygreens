@@ -266,55 +266,68 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 1. Overture Loader (Stable Reveal)
-    const tlLoader = gsap.timeline({
-        onComplete: () => {
-            if (loader) loader.style.display = 'none';
-            document.body.style.overflow = 'auto';
+    if (loader) {
+        const tlLoader = gsap.timeline({
+            onComplete: () => {
+                if (loader) loader.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        if (document.querySelector(".loader-line span")) {
+            tlLoader.to(".loader-line span", {
+                width: "100%",
+                duration: 1.2,
+                ease: "power2.inOut"
+            });
         }
-    });
 
-    
-    tlLoader.to(".loader-line span", {
-        width: "100%",
-        duration: 1.2,
-        ease: "power2.inOut"
-    })
-    .to("#loader", {
-        yPercent: -100,
-        duration: 1.0,
-        ease: "expo.inOut"
-    })
-    .from(".hero-title span span", { 
-        y: 100,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 1.5,
-        ease: "expo.out"
-    }, "-=0.8");
+        tlLoader.to("#loader", {
+            yPercent: -100,
+            duration: 1.0,
+            ease: "expo.inOut"
+        });
 
-    // 2. Hero Orchestration
-    const heroTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 }});
-    heroTl.to(".hero-section .reveal-up", {
-        opacity: 1,
-        y: 0,
-        stagger: 0.3,
-        delay: 0.5,
-        clearProps: "transform"
-    });
-    tlLoader.add(heroTl, "-=1"); 
+        if (document.querySelector(".hero-title span span")) {
+            tlLoader.from(".hero-title span span", { 
+                y: 100,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 1.5,
+                ease: "expo.out"
+            }, "-=0.8");
+        }
+
+        // 2. Hero Orchestration
+        if (document.querySelector(".hero-section .reveal-up")) {
+            const heroTl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 }});
+            heroTl.to(".hero-section .reveal-up", {
+                opacity: 1,
+                y: 0,
+                stagger: 0.3,
+                delay: 0.5,
+                clearProps: "transform"
+            });
+            tlLoader.add(heroTl, "-=1"); 
+        }
+    } else {
+        document.body.style.overflow = 'auto';
+    }
 
     // 2. Stable Scroll Orchestration
     // Subtle Background Parallax
-    gsap.to(".parallax-bg", {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-            trigger: ".hero-section",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        }
-    });
+    if (document.querySelector(".parallax-bg")) {
+        gsap.to(".parallax-bg", {
+            yPercent: 15,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".hero-section",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    }
 
     // Navigation Multi-State Shift
     ScrollTrigger.create({
@@ -356,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     revealContainers.forEach(container => {
         const items = container.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-        if (items.length > 0) {
+        if (items.length > 0 && typeof gsap !== 'undefined') {
             gsap.to(items, {
                 y: 0,
                 x: 0,
@@ -376,18 +389,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Individual reveals for non-grid elements
     const individualReveals = document.querySelectorAll('.reveal-up:not(.grid-12 *), .reveal-left:not(.grid-12 *), .reveal-right:not(.grid-12 *)');
     individualReveals.forEach(el => {
-        gsap.to(el, {
-            y: 0,
-            x: 0,
-            opacity: 1,
-            duration: 1.2,
-            ease: "power4.out",
-            scrollTrigger: {
-                trigger: el,
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
-        });
+        if (typeof gsap !== 'undefined') {
+            gsap.to(el, {
+                y: 0,
+                x: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                }
+            });
+        }
     });
 
     // 3.5 Premium 3D Tilt Effect
@@ -667,21 +682,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
         stat.innerText = "0" + suffix;
         
-        ScrollTrigger.create({
-            trigger: stat,
-            start: "top 90%",
-            onEnter: () => {
-                gsap.to(stat, {
-                    innerText: target,
-                    duration: 2.5,
-                    ease: "power2.out",
-                    snap: { innerText: 1 },
-                    onUpdate: function() {
-                        stat.innerText = Math.ceil(this.targets()[0].innerText) + suffix;
-                    }
-                });
-            }
-        });
+        if (typeof gsap !== 'undefined') {
+            ScrollTrigger.create({
+                trigger: stat,
+                start: "top 90%",
+                onEnter: () => {
+                    gsap.to(stat, {
+                        innerText: target,
+                        duration: 2.5,
+                        ease: "power2.out",
+                        snap: { innerText: 1 },
+                        onUpdate: function() {
+                            stat.innerText = Math.ceil(this.targets()[0].innerText) + suffix;
+                        }
+                    });
+                }
+            });
+        }
     });
 
 // 10. SEO Content Freshness Automation
@@ -831,26 +848,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 18. Live Momentum Signal (Social Proof Injection)
-    function initLiveSignals() {
-        const signalWrap = document.createElement('div');
-        signalWrap.className = 'live-signal-pill mobile-hidden';
-        signalWrap.style = "position: fixed; bottom: 2rem; left: 2rem; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); padding: 0.8rem 1.5rem; border-radius: 50px; color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.8rem; z-index: 1000; border: 1px solid rgba(212,175,55,0.3); opacity: 0; transition: opacity 0.5s;";
-        
-        const dot = document.createElement('span');
-        dot.style = "width: 8px; height: 8px; background: #2ecc71; border-radius: 50%; box-shadow: 0 0 10px #2ecc71; animation: pulse 2s infinite;";
-        
-        const text = document.createElement('span');
-        const siteVisits = Math.floor(Math.random() * (15 - 8 + 1) + 8); // Random 8-15
-        text.innerText = `${siteVisits} FAMILIES VISITING SITE TODAY`;
-        
-        signalWrap.appendChild(dot);
-        signalWrap.appendChild(text);
-        document.body.appendChild(signalWrap);
-
-        setTimeout(() => signalWrap.style.opacity = '1', 3000);
-    }
-    initLiveSignals();
+    // 18. Live Momentum Signal (Social Proof Injection) - Removed for UI clarity
 
     // 19. Sovereign Knowledge Base (Wiki) Interactivity (SEO Phase 17)
     const wikiTriggers = document.querySelectorAll('.wiki-trigger');
@@ -960,33 +958,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (baseOpenModal) baseOpenModal(project);
     };
 
-    // 23. Live Demand Ticker (Social Proof - SEO Phase 20)
-    function initDemandTicker() {
-        const ticker = document.createElement('div');
-        ticker.className = 'demand-ticker mobile-hidden';
-        ticker.style = "position: fixed; bottom: 5rem; left: 2rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); padding: 0.6rem 1.2rem; border-radius: 4px; color: #fff; font-size: 0.6rem; letter-spacing: 0.1em; transform: translateX(-150%); transition: transform 0.8s var(--ease-editorial); z-index: 999; border: 1px solid rgba(255,255,255,0.1);";
-        document.body.appendChild(ticker);
-
-        const messages = [
-            "4 Families viewed Whistling Meadows recently",
-            "Misty Greens Plot availability updated: 8 Left",
-            "2 New Site Visit bookings from UAE today",
-            "High Demand detected for Hillside Villas"
-        ];
-
-        let index = 0;
-        const showTicker = () => {
-            ticker.innerText = messages[index].toUpperCase();
-            ticker.style.transform = "translateX(0)";
-            setTimeout(() => {
-                ticker.style.transform = "translateX(-150%)";
-                index = (index + 1) % messages.length;
-                setTimeout(showTicker, 15000);
-            }, 6000);
-        };
-        setTimeout(showTicker, 10000);
-    }
-    initDemandTicker();
+    // 23. Live Demand Ticker (Social Proof - SEO Phase 20) - Removed for UI clarity
 
     // 24. Tactical Exit-Intent Conversion (Lead Hub)
     let exitShown = false;
