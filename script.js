@@ -22,6 +22,203 @@
     window.addEventListener('load', () => setTimeout(dismissLoader, 1000));
 })();
 
+// --- Universal Modal & Enquiry Manager (Zero-Dependency Resilience) ---
+(function() {
+    const UniversalModalManager = {
+        init: function() {
+            this.setupMainEnquiryModal();
+            this.setupMasterPlanModal();
+            this.setupOpeningModal();
+            this.setupGlobalInterception();
+            console.log("🛡️ Modal Guardian: Active and Resilient");
+        },
+
+        setupMainEnquiryModal: function() {
+            const modal = document.getElementById('heritage-concierge');
+            const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
+            const closeBtn = document.getElementById('concierge-close');
+            const overlay = modal?.querySelector('.concierge-overlay');
+            const form = document.getElementById('enquiry-form-modal');
+
+            if (!modal) return;
+
+            const openModal = (project = 'General Township') => {
+                const title = modal.querySelector('.form-header h3');
+                const label = modal.querySelector('.form-header p');
+                const interest = modal.querySelector('select[name="interest"]');
+
+                if (title) title.innerHTML = `${project} <i>Callback</i>`;
+                if (label) label.innerHTML = `Get exclusive ${project} pricing & priority schedule.`;
+                if (interest) {
+                    const p = project.toLowerCase();
+                    if (p.includes('plots')) interest.value = 'plots';
+                    else if (p.includes('villas')) interest.value = 'villas';
+                    else if (p.includes('apartment')) interest.value = 'apartments';
+                }
+
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+
+                if (typeof gsap !== 'undefined') {
+                    gsap.from(modal.querySelector('.concierge-panel'), {
+                        y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
+                    });
+                }
+            };
+
+            const closeModal = () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+
+            openTriggers.forEach(t => t.addEventListener('click', () => {
+                const p = t.getAttribute('data-project') || 'General Township';
+                openModal(p);
+            }));
+
+            closeBtn?.addEventListener('click', closeModal);
+            overlay?.addEventListener('click', closeModal);
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    const phone = form.querySelector('input[name="phone"]');
+                    if (phone && !/^\d{10}$/.test(phone.value.trim())) {
+                        e.preventDefault();
+                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
+                    }
+                });
+            }
+        },
+
+        setupMasterPlanModal: function() {
+            const modal = document.getElementById('master-plan-modal');
+            const triggers = document.querySelectorAll('.open-master-plan');
+            const closeBtn = document.getElementById('master-plan-close');
+            const overlay = modal?.querySelector('.modal-overlay');
+            const form = document.getElementById('master-plan-form');
+
+            if (!modal) return;
+
+            const openModal = () => {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                if (typeof gsap !== 'undefined') {
+                    gsap.from(modal.querySelector('.modal-container'), { scale: 0.9, opacity: 0, duration: 0.6, ease: "expo.out" });
+                }
+            };
+
+            const closeModal = () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+
+            triggers.forEach(t => t.addEventListener('click', openModal));
+            closeBtn?.addEventListener('click', closeModal);
+            overlay?.addEventListener('click', closeModal);
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    const phone = form.querySelector('input[name="phone"]');
+                    if (phone && !/^\d{10}$/.test(phone.value.trim())) {
+                        e.preventDefault();
+                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
+                    }
+                });
+            }
+        },
+
+        setupOpeningModal: function() {
+            const modal = document.getElementById('main-opening-modal');
+            const closeBtn = document.getElementById('opening-close');
+            const form = document.getElementById('opening-intent-form');
+
+            if (!modal) return;
+
+            if (!localStorage.getItem('opening_modal_seen')) {
+                setTimeout(() => {
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    if (typeof gsap !== 'undefined') {
+                        gsap.from(modal.querySelector('.modal-card'), { y: 100, opacity: 0, duration: 1, ease: "expo.out" });
+                    }
+                }, 5000);
+            }
+
+            closeBtn?.addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                localStorage.setItem('opening_modal_seen', 'true');
+            });
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    const phone = form.querySelector('input[name="phone"]');
+                    if (phone && !/^\d{10}$/.test(phone.value.trim())) {
+                        e.preventDefault();
+                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
+                    } else {
+                        localStorage.setItem('opening_modal_seen', 'true');
+                    }
+                });
+            }
+        },
+
+        setupGlobalInterception: function() {
+            document.body.addEventListener('click', (e) => {
+                const btn = e.target.closest('button, a.btn, .btn');
+                if (!btn) return;
+                if (btn.id === 'concierge-open' || btn.classList.contains('open-enquiry-modal') || btn.classList.contains('open-master-plan')) return;
+                
+                const txt = (btn.innerText || '').toLowerCase();
+                const identifiesAsEnquiry = txt.includes('enquire') || txt.includes('enquiry') || txt.includes('brochure') || txt.includes('price list') || txt.includes('callback') || txt.includes('download');
+
+                if (identifiesAsEnquiry) {
+                    const project = btn.getAttribute('data-project') || 'General Township';
+                    const mainModal = document.getElementById('heritage-concierge');
+                    if (mainModal) {
+                        // Prevent link if needed
+                        if (btn.tagName === 'A' && (!btn.href || btn.href.endsWith('#'))) {
+                            e.preventDefault();
+                        }
+                        
+                        // Fallback open logic if classes are missing
+                        const title = mainModal.querySelector('.form-header h3');
+                        if (title) title.innerHTML = `${project} <i>Callback</i>`;
+                        mainModal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            });
+        },
+
+        showAlert: function(title, text, icon) {
+            if (typeof Swal !== 'undefined') {
+                Swal.fire({ title: title, text: text, icon: icon, confirmButtonColor: '#c5a059' });
+            } else {
+                alert(text);
+            }
+        }
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => UniversalModalManager.init());
+    } else {
+        UniversalModalManager.init();
+    }
+})();
+
+// --- Universal Utilities ---
+function trackEvent(eventName, eventDetails = {}) {
+    console.log(`📊 Tracking Event: ${eventName}`, eventDetails);
+    if (window.dataLayer) {
+        window.dataLayer.push({
+            'event': eventName,
+            ...eventDetails
+        });
+    }
+}
+
+
 // 1. ImageGuardian: Resilience Engine
 
 window.addEventListener('error', function(e) {
@@ -50,21 +247,17 @@ window.addEventListener('load', function(e) {
 document.addEventListener('DOMContentLoaded', () => {
     const loader = document.getElementById('loader');
     
-
-
+    // Ensure loader is dismissed if it still exists
     if (typeof gsap === 'undefined') {
-        console.error('Overture: GSAP not detected. Reverting to structural rendering.');
         if (loader) loader.style.display = 'none';
         return;
     }
 
     try {
         gsap.registerPlugin(ScrollTrigger);
-    } catch (e) {
-        console.warn('Overture: ScrollTrigger plugin failed to register.');
-    }
+    } catch (e) {}
 
-    // 0.5. Hero Text Stabilization (Pre-Timeline Split)
+    // 0.5. Hero Text Stabilization
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const text = heroTitle.innerHTML;
@@ -377,99 +570,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // 14. Sovereign Qualifier Logic (Consolidated with sendEnquiry)
     // Removed old submit listener to avoid duplication with the one below
 
-    // 15. Heritage Concierge Logic
-    const conciergeModal = document.getElementById('heritage-concierge');
-    const openConcierge = document.getElementById('concierge-open');
-    const closeConcierge = document.getElementById('concierge-close');
-    const responseArea = document.getElementById('concierge-response');
-    const prompts = document.querySelectorAll('.c-prompt');
-
-    if (openConcierge && conciergeModal) {
-        openConcierge.addEventListener('click', () => {
-            if (conciergeModal) {
-                conciergeModal.style.display = 'flex';
-                conciergeModal.classList.add('active');
-                gsap.from(".concierge-panel > *", { opacity: 0, x: 50, stagger: 0.1, duration: 0.8, ease: "expo.out" });
-            }
-        });
-
-        closeConcierge?.addEventListener('click', () => {
-            if (conciergeModal) {
-                conciergeModal.classList.remove('active');
-                setTimeout(() => { conciergeModal.style.display = 'none'; }, 600);
-            }
-        });
-
-        const responses = {
-            roi: "Forest Trails has documented a 21.2% CAGR over the last 15 years, significantly outperforming West Pune averages due to its integrated 190-acre scale.",
-            nri: "NRIs benefit from specialized wealth advisors, streamlined digital documentation in the Sovereign Vault, and dedicated property management for international estates.",
-            plots: "Misty Greens currently offers prime valley-view plots from 1,930 sq.ft. to 3,500 sq.ft. with NA certification and individual 7/12 extracts.",
-            visit: "I have alerted our private advisor. Would you like to schedule a virtual tour or an in-person viewing for Kothrud/Bavdhan next week?"
-        };
-
-        prompts.forEach(p => {
-            p.addEventListener('click', () => {
-                const type = p.dataset.type;
-                if (responseArea) {
-                    responseArea.innerHTML = `<p style="color: var(--pscl-gold); margin-top: 2rem;">Searching Heritage Archives...</p>`;
-                    setTimeout(() => {
-                        responseArea.innerHTML = `<div style="background: rgba(212,175,55,0.1); padding: 2rem; border-left: 2px solid var(--pscl-gold); margin-top: 2rem;">
-                            <p style="color: #fff; font-size: 0.95rem; line-height: 1.6; margin: 0;">${responses[type]}</p>
-                        </div>`;
-                    }, 800);
-                }
-            });
-        });
-    }
 
     // 16. Localized Authority Verification
     console.log("Sovereign Phase 39: Final Polish Active");
 
-    // 16.5 Global Enquiry Button Interceptor
-    // Catches ALL "Enquire" or "Brochure" buttons dynamically
-    document.body.addEventListener('click', function(e) {
-        const btn = e.target.closest('button, a.btn, .btn');
-        if (!btn) return;
-        
-        const txt = (btn.innerText || '').toLowerCase();
-        if ((txt.includes('enquire') || txt.includes('enquiry') || txt.includes('brochure') || txt.includes('price list') || txt.includes('download')) 
-            && !btn.classList.contains('open-enquiry-modal') 
-            && btn.id !== 'concierge-open' 
-            && btn.id !== 'concierge-close'
-            && !btn.closest('#heritage-concierge')
-            && !btn.closest('.ledger-modal')) {
-            
-            // Prevent default if it's an anchor tag aiming nowhere
-            if (btn.tagName === 'A' && (!btn.href || btn.href.endsWith('#'))) {
-                e.preventDefault();
-            }
-
-            const modalToOpen = document.querySelector('#heritage-concierge');
-            if (modalToOpen) {
-                // Determine context
-                const modalTitle = modalToOpen.querySelector('.form-header h3');
-                const projectInterest = modalToOpen.querySelector('select[name="interest"]');
-                const project = btn.getAttribute('data-project') || 'General Township';
-                
-                if (modalTitle) modalTitle.innerHTML = `${project} <i>Callback</i>`;
-                if (projectInterest) {
-                    if (project.includes('Plots') || txt.includes('plots')) projectInterest.value = 'plots';
-                    else if (project.includes('Villas') || txt.includes('villas')) projectInterest.value = 'villas';
-                    else if (project.includes('Apartment') || txt.includes('apartments')) projectInterest.value = 'apartments';
-                    else projectInterest.value = '';
-                }
-
-                modalToOpen.style.display = 'flex';
-                modalToOpen.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                if (typeof gsap !== 'undefined') {
-                    gsap.from(modalToOpen.querySelector('.concierge-panel'), {
-                        y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
-                    });
-                }
-            }
-        }
-    });
 
     // 17. Technical Ledger Logic
     const ledgerBtns = document.querySelectorAll('.ledger-trigger');
@@ -478,22 +582,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // removed per the user's request for the absolute simplest, most 
     // bulletproof solution. Forms will now submit natively via HTML action.
     
-    // Basic Phone Validation for forms before native submit
-    const enquiryForm = document.getElementById('enquiry-form-modal');
-    if (enquiryForm) {
-        enquiryForm.addEventListener('submit', function(e) {
-            const phoneInput = enquiryForm.querySelector('input[name="phone"]');
-            if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
-                e.preventDefault();
-                Swal.fire({
-                    title: 'Invalid Phone Number',
-                    text: 'Please enter a valid 10-digit mobile number.',
-                    icon: 'warning',
-                    confirmButtonColor: '#c5a059'
-                });
-            }
-        });
-    }
 
     const qualifierForm = document.getElementById('qualifier-form');
     if (qualifierForm) {
@@ -552,69 +640,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Open modal triggers
-    const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
-    const modal = document.querySelector('#heritage-concierge');
-    const closeBtn = document.querySelector('#concierge-close');
-    const modalTitle = modal ? modal.querySelector('.form-header h3') : null;
-    const projectInterest = modal ? modal.querySelector('select[name="interest"]') : null;
-    const modalLabel = modal ? modal.querySelector('.form-header p') : null;
-
-    if (openTriggers && modal) {
-        openTriggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                const project = trigger.getAttribute('data-project') || 'General Township';
-                
-                // Contextual Rewriting
-                if (modalTitle) modalTitle.innerHTML = `${project} <i>Callback</i>`;
-                if (modalLabel) modalLabel.innerHTML = `Get exclusive ${project} pricing & priority schedule.`;
-                
-                // Smart Interest Selection
-                if (projectInterest) {
-                    if (project.includes('Plots')) projectInterest.value = 'plots';
-                    else if (project.includes('Villas')) projectInterest.value = 'villas';
-                    else if (project.includes('Apartment')) projectInterest.value = 'apartments';
-                    else projectInterest.value = '';
-                }
-
-                // Inject Scarcity Trigger
-                const existingScarcity = modal.querySelector('.scarcity-alert');
-                if (existingScarcity) existingScarcity.remove();
-                
-                const scarcityMsg = project.includes('Plots') ? "ALERT: Only 4 Valley-View Plots Remaining" : "TRENDING: 12 enquiries in the last 24h";
-                const scarcityDiv = document.createElement('div');
-                scarcityDiv.className = 'scarcity-alert';
-                scarcityDiv.style = "background: rgba(183, 48, 42, 0.05); border: 1px solid rgba(183, 48, 42, 0.2); color: var(--pscl-red); padding: 1rem; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2rem; text-align: center; border-radius: 8px; position: relative; overflow: hidden;";
-                scarcityDiv.innerHTML = `<span style="position: relative; z-index: 1;">${scarcityMsg}</span><div class="scarcity-shimmer" style="position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(183, 48, 42, 0.1), transparent); width: 50%; transform: skewX(-20deg); animation: scarcity-shimmer 3s infinite;"></div>`;
-                
-                const formHeader = modal.querySelector('.form-header');
-                if (formHeader) formHeader.after(scarcityDiv);
-                
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-
-                // GSAP Entrance for Modal and Scarcity
-                gsap.from(modal.querySelector('.concierge-panel'), {
-                    y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
-                });
-                gsap.from(scarcityDiv, {
-                    x: -20, opacity: 0, duration: 1, delay: 0.3, ease: "power4.out"
-                });
-                
-                trackEvent('modal_open_contextual', { project: project });
-            });
-        });
-    }
-
-    if (closeBtn && modal) {
-        const closeModal = () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        };
-
-        closeBtn.addEventListener('click', closeModal);
-        document.querySelector('.concierge-overlay')?.addEventListener('click', closeModal);
-    }
     ledgerBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -689,17 +714,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Run freshness injection after a slight delay
     setTimeout(injectFreshnessSignals, 500);
 
-    // 11. Conversion Tracking Layer (SEO Phase 6)
-    function trackEvent(eventName, eventDetails = {}) {
-        console.log(`📊 Tracking Event: ${eventName}`, eventDetails);
-        // Prepare for GTM/GA4 if present
-        if (window.dataLayer) {
-            window.dataLayer.push({
-                'event': eventName,
-                ...eventDetails
-            });
-        }
-    }
 
     // Monitor Phone & WhatsApp Clicks
     document.querySelectorAll('a[href^="tel:"], a[href*="wa.me"]').forEach(link => {
@@ -989,97 +1003,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 25. Master Plan Lead Magnet Logic
-    const mpModal = document.getElementById('master-plan-modal');
-    const mpClose = document.getElementById('master-plan-close');
-    const mpTriggers = document.querySelectorAll('.master-plan-trigger');
-    const mpForm = document.getElementById('master-plan-form');
 
-    if (mpModal && mpTriggers.length > 0) {
-        mpTriggers.forEach(trigger => {
-            trigger.addEventListener('click', () => {
-                mpModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                gsap.from("#master-plan-modal .modal-container", { scale: 0.9, opacity: 0, duration: 0.6, ease: "expo.out" });
-                trackEvent('master_plan_modal_open');
-            });
-        });
-
-        if (mpClose) {
-            mpClose.addEventListener('click', () => {
-                mpModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            });
-        }
-
-        // Close on overlay click
-        mpModal.querySelector('.modal-overlay').addEventListener('click', () => {
-            mpModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Form submits natively, but we validate phone first
-        if (mpForm) {
-            mpForm.addEventListener('submit', function(e) {
-                const phoneInput = mpForm.querySelector('input[name="phone"]');
-                if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
-                    e.preventDefault();
-                    Swal.fire({
-                        title: 'Invalid Phone Number',
-                        text: 'Please enter a valid 10-digit mobile number.',
-                        icon: 'warning',
-                        confirmButtonColor: '#8C732F'
-                    });
-                }
-            });
-        }
-    }
-
-    // 14. Opening Modal Auto-Trigger (Phase 19)
-    const openingModal = document.getElementById('main-opening-modal');
-    if (openingModal) {
-        const modalClose = document.getElementById('opening-close');
-        const modalForm = document.getElementById('opening-intent-form');
-
-        // Delay reveal for impact
-        setTimeout(() => {
-            if (!localStorage.getItem('opening_modal_seen')) {
-                openingModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                
-                if (typeof gsap !== 'undefined') {
-                    gsap.from(".opening-modal-container", {
-                        y: 50,
-                        opacity: 0,
-                        duration: 1.2,
-                        ease: "expo.out"
-                    });
-                }
-            }
-        }, 5000);
-
-        modalClose?.addEventListener('click', () => {
-            openingModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            localStorage.setItem('opening_modal_seen', 'true');
-        });
-        
-        // Native Formsubmit handling allows the form to redirect naturally, but we validate first
-        if (modalForm) {
-            modalForm.addEventListener('submit', function(e) {
-                const phoneInput = modalForm.querySelector('input[name="phone"]');
-                if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
-                    e.preventDefault();
-                    Swal.fire({
-                        title: 'Invalid Phone Number',
-                        text: 'Please enter a valid 10-digit mobile number.',
-                        icon: 'warning',
-                        confirmButtonColor: '#8C732F'
-                    });
-                }
-            });
-        }
-    }
 
     // 15. Premium Mobile Slide-Out Overhaul
     const mobileToggle = document.querySelector('.mobile-toggle') || document.getElementById('mobile-nav-toggle');
