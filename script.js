@@ -1018,7 +1018,21 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = 'auto';
         });
 
-        // Form submits natively
+        // Form submits natively, but we validate phone first
+        if (mpForm) {
+            mpForm.addEventListener('submit', function(e) {
+                const phoneInput = mpForm.querySelector('input[name="phone"]');
+                if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Invalid Phone Number',
+                        text: 'Please enter a valid 10-digit mobile number.',
+                        icon: 'warning',
+                        confirmButtonColor: '#8C732F'
+                    });
+                }
+            });
+        }
     }
 
     // 14. Opening Modal Auto-Trigger (Phase 19)
@@ -1050,7 +1064,21 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('opening_modal_seen', 'true');
         });
         
-        // Native Formsubmit handling allows the form to redirect naturally
+        // Native Formsubmit handling allows the form to redirect naturally, but we validate first
+        if (modalForm) {
+            modalForm.addEventListener('submit', function(e) {
+                const phoneInput = modalForm.querySelector('input[name="phone"]');
+                if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
+                    e.preventDefault();
+                    Swal.fire({
+                        title: 'Invalid Phone Number',
+                        text: 'Please enter a valid 10-digit mobile number.',
+                        icon: 'warning',
+                        confirmButtonColor: '#8C732F'
+                    });
+                }
+            });
+        }
     }
 
     // 15. Premium Mobile Slide-Out Overhaul
