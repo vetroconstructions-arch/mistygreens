@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- LCP Image Preload (SEO Phase 7) -->
+    <link rel="preload" as="image" href="images/drone-aerial.webp" fetchpriority="high">
+
     <!-- DNS Prefetch & Preconnect for Speed (SEO Phase 5) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +21,14 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large">
-    <title>Top 5 Premium Townships in Pune West | Paranjape Schemes Forest Trails Bhugaon Township</title>
-    <meta name="description" content="Official site for Paranjape Plots Bhugaon at Forest Trails. Premium 190-acre township offering NA bungalow plots in Misty Greens, luxury forest villas, and 2/3/4 BHK apartments. Best property investment in West Pune near Kothrud & Bavdhan. Book a plot today!">
-    <meta name="keywords" content="पुण्यातील प्लॉट्स, भुगाव येथील प्रकल्प, परंजपे स्कीम्स फॉरेस्ट ट्रेल्स, बंगलो प्लॉट्स भुगाव, paranjape plots bhugaon, forest trails plots, forest trails na bungalow plots, na bungalow plots bhugaon, paranjape township plots, forest trails townsip plots, misty greens plots, kaleidoscope na bungalow plotting bhugaon, na plots bhigaon, kothrud na plots, paranjape schemes plots bhugaon, luxury township in Bhugaon, forest themed township Pune, premium homes near Mulshi road, luxury township Pune west, Forest Trails apartments, Kaleidoscope Forest Trails, Verandah Forest Trails, 2 BHK Forest Trails, 3 BHK Forest Trails, luxury apartments Bhugaon, Forest Trails villas, Forest Trails bungalows, luxury villas Forest Trails, Whistling Meadows Forest Trails, Whistling Meadows villas, Evergreen Forest Trails, luxury forest villas Bhugaon, homes near Chandani Chowk, luxury homes near Bavdhan, flats near Pashan, villas near Mulshi, property investment Bhugaon, Forest Trails price list, Forest Trails floor plan, Forest Trails brochure, residential plots Bhugaon, NA bungalow plots Pune west">
+    <title>Top 5 Premium Townships in Pune West | Forest Trails Review</title>
+    <meta name="description" content="Explore Paranjape Forest Trails Township, a 190-acre Integrated Township in Bhugaon Pune by Paranjape Schemes. Discover premium real estate in West Pune featuring NA bungalow plots, luxury villas, and 2, 3 & 4 BHK premium apartments.">
+    <meta name="keywords" content="Paranjape Forest Trails Township, Paranjape Schemes Bhugaon, Integrated Township in Bhugaon Pune, Premium Real Estate West Pune, NA Bungalow Plots Bhugaon, Misty Greens Plots Pune, Luxury Villas in Bhugaon">
     <link rel="canonical" href="https://paranjape-mistygreens.in/comparisons/premium-townships-pune-west/">
     
     <!-- OpenGraph / Social Metadata -->
-    <meta property="og:title" content="Paranjape Forest Trails | Premium NA Plots in Bhugaon, Pune">
-    <meta property="og:description" content="Experience the sovereign lifestyle at Forest Trails. 190 acres of greenery, 30+ amenities, and Pune's best NA bungalow plots.">
+    <meta property="og:title" content="Paranjape Schemes Forest Trails Bhugaon Township">
+    <meta property="og:description" content="Discover Paranjape Schemes Forest Trails Bhugaon Township. 190 acres of greenery, 30+ amenities, and Pune's best NA bungalow plots.">
     <meta property="og:image" content="images/hero-township.webp">
     <meta property="og:url" content="https://paranjape-mistygreens.in/">
     <meta property="og:locale" content="en_US">
@@ -453,7 +456,7 @@
         ],
         "uploadDate": "2026-03-01T08:00:00+05:30",
         "duration": "PT3M15S",
-        "embedUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "embedUrl": "https://www.youtube.com/embed/Cru0VXILBIE",
         "interactionStatistic": {
           "@type": "InteractionCounter",
           "interactionType": { "@type": "WatchAction" },
@@ -682,7 +685,7 @@
           "uploadDate": "2026-03-01T08:00:00+08:00",
           "duration": "PT3M45S",
           "contentUrl": "https://paranjape-mistygreens.in/videos/master-plan-walkthrough.mp4",
-          "embedUrl": "https://www.youtube.com/embed/placeholder",
+          "embedUrl": "https://www.youtube.com/embed/Cru0VXILBIE",
           "interactionStatistic": {
             "@type": "InteractionCounter",
             "interactionType": { "@type": "WatchAction" },
@@ -853,6 +856,10 @@
         .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 110%; background-size: cover; background-position: center; z-index: 0; }
         .hero-vignette { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(75deg, rgba(253, 252, 248, 0.6) 20%, transparent 100%); z-index: 1; }
         .hero-container { position: relative; z-index: 2; }
+        /* Prevent FOUC: hide off-canvas and sticky elements before style.css loads */
+        .mobile-menu { display: none; position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100%; background: var(--pscl-maroon); z-index: 2001; }
+        .mobile-menu.active { display: flex; right: 0; }
+        .secondary-silo-nav { opacity: 0; visibility: hidden; pointer-events: none; }
     </style>
 
     <!-- Async non-critical CSS -->
@@ -872,13 +879,12 @@
             <div class="opening-modal-content">
                 <h2>The Sovereign <i>Experience</i></h2>
                 <p>Unlock private pricing and exclusive site visit slots for the 190-acre Forest Trails township. Limited inventory available.</p>
-                
                 <form class="opening-form" id="opening-intent-form" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
     <input type="hidden" name="_next" value="https://paranjape-mistygreens.in/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
                     <input type="text" name="name" placeholder="Full Name *" required>
-                    <input type="tel" name="phone" placeholder="Phone Number *" required>
+                    <input type="tel" name="phone" id="opening-phone" placeholder="Phone Number *" required>
                     <button type="submit" class="opening-btn">SECURE EXCLUSIVE ACCESS</button>
                     <div style="font-size: 0.6rem; color: var(--pscl-gold); text-align: center; margin-top: 0.5rem; letter-spacing: 0.1em; opacity: 0.8;">
                         RERA AUTHORIZED &bull; 35+ YEAR LEGACY
@@ -900,19 +906,7 @@
     
     
     
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <!-- Architectural Navigation (Global Sync v1.7) -->
-<header class="header-main">
+    <header class="header-main">
         <div class="heritage-ticker">
             <div class="ticker-content">
                 <div class="ticker-item">New Milestone: 2,000+ Resident Families</div>
@@ -963,37 +957,30 @@
     </nav>
     </header>
 
+
     <!-- Project-Focused Context Navigation (Sticky) -->
     <div class="secondary-silo-nav context-nav-fixed">
         <div class="container">
-            <a href="/clusters-villas.html">NA BUNGALOW PLOTS</a>
-            <a href="/clusters-villas.html">FOREST VILLAS</a>
-            <a href="/clusters-apartments.html">LUXURY APARTMENTS</a>
-            <a href="/amenities-the-cliff-club.html">THE CLIFF CLUB</a>
+            <a href="clusters-villas.html">NA BUNGALOW PLOTS</a>
+            <a href="clusters-villas.html">FOREST VILLAS</a>
+            <a href="clusters-apartments.html">LUXURY APARTMENTS</a>
+            <a href="amenities-the-cliff-club.html">THE CLIFF CLUB</a>
             <a href="/amenities/equestrian-academy-pune/">AMENITIES</a>
         </div>
     </div>
 
     <main>
-    <!-- Breadcrumb UI (Phase 26 Consolidated) -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <div class="container">
-            <ol class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-separator">/</li>
-                <li class="breadcrumb-item active" aria-current="page">Premium Townships Pune West</li>
-            </ol>
-        </div>
-    </nav>
-    
-    
-    
-    
-    
-    
-    
-    
+        <!-- Breadcrumb UI (Phase 18) -->
         
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <div class="container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="https://paranjape-mistygreens.in/">Home</a></li>
+                    <li class="breadcrumb-separator">/</li>
+                    <li class="breadcrumb-item active" aria-current="page">Top Townships</li>
+                </ol>
+            </div>
+        </nav>
 
         <!-- Section: Hero Overture -->
         <section class="hero-section">
@@ -1002,13 +989,17 @@
             <div class="container hero-container">
                 <div class="hero-content" style="transform-style: preserve-3d; backface-visibility: hidden;">
                     <div class="hero-label-wrap" style="overflow: hidden; margin-bottom: 2rem;">
-                        <span class="hero-label reveal-up" style="display: block; font-size: 0.75rem; color: var(--pscl-gold); font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase;">A Sovereign Private Estate</span>
+                        <span class="hero-label reveal-up" style="display: block; font-size: 0.75rem; color: var(--pscl-gold); font-weight: 700; letter-spacing: 0.5em; text-transform: uppercase;">A Sovereign 190-Acre Integrated Township</span>
                     </div>
                     <h1 id="voice-ready-h1" class="hero-title reveal-up" style="line-height: 1.1; margin-bottom: 3.5rem;">
-                        <span style="display: block; font-size: 4.5rem; letter-spacing: -0.02em; font-weight: 800; color: var(--pscl-white);">Defining the </span>
-                        <span style="display: block; font-size: 5.5rem; font-family: var(--font-serif); font-style: italic; color: var(--pscl-gold); margin-top: -0.5rem;">Luxury Frontier.</span>
+                        <span style="display: block; font-size: 3.8rem; letter-spacing: -0.02em; font-weight: 800; color: var(--pscl-white);">Paranjape Forest Trails</span>
+                        <span style="display: block; font-size: 5rem; font-family: var(--font-serif); font-style: italic; color: var(--pscl-gold); margin-top: -0.5rem;">Township in Bhugaon.</span>
                     </h1>
-                    <p class="hero-subtitle reveal-up" style="font-weight: 500; font-size: 1.1rem; color: rgba(255,255,255,0.8);">190 Acres of Planned Township Excellence. <br> NA Bungalow Plots starting from ₹1.23 Cr*.</p>
+                    <p class="hero-subtitle reveal-up" style="font-weight: 500; font-size: 1.1rem; color: rgba(255,255,255,0.8);">Premium NA Bungalow Plots and Luxury Villas starting from ₹1.23 Cr*.</p>
+                    <div class="reveal-up" style="margin-top: 3rem; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+                        <button class="open-enquiry-modal" data-project="NA Bungalow Plots" style="background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; padding: 1.2rem 3rem; border: none; border-radius: 8px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 10px 30px rgba(107,13,13,0.4); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 16px 40px rgba(107,13,13,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 30px rgba(107,13,13,0.4)'">⬥ ENQUIRE NOW</button>
+                        <a href="#enquire" style="color: var(--pscl-gold); text-decoration: none; font-size: 0.75rem; letter-spacing: 0.2em; font-weight: 700; text-transform: uppercase; transition: all 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--pscl-gold)'">OR EXPLORE FIRST →</a>
+                    </div>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -1023,7 +1014,7 @@
                 <div class="grid-12" style="margin-bottom: 6rem;">
                     <div class="col-6">
                         <span class="section-label">A 190-Acre Integrated Verse</span>
-                        <h2 class="section-title">The <i>Forest Trails</i> NA Plotting Masterpiece.</h2>
+                        <h2 class="section-title"><i>Paranjape Forest Trails</i> NA Bungalow Plots.</h2>
                     </div>
                     <div class="col-6">
                         <p id="voice-ready-summary" style="font-size: 1.1rem; color: var(--pscl-muted); line-height: 1.8;">Secure your legacy at Paranjape Forest Trails, the premier 190-acre gated community featuring premium NA Bungalow plots in Bhugaon, Pune West. Experience the perfect harmony of nature and elite infrastructure.</p>
@@ -1077,7 +1068,7 @@
                         <div class="step-image" style="flex: 0 0 280px; height: 180px; overflow: hidden; border-radius: 0.5rem;">
                         <picture>
                             
-                            <source srcset="images/township-aerial.webp" type="image/webp">
+                            
                             <img loading="lazy" decoding="async" src="images/township-aerial.webp" alt="High-Altitude Drone Aerial View of 190-Acre Paranjape Forest Trails Township in Bhugaon West Pune - Featuring Luxury Villas and NA Bungalow Plots" width="800" height="450" style="width: 100%; height: 100%; object-fit: cover;">
                         </picture>
                         </div>
@@ -1093,7 +1084,7 @@
                         <div class="step-image" style="flex: 0 0 280px; height: 180px; overflow: hidden; border-radius: 0.5rem;">
                         <picture>
                             
-                            <source srcset="images/cliff-club.webp" type="image/webp">
+                            
                             <img loading="lazy" decoding="async" src="images/cliff-club.webp" alt="The Cliff Club Lifestyle Hub at Paranjape Forest Trails Bhugaon - Featuring Olympic Size Pool and Fine Dining Amenities" width="800" height="450" style="width: 100%; height: 100%; object-fit: cover;">
                         </picture>
                         </div>
@@ -1183,7 +1174,7 @@
                 <div class="grid-12" style="margin-bottom: 8rem;">
                     <div class="col-8 reveal-left">
                         <span class="section-label">Integrated Scale</span>
-                        <h2 class="section-title">The 190-Acre <br> <i>Sovereign</i> Township.</h2>
+                        <h2 class="section-title">The 190-Acre <br> <i>Bhugaon</i> Township.</h2>
                         <p style="font-size: 1.2rem; line-height: 1.8; color: var(--pscl-dark);">Forest Trails is not just a development; it is a self-sustaining ecosystem designed for across-generational legacy. From the 30,000+ trees to the 3-tier security grid, every inch of this 190-acre estate is curated for excellence.</p>
                     </div>
                 </div>
@@ -1233,11 +1224,7 @@
                     <div class="col-4 reveal-up cluster-item">
                             <div class="cluster-image" style="height: 250px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--pscl-maroon); position: relative;">
                                 <div class="urgency-badge" style="background: var(--pscl-red); color: #fff; font-size: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 2px; letter-spacing: 0.1em; font-weight: 700; position: absolute; top: 1rem; right: 1rem; z-index: 10;">HIGH DEMAND</div>
-                                <picture>
-                                    
-                                    <source srcset="images/misty-greens-gate.webp" type="image/webp">
-                                    <img loading="lazy" decoding="async" src="images/misty-greens-gate.webp" alt="Entrance Gateway to Misty Greens NA Bungalow Plots at Forest Trails Bhugaon - Secure Gated Plotting Community in West Pune" style="width: 100%; height: 100%; object-fit: cover;">
-                                </picture>
+                                <img loading="lazy" decoding="async" src="images/misty-greens-gate-day.webp" alt="Misty Greens NA Bungalow Plots Grand Entrance Gate at Paranjape Forest Trails Bhugaon Township Pune - 190 Acre Topography View with Lake and Hills near Bavdhan" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <span class="meta-label" style="color: var(--pscl-maroon); font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em;">MISTY GREENS</span>
                             <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 1rem 0;">Misty Greens Villa Plots</h3>
@@ -1257,7 +1244,7 @@
                     <div class="col-4 reveal-up cluster-item" style="transition-delay: 0.1s;">
                             <div class="cluster-image" style="height: 250px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--pscl-maroon); position: relative;">
                                 <div class="urgency-badge" style="background: var(--pscl-red); color: #fff; font-size: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 2px; letter-spacing: 0.1em; font-weight: 700; position: absolute; top: 1rem; right: 1rem; z-index: 10;">LIMITED INVENTORY</div>
-                                <img loading="lazy" decoding="async" src="images/cascade-villas.webp" alt="Cascade and Crescent Heritage Luxury Villas at Paranjape Forest Trails Bhugaon - 3 4 5 BHK Bespoke Villas with Landscaped Gardens and Private Pool West Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img loading="lazy" decoding="async" src="images/villas-exterior-1.webp" alt="Cascade and Crescent Heritage Luxury Villas at Paranjape Forest Trails Bhugaon Township - 3, 4, 5 BHK Bespoke Villas Exterior View West Pune" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <span class="meta-label" style="color: var(--pscl-maroon); font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em;">CASCADE & CRESCENT</span>
                             <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 1rem 0;">Whistling Meadows Villas</h3>
@@ -1271,14 +1258,14 @@
                             </div>
                             <div class="enclave-mesh" style="margin-top: 2rem; display: flex; gap: 1.5rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">
                                 <a href="#clusters" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">EXPLORE PLOTS →</a>
-                                <a href="#clusters" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">VIEW APARTMENTS →</a>
+                                <a href="/premium-apartments-forest-trails/" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">VIEW APARTMENTS →</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-4 reveal-up cluster-item" style="transition-delay: 0.2s;">
                             <div class="cluster-image" style="height: 250px; overflow: hidden; margin-bottom: 2rem; border: 1px solid var(--pscl-maroon); position: relative;">
                                 <div class="urgency-badge" style="background: var(--pscl-red); color: #fff; font-size: 0.6rem; padding: 0.3rem 0.6rem; border-radius: 2px; letter-spacing: 0.1em; font-weight: 700; position: absolute; top: 1rem; right: 1rem; z-index: 10;">PREMIER LAUNCH</div>
-                                <img loading="lazy" decoding="async" src="images/cove-duet.webp" alt="The Cove Duplex Villas at Paranjape Forest Trails Bhugaon - Exclusive 3 and 4 BHK Duet Homes in 190 Acre Gated Township West Pune" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img loading="lazy" decoding="async" src="images/villas-pool-night.webp" alt="The Cove Duplex Villas Private Pool at Paranjape Forest Trails Bhugaon Township - Exclusive Night Architectural Render West Pune" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <span class="meta-label" style="color: var(--pscl-maroon); font-weight: 700; font-size: 0.65rem; letter-spacing: 0.2em;">THE COVE</span>
                             <h3 style="font-family: var(--font-heading); font-size: 1.8rem; margin: 1rem 0;">Duet Villas</h3>
@@ -1291,8 +1278,8 @@
                                 <button class="ledger-trigger open-enquiry-modal" aria-label="View Cove Duet villas specs" data-target="ledger-cove" data-project="The Cove Duet Villas" style="background: var(--pscl-maroon); color: white; border: none; padding: 0.5rem 0.8rem; font-size: 0.65rem; letter-spacing: 0.1em; cursor: pointer; text-transform: uppercase; font-weight: 700;">Tech Ledger</button>
                             </div>
                             <div class="enclave-mesh" style="margin-top: 2rem; display: flex; gap: 1.5rem; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">
-                                <a href="#clusters" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">EXPLORE PLOTS →</a>
-                                <a href="#clusters" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">VIEW VILLAS →</a>
+                                <a href="/na-bungalow-plots-bhugaon/" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">EXPLORE PLOTS →</a>
+                                <a href="/na-bungalow-plots-bhugaon/" style="font-size: 0.6rem; color: var(--pscl-muted); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.3s;" onmouseover="this.style.borderBottom='1px solid var(--pscl-red)'" onmouseout="this.style.borderBottom='1px solid transparent'">VIEW VILLAS →</a>
                             </div>
                         </div>
                     </div>
@@ -1379,7 +1366,7 @@
         <section class="section opportunity-section" style="background: var(--pscl-gray);">
             <div class="container text-center">
                 <span class="section-label">Investment Blueprint</span>
-                <h2 class="section-title">Why <i>NA Plots</i> in West Pune?</h2>
+                <h2 class="section-title">Why Invest in <i>NA Plots</i> in Pune West?</h2>
                 <div class="grid-12" style="margin-top: 5rem; text-align: left;">
                     <div class="col-4 reveal-up">
                         <div class="accent-line" style="width: 40px; margin-bottom: 1.5rem;"></div>
@@ -1557,7 +1544,7 @@
                         <p style="color: var(--pscl-muted);">Your definitive destination for West Pune infrastructure updates, school admissions, and township events.</p>
                     </div>
                     <div class="col-4 text-right reveal-right">
-                        <a href="#intel-wiki" class="btn btn-outline" style="font-size: 0.65rem;">RESEARCH ARCHIVE</a>
+                        <a href="/property-investment-bhugaon-pune/" class="btn btn-outline" style="font-size: 0.65rem;">RESEARCH ARCHIVE</a>
                     </div>
                 </div>
 
@@ -1568,7 +1555,7 @@
                             <span style="font-size: 0.6rem; letter-spacing: 0.15em; color: var(--pscl-gold); font-weight: 700;">INFRASTRUCTURE 2026</span>
                             <h4 style="font-family: var(--font-heading); margin: 1.5rem 0; line-height: 1.4;">PMRDA Ring Road: Bhugaon Interchange Progress Report</h4>
                             <p style="font-size: 0.8rem; color: var(--pscl-muted); flex-grow: 1;">Excavation for the 10km stretch connecting Forest Trails to Hinjawadi Phase 3 is 65% complete. Completion targeted for Dec 2026.</p>
-                            <a href="#" style="font-size: 0.7rem; font-weight: 700; color: var(--pscl-red); margin-top: 2rem; display: inline-block; text-decoration: none;">READ FULL REPORT →</a>
+                            <a href="/property-investment-bhugaon-pune/" style="font-size: 0.7rem; font-weight: 700; color: var(--pscl-red); margin-top: 2rem; display: inline-block; text-decoration: none;">READ FULL REPORT →</a>
                         </div>
                     </div>
                     <!-- News Item 2 -->
@@ -1577,7 +1564,7 @@
                             <span style="font-size: 0.6rem; letter-spacing: 0.15em; color: var(--pscl-gold); font-weight: 700;">EDUCATION HUB</span>
                             <h4 style="font-family: var(--font-heading); margin: 1.5rem 0; line-height: 1.4;">SSRVM Bhugaon: Admissions Open for Academic Year 26-27</h4>
                             <p style="font-size: 0.8rem; color: var(--pscl-muted); flex-grow: 1;">The world-class Art of Living school within Forest Trails announced its admission window. Priority given to township residents.</p>
-                            <a href="#" style="font-size: 0.7rem; font-weight: 700; color: var(--pscl-red); margin-top: 2rem; display: inline-block; text-decoration: none;">ADMISSION GUIDE →</a>
+                            <a href="/location/nearby-schools-hospitals/" style="font-size: 0.7rem; font-weight: 700; color: var(--pscl-red); margin-top: 2rem; display: inline-block; text-decoration: none;">ADMISSION GUIDE →</a>
                         </div>
                     </div>
                     <!-- Infrastructure Tracker -->
@@ -1629,7 +1616,7 @@
                                 <div class="event-info">
                                     <h5 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem;">Sunset Equestrian Showcase</h5>
                                     <p style="font-size: 0.75rem; color: var(--pscl-muted);">Elite horse-riding trials and coaching session at The Cliff Club.</p>
-                                    <a href="#visit" class="text-link" style="font-size: 0.6rem; font-weight: 800; color: var(--pscl-maroon); letter-spacing: 0.1em; margin-top: 1rem; display: inline-block;">BOOK VIEWING PASS</a>
+                                    <a href="/investment/rental-yield-bhugaon/" class="text-link" style="font-size: 0.6rem; font-weight: 800; color: var(--pscl-maroon); letter-spacing: 0.1em; margin-top: 1rem; display: inline-block;">BOOK VIEWING PASS</a>
                                 </div>
                             </div>
                             <div class="event-item" style="padding: 4rem; display: flex; align-items: center; gap: 3rem;">
@@ -1640,7 +1627,7 @@
                                 <div class="event-info">
                                     <h5 style="font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 0.5rem;">Investment & ROI Workshop</h5>
                                     <p style="font-size: 0.75rem; color: var(--pscl-muted);">Masterclass on Bhugaon property appreciation and PMRDA land laws.</p>
-                                    <a href="#visit" class="text-link" style="font-size: 0.6rem; font-weight: 800; color: var(--pscl-maroon); letter-spacing: 0.1em; margin-top: 1rem; display: inline-block;">REGISTER INTEREST</a>
+                                    <a href="/investment/appreciation-forecast-2030/" class="text-link" style="font-size: 0.6rem; font-weight: 800; color: var(--pscl-maroon); letter-spacing: 0.1em; margin-top: 1rem; display: inline-block;">REGISTER INTEREST</a>
                                 </div>
                             </div>
                         </div>
@@ -1665,7 +1652,7 @@
                 <div class="video-hero reveal-up" style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.5);">
                     <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; background: #000;">
                         <iframe 
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&rel=0&modestbranding=1" 
+                            src="https://www.youtube.com/embed/Cru0VXILBIE?autoplay=0&rel=0&modestbranding=1" 
                             title="Paranjape Forest Trails Masterplan & Drone Tour" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -1794,8 +1781,8 @@
                 <div class="grid-12" style="margin-bottom: 6rem;">
                     <div class="col-6 reveal-left">
                         <span class="section-label" style="color: var(--pscl-gold);">Authority Wiki</span>
-                        <h2 class="section-title" style="color: #fff;">Real Estate <i>Intelligence</i>.</h2>
-                        <p style="color: rgba(255,255,255,0.6);">Unconditional expertise on West Pune land laws, RERA protocols, and investment logic.</p>
+                        <h2 class="section-title" style="color: #fff;">The <i>Township</i> Encyclopedia.</h2>
+                        <p style="color: rgba(255,255,255,0.6);">Authoritative intelligence on West Pune land dynamics, RERA protocols, and the 190-acre Forest Trails master plan.</p>
                     </div>
                 </div>
 
@@ -1851,9 +1838,9 @@
                                 </div>
                             </div>
                             <div class="wiki-item" style="border-bottom: 1px solid rgba(255,255,255,0.1); padding: 2rem 0;">
-                                <h4 class="wiki-trigger" style="font-family: var(--font-heading); color: var(--pscl-gold); cursor: pointer; display: flex; justify-content: space-between;">09. ROI & APPRECIATION: MISTY GREENS <span style="font-weight: 300;">+</span></h4>
+                                <h4 class="wiki-trigger" style="font-family: var(--font-heading); color: var(--pscl-gold); cursor: pointer; display: flex; justify-content: space-between;">09. ROI & APPRECIATION: THE BHUGAON HUB <span style="font-weight: 300;">+</span></h4>
                                 <div class="wiki-content" style="max-height: 0; overflow: hidden; transition: all 0.5s ease; color: rgba(255,255,255,0.7); font-size: 0.9rem;">
-                                    <p style="padding-top: 1.5rem;">The NA bungalow plots at Misty Greens are positioned for maximum capital appreciation. As Plot-ready inventory shrinks in West Pune, the resale and development value of these sanctioned, clear-title plots is projected to grow by 15-20% annually.</p>
+                                    <p style="padding-top: 1.5rem;">Paranjape Forest Trails has recorded a 21.2% CAGR over the last decade. With the 2026 PMRDA Ring Road and Chandni Chowk multi-level flyover now operational, the micro-market is witnessing a secondary surge in "Green-Asset" demand.</p>
                                 </div>
                             </div>
                         </div>
@@ -2150,7 +2137,7 @@
         <section class="section occupancy-section" style="background: var(--pscl-white); color: #000; padding: 10rem 0;">
             <div class="container text-center">
                 <span class="section-label" style="color: var(--pscl-red);">The Proof of Excellence</span>
-                <h2 class="section-title" style="color: #000;">A Legacy <i>Already</i> Living.</h2>
+                <h2 class="section-title" style="color: #000;"><i>Paranjape Schemes</i> Legacy in Bhugaon.</h2>
                 <p style="color: #444; max-width: 800px; margin: 0 auto 5rem;">Don't wait for a community to form. Join over <strong>500+ families</strong> already living their sovereign dream at Forest Trails. From morning jogs to weekend festivals, the life you've imagined is already happening here.</p>
                 
                 <div class="occupancy-stats grid-12">
@@ -2346,11 +2333,14 @@
                             </div>
                             <span id="step-count" style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted);">STEP 01/04</span>
                         </div>
-
                         <form class="sovereign-survey" id="qualifier-form" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
     <input type="hidden" name="_next" value="https://paranjape-mistygreens.in/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
+                            <input type="hidden" name="interest" value="Not specified">
+                            <input type="hidden" name="magnitude" value="Not specified">
+                            <input type="hidden" name="lifestyle" value="Not specified">
+                            <input type="hidden" name="_subject" value="New Qualifier Form Lead - Forest Trails">
                             <!-- Step 1: Interest Level -->
                             <div class="survey-step active" data-step="1">
                                 <label style="display: block; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 2rem; color: var(--pscl-gold);">01. DEFINE YOUR INTEREST</label>
@@ -2408,11 +2398,11 @@
                             <div class="survey-step" data-step="4">
                                 <label style="display: block; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 2rem; color: var(--pscl-gold);">04. SECURE YOUR ADVISORY</label>
                                 <div class="form-inputs" style="margin-top: 2rem;">
-                                    <input type="text" name="name" aria-label="Full Name" placeholder="FULL NAME" required style="width: 100%; padding: 1.5rem; background: #080808; border: 1px solid #222; color: #fff; margin-bottom: 1rem; font-family: inherit;">
-                                    <input type="tel" name="phone" aria-label="Mobile Number" placeholder="PRIVATE MOBILE" required style="width: 100%; padding: 1.5rem; background: #080808; border: 1px solid #222; color: #fff; margin-bottom: 1rem; font-family: inherit;">
-                                    <input type="email" name="email" aria-label="Email Address" placeholder="EMAIL ADDRESS (OPTIONAL)" style="width: 100%; padding: 1.5rem; background: #080808; border: 1px solid #222; color: #fff; font-family: inherit;">
+                                    <input type="text" name="name" aria-label="Full Name" placeholder="FULL NAME" required style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; margin-bottom: 1rem; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
+                                    <input type="tel" name="phone" id="qualifier-phone" aria-label="Mobile Number" placeholder="PRIVATE MOBILE" required style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; margin-bottom: 1rem; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
+                                    <input type="email" name="email" aria-label="Email Address" placeholder="EMAIL ADDRESS (OPTIONAL)" style="width: 100%; padding: 1.3rem 1.5rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: inherit; border-radius: 10px; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); font-size: 0.85rem; letter-spacing: 0.05em;" onfocus="this.style.borderColor='var(--pscl-gold)';this.style.background='rgba(140,115,47,0.08)';this.style.boxShadow='0 0 0 3px rgba(140,115,47,0.1)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)';this.style.background='rgba(255,255,255,0.04)';this.style.boxShadow='none'">
                                 </div>
-                                <button type="submit" class="btn-primary open-enquiry-modal" style="width: 100%; margin-top: 3rem; padding: 1.5rem; letter-spacing: 0.4em;">REVEAL LEGACY PORTFOLIO</button>
+                                <button type="submit" class="enquiry-submit-btn" style="width: 100%; margin-top: 3rem; padding: 1.5rem 2rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 10px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 30px rgba(107,13,13,0.4); position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 14px 40px rgba(107,13,13,0.5)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 30px rgba(107,13,13,0.4)'">⬥ SUBMIT ENQUIRY ⬥</button>
                             </div>
                         </form>
 
@@ -2449,7 +2439,7 @@
                     </a>
                     <a href="blogs/kaleidoscope-na-bungalow-plots/index.html" class="insight-card reveal-up" style="text-decoration: none; color: inherit; transition-delay: 0.1s;">
                         <div style="overflow: hidden; border-radius: 4px; margin-bottom: 2rem; aspect-ratio: 16/9;">
-                            <img src="images/cascade-villas.webp" alt="Kaleidoscope Spotlight" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;" loading="lazy" decoding="async">
+                            <img src="images/villas-courtyard.webp" alt="Luxury Villa Landscaped Courtyard and Gardens at Paranjape Forest Trails Bhugaon Township Pune - Custom Investment Portfolio" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;" loading="lazy" decoding="async">
                         </div>
                         <span style="font-size: 0.7rem; letter-spacing: 0.2em; color: var(--pscl-maroon); font-weight: 700; text-transform: uppercase;">Enclave Spotlight</span>
                         <h4 style="font-family: var(--font-heading); font-size: 1.5rem; margin-top: 1rem;">Kaleidoscope: Curating Luxury in Forest Trails</h4>
@@ -2465,7 +2455,7 @@
                 
                 <div class="grid-12 blog-card-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; margin-top: 4rem;">
                     <a href="blogs/forest-trails-na-bungalow-plots-advantage/index.html" class="insight-card reveal-up" style="text-decoration: none; color: inherit; display: flex; gap: 2rem; align-items: center; background: var(--pscl-gray); padding: 2rem;">
-                        <img src="images/cliff-club.webp" alt="Township Advantage" style="width: 150px; height: 100px; object-fit: cover; border-radius: 4px;" loading="lazy" decoding="async">
+                        <img src="images/cliff-club-pool-night.webp" alt="The Cliff Club Premium Swimming Pool at Night - Paranjape Forest Trails Bhugaon Township Luxury Amenities Pune" style="width: 150px; height: 100px; object-fit: cover; border-radius: 4px;" loading="lazy" decoding="async">
                         <div>
                             <span style="font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-maroon); font-weight: 700; text-transform: uppercase;">Strategy</span>
                             <h4 style="font-family: var(--font-heading); font-size: 1.3rem; margin-top: 0.5rem;">The Forest Trails Township Advantage</h4>
@@ -2515,28 +2505,28 @@
                             <span class="vault-label" style="text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted); display: block; margin-bottom: 1rem;">Legal Compliance</span>
                             <h5 style="color: var(--pscl-dark); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.1rem;">NA Plot 7/12 Extract</h5>
                             <p style="color: var(--pscl-muted); font-size: 0.75rem; margin-bottom: 1.5rem;">Verified Clear Title Certificate</p>
-                            <a href="#" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VERIFY STATUS</a>
+                            <a href="/legal/rera-compliance-guide/" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VERIFY STATUS</a>
                         </div>
                         
                         <div class="vault-item" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem; transition: all 0.4s ease; border-left: 4px solid var(--pscl-maroon);">
                             <span class="vault-label" style="text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted); display: block; margin-bottom: 1rem;">Sanction Index</span>
                             <h5 style="color: var(--pscl-dark); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.1rem;">Layout Sanction Order</h5>
                             <p style="color: var(--pscl-muted); font-size: 0.75rem; margin-bottom: 1.5rem;">PMRDA Approved Blueprints</p>
-                            <a href="#" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">DOWNLOAD PDF</a>
+                            <a href="#" class="vault-link master-plan-trigger" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">DOWNLOAD PDF</a>
                         </div>
 
                         <div class="vault-item" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem; transition: all 0.4s ease; border-left: 4px solid var(--pscl-gold);">
                             <span class="vault-label" style="text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted); display: block; margin-bottom: 1rem;">RERA Registry</span>
                             <h5 style="color: var(--pscl-dark); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.1rem;">Micro-Project RERA Nos.</h5>
                             <p style="color: var(--pscl-muted); font-size: 0.75rem; margin-bottom: 1.5rem;">Official Compliance Registry</p>
-                            <a href="#" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VIEW REGISTRY</a>
+                            <a href="/legal/rera-compliance-guide/" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VIEW REGISTRY</a>
                         </div>
 
                         <div class="vault-item" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 2.5rem; transition: all 0.4s ease; border-left: 4px solid var(--pscl-maroon);">
                             <span class="vault-label" style="text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pscl-muted); display: block; margin-bottom: 1rem;">Technical Asset</span>
                             <h5 style="color: var(--pscl-dark); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.1rem;">Phase Milestones</h5>
                             <p style="color: var(--pscl-muted); font-size: 0.75rem; margin-bottom: 1.5rem;">Handover Progress Deck</p>
-                            <a href="#" class="vault-link" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VIEW LIVE FEED</a>
+                            <a href="#" class="vault-link open-enquiry-modal" data-project="Status Verification" style="font-size: 0.65rem; letter-spacing: 0.2em; color: var(--pscl-red); font-weight: 700; text-decoration: none;">VIEW LIVE FEED</a>
                         </div>
 
                         <div class="vault-item" style="background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 3rem; transition: all 0.4s ease; grid-column: span 2; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid var(--pscl-red);">
@@ -2544,7 +2534,7 @@
                                 <h5 style="color: var(--pscl-dark); font-family: var(--font-heading); margin-bottom: 0.5rem; font-size: 1.4rem;">Masterplan Transparency</h5>
                                 <p style="color: var(--pscl-muted); font-size: 0.85rem;">Download the official 190-acre Integrated Township Roadmap.</p>
                             </div>
-                            <a href="#" class="vault-btn" style="background: var(--pscl-red); color: #fff; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">REQUEST ACCESS</a>
+                            <a href="#" class="vault-btn master-plan-trigger" style="background: var(--pscl-red); color: #fff; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">REQUEST ACCESS</a>
                         </div>
                     </div>
                 </div>
@@ -2594,7 +2584,7 @@
     </div>
 
     <!-- The Enquiry Form: Lead Capture -->
-    <div class="concierge-trigger" id="concierge-open" role="button" aria-label="Open Enquiry Form">
+    <div class="concierge-trigger open-enquiry-modal" id="concierge-open" role="button" aria-label="Open Enquiry Form" data-project="General Township" style="cursor: pointer;">
         <div class="concierge-icon">
             <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2604,25 +2594,6 @@
     </div>
 
     
-
-    <!-- Semantic SEO Authority: Hidden Content Blocks -->
-    
-
-        <!-- Section: Construction Momentum Hub (Freshness Signal - SEO Phase 19) -->
-        <section class="section construction-momentum" id="progress" style="background: #fff; padding: 10rem 0;">
-            <div class="container">
-                <div class="grid-12" style="margin-bottom: 6rem;">
-                    <div class="col-8 reveal-left">
-                        <span class="section-label">Technical Freshness</span>
-                        <h2 class="section-title">Construction <i>Momentum</i>.</h2>
-                        <p style="color: var(--pscl-muted);">Real-time pulse of the 190-acre master plan. Our development cycles never sleep.</p>
-                    </div>
-                    <div class="col-4 text-right reveal-right">
-                        <div class="last-updated-pill" style="display: inline-block; background: var(--pscl-gray); padding: 0.8rem 1.5rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;">
-                            STATUS AS OF: <span id="current-momentum-date" style="color: var(--pscl-maroon);">MARCH 2026</span>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="grid-12" style="gap: 3rem;">
                     <div class="col-4 reveal-up">
@@ -2692,35 +2663,11 @@
 
         <!-- Section: The Handover Ledger (Visual Trust - SEO Phase 19) -->
         <section class="section handover-ledger" id="delivery" style="background: var(--pscl-dark); padding: 8rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
-            <!-- AI-Ready Inventory Fact Blob (Scarcity Logic - SEO Phase 25) -->
-            
-
-            <!-- Intent-Specific AI Fact Blobs (Edge Fact-Injection - SEO Phase 28) -->
-            
-
-            
-            
-
-            
-            
-
-            
-
-            
-
-            
-
-            
-
-            <!-- SEO Phase 32: Marathi Regional AI Fact Blob -->
-            
-
-            
-
-            <!-- SEO Phase 33: Voice Search Optimization (VSO) Summary & Fact Blob -->
-            
-
-            
+                (function() {
+                    const voiceBlob = document.getElementById('ai-fact-voice');
+                    if (voiceBlob) voiceBlob.style.display = 'none'; 
+                })();
+            </script>
 
             <div class="container">
                 <div class="grid-12" style="align-items: center;">
@@ -2914,13 +2861,14 @@
             </div>
         </section>
 
+    <!-- Township Encyclopedia Footer (Phase 2 & 3: "Masterpiece" Strategy) -->
     <footer class="footer-main" style="background: #0a0a0a; padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <div class="grid-12" style="margin-bottom: 4rem;">
                 <div class="col-6">
-                    <h3 style="color: var(--pscl-gold); font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem;">Paranjape Schemes</h3>
+                    <h3 style="color: var(--pscl-gold); font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 1.5rem; line-height: 1.2;">Paranjape Schemes Forest Trails Bhugaon Township</h3>
                     <p style="color: rgba(255,255,255,0.6); line-height: 1.8; font-size: 0.85rem; max-width: 400px;">
-                        <strong>Site Address: Paranjape Forest Trails</strong><br>
+                        <strong>Address:</strong><br>
                         Paud Road, Bhugaon, Pune - 412115.
                     </p>
                     <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
@@ -2941,10 +2889,10 @@
                 <div class="footer-col">
                     <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">The Township</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="/paranjape-schemes-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">190-Acre Master Plan</a></li>
-                        <li><a href="/about-paranjape-schemes/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">PSCL 35+ Year Trust</a></li>
-                        <li><a href="/township-facilities.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Infrastructure Node</a></li>
-                        <li><a href="/sustainability/green-township-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Forest Conservation</a></li>
+                        <li><a href="paranjape-schemes-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">190-Acre Master Plan</a></li>
+                        <li><a href="about-paranjape-schemes/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">PSCL 35+ Year Trust</a></li>
+                        <li><a href="township-facilities.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Infrastructure Node</a></li>
+                        <li><a href="sustainability/green-township-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Forest Conservation</a></li>
                     </ul>
                 </div>
 
@@ -2952,10 +2900,10 @@
                 <div class="footer-col">
                     <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Clusters</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="/misty-greens-plots-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Misty Greens Plots</a></li>
-                        <li><a href="/whistling-meadows-villas-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Whistling Meadows</a></li>
-                        <li><a href="/kaleidoscope-apartments-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Kaleidoscope Flats</a></li>
-                        <li><a href="/verandah-luxury-flats-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Verandah Luxury</a></li>
+                        <li><a href="misty-greens-plots-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Misty Greens Plots</a></li>
+                        <li><a href="whistling-meadows-villas-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Whistling Meadows</a></li>
+                        <li><a href="kaleidoscope-apartments-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Kaleidoscope Flats</a></li>
+                        <li><a href="verandah-luxury-flats-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Verandah Luxury</a></li>
                     </ul>
                 </div>
 
@@ -2963,9 +2911,9 @@
                 <div class="footer-col">
                     <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Lifestyle</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="/amenities-the-cliff-club.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">The Cliff Club</a></li>
-                        <li><a href="/amenities-equestrian.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Equestrian Academy</a></li>
-                        <li><a href="/amenities-sri-sri-school.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">SSRVM School</a></li>
+                        <li><a href="amenities-the-cliff-club.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">The Cliff Club</a></li>
+                        <li><a href="amenities-equestrian.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Equestrian Academy</a></li>
+                        <li><a href="amenities-sri-sri-school.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">SSRVM School</a></li>
                     </ul>
                 </div>
 
@@ -2973,9 +2921,9 @@
                 <div class="footer-col">
                     <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Intel</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="/property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Bhugaon ROI Data</a></li>
-                        <li><a href="/investment/pmrda-ring-road-impact/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Ring Road Impact</a></li>
-                        <li><a href="/blogs/na-bungalow-plots-pune-west-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">NA Plot Guide</a></li>
+                        <li><a href="property-investment-bhugaon-pune/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Bhugaon ROI Data</a></li>
+                        <li><a href="investment/pmrda-ring-road-impact/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Ring Road Impact</a></li>
+                        <li><a href="blogs/na-bungalow-plots-pune-west-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">NA Plot Guide</a></li>
                     </ul>
                 </div>
 
@@ -2983,9 +2931,9 @@
                 <div class="footer-col">
                     <h4 style="color: var(--pscl-gold); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.5rem;">Resources</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.8rem;">
-                        <li><a href="/forest-trails-price-list-brochure/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Download Prices</a></li>
-                        <li><a href="/legal/rera-compliance-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">RERA Transparency</a></li>
-                        <li><a href="/why-choose-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Why Forest Trails?</a></li>
+                        <li><a href="forest-trails-price-list-brochure/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Download Prices</a></li>
+                        <li><a href="legal/rera-compliance-guide/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">RERA Transparency</a></li>
+                        <li><a href="why-choose-forest-trails-bhugaon/" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.75rem;">Why Forest Trails?</a></li>
                     </ul>
                 </div>
             </div>
@@ -3030,123 +2978,14 @@
         </div>
     </div>
 
-    </footer>
-
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/script.js?v=1.7" defer"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/script.js?v=1.7" defer></script>
 
-        
-        
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-
-    
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-
-    <!-- Mobile High-Conversion Sticky Bar -->
-    <div class="mobile-sticky-bar">
-        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" class="mobile-sticky-btn" style="background: #25D366; color: #fff; border-right: 1px solid rgba(255,255,255,0.2);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            WhatsApp
-        </a>
-        <button class="mobile-sticky-btn open-enquiry-modal" style="background: var(--pscl-dark); color: var(--pscl-gold);">
-            Enquire Now
-        </button>
-    </div>
-    <style>
-        .mobile-sticky-bar { display: none; }
-        @media(max-width: 1024px) {
-            .mobile-sticky-bar { display: flex !important; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; box-shadow: 0 -10px 30px rgba(0,0,0,0.15); height: 65px; }
-            .mobile-sticky-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; border: none; text-decoration: none; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.1em; transition: background 0.3s; }
-            body { padding-bottom: 65px; } 
-        }
-    </style>
-
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-
-    
-    
-        <div class="pill-text">Request Callback</div>
-    </div>
-    
-<div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+    <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
+    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
         
         <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
@@ -3222,6 +3061,8 @@
             </div>
         </div>
     </div>
+    
+    <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
         <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
         
@@ -3317,22 +3158,34 @@
             </div>
         </div>
     </div>
+    
+    <!-- Elite Conversion Pill -->
     <div class="conversion-pill open-enquiry-modal" id="callback-pill">
         <div class="pill-icon">📞</div>
         <div class="pill-text">Request Callback</div>
     </div>
     <link rel="stylesheet" href="/conversion-pill.css">
     
-    <!-- Speculation Rules API (Zero-ms Load) -->
-    <script type="speculationrules">
-    {
-      "prerender": [
-        {
-          "where": {"href_matches": "/*"},
-          "eagerness": "moderate"
+
+
+    <!-- Mobile High-Conversion Sticky Bar -->
+    <div class="mobile-sticky-bar">
+        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" class="mobile-sticky-btn" style="background: #25D366; color: #fff; border-right: 1px solid rgba(255,255,255,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+        </a>
+        <button class="mobile-sticky-btn open-enquiry-modal" style="background: var(--pscl-dark); color: var(--pscl-gold);">
+            Enquire Now
+        </button>
+    </div>
+    <style>
+        .mobile-sticky-bar { display: none; }
+        @media(max-width: 1024px) {
+            .mobile-sticky-bar { display: flex !important; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; box-shadow: 0 -10px 30px rgba(0,0,0,0.15); height: 65px; }
+            .mobile-sticky-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; border: none; text-decoration: none; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.1em; transition: background 0.3s; }
+            body { padding-bottom: 65px; } 
         }
-      ]
-    }
-    </script>
+    </style>
+
 </body>
 </html>
