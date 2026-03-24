@@ -1,24 +1,24 @@
+#!/usr/bin/env node
 /**
- * Sitemap Generator for Paranjape Forest Trails
- * Scans all 63+ HTML files and generates a fresh sitemap.xml
+ * Sovereign Sitemap Generator (Phase 13.1)
+ * Generates an SEO-optimized sitemap for the 190-acre township platform.
  */
 const fs = require('fs');
 const path = require('path');
 
-const BASE_DIR = process.cwd();
-const SITE_URL = 'https://paranjape-mistygreens.in';
-const OUTPUT_FILE = 'sitemap.xml';
+const BASE_URL = 'https://paranjape-mistygreens.in';
+const PROJECT_ROOT = path.join(__dirname, '..');
+const OUTPUT_FILE = path.join(PROJECT_ROOT, 'sitemap.xml');
 
-function getAllHtmlFiles(dir, fileList = []) {
+function getFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
     files.forEach(file => {
         const filePath = path.join(dir, file);
-        const stat = fs.statSync(filePath);
-        if (stat.isDirectory()) {
-            if (!['node_modules', 'assets', 'images', 'brain', 'scripts', '.git', '.wrangler', 'fonts', 'styles'].includes(file)) {
-                getAllHtmlFiles(filePath, fileList);
+        if (fs.statSync(filePath).isDirectory()) {
+            if (!file.startsWith('.') && file !== 'node_modules' && file !== 'scripts' && file !== 'brain' && file !== 'images') {
+                getFiles(filePath, fileList);
             }
-        } else if (file.endsWith('.html')) {
+        } else if (file.endsWith('.html') && !file.includes('thank-you')) {
             fileList.push(filePath);
         }
     });
@@ -26,37 +26,45 @@ function getAllHtmlFiles(dir, fileList = []) {
 }
 
 function generateSitemap() {
-    const allFiles = getAllHtmlFiles(BASE_DIR);
-    console.log(`🔍 Found ${allFiles.length} HTML files for sitemap.`);
+    console.log("🗺️ Starting Sovereign Sitemap Generation...");
+    const files = getFiles(PROJECT_ROOT);
+    
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.1">
+`;
 
-    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
-    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
-
-    allFiles.forEach(filePath => {
-        const relativePath = path.relative(BASE_DIR, filePath);
-        let urlPath = relativePath.replace(/\\/g, '/');
+    files.forEach(file => {
+        const relativePath = path.relative(PROJECT_ROOT, file);
+        const urlPath = relativePath.replace('index.html', '').replace(/\\/g, '/');
+        const url = `${BASE_URL}/${urlPath}`;
+        const lastmod = fs.statSync(file).mtime.toISOString().split('T')[0];
         
-        // Clean up URL: remove index.html and handle root
-        if (urlPath === 'index.html') {
-            urlPath = '';
-        } else if (urlPath.endsWith('/index.html')) {
-            urlPath = urlPath.replace('index.html', '');
-        } else if (urlPath.endsWith('.html')) {
-            // Keep .html if it's not index.html, unless user wants clean URLs
-            // The existing sitemap uses trailing slashes for folders
-            // Let's match the existing pattern: root/folder/
+        let priority = 0.6;
+        let freq = 'monthly';
+
+        if (relativePath === 'index.html') {
+            priority = 1.0;
+            freq = 'daily';
+        } else if (relativePath.includes('paranjape-schemes-forest-trails-')) {
+            priority = 0.9;
+            freq = 'weekly';
+        } else if (relativePath.includes('insights/')) {
+            priority = 0.85;
+            freq = 'weekly';
         }
 
-        const loc = `${SITE_URL}/${urlPath}`;
-        const priority = urlPath === '' ? '1.0' : '0.8';
-        
-        xml += `  <url><loc>${loc}</loc><priority>${priority}</priority></url>\n`;
+        xml += `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${freq}</changefreq>
+    <priority>${priority.toFixed(1)}</priority>
+  </url>\n`;
     });
 
-    xml += '</urlset>';
-
-    fs.writeFileSync(OUTPUT_FILE, xml, 'utf8');
-    console.log(`✨ Sitemap generated: ${OUTPUT_FILE} with ${allFiles.length} URLs.`);
+    xml += `</urlset>`;
+    
+    fs.writeFileSync(OUTPUT_FILE, xml, 'utf-8');
+    console.log(`✅ Sitemap created with ${files.length} URLs at: ${OUTPUT_FILE}`);
 }
 
 generateSitemap();

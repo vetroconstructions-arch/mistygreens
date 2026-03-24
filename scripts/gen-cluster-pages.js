@@ -630,7 +630,8 @@ ${faqEntries}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/script.js?v=${VERSION}" defer></script>
+    <script src="/script.js?v=${VERSION}"></script>
+    <script src="/scripts/interactive-map.js?v=${VERSION}" defer></script>
 </body>
 </html>`;
 }

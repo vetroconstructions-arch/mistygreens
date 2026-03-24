@@ -81,6 +81,42 @@
             overlay?.addEventListener('click', closeModal);
 
             if (form) {
+                const step1 = form.querySelector('[data-step="1"]');
+                const step2 = form.querySelector('[data-step="2"]');
+                const nextBtn = form.querySelector('.btn-next-step');
+                const prevBtn = form.querySelector('.btn-prev-step');
+                const options = form.querySelectorAll('.advisory-opt');
+
+                options.forEach(opt => {
+                    opt.addEventListener('click', () => {
+                        options.forEach(o => {
+                            o.style.background = '#f5f5f0';
+                            o.style.borderColor = '#b0a890';
+                        });
+                        opt.style.background = 'rgba(140,115,47,0.05)';
+                        opt.style.borderColor = 'var(--pscl-gold)';
+                        opt.querySelector('input').checked = true;
+                    });
+                });
+
+                nextBtn?.addEventListener('click', () => {
+                    const selected = form.querySelector('input[name="interest"]:checked');
+                    if (!selected) {
+                        this.showAlert('Architecture Preference', 'Please select your preferred configuration to continue.', 'info');
+                        return;
+                    }
+                    step1.style.display = 'none';
+                    step2.style.display = 'block';
+                    if (typeof gsap !== 'undefined') {
+                        gsap.from(step2, { x: 20, opacity: 0, duration: 0.4 });
+                    }
+                });
+
+                prevBtn?.addEventListener('click', () => {
+                    step2.style.display = 'none';
+                    step1.style.display = 'block';
+                });
+
                 form.addEventListener('submit', (e) => {
                     const phone = form.querySelector('input[name="phone"]');
                     if (phone && !/^\d{10}$/.test(phone.value.trim())) {
@@ -89,6 +125,33 @@
                     }
                 });
             }
+
+            // Structural Vault Logic (Phase 16.2)
+            const vault = document.getElementById('structural-vault');
+            const vaultTriggers = document.querySelectorAll('.open-vault');
+            const vaultClose = document.querySelector('.vault-close');
+            const vaultOverlay = vault?.querySelector('.concierge-overlay');
+
+            const openVault = () => {
+                if (vault) {
+                    vault.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    if (typeof gsap !== 'undefined') {
+                        gsap.from(vault.querySelector('.concierge-panel'), { scale: 0.9, opacity: 0, duration: 0.5, ease: "back.out(1.7)" });
+                    }
+                }
+            };
+
+            const closeVault = () => {
+                if (vault) {
+                    vault.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            };
+
+            vaultTriggers.forEach(t => t.addEventListener('click', openVault));
+            vaultClose?.addEventListener('click', (e) => { e.preventDefault(); closeVault(); });
+            vaultOverlay?.addEventListener('click', closeVault);
         },
 
         setupMasterPlanModal: function() {
