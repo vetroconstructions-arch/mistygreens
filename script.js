@@ -10,9 +10,10 @@
             loader.style.transform = 'translateY(-100%)';
             setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1100);
             document.body.style.overflow = 'auto';
-            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .hero-title, .hero-title span, .hero-title span span').forEach(el => {
                 el.style.opacity = '1';
                 el.style.transform = 'translate(0,0)';
+                el.style.visibility = 'visible';
             });
         }
     };
@@ -321,12 +322,25 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
     } catch (e) {}
 
-    // 0.5. Hero Text Stabilization
+    // 0.5. Hero Text Stabilization (Idempotent)
     const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.innerHTML;
-        const lines = text.split('<br>');
-        heroTitle.innerHTML = lines.map(line => `<span style="display: block; overflow: hidden;"><span style="display: block;">${line}</span></span>`).join('');
+    if (heroTitle && !heroTitle.dataset.stabilized) {
+        const hasSemanticSpans = heroTitle.querySelector('.title-top, .title-bottom');
+        if (hasSemanticSpans) {
+            const children = Array.from(heroTitle.children);
+            heroTitle.innerHTML = children.map(child => 
+                `<span style="display: block; overflow: hidden;"><span class="${child.className}" style="display: block;">${child.innerHTML}</span></span>`
+            ).join('');
+        } else {
+            const text = heroTitle.innerHTML;
+            if (text.includes('span') && !text.includes('<br>')) {
+                 heroTitle.innerHTML = `<span style="display: block; overflow: hidden;"><span style="display: block;">${text}</span></span>`;
+            } else {
+                 const lines = text.split('<br>');
+                 heroTitle.innerHTML = lines.map(line => `<span style="display: block; overflow: hidden;"><span style="display: block;">${line}</span></span>`).join('');
+            }
+        }
+        heroTitle.dataset.stabilized = "true";
     }
 
     // 1. Overture Loader (Stable Reveal)
@@ -1024,20 +1038,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 23. Live Demand Ticker (Social Proof - SEO Phase 20) - Removed for UI clarity
 
-    // 24. Tactical Exit-Intent Conversion (Lead Hub)
-    let exitShown = false;
-    document.addEventListener('mouseleave', (e) => {
-        if (e.clientY < 0 && !exitShown) {
-            const modalTrigger = document.querySelector('#concierge-open');
-            if (modalTrigger) {
-                // Pre-configure for exit intent
-                modalTrigger.setAttribute('data-project', 'Sovereign Master Plan');
-                modalTrigger.click();
-                trackEvent('exit_intent_modal_trigger', { 'intent': userIntent });
+    // 24. Sovereign Advisor & Exit-Intent 2.0 (Phase 19)
+    let exit2Shown = false;
+    const advisorBubble = document.getElementById('sovereign-advisor-bubble');
+    const exit2Modal = document.getElementById('exit-intent-2');
+    const exit2Close = document.getElementById('exit-2-close');
+
+    // Show Advisor Bubble after delay
+    setTimeout(() => {
+        if (advisorBubble) {
+            advisorBubble.classList.add('active');
+            if (typeof gsap !== 'undefined') {
+                gsap.from(advisorBubble, { x: -50, opacity: 0, duration: 1, ease: "expo.out" });
             }
-            exitShown = true;
+        }
+    }, 12000);
+
+    // Global Scroll Trigger for Advisor
+    window.addEventListener('scroll', () => {
+        if (!advisorBubble) return;
+        if (window.scrollY > 800) advisorBubble.classList.add('active');
+    });
+
+    // Exit Intent 2.0 Logic
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 0 && !exit2Shown) {
+            if (exit2Modal) {
+                exit2Modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                if (typeof gsap !== 'undefined') {
+                    gsap.from(exit2Modal.querySelector('.concierge-panel'), { 
+                        scale: 0.9, opacity: 0, y: 50, duration: 0.7, ease: "back.out(1.2)" 
+                    });
+                }
+                trackEvent('exit_intent_2_triggered');
+                exit2Shown = true;
+            }
         }
     });
+
+    exit2Close?.addEventListener('click', () => {
+        if (exit2Modal) {
+            exit2Modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    if (exit2Modal) {
+        exit2Modal.querySelector('.concierge-overlay')?.addEventListener('click', () => {
+            exit2Modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    }
 
 
 

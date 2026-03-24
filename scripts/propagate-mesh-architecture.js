@@ -9,7 +9,7 @@ const path = require('path');
 
 const BASE_DIR = process.cwd();
 const MASTER_FILE = 'index.html';
-const VERSION = '1.7'; // Global Cache-Bust
+const VERSION = '2.1'; // Global Cache-Bust for Phase 20
 const SITE_URL = 'https://paranjape-mistygreens.in';
 
 function getAllHtmlFiles(dir, fileList = []) {
@@ -50,10 +50,14 @@ function propagate() {
     const headerMatch = masterContent.match(/<header class="header-main"[\s\S]*?<\/header>/);
     const footerMatch = masterContent.match(/<footer class="footer-main"[\s\S]*?<\/footer>/);
     
-    // Use IDs for more robust extraction, matching until the next big block or body end
+    // Use Block Markers for Phase 19 Additions
+    const advisorBubbleMatch = masterContent.match(/<!-- \[BLOCK:SOVEREIGN_ADVISOR\] -->[\s\S]*?<!-- \[\/BLOCK:SOVEREIGN_ADVISOR\] -->/);
+    const exitIntent2Match = masterContent.match(/<!-- \[BLOCK:EXIT_INTENT_2\] -->[\s\S]*?<!-- \[\/BLOCK:EXIT_INTENT_2\] -->/);
+
+    // Use IDs for legacy components
     const conciergeModalMatch = masterContent.match(/<div class="concierge-modal" id="heritage-concierge"[\s\S]*?<\/form>\s*<\/div>\s*<\/div>\s*<\/div>/);
     const masterPlanModalMatch = masterContent.match(/<div class="master-plan-modal" id="master-plan-modal"[\s\S]*?<\/form>\s*<\/div>\s*<\/div>\s*<\/div>/);
-    const conversionPillMatch = masterContent.match(/<div class="conversion-pill[\s\S]*?id="callback-pill">[\s\S]*?<\/div>\s*<\/div>/);
+    const structuralVaultMatch = masterContent.match(/<div class="concierge-modal" id="structural-vault"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/);
 
     if (!headerMatch || !footerMatch) {
         if (!headerMatch) console.error('❌ Header [header-main] not found in index.html');
@@ -66,7 +70,9 @@ function propagate() {
     const newFooter = makeAbsolute(footerMatch[0]);
     const newConcierge = conciergeModalMatch ? makeAbsolute(conciergeModalMatch[0]) : '';
     const newMasterPlan = masterPlanModalMatch ? makeAbsolute(masterPlanModalMatch[0]) : '';
-    const newPill = conversionPillMatch ? makeAbsolute(conversionPillMatch[0]) : '';
+    const newStructuralVault = structuralVaultMatch ? makeAbsolute(structuralVaultMatch[0]) : '';
+    const newAdvisor = advisorBubbleMatch ? makeAbsolute(advisorBubbleMatch[0]) : '';
+    const newExit2 = exitIntent2Match ? makeAbsolute(exitIntent2Match[0]) : '';
     const newPillCss = '<link rel="stylesheet" href="/conversion-pill.css">';
 
     const SPECULATION_RULES = `
@@ -83,14 +89,12 @@ function propagate() {
     </script>
     `;
 
-    const structuralVaultMatch = masterContent.match(/<div class="concierge-modal" id="structural-vault"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/);
-    const newStructuralVault = structuralVaultMatch ? makeAbsolute(structuralVaultMatch[0]) : '';
-
     const MODALS_BLOCK = `
     ${newConcierge}
     ${newMasterPlan}
     ${newStructuralVault}
-    ${newPill}
+    ${newAdvisor}
+    ${newExit2}
     ${newPillCss}
     ${SPECULATION_RULES}
     `;
@@ -126,6 +130,11 @@ function propagate() {
         // C. Clean & Inject Modals before </body>
         if (!isRoot) {
             // Clean all variations of old injections
+            html = html.replace(/<!-- \[BLOCK:SOVEREIGN_ADVISOR\] -->[\s\S]*?<!-- \[\/BLOCK:SOVEREIGN_ADVISOR\] -->/g, '');
+            html = html.replace(/<!-- \[BLOCK:EXIT_INTENT_2\] -->[\s\S]*?<!-- \[\/BLOCK:EXIT_INTENT_2\] -->/g, '');
+            html = html.replace(/<div id="sovereign-advisor-bubble"[\s\S]*?<\/div>\s*<\/div>/g, ''); // Fix for previous failed run
+            html = html.replace(/<div class="concierge-modal" id="exit-intent-2"[\s\S]*?<\/div>\s*<\/div>/g, '');
+            
             html = html.replace(/<!-- Premium Enquiry Modal[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
             html = html.replace(/<div class="concierge-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
             html = html.replace(/<!-- Master Plan Lead Magnet Modal -->[\s\S]*?<div class="master-plan-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');

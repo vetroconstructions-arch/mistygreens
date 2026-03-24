@@ -21,7 +21,7 @@
     <link rel="canonical" href="https://paranjape-mistygreens.in/amenities-the-cliff-club.html">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css?v=1.7">
+    <link rel="stylesheet" href="/style.css?v=2.1">
 
     <!-- BreadcrumbList Schema -->
     <script type="application/ld+json">
@@ -100,6 +100,13 @@
             </ol>
         </div>
     </nav>
+    
+    
+    
+    
+    
+    
+    
         <section class="hero-amenity" style="height: 60vh; background: #0a0a0a; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; margin-top: 80px;">
             <div style="z-index: 2; text-align: center;">
                 <span style="font-size: 0.8rem; font-weight: 800; color: var(--pscl-gold); letter-spacing: 0.4em; display: block; margin-bottom: 20px;">ESTABLISHED 2012</span>
@@ -131,7 +138,14 @@
                 </div>
             </div>
         </section>
-    <!-- Sovereign Ecosystem Mesh (Phase 16.1) -->
+    
+
+
+
+
+
+
+<!-- Sovereign Ecosystem Mesh (Phase 16.1) -->
     <section class="ecosystem-mesh" style="padding: 100px 0; background: #fff; border-top: 1px solid #eee;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
@@ -246,7 +260,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/script.js?v=1.7" defer"></script>
+<script src="/script.js?v=2.1" defer"></script>
 
     
     
@@ -282,9 +296,9 @@
         <span class="concierge-label">ENQUIRE</span>
     </div>
     <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
         
-        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
 
             <!-- Premium Accent Bar -->
             <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
@@ -296,8 +310,8 @@
                     <div style="display: inline-block; background: rgba(140,115,47,0.08); border: 1px solid rgba(140,115,47,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;">
                         <span style="color: var(--pscl-gold); font-weight: 800; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
                     </div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-top: 0.5rem; color: #1a1a1a; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-top: 1rem; letter-spacing: 0.02em;">Secure exclusive pricing & priority site-visit guidance.</p>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1; font-weight: 700;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem; letter-spacing: 0.02em; font-weight: 500;">Secure exclusive pricing & priority site-visit guidance.</p>
                 </div>
 
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
@@ -330,7 +344,14 @@
                             background: #fff;
                             box-shadow: 0 0 0 4px rgba(140,115,47,0.15);
                         }
-                    </style>
+                    
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
+    </style>
                     
                     <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
                     <input type="tel" name="phone" id="concierge-phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
@@ -359,7 +380,7 @@
         </div>
     </div>
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(8px);"></div>
         
         <div class="modal-container" style="position: relative; background: #ffffff; width: 100%; max-width: 1050px; display: grid; grid-template-columns: 1.1fr 1fr; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 120px rgba(0,0,0,0.5); border: none; animation: mp-modal-entry 0.7s cubic-bezier(0.16, 1, 0.3, 1);">
             
@@ -424,7 +445,14 @@
                         0% { left: -100%; }
                         100% { left: 200%; }
                     }
-                </style>
+                
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
+    </style>
 
                 <div class="form-header" style="margin-bottom: 3rem;">
                     <div style="display: inline-block; background: rgba(107,13,13,0.06); border: 1px solid rgba(107,13,13,0.15); padding: 0.4rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem;">
@@ -477,6 +505,13 @@
             .mobile-sticky-bar { display: flex !important; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; box-shadow: 0 -10px 30px rgba(0,0,0,0.15); height: 65px; }
             .mobile-sticky-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 800; font-size: 0.95rem; text-transform: uppercase; border: none; text-decoration: none; font-family: 'Inter', sans-serif; cursor: pointer; letter-spacing: 0.1em; transition: background 0.3s; }
             body { padding-bottom: 65px; } 
+        }
+    
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
         }
     </style>
 
