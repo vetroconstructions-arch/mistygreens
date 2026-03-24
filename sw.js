@@ -4,10 +4,10 @@ const ASSETS = [
   './index.html',
   './style.css',
   './script.js',
-  './images/misty-greens-gate.jpg',
-  './images/cove-duet.jpg',
-  './images/cascade-villas.jpg',
-  './images/master-plan.jpg'
+  './images/misty-greens-gate.webp',
+  './images/cove-duet.webp',
+  './images/cascade-villas.webp',
+  './images/master-plan.webp'
 ];
 
 // 1. Installation: Cache core assets
