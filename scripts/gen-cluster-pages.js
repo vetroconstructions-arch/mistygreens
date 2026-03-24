@@ -266,8 +266,14 @@ const pages = [
             <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid var(--pscl-maroon);">
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1.5rem;">A Robust, Mixed-Use Luxury Township Hub</h3>
                 <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    The Highlands asserts its dominance as a prime hub inside a highly sought-after <strong>mixed-use luxury township in Pune</strong>. Featuring highly coveted <strong>3 BHK premium bungalows</strong> arrayed alongside spectacular high-rises, it provides diverse architectural pathways to secure a <strong>robust property investment</strong>. Fully <strong>RERA registered</strong>, it guarantees security and compliance for investors, while offering end-users unparalleled lifestyle magnitude with dense green buffers and dedicated cluster-level community avenues.
+                    The Highlands asserts its dominance as a prime hub inside a highly sought-after <strong>mixed-use luxury township in Pune</strong>. Featuring highly coveted <strong>3 BHK premium bungalows</strong> arrayed alongside spectacular high-rises, it provides diverse architectural pathways to secure a <strong>robust property investment</strong>. Fully <strong>RERA registered (P52100000103)</strong>, it guarantees security and compliance for investors, while offering end-users unparalleled lifestyle magnitude.
                 </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="padding: 1.5rem; border: 1px solid rgba(140,115,47,0.2); background: #fdfdfc; border-radius: 8px;">
+                        <h5 style="color: var(--pscl-maroon); font-size: 0.95rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">Possession Status</h5>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Phase 1 Ready. Towers 9, 10, 11 (2 BHK) under construction with possession July 2028.</p>
+                    </div>
+                </div>
             </div>
         `,
         tableHtml: `
@@ -275,6 +281,10 @@ const pages = [
                 <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center;">
                     <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Inventory Type</h4>
                     <p style="color: #fff; font-size: 1.2rem; font-weight: 600; margin-top:0.8rem;">2/3 BHK & Bungalows</p>
+                </div>
+                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--pscl-maroon);">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">RERA No.</h4>
+                    <p style="color: #fff; font-size: 1.1rem; font-weight: 600; margin-top: 0.8rem;">P52100000103</p>
                 </div>
             </div>
         `,
@@ -305,39 +315,78 @@ const pages = [
                     <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Status</h4>
                     <p style="color: #fff; font-size: 1.5rem; font-weight: 600;">Ready-to-Move</p>
                 </div>
-            </div>
         `,
         faqs: [
             { q: 'Is Pebbles fully constructed?', a: 'Yes, Pebbles is a ready-to-move-in project. You can purchase and immediately shift in to enjoy the Forest Trails lifestyle.' }
         ]
     },
     {
-        dir: 'atmos-smart-homes-bhugaon',
-        title: 'Atmos | Ultra-Spacious 3 BHK Smart Homes newly launched in Pune',
-        desc: 'New Launch! Atmos presents ultra-spacious 3 BHK smart homes at Paranjape Forest Trails. Tech-enabled luxury apartments that are fully RERA certified.',
-        keywords: 'ultra-spacious smart homes pune, tech-enabled luxury apartments, new launch investment forest trails, rera certified atmos, smart home bhugaon',
-        h1: '<i>Atmos</i>.',
-        subtitle: 'The New Benchmark: 3 BHK Ultra-Spacious Smart Homes.',
-        intro: "Atmos is the newest architectural marvel. Built for the tech-savvy elite, Atmos features ultra-spacious 3 BHK layouts exceeding 1,300 sq.ft with fully integrated home automation.",
-        bgImage: '/images/lifestyle.webp',
-        masterContent: `
-            <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid #0056b3;">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1.5rem;">The Horizon of Technological Extravagance</h3>
+        "dir": "misty-greens-plots-pune",
+        "title": "Misty Greens | Premium NA Bungalow Plots in Bhugaon, Pune West",
+        "desc": "Secure your heritage at Misty Greens, Paranjape Forest Trails. Premium NA bungalow plots ranging from 1500 to 7000 sq. ft. RERA P52100049327.",
+        "keywords": "misty greens plots bhugaon, na bungalow plots pune west, paranjape misty greens rera, premium plots bhugaon, investment plots pune, gated community plots",
+        "h1": "Misty <i>Greens</i>.",
+        "subtitle": "A Sovereign Heritage of Premium NA Bungalow Plots.",
+        "intro": "Misty Greens is the crown jewel of the 190-acre Forest Trails township. Offering clear-title NA bungalow plots within a secure, gated ecosystem, it is the ultimate destination for those seeking land sovereignty and long-term capital appreciation.",
+        "bgImage": "/images/plots.webp",
+        "masterContent": `
+            <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid var(--pscl-gold);">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--pscl-dark); margin-bottom: 1.5rem;">Land Sovereignty: RERA Registered & Clear Title</h3>
                 <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Atmos is the definitive answer for those demanding <strong>ultra-spacious smart homes in Pune</strong>. Positioned proudly as a monumental <strong>new launch investment</strong>, these <strong>tech-enabled luxury apartments</strong> fuse elite real estate with modern automation infrastructure—giving you vocal and remote control over your environment. <strong>RERA certified</strong> for absolute buyer protection, Atmos redefines residential boundaries by pushing carpet areas past 1,300 sq.ft, crafting an expansive haven for the hyper-connected family.
+                    Misty Greens at Forest Trails (Kaleidoscope Township) represents the pinnacle of <strong>premium NA bungalow plots in Pune West</strong>. With plot sizes ranging from <strong>1500 to 7000 sq. ft.</strong>, this cluster provides the perfect canvas for your dream villa. Being <strong>RERA registered (P52100049327)</strong>, every plot comes with individual 7/12 extracts and sanctioned plans, ensuring a <strong>safe real estate investment</strong>. Located just 15 minutes from Kothrud, it offers the serenity of 90% open spaces combined with the reliability of 35+ years of Paranjape legacy.
                 </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="padding: 1.5rem; border: 1px solid rgba(140,115,47,0.2); background: #fdfdfc; border-radius: 8px;">
+                        <h5 style="color: var(--pscl-maroon); font-size: 0.95rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 800;">Possession Timeline</h5>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">Phase 1 ready for possession. Future phases scheduled for delivery by August 2027 to April 2029.</p>
+                    </div>
+                </div>
             </div>
         `,
-        tableHtml: `
+        "tableHtml": `
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
-                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center;">
-                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Space</h4>
-                    <p style="color: #fff; font-size: 1.5rem; font-weight: 600;">1,300+ sq.ft</p>
+                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; border: 1px solid var(--pscl-gold); text-align: center;">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Plot Sizes</h4>
+                    <p style="color: #fff; font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem;">1500 - 7000 sq. ft.</p>
+                </div>
+                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; border: 1px solid var(--pscl-gold); text-align: center;">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">RERA No.</h4>
+                    <p style="color: #fff; font-size: 1.1rem; font-weight: 600; margin-top: 0.5rem;">P52100049327</p>
                 </div>
             </div>
         `,
         faqs: [
-            { q: 'What makes Atmos a Smart Home?', a: 'Atmos incorporates cutting-edge home automation, allowing you to control lighting, climate, and security via your smartphone or voice.' }
+            { q: 'Are the plots at Misty Greens NA sanctioned?', a: 'Yes, all plots are Collector Sanctioned Non-Agricultural (NA) residential plots with individual 7/12 extracts.' },
+            { q: 'What is the largest plot size available?', a: 'Misty Greens offers premium plots up to 7000 sq. ft., ideal for mansions and large independent bungalows.' }
+        ]
+    },
+    {
+        "dir": "kaleidoscope-apartments-bhugaon",
+        "title": "Kaleidoscope | Luxury Apartments & Township Living in Bhugaon, Pune",
+        "desc": "Welcome to Kaleidoscope at Paranjape Forest Trails. A 300+ acre integrated township offering valley-view apartments and premium lifestyle living in Bhugaon.",
+        "keywords": "kaleidoscope bhugaon, paranjape kaleidoscope apartments, integrated township pune west, luxury apartments forest trails, township living forest trails rera",
+        "h1": "<i>Kaleidoscope</i>.",
+        "subtitle": "A 300-Acre Vision of Urban Conscious Living.",
+        "intro": "Kaleidoscope is the soul of the Forest Trails ecosystem. Spanning over 300 acres, this integrated township is home to over 3,000 residents, offering a seamless blend of valley-view apartments, palatial mansions, and independent plots.",
+        "bgImage": "/images/lifestyle.webp",
+        "masterContent": `
+            <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid #1a1a1a;">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1.5rem;">The Benchmark in Integrated Township Living</h3>
+                <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                    Kaleidoscope at Forest Trails (Kaleidoscope Township) represents the evolution of Paranjape Schemes' township model. With <strong>90% open spaces</strong> and <strong>38,000+ trees</strong>, it offers a micro-climate that is 2-3 degrees cooler than the city. Featuring the <strong>Shri Ravishankar Vidya Mandir (SSRVM) School</strong>, an <strong>Equestrian Center</strong>, and <strong>The Cliff Club</strong> right within its gates, Kaleidoscope is a self-sustaining world. Whether you choose a 1 BHK at Alpha or a luxury villa at The Cove, you are part of the most <strong>urban conscious lifestyle</strong> in West Pune.
+                </p>
+            </div>
+        `,
+        "tableHtml": `
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center;">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Ownership</h4>
+                    <p style="color: #fff; font-size: 1.5rem; font-weight: 600;">3,000+ Families</p>
+                </div>
+            </div>
+        `,
+        "faqs": [
+            { "q": "What is the total area of the Kaleidoscope township?", "a": "The township spans over 300 acres, including Forest Trails and its various residential and recreational sectors." }
         ]
     },
     {
@@ -360,8 +409,12 @@ const pages = [
         tableHtml: `
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
                 <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--pscl-maroon);">
+                    <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Status</h4>
+                    <p style="color: #fff; font-size: 1.2rem; font-weight: 600; margin-top: 0.8rem;">Possession Dec 2026 - Mid 2027</p>
+                </div>
+                <div style="background: var(--pscl-dark); padding: 2rem; border-radius: 12px; text-align: center; border: 1px solid var(--pscl-maroon);">
                     <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Typology</h4>
-                    <p style="color: #fff; font-size: 1.5rem; font-weight: 600;">4 BHK Duet Villas</p>
+                    <p style="color: #fff; font-size: 1.2rem; font-weight: 600; margin-top: 0.8rem;">4 BHK Duet Villas</p>
                 </div>
             </div>
         `,
