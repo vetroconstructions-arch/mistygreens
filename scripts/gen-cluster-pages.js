@@ -193,7 +193,8 @@ const pages = [
         faqs: [
             { q: 'Is Codename Alpha a good real estate investment?', a: 'Yes, being an exclusive 1 BHK tower inside a luxury 190-acre township ensures high rental yields and aggressive capital appreciation, making it a powerful real estate asset.' },
             { q: 'Is it formally RERA registered?', a: 'Yes, Codename Alpha complies strictly with MahaRERA guidelines.' }
-        ]
+        ],
+        townshipData: { rera: 'P52100022655', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
         dir: 'highgardens-apartments-bhugaon',
@@ -222,7 +223,8 @@ const pages = [
         `,
         faqs: [
             { q: 'How many units are there in Highgardens?', a: 'It is a highly exclusive cluster featuring only 176 units, guaranteeing unparalleled privacy.' }
-        ]
+        ],
+        townshipData: { rera: 'P52100053310', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
         dir: 'canopy-apartments-bhugaon',
@@ -251,7 +253,8 @@ const pages = [
         `,
         faqs: [
             { q: 'Is Canopy a standalone project?', a: 'No, Canopy is an integral crown-jewel cluster within the massive 190-acre Paranjape Forest Trails township ecosystem.' }
-        ]
+        ],
+        townshipData: { rera: 'P52100079518', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
         dir: 'the-highlands-forest-trails',
@@ -290,7 +293,8 @@ const pages = [
         `,
         faqs: [
             { q: 'Does The Highlands have both flats and bungalows?', a: 'Yes, it is a mixed-typology cluster featuring high-rise apartments as well as exclusive bungalows.' }
-        ]
+        ],
+        townshipData: { rera: 'P52100000103', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
         dir: 'pebbles-apartments-bhugaon',
@@ -315,10 +319,12 @@ const pages = [
                     <h4 style="color: var(--pscl-gold); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase;">Status</h4>
                     <p style="color: #fff; font-size: 1.5rem; font-weight: 600;">Ready-to-Move</p>
                 </div>
+            </div>
         `,
         faqs: [
             { q: 'Is Pebbles fully constructed?', a: 'Yes, Pebbles is a ready-to-move-in project. You can purchase and immediately shift in to enjoy the Forest Trails lifestyle.' }
-        ]
+        ],
+        townshipData: { school: '3 Min', club: '3 Min', ring: '4 Min' }
     },
     {
         "dir": "misty-greens-plots-pune",
@@ -358,7 +364,8 @@ const pages = [
         faqs: [
             { q: 'Are the plots at Misty Greens NA sanctioned?', a: 'Yes, all plots are Collector Sanctioned Non-Agricultural (NA) residential plots with individual 7/12 extracts.' },
             { q: 'What is the largest plot size available?', a: 'Misty Greens offers premium plots up to 7000 sq. ft., ideal for mansions and large independent bungalows.' }
-        ]
+        ],
+        townshipData: { rera: 'P52100049327', school: '4 Min', club: '3 Min', ring: '4 Min' }
     },
     {
         "dir": "kaleidoscope-apartments-bhugaon",
@@ -387,7 +394,8 @@ const pages = [
         `,
         "faqs": [
             { "q": "What is the total area of the Kaleidoscope township?", "a": "The township spans over 300 acres, including Forest Trails and its various residential and recreational sectors." }
-        ]
+        ],
+        townshipData: { school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
         dir: 'the-cove-villas-bhugaon',
@@ -420,7 +428,8 @@ const pages = [
         `,
         faqs: [
             { q: 'What is a "Duet Villa"?', a: 'A duet villa shares a single structure wall with its neighbor but maintains completely independent entrances and vast private layouts on all other sides.' }
-        ]
+        ],
+        townshipData: { school: '5 Min', club: '5 Min', ring: '6 Min' }
     },
     {
         dir: 'athashri-senior-living-bhugaon',
@@ -449,7 +458,8 @@ const pages = [
         `,
         faqs: [
             { q: 'Is Athashri only for senior citizens?', a: 'Yes, residency in Athashri requires at least one occupant to be a senior citizen (typically 55+ years of age).' }
-        ]
+        ],
+        townshipData: { school: '2 Min', club: '2 Min', ring: '3 Min' }
     }
 ];
 
@@ -551,6 +561,50 @@ ${faqEntries}
                     
                     ${page.tableHtml}
                     ${page.masterContent}
+
+                    <!-- Township Intelligence Section (Phase 10) -->
+                    <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border-top: 5px solid var(--pscl-gold);">
+                        <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--pscl-dark); margin-bottom: 2rem; text-align: center;">Township Intelligence: 190-Acre Ecosystem</h3>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                            <!-- Educational / Lifestyle Anchor -->
+                            <div style="background: #fdfdfc; padding: 2rem; border-radius: 12px; border: 1px solid rgba(140,115,47,0.1);">
+                                <h4 style="color: var(--pscl-maroon); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Primary Anchors</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; font-size: 1rem; color: #555; line-height: 1.8;">
+                                    <li>🏫 <strong>SSRVM School</strong>: Fully Operational</li>
+                                    <li>🐎 <strong>Equestrian Academy</strong>: Professional Training</li>
+                                    <li>🏊 <strong>The Cliff Club</strong>: 1.5 Acre Luxury</li>
+                                    <li>🛡️ <strong>Security</strong>: 3-Tier Verified Access</li>
+                                </ul>
+                            </div>
+
+                            <!-- Proximity Audit -->
+                            <div style="background: #fdfdfc; padding: 2rem; border-radius: 12px; border: 1px solid rgba(140,115,47,0.1);">
+                                <h4 style="color: var(--pscl-maroon); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">Proximity Audit</h4>
+                                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                                        <span>to SSRVM School</span>
+                                        <span style="font-weight: 700; color: #1a1a1a;">${page.townshipData.school}</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">
+                                        <span>to The Cliff Club</span>
+                                        <span style="font-weight: 700; color: #1a1a1a;">${page.townshipData.club}</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between;">
+                                        <span>to PMRDA Ring Road</span>
+                                        <span style="font-weight: 700; color: #1a1a1a;">${page.townshipData.ring}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #eee; text-align: center;">
+                            <p style="font-size: 0.95rem; color: #777;">
+                                🏗️ <strong>Infrastructure Note:</strong> PMRDA Ring Road (Phase 1 West) Traversing Bhugaon. Scheduled Completion: <strong>May 2026</strong>.
+                                ${page.townshipData.rera ? `<br>🏢 <strong>RERA No:</strong> ${page.townshipData.rera}` : ''}
+                            </p>
+                        </div>
+                    </div>
 
                     <div style="text-align: center; margin-top: 5rem;">
                         <button class="open-enquiry-modal btn-primary" style="padding: 1.5rem 3.5rem; font-size: 1rem; border-radius: 50px; font-weight: 800; cursor: pointer;">ENQUIRE & REQUEST BROCHURE</button>
