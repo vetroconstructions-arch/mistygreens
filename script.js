@@ -42,8 +42,9 @@
 
             if (!modal) return;
 
-            const openModal = (project = 'General Township') => {
+            const openModal = (project = 'Township Legacy') => {
                 const title = modal.querySelector('.form-header h3');
+                const projectInput = modal.querySelector('input[name="project_context"]');
                 const label = modal.querySelector('.form-header p');
                 const interest = modal.querySelector('select[name="interest"]');
 
@@ -72,7 +73,7 @@
             };
 
             openTriggers.forEach(t => t.addEventListener('click', () => {
-                const p = t.getAttribute('data-project') || 'General Township';
+                const p = t.getAttribute('data-project') || 'Township Legacy';
                 openModal(p);
             }));
 
