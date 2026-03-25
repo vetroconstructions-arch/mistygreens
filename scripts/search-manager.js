@@ -8,6 +8,7 @@ class SovereignSearchManager {
             { name: "Misty Greens Plots", category: "Plots", url: "/misty-greens-plots-pune/", keywords: "na bungalow plots, land, investment" },
             { name: "The Cove", category: "Villas", url: "/the-cove-villas-bhugaon/", keywords: "villas, independent homes, duet" },
             { name: "The Highlands", category: "Apartments", url: "/the-highlands-forest-trails/", keywords: "luxury flats, 2bhk, 3bhk" },
+            { name: "Alpha Home", category: "Apartments", url: "/codename-alpha-apartments-bhugaon/", keywords: "1bhk, alpha, studio, investment, small home" },
             { name: "SSRVM School", category: "Liefstyle", url: "/amenities-sri-sri-school.html", keywords: "school, education, kids" },
             { name: "The Cliff Club", category: "Amenities", url: "/amenities-the-cliff-club.html", keywords: "clubhouse, gym, pool, dinner" },
             { name: "Equestrian Academy", category: "Equestrian", url: "/amenities-equestrian.html", keywords: "horses, riding, hobby" }

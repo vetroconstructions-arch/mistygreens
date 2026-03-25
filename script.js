@@ -640,8 +640,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 11. Atmospheric Time-Sync Theme Engine
-    function syncAtmosphere() {
+    // 11. Highlandspheric Time-Sync Theme Engine
+    function syncHighlandsphere() {
         const hour = new Date().getHours();
         const body = document.body;
         body.classList.remove('mode-dawn', 'mode-midday', 'mode-sunset', 'mode-night');
@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (hour >= 19 || hour < 5) body.classList.add('mode-night');
         else body.classList.add('mode-midday');
     }
-    syncAtmosphere();
+    syncHighlandsphere();
 
     // 12. PWA Service Worker Registration
     if ('serviceWorker' in navigator) {

@@ -42,7 +42,7 @@ const interceptFAQs = {
     ],
     'why-choose-forest-trails-bhugaon': [
         { q: "What is the resale value potential at Forest Trails Bhugaon?", a: "Given the Paranjape brand and the scarcity of large gated townships in West Pune, resale demand for Forest Trails properties remains consistently high among HNIs." },
-        { q: "Is the project RERA registered?", a: "Yes, all phases of Paranjape Forest Trails, including Misty Greens and Whistling Meadows, are fully RERA registered and compliant." }
+        { q: "Is the project RERA registered?", a: "Yes, all phases of Paranjape Forest Trails, including Misty Greens and The Rivolo, are fully RERA registered and compliant." }
     ]
 };
 

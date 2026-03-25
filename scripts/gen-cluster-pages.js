@@ -339,7 +339,7 @@ const pages = [
             <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid var(--pscl-gold);">
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--pscl-dark); margin-bottom: 1.5rem;">Land Sovereignty: RERA Registered & Clear Title</h3>
                 <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Misty Greens at Forest Trails (Kaleidoscope Township) represents the pinnacle of <strong>premium NA bungalow plots in Pune West</strong>. With plot sizes ranging from <strong>1500 to 7000 sq. ft.</strong>, this cluster provides the perfect canvas for your dream villa. Being <strong>RERA registered (P52100049327)</strong>, every plot comes with individual 7/12 extracts and sanctioned plans, ensuring a <strong>safe real estate investment</strong>. Located just 15 minutes from Kothrud, it offers the serenity of 90% open spaces combined with the reliability of 35+ years of Paranjape legacy.
+                    Misty Greens at Forest Trails (The Canopy Township) represents the pinnacle of <strong>premium NA bungalow plots in Pune West</strong>. With plot sizes ranging from <strong>1500 to 7000 sq. ft.</strong>, this cluster provides the perfect canvas for your dream villa. Being <strong>RERA registered (P52100049327)</strong>, every plot comes with individual 7/12 extracts and sanctioned plans, ensuring a <strong>safe real estate investment</strong>. Located just 15 minutes from Kothrud, it offers the serenity of 90% open spaces combined with the reliability of 35+ years of Paranjape legacy.
                 </p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
                     <div style="padding: 1.5rem; border: 1px solid rgba(140,115,47,0.2); background: #fdfdfc; border-radius: 8px;">
@@ -368,19 +368,19 @@ const pages = [
         townshipData: { rera: 'P52100049327', school: '4 Min', club: '3 Min', ring: '4 Min' }
     },
     {
-        "dir": "kaleidoscope-apartments-bhugaon",
-        "title": "Kaleidoscope | Luxury Apartments & Township Living in Bhugaon, Pune",
-        "desc": "Welcome to Kaleidoscope at Paranjape Forest Trails. A 300+ acre integrated township offering valley-view apartments and premium lifestyle living in Bhugaon.",
-        "keywords": "kaleidoscope bhugaon, paranjape kaleidoscope apartments, integrated township pune west, luxury apartments forest trails, township living forest trails rera",
-        "h1": "<i>Kaleidoscope</i>.",
+        "dir": "The Canopy-apartments-bhugaon",
+        "title": "The Canopy | Luxury Apartments & Township Living in Bhugaon, Pune",
+        "desc": "Welcome to The Canopy at Paranjape Forest Trails. A 300+ acre integrated township offering valley-view apartments and premium lifestyle living in Bhugaon.",
+        "keywords": "The Canopy bhugaon, paranjape Canopy Luxury Towers, integrated township pune west, luxury apartments forest trails, township living forest trails rera",
+        "h1": "<i>The Canopy</i>.",
         "subtitle": "A 300-Acre Vision of Urban Conscious Living.",
-        "intro": "Kaleidoscope is the soul of the Forest Trails ecosystem. Spanning over 300 acres, this integrated township is home to over 3,000 residents, offering a seamless blend of valley-view apartments, palatial mansions, and independent plots.",
+        "intro": "The Canopy is the soul of the Forest Trails ecosystem. Spanning over 300 acres, this integrated township is home to over 3,000 residents, offering a seamless blend of valley-view apartments, palatial mansions, and independent plots.",
         "bgImage": "/images/lifestyle.webp",
         "masterContent": `
             <div style="margin-top: 4rem; background: #fff; padding: 3rem; border-radius: 12px; box-shadow: 0 4px 40px rgba(0,0,0,0.04); border-left: 5px solid #1a1a1a;">
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 1.5rem;">The Benchmark in Integrated Township Living</h3>
                 <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
-                    Kaleidoscope at Forest Trails (Kaleidoscope Township) represents the evolution of Paranjape Schemes' township model. With <strong>90% open spaces</strong> and <strong>38,000+ trees</strong>, it offers a micro-climate that is 2-3 degrees cooler than the city. Featuring the <strong>Shri Ravishankar Vidya Mandir (SSRVM) School</strong>, an <strong>Equestrian Center</strong>, and <strong>The Cliff Club</strong> right within its gates, Kaleidoscope is a self-sustaining world. Whether you choose a 1 BHK at Alpha or a luxury villa at The Cove, you are part of the most <strong>urban conscious lifestyle</strong> in West Pune.
+                    The Canopy at Forest Trails (The Canopy Township) represents the evolution of Paranjape Schemes' township model. With <strong>90% open spaces</strong> and <strong>38,000+ trees</strong>, it offers a micro-climate that is 2-3 degrees cooler than the city. Featuring the <strong>Shri Ravishankar Vidya Mandir (SSRVM) School</strong>, an <strong>Equestrian Center</strong>, and <strong>The Cliff Club</strong> right within its gates, The Canopy is a self-sustaining world. Whether you choose a 1 BHK at Alpha or a luxury villa at The Cove, you are part of the most <strong>urban conscious lifestyle</strong> in West Pune.
                 </p>
             </div>
         `,
@@ -393,7 +393,7 @@ const pages = [
             </div>
         `,
         "faqs": [
-            { "q": "What is the total area of the Kaleidoscope township?", "a": "The township spans over 300 acres, including Forest Trails and its various residential and recreational sectors." }
+            { "q": "What is the total area of the The Canopy township?", "a": "The township spans over 300 acres, including Forest Trails and its various residential and recreational sectors." }
         ],
         townshipData: { school: '2 Min', club: '2 Min', ring: '3 Min' }
     },

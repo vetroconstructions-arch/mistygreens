@@ -17,33 +17,33 @@ const clusterKeywords = {
         "Misty Greens Bhugaon price", "Misty Greens NA plots Forest Trails", "Misty Greens RERA number",
         "Misty Greens resale plots Bhugaon", "Misty Greens Forest Trails brochure", "Misty Greens plotting layout"
     ],
-    'kaleidoscope': [
-        "Kaleidoscope Forest Trails price", "Kaleidoscope Bhugaon plots for sale", "Kaleidoscope Paranjape reviews",
-        "Kaleidoscope NA bungalow plots", "Kaleidoscope Forest Trails resale", "Kaleidoscope phase 2 Bhugaon"
+    'The Canopy': [
+        "The Canopy Forest Trails price", "The Canopy Bhugaon plots for sale", "The Canopy Paranjape reviews",
+        "The Canopy NA bungalow plots", "The Canopy Forest Trails resale", "The Canopy phase 2 Bhugaon"
     ],
     'verandah': [
         "Verandah Forest Trails floor plan", "Verandah luxury apartments Bhugaon", "Verandah Paranjape price list",
         "Verandah 2BHK Forest Trails", "Verandah 3BHK Bhugaon flat", "Verandah possession date"
     ],
     'whistling-meadows': [
-        "Whistling Meadows forest villas", "Whistling Meadows Bhugaon price", "Whistling Meadows Paranjape bungalow",
-        "Whistling Meadows villa resale", "Whistling Meadows Forest Trails location", "Whistling Meadows RERA"
+        "The Rivolo forest villas", "The Rivolo Bhugaon price", "The Rivolo Paranjape bungalow",
+        "The Rivolo villa resale", "The Rivolo Forest Trails location", "The Rivolo RERA"
     ],
     'pebble-bay': [
-        "Pebble Bay Forest Trails plots", "Pebble Bay Bhugaon price", "Pebble Bay residential plots Pune",
-        "Pebble Bay Paranjape location", "Pebble Bay plot sizes", "Pebble Bay Bhugaon reviews"
+        "Misty Greens Forest Trails plots", "Misty Greens Bhugaon price", "Misty Greens residential plots Pune",
+        "Misty Greens Paranjape location", "Misty Greens plot sizes", "Misty Greens Bhugaon reviews"
     ],
-    'atmos': [
-        "Atmos Forest Trails Bhugaon", "Atmos Paranjape price", "Atmos residential project Pune",
-        "Atmos Forest Trails amenities", "Atmos Bhugaon location", "Atmos Paranjape floor plan"
+    'The Highlands': [
+        "Highlands Forest Trails Bhugaon", "Highlands Paranjape price", "Highlands residential project Pune",
+        "Highlands Forest Trails amenities", "Highlands Bhugaon location", "Highlands Paranjape floor plan"
     ],
-    'cascade-crescent': [
-        "Cascade villas Forest Trails", "Crescent villas Bhugaon", "Cascade Paranjape price",
-        "Crescent Forest Trails resale", "Cascade and Crescent villas Pune", "Paranjape heritage villas Bhugaon"
+    'The Rivolo-The Rivolo': [
+        "The Rivolo villas Forest Trails", "The Rivolo villas Bhugaon", "The Rivolo Paranjape price",
+        "The Rivolo Forest Trails resale", "The Rivolo villas Pune", "Paranjape heritage villas Bhugaon"
     ],
-    'evergreen': [
-        "Evergreen Forest Trails senior living", "Evergreen Bhugaon Paranjape", "Evergreen residential Pune",
-        "Evergreen Forest Trails price", "Evergreen Paranjape possession"
+    'The Rivolo': [
+        "The Rivolo Forest Trails senior living", "The Rivolo Bhugaon Paranjape", "The Rivolo residential Pune",
+        "The Rivolo Forest Trails price", "The Rivolo Paranjape possession"
     ],
     'the-cliff': [
         "The Cliff Club Forest Trails membership", "The Cliff Bhugaon restaurant", "The Cliff Forest Trails amenities",
@@ -86,8 +86,8 @@ if (injectVault(path.join(BASE_DIR, 'index.html'))) {
 const mapping = {
     'misty-greens-plots-pune/index.html': clusterKeywords['misty-greens'],
     'verandah-luxury-flats-bhugaon/index.html': clusterKeywords['verandah'],
-    'whistling-meadows-villas-bhugaon/index.html': clusterKeywords['whistling-meadows'],
-    'kaleidoscope-apartments-bhugaon/index.html': clusterKeywords['kaleidoscope']
+    'luxury-forest-villas-bhugaon/index.html': clusterKeywords['whistling-meadows'],
+    'The Canopy-apartments-bhugaon/index.html': clusterKeywords['The Canopy']
 };
 
 for (const [relPath, keywords] of Object.entries(mapping)) {

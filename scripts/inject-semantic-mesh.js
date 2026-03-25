@@ -3,60 +3,60 @@ const path = require('path');
 
 const clusters = [
     {
-        id: 'alpha',
-        path: '/codename-alpha-apartments-bhugaon/',
-        name: 'Codename Alpha',
-        tag: 'Premium 2 & 3 BHK',
-        image: 'images/misty-greens.webp'
-    },
-    {
         id: 'canopy',
         path: '/canopy-apartments-bhugaon/',
-        name: 'Canopy Apartments',
-        tag: 'Nature-Immersive 2 BHK',
-        image: 'images/villas-exterior-1.webp'
+        name: 'The Canopy',
+        tag: 'Hill-Top Luxury 2 BHK',
+        image: 'images/canopy-realistic.jpg',
+        intent: 'Nature-Immersive Lifestyle'
     },
     {
         id: 'highgardens',
         path: '/highgardens-apartments-bhugaon/',
-        name: 'Highgardens',
+        name: 'High Gardens',
         tag: 'Elevated 3 BHK Residences',
-        image: 'images/condo-1.webp'
-    },
-    {
-        id: 'pebbles',
-        path: '/pebbles-apartments-bhugaon/',
-        name: 'Pebbles',
-        tag: 'Boutique 2 BHK Homes',
-        image: 'images/villas-pool-night.webp'
-    },
-    {
-        id: 'atmos',
-        path: '/atmos-smart-homes-bhugaon/',
-        name: 'Atmos Smart Homes',
-        tag: 'Tech-Enabled 3 BHK',
-        image: 'images/living-room-1.webp'
+        image: 'images/highgardens-realistic.jpg',
+        intent: 'Sovereign Family Estate'
     },
     {
         id: 'highlands',
         path: '/the-highlands-forest-trails/',
-        name: 'The Highlands',
-        tag: 'Bespoke Bungalows',
-        image: 'images/the-highlands-villas.webp'
+        name: 'Highlands',
+        tag: 'Highland Towers',
+        image: 'images/the-highlands-villas.webp',
+        intent: 'Modern Vertical Living'
+    },
+    {
+        id: 'rivolo',
+        path: '/luxury-forest-villas-bhugaon/',
+        name: 'The Rivolo',
+        tag: 'Luxury Private Villas',
+        image: 'images/alpha_realistic_final.jpg',
+        intent: 'Absolute Seclusion'
     },
     {
         id: 'cove',
         path: '/the-cove-villas-bhugaon/',
-        name: 'The Cove Duet Villas',
-        tag: 'Twin Luxury Villas',
-        image: 'images/cove-duet.webp'
+        name: 'The Cove',
+        tag: '3 BHK Bungalows',
+        image: 'images/verandah-pool-lifestyle.jpg',
+        intent: 'Gated Duplex Mastery'
+    },
+    {
+        id: 'mistygreens',
+        path: '/misty-greens-plots-pune/',
+        name: 'Misty Greens',
+        tag: 'Residential NA Plots',
+        image: 'images/misty-greens-gate.jpg',
+        intent: 'Bespoke Land Investment'
     },
     {
         id: 'athashri',
         path: '/athashri-senior-living-bhugaon/',
-        name: 'Athashri Senior Living',
-        tag: 'Award-Winning Senior Homes',
-        image: 'images/athashri.webp'
+        name: 'Athashri',
+        tag: 'Senior Living Leader',
+        image: 'images/athashri-realistic.jpg',
+        intent: 'Assisted Living Pioneer'
     }
 ];
 
@@ -83,17 +83,17 @@ function injectSemanticMesh() {
         let cardsHtml = '';
         selected.forEach(sc => {
             cardsHtml += `
-            <!-- Sibling Cluster Card -->
-            <a href="${sc.path}" class="cluster-card sibling-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.4s; background: #fff;">
-                <div style="position: relative; overflow: hidden; height: 200px;">
-                    <img src="/${sc.image}" alt="${sc.tag} at ${sc.name} Bhugaon" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s;">
-                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--pscl-dark); color: #fff; padding: 0.3rem 0.8rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;">
+            <!-- Sibling Cluster Card (Sovereign SEO Mesh) -->
+            <a href="${sc.path}" class="cluster-card sibling-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.4s; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div style="position: relative; overflow: hidden; height: 220px;">
+                    <img src="/${sc.image}" alt="${sc.name} Bhugaon - ${sc.tag} ${sc.intent}" title="${sc.name}: ${sc.intent}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s;">
+                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--pscl-maroon); color: #fff; padding: 0.4rem 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; border-radius: 2px;">
                         ${sc.tag}
                     </div>
                 </div>
-                <div style="padding: 1.5rem;">
-                    <h4 style="font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--pscl-maroon);">${sc.name}</h4>
-                    <p style="font-size: 0.75rem; color: var(--pscl-muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem;">View Premium Availability &rarr;</p>
+                <div style="padding: 2rem;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.8rem; color: #1a1a1a;">${sc.name}</h4>
+                    <p style="font-size: 0.8rem; color: var(--pscl-maroon); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 800; margin-bottom: 0;">${sc.intent} &rarr;</p>
                 </div>
             </a>
             `;

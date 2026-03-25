@@ -23,19 +23,19 @@ const injections = [
         heroImage: { from: "/images/plots.webp", to: "/images/villas-exterior-1.webp" }
     },
     {
-        file: 'whistling-meadows-villas-bhugaon/index.html',
+        file: 'luxury-forest-villas-bhugaon/index.html',
         // Insert after the hero section's content div
         target: '<h2 class="section-title">The Sovereign <i>Retreat</i>.</h2>',
         imageBlock: `
                         <div style="margin: 3rem 0 4rem; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
-                            <img src="/images/villas-exterior-1.webp" alt="Whistling Meadows Forest Villas Exterior at Bhugaon" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block; transition: transform 0.6s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                            <img src="/images/villas-exterior-1.webp" alt="The Rivolo Forest Villas Exterior at Bhugaon" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block; transition: transform 0.6s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
                         </div>
 `,
         // Also inject a second image after the Cove Duet section
         secondTarget: 'The Cove <i>Duet</i> Lifestyle.',
         secondImageBlock: `
                             <div style="margin-top: 2rem; border-radius: 12px; overflow: hidden;">
-                                <img src="/images/villas-courtyard.webp" alt="Courtyard Living at Whistling Meadows Villas Bhugaon" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;">
+                                <img src="/images/villas-courtyard.webp" alt="Courtyard Living at Rivolo Private Villas Bhugaon" loading="lazy" decoding="async" style="width: 100%; height: auto; display: block;">
                             </div>
 `
     },

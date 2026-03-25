@@ -267,11 +267,11 @@ img {
 
 .brand-sub {
     font-family: 'Playfair Display', serif;
-    font-weight: 400;
+    font-weight: 800; /* Bold Contrast */
     font-style: italic;
-    font-size: 0.7rem;
-    color: var(--pscl-gold);
-    letter-spacing: 0.35em;
+    font-size: 0.8rem; /* Increased for authority */
+    color: #fff; /* High-contrast white */
+    letter-spacing: 0.4em; /* Refined spacing */
     text-transform: uppercase;
     margin-top: 1px;
 }
@@ -342,14 +342,16 @@ img {
 .whatsapp-btn {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
     background: #25D366;
     color: #fff;
-    padding: 0.6rem 1.4rem;
+    height: 48px; /* Standardized height */
+    padding: 0 1.8rem; /* Aligned padding */
     border-radius: 50px;
-    font-size: 0.65rem;
+    font-size: 0.7rem; /* Aligned typography */
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em; /* Standardized spacing */
     text-decoration: none;
     text-transform: uppercase;
     transition: all 0.3s;
@@ -362,13 +364,17 @@ img {
 }
 
 .tour-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--pscl-gold);
     color: white;
     border: none;
-    padding: 0.8rem 1.6rem;
+    height: 48px; /* Standardized height */
+    padding: 0 1.8rem;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.65rem;
+    font-size: 0.7rem; /* Aligned typography */
     letter-spacing: 0.1em;
     cursor: pointer;
     text-transform: uppercase;
@@ -1819,7 +1825,7 @@ body.scrolled .secondary-silo-nav {
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Atmospheric Time-Sync Overlays: Refined for Maroon Theme */
+/* Highlandspheric Time-Sync Overlays: Refined for Maroon Theme */
 body.mode-dawn::after { 
     content: ''; position: fixed; inset: 0; 
     background: linear-gradient(135deg, rgba(255, 100, 0, 0.08) 0%, transparent 100%); 

@@ -11,9 +11,9 @@ const blogsDir = path.join(BASE_DIR, 'blogs');
 
 const linkUpdates = [
     { old: 'Misty Greens', new: 'Misty Greens NA Plots Bhugaon' },
-    { old: 'Kaleidoscope', new: 'Kaleidoscope Luxury NA Plots Forest Trails' },
+    { old: 'The Canopy', new: 'The Canopy Luxury NA Plots Forest Trails' },
     { old: 'Verandah', new: 'Verandah Luxury Apartments Forest Trails' },
-    { old: 'Whistling Meadows', new: 'Whistling Meadows Independent Forest Villas' },
+    { old: 'The Rivolo', new: 'The Rivolo Independent Forest Villas' },
     { old: 'Paranjape Forest Trails', new: 'Paranjape Forest Trails Township Bhugaon' },
     { old: 'NA Bungalow Plots', new: 'NA Bungalow Plots Pune West' },
     { old: 'NA Plots', new: 'NA Bungalow Plots' }

@@ -12,13 +12,13 @@ const targetPages = [
     'index.html',
     'misty-greens-plots-pune/index.html',
     'verandah-luxury-flats-bhugaon/index.html',
-    'whistling-meadows-villas-bhugaon/index.html',
-    'kaleidoscope-apartments-bhugaon/index.html',
+    'luxury-forest-villas-bhugaon/index.html',
+    'The Canopy-apartments-bhugaon/index.html',
     'premium-apartments-forest-trails/index.html',
     // Blogs
     'blogs/bavdhan-na-bungalow-plots-investment/index.html',
     'blogs/forest-trails-na-bungalow-plots-advantage/index.html',
-    'blogs/kaleidoscope-na-bungalow-plots/index.html',
+    'blogs/The Canopy-na-bungalow-plots/index.html',
     'blogs/kothrud-vs-bhugaon-na-bungalow-plots/index.html',
     'blogs/misty-greens-na-plots-review/index.html',
     'blogs/na-bungalow-plots-pune-west-guide/index.html'

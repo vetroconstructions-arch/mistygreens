@@ -6,7 +6,7 @@ const ASSETS = [
   './script.js',
   './images/misty-greens-gate.webp',
   './images/cove-duet.webp',
-  './images/cascade-villas.webp',
+  './images/rivolo-luxury.jpg',
   './images/master-plan.webp'
 ];
 

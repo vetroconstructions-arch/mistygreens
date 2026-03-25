@@ -12,7 +12,7 @@ const SITE = 'https://paranjape-mistygreens.in';
 const blogs = [
     'na-bungalow-plots-pune-west-guide',
     'misty-greens-na-plots-review',
-    'kaleidoscope-na-bungalow-plots',
+    'The Canopy-na-bungalow-plots',
     'kothrud-vs-bhugaon-na-bungalow-plots',
     'forest-trails-na-bungalow-plots-advantage',
     'bavdhan-na-bungalow-plots-investment'
