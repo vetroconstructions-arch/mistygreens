@@ -65,6 +65,20 @@
             .advisory-opt { padding: 1rem !important; }
         }
     </style>
+
+    <!-- BreadcrumbList Schema (Phase 33) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://paranjape-mistygreens.in/" },
+            { "@type": "ListItem", "position": 2, "name": "Township", "item": "https://paranjape-mistygreens.in/township-facilities.html" },
+            { "@type": "ListItem", "position": 3, "name": "Township Facilities & Infrastructure", "item": "https://paranjape-mistygreens.in/township-facilities.html" }
+        ]
+    }
+    </script>
+    
 </head>
 <body style="background: var(--pscl-bg); color: var(--pscl-white); font-family: 'Plus Jakarta Sans', sans-serif;">
 
@@ -85,6 +99,24 @@
             </div>
         </nav>
     </header>
+
+    <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) -->
+    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item"><a href="/township-facilities.html">Township</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item active" aria-current="page">Township Facilities & Infrastructure</li>
+            </ol>
+        </div>
+    </nav>
+    
+
+    <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) -->
+    
+    
 
     <!-- Parallax Hero -->
     <section class="club-hero">
