@@ -1,24 +1,50 @@
-/**
- * Phase 26: Unified Master Architecture & SEO Propagation Engine
- * Unifies Navigation, Footer, Premium Modals, Breadcrumbs, and Canonicals.
- * Forces Absolute-Root paths for stability across all 63+ folders.
- * Source of Truth: index.html
- */
 const fs = require('fs');
 const path = require('path');
 
-const BASE_DIR = process.cwd();
-const MASTER_FILE = 'index.html';
-const VERSION = '2.1'; // Global Cache-Bust for Phase 20
-const SITE_URL = 'https://paranjape-mistygreens.in';
+const VERSION = "1.12.1";
+const BASE_DIR = path.join(__dirname, '..');
+
+const PROXIMITY_DATA = {
+    'Misty Greens Plots': { school: '8 mins', club: '4 mins', equestrian: '6 mins', entry: '10 mins' },
+    'The Cove Villas': { school: '5 mins', club: '2 mins', equestrian: '3 mins', entry: '12 mins' },
+    'The Highlands Apartments': { school: '5 mins', club: '2 mins', equestrian: '3 mins', entry: '12 mins' },
+    'The Canopy Apartments': { school: '3 mins', club: '1 min', equestrian: '2 mins', entry: '15 mins' },
+    'High Gardens': { school: '4 mins', club: '2 mins', equestrian: '3 mins', entry: '14 mins' },
+    'Codename Alpha': { school: '4 mins', club: '2 mins', equestrian: '3 mins', entry: '14 mins' },
+    'Forest Trails Legacy': { school: '5 mins', club: '3 mins', equestrian: '4 mins', entry: '12 mins' }
+};
+
+function getProximityHtml(projectName) {
+    const data = PROXIMITY_DATA[projectName] || PROXIMITY_DATA['Forest Trails Legacy'];
+    return `
+    <!-- Sovereign Proximity Ledger (Sync v1.12.1) -->
+    <div class="proximity-mesh" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 50px; padding: 40px; background: rgba(0,0,0,0.03); border-radius: 15px; border: 1px solid rgba(0,0,0,0.05);">
+        <div class="prox-item">
+            <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 8px; text-transform: uppercase;">SSRVM School</span>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #000; font-weight: 700;">${data.school}</div>
+        </div>
+        <div class="prox-item">
+            <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 8px; text-transform: uppercase;">The Cliff Club</span>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #000; font-weight: 700;">${data.club}</div>
+        </div>
+        <div class="prox-item">
+            <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 8px; text-transform: uppercase;">Equestrian Academy</span>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #000; font-weight: 700;">${data.equestrian}</div>
+        </div>
+        <div class="prox-item">
+            <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 8px; text-transform: uppercase;">Bhugaon Entry</span>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #000; font-weight: 700;">${data.entry}</div>
+        </div>
+    </div>
+    <!-- /Sovereign Proximity Ledger -->`;
+}
 
 function getAllHtmlFiles(dir, fileList = []) {
     const files = fs.readdirSync(dir);
     files.forEach(file => {
         const filePath = path.join(dir, file);
-        const stat = fs.statSync(filePath);
-        if (stat.isDirectory()) {
-            if (!['node_modules', 'assets', 'images', 'brain', 'scripts', '.git', '.wrangler', 'fonts', 'styles'].includes(file)) {
+        if (fs.statSync(filePath).isDirectory()) {
+            if (file !== 'node_modules' && !file.startsWith('.')) {
                 getAllHtmlFiles(filePath, fileList);
             }
         } else if (file.endsWith('.html')) {
@@ -28,227 +54,168 @@ function getAllHtmlFiles(dir, fileList = []) {
     return fileList;
 }
 
-/**
- * Converts relative paths to absolute-root paths
- */
-function makeAbsolute(html) {
-    if (!html) return '';
-    return html
-        .replace(/(href|src)="(?!\/|http|https|#|tel:|mailto:|data:)([^"]*)"/g, '$1="/$2"')
-        .replace(/="\/\//g, '="/'); // Fix potential double slashes
+function getProjectContext(dir) {
+    if (dir.includes('misty-greens')) return 'Misty Greens Plots';
+    if (dir.includes('the-cove')) return 'The Cove Villas';
+    if (dir.includes('the-highlands')) return 'The Highlands Apartments';
+    if (dir.includes('canopy-apartments')) return 'The Canopy Apartments';
+    if (dir.includes('codename-alpha')) return 'Codename Alpha';
+    if (dir.includes('highgardens')) return 'High Gardens';
+    return 'Forest Trails Legacy';
 }
 
-function propagate() {
-    if (!fs.existsSync(MASTER_FILE)) {
-        console.error(`❌ Master file ${MASTER_FILE} not found.`);
-        return;
-    }
-
-    const masterContent = fs.readFileSync(MASTER_FILE, 'utf8');
+function cleanHead(html) {
+    // Safe cleaning - only target Sovereign comments
+    const headCleaningPattern = /<!-- Sovereign Intelligence Layer \(Sync v1\..*?\) -->[\s\S]*?<!-- \/Sovereign Intelligence Layer -->/gi;
+    html = html.replace(headCleaningPattern, '');
     
-    // 1. Extract Master Components
-    const headerMatch = masterContent.match(/<header class="header-main"[\s\S]*?<\/header>/);
-    const footerMatch = masterContent.match(/<footer class="footer-main"[\s\S]*?<\/footer>/);
-    
-    // Use Block Markers for Phase 19 Additions
-    const advisorBubbleMatch = masterContent.match(/<!-- \[BLOCK:SOVEREIGN_ADVISOR\] -->[\s\S]*?<!-- \[\/BLOCK:SOVEREIGN_ADVISOR\] -->/);
-    const exitIntent2Match = masterContent.match(/<!-- \[BLOCK:EXIT_INTENT_2\] -->[\s\S]*?<!-- \[\/BLOCK:EXIT_INTENT_2\] -->/);
+    // Aggressive cleanup for legacy manual injections
+    html = html.replace(/<script type="speculationrules">[\s\S]*?<\/script>/gi, '');
+    html = html.replace(/<link rel="stylesheet" href="\/trust-mesh\.css">/gi, '');
+    html = html.replace(/<link rel="preload" as="image" href="\/images\/drone-aerial\.webp"[^>]*>/gi, '');
 
-    // Use IDs for legacy components
-    const conciergeModalMatch = masterContent.match(/<div class="concierge-modal" id="heritage-concierge"[\s\S]*?<\/form>\s*<\/div>\s*<\/div>\s*<\/div>/);
-    const masterPlanModalMatch = masterContent.match(/<div class="master-plan-modal" id="master-plan-modal"[\s\S]*?<\/form>\s*<\/div>\s*<\/div>\s*<\/div>/);
-    const structuralVaultMatch = masterContent.match(/<div class="concierge-modal" id="structural-vault"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/);
-
-    if (!headerMatch || !footerMatch) {
-        if (!headerMatch) console.error('❌ Header [header-main] not found in index.html');
-        if (!footerMatch) console.error('❌ Footer [footer-main] not found in index.html');
-        return;
-    }
-
-    // Process components
-    const newHeader = makeAbsolute(headerMatch[0]);
-    const newFooter = makeAbsolute(footerMatch[0]);
-    const newConcierge = conciergeModalMatch ? makeAbsolute(conciergeModalMatch[0]) : '';
-    const newMasterPlan = masterPlanModalMatch ? makeAbsolute(masterPlanModalMatch[0]) : '';
-    const newStructuralVault = structuralVaultMatch ? makeAbsolute(structuralVaultMatch[0]) : '';
-    const newAdvisor = advisorBubbleMatch ? makeAbsolute(advisorBubbleMatch[0]) : '';
-    const newExit2 = exitIntent2Match ? makeAbsolute(exitIntent2Match[0]) : '';
-    const newPillCss = '<link rel="stylesheet" href="/conversion-pill.css">';
-
-    const SPECULATION_RULES = `
-    <!-- Speculation Rules API (Zero-ms Load) -->
+    const headInjections = `
+    <!-- Sovereign Intelligence Layer (Sync v1.12.1) -->
+    <link rel="stylesheet" href="/trust-mesh.css">
+    <link rel="preload" as="image" href="/images/drone-aerial.webp" fetchpriority="high">
     <script type="speculationrules">
     {
       "prerender": [
         {
-          "where": {"href_matches": "/*"},
+          "source": "list",
+          "urls": ["/na-bungalow-plots-bhugaon/", "/premium-apartments-forest-trails/", "/luxury-forest-villas-bhugaon/", "/misty-greens-plots-pune/"],
           "eagerness": "moderate"
         }
       ]
     }
     </script>
-    `;
+    <!-- /Sovereign Intelligence Layer -->`;
+    
+    html = html.replace('</head>', `${headInjections}\n</head>`);
+    return html;
+}
 
-    const MODALS_BLOCK = `
-    ${newConcierge}
-    ${newMasterPlan}
-    ${newStructuralVault}
-    ${newAdvisor}
-    ${newExit2}
-    ${newPillCss}
-    ${SPECULATION_RULES}
-    `;
+function propagate() {
+    console.log(`🚀 Starting Global Sync v${VERSION} (Safe Recovery Pass)...`);
+    
+    const masterPath = path.join(BASE_DIR, 'index.html');
+    let masterHtml = fs.readFileSync(masterPath, 'utf8');
+
+    const headerMatch = masterHtml.match(/<header[^>]*?class="header-main"[^>]*?>[\s\S]*?<\/header>/i);
+    const footerMatch = masterHtml.match(/<footer[^>]*?class="footer-main"[^>]*?>[\s\S]*?<\/footer>/i);
+    
+    if (!headerMatch || !footerMatch) {
+         console.error("❌ Critical components missing in index.html");
+         return;
+    }
 
     const allFiles = getAllHtmlFiles(BASE_DIR);
-    console.log(`🔍 Found ${allFiles.length} HTML files to synchronize.`);
 
     allFiles.forEach(filePath => {
         let html = fs.readFileSync(filePath, 'utf8');
         const relativePath = path.relative(BASE_DIR, filePath);
         const dirName = path.dirname(relativePath);
-        const fileName = path.basename(relativePath);
-        const isRoot = dirName === '.';
 
-        // Skip master file itself for component injection to avoid recursion mess, 
-        // but handle its paths/versioning
-        
-        // A. Header Sync
-        const HEADER_MARKER = '    <!-- Architectural Navigation (Global Sync v1.7) -->';
-        html = html.replace(/<!-- Architectural Navigation[\s\S]*?-->/g, ''); // Clean old markers
-        
-        if (!isRoot && html.includes('<header class="header-main">')) {
-            html = html.replace(/<header class="header-main">[\s\S]*?<\/header>/, `${HEADER_MARKER}\n${newHeader}`);
-        } else if (!isRoot && html.includes('<nav class="nav-main">')) {
-             html = html.replace(/<nav class="nav-main">[\s\S]*?<\/nav>/, `${HEADER_MARKER}\n${newHeader}`);
-        }
+        html = cleanHead(html);
 
-        // B. Footer Sync
-        if (!isRoot && html.includes('<footer class="footer-main">')) {
-            html = html.replace(/<footer class="footer-main">[\s\S]*?<\/footer>/, newFooter);
-        }
-
-        // C. Clean & Inject Modals before </body>
-        if (!isRoot) {
-            // Clean all variations of old injections
-            html = html.replace(/<!-- \[BLOCK:SOVEREIGN_ADVISOR\] -->[\s\S]*?<!-- \[\/BLOCK:SOVEREIGN_ADVISOR\] -->/g, '');
-            html = html.replace(/<!-- \[BLOCK:EXIT_INTENT_2\] -->[\s\S]*?<!-- \[\/BLOCK:EXIT_INTENT_2\] -->/g, '');
-            html = html.replace(/<div id="sovereign-advisor-bubble"[\s\S]*?<\/div>\s*<\/div>/g, ''); // Fix for previous failed run
-            html = html.replace(/<div class="concierge-modal" id="exit-intent-2"[\s\S]*?<\/div>\s*<\/div>/g, '');
-            
-            html = html.replace(/<!-- Premium Enquiry Modal[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
-            html = html.replace(/<div class="concierge-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
-            html = html.replace(/<!-- Master Plan Lead Magnet Modal -->[\s\S]*?<div class="master-plan-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
-            html = html.replace(/<!-- Premium Master Plan Modal[\s\S]*?<div class="master-plan-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
-            html = html.replace(/<div class="master-plan-modal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/g, '');
-            html = html.replace(/<!-- Elite Conversion Pill -->[\s\S]*?<div class="conversion-pill[\s\S]*?<\/div>\s*<link rel="stylesheet" href="\/conversion-pill.css">/g, '');
-            html = html.replace(/<div class="conversion-pill[\s\S]*?<\/div>/g, '');
-            html = html.replace(/<link rel="stylesheet" href="\/conversion-pill.css">/g, '');
-            html = html.replace(/<link rel="stylesheet" href="conversion-pill.css">/g, '');
-
-            if (html.includes('</body>')) {
-                html = html.replace('</body>', `${MODALS_BLOCK.trim()}\n</body>`);
+        if (filePath !== masterPath) {
+            if (html.includes('<header')) {
+                html = html.replace(/<header[^>]*?class="header-main"[^>]*?>[\s\S]*?<\/header>/i, headerMatch[0]);
+            }
+            if (html.includes('<footer')) {
+                html = html.replace(/<footer[^>]*?class="footer-main"[^>]*?>[\s\S]*?<\/footer>/i, footerMatch[0]);
             }
         }
 
-        // D. Path & Versioning Correction (Apply to ALL files)
-        html = html.replace(/(href|src)="([^"]*\/)?style\.css(\?v=[^"]*)?"/g, `$1="/style.css?v=${VERSION}"`);
-        html = html.replace(/(href|src)="([^"]*\/)?script\.js(\?v=[^"]*)?"/g, `$1="/script.js?v=${VERSION}"`);
+        const projectName = getProjectContext(dirName);
+        const proximityHtml = getProximityHtml(projectName);
 
-        // E. SEO: Canonical Hardening
-        let canonicalUrl;
-        if (isRoot) {
-            if (fileName === 'index.html') {
-                canonicalUrl = `${SITE_URL}/`;
-            } else {
-                canonicalUrl = `${SITE_URL}/${fileName}`;
-            }
-        } else {
-            canonicalUrl = `${SITE_URL}/${dirName}/`;
+        // Safe Proximity Injection
+        if (html.includes('Connectivity</i>')) {
+            // Cleanup existing
+            html = html.replace(/<!-- Sovereign Proximity Ledger[\s\S]*?<!-- \/Sovereign Proximity Ledger -->/gi, '');
+            // Inject after H2
+            html = html.replace(/(<h2[^>]*?>Sovereign <i[^>]*?>Connectivity<\/i><\/h2>\s*<\/div>)/gi, `$1\n${proximityHtml}`);
         }
 
-        const canonicalTag = `<link rel="canonical" href="${canonicalUrl}">`;
-        if (html.includes('<link rel="canonical"')) {
-            html = html.replace(/<link rel="canonical" href="[^"]*">/, canonicalTag);
-        } else if (html.includes('</title>')) {
-            html = html.replace('</title>', `</title>\n    ${canonicalTag}`);
-        }
-
-        // F. SEO: Breadcrumb Injection
-        if (html.includes('<main>')) {
-            let breadcrumbName;
-            if (isRoot) {
-                if (fileName === 'index.html') {
-                    breadcrumbName = "Home"; // Usually not visible on home
-                } else {
-                    breadcrumbName = fileName.replace('.html', '').split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-                }
-            } else {
-                const lastPart = dirName.split(/[/\\]/).pop();
-                breadcrumbName = lastPart.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-            }
-
-            if (!isRoot || fileName !== 'index.html') {
-                const breadcrumbHtml = `
-    <!-- Breadcrumb UI (Phase 26 Consolidated) -->
-    <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-        <div class="container">
-            <ol class="breadcrumb-list">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-separator">/</li>
-                <li class="breadcrumb-item active" aria-current="page">${breadcrumbName}</li>
-            </ol>
+        const TRUST_MESH_HTML = `
+    <!-- Sovereign Trust Mesh (Sync v1.12.1) -->
+    <div class="trust-mesh-ticker" id="trust-mesh-ticker">
+        <div class="trust-icon">✦</div>
+        <div class="trust-content">
+            <span class="trust-label">Direct Advisory</span>
+            <span class="trust-data">Analyzing demand...</span>
         </div>
-    </nav>`;
+    </div>
+    <!-- /Sovereign Trust Mesh -->`;
 
-                const ECOSYSTEM_MESH = `
-    <!-- Sovereign Ecosystem Mesh (Phase 16.1) -->
-    <section class="ecosystem-mesh" style="padding: 100px 0; background: #fff; border-top: 1px solid #eee;">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 50px;">
-                <span style="font-size: 0.7rem; font-weight: 800; color: var(--pscl-gold); letter-spacing: 0.3em; display: block; margin-bottom: 15px;">EXPLORE THE 190-ACRE ECOSYSTEM</span>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--pscl-maroon); margin: 0;">Sovereign <i style="color: var(--pscl-gold);">Connectivity</i></h2>
-            </div>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <a href="/misty-greens-plots-pune/" style="text-decoration: none;">
-                    <div style="padding: 30px; background: #f9f9f5; border-radius: 12px; border: 1px solid #eee; transition: all 0.3s;">
-                        <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 10px;">BUNGALOW PLOTS</span>
-                        <h4 style="color: #1a1a1a; margin: 0;">Misty Greens</h4>
+        const CONCIERGE_MODAL = `
+    <!-- Sovereign Concierge Modal (Sync v1.12.1) -->
+    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0;">
+            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon));"></div>
+            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
+                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
+                <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
+                    <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Secure exclusive pricing for <strong>${projectName}</strong>.</p>
+                </div>
+                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
+                    <input type="hidden" name="project_context" value="${projectName}">
+                    <div class="advisory-step active" data-step="1">
+                        <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>
+                        <div style="display: grid; gap: 12px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="pricing" style="margin-right: 15px;" required checked> Pricing & Inventory</label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="visit" style="margin-right: 15px;"> Schedule Site Visit</label>
+                        </div>
+                        <button type="button" class="btn-next-step" style="width: 100%; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; font-weight: 900; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase;">Continue</button>
                     </div>
-                </a>
-                <a href="/the-cove-villas-bhugaon/" style="text-decoration: none;">
-                    <div style="padding: 30px; background: #f9f9f5; border-radius: 12px; border: 1px solid #eee; transition: all 0.3s;">
-                        <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 10px;">DUPLEX VILLAS</span>
-                        <h4 style="color: #1a1a1a; margin: 0;">The Cove</h4>
+                    <div class="advisory-step" data-step="2" style="display: none;">
+                        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <input type="tel" name="phone" placeholder="Mobile Number" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="btn-prev-step" style="flex: 1; padding: 1.2rem; border: 1px solid #bbb; border-radius: 12px; background: #eee; cursor: pointer;">BACK</button>
+                            <button type="submit" style="flex: 2; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; border: none; border-radius: 12px; font-weight: 900; cursor: pointer;">FINALIZE ADVISORY</button>
+                        </div>
                     </div>
-                </a>
-                <a href="/amenities-the-cliff-club.html" style="text-decoration: none;">
-                    <div style="padding: 30px; background: #f9f9f5; border-radius: 12px; border: 1px solid #eee; transition: all 0.3s;">
-                        <span style="color: var(--pscl-gold); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; display: block; margin-bottom: 10px;">LIFESTYLE</span>
-                        <h4 style="color: #1a1a1a; margin: 0;">The Cliff Club</h4>
-                    </div>
-                </a>
+                </form>
             </div>
         </div>
-    </section>`;
-                
-                // Clean old components
-                html = html.replace(/<!-- Breadcrumb UI[\s\S]*?<\/nav>/g, '');
-                html = html.replace(/<!-- Sovereign Ecosystem Mesh[\s\S]*?<\/section>/g, '');
-                
-                // Inject Breadcrumb at start of main
-                html = html.replace('<main>', `<main>\n    ${breadcrumbHtml.trim()}`);
-                
-                // Inject Mesh at end of main
-                if (html.includes('</main>')) {
-                    html = html.replace('</main>', `${ECOSYSTEM_MESH.trim()}\n</main>`);
-                }
-            }
+    </div>
+    <!-- /Sovereign Concierge Modal -->`;
+
+        const CONVERSION_PILL = `
+    <!-- Sovereign Conversion Pill (Sync v1.12.1) -->
+    <div class="conversion-pill open-enquiry-modal" id="callback-pill" data-project="${projectName}"><div class="pill-icon">📞</div><div class="pill-text">Request Callback</div></div>
+    <!-- /Sovereign Conversion Pill -->`;
+
+        const SEARCH_V2_SCRIPT = `
+    <!-- Sovereign Search Layer (Sync v1.12.1) -->
+    <script src="/scripts/search-manager.js"></script>
+    <!-- /Sovereign Search Layer -->`;
+
+        // Safe Body Cleanup
+        [
+            /<!-- Sovereign Trust Mesh[\s\S]*?<!-- \/Sovereign Trust Mesh -->/gi,
+            /<!-- Sovereign Concierge Modal[\s\S]*?<!-- \/Sovereign Concierge Modal -->/gi,
+            /<!-- Sovereign Conversion Pill[\s\S]*?<!-- \/Sovereign Conversion Pill -->/gi,
+            /<!-- Sovereign Search Layer[\s\S]*?<!-- \/Sovereign Search Layer -->/gi,
+            /<!-- Sovereign Trust Mesh[\s\S]*?<\/div>/gi, // Legacy cleanup
+            /<!-- Premium Enquiry Modal[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/gi, // Legacy cleanup (DANGEROUS but limited to comments)
+            /<!-- Elite Conversion Pill[\s\S]*?<\/div>/gi, // Legacy cleanup
+            /<div class="conversion-pill[\s\S]*?<\/div>/gi // Ad-hoc cleanup
+        ].forEach(r => html = html.replace(r, ''));
+
+        if (html.includes('</body>')) {
+            html = html.replace('</body>', `${TRUST_MESH_HTML}\n${CONCIERGE_MODAL}\n${CONVERSION_PILL}\n${SEARCH_V2_SCRIPT}\n</body>`);
         }
 
         fs.writeFileSync(filePath, html, 'utf8');
     });
 
-    console.log(`✨ Global Sync Complete. ${allFiles.length} files processed with v${VERSION} standards.`);
+    console.log(`✨ Status: Global Sync Complete (v${VERSION}). Processed ${allFiles.length} files.`);
 }
 
 propagate();

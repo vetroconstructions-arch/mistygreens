@@ -36,22 +36,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- SEO Phase 35: Speculation Rules API (Near-Instant Pre-rendering) -->
-    <script type="speculationrules">
-    {
-      "prerender": [
-        {
-          "source": "list",
-          "urls": [
-            "na-bungalow-plots-bhugaon/",
-            "premium-apartments-forest-trails/",
-            "luxury-forest-villas-bhugaon/",
-            "misty-greens-plots-pune/"
-          ],
-          "eagerness": "conservative"
-        }
-      ]
-    }
-    </script>
+    
 
     <!-- Multi-Entity JSON-LD Schema -->
     <script type="application/ld+json">
@@ -922,6 +907,24 @@
     <link rel="manifest" href="/manifest.json">
     <!-- Core Web Vitals LCP Preload -->
     <link rel="preload" as="image" href="images/drone-aerial.webp">
+
+    
+
+    <!-- Sovereign Intelligence Layer (Sync v1.12.1) -->
+    <link rel="stylesheet" href="/trust-mesh.css">
+    <link rel="preload" as="image" href="/images/drone-aerial.webp" fetchpriority="high">
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": ["/na-bungalow-plots-bhugaon/", "/premium-apartments-forest-trails/", "/luxury-forest-villas-bhugaon/", "/misty-greens-plots-pune/"],
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
+    <!-- /Sovereign Intelligence Layer -->
 </head>
 <body>
     <!-- Opening Modal (Phase 19) -->
@@ -3244,74 +3247,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
-    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);"></div>
-        
-        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
-
-            <!-- Premium Accent Bar -->
-            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
-
-            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
-                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; font-weight: 300;">&times;</button>
-                
-                <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
-                        <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1; font-weight: 700;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
-                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem; letter-spacing: 0.02em; font-weight: 500;">Secure exclusive pricing & priority site-visit guidance.</p>
-                </div>
-                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" class="advisory-flow" style="display: flex; flex-direction: column; gap: 0;">
-                    <input type="hidden" name="_next" value="https://paranjape-mistygreens.in/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
-                    
-                    <!-- Step 1: Architectural Preference -->
-                    <div class="advisory-step active" data-step="1">
-                        <div style="margin-bottom: 25px;">
-                            <span style="font-size: 0.73rem; font-weight: 900; color: var(--pscl-gold); letter-spacing: 0.2em; display: block; margin-bottom: 15px;">ADVISORY STEP 01/02</span>
-                            <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700;">What is your architectural preference?</h4>
-                        </div>
-                        <div style="display: grid; gap: 12px; margin-bottom: 30px;">
-                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                                <input type="radio" name="interest" value="plots" style="margin-right: 15px; accent-color: var(--pscl-maroon);" required>
-                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">NA Bungalow Plots</span>
-                            </label>
-                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                                <input type="radio" name="interest" value="villas" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
-                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Luxury Heritage Villas</span>
-                            </label>
-                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
-                                <input type="radio" name="interest" value="apartments" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
-                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Smart Luxury Apartments</span>
-                            </label>
-                        </div>
-                        <button type="button" class="btn btn-maroon btn-next-step" style="width: 100%; justify-content: center; padding: 1.2rem; border: none; border-radius: 12px; background: var(--pscl-maroon); color: #fff; font-weight: 900; cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase;">Continue <i class="fas fa-arrow-right" style="margin-left:10px"></i></button>
-                    </div>
-
-                    <!-- Step 2: Contact Details -->
-                    <div class="advisory-step" data-step="2" style="display: none;">
-                        <div style="margin-bottom: 25px;">
-                            <span style="font-size: 0.73rem; font-weight: 900; color: var(--pscl-gold); letter-spacing: 0.2em; display: block; margin-bottom: 15px;">ADVISORY STEP 02/02</span>
-                            <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700;">Secure your priority schedule</h4>
-                        </div>
-                        <div style="display: flex; flex-direction: column; gap: 1.2rem;">
-                            <input type="text" name="name" placeholder="Full Name" class="enquiry-input-premium" required style="width: 100%; padding: 1.2rem 1.5rem; background: #ffffff; border: 2px solid #ddd; color: #000; border-radius: 12px; font-size: 1rem; font-weight: 600; outline: none; transition: border-color 0.3s;">
-                            <input type="tel" name="phone" placeholder="Mobile Number" class="enquiry-input-premium" required style="width: 100%; padding: 1.2rem 1.5rem; background: #ffffff; border: 2px solid #ddd; color: #000; border-radius: 12px; font-size: 1rem; font-weight: 600; outline: none; transition: border-color 0.3s;">
-                            <input type="email" name="email" placeholder="Email Address (Optional)" class="enquiry-input-premium" style="width: 100%; padding: 1.2rem 1.5rem; background: #ffffff; border: 2px solid #ddd; color: #000; border-radius: 12px; font-size: 1rem; font-weight: 600; outline: none; transition: border-color 0.3s;">
-                        </div>
-                        
-                        <input type="hidden" name="project_context" value="Township Legacy">
-                        
-                        <div style="display: flex; gap: 12px; margin-top: 30px;">
-                            <button type="button" class="btn btn-outline btn-prev-step" style="flex: 1; justify-content: center; padding: 1.2rem; border: 2px solid #bbb; border-radius: 12px; background: #eee; color: #333; font-size: 0.8rem; font-weight: 700; cursor: pointer;">BACK</button>
-                            <button type="submit" class="btn btn-maroon" style="flex: 2; justify-content: center; padding: 1.2rem; border: none; border-radius: 12px; background: var(--pscl-maroon); color: #fff; font-weight: 900; cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase;">Finalize Advisory</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    
     
     <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
@@ -3410,9 +3346,7 @@
         </div>
     </div>
     
-    <!-- Elite Conversion Pill -->
-    <div class="conversion-pill open-enquiry-modal" id="callback-pill" data-project="Forest Trails Legacy">
-        <div class="pill-icon">📞</div>
+    
         <div class="pill-text">Request Callback</div>
     </div>
     <link rel="stylesheet" href="/conversion-pill.css">
@@ -3494,5 +3428,67 @@
             </div>
         </div>
     </div>
+
+    
+
+    
+
+    
+
+    
+
+    <!-- Sovereign Trust Mesh (Sync v1.12.1) -->
+    <div class="trust-mesh-ticker" id="trust-mesh-ticker">
+        <div class="trust-icon">✦</div>
+        <div class="trust-content">
+            <span class="trust-label">Direct Advisory</span>
+            <span class="trust-data">Analyzing demand...</span>
+        </div>
+    </div>
+    <!-- /Sovereign Trust Mesh -->
+
+    <!-- Sovereign Concierge Modal (Sync v1.12.1) -->
+    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0;">
+            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon));"></div>
+            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
+                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
+                <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
+                    <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Secure exclusive pricing for <strong>Forest Trails Legacy</strong>.</p>
+                </div>
+                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
+                    <input type="hidden" name="project_context" value="Forest Trails Legacy">
+                    <div class="advisory-step active" data-step="1">
+                        <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>
+                        <div style="display: grid; gap: 12px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="pricing" style="margin-right: 15px;" required checked> Pricing & Inventory</label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="visit" style="margin-right: 15px;"> Schedule Site Visit</label>
+                        </div>
+                        <button type="button" class="btn-next-step" style="width: 100%; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; font-weight: 900; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase;">Continue</button>
+                    </div>
+                    <div class="advisory-step" data-step="2" style="display: none;">
+                        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <input type="tel" name="phone" placeholder="Mobile Number" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <div style="display: flex; gap: 12px; margin-top: 20px;">
+                            <button type="button" class="btn-prev-step" style="flex: 1; padding: 1.2rem; border: 1px solid #bbb; border-radius: 12px; background: #eee; cursor: pointer;">BACK</button>
+                            <button type="submit" style="flex: 2; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; border: none; border-radius: 12px; font-weight: 900; cursor: pointer;">FINALIZE ADVISORY</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /Sovereign Concierge Modal -->
+
+    <!-- Sovereign Conversion Pill (Sync v1.12.1) -->
+    <div class="conversion-pill open-enquiry-modal" id="callback-pill" data-project="Forest Trails Legacy"><div class="pill-icon">📞</div><div class="pill-text">Request Callback</div></div>
+    <!-- /Sovereign Conversion Pill -->
+
+    <!-- Sovereign Search Layer (Sync v1.12.1) -->
+    <script src="/scripts/search-manager.js"></script>
+    <!-- /Sovereign Search Layer -->
 </body>
 </html>

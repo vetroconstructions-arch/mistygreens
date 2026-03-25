@@ -1,0 +1,78 @@
+/* Sovereign Trust Mesh (Phase 37) - Premium Social Proof */
+.trust-mesh-ticker {
+    position: fixed;
+    bottom: 90px;
+    left: 40px;
+    z-index: 9998;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    transform: translateX(-100%);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trust-mesh-ticker.active {
+    display: flex;
+    transform: translateX(0);
+}
+
+.trust-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--pscl-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 15px rgba(197,160,89,0.4);
+}
+
+.trust-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-label {
+    font-size: 0.6rem;
+    font-weight: 900;
+    color: var(--pscl-gold);
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.trust-data {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.trust-data i {
+    color: var(--pscl-gold);
+    font-style: normal;
+}
+
+@media (max-width: 1024px) {
+    .trust-mesh-ticker {
+        bottom: 110px;
+        left: 20px;
+        right: 20px;
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    .trust-mesh-ticker.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
