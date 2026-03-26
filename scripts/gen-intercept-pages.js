@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = process.cwd();
-const SITE = 'https://paranjape-mistygreens.in';
+const SITE = 'https://paranjapetownship.com';
 const VERSION = '1.7';
 
 // Elite Global Components (Sync from propagate-form.js)

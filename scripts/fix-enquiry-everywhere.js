@@ -58,7 +58,7 @@ const FULL_MODAL = `
                     <p style="color: #666; font-size: 0.9rem; margin-top: 1rem; letter-spacing: 0.02em;">Secure exclusive pricing & priority site-visit guidance.</p>
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
-                    <input type="hidden" name="_next" value="https://paranjape-mistygreens.in/thank-you.html">
+                    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
                     <style>

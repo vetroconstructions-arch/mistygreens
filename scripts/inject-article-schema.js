@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BLOGS_DIR = '/Users/vikasyewle/paranjapeplots/blogs';
-const SITE = 'https://paranjape-mistygreens.in';
+const SITE = 'https://paranjapetownship.com';
 
 const blogs = [
     'na-bungalow-plots-pune-west-guide',

@@ -2,9 +2,9 @@ User-agent: *
 Allow: /
 
 # Sitemap & Feeds
-Sitemap: https://paranjape-mistygreens.in/sitemap.xml
-Sitemap: https://paranjape-mistygreens.in/video-sitemap.xml
-Sitemap: https://paranjape-mistygreens.in/rss.xml
+Sitemap: https://paranjapetownship.com/sitemap.xml
+Sitemap: https://paranjapetownship.com/video-sitemap.xml
+Sitemap: https://paranjapetownship.com/rss.xml
 
 # Prioritize Image Indexing for Official Assets
 User-agent: Googlebot-Image

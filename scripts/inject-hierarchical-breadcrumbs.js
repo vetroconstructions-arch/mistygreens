@@ -112,9 +112,9 @@ function processFile(filePath) {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://paranjape-mistygreens.in/" },
-            { "@type": "ListItem", "position": 2, "name": "${category.label}", "item": "https://paranjape-mistygreens.in${category.path}" },
-            { "@type": "ListItem", "position": 3, "name": "${pageTitle}", "item": "https://paranjape-mistygreens.in/${relativePath.replace('index.html', '')}" }
+            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://paranjapetownship.com/" },
+            { "@type": "ListItem", "position": 2, "name": "${category.label}", "item": "https://paranjapetownship.com${category.path}" },
+            { "@type": "ListItem", "position": 3, "name": "${pageTitle}", "item": "https://paranjapetownship.com/${relativePath.replace('index.html', '')}" }
         ]
     }
     </script>
