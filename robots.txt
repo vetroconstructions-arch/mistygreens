@@ -1,40 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /components/
+Disallow: /404.html
+Disallow: /thank-you.html
 
-# Sitemap & Feeds
 Sitemap: https://paranjapetownship.com/sitemap.xml
-Sitemap: https://paranjapetownship.com/video-sitemap.xml
-Sitemap: https://paranjapetownship.com/rss.xml
-
-# Prioritize Image Indexing for Official Assets
-User-agent: Googlebot-Image
-Allow: /images/
-
-User-agent: Pinterestbot
-Allow: /images/
-
-# Block AI Training Crawlers (preserve content exclusivity)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-# Block scraper bots
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-
-User-agent: DotBot
-Disallow: /

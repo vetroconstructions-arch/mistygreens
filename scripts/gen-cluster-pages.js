@@ -96,11 +96,11 @@ const ENQUIRY_TRIGGER_HTML = `
 `;
 
 const MODAL_HTML = `
-    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
-        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div class="concierge-modal" id="heritage-concierge" aria-hidden="true">
+        <div class="concierge-overlay"></div>
+        <div class="concierge-panel">
             <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
-            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
+            <div style="padding: 4rem 3.5rem 3.5rem;">
                 <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f0; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.6;">&times;</button>
                 <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
                     <div style="display: inline-block; background: rgba(140,115,47,0.08); border: 1px solid rgba(140,115,47,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;">
@@ -111,16 +111,6 @@ const MODAL_HTML = `
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
                     <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
-                    <style>
-                        .concierge-panel input::placeholder { color: #999 !important; font-size: 0.8rem; letter-spacing: 0.05em; }
-                        .concierge-panel select { color: #1a1a1a; font-size: 0.85rem; }
-                        .concierge-panel select:invalid { color: #999; }
-                        @keyframes enquiry-modal-entry { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-                        .enquiry-input-premium { width: 100%; padding: 1.2rem 1.5rem; background: #f5f5f0; border: 2px solid #b0a890; color: #1a1a1a; border-radius: 12px; font-size: 0.9rem; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-                        .enquiry-input-premium:focus { border-color: var(--pscl-gold); background: #fff; box-shadow: 0 0 0 4px rgba(140,115,47,0.15); }
-                    </style>
                     <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
                     <input type="tel" name="phone" id="concierge-phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
                     <input type="email" name="email" placeholder="EMAIL ADDRESS" class="enquiry-input-premium">
@@ -138,7 +128,6 @@ const MODAL_HTML = `
                         <label for="wa-optin" style="font-size: 0.75rem; line-height: 1.5; color: #555; cursor: pointer; font-weight: 500;">I agree to receive the brochure, price list and updates on WhatsApp.</label>
                     </div>
                     <button type="submit" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(107,13,13,0.35);">⬥ SECURE ADVISORY ⬥</button>
-                    <input type="hidden" name="source" value="Cluster Page Modal">
                 </form>
             </div>
         </div>

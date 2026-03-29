@@ -8,6 +8,7 @@
             loader.style.transition = 'opacity 0.8s ease, transform 1s ease';
             loader.style.opacity = '0';
             loader.style.transform = 'translateY(-100%)';
+            loader.style.pointerEvents = 'none';
             setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1100);
             document.body.style.overflow = 'auto';
             document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .hero-title, .hero-title span, .hero-title span span').forEach(el => {
@@ -671,6 +672,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 17. Technical Ledger Logic
     const ledgerBtns = document.querySelectorAll('.ledger-trigger');
     const ledgerModals = document.querySelectorAll('.ledger-modal');
+    const ledgerCloses = document.querySelectorAll('.ledger-close, .vault-close');
     // The `sendEnquiry` Javascript interception strategy has been completely 
     // removed per the user's request for the absolute simplest, most 
     // bulletproof solution. Forms will now submit natively via HTML action.
@@ -1094,33 +1096,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 15. Premium Mobile Slide-Out Overhaul
-    const mobileToggle = document.querySelector('.mobile-toggle') || document.getElementById('mobile-nav-toggle');
-    const navSearchBox = document.querySelector('.nav-search-box') || document.getElementById('mobile-menu'); // Fallback
+    const mobileToggle = document.getElementById('mobile-nav-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const navLinks = document.querySelectorAll('.nav-search-box a, .search-links a, .nav-item-new');
+    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a, button') : [];
 
-    if (mobileToggle && navSearchBox) {
-        mobileToggle.addEventListener('click', () => {
+    if (mobileToggle && mobileMenu) {
+        const toggleMenu = () => {
+            const isActive = mobileMenu.classList.toggle('active');
             mobileToggle.classList.toggle('active');
-            navSearchBox.classList.toggle('active-mobile-menu');
-            
-            if (mobileToggle.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
+            document.body.style.overflow = isActive ? 'hidden' : '';
+        };
 
         const closeMenu = () => {
+            mobileMenu.classList.remove('active');
             mobileToggle.classList.remove('active');
-            navSearchBox.classList.remove('active-mobile-menu');
             document.body.style.overflow = '';
         };
 
+        mobileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
         mobileMenuClose?.addEventListener('click', closeMenu);
         
-        navLinks.forEach(link => {
+        mobileLinks.forEach(link => {
             link.addEventListener('click', closeMenu);
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
         });
     }
 });

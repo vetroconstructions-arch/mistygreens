@@ -4,3 +4,4 @@ node_modules
 .DS_Store
 brain
 scripts/google-service-account.json
+*.py
