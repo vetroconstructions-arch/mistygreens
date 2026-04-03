@@ -6,6 +6,8 @@
  */
 
 const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
 const https = require('https');
 // 0. Auto-Detection for Google Service Account Key
 function findKeyFile() {
@@ -106,10 +108,10 @@ async function publishUrl(url, token) {
 
 // 3. Execution Engine
 async function run() {
-    if (!fs.existsSync(KEY_FILE)) {
-        console.error(` ⚠️  MISSING: '${path.basename(KEY_FILE)}' not found in root.`);
-        console.log("    To enable Phase 51, please add your Google Cloud key to the root directory.\n");
-        process.exit(1);
+    if (!KEY_FILE || !fs.existsSync(KEY_FILE)) {
+        console.log(` ⚠️  SKIPPED: No Google Cloud service-account.json found in project root.`);
+        console.log("    To enable Google Indexing API, see INDEXING_GUIDE.md\n");
+        process.exit(0);
     }
 
     const key = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
