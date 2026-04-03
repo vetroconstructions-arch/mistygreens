@@ -75,7 +75,11 @@ function hardenSchema(filePath, category) {
             "@type": "AggregateRating",
             "ratingValue": "4.9",
             "reviewCount": "1840"
-        }
+        },
+        "areaServed": [
+            { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": "18.5050", "longitude": "73.7406" }, "geoRadius": "15000" },
+            "Bhugaon", "Bavdhan", "Kothrud", "Pashan", "Pune West"
+        ]
     }
     </script>`;
 
