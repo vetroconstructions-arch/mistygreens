@@ -11,11 +11,13 @@ const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'sitemap.xml');
 
 function getFiles(dir, fileList = []) {
+    if (!fs.existsSync(dir)) return fileList;
     const files = fs.readdirSync(dir);
     files.forEach(file => {
         const filePath = path.join(dir, file);
         if (fs.statSync(filePath).isDirectory()) {
-            if (!file.startsWith('.') && file !== 'node_modules' && file !== 'scripts' && file !== 'brain' && file !== 'images') {
+            // Include pSEO categories
+            if (!file.startsWith('.') && !['node_modules', 'scripts', 'brain', 'images', '.git', '.wrangler'].includes(file)) {
                 getFiles(filePath, fileList);
             }
         } else if (file.endsWith('.html') && !file.includes('thank-you')) {

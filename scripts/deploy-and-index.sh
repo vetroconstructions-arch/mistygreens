@@ -9,8 +9,18 @@ set -e
 COMMIT_MSG="${1:-SEO update: content refresh and indexing ping}"
 
 echo "╔══════════════════════════════════════════════════╗"
-echo "║  DEPLOY & INDEX AUTOMATION                       ║"
+echo "║  DEPLOY & INDEX AUTOMATION (pSEO Phase 21)       ║"
 echo "╚══════════════════════════════════════════════════╝"
+echo ""
+
+# Step 0: Advanced SEO Hardening (Programmatic Authority)
+echo "🛡️ Step 0: Hardening Advanced pSEO Schema..."
+node scripts/harden-advanced-schema.js
+echo ""
+
+# Step 0.1: Generation & Sitemaps
+echo "🗺️ Step 0.1: Generating Sitemaps..."
+node scripts/generate-sitemap.js
 echo ""
 
 # Step 1: Git commit and push
