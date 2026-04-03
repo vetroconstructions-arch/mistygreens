@@ -47,6 +47,14 @@
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Bhugaon a safe investment for NRI property buyers in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bhugaon is a high-security, high-appreciation micro-market. For NRIs, Paranjape Forest Trails offers fully gated NA plots and luxury villas with verified RERA compliance and 24/7 security, making it a safe haven for dollar-denominated appreciation."
+            }
+          },
             {
                 "@type": "Question",
                 "name": "Is the commute from Bhugaon to Kothrud difficult?",
@@ -224,10 +232,105 @@
 
     
     <!-- Premium Enquiry Modal (Redesigned - Sovereign Light) -->
+    
+    <div class="concierge-trigger" id="concierge-open" role="button" aria-label="Open Enquiry Form">
+        <div class="concierge-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <span class="concierge-label">ENQUIRE</span>
+    </div>
+    
     <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0;">
+            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon));"></div>
+            <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
+                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
+                <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
+                    <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Get exclusive <strong>Paranjape Forest Trails Price</strong> & Brochure.</p>
+                </div>
+                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
+                    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
+                    <input type="hidden" name="project_context" value="Forest Trails Legacy">
+                    
+                    <!-- Step 1: Configuration Preference (SEO Hardened) -->
+                    <div class="advisory-step active" data-step="1">
+                        <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">Architecture Preference?</h4>
+                        <div style="display: grid; gap: 12px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="plots" style="margin-right: 15px; accent-color: var(--pscl-maroon);" required checked>
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">NA Bungalow Plots Bhugaon Pune</span>
+                            </label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="villas" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Luxury 190 Acre Township Villas</span>
+                            </label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="apartments" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Forest Trails Premium Apartments</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn-next-advisory" style="width: 100%; padding: 1.2rem; background: #1a1a1a; color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase;">Continue Advisory ✦</button>
+                    </div>
+
+                    <!-- Step 2: Location Alignment (High Volume Proximity Clusters) -->
+                    <div class="advisory-step" data-step="2" style="display: none;">
+                        <div style="margin-bottom: 25px;">
+                            <span style="font-size: 0.73rem; font-weight: 900; color: #c5a059; letter-spacing: 0.2em; display: block; margin-bottom: 15px;">QUALIFIER 02/03</span>
+                            <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700;">Resident Choice Proximity?</h4>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Kothrud" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Near Kothrud</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Bavdhan" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Near Bavdhan</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Baner/Aundh" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Baner / Aundh</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Nal Stop" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Nal Stop / Karve Nagar</span>
+                            </label>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="btn-prev-advisory" style="flex: 1; padding: 1.2rem; background: #eee; color: #1a1a1a; border: none; border-radius: 10px; font-weight: 800; cursor: pointer;">Back</button>
+                            <button type="button" class="btn-next-advisory" style="flex: 2; padding: 1.2rem; background: #1a1a1a; color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase;">Next Step ✦</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Protocol -->
+                    <div class="advisory-step" data-step="3" style="display: none;">
+                        <div style="margin-bottom: 25px;">
+                            <span style="font-size: 0.73rem; font-weight: 900; color: #c5a059; letter-spacing: 0.2em; display: block; margin-bottom: 15px;">FINAL STEP 03/03</span>
+                            <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700;">Advisory Contact Protocol</h4>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+                            <input type="text" name="name" placeholder="Full Name *" required style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                            <input type="tel" name="phone" placeholder="Mobile Number *" required style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                            <input type="email" name="email" placeholder="Professional Email (Optional)" style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="btn-prev-advisory" style="flex: 1; padding: 1.2rem; background: #eee; color: #1a1a1a; border: none; border-radius: 10px; font-weight: 800; cursor: pointer;">Back</button>
+                            <button type="submit" style="flex: 2; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">Schedule Advisory ✦</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
         
-        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
 
             <!-- Premium Accent Bar -->
             <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
@@ -239,8 +342,8 @@
                     <div style="display: inline-block; background: rgba(140,115,47,0.08); border: 1px solid rgba(140,115,47,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;">
                         <span style="color: var(--pscl-gold); font-weight: 800; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
                     </div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-top: 0.5rem; color: #1a1a1a; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-top: 1rem; letter-spacing: 0.02em;">Secure exclusive pricing & priority site-visit guidance.</p>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1; font-weight: 700;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem; letter-spacing: 0.02em; font-weight: 500;">Secure exclusive pricing & priority site-visit guidance.</p>
                 </div>
 
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
@@ -270,7 +373,14 @@
                             background: #fff;
                             box-shadow: 0 0 0 4px rgba(140,115,47,0.15);
                         }
-                    </style>
+                    
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
+    </style>
                     
                     <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
                     <input type="tel" name="phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
@@ -300,7 +410,7 @@
     
     <!-- Premium Master Plan Modal (Redesigned - Sovereign Light) -->
     <div class="master-plan-modal" id="master-plan-modal" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
+        <div class="modal-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(8px);"></div>
         
         <div class="modal-container" style="position: relative; background: #ffffff; width: 100%; max-width: 1050px; display: grid; grid-template-columns: 1.1fr 1fr; border-radius: 24px; overflow: hidden; box-shadow: 0 50px 120px rgba(0,0,0,0.5); border: none; animation: mp-modal-entry 0.7s cubic-bezier(0.16, 1, 0.3, 1);">
             
@@ -365,7 +475,14 @@
                         0% { left: -100%; }
                         100% { left: 200%; }
                     }
-                </style>
+                
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
+    </style>
 
                 <div class="form-header" style="margin-bottom: 3rem;">
                     <div style="display: inline-block; background: rgba(107,13,13,0.06); border: 1px solid rgba(107,13,13,0.15); padding: 0.4rem 1.2rem; border-radius: 50px; margin-bottom: 1.5rem;">

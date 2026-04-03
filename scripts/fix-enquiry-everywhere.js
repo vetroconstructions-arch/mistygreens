@@ -45,48 +45,88 @@ const ENQUIRY_TRIGGER = `
 
 const FULL_MODAL = `
     <div class="concierge-modal" id="heritage-concierge" aria-hidden="true" style="position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 2rem;">
-        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"></div>
-        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.4); border: none; padding: 0; animation: enquiry-modal-entry 0.6s cubic-bezier(0.16, 1, 0.3, 1);">
-            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon)); background-size: 200% 100%; animation: enquiry-gradient-shift 4s ease infinite;"></div>
+        <div class="concierge-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);"></div>
+        <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0;">
+            <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon));"></div>
             <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
-                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #f5f5f0; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0.6;">&times;</button>
+                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
                 <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
-                    <div style="display: inline-block; background: rgba(140,115,47,0.08); border: 1px solid rgba(140,115,47,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; margin-bottom: 1.5rem;">
-                        <span style="color: var(--pscl-gold); font-weight: 800; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
-                    </div>
-                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.6rem; margin-top: 0.5rem; color: #1a1a1a; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-top: 1rem; letter-spacing: 0.02em;">Secure exclusive pricing & priority site-visit guidance.</p>
+                    <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
+                    <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Get exclusive <strong>Paranjape Forest Trails Price</strong> & Brochure.</p>
                 </div>
-                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
                     <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
-                    <style>
-                        .concierge-panel input::placeholder { color: #999 !important; font-size: 0.8rem; letter-spacing: 0.05em; }
-                        .concierge-panel select { color: #1a1a1a; font-size: 0.85rem; }
-                        .concierge-panel select:invalid { color: #999; }
-                        @keyframes enquiry-modal-entry { from { opacity: 0; transform: scale(0.95) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-                        .enquiry-input-premium { width: 100%; padding: 1.2rem 1.5rem; background: #f5f5f0; border: 2px solid #b0a890; color: #1a1a1a; border-radius: 12px; font-size: 0.9rem; outline: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-                        .enquiry-input-premium:focus { border-color: var(--pscl-gold); background: #fff; box-shadow: 0 0 0 4px rgba(140,115,47,0.15); }
-                    </style>
-                    <input type="text" name="name" placeholder="FULL NAME *" required class="enquiry-input-premium" style="border-left: 4px solid var(--pscl-gold);">
-                    <input type="tel" name="phone" id="concierge-phone" placeholder="MOBILE NUMBER *" required class="enquiry-input-premium">
-                    <input type="email" name="email" placeholder="EMAIL ADDRESS" class="enquiry-input-premium">
-                    <div style="position: relative;">
-                        <select name="interest" required class="enquiry-input-premium" style="appearance: none; -webkit-appearance: none;">
-                            <option value="">SELECT INTEREST *</option>
-                            <option value="plots">NA Bungalow Plots</option>
-                            <option value="villas">Independent Villas</option>
-                            <option value="apartments">Luxury Apartments</option>
-                            <option value="visit">Schedule Site Visit</option>
-                        </select>
+                    <input type="hidden" name="project_context" value="Forest Trails Legacy">
+                    
+                    <!-- Step 1: Configuration Preference (SEO Hardened) -->
+                    <div class="advisory-step active" data-step="1">
+                        <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">Architecture Preference?</h4>
+                        <div style="display: grid; gap: 12px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="plots" style="margin-right: 15px; accent-color: var(--pscl-maroon);" required checked>
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">NA Bungalow Plots Bhugaon Pune</span>
+                            </label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="villas" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Luxury 190 Acre Township Villas</span>
+                            </label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer; transition: all 0.3s ease; background: #ffffff; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                                <input type="radio" name="interest" value="apartments" style="margin-right: 15px; accent-color: var(--pscl-maroon);">
+                                <span style="font-weight: 800; color: #1a1a1a; font-size: 0.95rem;">Forest Trails Premium Apartments</span>
+                            </label>
+                        </div>
+                        <button type="button" class="btn-next-advisory" style="width: 100%; padding: 1.2rem; background: #1a1a1a; color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase;">Continue Advisory ✦</button>
                     </div>
-                    <div style="display: flex; align-items: flex-start; gap: 1rem; margin-top: 0.5rem; background: #fffcf0; padding: 1.2rem; border: 1px solid #f9f1d0; border-radius: 12px;">
-                        <input type="checkbox" name="whatsapp_optin" id="wa-optin" checked style="margin-top: 0.3rem; width: 18px; height: 18px; accent-color: var(--pscl-maroon);">
-                        <label for="wa-optin" style="font-size: 0.75rem; line-height: 1.5; color: #555; cursor: pointer; font-weight: 500;">I agree to receive the brochure, price list and updates on WhatsApp.</label>
+
+                    <!-- Step 2: Location Alignment (High Volume Proximity Clusters) -->
+                    <div class="advisory-step" data-step="2" style="display: none;">
+                        <div style="margin-bottom: 25px;">
+                            <span style="font-size: 0.73rem; font-weight: 900; color: #c5a059; letter-spacing: 0.2em; display: block; margin-bottom: 15px;">QUALIFIER 02/03</span>
+                            <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700;">Resident Choice Proximity?</h4>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 30px;">
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Kothrud" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Near Kothrud</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Bavdhan" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Near Bavdhan</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Baner/Aundh" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Baner / Aundh</span>
+                            </label>
+                            <label class="advisory-opt" style="padding: 1rem; border: 2px solid #ddd; border-radius: 8px; cursor: pointer; text-align: center;">
+                                <input type="radio" name="location_context" value="Nal Stop" style="display: none;">
+                                <span style="font-size: 0.8rem; font-weight: 700;">Nal Stop / Karve Nagar</span>
+                            </label>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="btn-prev-advisory" style="flex: 1; padding: 1.2rem; background: #eee; color: #1a1a1a; border: none; border-radius: 10px; font-weight: 800; cursor: pointer;">Back</button>
+                            <button type="button" class="btn-next-advisory" style="flex: 2; padding: 1.2rem; background: #1a1a1a; color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase;">Next Step ✦</button>
+                        </div>
                     </div>
-                    <button type="submit" style="width: 100%; padding: 1.5rem; background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; border-radius: 12px; font-weight: 800; font-size: 0.95rem; letter-spacing: 0.2rem; text-transform: uppercase; cursor: pointer; transition: all 0.4s; margin-top: 0.5rem; box-shadow: 0 15px 35px rgba(107,13,13,0.35);">⬥ SECURE ADVISORY ⬥</button>
-                    <input type="hidden" name="source" value="Global Enquiry Modal">
+
+                    <!-- Step 3: Contact Protocol -->
+                    <div class="advisory-step" data-step="3" style="display: none;">
+                        <div style="margin-bottom: 25px;">
+                            <span style="font-size: 0.73rem; font-weight: 900; color: #c5a059; letter-spacing: 0.2em; display: block; margin-bottom: 15px;">FINAL STEP 03/03</span>
+                            <h4 style="font-family: 'Playfair Display', serif; color: #000; font-size: 1.35rem; font-weight: 700;">Advisory Contact Protocol</h4>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px;">
+                            <input type="text" name="name" placeholder="Full Name *" required style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                            <input type="tel" name="phone" placeholder="Mobile Number *" required style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                            <input type="email" name="email" placeholder="Professional Email (Optional)" style="padding: 1.2rem; border: 1.5px solid #ddd; border-radius: 10px; font-size: 1rem; width: 100%;">
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="btn-prev-advisory" style="flex: 1; padding: 1.2rem; background: #eee; color: #1a1a1a; border: none; border-radius: 10px; font-weight: 800; cursor: pointer;">Back</button>
+                            <button type="submit" style="flex: 2; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">Schedule Advisory ✦</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -129,24 +169,29 @@ for (const file of files) {
         console.log(`  📝 Replaced empty modal with full form in ${rel}`);
     }
 
-    // 4. Check if modal exists at all (has action form inside)
-    if (content.includes('heritage-concierge') && !content.includes('enquiry-form-modal') && !content.includes('formsubmit.co')) {
-        // It has the modal div but no form inside - replace entirely
-        const emptyModalRegex = /<div class="concierge-modal" id="heritage-concierge"[^>]*>[\s\S]*?<\/div>\s*(?=<div class="conversion-pill|<script|<\/body)/;
-        if (emptyModalRegex.test(content)) {
-            content = content.replace(emptyModalRegex, FULL_MODAL + '\n');
+    // 4. Check if modal exists at all
+    if (!content.includes('heritage-concierge')) {
+        // Modal is completely missing - inject before </body>
+        content = content.replace('</body>', FULL_MODAL + '\n' + ENQUIRY_TRIGGER + '\n</body>');
+        changed = true;
+        console.log(`  🏗️  Injected FULL 3-STEP MODAL into ${rel}`);
+    } else if (!content.includes('advisory-step')) {
+        // Modal exists but is likely the old 1-step version - replace it
+        // Search for the concierge-modal div and replace it
+        const oldModalRegex = /<div class="concierge-modal" id="heritage-concierge"[^>]*>[\s\S]*?<\/div>/;
+        if (oldModalRegex.test(content)) {
+            content = content.replace(oldModalRegex, FULL_MODAL);
             changed = true;
-            console.log(`  📝 Injected full enquiry form into ${rel}`);
+            console.log(`  🔄 Upgraded to 3-STEP MODAL in ${rel}`);
         }
     }
 
-    // 5. Fix missing floating enquiry trigger
-    if (!content.includes('concierge-trigger') && !content.includes('concierge-open')) {
-        // Insert before the modal
-        if (content.includes('heritage-concierge')) {
-            content = content.replace('<div class="concierge-modal"', ENQUIRY_TRIGGER + '\n    <div class="concierge-modal"');
-            changed = true;
-            console.log(`  🔘 Added floating enquiry trigger to ${rel}`);
+    // 5. Ensure floating trigger exists
+    if (!content.includes('concierge-open')) {
+        if (!content.includes(ENQUIRY_TRIGGER.trim())) {
+             content = content.replace('</body>', ENQUIRY_TRIGGER + '\n</body>');
+             changed = true;
+             console.log(`  🔘 Added missing floating trigger to ${rel}`);
         }
     }
 
