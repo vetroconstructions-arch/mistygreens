@@ -42,9 +42,10 @@ sleep 3
 echo "  ✅ Ready for indexing"
 echo ""
 
-# Step 4: Run indexing ping
-echo "🤖 Step 4: Running indexing engine..."
-node scripts/google-index-ping.js
+# Step 4: Run Hard-Force Indexing Engine (Stage 51)
+echo "🤖 Step 4: Running Hard-Force Indexing Suite..."
+node scripts/google-indexing-worker.js || echo "  ⚠️  Google Indexing API skipped (Missing service-account.json)"
+node scripts/index-now-worker.js || echo "  ⚠️  IndexNow skipped"
 echo ""
 
 echo "╔══════════════════════════════════════════════════╗"

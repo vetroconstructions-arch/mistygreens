@@ -1,275 +1,188 @@
 // High-Resilience Universal Fail-Safe for Preloader
-// This runs even if GSAP or other dependencies crash
 (function() {
     const dismissLoader = () => {
         const loader = document.getElementById('loader');
-        if (loader && loader.style.display !== 'none') {
-            console.warn('Overture: Universal Fail-Safe Triggered');
-            loader.style.transition = 'opacity 0.8s ease, transform 1s ease';
+        if (loader && !loader.dataset.dismissed) {
+            console.log('🛡️ Overture: Dismissing Preloader');
+            loader.style.transition = 'opacity 0.6s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
             loader.style.opacity = '0';
             loader.style.transform = 'translateY(-100%)';
             loader.style.pointerEvents = 'none';
-            setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1100);
+            loader.dataset.dismissed = "true";
+            setTimeout(() => { if (loader) loader.style.display = 'none'; }, 900);
             document.body.style.overflow = 'auto';
-            document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right, .hero-title, .hero-title span, .hero-title span span').forEach(el => {
-                el.style.opacity = '1';
-                el.style.transform = 'translate(0,0)';
-                el.style.visibility = 'visible';
-            });
+            document.body.classList.add('loaded');
         }
     };
-    // Multiple checkpoints for maximum certainty
-    setTimeout(dismissLoader, 3000);
-    setTimeout(dismissLoader, 5000);
-    window.addEventListener('load', () => setTimeout(dismissLoader, 1000));
-})();
+    // Aggressive checkpoints
+    setTimeout(dismissLoader, 2000); 
+    setTimeout(dismissLoader, 4000);
+    window.addEventListener('load', dismissLoader);
+    document.addEventListener('DOMContentLoaded', () => setTimeout(dismissLoader, 500));
 
-// --- Universal Modal & Enquiry Manager (Zero-Dependency Resilience) ---
-(function() {
+    // --- Universal Modal & Conversion Ecosystem (Phase 50) ---
     const UniversalModalManager = {
         init: function() {
             this.setupMainEnquiryModal();
             this.setupMasterPlanModal();
             this.setupOpeningModal();
-            this.setupGlobalInterception();
+            this.setupStructuralVault();
             console.log("🛡️ Modal Guardian: Active and Resilient");
         },
 
         setupMainEnquiryModal: function() {
             const modal = document.getElementById('heritage-concierge');
-            const openTriggers = document.querySelectorAll('#concierge-open, .open-enquiry-modal');
-            const closeBtn = document.getElementById('concierge-close');
-            const overlay = modal?.querySelector('.concierge-overlay');
             const form = document.getElementById('enquiry-form-modal');
-
             if (!modal) return;
 
-            const openModal = (project = 'Township Legacy') => {
+            const updateStep = (n) => {
+                modal.querySelectorAll('.advisory-step').forEach((s, i) => {
+                    s.style.display = (i + 1 === n) ? 'block' : 'none';
+                    if (i + 1 === n && typeof gsap !== 'undefined') {
+                        gsap.fromTo(s, { x: 15, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4 });
+                    }
+                });
+            };
+
+            const openModal = (project = 'Forest Trails Legacy') => {
                 const title = modal.querySelector('.form-header h3');
-                const projectInput = modal.querySelector('input[name="project_context"]');
-                const label = modal.querySelector('.form-header p');
-                const interest = modal.querySelector('select[name="interest"]');
-
                 if (title) title.innerHTML = `${project} <i>Callback</i>`;
-                if (label) label.innerHTML = `Get exclusive ${project} pricing & priority schedule.`;
-                if (interest) {
-                    const p = project.toLowerCase();
-                    if (p.includes('plots')) interest.value = 'plots';
-                    else if (p.includes('villas')) interest.value = 'villas';
-                    else if (p.includes('apartment')) interest.value = 'apartments';
-                }
-
+                updateStep(1); 
+                modal.classList.add('active');
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-
-                if (typeof gsap !== 'undefined') {
-                    gsap.from(modal.querySelector('.concierge-panel'), {
-                        y: 40, opacity: 0, scale: 0.95, duration: 0.8, ease: "expo.out"
-                    });
-                }
             };
 
             const closeModal = () => {
+                modal.classList.remove('active');
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             };
 
-            openTriggers.forEach(t => t.addEventListener('click', () => {
-                const p = t.getAttribute('data-project') || 'Township Legacy';
-                openModal(p);
-            }));
-
-            closeBtn?.addEventListener('click', closeModal);
-            overlay?.addEventListener('click', closeModal);
+            document.addEventListener('click', (e) => {
+                const trigger = e.target.closest('#concierge-open, .open-enquiry-modal, #nav-enquire, .tour-btn, .pill-btn, .conversion-pill');
+                if (trigger && !trigger.classList.contains('direct-wa')) {
+                    e.preventDefault();
+                    const p = trigger.getAttribute('data-project') || 'Forest Trails Legacy';
+                    openModal(p);
+                }
+                
+                if (e.target.closest('#concierge-close') || e.target.classList.contains('concierge-overlay')) {
+                    closeModal();
+                }
+            });
 
             if (form) {
-                const step1 = form.querySelector('[data-step="1"]');
-                const step2 = form.querySelector('[data-step="2"]');
-                const nextBtn = form.querySelector('.btn-next-step');
-                const prevBtn = form.querySelector('.btn-prev-step');
-                const options = form.querySelectorAll('.advisory-opt');
-
-                options.forEach(opt => {
-                    opt.addEventListener('click', () => {
-                        options.forEach(o => {
-                            o.style.background = '#f5f5f0';
-                            o.style.borderColor = '#b0a890';
-                        });
-                        opt.style.background = 'rgba(140,115,47,0.05)';
-                        opt.style.borderColor = 'var(--pscl-gold)';
-                        opt.querySelector('input').checked = true;
-                    });
-                });
-
-                nextBtn?.addEventListener('click', () => {
-                    const selected = form.querySelector('input[name="interest"]:checked');
-                    if (!selected) {
-                        this.showAlert('Architecture Preference', 'Please select your preferred configuration to continue.', 'info');
-                        return;
-                    }
-                    step1.style.display = 'none';
-                    step2.style.display = 'block';
-                    if (typeof gsap !== 'undefined') {
-                        gsap.from(step2, { x: 20, opacity: 0, duration: 0.4 });
-                    }
-                });
-
-                prevBtn?.addEventListener('click', () => {
-                    step2.style.display = 'none';
-                    step1.style.display = 'block';
+                form.addEventListener('click', (e) => {
+                    const next = e.target.closest('.btn-next-advisory');
+                    const prev = e.target.closest('.btn-prev-advisory');
+                    if (next) updateStep(parseInt(next.closest('.advisory-step').dataset.step) + 1);
+                    if (prev) updateStep(parseInt(prev.closest('.advisory-step').dataset.step) - 1);
                 });
 
                 form.addEventListener('submit', (e) => {
                     const phone = form.querySelector('input[name="phone"]');
                     if (phone && !/^\d{10}$/.test(phone.value.trim())) {
                         e.preventDefault();
-                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
+                        this.showAlert('Invalid Phone', 'Please enter a 10-digit mobile number.', 'warning');
                     }
                 });
             }
+        },
 
-            // Structural Vault Logic (Phase 16.2)
+        setupStructuralVault: function() {
             const vault = document.getElementById('structural-vault');
-            const vaultTriggers = document.querySelectorAll('.open-vault');
-            const vaultClose = document.querySelector('.vault-close');
-            const vaultOverlay = vault?.querySelector('.concierge-overlay');
+            const triggers = document.querySelectorAll('.open-vault');
+            if (!vault) return;
 
             const openVault = () => {
-                if (vault) {
-                    vault.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    if (typeof gsap !== 'undefined') {
-                        gsap.from(vault.querySelector('.concierge-panel'), { scale: 0.9, opacity: 0, duration: 0.5, ease: "back.out(1.7)" });
-                    }
-                }
+                vault.classList.add('active');
+                vault.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             };
 
             const closeVault = () => {
-                if (vault) {
-                    vault.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+                vault.classList.remove('active');
+                vault.style.display = 'none';
+                document.body.style.overflow = 'auto';
             };
 
-            vaultTriggers.forEach(t => t.addEventListener('click', openVault));
-            vaultClose?.addEventListener('click', (e) => { e.preventDefault(); closeVault(); });
-            vaultOverlay?.addEventListener('click', closeVault);
+            triggers.forEach(t => t.addEventListener('click', openVault));
+            vault.querySelector('.vault-close')?.addEventListener('click', closeVault);
+            vault.querySelector('.concierge-overlay')?.addEventListener('click', closeVault);
         },
 
         setupMasterPlanModal: function() {
             const modal = document.getElementById('master-plan-modal');
-            const triggers = document.querySelectorAll('.open-master-plan');
-            const closeBtn = document.getElementById('master-plan-close');
-            const overlay = modal?.querySelector('.modal-overlay');
-            const form = document.getElementById('master-plan-form');
-
+            const triggers = document.querySelectorAll('.open-master-plan, .master-plan-trigger');
             if (!modal) return;
 
             const openModal = () => {
+                modal.classList.add('active');
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-                if (typeof gsap !== 'undefined') {
-                    gsap.from(modal.querySelector('.modal-container'), { scale: 0.9, opacity: 0, duration: 0.6, ease: "expo.out" });
-                }
             };
 
             const closeModal = () => {
+                modal.classList.remove('active');
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
             };
 
-            triggers.forEach(t => t.addEventListener('click', openModal));
-            closeBtn?.addEventListener('click', closeModal);
-            overlay?.addEventListener('click', closeModal);
-
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    const phone = form.querySelector('input[name="phone"]');
-                    if (phone && !/^\d{10}$/.test(phone.value.trim())) {
-                        e.preventDefault();
-                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
-                    }
-                });
-            }
+            triggers.forEach(t => t.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+            modal.querySelector('#master-plan-close')?.addEventListener('click', closeModal);
+            modal.querySelector('.modal-overlay')?.addEventListener('click', closeModal);
         },
 
         setupOpeningModal: function() {
             const modal = document.getElementById('main-opening-modal');
-            const closeBtn = document.getElementById('opening-close');
-            const form = document.getElementById('opening-intent-form');
+            if (!modal || localStorage.getItem('opening_modal_seen')) return;
 
-            if (!modal) return;
+            setTimeout(() => {
+                modal.classList.add('active');
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }, 4000);
 
-            if (!localStorage.getItem('opening_modal_seen')) {
-                setTimeout(() => {
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                    if (typeof gsap !== 'undefined') {
-                        gsap.from(modal.querySelector('.modal-card'), { y: 100, opacity: 0, duration: 1, ease: "expo.out" });
-                    }
-                }, 5000);
-            }
-
-            closeBtn?.addEventListener('click', () => {
+            modal.querySelector('#opening-close')?.addEventListener('click', () => {
+                modal.classList.remove('active');
                 modal.style.display = 'none';
                 document.body.style.overflow = 'auto';
                 localStorage.setItem('opening_modal_seen', 'true');
-            });
-
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    const phone = form.querySelector('input[name="phone"]');
-                    if (phone && !/^\d{10}$/.test(phone.value.trim())) {
-                        e.preventDefault();
-                        this.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
-                    } else {
-                        localStorage.setItem('opening_modal_seen', 'true');
-                    }
-                });
-            }
-        },
-
-        setupGlobalInterception: function() {
-            document.body.addEventListener('click', (e) => {
-                const btn = e.target.closest('button, a.btn, .btn');
-                if (!btn) return;
-                if (btn.id === 'concierge-open' || btn.classList.contains('open-enquiry-modal') || btn.classList.contains('open-master-plan')) return;
-                
-                const txt = (btn.innerText || '').toLowerCase();
-                const identifiesAsEnquiry = txt.includes('enquire') || txt.includes('enquiry') || txt.includes('brochure') || txt.includes('price list') || txt.includes('callback') || txt.includes('download');
-
-                if (identifiesAsEnquiry) {
-                    const project = btn.getAttribute('data-project') || 'General Township';
-                    const mainModal = document.getElementById('heritage-concierge');
-                    if (mainModal) {
-                        // Prevent link if needed
-                        if (btn.tagName === 'A' && (!btn.href || btn.href.endsWith('#'))) {
-                            e.preventDefault();
-                        }
-                        
-                        // Fallback open logic if classes are missing
-                        const title = mainModal.querySelector('.form-header h3');
-                        if (title) title.innerHTML = `${project} <i>Callback</i>`;
-                        mainModal.style.display = 'flex';
-                        document.body.style.overflow = 'hidden';
-                    }
-                }
             });
         },
 
         showAlert: function(title, text, icon) {
             if (typeof Swal !== 'undefined') {
                 Swal.fire({ title: title, text: text, icon: icon, confirmButtonColor: '#c5a059' });
-            } else {
-                alert(text);
-            }
+            } else { alert(text); }
         }
     };
 
+    const setupConciergeHub = () => {
+        const pill = document.querySelector('.conversion-pill');
+        if (!pill) return;
+        setTimeout(() => pill.classList.add('active'), 3000);
+        pill.addEventListener('mouseenter', () => pill.classList.add('expanded'));
+        pill.addEventListener('mouseleave', () => pill.classList.remove('expanded'));
+        pill.addEventListener('click', (e) => {
+            if (!pill.classList.contains('expanded')) {
+                e.preventDefault(); pill.classList.add('expanded');
+            }
+        });
+        document.addEventListener('click', (e) => {
+            if (!pill.contains(e.target)) pill.classList.remove('expanded');
+        });
+    };
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => UniversalModalManager.init());
+        document.addEventListener('DOMContentLoaded', () => {
+            UniversalModalManager.init();
+            setupConciergeHub();
+        });
     } else {
         UniversalModalManager.init();
+        setupConciergeHub();
     }
 })();
 
@@ -724,16 +637,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const phoneInput = qualifierForm.querySelector('input[name="phone"]');
             if (phoneInput && !/^\d{10}$/.test(phoneInput.value.trim())) {
                 e.preventDefault();
-                Swal.fire({
-                    title: 'Invalid Phone Number',
-                    text: 'Please enter a valid 10-digit mobile number.',
-                    icon: 'warning',
-                    confirmButtonColor: '#c5a059'
-                });
+                UniversalModalManager.showAlert('Invalid Phone Number', 'Please enter a valid 10-digit mobile number.', 'warning');
             }
             // If valid, native HTML submission to formsubmit.co takes over
         });
     }
+
+    // --- Phase 50: Interactive ROI "Ring Road" Calculator ---
+    function setupROICalculator() {
+        const calculatorWrap = document.getElementById('sovereign-roi-calculator');
+        if (!calculatorWrap) return;
+
+        const investmentInput = document.getElementById('roi-investment');
+        const yearsSlider = document.getElementById('roi-years');
+        const yearsVal = document.getElementById('roi-years-val');
+        const resultVal = document.getElementById('roi-result-value');
+        const appreciationVal = document.getElementById('roi-appreciation');
+
+        const calculate = () => {
+            const principal = parseFloat(investmentInput.value) || 5000000;
+            const years = parseInt(yearsSlider.value);
+            const cagr = 0.212; // 21.2% appreciation based on historical Bhugaon-Bavdhan data
+            
+            // FV = PV * (1 + r)^n
+            const futureValue = principal * Math.pow(1 + cagr, years);
+            const profit = futureValue - principal;
+            const percentage = ((profit / principal) * 100).toFixed(0);
+
+            yearsVal.innerText = `${years} Years`;
+            resultVal.innerText = `₹${(futureValue / 10000000).toFixed(2)} Cr`;
+            appreciationVal.innerText = `+${percentage}% Est. Appreciation`;
+        };
+
+        investmentInput.addEventListener('input', calculate);
+        yearsSlider.addEventListener('input', calculate);
+        calculate(); // Initial run
+    }
+    setupROICalculator();
 
     ledgerBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
