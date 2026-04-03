@@ -258,7 +258,7 @@ const pages = [
         keywords: 'forest trails vs kothrud apartments, bhugaon vs kothrud real estate, villas near kothrud, paranjape schemes vs kothrud builders',
         h1: 'Forest Trails <i>vs</i> Kothrud.',
         subtitle: 'Why upgrading from a Kothrud apartment to a Bhugaon villa is the ultimate lifestyle decision.',
-        intro: 'For decades, Kothrud was the undisputed king of West Pune real estate. But as the area has reached saturation—plagued by traffic, aging infrastructure, and soaring per-square-foot rates—discerning buyers are looking for a superior alternative. Enter Paranjape Forest Trails in Bhugaon. Located just 15 minutes away, it offers an unparalleled lifestyle upgrade for the exact same budget.',
+        intro: 'For decades, Kothrud was the undisputed king of West Pune real estate. But as the area has reached saturation—plagued by traffic, aging infrastructure, and soaring per-square-foot rates—discerning buyers are looking for the <strong>best investment in Bhugaon Pune</strong>. Paranjape Forest Trails offers an unparalleled <strong>high ROI real estate Pune 2026</strong> opportunity, combining the tranquility of a 190-acre township with the value of an <strong>NA plot investment in Pune West</strong>.',
         tableHtml: `
             <table style="width: 100%; border-collapse: collapse; margin-top: 2rem; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
                 <thead>
