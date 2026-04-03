@@ -274,7 +274,8 @@ function generateHTML(page) {
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
-          "reviewCount": "1840"
+          "reviewCount": "1840",
+          "bestRating": "5"
         }
     }
     </script>

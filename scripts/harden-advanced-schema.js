@@ -78,7 +78,7 @@ function hardenSchema(filePath, category) {
         },
         "areaServed": [
             { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": "18.5050", "longitude": "73.7406" }, "geoRadius": "15000" },
-            "Bhugaon", "Bavdhan", "Kothrud", "Pashan", "Pune West"
+            "Bhugaon", "Bavdhan", "Kothrud", "Nal Stop", "Karve Nagar", "Shivaji Nagar", "Aundh", "Baner", "West Pune"
         ]
     }
     </script>`;

@@ -35,8 +35,27 @@
     <meta property="og:locale:alternate" content="mr_IN">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- SEO Phase 35: Speculation Rules API (Near-Instant Pre-rendering) -->
-    
+    <!-- SEO Phase 40: Speculation Rules API (Near-Instant Pre-rendering) -->
+    <script type="speculationrules">
+    {
+      "prerender": [
+        {
+          "source": "list",
+          "urls": [
+            "/misty-greens-plots-pune/",
+            "/canopy-apartments-bhugaon/",
+            "/forest-trails-connectivity-kothrud-nal-stop/",
+            "/forest-trails-connectivity-shivaji-nagar-karve-nagar/"
+          ]
+        },
+        {
+          "source": "document",
+          "where": { "and": [ { "href_matches": "/*" }, { "not": { "href_matches": ["/legal/*", "#*"] } } ] },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+    </script>
 
     <!-- Multi-Entity JSON-LD Schema -->
     <script type="application/ld+json">
@@ -996,6 +1015,27 @@
     }
     </script>
 
+
+    <!-- Universal Video Authority (Phase 40) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "Paranjape Forest Trails 190-Acre Township Tour",
+        "description": "Experience the cinematic drone walkthrough of Pune's largest nature township - Paranjape Forest Trails Bhugaon.",
+        "thumbnailUrl": "https://paranjapetownship.com/images/hero-township.webp",
+        "uploadDate": "2026-03-01T08:00:00+05:30",
+        "duration": "PT2M30S",
+        "contentUrl": "https://paranjapetownship.com/#cinematic",
+        "embedUrl": "https://paranjapetownship.com/#cinematic",
+        "interactionStatistic": {
+          "@type": "InteractionCounter",
+          "interactionType": { "@type": "WatchAction" },
+          "userInteractionCount": 15420
+        }
+    }
+    </script>
+
 </head>
 <body>
     <!-- Opening Modal (Phase 19) -->
@@ -1536,13 +1576,13 @@
             </div>
         </section>
 
-        <!-- Section: Bhugaon Micro-Market (The Wealth Corridor) -->
+        <!-- Section: West Pune Central Hub (The Proximity Velocity) -->
         <section id="location" class="section micro-market-section" style="background: var(--pscl-bg); border-top: 1px solid rgba(0,0,0,0.05); padding: 12rem 0;">
             <div class="container grid-12">
                 <div class="col-7 reveal-left">
-                    <span class="section-label">The Wealth Corridor</span>
-                    <h2 class="section-title">The Bhugaon <i>Micro-Market</i> Advantage.</h2>
-                    <p style="margin-bottom: 3rem; color: var(--pscl-muted); line-height: 1.8;">Bhugaon has emerged as the premier residential destination for West Pune’s elite. Strategically positioned between the established hubs of Kothrud and Bavdhan, it offers the perfect balance of Sahyadri tranquility and urban proximity.</p>
+                    <span class="section-label">Central Focus Point</span>
+                    <h2 class="section-title">The <i>West Pune</i> Lifestyle Hub.</h2>
+                    <p style="margin-bottom: 3rem; color: var(--pscl-muted); line-height: 1.8;">Paranjape Forest Trails Bhugaon serves as the strategic sanctuary for Pune’s most elite neighborhoods. Whether you are coming from the heritage of <strong>Kothrud & Nal Stop</strong>, the executive pulse of <strong>Shivaji Nagar</strong>, or the high-streets of <strong>Baner & Aundh</strong>, Forest Trails is the first-choice forest sanctuary of West Pune.</p>
                     
                     <div class="intel-cards-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                         <div class="box-maroon" style="padding: 3rem 2rem;">
