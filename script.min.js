@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Dynamic Section Highlighting
     const navItems = document.querySelectorAll('.nav-item-new');
-    const sections = ['township', 'clusters', 'master-layout', 'amenities', 'location', 'intel', 'enquire'];
+    const sections = ['township', 'clusters', 'master-layout', 'paranjape-forest-trails-township-bhugaon-amenities', 'paranjape-forest-trails-township-bhugaon-location', 'intel', 'enquire'];
     
     sections.forEach(id => {
         const target = document.getElementById(id);
@@ -948,8 +948,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 22. Predictive Intent & Segmented Modals (SEO Phase 20)
     let userIntent = 'General';
     const monitorIntent = () => {
-        const investmentElements = ['finance-tools', 'wiki-hub', 'legal-check'];
-        const lifestyleElements = ['amenities', 'lifestyle-gallery', 'delivery'];
+        const investmentElements = ['finance-tools', 'wiki-hub', 'paranjape-forest-trails-township-bhugaon-legal-check'];
+        const lifestyleElements = ['paranjape-forest-trails-township-bhugaon-amenities', 'lifestyle-gallery', 'delivery'];
         
         window.addEventListener('scroll', () => {
             investmentElements.forEach(id => {
