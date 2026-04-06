@@ -18,7 +18,7 @@ function getFiles(dir, files = []) {
 }
 
 const htmlFiles = getFiles(ROOT);
-console.log(`🏎 Hardening LCP Performance across ${htmlFiles.length} files...`);
+console.log(`🏎 Refining LCP Performance across ${htmlFiles.length} files...`);
 
 let modifiedCount = 0;
 
@@ -27,11 +27,27 @@ for (const file of htmlFiles) {
     const original = content;
 
     // 1. Identify the primary hero image
-    // Strategy: Look for the first <img> or background-image in the page
     const imgMatch = content.match(/<img[^>]+src=["'](\/?images\/[^"']+)["'][^>]*>/i);
     const bgMatch = content.match(/background-image:\s*url\(["']?(\/?images\/[^"')]+)["']?\)/i);
     
-    const heroSrc = (imgMatch ? imgMatch[1] : (bgMatch ? bgMatch[1] : null));
+    let heroSrc = (imgMatch ? imgMatch[1] : (bgMatch ? bgMatch[1] : null));
+
+    if (heroSrc) {
+        // Clean the path for physical check
+        const cleanPath = heroSrc.startsWith('/') ? heroSrc.slice(1) : heroSrc;
+        const physicalPath = path.join(ROOT, cleanPath);
+
+        // Verification: If the identified hero doesn't exist (e.g. .webp auto-replacement failed), fallback to original .jpg
+        if (!fs.existsSync(physicalPath)) {
+            const fallback = cleanPath.replace('.webp', '.jpg');
+            if (fs.existsSync(path.join(ROOT, fallback))) {
+                 heroSrc = '/' + fallback;
+            } else {
+                 console.log(`⚠️ Warning: No physical hero found for ${path.relative(ROOT, file)} at ${cleanPath}`);
+                 heroSrc = null;
+            }
+        }
+    }
 
     if (heroSrc) {
         // Enforce fetchpriority="high" on the actual element
@@ -39,7 +55,10 @@ for (const file of htmlFiles) {
             content = content.replace(imgMatch[0], imgMatch[0].replace('<img', '<img fetchpriority="high"'));
         }
         
-        // Inject preload in <head>
+        // Remove old preloads (cleanup)
+        content = content.replace(/<link rel=["']preload["'] as=["']image["'] href=["']\/images\/[^"']+["'] fetchpriority=["']high["']>/g, '');
+
+        // Inject verified preload in <head>
         const preloadTag = `\n    <link rel="preload" as="image" href="${heroSrc}" fetchpriority="high">`;
         if (!content.includes(`rel="preload" as="image" href="${heroSrc}"`)) {
             content = content.replace('</head>', `${preloadTag}\n</head>`);
@@ -52,4 +71,4 @@ for (const file of htmlFiles) {
     }
 }
 
-console.log(`✅ Success: Optimized LCP for ${modifiedCount} pages.`);
+console.log(`✅ Success: Verified and optimized LCP for ${modifiedCount} pages.`);
