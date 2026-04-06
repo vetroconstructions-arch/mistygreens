@@ -8,9 +8,14 @@
   "description": "The Only Lifestyle NA Gated Bungalow Plots in West Pune. A 190-Acre Masterpiece.",
   "icons": [
     {
-      "src": "hero.jpg",
+      "src": "/assets/branding/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/branding/favicon.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
