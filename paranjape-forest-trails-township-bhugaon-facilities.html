@@ -73,9 +73,9 @@
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://paranjapetownship.com/" },
-            { "@type": "ListItem", "position": 2, "name": "Township", "item": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html" },
-            { "@type": "ListItem", "position": 3, "name": "Township Facilities & Infrastructure", "item": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html" }
+            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://www.paranjapetownship.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Township", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html" },
+            { "@type": "ListItem", "position": 3, "name": "Township Facilities & Infrastructure", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html" }
         ]
     }
     </script>
@@ -104,11 +104,11 @@
     {
         "@context": "https://schema.org",
         "@type": "Place",
-        "@id": "https://paranjapetownship.com/#entity",
+        "@id": "https://www.paranjapetownship.com/#entity",
         "name": "Paranjape Forest Trails Bhugaon",
         "description": "The largest 190-acre integrated forest-themed township in West Pune, featuring premium NA bungalow plots, luxury villas, and high-rise apartments.",
-        "url": "https://paranjapetownship.com/",
-        "logo": "https://paranjapetownship.com/images/hero-township.webp",
+        "url": "https://www.paranjapetownship.com/",
+        "logo": "https://www.paranjapetownship.com/images/hero-township.webp",
         "hasMap": "https://www.google.com/maps/search/Paranjape+Forest+Trails+Bhugaon/",
         "isRelatedTo": [
             { "@type": "Place", "name": "Chandani Chowk Pune", "@id": "https://www.wikidata.org/wiki/Q104841913" },
@@ -136,9 +136,9 @@
         "@graph": [
             {
                 "@type": "RealEstateListing",
-                "@id": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html#listing",
+                "@id": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html#listing",
                 "name": "Paranjape Forest Trails Bhugaon | Paranjape Forest Trails Township Bhugaon Facilities",
-                "url": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html",
+                "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html",
                 "datePosted": "2026-04-10",
                 "contentLocation": {
                     "@type": "Place",
@@ -158,7 +158,7 @@
                     "seller": {
                          "@type": "Organization",
                          "name": "Paranjape Schemes",
-                         "url": "https://paranjapetownship.com"
+                         "url": "https://www.paranjapetownship.com"
                     }
                 }
             }
@@ -169,15 +169,15 @@
 
     <!-- Sovereign Social Graph (Sync v1.12.1) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html">
+    <meta property="og:url" content="https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html">
     <meta property="og:title" content="Paranjape Forest Trails Bhugaon | Paranjape Forest Trails Township Bhugaon Facilities">
     <meta property="og:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta property="og:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html">
+    <meta name="twitter:url" content="https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html">
     <meta name="twitter:title" content="Paranjape Forest Trails Bhugaon | Paranjape Forest Trails Township Bhugaon Facilities">
     <meta name="twitter:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta name="twitter:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta name="twitter:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     
 
     <link rel="preload" as="image" href="/images/master-plan.webp" fetchpriority="high">
@@ -422,7 +422,7 @@
                 </div>
 
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.2rem;">
-    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
     
     <input type="hidden" name="_captcha" value="false">
@@ -757,5 +757,21 @@
     </div>
 </section>
 
+<!-- Master Plan Modal Injection -->
+    <div id="master-plan-container"></div>
+    <script>
+        fetch('/components/master-plan-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('master-plan-container').innerHTML = data;
+                // Re-trigger the script inside the modal
+                const scripts = document.getElementById('master-plan-container').querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    document.body.appendChild(newScript);
+                });
+            });
+    </script>
 </body>
 </html>

@@ -61,9 +61,20 @@ function processFiles() {
             content = content.replace(/href="\/amenities-sri-sri-school.html"/g, 'href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/"');
             content = content.replace(/href="\/paranjape-forest-trails-township-bhugaon-apartments-pune.html"/g, 'href="/paranjape-forest-trails-township-bhugaon-apartments/"');
 
-            // 4. SCHEMA HARMONIZATION (Universal Identity)
+            // 4. SCHEMA & OG HARMONIZATION (Universal Identity)
             // Ensure all authors are "Paranjape Schemes" or "Heritage Advisor"
             content = content.replace(/"author":\s*\{\s*"@type":\s*"Person"\s*\}/g, '"author": { "@type": "Person", "name": "Paranjape Forest Trails Advisor" }');
+
+            // 5. GLOBAL DOMAIN STANDARDIZATION (Resolve WWW)
+            // Absolute replacement to ensure GSC compliance
+            content = content.split('https://paranjapetownship.com').join('https://www.paranjapetownship.com');
+
+            // 6. MASTER PLAN MODAL INTEGRATION
+            // Ensure the newly restored modal is accessible on all nodes
+            if (!content.includes('components/master-plan-modal.html')) {
+                const modalInclusion = '<!-- Master Plan Modal Injection -->\n    <div id="master-plan-container"></div>\n    <script>\n        fetch(\'/components/master-plan-modal.html\')\n            .then(response => response.text())\n            .then(data => {\n                document.getElementById(\'master-plan-container\').innerHTML = data;\n                // Re-trigger the script inside the modal\n                const scripts = document.getElementById(\'master-plan-container\').querySelectorAll(\'script\');\n                scripts.forEach(oldScript => {\n                    const newScript = document.createElement(\'script\');\n                    newScript.textContent = oldScript.textContent;\n                    document.body.appendChild(newScript);\n                });\n            });\n    </script>';
+                content = content.replace('</body>', `${modalInclusion}\n</body>`);
+            }
 
             if (content !== original) {
                 fs.writeFileSync(filePath, content);

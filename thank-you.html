@@ -91,9 +91,9 @@
         "@graph": [
             {
                 "@type": "RealEstateListing",
-                "@id": "https://paranjapetownship.com/thank-you.html#listing",
+                "@id": "https://www.paranjapetownship.com/thank-you.html#listing",
                 "name": "Paranjape Forest Trails Bhugaon | Thank You",
-                "url": "https://paranjapetownship.com/thank-you.html",
+                "url": "https://www.paranjapetownship.com/thank-you.html",
                 "datePosted": "2026-04-10",
                 "contentLocation": {
                     "@type": "Place",
@@ -113,7 +113,7 @@
                     "seller": {
                          "@type": "Organization",
                          "name": "Paranjape Schemes",
-                         "url": "https://paranjapetownship.com"
+                         "url": "https://www.paranjapetownship.com"
                     }
                 }
             }
@@ -124,15 +124,15 @@
 
     <!-- Sovereign Social Graph (Sync v1.12.1) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://paranjapetownship.com/thank-you.html">
+    <meta property="og:url" content="https://www.paranjapetownship.com/thank-you.html">
     <meta property="og:title" content="Paranjape Forest Trails Bhugaon | Thank You">
     <meta property="og:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta property="og:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://paranjapetownship.com/thank-you.html">
+    <meta name="twitter:url" content="https://www.paranjapetownship.com/thank-you.html">
     <meta name="twitter:title" content="Paranjape Forest Trails Bhugaon | Thank You">
     <meta name="twitter:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta name="twitter:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta name="twitter:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     
     <meta property="og:site_name" content="Paranjape Forest Trails Bhugaon">
 </head>
@@ -211,7 +211,7 @@
                     <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Secure exclusive pricing for <strong>Forest Trails Legacy</strong>.</p>
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
-    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="project_context" value="Forest Trails Legacy">
                     <div class="advisory-step active" data-step="1">
@@ -316,5 +316,21 @@
     </div>
 </section>
 
+<!-- Master Plan Modal Injection -->
+    <div id="master-plan-container"></div>
+    <script>
+        fetch('/components/master-plan-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('master-plan-container').innerHTML = data;
+                // Re-trigger the script inside the modal
+                const scripts = document.getElementById('master-plan-container').querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    document.body.appendChild(newScript);
+                });
+            });
+    </script>
 </body>
 </html>

@@ -30,7 +30,7 @@
         "@type": "RealEstateListing",
         "name": "Paranjape Schemes Forest Trails Apartments",
         "description": "Premium 2, 3 & 4 BHK luxury apartments in The Canopy and Verandah at Paranjape Forest Trails Bhugaon.",
-        "url": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-apartments/",
+        "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-apartments/",
         "category": "Luxury Apartments"
     },
     {
@@ -84,11 +84,11 @@
         "@type": "VideoObject",
         "name": "Paranjape Forest Trails 190-Acre Township Tour",
         "description": "Experience the cinematic drone walkthrough of Pune's largest nature township - Paranjape Forest Trails Bhugaon.",
-        "thumbnailUrl": "https://paranjapetownship.com/images/hero-township.webp",
+        "thumbnailUrl": "https://www.paranjapetownship.com/images/hero-township.webp",
         "uploadDate": "2026-03-01T08:00:00+05:30",
         "duration": "PT2M30S",
-        "contentUrl": "https://paranjapetownship.com/#cinematic",
-        "embedUrl": "https://paranjapetownship.com/#cinematic",
+        "contentUrl": "https://www.paranjapetownship.com/#cinematic",
+        "embedUrl": "https://www.paranjapetownship.com/#cinematic",
         "interactionStatistic": {
           "@type": "InteractionCounter",
           "interactionType": { "@type": "WatchAction" },
@@ -102,15 +102,15 @@
 
     <!-- Sovereign Social Graph (Sync v1.12.1) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://paranjapetownship.com/paranjape-schemes-forest-trails-apartments/">
+    <meta property="og:url" content="https://www.paranjapetownship.com/paranjape-schemes-forest-trails-apartments/">
     <meta property="og:title" content="Premium 2 & 3 BHK Apartments in Bhugaon Pune | Paranjape Schemes Forest Trails Apartments">
     <meta property="og:description" content="Luxury 2 & 3 BHK forest-view apartments in Bhugaon Pune. Explore The Canopy and Verandah at Paranjape Forest Trails.">
-    <meta property="og:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://paranjapetownship.com/paranjape-schemes-forest-trails-apartments/">
+    <meta name="twitter:url" content="https://www.paranjapetownship.com/paranjape-schemes-forest-trails-apartments/">
     <meta name="twitter:title" content="Premium 2 & 3 BHK Apartments in Bhugaon Pune | Paranjape Schemes Forest Trails Apartments">
     <meta name="twitter:description" content="Luxury 2 & 3 BHK forest-view apartments in Bhugaon Pune. Explore The Canopy and Verandah at Paranjape Forest Trails.">
-    <meta name="twitter:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta name="twitter:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     
 
     <link rel="preload" as="image" href="/images/master-plan.webp" fetchpriority="high">
@@ -771,7 +771,7 @@
                     <p style="color: #444; font-size: 0.95rem; margin-top: 1rem; letter-spacing: 0.02em; font-weight: 500;">Secure exclusive pricing & priority site-visit guidance.</p>
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" class="advisory-flow" style="display: flex; flex-direction: column; gap: 0;">
-    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
                     
                     <input type="hidden" name="_captcha" value="false">
@@ -943,7 +943,7 @@
     <div id="sovereign-advisor-bubble">
         <div class="advisor-pulse-ring"></div>
         <div class="concierge-avatar">
-            <img src="/images/township-aerial.webp" alt="Sovereign Advisor" onerror="this.src='https://paranjapetownship.com/images/hero-township.webp'" loading="lazy" decoding="async">
+            <img src="/images/township-aerial.webp" alt="Sovereign Advisor" onerror="this.src='https://www.paranjapetownship.com/images/hero-township.webp'" loading="lazy" decoding="async">
             <div class="online-indicator"></div>
         </div>
         <div class="concierge-content">
@@ -1101,5 +1101,21 @@
     </div>
 </section>
 
+<!-- Master Plan Modal Injection -->
+    <div id="master-plan-container"></div>
+    <script>
+        fetch('/components/master-plan-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('master-plan-container').innerHTML = data;
+                // Re-trigger the script inside the modal
+                const scripts = document.getElementById('master-plan-container').querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    document.body.appendChild(newScript);
+                });
+            });
+    </script>
 </body>
 </html>

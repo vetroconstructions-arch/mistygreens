@@ -90,9 +90,9 @@
         "@graph": [
             {
                 "@type": "RealEstateListing",
-                "@id": "https://paranjapetownship.com/404.html#listing",
+                "@id": "https://www.paranjapetownship.com/404.html#listing",
                 "name": "Paranjape Forest Trails Bhugaon | 404",
-                "url": "https://paranjapetownship.com/404.html",
+                "url": "https://www.paranjapetownship.com/404.html",
                 "datePosted": "2026-04-10",
                 "contentLocation": {
                     "@type": "Place",
@@ -112,7 +112,7 @@
                     "seller": {
                          "@type": "Organization",
                          "name": "Paranjape Schemes",
-                         "url": "https://paranjapetownship.com"
+                         "url": "https://www.paranjapetownship.com"
                     }
                 }
             }
@@ -123,15 +123,15 @@
 
     <!-- Sovereign Social Graph (Sync v1.12.1) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://paranjapetownship.com/404.html">
+    <meta property="og:url" content="https://www.paranjapetownship.com/404.html">
     <meta property="og:title" content="Paranjape Forest Trails Bhugaon | 404">
     <meta property="og:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta property="og:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://paranjapetownship.com/404.html">
+    <meta name="twitter:url" content="https://www.paranjapetownship.com/404.html">
     <meta name="twitter:title" content="Paranjape Forest Trails Bhugaon | 404">
     <meta name="twitter:description" content="190-acre nature township in Bhugaon Pune with NA plots, villas, and apartments.">
-    <meta name="twitter:image" content="https://paranjapetownship.com/images/drone-aerial.webp">
+    <meta name="twitter:image" content="https://www.paranjapetownship.com/images/drone-aerial.webp">
     
 
     <link rel="preload" as="image" href="/images/master-plan.webp" fetchpriority="high">
@@ -258,7 +258,7 @@
                 </div>
 
                 <form id="master-plan-form" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.4rem;">
-    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
     
     <input type="hidden" name="_captcha" value="false">
@@ -449,5 +449,21 @@
     </div>
 </section>
 
+<!-- Master Plan Modal Injection -->
+    <div id="master-plan-container"></div>
+    <script>
+        fetch('/components/master-plan-modal.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('master-plan-container').innerHTML = data;
+                // Re-trigger the script inside the modal
+                const scripts = document.getElementById('master-plan-container').querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.textContent = oldScript.textContent;
+                    document.body.appendChild(newScript);
+                });
+            });
+    </script>
 </body>
 </html>
