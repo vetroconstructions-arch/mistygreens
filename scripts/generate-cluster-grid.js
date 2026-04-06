@@ -110,58 +110,62 @@ function generateGridHTML() {
     `).join('');
 
     return `
-    <section class="cluster-grid-section" id="township-clusters">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <span style="color: #d4af37; font-weight: 900; letter-spacing: 0.3rem; text-transform: uppercase; font-size: 0.7rem;">✦ Individual Projects</span>
-                <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-top: 1rem; color: #fff;">Explore <i style="color: #d4af37;">Sovereign</i> Clusters</h2>
-                <p style="color: rgba(255,255,255,0.6); max-width: 600px; margin: 1.5rem auto 0;">The 190-acre Forest Trails township is divided into exclusive residential sectors, each with its own niche identity and premium lifestyle.</p>
-            </div>
-            <div class="cluster-grid">
-                ${cards}
-            </div>
+<!-- Sovereign Cluster Grid (V2) -->
+<section class="cluster-grid-section" id="township-clusters">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <span style="color: #d4af37; font-weight: 900; letter-spacing: 0.3rem; text-transform: uppercase; font-size: 0.7rem;">✦ Individual Projects</span>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-top: 1rem; color: #fff;">Explore <i style="color: #d4af37;">Sovereign</i> Clusters</h2>
+            <p style="color: rgba(255,255,255,0.6); max-width: 600px; margin: 1.5rem auto 0;">The 190-acre Forest Trails township is divided into exclusive residential sectors, each with its own niche identity and premium lifestyle.</p>
         </div>
-    </section>
+        <div class="cluster-grid">
+            ${cards}
+        </div>
+    </div>
+</section>
+<!-- /Sovereign Cluster Grid (V2) -->
     `;
 }
 
 const gridHTML = generateGridHTML();
 
-// Inject into index.html
-const indexPath = path.join(ROOT, 'index.html');
-let indexContent = fs.readFileSync(indexPath, 'utf8');
-
-if (!indexContent.includes('id="township-clusters"')) {
-    // Inject before the seo-mesh-footer
-    indexContent = indexContent.replace('<section class="seo-mesh-footer"', `${gridHTML}\n<section class="seo-mesh-footer"`);
-    // Also inject the CSS link in head if missing
-    if (!indexContent.includes('cluster-dominance.css')) {
-        indexContent = indexContent.replace('</head>', '    <link rel="stylesheet" href="/styles/cluster-dominance.css">\n</head>');
-    }
-    fs.writeFileSync(indexPath, indexContent);
-    console.log('✅ Injected Cluster Grid into index.html');
-} else {
-    console.log('⚠️ Cluster Grid already exists in index.html');
-}
-
-// Sub-hubs propagation
-const hubs = [
+// Target Files
+const targetFiles = [
+    'index.html',
     'paranjape-forest-trails-township-bhugaon-apartments/index.html',
     'paranjape-forest-trails-township-bhugaon-plots/index.html',
     'paranjape-forest-trails-township-bhugaon-villas/index.html'
 ];
 
-hubs.forEach(hub => {
-    const hubPath = path.join(ROOT, hub);
-    if (fs.existsSync(hubPath)) {
-        let content = fs.readFileSync(hubPath, 'utf8');
-        if (!content.includes('id="township-clusters"')) {
-            content = content.replace('<section class="seo-mesh-footer"', `${gridHTML}\n<section class="seo-mesh-footer"`);
-            if (!content.includes('cluster-dominance.css')) {
-                 content = content.replace('</head>', '    <link rel="stylesheet" href="/styles/cluster-dominance.css">\n</head>');
-            }
-            fs.writeFileSync(hubPath, content);
-            console.log(`✅ Injected Related Clusters into ${hub}`);
+targetFiles.forEach(file => {
+    const filePath = path.join(ROOT, file);
+    if (!fs.existsSync(filePath)) return;
+
+    let content = fs.readFileSync(filePath, 'utf8');
+    const original = content;
+
+    // Force Overwrite: If V1 or V2 exists, replace it.
+    if (content.includes('id="township-clusters"')) {
+        // Simple regex to find the section
+        content = content.replace(/<!-- Sovereign Cluster Grid [\s\S]*?\/Sovereign Cluster Grid [\s\S]*?-->/g, gridHTML.trim());
+        // If that didn't work (no comments), try raw section replacement
+        if (content === original) {
+           content = content.replace(/<section class="cluster-grid-section" id="township-clusters">[\s\S]*?<\/section>/g, gridHTML.trim());
         }
+    } else {
+        // Fresh Injection
+        content = content.replace('<section class="seo-mesh-footer"', `${gridHTML.trim()}\n<section class="seo-mesh-footer"`);
+    }
+
+    // Ensure CSS
+    if (!content.includes('cluster-dominance.css')) {
+        content = content.replace('</head>', '    <link rel="stylesheet" href="/styles/cluster-dominance.css">\n</head>');
+    }
+
+    if (content !== original) {
+        fs.writeFileSync(filePath, content);
+        console.log(`✅ Updated Cluster Grid in ${file}`);
+    } else {
+        console.log(`⚠️ No changes needed for ${file}`);
     }
 });
