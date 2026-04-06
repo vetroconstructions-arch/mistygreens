@@ -1,5 +1,24 @@
 const fs = require('fs');
 const path = require('path');
+const { getFaqSchema } = require('./generate-faq-schema');
+
+const VERSION = "3.2.1";
+const BASE_DOMAIN = "https://www.paranjapetownship.com";
+
+function getClusterType(filePath) {
+    const f = filePath.toLowerCase();
+    if (f.includes('plot')) return 'plots';
+    if (f.includes('villa') || f.includes('bungalow')) return 'villas';
+    if (f.includes('apartment') || f.includes('highgardens') || f.includes('canopy')) return 'apartments';
+    return 'connectivity';
+}
+
+function getLocalizedH1(clusterType, originalH1) {
+    if (clusterType === 'plots') return "Premium NA Bungalow Plots Bhugaon | Paranjape Forest Trails Legacy";
+    if (clusterType === 'villas') return "Luxury Forest Villas & Bungalows Pune | Sovereign Forest Trails";
+    if (clusterType === 'apartments') return "Premium 2 & 3 BHK Apartments Bhugaon | Forest Trails Integrated Township";
+    return originalH1;
+}
 
 const ROOT = process.cwd();
 const SKIP_DIRS = [
@@ -85,6 +104,41 @@ function processFiles() {
             // Ensure 100% alt-tag and lazy-loading compliance across the mesh
             content = content.replace(/<img (?![^>]*alt=)([^>]+)>/g, '<img alt="Paranjape Forest Trails Township Bhugaon Pune" $1>');
             content = content.replace(/<img (?![^>]*loading=)([^>]+)>/g, '<img loading="lazy" $1>');
+
+            // 9. TOTAL DOMINANCE: FAQ SCHEMA INJECTION
+            const clusterType = getClusterType(filePath);
+            if (!content.includes('application/ld+json" id="faq-schema"')) {
+                const faqSchema = JSON.stringify(getFaqSchema(clusterType));
+                const schemaHtml = `\n    <script type="application/ld+json" id="faq-schema">${faqSchema}</script>`;
+                content = content.replace('</head>', `${schemaHtml}\n</head>`);
+            }
+
+            // 10. SOVEREIGN MESH (Related Intelligence)
+            if (!content.includes('id="sovereign-mesh"')) {
+                const footerMesh = `
+    <!-- Sovereign Mesh (Sync v${VERSION}) -->
+    <section class="sovereign-mesh" id="sovereign-mesh" style="padding: 4rem 2rem; background: #fafaf8; border-top: 1px solid #eee; margin-top: 5rem;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 2rem; border-bottom: 2px solid #d4af37; display: inline-block;">Sovereign Connectivity & Intelligence Matrix</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;">
+                <a href="/paranjape-forest-trails-township-bhugaon-plots/" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">NA Bungalow Plots in Bhugaon &rarr;</a>
+                <a href="/paranjape-forest-trails-township-bhugaon-villas/" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">Luxury Forest Villas Pune &rarr;</a>
+                <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">Premium Apartments Bhugaon &rarr;</a>
+                <a href="/paranjape-forest-trails-township-bhugaon-connectivity-kothrud-nal-stop/" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">Kothrud & Nal Stop Proximity &rarr;</a>
+                <a href="/paranjape-forest-trails-township-bhugaon-investment/pmrda-ring-road-impact/" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">PMRDA Ring Road Appreciation &rarr;</a>
+            </div>
+        </div>
+    </section>
+    <!-- /Sovereign Mesh -->`;
+                content = content.replace('</body>', `${footerMesh}\n</body>`);
+            }
+
+            // 11. HYPER-LOCALIZED H1 OPTIMIZATION
+            const h1Match = content.match(/<h1[^>]*?>(.*?)<\/h1>/i);
+            if (h1Match) {
+                const optimizedH1 = getLocalizedH1(clusterType, h1Match[1]);
+                content = content.replace(/<h1[^>]*?>.*?<\/h1>/i, `<h1 id="voice-ready-h1" class="hero-title">${optimizedH1}</h1>`);
+            }
 
             if (content !== original) {
                 fs.writeFileSync(filePath, content);
