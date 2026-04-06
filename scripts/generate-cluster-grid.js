@@ -10,7 +10,7 @@ const projects = [
         status: "85% Sold Out",
         usp: "100% Gated NA Plots in Bhugaon",
         link: "/paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/",
-        image: "/images/plots.webp",
+        image: "/images/plots.jpg",
         badge: "Bestseller"
     },
     {
@@ -19,7 +19,7 @@ const projects = [
         status: "New Launch",
         usp: "Best Retirement Community in West Pune",
         link: "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/",
-        image: "/images/lifestyle.webp",
+        image: "/images/lifestyle.jpg",
         badge: "New Launch"
     },
     {
@@ -46,7 +46,7 @@ const projects = [
         status: "Heritage Grade",
         usp: "Private Pool & Bespoke Architecture",
         link: "/paranjape-forest-trails-township-bhugaon-therivolo-luxury-villas-bhugaon/",
-        image: "/images/landscape.webp",
+        image: "/images/landscape.jpg",
         badge: "Elite"
     },
     {
@@ -73,7 +73,7 @@ const projects = [
         status: "Pre-Launch",
         usp: "Smart Homes with Forest Scape",
         link: "/paranjape-forest-trails-township-bhugaon-codename-alpha-apartments-bhugaon/",
-        image: "/images/hero.webp",
+        image: "/images/hero-township.webp",
         badge: "Upcoming"
     },
     {
