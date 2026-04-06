@@ -1,133 +1,71 @@
 const fs = require('fs');
 const path = require('path');
 
-const clusters = [
-    {
-        id: 'canopy',
-        path: '/canopy-apartments-bhugaon/',
-        name: 'The Canopy',
-        tag: 'Hill-Top Luxury 2 BHK',
-        image: 'images/canopy-realistic.jpg',
-        intent: 'Nature-Immersive Lifestyle'
-    },
-    {
-        id: 'highgardens',
-        path: '/highgardens-apartments-bhugaon/',
-        name: 'High Gardens',
-        tag: 'Elevated 3 BHK Residences',
-        image: 'images/highgardens-realistic.jpg',
-        intent: 'Sovereign Family Estate'
-    },
-    {
-        id: 'highlands',
-        path: '/the-highlands-forest-trails/',
-        name: 'Highlands',
-        tag: 'Highland Towers',
-        image: 'images/the-highlands-villas.webp',
-        intent: 'Modern Vertical Living'
-    },
-    {
-        id: 'rivolo',
-        path: '/luxury-forest-villas-bhugaon/',
-        name: 'The Rivolo',
-        tag: 'Luxury Private Villas',
-        image: 'images/alpha_realistic_final.jpg',
-        intent: 'Absolute Seclusion'
-    },
-    {
-        id: 'cove',
-        path: '/the-cove-villas-bhugaon/',
-        name: 'The Cove',
-        tag: '3 BHK Bungalows',
-        image: 'images/verandah-pool-lifestyle.jpg',
-        intent: 'Gated Duplex Mastery'
-    },
-    {
-        id: 'mistygreens',
-        path: '/misty-greens-plots-pune/',
-        name: 'Misty Greens',
-        tag: 'Residential NA Plots',
-        image: 'images/misty-greens-gate.jpg',
-        intent: 'Bespoke Land Investment'
-    },
-    {
-        id: 'athashri',
-        path: '/athashri-senior-living-bhugaon/',
-        name: 'Athashri',
-        tag: 'Senior Living Leader',
-        image: 'images/athashri-realistic.jpg',
-        intent: 'Assisted Living Pioneer'
-    }
+const ROOT = path.join(__dirname, '..');
+
+const LINKS = [
+    { name: "NA Bungalow Plots in Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-plots/" },
+    { name: "Misty Greens NA Plots Pune", url: "/paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/" },
+    { name: "Luxury Forest Villas Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-villas/" },
+    { name: "The Rivolo Premium Villas", url: "/paranjape-forest-trails-township-bhugaon-therivolo-luxury-villas-bhugaon/" },
+    { name: "The Canopy Apartments Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/" },
+    { name: "Verandah Luxury Flats Pune", url: "/paranjape-forest-trails-township-bhugaon-verandah-luxury-flats-bhugaon/" },
+    { name: "Athashri Senior Living Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" },
+    { name: "The Cliff Club Amenities", url: "/amenities-the-cliff-club.html" },
+    { name: "Equestrian Academy Pune", url: "/amenities-equestrian.html" },
+    { name: "Bhugaon Property Investment", url: "/paranjape-forest-trails-township-bhugaon-property-investment-bhugaon-pune/" }
 ];
 
-const BASE_DIR = path.join(__dirname, '../');
-
-function injectSemanticMesh() {
-    console.log("🕸️ Initiating SEO Semantic Mesh Injection...");
-
-    clusters.forEach((currentCluster) => {
-        const indexPath = path.join(BASE_DIR, currentCluster.path, 'index.html');
-        
-        if (!fs.existsSync(indexPath)) {
-            console.warn(`⚠️ Warning: Could not find ${indexPath}`);
-            return;
+function getFiles(dir, files = []) {
+    const list = fs.readdirSync(dir);
+    for (const f of list) {
+        const full = path.join(dir, f);
+        if (fs.statSync(full).isDirectory()) {
+            if (['node_modules', '.git', '.wrangler', 'components', 'scripts', 'images'].includes(f)) continue;
+            getFiles(full, files);
+        } else if (f.endsWith('.html')) {
+            files.push(full);
         }
-
-        let html = fs.readFileSync(indexPath, 'utf-8');
-
-        // Select 3 random different clusters to link to
-        const otherClusters = clusters.filter(c => c.id !== currentCluster.id);
-        const shuffled = otherClusters.sort(() => 0.5 - Math.random());
-        const selected = shuffled.slice(0, 3);
-
-        let cardsHtml = '';
-        selected.forEach(sc => {
-            cardsHtml += `
-            <!-- Sibling Cluster Card (Sovereign SEO Mesh) -->
-            <a href="${sc.path}" class="cluster-card sibling-card" style="text-decoration: none; color: inherit; display: block; border: 1px solid rgba(0,0,0,0.05); transition: transform 0.4s; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <div style="position: relative; overflow: hidden; height: 220px;">
-                    <img src="/${sc.image}" alt="${sc.name} Bhugaon - ${sc.tag} ${sc.intent}" title="${sc.name}: ${sc.intent}" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s;">
-                    <div style="position: absolute; top: 1rem; right: 1rem; background: var(--pscl-maroon); color: #fff; padding: 0.4rem 1rem; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; border-radius: 2px;">
-                        ${sc.tag}
-                    </div>
-                </div>
-                <div style="padding: 2rem;">
-                    <h4 style="font-family: var(--font-heading); font-size: 1.4rem; margin-bottom: 0.8rem; color: #1a1a1a;">${sc.name}</h4>
-                    <p style="font-size: 0.8rem; color: var(--pscl-maroon); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 800; margin-bottom: 0;">${sc.intent} &rarr;</p>
-                </div>
-            </a>
-            `;
-        });
-
-        const meshSection = `
-    <!-- ============================================== -->
-    <!-- SEO SEMANTIC MESH ARCHITECTURE (PILLAR 4) -->
-    <!-- ============================================== -->
-    <section class="semantic-mesh section" style="background: var(--pscl-gray); padding: 6rem 0; border-top: 1px solid rgba(0,0,0,0.05);">
-        <div class="container">
-            <h2 class="section-title" style="font-size: clamp(2rem, 4vw, 3.5rem); text-align: center; margin-bottom: 4rem;">Explore Sister <i>Clusters</i></h2>
-            <div class="grid-12" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                ${cardsHtml}
-            </div>
-        </div>
-    </section>
-    <!-- ============================================== -->
-`;
-
-        // Remove old mesh if it exists to prevent duplication
-        html = html.replace(/<!-- ============================================== -->\s*<!-- SEO SEMANTIC MESH ARCHITECTURE[\s\S]*?<!-- ============================================== -->/g, '');
-
-        // Inject right before the footer
-        if (html.includes('<footer class="footer-main"')) {
-            html = html.replace('<footer class="footer-main"', `${meshSection}\n    <footer class="footer-main"`);
-            fs.writeFileSync(indexPath, html, 'utf-8');
-            console.log(`✅ Injected Semantic Mesh into: ${currentCluster.name}`);
-        } else {
-            console.error(`❌ Could not find footer in ${currentCluster.name} to inject mesh.`);
-        }
-    });
-
-    console.log("🕸️ Semantic Mesh Injection Complete! Google PageRank will now flow beautifully between clusters.");
+    }
+    return files;
 }
 
-injectSemanticMesh();
+const htmlFiles = getFiles(ROOT);
+console.log(`🕸 Injecting Semantic Mesh into ${htmlFiles.length} files...`);
+
+const meshHtml = `
+<!-- Semantic SEO Mesh (Phase 51) -->
+<section class="seo-mesh-footer" style="padding: 4rem 2rem; background: #fafaf8; border-top: 1px solid #eee; margin-top: 5rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1a1a1a; margin-bottom: 2rem; border-bottom: 2px solid #d4af37; display: inline-block;">Explore Forest Trails Clusters</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px;">
+            ${LINKS.map(link => `<a href="${link.url}" style="color: #444; font-size: 0.9rem; text-decoration: none; padding: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; transition: all 0.3s ease;">${link.name} &rarr;</a>`).join('\n            ')}
+        </div>
+    </div>
+</section>
+`;
+
+let modifiedCount = 0;
+
+for (const file of htmlFiles) {
+    let content = fs.readFileSync(file, 'utf8');
+    
+    // Avoid double injection
+    if (content.includes('seo-mesh-footer')) continue;
+
+    const original = content;
+    
+    // Inject before closing </body> or at the end
+    if (content.includes('</body>')) {
+        content = content.replace('</body>', meshHtml + '\n</body>');
+    } else {
+        content += meshHtml;
+    }
+
+    if (content !== original) {
+        fs.writeFileSync(file, content);
+        modifiedCount++;
+    }
+}
+
+console.log(`✅ Success: Interconnected ${modifiedCount} pages with Semantic Mesh.`);
