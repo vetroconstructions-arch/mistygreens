@@ -9,9 +9,16 @@ const path = require('path');
 
 const SITE = 'https://paranjapetownship.com';
 const ROOT = path.join(__dirname, '..');
-const DIRS = ['sectors', 'amenities', 'location', 'investment', 'comparisons', 'legal'];
 
 let count = 0;
+
+function getAllPrefixDirs(base) {
+    return fs.readdirSync(base, { withFileTypes: true })
+        .filter(item => item.isDirectory() && item.name.startsWith('paranjape-forest-trails-township-bhugaon-'))
+        .map(item => item.name);
+}
+
+const DIRS = getAllPrefixDirs(ROOT);
 
 function processDirectory(dirPath, category) {
     if (!fs.existsSync(dirPath)) return;

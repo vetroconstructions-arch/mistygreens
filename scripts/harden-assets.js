@@ -33,14 +33,16 @@ function hardenAssets() {
         let content = fs.readFileSync(filePath, 'utf-8');
         let fileChanged = false;
 
-        // Regex to find src="images/..." and background-image: url('images/...')
-        // Strategy: If .webp exists for a .jpg/.png, replace it.
-        const imgRegex = /src=["'](images\/[^"']+\.(jpg|png))["']/g;
-        const bgRegex = /url\(["']?(images\/[^"')]+\.(jpg|png))["']?\)/g;
+        // Handle both relative and absolute paths
+        const imgRegex = /src=["'](\/?images\/[^"']+\.(jpg|png))["']/g;
+        const bgRegex = /url\(["']?(\/?images\/[^"')]+\.(jpg|png))["']?\)/g;
 
         content = content.replace(imgRegex, (match, p1, p2) => {
+            const cleanPath = p1.startsWith('/') ? p1.slice(1) : p1;
             const webpPath = p1.replace(`.${p2}`, '.webp');
-            if (fs.existsSync(path.join(PROJECT_ROOT, webpPath))) {
+            const physicalWebP = path.join(PROJECT_ROOT, cleanPath.replace(`.${p2}`, '.webp'));
+            
+            if (fs.existsSync(physicalWebP)) {
                 fileChanged = true;
                 totalReplacements++;
                 return match.replace(p1, webpPath);

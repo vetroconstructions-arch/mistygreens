@@ -110,6 +110,49 @@
     }
     </script>
 
+
+    <!-- Advanced Breadcrumb Schema (pSEO Phase 15) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Forest Trails", "item": "https://paranjapetownship.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Paranjape-forest-trails-township-bhugaon-premium-apartments-forest-trails", "item": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-premium-apartments-forest-trails/" },
+            { "@type": "ListItem", "position": 3, "name": "Premium 2 & 3 BHK Apartments in Bhugaon Pune", "item": "https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-premium-apartments-forest-trails/" }
+        ]
+    }
+    </script>
+
+    <!-- Sovereign LocalBusiness Mesh (@id linkage) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": "https://paranjapetownship.com/#localbusiness",
+        "name": "Paranjape Forest Trails",
+        "image": "https://paranjapetownship.com/images/hero-township.webp",
+        "url": "https://paranjapetownship.com/",
+        "telephone": "+91-7744009295",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Paud Road, Bhugaon",
+            "addressLocality": "Bhugaon",
+            "addressRegion": "Pune",
+            "postalCode": "412115",
+            "addressCountry": "IN"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "1840"
+        },
+        "areaServed": [
+            { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": "18.5050", "longitude": "73.7406" }, "geoRadius": "15000" },
+            "Bhugaon", "Bavdhan", "Kothrud", "Nal Stop", "Karve Nagar", "Shivaji Nagar", "Aundh", "Baner", "West Pune"
+        ]
+    }
+    </script>
 </head>
 <body>
     
@@ -261,7 +304,7 @@
                     <!-- The Canopy -->
                     <div class="col-6 reveal-up" style="border: 1px solid rgba(0,0,0,0.05); padding: 3rem; border-radius: 12px; background: #fafaf5;">
                         <div style="height: 300px; overflow: hidden; border-radius: 8px; margin-bottom: 2.5rem; position: relative;">
-                            <img src="/images/canopy-realistic.jpg" alt="The Canopy 2 & 3 BHK Apartments at Paranjape Forest Trails - Verified Premium Architecture" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async">
+                            <img src="/images/canopy-realistic.webp" alt="The Canopy 2 & 3 BHK Apartments at Paranjape Forest Trails - Verified Premium Architecture" style="width:100%; height:100%; object-fit:cover;" loading="lazy" decoding="async">
                         </div>
                         <span style="color: var(--pscl-gold); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;">The Canopy</span>
                         <h3 style="font-family: var(--font-heading); font-size: 2.22rem; margin: 1rem 0;">Modern 2 & 3 BHKs</h3>
@@ -1088,5 +1131,8 @@
     </div>
 </section>
 
+
+    <!-- Sovereign Trust Mesh (Sync v1.12.1) -->
+    <script defer src="/scripts/trust-engine.js"></script>
 </body>
 </html>
