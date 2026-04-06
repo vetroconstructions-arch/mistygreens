@@ -76,6 +76,16 @@ function processFiles() {
                 content = content.replace('</body>', `${modalInclusion}\n</body>`);
             }
 
+            // 7. DOM CLEANUP (Remove Legacy Mobile Menus)
+            // Resolving the "Double Menu" anomaly to improve PageSpeed
+            const legacyMenuRegex = /(?:[ \t]*<!--[ \t]*Mobile Off-Canvas Navigation \(Phase 1: Overhaul\)[ \t]*-->\r?\n)?[ \t]*<div class="mobile-menu" id="mobile-menu">[\s\S]*?<div class="mobile-menu-actions">[\s\S]*?<\/div>\r?\n?[ \t]*<\/div>\r?\n/g;
+            content = content.replace(legacyMenuRegex, '');
+
+            // 8. WEB VITALS HARDENING (Image Optimization)
+            // Ensure 100% alt-tag and lazy-loading compliance across the mesh
+            content = content.replace(/<img (?![^>]*alt=)([^>]+)>/g, '<img alt="Paranjape Forest Trails Township Bhugaon Pune" $1>');
+            content = content.replace(/<img (?![^>]*loading=)([^>]+)>/g, '<img loading="lazy" $1>');
+
             if (content !== original) {
                 fs.writeFileSync(filePath, content);
             }
