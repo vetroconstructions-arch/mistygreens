@@ -39,8 +39,8 @@ function processFiles() {
             // 1. DYNAMIC CANONICAL HARDENING
             // Ensure canonical URL reflects the clean slug directory structure
             const canonicalUrl = folderName === '.' 
-                ? 'https://paranjapetownship.com/' 
-                : `https://paranjapetownship.com/${folderName}/`;
+                ? 'https://www.paranjapetownship.com/' 
+                : `https://www.paranjapetownship.com/${folderName}/`;
             
             content = content.replace(/<link rel="canonical" href="[^"]*">/g, `<link rel="canonical" href="${canonicalUrl}">`);
             if (!content.includes('<link rel="canonical"')) {

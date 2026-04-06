@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const BASE_URL = 'https://paranjapetownship.com';
+const BASE_URL = 'https://www.paranjapetownship.com';
 const PROJECT_ROOT = path.join(__dirname, '..');
 const OUTPUT_FILE = path.join(PROJECT_ROOT, 'sitemap.xml');
 

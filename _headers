@@ -9,10 +9,10 @@
   Cache-Control: public, max-age=86400
 
 # Structural Redirects (Phase 55 Refinement)
-/amenities-equestrian.html /paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/ 301
-/amenities-the-cliff-club.html /paranjape-forest-trails-township-bhugaon-the-cliff-lifestyle-hub-bhugaon/ 301
-/amenities-sri-sri-school.html /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301
-/paranjape-forest-trails-township-bhugaon-apartments-pune.html /paranjape-forest-trails-township-bhugaon-apartments/ 301
-/paranjape-forest-trails-township-bhugaon-canopy-apartments-bhugaon /paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/ 301
-/paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails.html /paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails/ 301
-/bhugaon-growth-ledger.html /paranjape-forest-trails-township-bhugaon-investment/appreciation-forecast-2030/ 301
+/amenities-equestrian.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/ 301
+/amenities-the-cliff-club.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-cliff-lifestyle-hub-bhugaon/ 301
+/amenities-sri-sri-school.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301
+/paranjape-forest-trails-township-bhugaon-apartments-pune.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-apartments/ 301
+/paranjape-forest-trails-township-bhugaon-canopy-apartments-bhugaon https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/ 301
+/paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails/ 301
+/bhugaon-growth-ledger.html https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/appreciation-forecast-2030/ 301
