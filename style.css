@@ -2430,20 +2430,118 @@ body.mode-night::after {
     padding: 1.2rem;
 }
 
+/* Sovereign BavBar (Phase 59: Dynamic UI) */
+.mobile-sticky-bar {
+    display: none; /* Default hidden, enabled by media query */
+}
+
 @media (max-width: 1024px) {
-    .mobile-hidden {
-        display: none !important;
-    }
-    .conversion-pill {
-        bottom: 1.5rem;
-        left: 50%;
-        transform: translateX(-50%) translateY(150%);
+    .mobile-sticky-bar {
+        display: flex !important;
+        position: fixed;
+        bottom: 20px; /* Floating Pill Elevation */
+        left: 5%;
+        right: 5%;
         width: 90%;
-        max-width: 350px;
-        padding: 1rem 1.5rem;
-        gap: 0.8rem;
-        text-align: center;
+        height: 60px;
+        z-index: 10005;
+        background: rgba(26, 26, 26, 0.85); /* Deep Void Glass */
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(212, 175, 55, 0.2);
         border-radius: 50px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        overflow: hidden;
+        animation: bavbar-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
+
+@keyframes bavbar-slide-up {
+    0% { transform: translateY(150%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.bav-pill {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 100%;
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* WhatsApp Pulse */
+.bav-pill-wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+.bav-pill-wa::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: inherit;
+    animation: wa-pulse 2s infinite;
+}
+
+@keyframes wa-pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Enquiry Shine */
+.bav-pill-enq {
+    background: linear-gradient(135deg, var(--pscl-dark), #000);
+    color: var(--pscl-gold);
+}
+.bav-pill-enq::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(212, 175, 55, 0.4),
+        transparent
+    );
+    animation: enq-shine 3s infinite;
+}
+
+@keyframes enq-shine {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+/* Ecosystem Scan */
+.bav-pill-eco {
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+.bav-pill-eco i {
+    animation: eco-scan 4s linear infinite;
+}
+
+@keyframes eco-scan {
+    0% { transform: rotate(0deg); color: #fff; }
+    50% { color: var(--pscl-gold); }
+    100% { transform: rotate(360deg); color: #fff; }
+}
+@media (max-width: 1024px) {
+    .mobile-sticky-actions {
         justify-content: center;
     }
     .conversion-pill.active {

@@ -223,26 +223,7 @@
         </section>
     </main>
     
-    <!-- Mobile High-Conversion Sticky Bar -->
-    <div class="mobile-sticky-bar">
-        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" class="mobile-sticky-btn" style="background: #25D366; color: #fff;">WhatsApp</a>
-        <button class="mobile-sticky-btn open-enquiry-modal" id="cta-therivolo-luxury-villas-bhugaon-enquire" style="background: #1a1a1a; color: #d4af37;">Enquire Now</button>
-    </div>
-    <style>
-        .mobile-sticky-bar { display: none; }
-        @media(max-width: 1024px) {
-            .mobile-sticky-bar { display: flex !important; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; height: 65px; }
-            .mobile-sticky-btn { flex: 1; display: flex; align-items: center; justify-content: center; font-weight: 800; border: none; font-size: 0.9rem; text-transform: uppercase; cursor: pointer; }
-            body { padding-bottom: 65px; }
-        }
     
-        @media (max-width: 768px) {
-            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
-            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
-            .form-header h3 { font-size: 2.2rem !important; }
-            .advisory-opt { padding: 1rem !important; }
-        }
-    </style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
@@ -506,5 +487,22 @@
         <h3>Rivolo Forest Trails Keywords</h3>
         <p>Rivolo Residences 2 BHK apartments, Rivolo Bhugaon price, Rivolo luxury apartments Pune, Rivolo Forest Trails configuration, Rivolo resale deals, Rivolo investment Bhugaon</p>
     </div>
+
+    <!-- Sovereign BavBar (Sync v3.2.1) -->
+    <div class="mobile-sticky-bar" id="sovereign-bavbar">
+        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" class="bav-pill bav-pill-wa">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <button class="bav-pill bav-pill-enq open-enquiry-modal">
+            <i class="fas fa-envelope"></i>
+            <span>Enquiry</span>
+        </button>
+        <button class="bav-pill bav-pill-eco open-global-search">
+            <i class="fas fa-satellite-dish"></i>
+            <span>Ecosystem</span>
+        </button>
+    </div>
+    <!-- /Sovereign BavBar -->
 </body>
 </html>

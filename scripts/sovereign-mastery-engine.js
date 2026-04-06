@@ -140,7 +140,7 @@ function processFiles() {
                 content = content.replace(/<h1[^>]*?>.*?<\/h1>/i, `<h1 id="voice-ready-h1" class="hero-title">${optimizedH1}</h1>`);
             }
 
-            // 12. COMPETITIVE COMPARISON LEDGER (The Authority Signal)
+                    // 12. COMPETITIVE COMPARISON LEDGER (The Authority Signal)
             if (!content.includes('id="competitive-ledger"')) {
                 const comparisonLedger = `
     <!-- Competitive Comparison Ledger (Sync v${VERSION}) -->
@@ -187,6 +187,32 @@ function processFiles() {
     </section>
     <!-- /Competitive Comparison Ledger -->`;
                 content = content.replace('</body>', `${comparisonLedger}\n</body>`);
+            }
+
+            // 13. SOVEREIGN BAVBAR (Phase 59 Sync: Dynamic UI)
+            // Systematically purge legacy bars and inject the premium conversion pill
+            const legacyBavBarRegex = /<!-- Mobile High-Conversion Sticky Bar -->[\s\S]*?<div class="mobile-sticky-bar">[\s\S]*?<\/div>[\s\S]*?<\/style>/g;
+            content = content.replace(legacyBavBarRegex, '');
+            
+            if (!content.includes('id="sovereign-bavbar"')) {
+                const sovereignBavBar = `
+    <!-- Sovereign BavBar (Sync v${VERSION}) -->
+    <div class="mobile-sticky-bar" id="sovereign-bavbar">
+        <a href="https://wa.me/917744009295" target="_blank" rel="noopener" class="bav-pill bav-pill-wa">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </a>
+        <button class="bav-pill bav-pill-enq open-enquiry-modal">
+            <i class="fas fa-envelope"></i>
+            <span>Enquiry</span>
+        </button>
+        <button class="bav-pill bav-pill-eco open-global-search">
+            <i class="fas fa-satellite-dish"></i>
+            <span>Ecosystem</span>
+        </button>
+    </div>
+    <!-- /Sovereign BavBar -->`;
+                content = content.replace('</body>', `${sovereignBavBar}\n</body>`);
             }
 
             if (content !== original) {
