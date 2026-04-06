@@ -246,10 +246,9 @@ img {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 4rem;
+    padding: 0 2rem; /* Reduced to provide more internal breathing room */
     height: 100%;
     position: relative;
-    overflow: hidden; /* Prevent child overflow from stretching header */
 }
 
 .nav-brand {
@@ -287,20 +286,19 @@ img {
 }
 
 .nav-search-box {
-    flex: 1;
+    flex: 2; /* Increased priority to protect lead-links */
     display: flex;
     justify-content: center;
-    padding: 0 1.5rem;
-    max-width: 800px;
+    padding: 0 1rem;
+    max-width: 700px;
 }
 
 .search-proxy {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 0.7rem 2rem;
+    background: rgba(255,255,255,0.12); /* Increased contrast as seen in screenshot */
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 0.6rem 2rem;
     border-radius: 50px;
     width: 100%;
-    max-width: 650px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -325,14 +323,13 @@ img {
 
 .search-links {
     display: flex;
-    gap: 2rem;
-    font-size: 0.75rem;
+    gap: 1.5rem; /* Tightened to prevent wrapping distortion */
+    font-size: 0.65rem; /* Refined for executive look */
     font-weight: 800;
     color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     white-space: nowrap;
-    overflow: hidden;
 }
 
 .nav-links {
@@ -345,9 +342,9 @@ img {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: 0.8rem;
     align-items: center;
-    min-width: 320px;
+    min-width: 280px; /* Reduced to respect viewport constraints */
 }
 
 .whatsapp-btn {
@@ -640,25 +637,24 @@ body.scrolled .secondary-silo-nav {
 
 .hero-title {
     font-family: var(--font-heading);
-    line-height: 1.05;
-    margin-bottom: 3.5rem;
-    letter-spacing: -0.01em;
+    line-height: 1; /* Tightened to prevent vertical drift */
+    margin-bottom: 2.5rem;
+    letter-spacing: -0.02em;
     color: var(--pscl-white);
-    opacity: 1 !important; /* Force visibility for base layer */
-    transform: none !important;
 }
 
 .hero-title .title-top {
     display: block;
-    font-size: clamp(2rem, 8vw, 4.2rem);
+    font-size: clamp(1.8rem, 5vw, 3.2rem); /* Conservative desktop scaling */
     font-weight: 800;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.5rem;
     line-height: 1.1;
+    text-transform: uppercase;
 }
 
 .hero-title .title-bottom {
     display: block;
-    font-size: clamp(2.2rem, 10vw, 5.5rem);
+    font-size: clamp(2rem, 7vw, 4.5rem); /* Capped to prevent overflow distortion */
     font-family: var(--font-serif);
     font-style: italic;
     color: var(--pscl-gold);
@@ -2115,8 +2111,8 @@ body.mode-night::after {
 /* Heritage Concierge Styles (Redesigned) */
 .concierge-trigger {
     position: fixed;
-    bottom: 3rem;
-    right: 3rem;
+    bottom: 6rem; /* Raised to avoid conflict with activity toast in right corner */
+    right: 2rem;
     background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A);
     color: white;
     padding: 1rem 2rem;
@@ -2125,10 +2121,9 @@ body.mode-night::after {
     align-items: center;
     gap: 1rem;
     cursor: pointer;
-    z-index: 2000;
-    box-shadow: 0 10px 30px rgba(107, 13, 13, 0.4), 0 0 0 0 rgba(107, 13, 13, 0.3);
+    z-index: 10004;
+    box-shadow: 0 10px 30px rgba(107, 13, 13, 0.4);
     transition: all 0.4s var(--ease-editorial);
-    animation: concierge-pulse 2.5s ease-in-out infinite;
     border: 1px solid rgba(255,255,255,0.1);
 }
 @keyframes concierge-pulse {
@@ -2863,21 +2858,26 @@ input:focus, select:focus, textarea:focus {
 /* Social Proof Notifications (Phase 14.2) */
 #sovereign-activity-toast {
     position: fixed;
-    bottom: 100px;
-    left: 2rem;
+    bottom: 2rem;
+    right: 2rem; /* Relocated to avoid left-side Advisor Bubble overlap */
     background: rgba(107, 13, 13, 0.95);
     color: #fff;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    z-index: 10000;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transform: translateY(100px);
+    z-index: 10005; /* Elevated above other interactive elements */
+    box-shadow: 0 10px 30px rgba(107, 13, 13, 0.3);
+    transform: translateY(150%);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     align-items: center;
     gap: 12px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#sovereign-activity-toast.active {
+    transform: translateY(0);
 }
 
 #sovereign-advisor-bubble {
