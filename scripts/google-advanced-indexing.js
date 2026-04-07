@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-const SITE = 'https://paranjapetownship.com';
+const SITE = 'https://www.paranjapetownship.com';
 const SITEMAP_URL = `${SITE}/sitemap.xml`;
 const ROOT = path.join(__dirname, '..');
 

@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://paranjapetownship.com/</loc>
+    <loc>https://www.paranjapetownship.com/</loc>
     <video:video>
-      <video:thumbnail_loc>https://paranjapetownship.com/images/drone-aerial.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.paranjapetownship.com/images/drone-aerial.webp</video:thumbnail_loc>
       <video:title>Paranjape Forest Trails Real Drone Aerial View</video:title>
       <video:description>Breathtaking 190-acre drone aerial walkthrough of Paranjape Forest Trails township in Bhugaon, West Pune.</video:description>
-      <video:content_loc>https://paranjapetownship.com/images/drone-aerial.webp</video:content_loc>
-      <video:player_loc>https://paranjapetownship.com/</video:player_loc>
+      <video:content_loc>https://www.paranjapetownship.com/images/drone-aerial.webp</video:content_loc>
+      <video:player_loc>https://www.paranjapetownship.com/</video:player_loc>
       <video:duration>150</video:duration>
       <video:publication_date>2026-03-16T08:00:00+08:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>
@@ -16,12 +16,12 @@
     </video:video>
   </url>
   <url>
-    <loc>https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location-proximity/</loc>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location-proximity/</loc>
     <video:video>
-      <video:thumbnail_loc>https://paranjapetownship.com/images/township-aerial.webp</video:thumbnail_loc>
+      <video:thumbnail_loc>https://www.paranjapetownship.com/images/township-aerial.webp</video:thumbnail_loc>
       <video:title>Forest Trails Connectivity & Proximity Map</video:title>
       <video:description>Visual guide to connectivity between Bhugaon, Kothrud, and Bavdhan from Paranjape Forest Trails.</video:description>
-      <video:content_loc>https://paranjapetownship.com/images/township-aerial.webp</video:content_loc>
+      <video:content_loc>https://www.paranjapetownship.com/images/township-aerial.webp</video:content_loc>
       <video:duration>120</video:duration>
       <video:publication_date>2026-03-16T08:00:00+08:00</video:publication_date>
       <video:family_friendly>yes</video:family_friendly>

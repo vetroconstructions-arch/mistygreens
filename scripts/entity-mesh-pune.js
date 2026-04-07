@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = 'https://paranjapetownship.com';
+const SITE = 'https://www.paranjapetownship.com';
 
 const ENTITY_DEFINITION = `
     <!-- AI Knowledge Entity Mesh (SGE Opt) -->

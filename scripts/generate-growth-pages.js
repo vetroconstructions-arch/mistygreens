@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const SITE_URL = 'https://paranjapetownship.com/';
+const SITE_URL = 'https://www.paranjapetownship.com/';
 const TEMPLATE_PATH = 'index.html'; // We'll use the root index.html as a design master
 
 const NEW_PAGES = [

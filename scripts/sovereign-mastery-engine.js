@@ -86,7 +86,7 @@ function processFiles() {
 
             // 5. GLOBAL DOMAIN STANDARDIZATION (Resolve WWW)
             // Absolute replacement to ensure GSC compliance
-            content = content.split('https://paranjapetownship.com').join('https://www.paranjapetownship.com');
+            content = content.split('https://www.paranjapetownship.com').join('https://www.paranjapetownship.com');
 
             // 6. MASTER PLAN MODAL INTEGRATION
             // Ensure the newly restored modal is accessible on all nodes

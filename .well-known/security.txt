@@ -1,6 +1,6 @@
 Contact: mailto:propsmartrealty@gmail.com
 Expires: 2027-03-15T00:00:00z
 Preferred-Languages: en, hi, mr
-Canonical: https://paranjapetownship.com/.well-known/security.txt
-Policy: https://paranjapetownship.com/privacy-policy/
+Canonical: https://www.paranjapetownship.com/.well-known/security.txt
+Policy: https://www.paranjapetownship.com/privacy-policy/
 # Automated technical trust signal for Google & Modern Crawlers

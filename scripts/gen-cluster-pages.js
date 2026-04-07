@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE = process.cwd();
-const SITE = 'https://paranjapetownship.com';
+const SITE = 'https://www.paranjapetownship.com';
 const VERSION = '3.0';
 
 // Elite Global Components

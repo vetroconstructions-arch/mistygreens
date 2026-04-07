@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const SITE = 'https://paranjapetownship.com';
+const SITE = 'https://www.paranjapetownship.com';
 
 // 1. Load the Sovereign Keyword Dominance Map
 const KEYWORD_MAP = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'keyword-dominance-map.json'), 'utf8'));

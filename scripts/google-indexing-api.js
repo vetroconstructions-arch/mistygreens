@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
 
-const SITE = 'https://paranjapetownship.com';
+const SITE = 'https://www.paranjapetownship.com';
 const ROOT = path.join(__dirname, '..');
 const KEY_FILE = path.join(ROOT, 'service-account.json');
 

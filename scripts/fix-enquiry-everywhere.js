@@ -56,7 +56,7 @@ const FULL_MODAL = `
                     <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Get exclusive <strong>Paranjape Forest Trails Price</strong> & Brochure.</p>
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
-                    <input type="hidden" name="_next" value="https://paranjapetownship.com/thank-you.html">
+                    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
                     <input type="hidden" name="project_context" value="Forest Trails Legacy">

@@ -13,7 +13,7 @@ The Paranjape Forest Trails platform is now equipped with the **Stage 51 Indexin
 ## 2. Authorize the Service Account
 To allow the API to submit URLs, you must add the service account as an **Owner** of your site:
 1.  Open [Google Search Console](https://search.google.com/search-console).
-2.  Select the property: `https://paranjapetownship.com/`.
+2.  Select the property: `https://www.paranjapetownship.com/`.
 3.  Go to **Settings > Users and Permissions**.
 4.  Click **Add User** and enter the `client_email` found in your `service-account.json`.
 5.  Set the permission to **Owner**.

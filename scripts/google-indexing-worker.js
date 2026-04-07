@@ -122,7 +122,7 @@ async function run() {
         console.log("  🔑 Auth Token secured.");
 
         // Harvest URLs from shared utility (mimic discovery)
-        const SITE = 'https://paranjapetownship.com';
+        const SITE = 'https://www.paranjapetownship.com';
         const ROOT = path.join(__dirname, '..');
         
         function getAllUrls(dir, urlList = []) {
