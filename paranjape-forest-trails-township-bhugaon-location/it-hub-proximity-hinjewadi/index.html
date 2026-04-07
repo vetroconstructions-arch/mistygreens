@@ -1011,14 +1011,21 @@
             <div class="opening-modal-content">
                 <h2>The Sovereign <i>Experience</i></h2>
                 <p>Unlock private pricing and exclusive site visit slots for the 190-acre Forest Trails township. Limited inventory available.</p>
+                
+                <div style="background: rgba(136, 115, 47, 0.1); border: 1px solid var(--pscl-gold); color: var(--pscl-gold); padding: 0.8rem; border-radius: 8px; font-size: 0.8rem; margin: 1rem 0; text-align: center; font-weight: 600;">
+                    <i class="fas fa-taxi"></i> ★ Complimentary VIP Cab Pick-up & Drop available exclusively for site visits booked today.
+                </div>
+                
                 <form class="opening-form" id="opening-intent-form" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
-    <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
-    <input type="hidden" name="_captcha" value="false">
     
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">
                     <input type="text" name="name" placeholder="Full Name *" required>
                     <input type="tel" name="phone" id="opening-phone" placeholder="Phone Number *" required>
+                    <label style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: var(--pscl-muted); background: white; padding: 1rem; border-radius: 8px; border: 1px solid #ddd; cursor: pointer;">
+                        <input type="checkbox" name="Cab_Requested" value="Yes" style="width: auto; margin: 0; transform: scale(1.2);">
+                        Request Complimentary Cab Pickup
+                    </label>
                     <button type="submit" class="opening-btn">SECURE EXCLUSIVE ACCESS</button>
                     <div style="font-size: 0.6rem; color: var(--pscl-gold); text-align: center; margin-top: 0.5rem; letter-spacing: 0.1em; opacity: 0.8;">
                         RERA AUTHORIZED &bull; 35+ YEAR LEGACY
@@ -2872,7 +2879,16 @@
                 <div class="col-6 reveal-left">
                     <span class="section-label">Physical Authority</span>
                     <h2 class="section-title">The <i>Experience</i> <br> Center.</h2>
-                    <p style="color: var(--pscl-muted); margin-bottom: 3rem;">Witness the 190-acre heritage in person. Our site experience center is operational 7 days a week, providing a tactile journey through the Forest Trails master plan.</p>
+                    <p style="color: var(--pscl-muted); margin-bottom: 1.5rem;">Witness the 190-acre heritage in person. Our site experience center is operational 7 days a week, providing a tactile journey through the Forest Trails master plan.</p>
+                    <div style="background: var(--pscl-maroon); color: #fff; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem; display: flex; align-items: center; gap: 15px; cursor: pointer;" class="open-enquiry-modal">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 50%;">
+                            <i class="fas fa-taxi" style="font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin: 0; font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 0.05em;">Complimentary Cab Service</h4>
+                            <p style="margin: 5px 0 0; font-size: 0.85rem; opacity: 0.9;">Book your free site visit today and get VIP pick-up & drop across West Pune.</p>
+                        </div>
+                    </div>
                     
                     <div class="nap-box" style="background: #fff; padding: 3rem; border: 1px solid rgba(0,0,0,0.05); margin-bottom: 2rem;">
                         <h4 style="font-family: var(--font-heading); margin-bottom: 1rem; color: var(--pscl-maroon);">Forest Trails Sales Gallery</h4>
@@ -3787,8 +3803,8 @@
             <span>WhatsApp</span>
         </a>
         <button class="bav-pill bav-pill-enq open-enquiry-modal">
-            <i class="fas fa-envelope"></i>
-            <span>Enquiry</span>
+            <i class="fas fa-taxi"></i>
+            <span>Free Cab</span>
         </button>
         <button class="bav-pill bav-pill-eco open-global-search">
             <i class="fas fa-satellite-dish"></i>
