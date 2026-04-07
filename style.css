@@ -257,32 +257,38 @@ img {
     align-items: center;
     gap: 0;
     text-decoration: none;
+    transition: transform 0.3s var(--ease-editorial);
+}
+
+.nav-brand:hover {
+    transform: translateX(5px);
 }
 
 .brand-logo-text {
     display: flex;
     flex-direction: column;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .brand-main {
     font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 1.6rem;
+    font-weight: 900;
+    font-size: 1.8rem;
     color: var(--pscl-white);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
+    transition: color 0.3s ease;
 }
 
 .brand-sub {
     font-family: 'Playfair Display', serif;
-    font-weight: 800; /* Bold Contrast */
+    font-weight: 700;
     font-style: italic;
-    font-size: 0.8rem; /* Increased for authority */
-    color: #fff; /* High-contrast white */
-    letter-spacing: 0.4em; /* Refined spacing */
+    font-size: 0.75rem;
+    color: var(--pscl-gold);
+    letter-spacing: 0.45em;
     text-transform: uppercase;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 .nav-search-box {
