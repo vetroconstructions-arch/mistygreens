@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 Disallow: /components/
+Disallow: /scripts/
+Disallow: /fonts/
+Disallow: /styles/
 Disallow: /404.html
 Disallow: /thank-you.html
 
-Sitemap: https://paranjapetownship.com/sitemap.xml
+Sitemap: https://www.paranjapetownship.com/sitemap.xml

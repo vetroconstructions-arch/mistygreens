@@ -17,10 +17,11 @@ function getFiles(dir, fileList = []) {
         const filePath = path.join(dir, file);
         if (fs.statSync(filePath).isDirectory()) {
             // Include pSEO categories
-            if (!file.startsWith('.') && !['node_modules', 'scripts', 'brain', 'images', '.git', '.wrangler'].includes(file)) {
+            const excludeDirs = ['node_modules', 'scripts', 'brain', 'images', 'components', 'fonts', 'styles', 'assets', '.git', '.wrangler', '.venv', '.well-known'];
+            if (!file.startsWith('.') && !excludeDirs.includes(file)) {
                 getFiles(filePath, fileList);
             }
-        } else if (file.endsWith('.html') && !file.includes('thank-you')) {
+        } else if (file.endsWith('.html') && !file.includes('thank-you') && file !== '404.html') {
             fileList.push(filePath);
         }
     });
