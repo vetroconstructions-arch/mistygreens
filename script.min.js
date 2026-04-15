@@ -27,7 +27,40 @@
             this.setupMasterPlanModal();
             this.setupOpeningModal();
             this.setupStructuralVault();
+            this.setupExitIntent();
             console.log("🛡️ Modal Guardian: Active and Resilient");
+        },
+
+        setupExitIntent: function() {
+            // Exit Intent 2.0 - Resilient against Trackpad Wobble / Fast Scroll
+            if (localStorage.getItem('sovereign_exit_seen')) return;
+
+            let exitIntentTriggered = false;
+            document.addEventListener('mouseout', (e) => {
+                if (exitIntentTriggered) return;
+                // Only trigger if moving explicitly upwards past the viewport top edge (clientY < 10)
+                // And explicitly check relatedTarget to ensure we actually left the document
+                if (e.clientY < 10 && e.movementY < 0 && (e.relatedTarget === null || e.relatedTarget.nodeName === 'HTML')) {
+                    exitIntentTriggered = true;
+                    localStorage.setItem('sovereign_exit_seen', 'true');
+                    
+                    // Show standard concierge modal as exit intent to capture advisory
+                    const modal = document.getElementById('heritage-concierge');
+                    if (modal) {
+                        const title = modal.querySelector('.form-header h3');
+                        if (title) title.innerHTML = `Wait! <i style="color: var(--pscl-gold);">Special Offer</i>`;
+                        const desc = modal.querySelector('.form-header p');
+                        if (desc) desc.innerHTML = `<strong>Secure off-market inventory and pre-launch pricing.</strong>`;
+                        
+                        modal.querySelectorAll('.advisory-step').forEach((s, i) => {
+                            s.style.display = (i === 0) ? 'block' : 'none';
+                        });
+                        modal.classList.add('active');
+                        modal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
+            });
         },
 
         setupMainEnquiryModal: function() {
