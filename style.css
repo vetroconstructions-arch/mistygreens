@@ -1135,20 +1135,13 @@ body.scrolled .secondary-silo-nav {
     color: var(--pscl-white);
 }
 
+/* Duplicate .hero-title and .hero-subtitle removed — originals at line ~644 are the correct clamped versions */
+/* Adding only the will-change properties that were unique to the duplicate */
 .hero-title {
-    font-family: var(--font-serif);
-    font-size: 6.5rem;
-    margin-bottom: 2rem;
-    color: var(--pscl-white);
     will-change: transform, opacity;
     transform-style: preserve-3d;
 }
-
 .hero-subtitle {
-    font-size: 1.2rem;
-    max-width: 600px;
-    color: rgba(255, 255, 255, 0.9);
-    letter-spacing: 0.05em;
     will-change: transform, opacity;
     transform-style: preserve-3d;
 }
@@ -1344,10 +1337,31 @@ body.scrolled .secondary-silo-nav {
     color: var(--pscl-muted);
 }
 
-/* Utility Animations (Controlled) */
+/* Utility Animations (Controlled) — With CSS-only fallback for GSAP failure */
 .reveal-up { opacity: 0; transform: translateY(40px); }
 .reveal-left { opacity: 0; transform: translateX(-40px); }
 .reveal-right { opacity: 0; transform: translateX(40px); }
+
+/* Fallback: After 2.5s, if GSAP hasn't fired, make content visible via CSS animation */
+@keyframes revealFallback {
+    to { opacity: 1; transform: none; }
+}
+body.loaded .reveal-up,
+body.loaded .reveal-left,
+body.loaded .reveal-right {
+    animation: revealFallback 0.8s ease forwards;
+    animation-delay: 2.5s;
+}
+
+/* If GSAP has already animated the element (opacity is 1), disable fallback */
+.reveal-up[style*="opacity: 1"],
+.reveal-up[style*="opacity:1"],
+.reveal-left[style*="opacity: 1"],
+.reveal-left[style*="opacity:1"],
+.reveal-right[style*="opacity: 1"],
+.reveal-right[style*="opacity:1"] {
+    animation: none !important;
+}
 
 /* Mobile Adaptability (Architectural) */
 @media (max-width: 1024px) {
@@ -1365,6 +1379,38 @@ body.scrolled .secondary-silo-nav {
     .pulse-feature { flex-direction: column; padding: 2rem !important; }
     .pulse-feature div:first-child { margin-bottom: 2rem; }
     .pulse-feature div:last-child { width: 100% !important; flex: none !important; }
+    /* Fix mobile grid overflow for all data grids */
+    .proximity-grid { grid-template-columns: 1fr 1fr !important; }
+    .events-grid { grid-template-columns: 1fr !important; }
+    .event-item { border-right: none !important; border-bottom: 1px solid rgba(0,0,0,0.05); }
+    .connectivity-viz { padding: 3rem 1.5rem !important; border-radius: 1rem !important; }
+    .wiki-grid { grid-template-columns: 1fr !important; }
+    .gallery-grid { grid-template-columns: 1fr !important; }
+    .gallery-item { height: 250px; }
+    .gallery-item.large { grid-column: span 1; }
+    .governance-grid { grid-template-columns: 1fr 1fr !important; }
+    .story-card { flex-direction: column; gap: 2rem !important; }
+    .story-image { flex: none !important; height: 300px !important; }
+    .section { padding: 6rem 0; }
+    .panoramic-strip { height: 35vh !important; }
+    .ledger-panel { width: 95% !important; padding: 2rem !important; }
+    .ledger-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .video-moments-overlay { display: none !important; }
+    .timeline-step { flex-direction: column; gap: 1.5rem !important; }
+    .step-image { flex: none !important; width: 100% !important; height: 200px !important; }
+}
+
+@media (max-width: 480px) {
+    .proximity-grid { grid-template-columns: 1fr !important; }
+    .governance-grid { grid-template-columns: 1fr !important; }
+    .section { padding: 4rem 0; }
+    .section-title { font-size: clamp(1.8rem, 5vw, 3rem); }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .cluster-image { height: 200px !important; }
+    .stat-circle { width: 120px !important; height: 120px !important; }
+    .stat-value { font-size: 1.8rem !important; }
+    .commute-step .time { font-size: 1rem; }
+    .commute-details h4 { font-size: 1.1rem; }
 }
 
 /* Proximity Matrix */
@@ -1832,29 +1878,29 @@ body.scrolled .secondary-silo-nav {
     color: var(--pscl-muted);
 }
 .ambient-control.active .control-label { color: var(--pscl-gold); }
-.ambient-control.active .control-icon { color: var(--pscl-gold); animation: pulse 2s infinite; }
+.ambient-control.active .control-icon { color: var(--pscl-gold); animation: ambientPulse 2s infinite; }
 
-@keyframes pulse {
+@keyframes ambientPulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.2); opacity: 0.7; }
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Highlandspheric Time-Sync Overlays: Refined for Maroon Theme */
+/* Highlandspheric Time-Sync Overlays: Reduced intensity to prevent content distortion */
 body.mode-dawn::after { 
     content: ''; position: fixed; inset: 0; 
-    background: linear-gradient(135deg, rgba(255, 100, 0, 0.08) 0%, transparent 100%); 
-    pointer-events: none; z-index: 9999; mix-blend-mode: soft-light; transition: opacity 2s ease;
+    background: linear-gradient(135deg, rgba(255, 100, 0, 0.04) 0%, transparent 100%); 
+    pointer-events: none; z-index: 9; mix-blend-mode: soft-light; transition: opacity 2s ease;
 }
 body.mode-sunset::after {
     content: ''; position: fixed; inset: 0; 
-    background: linear-gradient(135deg, rgba(107, 13, 13, 0.1) 0%, rgba(255, 80, 0, 0.05) 100%); 
-    pointer-events: none; z-index: 9999; mix-blend-mode: multiply; transition: opacity 2s ease;
+    background: linear-gradient(135deg, rgba(107, 13, 13, 0.05) 0%, rgba(255, 80, 0, 0.02) 100%); 
+    pointer-events: none; z-index: 9; mix-blend-mode: multiply; transition: opacity 2s ease;
 }
 body.mode-night::after { 
     content: ''; position: fixed; inset: 0; 
-    background: radial-gradient(circle at center, rgba(10, 10, 30, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%); 
-    pointer-events: none; z-index: 9999; mix-blend-mode: multiply; transition: opacity 2s ease;
+    background: radial-gradient(circle at center, rgba(10, 10, 30, 0.08) 0%, rgba(0, 0, 0, 0.15) 100%); 
+    pointer-events: none; z-index: 9; mix-blend-mode: multiply; transition: opacity 2s ease;
 }
 
 /* Technical Ledger Modals */
