@@ -2435,13 +2435,14 @@ body.mode-night::after {
     transition: 0.3s;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
     .nav-main { height: 80px; }
     .mobile-toggle { display: flex; order: 2; }
     .nav-brand { flex: 0 1 auto; order: 1; }
     .nav-content { padding: 0 1.5rem; justify-content: space-between; overflow: visible; }
     .brand-main { font-size: 1.2rem; }
     .brand-sub { font-size: 0.65rem; letter-spacing: 0.3em; }
+    .nav-search-box, .nav-actions { display: none !important; }
 }
 
 /* Mobile Off-Canvas Menu */
