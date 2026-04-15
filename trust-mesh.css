@@ -65,11 +65,13 @@
 
 @media (max-width: 1024px) {
     .trust-mesh-ticker {
-        bottom: 110px;
+        bottom: auto !important;
+        top: 110px !important;
         left: 20px;
         right: 20px;
-        transform: translateY(100%);
+        transform: translateY(-20px);
         opacity: 0;
+        z-index: 9995;
     }
     .trust-mesh-ticker.active {
         transform: translateY(0);
