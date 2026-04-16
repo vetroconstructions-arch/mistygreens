@@ -5,11 +5,11 @@ const ROOT = path.join(__dirname, '..');
 
 const LINKS = [
     { name: "NA Bungalow Plots in Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-plots/" },
-    { name: "Misty Greens NA Plots Pune", url: "/paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/" },
+    { name: "Misty Greens NA Plots Pune", url: "/paranjape-forest-trails-township-bhugaon-misty-greens/" },
     { name: "Luxury Forest Villas Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-villas/" },
-    { name: "The Rivolo Premium Villas", url: "/paranjape-forest-trails-township-bhugaon-therivolo-luxury-villas-bhugaon/" },
-    { name: "The Canopy Apartments Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/" },
-    { name: "Verandah Luxury Flats Pune", url: "/paranjape-forest-trails-township-bhugaon-verandah-luxury-flats-bhugaon/" },
+    { name: "The Rivolo Premium Villas", url: "/paranjape-forest-trails-township-bhugaon-rivolo-residences/" },
+    { name: "The Canopy Apartments Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-the-canopy/" },
+    { name: "Verandah Luxury Flats Pune", url: "/paranjape-forest-trails-township-bhugaon-verandah/" },
     { name: "Athashri Senior Living Bhugaon", url: "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" },
     { name: "The Cliff Club Amenities", url: "/amenities-the-cliff-club.html" },
     { name: "Equestrian Academy Pune", url: "/amenities-equestrian.html" },

@@ -10,7 +10,7 @@ const PROXIMITY_DATA = {
     'The Highlands Apartments': { school: '5 mins', club: '2 mins', equestrian: '3 mins', entry: '12 mins' },
     'The Canopy Apartments': { school: '3 mins', club: '1 min', equestrian: '2 mins', entry: '15 mins' },
     'High Gardens': { school: '4 mins', club: '2 mins', equestrian: '3 mins', entry: '14 mins' },
-    'Codename Alpha': { school: '4 mins', club: '2 mins', equestrian: '3 mins', entry: '14 mins' },
+    'Everglades II': { school: '4 mins', club: '2 mins', equestrian: '3 mins', entry: '14 mins' },
     'Forest Trails Legacy': { school: '5 mins', club: '3 mins', equestrian: '4 mins', entry: '12 mins' }
 };
 
@@ -59,7 +59,7 @@ function getProjectContext(dir) {
     if (dir.includes('the-cove')) return 'The Cove Villas';
     if (dir.includes('the-highlands')) return 'The Highlands Apartments';
     if (dir.includes('canopy-apartments')) return 'The Canopy Apartments';
-    if (dir.includes('codename-alpha')) return 'Codename Alpha';
+    if (dir.includes('codename-alpha')) return 'Everglades II';
     if (dir.includes('highgardens')) return 'High Gardens';
     return 'Forest Trails Legacy';
 }
@@ -83,7 +83,7 @@ function cleanHead(html) {
       "prerender": [
         {
           "source": "list",
-          "urls": ["/na-bungalow-plots-bhugaon/", "/premium-apartments-forest-trails/", "/luxury-forest-villas-bhugaon/", "/misty-greens-plots-pune/"],
+          "urls": ["/na-bungalow-plots-bhugaon/", "/premium-apartments-forest-trails/", "/luxury-forest-villas-bhugaon/", "/misty-greens/"],
           "eagerness": "moderate"
         }
       ]

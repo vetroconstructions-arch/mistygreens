@@ -50,7 +50,7 @@ function updateAllReferences() {
         // B. Final Integrity Audit: Ensure all /dir/ links point to prefixed dirs
         // We look for any folder name that doesn't start with PREFIX
         // Since we already renamed them in the previous turn, this is a safety net.
-        // Cluster links like /misty-greens-plots-pune/ -> /paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/
+        // Cluster links like /misty-greens/ -> /paranjape-forest-trails-township-bhugaon-misty-greens/
         // I'll ensure any remaining legacy relative links are caught.
 
         if (content !== original) {

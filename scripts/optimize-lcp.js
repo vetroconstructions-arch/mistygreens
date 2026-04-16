@@ -10,8 +10,8 @@ const BASE_DIR = '/Users/vikasyewle/paranjapeplots';
 
 const targetPages = [
     'index.html',
-    'misty-greens-plots-pune/index.html',
-    'verandah-luxury-flats-bhugaon/index.html',
+    'misty-greens/index.html',
+    'verandah/index.html',
     'luxury-forest-villas-bhugaon/index.html',
     'The Canopy-apartments-bhugaon/index.html',
     'premium-apartments-forest-trails/index.html',

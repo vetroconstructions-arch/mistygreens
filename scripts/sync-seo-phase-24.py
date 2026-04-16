@@ -34,8 +34,8 @@ def process_file(filepath):
     # Highgardens
     content = content.replace('alt="Highgardens Residences"', 'alt="Paranjape Highgardens Luxury Residences - 2 BHK Green Living Apartments in Forest Trails Bhugaon"')
     
-    # Codename Alpha
-    content = content.replace('alt="Codename Alpha Apartments"', 'alt="Paranjape Codename Alpha Smart Living Architecture - 1 BHK Premium Apartments in Bhugaon"')
+    # Everglades II
+    content = content.replace('alt="Everglades II Apartments"', 'alt="Paranjape Everglades II Smart Living Architecture - 1 BHK Premium Apartments in Bhugaon"')
 
     # 4. Search-Intent Anchor Text (Semantic Mesh anchor reinforcement)
     content = content.replace('VIEW VILLAS →', 'EXPLORE BHUGAON VILLAS →')

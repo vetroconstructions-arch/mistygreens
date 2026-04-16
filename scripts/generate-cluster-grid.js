@@ -9,7 +9,7 @@ const projects = [
         type: "NA Bungalow Plots",
         status: "85% Sold Out",
         usp: "100% Gated NA Plots in Bhugaon",
-        link: "/paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/",
+        link: "/paranjape-forest-trails-township-bhugaon-misty-greens/",
         image: "/images/plots.jpg",
         badge: "Bestseller"
     },
@@ -27,7 +27,7 @@ const projects = [
         type: "2 & 3 BHK Apartments",
         status: "Ready to Move",
         usp: "Hill-Top Luxury with Nature Immersion",
-        link: "/paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-the-canopy/",
         image: "/images/canopy-realistic.webp",
         badge: "Ready Possession"
     },
@@ -36,7 +36,7 @@ const projects = [
         type: "Luxury Flats",
         status: "Sovereign Living",
         usp: "Large Decks & Forest Views",
-        link: "/paranjape-forest-trails-township-bhugaon-verandah-luxury-flats-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-verandah/",
         image: "/images/verandah-pool-lifestyle.webp",
         badge: "Premium"
     },
@@ -45,7 +45,7 @@ const projects = [
         type: "Ultra-Luxury Villas",
         status: "Heritage Grade",
         usp: "Private Pool & Bespoke Architecture",
-        link: "/paranjape-forest-trails-township-bhugaon-therivolo-luxury-villas-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-rivolo-residences/",
         image: "/images/landscape.jpg",
         badge: "Elite"
     },
@@ -63,16 +63,16 @@ const projects = [
         type: "3 BHK Bungalows",
         status: "Riverside Mastery",
         usp: "Duplex Bungalows with Gated Security",
-        link: "/paranjape-forest-trails-township-bhugaon-the-cove-villas-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-the-cove/",
         image: "/images/verandah-pool-lifestyle.webp",
         badge: "Featured"
     },
     {
-        name: "Codename Alpha",
+        name: "Everglades II",
         type: "Next-Gen Flats",
         status: "Pre-Launch",
         usp: "Smart Homes with Forest Scape",
-        link: "/paranjape-forest-trails-township-bhugaon-codename-alpha-apartments-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-paranjape-forest-trails-township-bhugaon-everglades/",
         image: "/images/hero-township.webp",
         badge: "Upcoming"
     },
@@ -81,7 +81,7 @@ const projects = [
         type: "Elevated Residences",
         status: "Construction in Swing",
         usp: "Sovereign Heights & Low Density",
-        link: "/paranjape-forest-trails-township-bhugaon-highgardens-apartments-bhugaon/",
+        link: "/paranjape-forest-trails-township-bhugaon-highgardens/",
         image: "/images/highgardens-realistic.webp",
         badge: "Hot Deal"
     }

@@ -8,7 +8,7 @@ const CLUSTERS = [
     { name: 'kaleidoscope', h1: 'Kaleidoscope Forest Trails | Premium Apartments Bhugaon', desc: 'Kaleidoscope offerings in Paranjape Forest Trails features premium 2 BHK & 3 BHK flats in Bhugaon. Best hill view homes in Pune.' }
 ];
 
-const TEMPLATE_PATH = path.join(__dirname, '..', 'paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune', 'index.html');
+const TEMPLATE_PATH = path.join(__dirname, '..', 'paranjape-forest-trails-township-bhugaon-misty-greens', 'index.html');
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
 CLUSTERS.forEach(c => {

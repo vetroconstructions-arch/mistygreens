@@ -1,26 +1,16 @@
-#!/usr/bin/env node
-/**
- * Google Indexing API (Hard-Force) Worker
- * pSEO Phase 51: Instant Search Visibility for Paranjape Forest Trails
- * Zero-Dependency JWT Implementation
- */
-
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const https = require('https');
+
 // 0. Auto-Detection for Google Service Account Key
 function findKeyFile() {
     const rootFiles = fs.readdirSync(path.join(__dirname, '..'));
-    const jsonFiles = rootFiles.filter(f => f.endsWith('.json') && !['package.json', 'package-lock.json', 'search-index.json', 'manifest.json'].includes(f));
-    
+    const jsonFiles = rootFiles.filter(f => f.endsWith('.json') && !['package.json', 'package-lock.json', 'search-index.json'].includes(f));
     for (const file of jsonFiles) {
         try {
             const content = JSON.parse(fs.readFileSync(path.join(__dirname, '..', file), 'utf8'));
-            if (content.type === 'service_account') {
-                console.log(` 🛡️  GUARDIAN DETECTED: Using key file '${file}'`);
-                return path.join(__dirname, '..', file);
-            }
+            if (content.type === 'service_account') return path.join(__dirname, '..', file);
         } catch (e) {}
     }
     return null;
@@ -31,40 +21,22 @@ const SCOPES = ['https://www.googleapis.com/auth/indexing'];
 const AUTH_URL = 'https://oauth2.googleapis.com/token';
 const API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 
-// 1. Auth: JWT Token Generation (from scratch)
 async function getAccessToken(key) {
     const iat = Math.floor(Date.now() / 1000);
     const exp = iat + 3600;
-
     const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(JSON.stringify({
-        iss: key.client_email,
-        scope: SCOPES.join(' '),
-        aud: AUTH_URL,
-        exp,
-        iat
-    })).toString('base64url');
-
-    const signatureInput = `${header}.${payload}`;
+    const payload = Buffer.from(JSON.stringify({ iss: key.client_email, scope: SCOPES.join(' '), aud: AUTH_URL, exp, iat })).toString('base64url');
     const signer = crypto.createSign('RSA-SHA256');
-    signer.update(signatureInput);
+    signer.update(`${header}.${payload}`);
     const signature = signer.sign(key.private_key, 'base64url');
-
-    const jwt = `${signatureInput}.${signature}`;
+    const jwt = `${header}.${payload}.${signature}`;
 
     return new Promise((resolve, reject) => {
         const postData = `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`;
-        const req = https.request(AUTH_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-        }, (res) => {
+        const req = https.request(AUTH_URL, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }, (res) => {
             let data = '';
             res.on('data', d => data += d);
-            res.on('end', () => {
-                const json = JSON.parse(data);
-                if (json.access_token) resolve(json.access_token);
-                else reject(new Error('Auth failed: ' + data));
-            });
+            res.on('end', () => resolve(JSON.parse(data).access_token));
         });
         req.on('error', reject);
         req.write(postData);
@@ -72,91 +44,71 @@ async function getAccessToken(key) {
     });
 }
 
-// 2. Publish: Submit URL to Indexing API
 async function publishUrl(url, token) {
-    return new Promise((resolve, reject) => {
-        const postData = JSON.stringify({
-            url: url,
-            type: 'URL_UPDATED'
-        });
-
-        const req = https.request(API_URL, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        }, (res) => {
-            let data = '';
-            res.on('data', d => data += d);
+    return new Promise((resolve) => {
+        const postData = JSON.stringify({ url: url, type: 'URL_UPDATED' });
+        const req = https.request(API_URL, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } }, (res) => {
+            res.on('data', () => {});
             res.on('end', () => {
-                if (res.statusCode === 200) {
-                    console.log(` ✅ Indexed: ${url}`);
-                    resolve(JSON.parse(data));
-                } else {
-                    console.error(` ❌ Failed [${res.statusCode}]: ${url}`);
-                    console.debug(`    Detail: ${data}`);
-                    resolve(null);
-                }
+                if (res.statusCode === 200) console.log(` ✅ Indexed: ${url}`);
+                else console.error(` ❌ Failed [${res.statusCode}]: ${url}`);
+                resolve();
             });
         });
-        req.on('error', reject);
+        req.on('error', resolve);
         req.write(postData);
         req.end();
     });
 }
 
-// 3. Execution Engine
 async function run() {
-    if (!KEY_FILE || !fs.existsSync(KEY_FILE)) {
-        console.log(` ⚠️  SKIPPED: No Google Cloud service-account.json found in project root.`);
-        console.log("    To enable Google Indexing API, see INDEXING_GUIDE.md\n");
+    if (!KEY_FILE) {
+        console.log(" ⚠️ SKIPPED: No service-account.json found.");
         process.exit(0);
     }
 
     const key = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
-    console.log("🚀 Starting Stage 51 Hard-Force Indexing...");
+    console.log("🚀 Stage 52 Priority Indexing: Scaling Visibility...");
     
     try {
         const token = await getAccessToken(key);
-        console.log("  🔑 Auth Token secured.");
-
-        // Harvest URLs from shared utility (mimic discovery)
         const SITE = 'https://www.paranjapetownship.com';
         const ROOT = path.join(__dirname, '..');
         
-        function getAllUrls(dir, urlList = []) {
-            const files = fs.readdirSync(dir);
-            files.forEach(file => {
-                const filePath = path.join(dir, file);
-                if (fs.statSync(filePath).isDirectory()) {
-                    if (!['node_modules', '.git', 'scripts', 'brain', 'images', 'assets', 'vendor'].includes(file)) {
-                        getAllUrls(filePath, urlList);
-                    }
-                } else if (file.endsWith('.html') && !file.includes('thank-you')) {
-                    const relative = path.relative(ROOT, filePath);
+        function getPriorityUrls(dir, urlList = []) {
+            fs.readdirSync(dir).forEach(file => {
+                const fullPath = path.join(dir, file);
+                if (fs.statSync(fullPath).isDirectory()) {
+                    if (!['node_modules', '.git', 'scripts', 'images', 'assets'].includes(file)) getPriorityUrls(fullPath, urlList);
+                } else if (file.endsWith('.html')) {
+                    const relative = path.relative(ROOT, filePath = fullPath);
                     const url = `${SITE}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
-                    urlList.push(url);
+                    
+                    // Priority Scoring logic
+                    let score = 10;
+                    if (url.includes('growth-ledger')) score += 100;
+                    if (url.includes('everglades')) score += 50;
+                    if (url.includes('misty-greens')) score += 40;
+                    if (url.split('/').length < 4) score += 20; // Hub pages
+
+                    urlList.push({ url, score });
                 }
             });
             return urlList;
         }
 
-        const urls = getAllUrls(ROOT);
-        console.log(`\n📦 Discovered ${urls.length} URLs for submission.`);
+        const discovered = getPriorityUrls(ROOT).sort((a,b) => b.score - a.score);
+        const targetUrls = discovered.slice(0, 100); 
 
-        // Regulation: Google allows 200 URLs per day for Indexing API
-        const targetUrls = urls.slice(0, 100); 
-        console.log(`🎯 Targeting top ${targetUrls.length} priority URLs today.\n`);
+        console.log(`\n📦 Discovered ${discovered.length} nodes. Submitting top ${targetUrls.length} priority targets...\n`);
 
-        for (const url of targetUrls) {
-            await publishUrl(url, token);
-            await new Promise(r => setTimeout(r, 100)); // Rate limiting safety
+        for (const item of targetUrls) {
+            await publishUrl(item.url, token);
+            await new Promise(r => setTimeout(r, 200));
         }
 
-        console.log("\n✅ Stage 51 Indexing Complete.");
+        console.log("\n✅ Stage 52 Priority Indexing Complete.");
     } catch (e) {
-        console.error("\n ❌ HARDWARE CRASH: Indexing Engine Error.");
         console.error(e.message);
         process.exit(1);
     }

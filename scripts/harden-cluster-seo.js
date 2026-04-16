@@ -9,7 +9,7 @@ const CLUSTER_DEF = {
     'the-cove': { name: 'The Cove Villas', desc: 'Ultra Luxury Forest Villas at The Cove inside Paranjape Forest Trails, Bhugaon. Exclusive community living.' },
     'the-highlands': { name: 'The Highlands Apartments', desc: 'Premium 2 & 3 BHK Apartments at The Highlands, Paranjape Forest Trails Bhugaon. Unobstructed nature views.' },
     'canopy-apartments': { name: 'The Canopy Apartments', desc: 'Spacious Apartments at The Canopy inside Paranjape Forest Trails Township Bhugaon. Pune West connectivity.' },
-    'codename-alpha': { name: 'Codename Alpha', desc: 'New Launch Codename Alpha Apartments at Paranjape Forest Trails Bhugaon Pune.' },
+    'codename-alpha': { name: 'Everglades II', desc: 'New Launch Everglades II Apartments at Paranjape Forest Trails Bhugaon Pune.' },
     'highgardens': { name: 'High Gardens', desc: 'Exquisite High Gardens Apartments at Paranjape Forest Trails Bhugaon Pune.' },
     'rivolo': { name: 'The Rivolo Villas', desc: 'The Rivolo Premium Luxury Villas at Paranjape Forest Trails Bhugaon Pune. Ultimate exclusivity.' },
     'verandah': { name: 'Verandah Luxury Flats', desc: 'Verandah Luxury Flats inside Paranjape Forest Trails Township Bhugaon Pune.' },

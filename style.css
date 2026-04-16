@@ -28,6 +28,16 @@
     /* Animation Hooks */
     --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
     --shimmer-gradient: linear-gradient(90deg, rgba(245,245,240,0) 0%, rgba(245,245,240,0.5) 50%, rgba(245,245,240,0) 100%);
+
+    /* Sovereign UI Layer Z-Indexes (Phase 60 Hardening) */
+    --zi-low: 10;
+    --zi-mid: 100;
+    --zi-high: 500;
+    --zi-header: 1000;
+    --zi-trigger: 1100;
+    --zi-toast: 1200;
+    --zi-modal: 1300;
+    --zi-alert: 1400;
 }
 
 /* Reset & Base */
@@ -2205,7 +2215,7 @@ body.mode-night::after {
     align-items: center;
     gap: 1rem;
     cursor: pointer;
-    z-index: 10004;
+    z-index: var(--zi-trigger);
     box-shadow: 0 10px 30px rgba(107, 13, 13, 0.4);
     transition: all 0.4s var(--ease-editorial);
     border: 1px solid rgba(255,255,255,0.1);
@@ -3049,7 +3059,7 @@ input:focus, select:focus, textarea:focus {
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 600;
-    z-index: 10005; /* Elevated above other interactive elements */
+    z-index: var(--zi-toast); /* Standardized Hierarchy */
     box-shadow: 0 10px 30px rgba(107, 13, 13, 0.3);
     transform: translateY(150%);
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -3067,7 +3077,7 @@ input:focus, select:focus, textarea:focus {
     position: fixed;
     bottom: 3rem;
     left: 3rem;
-    z-index: 999;
+    z-index: var(--zi-trigger);
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -3174,7 +3184,7 @@ input:focus, select:focus, textarea:focus {
 
 @media (max-width: 1024px) {
     #sovereign-advisor-bubble {
-        bottom: 6rem;
+        bottom: 12rem; /* Raised to clear sticky bar and primary triggers */
         left: 1rem;
         right: 1rem;
         max-width: none;
@@ -3295,3 +3305,70 @@ input:focus, select:focus, textarea:focus {
     display: block;
     text-decoration: none;
 }
+
+/* ============================================================
+   SOVEREIGN COMMAND HUB: UI HARDENING (Phase 60)
+   Coordinates all floating triggers, toasts, and navigation.
+   ============================================================ */
+
+/* Global Toast Layer (Trust Pulse & Activity) */
+.sovereign-toast-layer {
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    z-index: var(--zi-toast);
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 1.2rem 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transform: translateX(-150%);
+    transition: all 0.8s var(--ease-editorial);
+    pointer-events: none;
+    max-width: 380px;
+}
+
+/* Responsive Stacking & Distortion Resolution */
+@media (max-width: 1024px) {
+    /* 1. Base Layer: Sticky Navigation */
+    .mobile-sticky-bar {
+        z-index: var(--zi-header);
+    }
+
+    /* 2. Secondary Layer: Conversion Triggers (Above Sticky Bar) */
+    .concierge-trigger {
+        bottom: 5rem !important;
+        right: 1.5rem !important;
+    }
+
+    /* 3. Tertiary Layer: Trust Toasts (Stacked Above Triggers) */
+    .sovereign-toast-layer, #sovereign-toast, #sovereign-activity-toast {
+        bottom: 9rem !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        width: auto !important;
+        max-width: none !important;
+        transform: translateY(200%) !important; /* Start hidden below */
+    }
+
+    .sovereign-toast-layer.active, #sovereign-toast.active, #sovereign-activity-toast.active {
+        transform: translateY(0) !important;
+    }
+
+    /* 4. Quaternary Layer: Direct Advisory (Highest Priority Trigger) */
+    #sovereign-advisor-bubble {
+        bottom: 14rem !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        padding: 0.8rem 1rem !important;
+    }
+}
+
+/* Z-Index Registry Overrides (Enforcing Strict Hierarchy) */
+.lead-capture-modal, .concierge-modal { z-index: var(--zi-modal) !important; }
+.swal2-container { z-index: var(--zi-alert) !important; }
+.header-main { z-index: var(--zi-header); }
+

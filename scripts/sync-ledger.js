@@ -38,9 +38,9 @@ function syncLedger() {
     });
 
     // Handle name aliases for the interactive map
-    if (clusters['Codename Alpha']) {
-        clusters['Alpha'] = clusters['Codename Alpha'];
-        clusters['Codename Alpha'] = clusters['Codename Alpha']; // Keep both
+    if (clusters['Everglades II']) {
+        clusters['Alpha'] = clusters['Everglades II'];
+        clusters['Everglades II'] = clusters['Everglades II']; // Keep both
     }
     if (clusters['Highgardens']) clusters['Highgarden'] = clusters['Highgardens'];
 

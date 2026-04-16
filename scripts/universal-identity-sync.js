@@ -8,9 +8,9 @@ const PREFIX = 'paranjape-forest-trails-township-bhugaon';
  * 1. Global Identity Map (Partial -> Exact)
  */
 const IDENTITY_MAP = {
-    '/paranjape-forest-trails-township-bhugaon-misty-greens-plots/': '/paranjape-forest-trails-township-bhugaon-misty-greens-plots-pune/',
-    '/paranjape-forest-trails-township-bhugaon-canopy-apartments/': '/paranjape-forest-trails-township-bhugaon-the-canopy-apartments-bhugaon/',
-    '/paranjape-forest-trails-township-bhugaon-verandah-flats/': '/paranjape-forest-trails-township-bhugaon-verandah-luxury-flats-bhugaon/',
+    '/paranjape-forest-trails-township-bhugaon-misty-greens-plots/': '/paranjape-forest-trails-township-bhugaon-misty-greens/',
+    '/paranjape-forest-trails-township-bhugaon-canopy-apartments/': '/paranjape-forest-trails-township-bhugaon-the-canopy/',
+    '/paranjape-forest-trails-township-bhugaon-verandah-flats/': '/paranjape-forest-trails-township-bhugaon-verandah/',
     '/paranjape-forest-trails-township-bhugaon-villas/': '/paranjape-forest-trails-township-bhugaon-luxury-forest-villas-bhugaon/',
     '/paranjape-forest-trails-township-bhugaon-villas-plots/': '/paranjape-forest-trails-township-bhugaon-villas-plots.html',
     '/paranjape-forest-trails-township-bhugaon-apartments/': '/paranjape-forest-trails-township-bhugaon-apartments-pune.html',

@@ -1103,5 +1103,22 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) closeMenu();
         });
     }
+
+    // --- Phase 60: Dynamic WhatsApp Personalization ---
+    const setupWhatsAppPersonalization = () => {
+        const pageTitle = document.title.split('|')[0].trim();
+        const waLinks = document.querySelectorAll('a[href*="wa.me"]');
+        
+        waLinks.forEach(link => {
+            let href = link.getAttribute('href');
+            // If link doesn't already have a custom message
+            if (!href.includes('text=')) {
+                const connector = href.includes('?') ? '&' : '?';
+                const message = encodeURIComponent(`Hi, I'm interested in ${pageTitle}. Please share details.`);
+                link.setAttribute('href', `${href}${connector}text=${message}`);
+            }
+        });
+    };
+    setupWhatsAppPersonalization();
 });
 

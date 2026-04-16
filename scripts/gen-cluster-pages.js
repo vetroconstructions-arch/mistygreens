@@ -59,7 +59,7 @@ const STICKY_MOBILE_BAR_HTML = `
 
 const pages = [
     {
-        dir: 'misty-greens-plots-pune',
+        dir: 'misty-greens',
         title: 'Misty Greens | Premium NA Bungalow Plots in Bhugaon | Forest Trails',
         desc: 'Misty Greens NA plots Bhugaon. Secure premium bungalow plots near Chandani Chowk at Paranjape Forest Trails. High ROI real estate Pune 2026.',
         keywords: 'Misty Greens Forest Trails, Misty Greens NA plots Bhugaon, Forest Trails plot investment Pune, NA bungalow plots Bhugaon Pune, Paranjape Misty Greens price, Residential plots near Chandani Chowk, buy NA plot in Forest Trails Bhugaon, villa plots near Bavdhan Pune, gated plot township Pune West, ready possession plots Bhugaon Pune, investment plots near ring road Pune',
@@ -106,7 +106,7 @@ const pages = [
         townshipData: { rera: 'P52100079518', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
-        dir: 'the-cove-villas-bhugaon',
+        dir: 'the-cove',
         title: 'The Cove | 3 BHK Duplex Villas in Bhugaon | Forest Trails',
         desc: 'The Cove Forest Trails villas. Premium 3 BHK duplex villas in Bhugaon Pune near Bavdhan. Gated villa community with highest living standards.',
         keywords: 'The Cove Forest Trails villas, duplex villas Bhugaon Pune, Paranjape Cove villas, 3 BHK duplex villa Forest Trails, luxury villas near Bavdhan Pune, gated villa community Bhugaon, villa investment Pune West, premium villa projects near Chandani Chowk',
@@ -129,7 +129,7 @@ const pages = [
         townshipData: { rera: 'Pending', school: '5 Min', club: '5 Min', ring: '6 Min' }
     },
     {
-        dir: 'highgardens-apartments-bhugaon',
+        dir: 'highgardens',
         title: 'High Gardens | 3 BHK Luxury Flats in Bhugaon Pune | Forest Trails',
         desc: 'High Gardens Forest Trails. Premium 3 BHK luxury flats in Bhugaon Pune with garden facing apartments and nature living near Mulshi road.',
         keywords: 'High Gardens Forest Trails, 3 BHK luxury flats Bhugaon Pune, garden facing apartments Pune, premium apartments Forest Trails Bhugaon, nature homes near Mulshi road, spacious 3 BHK Bhugaon Pune, luxury residences Forest Trails',
@@ -151,7 +151,7 @@ const pages = [
         townshipData: { rera: 'P52100053310', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
-        dir: 'therivolo-luxury-villas-bhugaon',
+        dir: 'rivolo-residences',
         title: 'The Rivolo | Ultra Luxury 4 BHK Villas in Bhugaon | Paranjape',
         desc: 'The Rivolo Forest Trails. Ultra luxury 4 BHK villas in Bhugaon near Bavdhan. Private villas with valley views at Paranjape Forest Trails Pune.',
         keywords: 'Rivolo Forest Trails villas, ultra luxury villas Bhugaon Pune, Paranjape Rivolo price, 4 BHK luxury villas near Bavdhan, private villas with valley view Pune, premium bungalow projects Pune West, luxury estate homes Pune, exclusive villa community Bhugaon',
@@ -173,7 +173,7 @@ const pages = [
         townshipData: { rera: 'P52100025341', school: '5 Min', club: '5 Min', ring: '6 Min' }
     },
     {
-        dir: 'highlands-apartments-bhugaon',
+        dir: 'highlands',
         title: 'Highlands | Ready Possession 2 BHK Flats in Bhugaon | Forest Trails',
         desc: 'Highlands Forest Trails. Ready possession 2 BHK flats in Bhugaon near Bavdhan. Move in ready homes at Forest Trails Pune West.',
         keywords: 'Highlands Forest Trails, ready possession flats Bhugaon Pune, 2 BHK ready flats near Bavdhan, move in ready homes Forest Trails, affordable flats in Bhugaon Pune, ready apartments near Chandani Chowk, Forest Trails price list brochure',
@@ -195,7 +195,7 @@ const pages = [
         townshipData: { rera: 'P52100000103', school: '2 Min', club: '2 Min', ring: '3 Min' }
     },
     {
-        dir: 'verandah-luxury-flats-bhugaon',
+        dir: 'verandah',
         title: 'Verandah Residences | 3 BHK Luxury Apartments in Forest Trails',
         desc: 'Verandah Forest Trails apartments. Luxury 3 BHK residences in Bhugaon Pune near Mulshi road. Forest facing homes with world-class township amenities.',
         keywords: 'Verandah Forest Trails apartments, luxury residences Forest Trails, 3 BHK luxury apartments Bhugaon, premium residences near Mulshi road, forest facing homes Pune, Orchard Residences Bhugaon, homes near Mulshi road Pune',

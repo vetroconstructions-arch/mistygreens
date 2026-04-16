@@ -8,7 +8,7 @@ const path = require('path');
  */
 const injections = [
     {
-        file: 'the-cove-villas-bhugaon/index.html',
+        file: 'the-cove/index.html',
         target: '<p style="font-size: 1.25rem; line-height: 1.8; color: #444; border-left: 4px solid var(--pscl-gold); padding-left: 2rem; margin-bottom: 3rem;">',
         imageBlock: `
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 4rem; border-radius: 16px; overflow: hidden;">
@@ -40,7 +40,7 @@ const injections = [
 `
     },
     {
-        file: 'misty-greens-plots-pune/index.html',
+        file: 'misty-greens/index.html',
         target: '<h2 class="section-title">',
         imageBlock: `
                         <div style="margin: 3rem 0 4rem; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">

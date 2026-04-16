@@ -84,8 +84,8 @@ if (injectVault(path.join(BASE_DIR, 'index.html'))) {
 
 // 2. Inject targeted vaults into satellite pages
 const mapping = {
-    'misty-greens-plots-pune/index.html': clusterKeywords['misty-greens'],
-    'verandah-luxury-flats-bhugaon/index.html': clusterKeywords['verandah'],
+    'misty-greens/index.html': clusterKeywords['misty-greens'],
+    'verandah/index.html': clusterKeywords['verandah'],
     'luxury-forest-villas-bhugaon/index.html': clusterKeywords['whistling-meadows'],
     'The Canopy-apartments-bhugaon/index.html': clusterKeywords['The Canopy']
 };

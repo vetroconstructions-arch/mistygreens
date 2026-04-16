@@ -9,8 +9,8 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 
 const SOCIAL_PROOF_HTML = `
-    <!-- Phase 50: Sovereign Trust Toast -->
-    <div id="sovereign-toast" style="position: fixed; bottom: 2rem; left: 2rem; z-index: 9998; background: #fff; border: 1px solid rgba(0,0,0,0.1); padding: 1.2rem 1.8rem; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); display: flex; align-items: center; gap: 1rem; transform: translateX(-150%); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); pointer-events: none;">
+    <!-- Phase 60: Sovereign Trust Toast (Hardened) -->
+    <div id="sovereign-toast" class="sovereign-toast-layer">
         <div class="toast-avatar" style="width: 40px; height: 40px; background: var(--pscl-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.8rem;">FT</div>
         <div class="toast-content">
             <div id="toast-message" style="font-size: 0.75rem; color: #1a1a1a; line-height: 1.4; font-weight: 600;">A family from Kothrud scheduled a site-visit.</div>

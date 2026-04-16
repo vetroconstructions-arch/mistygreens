@@ -56,10 +56,16 @@ function processFile(filePath) {
     let html = fs.readFileSync(filePath, 'utf-8');
     const relativePath = path.relative(BASE_DIR, filePath);
     const fileName = path.basename(relativePath);
-    const dirName = path.dirname(relativePath).split(path.sep)[0];
+    const dirFullName = path.dirname(relativePath);
+    const dirName = dirFullName.split(path.sep)[0];
     
     // Determine Category
     let category = categories[dirName];
+
+    // Targeted Cluster Recognition (Phase 62)
+    if (!category && dirFullName.includes('paranjape-forest-trails-township-bhugaon')) {
+        category = { label: 'Clusters', path: '/paranjape-forest-trails-township-bhugaon-apartments/' };
+    }
     if (!category && (relativePath.includes('rera-compliance') || relativePath.includes('legal'))) category = categories['legal'];
     if (!category && (relativePath.includes('price-list') || relativePath.includes('investment'))) category = categories['investment'];
     if (!category && (relativePath.includes('why-choose') || relativePath.includes('township'))) category = { label: 'Township', path: '/township-facilities.html' };

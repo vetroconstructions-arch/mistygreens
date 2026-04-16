@@ -3,14 +3,14 @@ import re
 
 # Mapping of directory patterns to hero image replacements
 HERO_MAPPING = {
-    'codename-alpha-apartments-bhugaon': 'alpha-realistic.jpg',
-    'highgardens-apartments-bhugaon': 'highgardens-realistic.jpg',
+    'paranjape-forest-trails-township-bhugaon-everglades': 'everglades-new.jpg',
+    'highgardens': 'highgardens-realistic.jpg',
     'canopy-apartments-bhugaon': 'canopy-realistic.jpg',
     'atmost-apartments-bhugaon': 'atmos-realistic.jpg', # Note: check spelling
-    'pebbles-apartments-bhugaon': 'pebbles-realistic.jpg',
+    'pebbles': 'pebbles-realistic.jpg',
     'athashri-senior-living-bhugaon': 'athashri-realistic.jpg',
-    'verandah-luxury-flats-bhugaon': 'verandah-pool-lifestyle.jpg',
-    'misty-greens-plots-pune': 'misty-greens-gate.jpg'
+    'verandah': 'verandah-pool-lifestyle.jpg',
+    'misty-greens': 'misty-greens-gate.jpg'
 }
 
 # Global Replacements for Cluster Grids (Common patterns across all pages)
