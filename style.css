@@ -3372,3 +3372,17 @@ input:focus, select:focus, textarea:focus {
 .swal2-container { z-index: var(--zi-alert) !important; }
 .header-main { z-index: var(--zi-header); }
 
+
+/* Phase 78: Definitive Branding Preservation (Zero Boxing) */
+.nav-brand, 
+.nav-brand img,
+.header-logo,
+.footer-logo,
+.opening-modal-logo,
+.brand-container,
+.brand-logo-text {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
