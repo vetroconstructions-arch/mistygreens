@@ -1,12 +1,11 @@
 <svg width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-  <!-- Paranjape Red Box -->
-  <rect x="20" y="40" width="120" height="120" fill="#A6192E" rx="4"/>
+  <!-- Sovereign Branding v3.0: Pure Floating Vector (Total Transparency) -->
   
-  <!-- Stylized P with Up Arrow -->
-  <path d="M55 70h30c12 0 20 8 20 20s-8 20-20 20H75v25h-20V70zm20 30h10c5 0 8-3 8-8s-3-8-8-8H75v16z" fill="#FFF"/>
-  <path d="M95 105l-15-15-15 15h30z" fill="#FFF"/> <!-- Simplified Arrow Icon -->
+  <!-- Stylized P with Up Arrow (Floating White) -->
+  <path d="M55 70h30c12 0 20 8 20 20s-8 20-20 20H75v25h-20V70zm20 30h10c5 0 8-3 8-8s-3-8-8-8H75v16z" fill="#FFFFFF"/>
+  <path d="M95 105l-15-15-15 15h30z" fill="#FFFFFF"/>
   
-  <!-- Main Title (White for Premium Dark Mode Headers) -->
+  <!-- Main Title (Floating Dominance) -->
   <text x="160" y="115" font-family="Arial, sans-serif" font-weight="bold" font-size="64" fill="#FFFFFF">PARANJAPE</text>
   
   <!-- Tagline (Capitalized as Requested) -->

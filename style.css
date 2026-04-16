@@ -71,7 +71,7 @@ img {
     height: auto;
     object-fit: cover;
     display: block;
-    background: var(--pscl-gray);
+    background: transparent !important;
 }
 
 /* Layout System: 12-Column Grid */
