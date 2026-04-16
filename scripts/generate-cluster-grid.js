@@ -72,7 +72,7 @@ const projects = [
         type: "Next-Gen Flats",
         status: "Pre-Launch",
         usp: "Smart Homes with Forest Scape",
-        link: "/paranjape-forest-trails-township-bhugaon-paranjape-forest-trails-township-bhugaon-everglades/",
+        link: "/paranjape-forest-trails-township-bhugaon-everglades/",
         image: "/images/hero-township.webp",
         badge: "Upcoming"
     },
