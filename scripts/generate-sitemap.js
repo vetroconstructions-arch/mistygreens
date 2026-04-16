@@ -48,10 +48,16 @@ function generateSitemap() {
         if (relativePath === 'index.html') {
             priority = 1.0;
             freq = 'daily';
-        } else if (relativePath.includes('paranjape-schemes-forest-trails-')) {
+        } else if (relativePath.includes('growth-ledger') || relativePath.includes('misty-greens')) {
             priority = 0.9;
             freq = 'weekly';
-        } else if (relativePath.includes('insights/')) {
+        } else if (relativePath.includes('everglades') || relativePath.includes('highlands')) {
+            priority = 0.85;
+            freq = 'weekly';
+        } else if (relativePath.includes('amenities/') || relativePath.includes('location/') || relativePath.includes('near-')) {
+            priority = 0.8;
+            freq = 'monthly';
+        } else if (relativePath.includes('investment/')) {
             priority = 0.85;
             freq = 'weekly';
         }

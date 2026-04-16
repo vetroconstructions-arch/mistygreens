@@ -3,25 +3,45 @@ const path = require('path');
 const crypto = require('crypto');
 const https = require('https');
 
-// 0. Auto-Detection for Google Service Account Key
-function findKeyFile() {
-    const rootFiles = fs.readdirSync(path.join(__dirname, '..'));
-    const jsonFiles = rootFiles.filter(f => f.endsWith('.json') && !['package.json', 'package-lock.json', 'search-index.json'].includes(f));
-    for (const file of jsonFiles) {
-        try {
-            const content = JSON.parse(fs.readFileSync(path.join(__dirname, '..', file), 'utf8'));
-            if (content.type === 'service_account') return path.join(__dirname, '..', file);
-        } catch (e) {}
+// 0. Sovereign Key Discovery (Multi-Key Logic)
+function findKeyFiles() {
+    const rootDir = path.join(__dirname, '..');
+    const rootFiles = fs.readdirSync(rootDir);
+    const keys = [];
+    
+    for (const file of rootFiles) {
+        if (file.endsWith('.json') && !['package.json', 'package-lock.json', 'search-index.json', 'manifest.json'].includes(file)) {
+            try {
+                const content = JSON.parse(fs.readFileSync(path.join(rootDir, file), 'utf8'));
+                if (content.type === 'service_account') {
+                    keys.push({ path: path.join(rootDir, file), email: content.client_email });
+                }
+            } catch (e) {}
+        }
     }
-    return null;
+    return keys;
 }
 
-const KEY_FILE = findKeyFile();
+const KEYS = findKeyFiles();
 const SCOPES = ['https://www.googleapis.com/auth/indexing'];
 const AUTH_URL = 'https://oauth2.googleapis.com/token';
 const API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
+const LEDGER_PATH = path.join(__dirname, '.indexing-history.json');
 
-async function getAccessToken(key) {
+// 1. Persistence Ledger (Sovereign Authority)
+function getLedger() {
+    try {
+        if (fs.existsSync(LEDGER_PATH)) return JSON.parse(fs.readFileSync(LEDGER_PATH, 'utf8'));
+    } catch (e) {}
+    return { indexed: {} };
+}
+
+function saveLedger(ledger) {
+    fs.writeFileSync(LEDGER_PATH, JSON.stringify(ledger, null, 2));
+}
+
+async function getAccessToken(keyConfig) {
+    const key = JSON.parse(fs.readFileSync(keyConfig.path, 'utf8'));
     const iat = Math.floor(Date.now() / 1000);
     const exp = iat + 3600;
     const header = Buffer.from(JSON.stringify({ alg: 'RS256', typ: 'JWT' })).toString('base64url');
@@ -44,74 +64,112 @@ async function getAccessToken(key) {
     });
 }
 
-async function publishUrl(url, token) {
+async function publishUrl(url, token, retries = 0) {
     return new Promise((resolve) => {
         const postData = JSON.stringify({ url: url, type: 'URL_UPDATED' });
-        const req = https.request(API_URL, { method: 'POST', headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } }, (res) => {
+        const req = https.request(API_URL, { 
+            method: 'POST', 
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' } 
+        }, (res) => {
             res.on('data', () => {});
-            res.on('end', () => {
-                if (res.statusCode === 200) console.log(` ✅ Indexed: ${url}`);
-                else console.error(` ❌ Failed [${res.statusCode}]: ${url}`);
-                resolve();
+            res.on('end', async () => {
+                if (res.statusCode === 200) {
+                    console.log(` ✅ Indexed: ${url}`);
+                    resolve({ success: true });
+                } else if (res.statusCode === 429 && retries < 3) {
+                    const wait = Math.pow(2, retries + 1) * 1000;
+                    console.log(` ⏳ Rate Limited (429). Backing off ${wait}ms...`);
+                    await new Promise(r => setTimeout(r, wait));
+                    resolve(await publishUrl(url, token, retries + 1));
+                } else {
+                    console.error(` ❌ Failed [${res.statusCode}]: ${url}`);
+                    resolve({ success: false, status: res.statusCode });
+                }
             });
         });
-        req.on('error', resolve);
+        req.on('error', () => resolve({ success: false }));
         req.write(postData);
         req.end();
     });
 }
 
 async function run() {
-    if (!KEY_FILE) {
-        console.log(" ⚠️ SKIPPED: No service-account.json found.");
+    if (KEYS.length === 0) {
+        console.log(" ⚠️ SKIPPED: No service-account JSONs found.");
         process.exit(0);
     }
 
-    const key = JSON.parse(fs.readFileSync(KEY_FILE, 'utf8'));
-    console.log("🚀 Stage 52 Priority Indexing: Scaling Visibility...");
+    console.log(`🚀 Sovereign Indexer v2.0: Resilient Hard-Force Engine (${KEYS.length} Projects Detected)`);
+    const ledger = getLedger();
+    const SITE = 'https://www.paranjapetownship.com';
+    const ROOT = path.join(__dirname, '..');
     
-    try {
-        const token = await getAccessToken(key);
-        const SITE = 'https://www.paranjapetownship.com';
-        const ROOT = path.join(__dirname, '..');
-        
-        function getPriorityUrls(dir, urlList = []) {
-            fs.readdirSync(dir).forEach(file => {
-                const fullPath = path.join(dir, file);
-                if (fs.statSync(fullPath).isDirectory()) {
-                    if (!['node_modules', '.git', 'scripts', 'images', 'assets'].includes(file)) getPriorityUrls(fullPath, urlList);
-                } else if (file.endsWith('.html')) {
-                    const relative = path.relative(ROOT, filePath = fullPath);
-                    const url = `${SITE}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
-                    
-                    // Priority Scoring logic
-                    let score = 10;
-                    if (url.includes('growth-ledger')) score += 100;
-                    if (url.includes('everglades')) score += 50;
-                    if (url.includes('misty-greens')) score += 40;
-                    if (url.split('/').length < 4) score += 20; // Hub pages
+    function getPriorityUrls(dir, urlList = []) {
+        fs.readdirSync(dir).forEach(file => {
+            const fullPath = path.join(dir, file);
+            if (fs.statSync(fullPath).isDirectory()) {
+                if (!['node_modules', '.git', 'scripts', 'images', 'assets', 'styles', 'components'].includes(file)) getPriorityUrls(fullPath, urlList);
+            } else if (file.endsWith('.html')) {
+                const relative = path.relative(ROOT, fullPath);
+                const url = `${SITE}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
+                
+                let score = 10;
+                if (url.includes('growth-ledger')) score += 100;
+                if (url.includes('everglades')) score += 50;
+                if (url.includes('misty-greens')) score += 40;
+                if (url.split('/').length < 4) score += 20;
 
-                    urlList.push({ url, score });
-                }
-            });
-            return urlList;
-        }
+                // Check Feshness
+                const mtime = fs.statSync(fullPath).mtimeMs;
+                if (Date.now() - mtime < 24 * 3600 * 1000) score += 100;
 
-        const discovered = getPriorityUrls(ROOT).sort((a,b) => b.score - a.score);
-        const targetUrls = discovered.slice(0, 100); 
-
-        console.log(`\n📦 Discovered ${discovered.length} nodes. Submitting top ${targetUrls.length} priority targets...\n`);
-
-        for (const item of targetUrls) {
-            await publishUrl(item.url, token);
-            await new Promise(r => setTimeout(r, 200));
-        }
-
-        console.log("\n✅ Stage 52 Priority Indexing Complete.");
-    } catch (e) {
-        console.error(e.message);
-        process.exit(1);
+                urlList.push({ url, score, mtime });
+            }
+        });
+        return urlList;
     }
+
+    const discovered = getPriorityUrls(ROOT).sort((a,b) => b.score - a.score);
+    const history = ledger.indexed;
+    const now = Date.now();
+
+    // Filter by Ledger (Skip if indexed in last 24h)
+    const pendingUrls = discovered.filter(item => {
+        if (!history[item.url]) return true;
+        return (now - history[item.url]) > 24 * 3600 * 1000;
+    });
+
+    console.log(`\n📦 Nodes: ${discovered.length} | Pending: ${pendingUrls.length} | Keys: ${KEYS.length}`);
+    
+    let keyIndex = 0;
+    let quotaCounter = 0;
+    const QUOTA_PER_KEY = 150; // Safety margin for 200 limit
+
+    for (const item of pendingUrls) {
+        if (quotaCounter >= QUOTA_PER_KEY) {
+            keyIndex++;
+            quotaCounter = 0;
+            if (keyIndex >= KEYS.length) {
+                console.log("\n🛑 All daily project quotas exhausted. Stopping pass.");
+                break;
+            }
+            console.log(`\n🔄 Switching to Project Key #${keyIndex + 1} (${KEYS[keyIndex].email})`);
+        }
+
+        const token = await getAccessToken(KEYS[keyIndex]);
+        const result = await publishUrl(item.url, token);
+        
+        if (result.success) {
+            history[item.url] = now;
+            quotaCounter++;
+        }
+        
+        // Base throttle
+        await new Promise(r => setTimeout(r, 1000));
+    }
+
+    saveLedger(ledger);
+    console.log("\n✅ Sovereign Indexing Pass Complete.");
 }
 
-if (require.main === module) run();
+run();

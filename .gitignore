@@ -3,6 +3,11 @@ node_modules
 .git
 .DS_Store
 brain
+# Google Cloud & Security Credentials
 service-account.json
+service-account-2.json
 scripts/google-service-account.json
+*.json
+!manifest.json
+!search-index.json
 *.py
