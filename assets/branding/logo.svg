@@ -6,9 +6,9 @@
   <path d="M55 70h30c12 0 20 8 20 20s-8 20-20 20H75v25h-20V70zm20 30h10c5 0 8-3 8-8s-3-8-8-8H75v16z" fill="#FFF"/>
   <path d="M95 105l-15-15-15 15h30z" fill="#FFF"/> <!-- Simplified Arrow Icon -->
   
-  <!-- Main Title -->
-  <text x="160" y="115" font-family="Arial, sans-serif" font-weight="bold" font-size="64" fill="#333A40">PARANJAPE</text>
+  <!-- Main Title (White for Premium Dark Mode Headers) -->
+  <text x="160" y="115" font-family="Arial, sans-serif" font-weight="bold" font-size="64" fill="#FFFFFF">PARANJAPE</text>
   
-  <!-- Tagline -->
-  <text x="160" y="155" font-family="Arial, sans-serif" font-size="20" fill="#666" letter-spacing="1">THE SPIRIT OF NEW INDIA</text>
+  <!-- Tagline (Capitalized as Requested) -->
+  <text x="160" y="155" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF" letter-spacing="4">FOREST TRAILS</text>
 </svg>
