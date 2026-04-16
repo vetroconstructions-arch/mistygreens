@@ -262,31 +262,45 @@ function generateHTML(page) {
     <link rel="preload" as="image" href="${page.bgImage}" fetchpriority="high">
     <link rel="stylesheet" href="/style.css">
 
-    <!-- Schema for Google advanced programmatic SEO -->
+    <!-- Sovereign Schema Matrix (Phase 82: Hardened & Consolidated) -->
     <script type="application/ld+json">
-    {
+    [
+      {
         "@context": "https://schema.org",
         "@type": "RealEstateProject",
         "name": "Paranjape Forest Trails",
         "alternateName": "Forest Trails Bhugaon",
-        "description": "190-acre nature township in Bhugaon Pune with luxury villas, apartments and NA plots.",
+        "description": "${page.desc}",
         "url": "${SITE}/",
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.9",
           "reviewCount": "1840",
-          "bestRating": "5"
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    {
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "subjectOf": [
+          {
+            "@type": "VideoObject",
+            "name": "Paranjape Forest Trails Masterplan & Drone Tour",
+            "description": "Experience the 190-acre integrated township of Paranjape Forest Trails Bhugaon with cinematic drone views and masterplan walkthroughs.",
+            "thumbnailUrl": [
+                "https://www.paranjapetownship.com/images/hero-township.webp"
+            ],
+            "uploadDate": "2026-03-01T08:00:00+05:30",
+            "duration": "PT3M15S",
+            "embedUrl": "https://www.youtube.com/embed/Cru0VXILBIE"
+          }
+        ]
+      },
+      {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
 ${faqEntries}
         ]
-    }
+      }
+    ]
     </script>
 </head>
 <body>
