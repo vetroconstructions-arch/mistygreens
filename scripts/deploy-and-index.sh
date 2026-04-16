@@ -13,15 +13,19 @@ echo "║  DEPLOY & INDEX AUTOMATION (pSEO Phase 21)       ║"
 echo "╚══════════════════════════════════════════════════╝"
 echo ""
 
-# Step 0: Advanced SEO Hardening (Programmatic Authority)
-echo "🛡️ Step 0: Hardening Advanced pSEO Schema..."
-node scripts/harden-advanced-schema.js
+# Step 0: Sovereign Mastery Hardening (Architectural Integrity)
+echo "🛡️ Step 0: Running Sovereign Mastery Engine..."
+node scripts/sovereign-mastery-engine.js
+node scripts/harden-cluster-seo.js
+node scripts/harden-faq-matrix.js
 echo ""
 
 # Step 0.1: Generation & Sitemaps
-echo "🗺️ Step 0.1: Generating Sitemaps..."
+echo "🗺️ Step 0.1: Generating fresh Sitemaps & Search Index..."
 node scripts/generate-sitemap.js
+node scripts/generate-search-index.js
 echo ""
+
 
 # Step 1: Git commit and push
 echo "📦 Step 1: Committing changes..."

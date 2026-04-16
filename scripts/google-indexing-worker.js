@@ -130,14 +130,18 @@ async function run() {
     }
 
     const discovered = getPriorityUrls(ROOT).sort((a,b) => b.score - a.score);
+    const force = process.argv.includes('--force');
     const history = ledger.indexed;
     const now = Date.now();
 
-    // Filter by Ledger (Skip if indexed in last 24h)
+    // Filter by Ledger (Skip if indexed in last 24h, unless --force is used)
     const pendingUrls = discovered.filter(item => {
+        if (force) return true;
         if (!history[item.url]) return true;
         return (now - history[item.url]) > 24 * 3600 * 1000;
     });
+
+    if (force) console.log(" ⚡ HARD-FORCE: Bypassing cooldown for absolute site-wide refresh.");
 
     console.log(`\n📦 Nodes: ${discovered.length} | Pending: ${pendingUrls.length} | Keys: ${KEYS.length}`);
     
