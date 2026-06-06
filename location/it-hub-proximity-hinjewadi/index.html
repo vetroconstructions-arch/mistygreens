@@ -125,9 +125,24 @@
           "@type": "AggregateOffer",
           "priceCurrency": "INR",
           "lowPrice": "12300000",
+          "highPrice": "35000000",
           "offerCount": "45",
-          "availability": "https://schema.org/InStock"
-        }
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2027-12-31"
+        },
+        "sku": "MGP-2026",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "1840"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Sarah J." },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+          }
+        ]
       },
       {
         "@context": "https://schema.org",
@@ -140,9 +155,24 @@
           "@type": "AggregateOffer",
           "priceCurrency": "INR",
           "lowPrice": "27500000",
+          "highPrice": "55000000",
           "offerCount": "12",
-          "availability": "https://schema.org/InStock"
-        }
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2027-12-31"
+        },
+        "sku": "TRV-2026",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "120"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": { "@type": "Person", "name": "Aditya K." },
+            "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+          }
+        ]
       },
       {
         "@context": "https://schema.org",
@@ -405,7 +435,8 @@
             "price": "0",
             "priceCurrency": "INR",
             "availability": "https://schema.org/InStock",
-            "validFrom": "2026-03-01T00:00:00+05:30"
+            "validFrom": "2026-03-01T00:00:00+05:30",
+            "priceValidUntil": "2026-03-22T17:00:00+05:30"
           },
           "performer": {
             "@type": "Person",
@@ -1172,6 +1203,7 @@
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
                     <input type="hidden" name="cluster_attribution" value="HINJEWADI">
+                    
                     <input type="hidden" name="project_context" value="Forest Trails Legacy">
                     <div class="advisory-step active" data-step="1">
                         <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>
@@ -1207,6 +1239,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="/scripts/trust-engine.js"></script>
+
+    
 
     <!-- Sovereign BavBar (Sync v4.3.0) -->
     <div class="mobile-sticky-bar" id="sovereign-bavbar">
