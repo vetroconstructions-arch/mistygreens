@@ -53,4 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
 .modal-system::-webkit-scrollbar-track { background: #000; }
 .modal-system::-webkit-scrollbar-thumb { background: var(--pscl-maroon); border-radius: 10px; }
 .modal-close:hover { transform: rotate(90deg) scale(1.2); color: var(--pscl-gold); }
-</style>
+
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
+    </style>

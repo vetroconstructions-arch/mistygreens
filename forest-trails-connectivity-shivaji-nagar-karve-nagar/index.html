@@ -53,6 +53,13 @@
         .header-main { z-index: 10002 !important; }
         /* Prevent layout shift from duplicate tickers */
         .heritage-ticker:nth-of-type(n+2) { display: none !important; }
+    
+        @media (max-width: 768px) {
+            .concierge-panel { max-width: 95% !important; border-radius: 15px !important; }
+            .concierge-panel > div { padding: 2.5rem 1.5rem 2rem !important; }
+            .form-header h3 { font-size: 2.2rem !important; }
+            .advisory-opt { padding: 1rem !important; }
+        }
     </style>
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Paranjape Forest Trails Investment Ledger 2026","description":"Consolidated appreciation data for the 190-acre Forest Trails township in Bhugaon.","url":"https://www.paranjapetownship.com/forest-trails-connectivity-shivaji-nagar-karve-nagar/","creator":{"@type":"Organization","name":"Paranjape Schemes"},"variableMeasured":[{"@type":"PropertyValue","name":"Annual Appreciation","value":"12.5%","unitText":"PERCENT"}]}</script>
@@ -112,6 +119,8 @@
     }
     </script>
     <!-- /Sovereign Intelligence Layer -->
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Paranjape Forest Trails Investment Ledger 2026","description":"Consolidated appreciation data for the 190-acre Forest Trails township in Bhugaon.","url":"https://www.paranjapetownship.com/forest-trails-connectivity-shivaji-nagar-karve-nagar/","creator":{"@type":"Organization","name":"Paranjape Schemes"},"variableMeasured":[{"@type":"PropertyValue","name":"Annual Appreciation","value":"12.5%","unitText":"PERCENT"}]}</script>
 
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Paranjape Forest Trails Investment Ledger 2026","description":"Consolidated appreciation data for the 190-acre Forest Trails township in Bhugaon.","url":"https://www.paranjapetownship.com/forest-trails-connectivity-shivaji-nagar-karve-nagar/","creator":{"@type":"Organization","name":"Paranjape Schemes"},"variableMeasured":[{"@type":"PropertyValue","name":"Annual Appreciation","value":"12.5%","unitText":"PERCENT"}]}</script>
 
@@ -276,6 +285,7 @@
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
                     <input type="hidden" name="cluster_attribution" value="NAGAR">
                     
+                    
                     <input type="hidden" name="project_context" value="Forest Trails Legacy">
                     <div class="advisory-step active" data-step="1">
                         <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>
@@ -311,54 +321,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script defer src="/scripts/trust-engine.js"></script>
 
-    <!-- Phase 60: Sovereign Trust Toast (Hardened) -->
-    <div id="sovereign-toast" class="sovereign-toast-layer">
-        <div class="toast-avatar" style="width: 40px; height: 40px; background: var(--pscl-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.8rem;">FT</div>
-        <div class="toast-content">
-            <div id="toast-message" style="font-size: 0.75rem; color: #1a1a1a; line-height: 1.4; font-weight: 600;">A family from Kothrud scheduled a site-visit.</div>
-            <div id="toast-time" style="font-size: 0.6rem; color: #999; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em;">8 MINUTES AGO</div>
-        </div>
-    </div>
-
-    <script>
-    (function() {
-        const toast = document.getElementById('sovereign-toast');
-        const messageEl = document.getElementById('toast-message');
-        const timeEl = document.getElementById('toast-time');
-        
-        if (!toast) return;
-
-        const rhythms = [
-            { msg: "14 families toured the Equestrian Center today.", time: "LIVE UPDATE" },
-            { msg: "Misty Greens Phase 2 is now 85% Sold.", time: "REAL-TIME STATUS" },
-            { msg: "A visitor from Kothrud scheduled a personal tour.", time: "12 MINUTES AGO" },
-            { msg: "New 4BHK Villa booking confirmed in The Rivolo.", time: "2 HOURS AGO" },
-            { msg: "8 prospective buyers from Baner requested ROI blueprints.", time: "JUST NOW" }
-        ];
-
-        let index = 0;
-        const cycleToast = () => {
-            const item = rhythms[index];
-            messageEl.innerText = item.msg;
-            timeEl.innerText = item.time;
-            
-            // Show
-            setTimeout(() => {
-                toast.style.transform = "translateX(0)";
-                // Hide after 6s
-                setTimeout(() => {
-                    toast.style.transform = "translateX(-150%)";
-                    index = (index + 1) % rhythms.length;
-                    // Cycle next after 15s
-                    setTimeout(cycleToast, 15000);
-                }, 6000);
-            }, 3000);
-        };
-
-        // Start cycle after 10s initial delay
-        setTimeout(cycleToast, 10000);
-    })();
-    </script>
+    
 
 
     
@@ -397,6 +360,63 @@
     </div>
 </section>
 
+
+    
+
+    <!-- Phase 60: Sovereign Trust Toast (Hardened) -->
+    <div id="sovereign-toast" class="sovereign-toast-layer">
+        <div class="toast-avatar" style="width: 40px; height: 40px; background: var(--pscl-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.8rem;">FT</div>
+        <div class="toast-content">
+            <div id="toast-message" style="font-size: 0.75rem; color: #1a1a1a; line-height: 1.4; font-weight: 600;">A family from Kothrud scheduled a site-visit.</div>
+            <div id="toast-time" style="font-size: 0.6rem; color: #999; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em;">8 MINUTES AGO</div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const toast = document.getElementById('sovereign-toast');
+        const messageEl = document.getElementById('toast-message');
+        const timeEl = document.getElementById('toast-time');
+        
+        if (!toast) return;
+
+        const rhythms = [
+            { msg: "14 families toured the Equestrian Center today.", time: "LIVE UPDATE" },
+            { msg: "Misty Greens Phase 2 is now 85% Sold.", time: "REAL-TIME STATUS" },
+            { msg: "A visitor from Kothrud scheduled a personal tour.", time: "12 MINUTES AGO" },
+            { msg: "New 4BHK Villa booking confirmed in The Rivolo.", time: "2 HOURS AGO" },
+            { msg: "8 prospective buyers from Baner requested ROI blueprints.", time: "JUST NOW" }
+        ];
+
+        let index = 0;
+        const cycleToast = () => {
+            const item = rhythms[index];
+            messageEl.innerText = item.msg;
+            timeEl.innerText = item.time;
+            
+            // Show
+            setTimeout(() => {
+                toast.classList.add('active');
+                // Hide after 6s
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                    index = (index + 1) % rhythms.length;
+                    // Cycle next after 15s
+                    setTimeout(cycleToast, 15000);
+                }, 6000);
+            }, 3000);
+        };
+
+        // Start cycle after 10s initial delay
+        setTimeout(cycleToast, 10000);
+    })();
+    </script>
+
+<!-- Sovereign Cluster Mesh: index -->
+    <div class="seo-mesh-footer" style="display:none;" aria-hidden="true">
+        <h3>NA Plots Forest Trails Bhugaon | Residential Plots Pune West | Paranjape Forest Trails Township</h3>
+        <p>Paranjape Forest Trails Bhugaon, Forest Trails Pune Township, Paranjape Forest Trails price, Forest Trails Bhugaon Pune 190 acre township, Luxury township in Bhugaon Pune, Forest Trails near Bavdhan, Forest Trails near Kothrud, Paranjape Schemes Forest Trails Pune, Forest Trails investment Pune West, Premium gated township Bhugaon Pune, Nature township Pune luxury homes, Forest Trails master plan Bhugaon, Forest Trails brochure download, property near Chandani Chowk Pune, real estate near Bavdhan Pune, Bhugaon real estate investment, Pune west luxury properties, Paranjape Schemes Pune projects, top real estate developers in Pune, best township in Pune West 2026, luxury gated communities Pune</p>
+    </div>
 
     <!-- Sovereign BavBar (Sync v4.3.0) -->
     <div class="mobile-sticky-bar" id="sovereign-bavbar">

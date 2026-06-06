@@ -41,37 +41,7 @@
     }
     </script>
     <!-- FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Is Bhugaon a safe investment for NRI property buyers in 2026?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Bhugaon is a high-security, high-appreciation micro-market. For NRIs, Paranjape Forest Trails offers fully gated NA plots and luxury villas with verified RERA compliance and 24/7 security, making it a safe haven for dollar-denominated appreciation."
-            }
-          },
-            {
-                "@type": "Question",
-                "name": "What is the price of luxury villas at Forest Trails Bhugaon?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Luxury independent villas at The Rivolo start from ₹3.5 Cr onwards for 4 & 5 BHK configurations with private gardens and Sahyadri views." }
-            },
-            {
-                "@type": "Question",
-                "name": "How many BHK villas are available at Forest Trails?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Forest Trails offers 4 BHK and 5 BHK luxury independent villas in the The Rivolo clusters, with built-up areas up to 7,500 sq.ft." }
-            },
-            {
-                "@type": "Question",
-                "name": "Are Forest Trails villas ready for possession?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Select villa units in The Rivolo are available for immediate possession. New phases are under construction with expected delivery in 2026-2027." }
-            }
-        ]
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the largest township in Bhugaon Pune?","acceptedAnswer":{"@type":"Answer","text":"Paranjape Forest Trails is the largest 190-acre integrated forest township in Bhugaon, Pune West."}},{"@type":"Question","name":"Who is the developer of Forest Trails Bhugaon?","acceptedAnswer":{"@type":"Answer","text":"Forest Trails is developed by Paranjape Schemes (Construction) Ltd, a premier developer with a 35+ year legacy."}}]}</script>
     <!-- Core Web Vitals LCP Preload -->
     <link rel="preload" as="image" href="/images/villas-exterior-1.jpg">
 
@@ -412,7 +382,7 @@
         
 
         <section class="hero-section" style="height: 70vh;">
-            <div class="hero-bg" style="background-image: url(/images/rivolo-luxury.jpg); opacity: 0.7;" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager"></div>
+            <div class="hero-bg" style="background-image: url(/images/rivolo-luxury.jpg); opacity: 0.7;" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager" fetchpriority="high" loading="eager"></div>
             <div class="hero-container container">
                 <div class="hero-content">
                     <span class="top-label">Exclusive Cluster</span>
@@ -1180,6 +1150,7 @@
                     
                     
                     
+                    
     <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
     <input type="hidden" name="_captcha" value="false">
                     
@@ -1308,6 +1279,7 @@
                 </div>
                 <form id="master-plan-form" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com" style="display: flex; flex-direction: column; gap: 1.4rem;">
                     <input type="hidden" name="cluster_attribution" value="BHUGAON">
+                    
                     
                     
                     
@@ -1533,59 +1505,12 @@
     
 
 
-    <!-- Phase 60: Sovereign Trust Toast (Hardened) -->
-    <div id="sovereign-toast" class="sovereign-toast-layer">
-        <div class="toast-avatar" style="width: 40px; height: 40px; background: var(--pscl-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.8rem;">FT</div>
-        <div class="toast-content">
-            <div id="toast-message" style="font-size: 0.75rem; color: #1a1a1a; line-height: 1.4; font-weight: 600;">A family from Kothrud scheduled a site-visit.</div>
-            <div id="toast-time" style="font-size: 0.6rem; color: #999; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em;">8 MINUTES AGO</div>
-        </div>
-    </div>
+    
 
-    <script>
-    (function() {
-        const toast = document.getElementById('sovereign-toast');
-        const messageEl = document.getElementById('toast-message');
-        const timeEl = document.getElementById('toast-time');
-        
-        if (!toast) return;
-
-        const rhythms = [
-            { msg: "14 families toured the Equestrian Center today.", time: "LIVE UPDATE" },
-            { msg: "Misty Greens Phase 2 is now 85% Sold.", time: "REAL-TIME STATUS" },
-            { msg: "A visitor from Kothrud scheduled a personal tour.", time: "12 MINUTES AGO" },
-            { msg: "New 4BHK Villa booking confirmed in The Rivolo.", time: "2 HOURS AGO" },
-            { msg: "8 prospective buyers from Baner requested ROI blueprints.", time: "JUST NOW" }
-        ];
-
-        let index = 0;
-        const cycleToast = () => {
-            const item = rhythms[index];
-            messageEl.innerText = item.msg;
-            timeEl.innerText = item.time;
-            
-            // Show
-            setTimeout(() => {
-                toast.classList.add('active');
-                // Hide after 6s
-                setTimeout(() => {
-                    toast.classList.remove('active');
-                    index = (index + 1) % rhythms.length;
-                    // Cycle next after 15s
-                    setTimeout(cycleToast, 15000);
-                }, 6000);
-            }, 3000);
-        };
-
-        // Start cycle after 10s initial delay
-        setTimeout(cycleToast, 10000);
-    })();
-    </script>
-
-<!-- Sovereign Cluster Mesh: villas -->
-    <div style="display:none;" aria-hidden="true">
-        <h3>Forest Trails Villas Bhugaon | Luxury Gated Community Pune</h3>
-        <p>Forest Trails villas Bhugaon, luxury villas Pune west, forest facing villas Pune, gated community villas Bhugaon, bungalow in Forest Trails, luxury bungalow Pune hills, premium villas near Mulshi road, independent homes Bhugaon, second home villas Pune</p>
+<!-- Sovereign Cluster Mesh: index -->
+    <div class="seo-mesh-footer" style="display:none;" aria-hidden="true">
+        <h3>NA Plots Forest Trails Bhugaon | Residential Plots Pune West | Paranjape Forest Trails Township</h3>
+        <p>Paranjape Forest Trails Bhugaon, Forest Trails Pune Township, Paranjape Forest Trails price, Forest Trails Bhugaon Pune 190 acre township, Luxury township in Bhugaon Pune, Forest Trails near Bavdhan, Forest Trails near Kothrud, Paranjape Schemes Forest Trails Pune, Forest Trails investment Pune West, Premium gated township Bhugaon Pune, Nature township Pune luxury homes, Forest Trails master plan Bhugaon, Forest Trails brochure download, property near Chandani Chowk Pune, real estate near Bavdhan Pune, Bhugaon real estate investment, Pune west luxury properties, Paranjape Schemes Pune projects, top real estate developers in Pune, best township in Pune West 2026, luxury gated communities Pune</p>
     </div>
 
     
@@ -1648,6 +1573,7 @@
                 </div>
                 <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
                     <input type="hidden" name="cluster_attribution" value="BHUGAON">
+                    
                     
                     <input type="hidden" name="project_context" value="Forest Trails Legacy">
                     <div class="advisory-step active" data-step="1">
@@ -1718,6 +1644,58 @@
         </div>
     </div>
 </section>
+
+
+    
+
+    <!-- Phase 60: Sovereign Trust Toast (Hardened) -->
+    <div id="sovereign-toast" class="sovereign-toast-layer">
+        <div class="toast-avatar" style="width: 40px; height: 40px; background: var(--pscl-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 0.8rem;">FT</div>
+        <div class="toast-content">
+            <div id="toast-message" style="font-size: 0.75rem; color: #1a1a1a; line-height: 1.4; font-weight: 600;">A family from Kothrud scheduled a site-visit.</div>
+            <div id="toast-time" style="font-size: 0.6rem; color: #999; margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.05em;">8 MINUTES AGO</div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const toast = document.getElementById('sovereign-toast');
+        const messageEl = document.getElementById('toast-message');
+        const timeEl = document.getElementById('toast-time');
+        
+        if (!toast) return;
+
+        const rhythms = [
+            { msg: "14 families toured the Equestrian Center today.", time: "LIVE UPDATE" },
+            { msg: "Misty Greens Phase 2 is now 85% Sold.", time: "REAL-TIME STATUS" },
+            { msg: "A visitor from Kothrud scheduled a personal tour.", time: "12 MINUTES AGO" },
+            { msg: "New 4BHK Villa booking confirmed in The Rivolo.", time: "2 HOURS AGO" },
+            { msg: "8 prospective buyers from Baner requested ROI blueprints.", time: "JUST NOW" }
+        ];
+
+        let index = 0;
+        const cycleToast = () => {
+            const item = rhythms[index];
+            messageEl.innerText = item.msg;
+            timeEl.innerText = item.time;
+            
+            // Show
+            setTimeout(() => {
+                toast.classList.add('active');
+                // Hide after 6s
+                setTimeout(() => {
+                    toast.classList.remove('active');
+                    index = (index + 1) % rhythms.length;
+                    // Cycle next after 15s
+                    setTimeout(cycleToast, 15000);
+                }, 6000);
+            }, 3000);
+        };
+
+        // Start cycle after 10s initial delay
+        setTimeout(cycleToast, 10000);
+    })();
+    </script>
 
 
     <!-- Sovereign BavBar (Sync v4.3.0) -->
