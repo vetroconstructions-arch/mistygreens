@@ -1,0 +1,68 @@
+name: Advanced SEO Ecosystem CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 2 * * *' # Run daily at 2:00 AM UTC
+  workflow_dispatch:
+
+jobs:
+  seo-ecosystem-sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Node Dependencies
+        run: npm install
+
+      - name: Generate Canonical Matrix & Sitemap
+        run: |
+          echo "🗺️ Rebuilding Canonical Logic and Prioritized Sitemap..."
+          python3 scripts/generate_seo_matrix.py
+          node scripts/generate-sitemap.js || echo "Node sitemap generation skipped"
+
+      - name: Auto-Commit SEO Infrastructure
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml robots.txt
+          git commit -m "🤖 Auto-sync: Regenerated SEO Sitemap and Canonical Matrix [skip ci]" || echo "No changes to commit"
+          git push origin main || echo "Push skipped or failed"
+
+      - name: Authenticate Google API
+        run: |
+          echo "Setting up Google Service Account..."
+          echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
+
+      - name: Sovereign Indexing Pass (Google API)
+        run: |
+          echo "🚀 Firing Google Indexing API Force-Ping..."
+          node scripts/google-indexing-worker.js || echo "⚠️ Google Indexing API execution failed or skipped"
+
+      - name: Sovereign Indexing Pass (IndexNow Ecosystem)
+        run: |
+          echo "🚀 Firing IndexNow API Force-Ping (Bing/Yahoo/Yandex/DuckDuckGo)..."
+          node scripts/index-now-worker.js || echo "⚠️ IndexNow API execution failed or skipped"
+
+      - name: Legacy Ecosystem Ping
+        run: |
+          echo "🚀 Firing Legacy Sitemap Pings..."
+          node scripts/google-index-ping.js || echo "⚠️ Legacy Ping execution failed or skipped"
