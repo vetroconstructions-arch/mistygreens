@@ -9,7 +9,7 @@ const https = require('https');
 const crypto = require('crypto');
 const path = require('path');
 
-const SITE_DOMAIN = 'paranjapetownship.com';
+const SITE_DOMAIN = 'www.paranjapetownship.com';
 const INDEXNOW_API = 'https://api.indexnow.org/indexnow';
 const ROOT = path.join(__dirname, '..');
 
