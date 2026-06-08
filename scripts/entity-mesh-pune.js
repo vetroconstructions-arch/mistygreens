@@ -54,8 +54,22 @@ function injectEntityMesh(filePath) {
     }
 }
 
+function walkDir(dir, callback) {
+    fs.readdirSync(dir).forEach(f => {
+        let dirPath = path.join(dir, f);
+        let isDirectory = fs.statSync(dirPath).isDirectory();
+        if (isDirectory && !dirPath.includes('node_modules') && !dirPath.includes('.git') && !dirPath.includes('.wrangler') && !dirPath.includes('scripts')) {
+            walkDir(dirPath, callback);
+        } else if (!isDirectory && dirPath.endsWith('.html')) {
+            callback(dirPath);
+        }
+    });
+}
+
 console.log("🚀 Starting AI Knowledge Hardening site-wide...");
-injectEntityMesh(path.join(ROOT, 'index.html'));
-injectEntityMesh(path.join(ROOT, 'about-paranjape-schemes/index.html'));
-injectEntityMesh(path.join(ROOT, 'township-facilities.html'));
-console.log("\n🎯 AI Knowledge Entity Mesh established.");
+let count = 0;
+walkDir(ROOT, (filePath) => {
+    injectEntityMesh(filePath);
+    count++;
+});
+console.log(`\n🎯 AI Knowledge Entity Mesh established across ${count} pages.`);
