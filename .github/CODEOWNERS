@@ -1,0 +1,15 @@
+# Repository Governance: Paranjape Forest Trails SEO Ecosystem
+
+# Global Default: All changes require review by the lead developer
+*       @lead-architect
+
+# The SEO Hardening Engine Scripts are strictly controlled
+/scripts/           @lead-architect
+/package.json       @lead-architect
+/package-lock.json  @lead-architect
+
+# GitHub Actions workflows cannot be modified without oversight
+/.github/workflows/ @lead-architect
+
+# The programmatic page outputs can be auto-generated, but core templates need review
+/index.html         @lead-architect

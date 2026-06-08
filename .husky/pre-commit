@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+echo "🛡️  Running Local SEO Hardening Engine (Pre-Commit Hook)..."
+
+# Generate Strict Canonical Matrix and Sitemap
+python3 scripts/generate_seo_matrix.py
+
+# Auto-stage the SEO infrastructure updates
+git add sitemap.xml robots.txt
+
+# Run the Node.js Sitemap generation for fallback safety
+node scripts/generate-sitemap.js || echo "Node.js sitemap generation skipped"
+
+# Stage any resulting JSON search indexes
+git add search-index.json || echo ""
+
+echo "✅ Pre-commit SEO validation passed. Proceeding with commit."

@@ -1,13 +1,34 @@
-node_modules
-.wrangler
-.git
+# Local Development
+node_modules/
 .DS_Store
-brain
-# Google Cloud & Security Credentials
+.vscode/
+.idea/
+brain/
+scratch/
+
+# Python Environments & Cache
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Frameworks & Services
+.wrangler/
+dist/
+build/
+
+# Security & Credentials
+.env
+.env.local
 service-account.json
 service-account-2.json
 scripts/google-service-account.json
-*.json
+indexnow_key.txt
+
+# Exemptions
 !manifest.json
 !search-index.json
-*.py
+!package.json
+!package-lock.json
+!scripts/*.py
+!scripts/*.js
