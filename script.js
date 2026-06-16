@@ -10,7 +10,7 @@
             loader.style.pointerEvents = 'none';
             loader.dataset.dismissed = "true";
             setTimeout(() => { if (loader) loader.style.display = 'none'; }, 900);
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
             document.body.classList.add('loaded');
         }
     };
@@ -89,7 +89,7 @@
             const closeModal = () => {
                 modal.classList.remove('active');
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             };
 
             document.addEventListener('click', (e) => {
@@ -137,7 +137,7 @@
             const closeVault = () => {
                 vault.classList.remove('active');
                 vault.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             };
 
             triggers.forEach(t => t.addEventListener('click', openVault));
@@ -159,7 +159,7 @@
             const closeModal = () => {
                 modal.classList.remove('active');
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             };
 
             triggers.forEach(t => t.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
@@ -180,7 +180,7 @@
             modal.querySelector('#opening-close')?.addEventListener('click', () => {
                 modal.classList.remove('active');
                 modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
                 localStorage.setItem('opening_modal_seen', 'true');
             });
         },
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const tlLoader = gsap.timeline({
             onComplete: () => {
                 if (loader) loader.style.display = 'none';
-                document.body.style.overflow = 'auto';
+                document.body.style.overflow = '';
             }
         });
 
@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
             tlLoader.add(heroTl, "-=1"); 
         }
     } else {
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
     }
 
     // 2. Stable Scroll Orchestration
@@ -1055,14 +1055,14 @@ document.addEventListener('DOMContentLoaded', () => {
     exit2Close?.addEventListener('click', () => {
         if (exit2Modal) {
             exit2Modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
         }
     });
 
     if (exit2Modal) {
         exit2Modal.querySelector('.concierge-overlay')?.addEventListener('click', () => {
             exit2Modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = '';
         });
     }
 
