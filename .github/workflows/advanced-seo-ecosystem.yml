@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 2 * * *' # Run daily at 2:00 AM UTC
+    - cron: '0 */6 * * *'  # Run every 6 hours for freshness signals
   workflow_dispatch:
 
 jobs:
@@ -66,3 +66,11 @@ jobs:
         run: |
           echo "🚀 Firing Legacy Sitemap Pings..."
           node scripts/google-index-ping.js || echo "⚠️ Legacy Ping execution failed or skipped"
+
+      - name: Direct Search Engine Sitemap Ping
+        run: |
+          echo "🌐 Pinging all search engines with fresh sitemap..."
+          curl -s "https://www.google.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
+          curl -s "https://www.bing.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
+          curl -s "https://webmaster.yandex.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
+          echo "✅ All search engine pings fired."
