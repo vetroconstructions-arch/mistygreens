@@ -4,17 +4,16 @@ filepath = "index.html"
 with open(filepath, "r", encoding="utf-8") as f:
     content = f.read()
 
-# Step 1: Remove ALL existing maha-rera-badge elements (the <a> tag and its contents)
+# Step 1: Remove ALL existing maha-rera-badge elements completely
 content = re.sub(
-    r'\s*<a href="https://maharera\.maharashtra\.gov\.in/"[^>]*class="maha-rera-badge"[^>]*>.*?</a>\s*',
+    r'\s*<a[^>]*class="maha-rera-badge"[^>]*>.*?</a>\s*',
     '\n',
     content,
     flags=re.DOTALL
 )
-
 print("Step 1: Removed all existing maha-rera-badge elements.")
 
-# Step 2: Re-inject as direct child of cluster-card (NOT inside cluster-img-wrap)
+# Step 2: Re-inject as TEXT-ONLY (no images, no QR codes)
 rera_mapping = {
     "Misty Greens": "P52100080947",
     "Athashri": "P52100077686",
@@ -40,13 +39,8 @@ for part in parts[1:]:
         rera_num = rera_mapping.get(title)
         
         if rera_num:
-            # Inject the badge right after the opening <div class="cluster-card" ...>
-            # Find the end of the opening tag
-            badge_html = f'''
-            <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener noreferrer" class="maha-rera-badge" aria-label="MahaRERA {rera_num}">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://maharera.maharashtra.gov.in/project/{rera_num}" alt="MahaRERA QR" class="rera-qr-img">
-                <span class="rera-num">{rera_num}</span>
-            </a>'''
+            # Pure text badge - NO images whatsoever
+            badge_html = f'\n            <span class="maha-rera-badge">MahaRERA: {rera_num}</span>'
             
             # Insert after the first > of the cluster-card div
             first_close = card_html.index('>') + 1
