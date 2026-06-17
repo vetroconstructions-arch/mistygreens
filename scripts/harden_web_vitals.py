@@ -25,9 +25,19 @@ def minify_asset(src, dest, is_css=False):
     print(f"Minified {src} -> {dest}")
 
 def generate_headers(base_dir):
-    content = """/images/*
+    content = """/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://api.qrserver.com https://www.googletagmanager.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.google.com/maps/; object-src 'none'; base-uri 'self';
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
   Cache-Control: public, max-age=31536000, immutable
 /scripts/*
+  Cache-Control: public, max-age=86400
+/styles/*
   Cache-Control: public, max-age=86400
 /*.css
   Cache-Control: public, max-age=86400

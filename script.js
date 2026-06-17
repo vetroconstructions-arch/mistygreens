@@ -113,14 +113,70 @@
                     if (prev) updateStep(parseInt(prev.closest('.advisory-step').dataset.step) - 1);
                 });
 
-                form.addEventListener('submit', (e) => {
+                form.addEventListener('submit', async (e) => {
+                    e.preventDefault();
                     const phone = form.querySelector('input[name="phone"]');
                     if (phone && !/^\d{10}$/.test(phone.value.trim())) {
-                        e.preventDefault();
                         this.showAlert('Invalid Phone', 'Please enter a 10-digit mobile number.', 'warning');
+                        return;
+                    }
+                    
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+                    const url = form.action || 'https://formsubmit.co/propsmartrealty@gmail.com';
+                    
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                        });
+                        
+                        if (response.ok) {
+                            this.showAlert('Success', 'Your enquiry has been received.', 'success');
+                            form.reset();
+                            closeModal();
+                        } else {
+                            throw new Error('Server error');
+                        }
+                    } catch (error) {
+                        // Network error - fallback to localStorage queue
+                        let queue = JSON.parse(localStorage.getItem('enquiryQueue') || '[]');
+                        queue.push({ url, data, timestamp: Date.now() });
+                        localStorage.setItem('enquiryQueue', JSON.stringify(queue));
+                        
+                        this.showAlert('Network Offline', 'Your enquiry has been saved locally and will be sent when you are back online.', 'info');
+                        form.reset();
+                        closeModal();
                     }
                 });
             }
+            
+            // Auto-retry queue when back online
+            window.addEventListener('online', async () => {
+                let queue = JSON.parse(localStorage.getItem('enquiryQueue') || '[]');
+                if (queue.length === 0) return;
+                
+                const failed = [];
+                for (let item of queue) {
+                    try {
+                        await fetch(item.url, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify(item.data)
+                        });
+                    } catch (e) {
+                        failed.push(item);
+                    }
+                }
+                localStorage.setItem('enquiryQueue', JSON.stringify(failed));
+                if (failed.length === 0) {
+                    SovereignMesh.showAlert('Sync Complete', 'Offline enquiries have been submitted successfully.', 'success');
+                }
+            });
         },
 
         setupStructuralVault: function() {
