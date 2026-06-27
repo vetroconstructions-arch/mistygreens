@@ -316,3 +316,45 @@ Sovereign Sweep Initiated: Sat Jun  6 01:00:00 IST 2026
 ✅ Updated sitemap.xml with 55 target URLs.
 Sovereign Sweep Completed: Sat Jun  6 01:11:29 IST 2026
 =====================================================
+=====================================================
+Sovereign Sweep Initiated: Fri Jun 26 01:03:56 IST 2026
+>> Running Google Indexing Protocol...
+🚀 Sovereign Indexer v2.0: Resilient Hard-Force Engine (2 Projects Detected)
+ ⚡ HARD-FORCE: Bypassing cooldown for absolute site-wide refresh.
+
+📦 Nodes: 128 | Pending: 128 | Keys: 2
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: getaddrinfo ENOTFOUND oauth2.googleapis.com
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+  errno: -3008,
+  code: 'ENOTFOUND',
+  syscall: 'getaddrinfo',
+  hostname: 'oauth2.googleapis.com'
+}
+
+Node.js v24.13.0
+>> Running IndexNow Protocol...
+🚀 Starting Stage 51 IndexNow Worker...
+ 🚀 Verification file 95c994594228606fa65442d1b61243200b7dd984.txt synchronized at root.
+📦 Discovered 129 URLs for submission.
+ ❌ Hardware Error: getaddrinfo ENOTFOUND api.indexnow.org
+>> Running Legacy Sitemap Pings...
+🚀 Starting Advanced Indexing Engine...
+
+📦 Discovered 129 target URLs in public domain.
+
+🌐 Pinging Sitemap to Search Engines...
+  ❌ Failed ping to Google: getaddrinfo ENOTFOUND www.google.com
+  ❌ Failed ping to Bing: getaddrinfo ENOTFOUND www.bing.com
+
+💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the official Indexing API.
+
+🎯 Advanced Indexing Burst Complete.
+>> Running Unified URL Pings...
+🚀 Pinging 55 URLs to search engines...
+✅ Updated sitemap.xml with 55 target URLs.
+Sovereign Sweep Completed: Fri Jun 26 01:03:58 IST 2026
+=====================================================
