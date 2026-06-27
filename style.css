@@ -3440,3 +3440,15 @@ input:focus, select:focus, textarea:focus {
     transform: scale(1.05) !important;
     filter: brightness(1.08) !important;
 }
+
+
+/* ====== Phase: Accessibility (A11y) ====== */
+*:focus-visible {
+    outline: 2px solid var(--pscl-gold) !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 10px rgba(140, 115, 47, 0.5);
+    transition: outline-offset 0.2s ease;
+}
+input:focus-visible, textarea:focus-visible {
+    outline-offset: 0 !important;
+}
