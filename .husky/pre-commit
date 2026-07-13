@@ -6,7 +6,7 @@ echo "🛡️  Running Local SEO Hardening Engine (Pre-Commit Hook)..."
 python3 scripts/generate_seo_matrix.py
 
 # Auto-stage the SEO infrastructure updates
-git add sitemap.xml robots.txt
+git add sitemap.xml sitemap-*.xml robots.txt
 
 # Run the Node.js Sitemap generation for fallback safety
 node scripts/generate-sitemap.js || echo "Node.js sitemap generation skipped"
