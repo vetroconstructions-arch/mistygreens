@@ -88,30 +88,30 @@ function processFiles() {
         
         let display_name = cleanName(dirName);
         let title = `${display_name} | Paranjape Forest Trails Bhugaon`;
-        let description = `Detailed guide to ${display_name} in the 190-acre nature-themed gated township of Paranjape Forest Trails, Bhugaon, Pune West. Get pricing and layouts.`;
+        let description = `Guide to ${display_name} at Paranjape Forest Trails, Bhugaon. Explore pricing, specifications, and layouts inside the gated township.`;
         
         // Apply matching categories
         if (urlLower.includes('comparisons') || urlLower.includes('-vs-') || urlLower.includes('vs-')) {
             title = `${display_name} Comparison | Paranjape Forest Trails`;
-            description = `Detailed real estate comparison of ${display_name} near Kothrud and Bavdhan. Explore pricing, ROI potential, and connectivity metrics at Forest Trails Bhugaon.`;
+            description = `Compare ${display_name} in Pune West. Explore pricing, ROI, and connectivity details at Paranjape Forest Trails Bhugaon.`;
         } else if (urlLower.includes('investment') || urlLower.includes('growth-ledger') || urlLower.includes('appreciation') || urlLower.includes('rental-yield') || urlLower.includes('tax-benefits') || urlLower.includes('pmrda')) {
             title = `${display_name} ROI Forecast | Bhugaon Plots & Villas`;
-            description = `Analyze ${display_name} in West Pune. Explore developer track record, PMRDA infrastructure updates, and NRI tax benefits for bungalow plots.`;
+            description = `Analyze ${display_name} in West Pune. Explore appreciation trends, Ring Road updates, and ROI potential at Paranjape Forest Trails.`;
         } else if (urlLower.includes('blogs') || urlLower.includes('blog/')) {
             title = `${display_name} | Forest Trails Bhugaon Blog`;
-            description = `Read our latest article on ${display_name}. Stay updated on gated community guidelines, school admissions, and West Pune property insights.`;
+            description = `Read our latest update on ${display_name}. Explore gated community guidelines, school admissions, and Pune real estate insights.`;
         } else if (urlLower.includes('sectors') || urlLower.includes('bungalows') || urlLower.includes('villas') || urlLower.includes('apartments')) {
             title = `${display_name} Enclave | Paranjape Forest Trails`;
-            description = `Detailed layout, specifications, floor plans, and pricing for ${display_name} inside the 190-acre gated township of Paranjape Forest Trails, Bhugaon.`;
+            description = `Explore floor plans, layouts, and pricing for ${display_name} in the 190-acre gated Forest Trails township at Bhugaon, West Pune.`;
         } else if (urlLower.includes('amenities') || urlLower.includes('cliff-lifestyle-hub') || urlLower.includes('the-cove') || urlLower.includes('verandah') || urlLower.includes('highgardens') || urlLower.includes('highlands') || urlLower.includes('the-cliff-club') || urlLower.includes('equestrian') || urlLower.includes('school') || urlLower.includes('spa-retreat')) {
             title = `${display_name} Clubhouse & Amenities | Forest Trails Pune`;
-            description = `Explore the world-class features of ${display_name} inside Forest Trails Bhugaon. Access equestrian training, SSRVM school, and Olympic swimming pools.`;
+            description = `Explore the luxury amenities of ${display_name} at Forest Trails Bhugaon. Access equestrian training, SSRVM school, and the Cliff Club.`;
         } else if (urlLower.includes('location') || urlLower.includes('connectivity') || urlLower.includes('near-') || urlLower.includes('proximity')) {
             title = `${display_name} Proximity & Route Guide | Forest Trails`;
-            description = `Commute and travel times for {display_name}. Learn how Paranjape Forest Trails connects you to Bavdhan, Kothrud, Hinjewadi IT Hub, and the Ring Road.`;
+            description = `Route details for ${display_name}. Learn how Paranjape Forest Trails connects to Kothrud, Bavdhan, Hinjewadi IT hubs, and the Ring Road.`;
         } else if (urlLower.includes('legal')) {
             title = `${display_name} Legal Guide | Forest Trails Bhugaon`;
-            description = `RERA registration numbers, NA bungalow plot purchase checklist, and verified legal records for Paranjape Forest Trails project in West Pune.`;
+            description = `RERA details, NA plots checklist, and verified legal records for the Paranjape Forest Trails township project in Bhugaon, Pune.`;
         } else {
             // Check CLUSTER_DEF specific enclaves
             let matched = false;
@@ -130,6 +130,16 @@ function processFiles() {
             const suffix = " | Forest Trails";
             const maxPrefix = 65 - suffix.length;
             title = display_name.slice(0, maxPrefix).trim() + suffix;
+        }
+
+        // Enforce max 155 chars length for search engine description display
+        if (description.length > 155) {
+            let idx = description.lastIndexOf(' ', 152);
+            if (idx > 100) {
+                description = description.slice(0, idx) + "...";
+            } else {
+                description = description.slice(0, 152) + "...";
+            }
         }
 
         let original = html;
