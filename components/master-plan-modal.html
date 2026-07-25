@@ -99,4 +99,50 @@ document.addEventListener('DOMContentLoaded', () => {
   .concierge-panel, .modal-content, .master-plan-content { width: 100% !important; max-width: 100% !important; border-radius: 24px 24px 0 0 !important; max-height: 88vh !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; }
 }
 
+
+/* Sovereign Mobile Quick Action Dock CSS */
+.mobile-action-dock { display: none; }
+@media (max-width: 768px) {
+  body { padding-bottom: 60px !important; overflow-x: hidden !important; word-break: break-word !important; }
+  h1, h2, h3, h4, h5, h6 { word-break: break-word !important; overflow-wrap: break-word !important; }
+  table { display: block !important; overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  .mobile-action-dock {
+    display: flex !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 56px !important;
+    z-index: 10001 !important;
+    background: rgba(107, 13, 13, 0.96) !important;
+    backdrop-filter: blur(16px) !important;
+    border-top: 1px solid rgba(212, 175, 55, 0.4) !important;
+    padding: 0.4rem 0.6rem !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.5) !important;
+  }
+  .dock-item {
+    flex: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    height: 44px !important;
+    border-radius: 50px !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: transform 0.2s ease !important;
+  }
+  .call-dock { background: rgba(255, 255, 255, 0.1) !important; color: #FFFFFF !important; border: 1px solid rgba(255, 255, 255, 0.25) !important; }
+  .wa-dock { background: #25D366 !important; color: #FFFFFF !important; }
+  .enquire-dock { background: linear-gradient(135deg, #D4AF37 0%, #8C732F 100%) !important; color: #000000 !important; }
+  .dock-item:active { transform: scale(0.96) !important; }
+}
+
 </style>
