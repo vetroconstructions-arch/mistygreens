@@ -612,8 +612,7 @@ body.scrolled .secondary-silo-nav {
 }
 
 /* Hero Section: Editorial Depth */
-.hero-section {
-    height: 100vh; /* Fallback */
+.hero-section { height: auto; min-height: 100vh; overflow: visible; /* Fallback */
     height: 100dvh;
     display: flex;
     align-items: center;
