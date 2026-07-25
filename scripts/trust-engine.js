@@ -4,7 +4,8 @@
 class SovereignTrustEngine {
     constructor() {
         this.initScroller();
-        this.initActivityManager();
+        // Disabled toast activity manager as requested
+        // this.initActivityManager();
     }
 
     initScroller() {
