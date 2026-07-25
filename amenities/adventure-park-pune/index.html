@@ -1263,7 +1263,7 @@
         <div class="concierge-panel" style="position: relative; background: #ffffff; width: 100%; max-width: 520px; border-radius: 20px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.5); border: 1px solid rgba(0,0,0,0.1); padding: 0;">
             <div style="height: 6px; background: linear-gradient(90deg, var(--pscl-maroon), var(--pscl-gold), var(--pscl-maroon));"></div>
             <div style="padding: 4rem 3.5rem 3.5rem; max-height: 90vh; overflow-y: auto;">
-                <button id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
+                <button aria-label="Close Enquiry Modal" id="concierge-close" style="position: absolute; top: 1.5rem; right: 1.5rem; background: #eee; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center;">&times;</button>
                 <div class="form-header" style="text-align: center; margin-bottom: 2.5rem;">
                     <span style="color: var(--pscl-gold); font-weight: 900; font-size: 0.65rem; letter-spacing: 0.3rem; text-transform: uppercase;">✦ Direct Advisory</span>
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
@@ -1281,14 +1281,14 @@
                     <div class="advisory-step active" data-step="1">
                         <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>
                         <div style="display: grid; gap: 12px; margin-bottom: 30px;">
-                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="pricing" style="margin-right: 15px;" required checked> Pricing & Inventory</label>
-                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input type="radio" name="interest" value="visit" style="margin-right: 15px;"> Schedule Site Visit</label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input aria-label="Configuration Interest" type="radio" name="interest" value="pricing" style="margin-right: 15px;" required checked> Pricing & Inventory</label>
+                            <label class="advisory-opt" style="display: flex; align-items: center; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; cursor: pointer;"><input aria-label="Configuration Interest" type="radio" name="interest" value="visit" style="margin-right: 15px;"> Schedule Site Visit</label>
                         </div>
                         <button type="button" class="btn-next-step" style="width: 100%; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; font-weight: 900; border: none; border-radius: 12px; cursor: pointer; text-transform: uppercase;">Continue</button>
                     </div>
                     <div class="advisory-step" data-step="2" style="display: none;">
-                        <input type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
-                        <input type="tel" name="phone" placeholder="Mobile Number" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <input aria-label="Full Name" type="text" name="name" placeholder="Full Name" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
+                        <input aria-label="Mobile Number" type="tel" name="phone" placeholder="Mobile Number" required style="width: 100%; padding: 1.2rem; border: 2px solid #ddd; border-radius: 12px; margin-bottom: 1rem;">
                         <div style="display: flex; gap: 12px; margin-top: 20px;">
                             <button type="button" class="btn-prev-step" style="flex: 1; padding: 1.2rem; border: 1px solid #bbb; border-radius: 12px; background: #eee; cursor: pointer;">BACK</button>
                             <button type="submit" style="flex: 2; padding: 1.2rem; background: var(--pscl-maroon); color: #fff; border: none; border-radius: 12px; font-weight: 900; cursor: pointer;">FINALIZE ADVISORY</button>
