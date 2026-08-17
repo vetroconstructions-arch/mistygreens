@@ -1,21 +1,17 @@
 {
   "name": "Paranjape Forest Trails",
   "short_name": "Forest Trails",
-  "start_url": "./index.html",
+  "description": "190-Acre Nature Township by Paranjape Schemes in Bhugaon, Pune West.",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#B3302A",
-  "description": "The Only Lifestyle NA Gated Bungalow Plots in West Pune. A 190-Acre Masterpiece.",
+  "background_color": "#0B1120",
+  "theme_color": "#D4AF37",
   "icons": [
     {
-      "src": "/assets/branding/favicon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/assets/branding/favicon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "src": "/assets/branding/logo.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
