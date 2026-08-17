@@ -1,6 +1,6 @@
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 DOMAIN = "https://www.paranjapetownship.com"
 
@@ -95,7 +95,7 @@ def generate_seo_matrix(base_dir):
             # Fallback
             categories["core"].append((strict_url, "0.7", "weekly"))
 
-    date_str = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
     
     # 4. Generate Sub-Sitemaps
     active_categories = []
@@ -142,18 +142,60 @@ def generate_seo_matrix(base_dir):
         f.write("\n".join(index_lines))
     print(f"Generated master sitemap index sitemap.xml pointing to {len(active_categories)} sub-sitemaps.")
     
-    # 6. Generate Robots.txt
-    robots_content = f"""User-agent: *
+    # 6. Generate Sovereign Hardened Robots.txt
+    robots_content = f"""# Sovereign Search & AI Robot Directive Architecture v8.0
+# Domain: {DOMAIN}
+
+# 1. Global Search Engine Crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
 Allow: /
 Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
 Disallow: /404.html
 Disallow: /thank-you.html
 
+# 2. Modern AI & LLM Search Crawlers
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
+
+# 3. Default Rule for All Other Crawlers
+User-agent: *
+Allow: /
+Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
+Disallow: /404.html
+Disallow: /thank-you.html
+
+# 4. Master Sitemap Index & Host Reference
+Host: {DOMAIN}
 Sitemap: {DOMAIN}/sitemap.xml
 """
     with open(os.path.join(base_dir, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(robots_content)
-    print("Generated explicit robots.txt.")
+    print("Generated sovereign hardened robots.txt.")
 
 if __name__ == "__main__":
     generate_seo_matrix('.')
+

@@ -1,7 +1,48 @@
-User-agent: *
+# Sovereign Search & AI Robot Directive Architecture v8.0
+# Domain: https://www.paranjapetownship.com
+
+# 1. Global Search Engine Crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Video
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
 Allow: /
 Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
 Disallow: /404.html
 Disallow: /thank-you.html
 
+# 2. Modern AI & LLM Search Crawlers
+User-agent: Google-Extended
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
+
+# 3. Default Rule for All Other Crawlers
+User-agent: *
+Allow: /
+Disallow: /components/
+Disallow: /scratch/
+Disallow: /scripts/
+Disallow: /404.html
+Disallow: /thank-you.html
+
+# 4. Master Sitemap Index & Host Reference
+Host: https://www.paranjapetownship.com
 Sitemap: https://www.paranjapetownship.com/sitemap.xml
