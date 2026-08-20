@@ -1183,3 +1183,21 @@ document.addEventListener('keydown', (e) => {
         }
     }
 });
+
+
+// Ultra-Advanced Detail Tab Switching Engine
+function switchDetailTab(btn, paneId) {
+  const container = btn.closest('.project-detail-drawer');
+  if (!container) return;
+  
+  const tabs = container.querySelectorAll('.detail-tab-btn');
+  const panes = container.querySelectorAll('.detail-tab-pane');
+  
+  tabs.forEach(t => t.classList.remove('active'));
+  panes.forEach(p => p.classList.remove('active'));
+  
+  btn.classList.add('active');
+  const targetPane = container.querySelector('#' + paneId);
+  if (targetPane) targetPane.classList.add('active');
+}
+

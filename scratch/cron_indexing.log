@@ -4863,3 +4863,325 @@ Sovereign Sweep Initiated: Mon Aug 17 01:00:01 IST 2026
 ✅ Updated sitemap.xml with 55 target URLs.
 Sovereign Sweep Completed: Mon Aug 17 01:12:11 IST 2026
 =====================================================
+=====================================================
+Sovereign Sweep Initiated: Wed Aug 19 01:05:47 IST 2026
+>> Running Google Indexing Protocol...
+🚀 Sovereign Indexer v2.0: Resilient Hard-Force Engine (2 Projects Detected)
+ ⚡ HARD-FORCE: Bypassing cooldown for absolute site-wide refresh.
+
+📦 Nodes: 212 | Pending: 212 | Keys: 2
+ ✅ Indexed: https://www.paranjapetownship.com/bhugaon-growth-ledger.html
+ ✅ Indexed: https://www.paranjapetownship.com/investment/growth-ledger/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/
+ ✅ Indexed: https://www.paranjapetownship.com/misty-greens/
+ ✅ Indexed: https://www.paranjapetownship.com/misty-greens-na-plots-price-list/
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+Error: read ECONNRESET
+    at TLSWrap.onStreamRead (node:internal/stream_base_commons:216:20) {
+  errno: -54,
+  code: 'ECONNRESET',
+  syscall: 'read'
+}
+
+Node.js v24.13.0
+>> Running IndexNow Protocol...
+🚀 Starting Stage 51 IndexNow Worker...
+ 🚀 Verification file 95c994594228606fa65442d1b61243200b7dd984.txt synchronized at root.
+📦 Discovered 213 URLs for submission.
+ ❌ IndexNow Failure [403]: {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site using the key and try again","details":null}
+>> Running Legacy Sitemap Pings...
+🚀 Starting Advanced Indexing Engine...
+
+📦 Discovered 213 target URLs in public domain.
+
+🌐 Pinging Sitemap to Search Engines...
+  📡 Pinged Google: 404
+  📡 Pinged Bing: 410
+
+💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the official Indexing API.
+
+🎯 Advanced Indexing Burst Complete.
+  ❌ Failed ping to Bing: read ETIMEDOUT
+  ❌ Failed ping to Google: read ETIMEDOUT
+>> Running Unified URL Pings...
+🚀 Pinging 55 URLs to search engines...
+✅ Updated sitemap.xml with 55 target URLs.
+Sovereign Sweep Completed: Wed Aug 19 20:17:08 IST 2026
+=====================================================
+=====================================================
+Sovereign Sweep Initiated: Thu Aug 20 01:00:01 IST 2026
+>> Running Google Indexing Protocol...
+🚀 Sovereign Indexer v2.0: Resilient Hard-Force Engine (2 Projects Detected)
+ ⚡ HARD-FORCE: Bypassing cooldown for absolute site-wide refresh.
+
+📦 Nodes: 212 | Pending: 212 | Keys: 2
+ ✅ Indexed: https://www.paranjapetownship.com/bhugaon-growth-ledger.html
+ ✅ Indexed: https://www.paranjapetownship.com/investment/growth-ledger/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/
+ ✅ Indexed: https://www.paranjapetownship.com/misty-greens/
+ ✅ Indexed: https://www.paranjapetownship.com/misty-greens-na-plots-price-list/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/misty-greens-na-plots-review/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-misty-greens/
+ ✅ Indexed: https://www.paranjapetownship.com/1-bhk-flats-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/1-bhk-flats-near-hinjewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/1-bhk-flats-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/2-bhk-flats-near-baner/
+ ✅ Indexed: https://www.paranjapetownship.com/2-bhk-flats-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/2-bhk-flats-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/3-bhk-flats-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/3-bhk-flats-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/4-bhk-luxury-apartments-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/404.html
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/adventure-park-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/equestrian-academy-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/forest-walks-trails/
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/olympic-sports-complex/
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/the-cliff-club/
+ ✅ Indexed: https://www.paranjapetownship.com/amenities/wellness-spa-retreat/
+ ✅ Indexed: https://www.paranjapetownship.com/bavdhan-vs-bhugaon-property-appreciation/
+ ✅ Indexed: https://www.paranjapetownship.com/bhugaon-property-roi-stamp-duty-calculator/
+ ✅ Indexed: https://www.paranjapetownship.com/canopy-apartments-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/chandani-chowk-flyover-connectivity-impact/
+ ✅ Indexed: https://www.paranjapetownship.com/comparisons/bhugaon-vs-mulshi-investment/
+ ✅ Indexed: https://www.paranjapetownship.com/comparisons/forest-trails-vs-magarpatta/
+ ✅ Indexed: https://www.paranjapetownship.com/comparisons/premium-townships-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-connectivity-baner-aundh/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-connectivity-bavdhan-proximity/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-connectivity-kothrud-nal-stop/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-connectivity-shivaji-nagar-karve-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-vs-bavdhan-projects/
+ ✅ Indexed: https://www.paranjapetownship.com/forest-trails-vs-kothrud-apartments/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-aundh/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-balewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-baner/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-chandani-chowk/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-erandwane/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-hinjewadi-it-park/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-karve-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-mulshi/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-pashan/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-pirangut/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-shivaji-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-sus/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-wakad/
+ ✅ Indexed: https://www.paranjapetownship.com/gated-township-plots-near-warje/
+ ✅ Indexed: https://www.paranjapetownship.com/highgardens/
+ ✅ Indexed: https://www.paranjapetownship.com/highlands/
+ ✅ Indexed: https://www.paranjapetownship.com/independent-bungalows-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/independent-bungalows-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/
+ ✅ Indexed: https://www.paranjapetownship.com/insights/baner-vs-bhugaon-investment-analysis-2026/
+ ✅ Indexed: https://www.paranjapetownship.com/insights/best-schools-near-bhugaon-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/investment/appreciation-forecast-2030/
+ ✅ Indexed: https://www.paranjapetownship.com/investment/pmrda-ring-road-impact/
+ ✅ Indexed: https://www.paranjapetownship.com/investment/rental-yield-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/investment/tax-benefits-nri-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/kothrud-extension-bungalow-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/legal/na-plot-purchase-process/
+ ✅ Indexed: https://www.paranjapetownship.com/legal/rera-compliance-guide/
+ ✅ Indexed: https://www.paranjapetownship.com/location/bhugaon-connectivity-guide/
+ ✅ Indexed: https://www.paranjapetownship.com/location/it-hub-proximity-hinjewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/location/nearby-schools-hospitals/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-aundh/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-balewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-baner/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-chandani-chowk/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-erandwane/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-hinjewadi-it-park/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-karve-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-mulshi/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-pashan/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-pirangut/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-shivaji-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-sus/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-wakad/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-forest-villas-near-warje/
+ ✅ Indexed: https://www.paranjapetownship.com/luxury-townhouses-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-aundh/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-balewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-baner/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-chandani-chowk/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-erandwane/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-hinjewadi-it-park/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-karve-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-mulshi/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-pashan/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-pirangut/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-shivaji-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-sus/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-wakad/
+ ✅ Indexed: https://www.paranjapetownship.com/na-bungalow-plots-near-warje/
+ ✅ Indexed: https://www.paranjapetownship.com/na-plot-loan-emi-calculator-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-about-paranjape-schemes/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/adventure-park-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/forest-walks-trails/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/olympic-sports-complex/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/wellness-spa-retreat/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-apartments/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-aspire/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/baner-vs-bhugaon-investment-analysis-2026/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bavdhan-na-bungalow-plots-investment/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bavdhan-vs-bhugaon-villa-investment/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-schools-near-bhugaon-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-township-near-baner-pashan-it-hub/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/buy-na-bungalow-plots-near-warje-sinhgad-road/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/forest-trails-na-bungalow-plots-advantage/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/kothrud-vs-bhugaon-na-bungalow-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/na-bungalow-plots-pune-west-guide/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/premium-apartments-near-kothrud-bhugaon-canopy/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/senior-living-communities-west-pune-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-bungalows/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-comparisons/bhugaon-vs-mulshi-investment/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-comparisons/forest-trails-vs-magarpatta/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-comparisons/premium-townships-pune-west/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-baner-aundh/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-bavdhan-proximity/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-kothrud-nal-stop/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-shivaji-nagar-karve-nagar/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-happiness-hub/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-highgardens/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-highlands/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/appreciation-forecast-2030/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/pmrda-ring-road-impact/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/rental-yield-bhugaon/
+
+🔄 Switching to Project Key #2 (indexing-api@thematic-gift-461211-f1.iam.gserviceaccount.com)
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/tax-benefits-nri-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-kaleidoscope/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/na-plot-purchase-process/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/privacy-policy.html
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/rera-compliance-guide/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/terms-conditions.html
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location/bhugaon-connectivity-guide/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location/it-hub-proximity-hinjewadi/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location/nearby-schools-hospitals/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location-proximity/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-luxury-forest-villas-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-na-bungalow-plots-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-near-bavdhan/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-near-chandani-chowk/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-near-kothrud/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-near-pashan/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-orchard-residences/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-paud-road/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-pebbles/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-premium-apartments-forest-trails/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-price/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-price-list-brochure/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-property-investment-bhugaon-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-pune/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-rivolo-residences/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-sectors/sector-a-skyline-villas/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-sectors/sector-b-misty-heights/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-sectors/sector-c-riverview-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-sectors/sector-d-forest-edge/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-sectors/sector-e-valley-residences/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-canopy/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-cliff-lifestyle-hub-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-cove/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-verandah/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas-plots.html
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-vs-bavdhan-projects/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-vs-kothrud-apartments/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-why-choose-forest-trails-bhugaon/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-plots-price-list-2026/
+ ✅ Indexed: https://www.paranjapetownship.com/paranjape-schemes-forest-trails-apartments/
+ ✅ Indexed: https://www.paranjapetownship.com/pmrda-ring-road-bhugaon-interchange-growth/
+ ✅ Indexed: https://www.paranjapetownship.com/pune-luxury-villas-bungalows-buyer-guide-2026/
+ ✅ Indexed: https://www.paranjapetownship.com/rivolo-residences/
+ ✅ Indexed: https://www.paranjapetownship.com/sectors/sector-a-skyline-villas/
+ ✅ Indexed: https://www.paranjapetownship.com/sectors/sector-b-misty-heights/
+ ✅ Indexed: https://www.paranjapetownship.com/sectors/sector-c-riverview-plots/
+ ✅ Indexed: https://www.paranjapetownship.com/sectors/sector-d-forest-edge/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ✅ Indexed: https://www.paranjapetownship.com/sectors/sector-e-valley-residences/
+ ✅ Indexed: https://www.paranjapetownship.com/senior-living-pune-west-athashri-bhugaon-guide/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ✅ Indexed: https://www.paranjapetownship.com/thank-you.html
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/the-cliff-lifestyle-hub/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/the-cove/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/the-cove-bungalows-townhouses-forest-trails/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/the-rivolo-luxury-villas-forest-trails/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/twin-bungalows-forest-trails-bhugaon/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/twin-bungalows-near-bavdhan/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/twin-bungalows-near-kothrud/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/verandah/
+ ⏳ Rate Limited (429). Backing off 2000ms...
+ ⏳ Rate Limited (429). Backing off 4000ms...
+ ⏳ Rate Limited (429). Backing off 8000ms...
+ ❌ Failed [429]: https://www.paranjapetownship.com/why-choose-forest-trails-bhugaon/
+
+✅ Sovereign Indexing Pass Complete.
+>> Running IndexNow Protocol...
+🚀 Starting Stage 51 IndexNow Worker...
+ 🚀 Verification file 95c994594228606fa65442d1b61243200b7dd984.txt synchronized at root.
+📦 Discovered 213 URLs for submission.
+ ❌ IndexNow Failure [403]: {"errorCode":"UserForbiddedToAccessSite","message":"User is unauthorized to access the site. Please verify the site using the key and try again","details":null}
+>> Running Legacy Sitemap Pings...
+🚀 Starting Advanced Indexing Engine...
+
+📦 Discovered 213 target URLs in public domain.
+
+🌐 Pinging Sitemap to Search Engines...
+  📡 Pinged Google: 404
+  📡 Pinged Bing: 410
+
+💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the official Indexing API.
+
+🎯 Advanced Indexing Burst Complete.
+>> Running Unified URL Pings...
+🚀 Pinging 55 URLs to search engines...
+✅ Updated sitemap.xml with 55 target URLs.
+Sovereign Sweep Completed: Thu Aug 20 01:15:59 IST 2026
+=====================================================
