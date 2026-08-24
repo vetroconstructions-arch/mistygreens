@@ -4031,3 +4031,59 @@ body:has(.concierge-modal[style*="display: block"]) .concierge-trigger,
 body:has(.concierge-modal:not([aria-hidden="true"])) .concierge-trigger {
     display: none !important;
 }
+
+
+/* ==========================================================================
+   TIGHT VERTICAL RHYTHM & ZERO UNNECESSARY BLANK SPACE OVERHAUL
+   ========================================================================== */
+
+section,
+.section,
+.hero-section,
+.overview-section,
+.amenities-section,
+.location-section,
+.pricing-section,
+.faq-section {
+    padding-top: 2.2rem !important;
+    padding-bottom: 2.2rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.container,
+.nav-content,
+.hero-content,
+.section-content {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.section-header,
+.section-title-wrap,
+h2.section-title {
+    margin-bottom: 1.25rem !important;
+    padding-bottom: 0 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0 !important;
+}
+
+p {
+    margin-bottom: 0.85rem !important;
+}
+
+/* Remove artificial spacer divs */
+.spacer,
+.empty-space,
+div[style*="height: 60px"],
+div[style*="height: 80px"],
+div[style*="height: 100px"],
+div[style*="padding: 5rem"],
+div[style*="padding: 6rem"] {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
