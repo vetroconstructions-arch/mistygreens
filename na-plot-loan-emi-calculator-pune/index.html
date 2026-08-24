@@ -60,14 +60,30 @@
 <body style="background: #0B1120; color: #F8FAFC; font-family: 'Inter', sans-serif; margin: 0;">
 
   <!-- Header Navigation -->
-  <header class="header-main" style="position: fixed; top: 0; left: 0; right: 0; z-index: 10002; background: rgba(11, 17, 32, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 15px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
-      <a href="/" style="text-decoration: none;">
-        <img src="/assets/branding/logo.svg" alt="Paranjape Forest Trails Logo" width="180" height="60" class="header-logo" style="height: 42px; width: auto;">
+  <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212,175,55,0.2);">
+  <nav class="nav-main" style="padding: 0.8rem 0;">
+    <div class="container nav-content" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+      <a href="/" class="nav-brand-container" aria-label="Paranjape Schemes & Paranjape Forest Trails Home">
+        <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes - The Spirit Of New India" class="nav-logo-corp" width="180" height="45" fetchpriority="high">
+        <span class="nav-logo-divider" aria-hidden="true"></span>
+        <img src="/assets/branding/paranjape-forest-trails-logo.jpg" alt="Paranjape Forest Trails Township Bhugaon" class="nav-logo-township" width="160" height="45" fetchpriority="high">
       </a>
-      <a href="tel:+917744009295" style="background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000; padding: 8px 18px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 14px;">Bank Loan Desk</a>
+      <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
+        <a href="/index.html#township-overview" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">TOWNSHIP</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">VILLAS & PLOTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-apartments/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">APARTMENTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">THE CLIFF CLUB</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">EQUESTRIAN</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">SCHOOL</a>
+      </div>
+      <div class="nav-actions" style="display: flex; gap: 0.8rem; align-items: center;">
+        <a href="tel:+917744009295" class="nav-callback-btn open-enquiry-modal" id="nav-desktop-callback" aria-label="Request Callback Call Gallery +91 7744009295">📞 REQUEST CALLBACK (+91 7744009295)</a>
+        <button class="open-global-search" id=data-dedup-id=btn-global-search-trigger"btn-global-search-trigger style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 0.7rem 1.2rem; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer;">SEARCH ECOSYSTEM</button>
+        <button class="open-enquiry-modal nav-enquire-btn" id=data-dedup-id=cta-header-enquire-global"cta-header-enquire-global style="background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; padding: 0.76rem 1.5rem; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer;">ENQUIRE</button>
+      </div>
     </div>
-  </header>
+  </nav>
+</header>
 
   <main style="padding-top: 130px;">
     <section style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
@@ -84,9 +100,9 @@
         <div style="margin-bottom: 25px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <label style="font-weight: 600; color: #E2E8F0;">Loan Amount (₹)</label>
-            <span id="loan-amount-val" style="color: #D4AF37; font-weight: 800; font-size: 18px;">₹ 1,00,00,000</span>
+            <span id=data-dedup-id=loan-amount-val"loan-amount-val style="color: #D4AF37; font-weight: 800; font-size: 18px;">₹ 1,00,00,000</span>
           </div>
-          <input type="range" id="loan-amount" min="2000000" max="50000000" step="500000" value="10000000" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="loan_amount" aria-label="Loan Amount">
+          <input type="range" id=data-dedup-id=loan-amount"loan-amount min="2000000" max="50000000" step="500000" value="10000000" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="loan_amount" aria-label="Loan Amount">
           <div style="display: flex; justify-content: space-between; color: #64748B; font-size: 12px; margin-top: 5px;">
             <span>₹ 20 L</span>
             <span>₹ 5 Cr</span>
@@ -97,9 +113,9 @@
         <div style="margin-bottom: 25px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <label style="font-weight: 600; color: #E2E8F0;">Interest Rate (% p.a.)</label>
-            <span id="interest-rate-val" style="color: #D4AF37; font-weight: 800; font-size: 18px;">8.5 %</span>
+            <span id=data-dedup-id=interest-rate-val"interest-rate-val style="color: #D4AF37; font-weight: 800; font-size: 18px;">8.5 %</span>
           </div>
-          <input type="range" id="interest-rate" min="6.5" max="12.0" step="0.1" value="8.5" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="interest_rate" aria-label="Interest Rate">
+          <input type="range" id=data-dedup-id=interest-rate"interest-rate min="6.5" max="12.0" step="0.1" value="8.5" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="interest_rate" aria-label="Interest Rate">
           <div style="display: flex; justify-content: space-between; color: #64748B; font-size: 12px; margin-top: 5px;">
             <span>6.5 %</span>
             <span>12.0 %</span>
@@ -110,9 +126,9 @@
         <div style="margin-bottom: 35px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <label style="font-weight: 600; color: #E2E8F0;">Loan Tenure (Years)</label>
-            <span id="tenure-val" style="color: #D4AF37; font-weight: 800; font-size: 18px;">20 Years</span>
+            <span id=data-dedup-id=tenure-val"tenure-val style="color: #D4AF37; font-weight: 800; font-size: 18px;">20 Years</span>
           </div>
-          <input type="range" id="tenure" min="5" max="30" step="1" value="20" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="tenure" aria-label="Tenure">
+          <input type="range" id=data-dedup-id=tenure"tenure min="5" max="30" step="1" value="20" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="tenure" aria-label="Tenure">
           <div style="display: flex; justify-content: space-between; color: #64748B; font-size: 12px; margin-top: 5px;">
             <span>5 Yrs</span>
             <span>30 Yrs</span>
@@ -123,15 +139,15 @@
         <div style="background: rgba(15, 23, 42, 0.9); padding: 25px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2); display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">Monthly EMI</div>
-            <div id="result-emi" style="color: #D4AF37; font-size: 26px; font-weight: 800; margin-top: 6px;">₹ 86,782</div>
+            <div id=data-dedup-id=result-emi"result-emi style="color: #D4AF37; font-size: 26px; font-weight: 800; margin-top: 6px;">₹ 86,782</div>
           </div>
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">Total Interest</div>
-            <div id="result-interest" style="color: #38BDF8; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 1,08,27,761</div>
+            <div id=data-dedup-id=result-interest"result-interest style="color: #38BDF8; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 1,08,27,761</div>
           </div>
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">Total Payment</div>
-            <div id="result-total" style="color: #4ADE80; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 2,08,27,761</div>
+            <div id=data-dedup-id=result-total"result-total style="color: #4ADE80; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 2,08,27,761</div>
           </div>
         </div>
 
@@ -173,7 +189,7 @@
   </script>
 
   <!-- Mobile Quick Action Dock -->
-  <div id="mobile-action-dock" class="mobile-action-dock" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 10001; background: rgba(11, 17, 32, 0.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: space-around; padding: 10px 15px;">
+  <div id=data-dedup-id=mobile-action-dock"mobile-action-dock class="mobile-action-dock" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 10001; background: rgba(11, 17, 32, 0.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: space-around; padding: 10px 15px;">
     <a href="tel:+917744009295" style="color: #FFFFFF; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px;">📞 Call</a>
     <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="color: #25D366; text-decoration: none; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px;">💬 WhatsApp</a>
     <a href="tel:+917744009295" style="background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000000; padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 800; text-decoration: none;">Loan Desk</a>
