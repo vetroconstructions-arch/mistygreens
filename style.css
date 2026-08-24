@@ -3905,3 +3905,19 @@ html, body {
         height: 26px !important;
     }
 }
+
+
+/* ==========================================================================
+   PIXEL-PERFECT HEADER & DUAL LOGO CONTAINMENT
+   ========================================================================== */
+
+.nav-brand-container img {
+    max-height: 28px !important;
+    width: auto !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+}
+
+@media (max-width: 1024px) {
+    .nav-links { display: none !important; }
+}

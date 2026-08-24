@@ -525,27 +525,35 @@
 </script>
 
 </head>
-<body style="background: var(--pscl-bg); color: var(--pscl-white); font-family: 'Plus Jakarta Sans', sans-serif;"> <!-- Navbar --> <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.95); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); border-bottom: 1px solid rgba(212,175,55,0.2);">
-  <nav class="nav-main" style="padding: 0.8rem 0;">
-    <div class="container nav-content" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
-      <a href="/" class="nav-brand-container" aria-label="Paranjape Schemes & Paranjape Forest Trails Home">
-        <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes - The Spirit Of New India" class="nav-logo-corp" width="180" height="45" fetchpriority="high">
-        <span class="nav-logo-divider" aria-hidden="true"></span>
-        <img src="/assets/branding/paranjape-forest-trails-logo.jpg" alt="Paranjape Forest Trails Township Bhugaon" class="nav-logo-township" width="160" height="45" fetchpriority="high">
+<body style="background: var(--pscl-bg); color: var(--pscl-white); font-family: 'Plus Jakarta Sans', sans-serif;"> <!-- Navbar --> <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(10,10,10,0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.25);">
+  <nav class="nav-main" style="padding: 0.6rem 0;">
+    <div class="container nav-content" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem;">
+      
+      <!-- Crisp White Badge Dual Logo Container -->
+      <a href="/" class="nav-brand-container" style="background: #ffffff; padding: 4px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 10px; height: 42px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.25); border: 1px solid rgba(212,175,55,0.4); flex-shrink: 0;">
+        <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes" style="height: 28px; width: auto; object-fit: contain;">
+        <span style="width: 1px; height: 22px; background: #e0e0e0; display: inline-block;"></span>
+        <img src="/assets/branding/paranjape-forest-trails-logo.jpg" alt="Paranjape Forest Trails" style="height: 28px; width: auto; object-fit: contain;">
       </a>
-      <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
-        <a href="/index.html#township-overview" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">TOWNSHIP</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">VILLAS & PLOTS</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-apartments/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">APARTMENTS</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">THE CLIFF CLUB</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">EQUESTRIAN</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" class="nav-link-item" style="color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em;">SCHOOL</a>
+
+      <!-- Desktop Central Navigation Links -->
+      <div class="nav-links" style="display: flex; align-items: center; gap: 1.5rem;">
+        <a href="/index.html#township-overview" style="color: #ffffff; text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">TOWNSHIP</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" style="color: #ffffff; text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">VILLAS & PLOTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #ffffff; text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">APARTMENTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #ffffff; text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">CLIFF CLUB</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #ffffff; text-decoration: none; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">SCHOOL</a>
       </div>
-      <div class="nav-actions" style="display: flex; gap: 0.8rem; align-items: center;">
-        <a href="tel:+917744009295" class="nav-callback-btn open-enquiry-modal" id="nav-desktop-callback" aria-label="Request Callback Call Gallery +91 7744009295">📞 REQUEST CALLBACK (+91 7744009295)</a>
-        <button class="open-global-search" id=data-dedup-id=btn-global-search-trigger"btn-global-search-trigger style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2); padding: 0.7rem 1.2rem; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer;">SEARCH ECOSYSTEM</button>
-        <button class="open-enquiry-modal nav-enquire-btn" id=data-dedup-id=cta-header-enquire-global"cta-header-enquire-global style="background: linear-gradient(135deg, var(--pscl-maroon), #8B1A1A); color: #fff; border: none; padding: 0.76rem 1.5rem; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; border-radius: 4px; cursor: pointer;">ENQUIRE</button>
+
+      <!-- Desktop Right Action Cluster -->
+      <div class="nav-actions" style="display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0;">
+        <a href="tel:+917744009295" class="open-enquiry-modal" style="background: rgba(212, 175, 55, 0.15); color: #D4AF37; border: 1px solid rgba(212, 175, 55, 0.6); padding: 0.5rem 0.9rem; border-radius: 4px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.05em; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; transition: all 0.3s ease;">
+          📞 +91 7744009295
+        </a>
+        <button class="open-global-search" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 0.5rem 0.8rem; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em; border-radius: 4px; cursor: pointer; white-space: nowrap;">SEARCH</button>
+        <button class="open-enquiry-modal" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #ffffff; border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.5rem 1.1rem; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; border-radius: 4px; cursor: pointer; white-space: nowrap;">ENQUIRE</button>
       </div>
+
     </div>
   </nav>
 </header> <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) --> <nav class="breadcrumb-nav" aria-label="Breadcrumb"> <div class="container"> <ol class="breadcrumb-list"> <li class="breadcrumb-item"><a href="/">Home</a></li> <li class="breadcrumb-separator">/</li> <li class="breadcrumb-item"><a href="/paranjape-forest-trails-township-bhugaon-facilities.html">Township</a></li> <li class="breadcrumb-separator">/</li> <li class="breadcrumb-item active" aria-current="page">Paranjape Forest Trails at Paranjape Forest Trails Bhugaon</li> </ol> </div> </nav> <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) --> <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) --> <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) --> <!-- Parallax Hero --> <section class="club-hero"> <div class="club-hero-content"> <span style="color: var(--pscl-gold); font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1rem; display: block;">190-Acre Masterplan</span> <h1 id=data-dedup-id=voice-ready-h1"voice-ready-h1 class="hero-title">Township Infrastructure & Facilities Universe</h1>
