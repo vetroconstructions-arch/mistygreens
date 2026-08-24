@@ -570,6 +570,20 @@
 }
 </script>
 
+<!-- Google Analytics GA4 Infrastructure Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+  window.trackEnquiryEvent = function(category, action, label) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, { 'event_category': category, 'event_label': label });
+    }
+  };
+</script>
+
 </head>
 <body> <!-- Opening Modal (Phase 19) --> <div class="opening-modal" id=data-dedup-id=main-opening-modal"main-opening-modal> <div class="opening-modal-container"> <button id=data-dedup-id=opening-close"opening-close aria-label="Close">&times;</button> <div class="opening-modal-visual" style="background-image: url(/images/drone-aerial.webp);"></div> <div class="opening-modal-content"> <h2>The Sovereign <i>Experience</i></h2> <p>Unlock private pricing and exclusive site visit slots for the 190-acre Forest Trails township. Limited inventory available.</p> <div style="background: rgba(136, 115, 47, 0.1); border: 1px solid var(--pscl-gold); color: var(--pscl-gold); padding: 0.8rem; border-radius: 8px; font-size: 0.8rem; margin: 1rem 0; text-align: center; font-weight: 600;"> <i class="fas fa-taxi"></i> ★ Complimentary VIP Cab Pick-up & Drop available exclusively for site visits booked today. </div> <form class="opening-form" id=data-dedup-id=opening-intent-form"opening-intent-form method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
                     <input type="hidden" name="cluster_attribution" value="RETREAT">

@@ -583,6 +583,20 @@
 }
 </script>
 
+<!-- Google Analytics GA4 Infrastructure Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+  window.trackEnquiryEvent = function(category, action, label) {
+    if (typeof gtag === 'function') {
+      gtag('event', action, { 'event_category': category, 'event_label': label });
+    }
+  };
+</script>
+
 </head>
 <body> <!-- Architectural Navigation (Propagated Phase 26) --> <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 0;">
   <nav class="nav-main" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; height: 50px;">
