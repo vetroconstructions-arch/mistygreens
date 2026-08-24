@@ -3729,3 +3729,71 @@ html, body {
   font-weight: 600;
 }
 
+
+
+/* ==========================================================================
+   UI ANOMALY OVERRIDES & LUXURY FORM INPUT STYLING
+   ========================================================================== */
+
+/* 1. Hide orphan conversion pills & advisor bubbles inside overflow containers */
+.conversion-pill, #sovereign-advisor-bubble {
+    display: none !important;
+}
+
+/* 2. Global Luxury Input & Select Styling for Modals & Panels */
+.enquiry-input-premium,
+.mp-input-premium,
+.concierge-panel input[type="text"],
+.concierge-panel input[type="tel"],
+.concierge-panel input[type="email"],
+.concierge-panel select,
+.concierge-modal input[type="text"],
+.concierge-modal input[type="tel"],
+.concierge-modal input[type="email"],
+.concierge-modal select {
+    width: 100% !important;
+    padding: 1.1rem 1.4rem !important;
+    background: #ffffff !important;
+    border: 1.5px solid rgba(140, 115, 47, 0.3) !important;
+    border-radius: 12px !important;
+    font-size: 0.95rem !important;
+    font-family: var(--font-body, 'Inter', sans-serif) !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
+    transition: all 0.3s ease !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+}
+
+.enquiry-input-premium:focus,
+.mp-input-premium:focus,
+.concierge-panel input:focus,
+.concierge-panel select:focus,
+.concierge-modal input:focus,
+.concierge-modal select:focus {
+    border-color: var(--pscl-gold) !important;
+    background: #ffffff !important;
+    box-shadow: 0 8px 25px rgba(140, 115, 47, 0.2) !important;
+}
+
+.enquiry-input-premium::placeholder,
+.mp-input-premium::placeholder,
+.concierge-panel input::placeholder,
+.concierge-modal input::placeholder {
+    color: #777777 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+}
+
+/* Ensure select dropdown arrow styling */
+.concierge-panel select, .concierge-modal select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c732f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 1.2rem center !important;
+    background-size: 1.2rem !important;
+    padding-right: 3rem !important;
+}

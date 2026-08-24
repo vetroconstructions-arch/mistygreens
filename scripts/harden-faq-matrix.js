@@ -8,7 +8,7 @@ const FAQ_DATA = [
     { q: "Where is Paranjape Forest Trails Bhugaon located?", a: "Paranjape Forest Trails is located in Bhugaon, Pune West, just 10 minutes from Chandani Chowk and 15 minutes from Bavdhan. The 190-acre township is heart-centrally positioned along the upcoming PMRDA Ring Road." },
     { q: "Is Paranjape Forest Trails a RERA registered project?", a: "Yes, Paranjape Forest Trails is a RERA registered integrated township. The latest phases including Phase 51 and Misty Greens are fully compliant with all local PMRDA and RERA norms." },
     { q: "What amenities are available in the 190-acre Forest Trails township?", a: "Forest Trails features the world-class 'The Cliff Club', an Olympic-sized sports complex, the Equestrian Academy (Horse Riding), and multiple landscaped walking trails. Residents also enjoy proximity to the Sri Sri Ravishankar School within the township." },
-    { q: "Can I buy a plot with a bank loan at Forest Trails Forest Trails?", a: "Yes, NA bungalow plots at Forest Trails are bankable with leading financial institutions. We offer loan assistance and pre-approved home loan facilities for custom villa construction." }
+    { q: "Can I buy a plot with a bank loan at Paranjape Forest Trails?", a: "Yes, NA bungalow plots at Forest Trails are bankable with leading financial institutions. We offer loan assistance and pre-approved home loan facilities for custom villa construction." }
 ];
 
 function getFiles(dir, files = []) {
