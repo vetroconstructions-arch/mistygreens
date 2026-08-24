@@ -4350,3 +4350,47 @@ section .breadcrumb-nav {
         height: 50px !important;
     }
 }
+
+
+/* ==========================================================================
+   ULTRA MODERN PROJECT & CLUSTER CARD ARCHITECTURE
+   ========================================================================== */
+
+.cluster-card, .project-card {
+    background: rgba(255, 255, 255, 0.04) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1) !important;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.cluster-card:hover, .project-card:hover {
+    transform: translateY(-8px) scale(1.015) !important;
+    border-color: rgba(212, 175, 55, 0.75) !important;
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.25) !important;
+}
+
+.cluster-card .price-tag, .project-card .price-tag {
+    background: linear-gradient(135deg, #6B0D0D, #8B1A1A) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    font-size: 0.82rem !important;
+    padding: 0.35rem 0.9rem !important;
+    border-radius: 50px !important;
+    border: 1px solid #D4AF37 !important;
+    display: inline-block !important;
+}
+
+.cluster-card .spec-pill, .project-card .spec-pill {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.72rem !important;
+    padding: 0.25rem 0.75rem !important;
+    border-radius: 50px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
