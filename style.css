@@ -3847,3 +3847,61 @@ html, body {
         display: none !important;
     }
 }
+
+
+/* ==========================================================================
+   OFFICIAL DUAL BRAND LOGO SECTION (GOOGLE WEB STANDARDS COMPLIANT)
+   ========================================================================== */
+
+.nav-brand-container {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    text-decoration: none !important;
+    background: #ffffff !important;
+    padding: 0.4rem 0.9rem !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-brand-container:hover {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+.nav-logo-corp {
+    height: 36px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+.nav-logo-divider {
+    width: 1px !important;
+    height: 30px !important;
+    background: rgba(140, 115, 47, 0.3) !important;
+    display: inline-block !important;
+}
+
+.nav-logo-township {
+    height: 36px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+@media (max-width: 768px) {
+    .nav-brand-container {
+        padding: 0.3rem 0.6rem !important;
+        gap: 0.5rem !important;
+    }
+    .nav-logo-corp {
+        height: 26px !important;
+    }
+    .nav-logo-divider {
+        height: 20px !important;
+    }
+    .nav-logo-township {
+        height: 26px !important;
+    }
+}
