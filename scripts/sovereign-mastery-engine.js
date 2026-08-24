@@ -7,7 +7,7 @@ const BASE_DOMAIN = "https://www.paranjapetownship.com";
 
 // PRICING MATRIX
 const PRICING_MATRIX = {
-    "everglades": "₹46.99 Lakhs*",
+    "everglades": "₹48.50 Lakhs*",
     "plots": "₹1.23 Cr*",
     "villas": "₹3.50 Cr*",
     "apartments": "₹85 Lakhs*",
