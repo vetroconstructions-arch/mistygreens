@@ -823,6 +823,207 @@
       </div>
     </section>
 
+
+    <!-- Sovereign Master Plan, Floor Plans & Visual Gallery Strategic Module (PSCL Standard v2026) -->
+    <section class="section master-floor-gallery-module" id="master-floor-gallery" style="padding: 5rem 0; background: #080808; border-top: 1px solid rgba(212,175,55,0.3); border-bottom: 1px solid rgba(212,175,55,0.3);">
+      <div class="container" style="max-width: 1250px; margin: 0 auto; padding: 0 1.5rem;">
+        
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 3.5rem;">
+          <span style="background: rgba(212,175,55,0.15); color: #D4AF37; border: 1px solid rgba(212,175,55,0.4); padding: 0.4rem 1.2rem; border-radius: 50px; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.2rem; text-transform: uppercase;">✦ ARCHITECTURAL MATRIX & BLUEPRINTS</span>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); color: #ffffff; margin-top: 1rem;">Master Plan, <i style="color: #D4AF37;">Floor Plans & Gallery</i></h2>
+          <p style="color: rgba(255,255,255,0.85); font-size: 1.15rem; max-width: 850px; margin: 1rem auto 0; font-weight: 500;">
+            Explore the 190+ acre master layout, individual unit floor plan schematics, and high-resolution visual gallery of Paranjape Forest Trails Bhugaon.
+          </p>
+        </div>
+
+        <!-- Tab Controls -->
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem;">
+          <button onclick="switchMasterTab('tab-masterplan', this)" class="module-tab-btn active" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #ffffff; border: 1.5px solid #D4AF37; padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">
+            🗺️ Master Plan Layout
+          </button>
+          <button onclick="switchMasterTab('tab-floorplans', this)" class="module-tab-btn" style="background: rgba(255,255,255,0.05); color: #ffffff; border: 1.5px solid rgba(255,255,255,0.2); padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">
+            📐 Unit Floor Plans
+          </button>
+          <button onclick="switchMasterTab('tab-gallery', this)" class="module-tab-btn" style="background: rgba(255,255,255,0.05); color: #ffffff; border: 1.5px solid rgba(255,255,255,0.2); padding: 0.8rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">
+            📸 Visual Gallery
+          </button>
+        </div>
+
+        <!-- Tab 1: Master Plan Layout -->
+        <div id="tab-masterplan" class="module-tab-content" style="display: block;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; align-items: center; background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.3); border-radius: 24px; padding: 2.5rem;">
+            <div style="position: relative; border-radius: 16px; overflow: hidden; border: 2px solid rgba(212,175,55,0.4); box-shadow: 0 15px 35px rgba(0,0,0,0.6);">
+              <img src="/images/master-plan.webp" alt="Paranjape Forest Trails 190-Acre Master Layout Plan" style="width: 100%; height: auto; display: block; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 15px; right: 15px; background: rgba(0,0,0,0.85); border: 1px solid #D4AF37; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; color: #D4AF37; font-weight: 800;">
+                🔍 Click to Enlarge
+              </div>
+            </div>
+            <div>
+              <span style="color: #D4AF37; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15rem; display: block; margin-bottom: 0.5rem;">Township Architecture</span>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #ffffff; margin-bottom: 1.2rem;">190-Acre Integrated Forest Masterplan</h3>
+              <p style="color: rgba(255,255,255,0.85); font-size: 0.98rem; line-height: 1.8; margin-bottom: 1.5rem;">
+                Crafted in total harmony with the Sahyadri hill slopes, the Forest Trails master plan integrates 5 distinct residential sectors, over 30,000 oxygen-rich forest trees, 12M wide asphalt internal avenues, Sri Sri Ravishankar School campus, and the 1.5-acre Cliff Lifestyle Hub.
+              </p>
+              
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255,255,255,0.04); padding: 1rem; border-radius: 10px; border-left: 3px solid #D4AF37;">
+                  <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Sector A & B</strong>
+                  <span style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Skyline Villas & Misty Heights</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); padding: 1rem; border-radius: 10px; border-left: 3px solid #D4AF37;">
+                  <strong style="color: #ffffff; font-size: 0.9rem; display: block;">Sector C & D</strong>
+                  <span style="color: rgba(255,255,255,0.65); font-size: 0.78rem;">Misty Greens Plots & Forest Edge</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button onclick="window.openMasterPlanModal && window.openMasterPlanModal(event)" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #ffffff; border: 1.5px solid #D4AF37; padding: 0.85rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease;">
+                  🔍 Full Screen Master Plan
+                </button>
+                <a href="https://wa.me/917744009295?text=Hi%2C%20please%20send%20me%20the%20high-res%20Forest%20Trails%20Master%20Plan%20PDF." target="_blank" rel="noopener" style="background: #25D366; color: #ffffff; padding: 0.85rem 1.8rem; border-radius: 50px; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                  💬 Download Masterplan PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Unit Floor Plans -->
+        <div id="tab-floorplans" class="module-tab-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem;">
+            
+            <!-- 1 BHK Floor Plan Card -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 1.8rem; border-top: 4px solid #D4AF37;">
+              <span style="background: rgba(212,175,55,0.15); color: #D4AF37; padding: 0.2rem 0.8rem; border-radius: 50px; font-weight: 800; font-size: 0.7rem;">EVERGLADES II</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #ffffff; margin: 0.8rem 0 0.4rem;">1 BHK PRO Home</h4>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 1.2rem;">Carpet Area: <strong>518 SQFT</strong> | View Deck Balcony</p>
+              <div style="background: #000; border-radius: 12px; padding: 1rem; text-align: center; margin-bottom: 1.2rem;">
+                <img src="/images/plots.webp" alt="1 BHK Floor Plan Schematic" style="max-height: 180px; width: auto; margin: 0 auto; display: block; border-radius: 8px; filter: contrast(1.1);" loading="lazy" decoding="async">
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong style="color: #25D366; font-size: 1.1rem;">From ₹43.99L*</strong>
+                <button class="open-enquiry-modal" style="background: #D4AF37; color: #000; border: none; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; cursor: pointer;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">Request Plan</button>
+              </div>
+            </div>
+
+            <!-- 2 BHK Floor Plan Card -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 1.8rem; border-top: 4px solid #D4AF37;">
+              <span style="background: rgba(212,175,55,0.15); color: #D4AF37; padding: 0.2rem 0.8rem; border-radius: 50px; font-weight: 800; font-size: 0.7rem;">THE CANOPY & HIGHGARDENS</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #ffffff; margin: 0.8rem 0 0.4rem;">2 BHK Premium Residence</h4>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 1.2rem;">Carpet Area: <strong>745 - 890 SQFT</strong> | Terrace Garden</p>
+              <div style="background: #000; border-radius: 12px; padding: 1rem; text-align: center; margin-bottom: 1.2rem;">
+                <img src="/images/highgardens-realistic.webp" alt="2 BHK Floor Plan Schematic" style="max-height: 180px; width: 100%; object-fit: cover; margin: 0 auto; display: block; border-radius: 8px;" loading="lazy" decoding="async">
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong style="color: #25D366; font-size: 1.1rem;">From ₹49L* - ₹93L*</strong>
+                <button class="open-enquiry-modal" style="background: #D4AF37; color: #000; border: none; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; cursor: pointer;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">Request Plan</button>
+              </div>
+            </div>
+
+            <!-- 3 BHK Floor Plan Card -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 1.8rem; border-top: 4px solid #D4AF37;">
+              <span style="background: rgba(212,175,55,0.15); color: #D4AF37; padding: 0.2rem 0.8rem; border-radius: 50px; font-weight: 800; font-size: 0.7rem;">VERANDAH & HIGHGARDENS</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #ffffff; margin: 0.8rem 0 0.4rem;">3 BHK Luxury Terrace Home</h4>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 1.2rem;">Carpet Area: <strong>1,120 - 1,450 SQFT</strong> | Grand Deck</p>
+              <div style="background: #000; border-radius: 12px; padding: 1rem; text-align: center; margin-bottom: 1.2rem;">
+                <img src="/images/apartments-verandah-realistic.webp" alt="3 BHK Floor Plan Schematic" style="max-height: 180px; width: 100%; object-fit: cover; margin: 0 auto; display: block; border-radius: 8px;" loading="lazy" decoding="async">
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong style="color: #25D366; font-size: 1.1rem;">From ₹93L* - ₹1.45Cr*</strong>
+                <button class="open-enquiry-modal" style="background: #D4AF37; color: #000; border: none; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; cursor: pointer;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">Request Plan</button>
+              </div>
+            </div>
+
+            <!-- 4 & 5 BHK Villa Floor Plan Card -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 18px; padding: 1.8rem; border-top: 4px solid #D4AF37;">
+              <span style="background: rgba(212,175,55,0.15); color: #D4AF37; padding: 0.2rem 0.8rem; border-radius: 50px; font-weight: 800; font-size: 0.7rem;">THE RIVOLO VILLA COLLECTION</span>
+              <h4 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #ffffff; margin: 0.8rem 0 0.4rem;">4 & 5 BHK Independent Villa</h4>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 1.2rem;">Carpet Area: <strong>3,200 - 4,800 SQFT</strong> | Private Garden</p>
+              <div style="background: #000; border-radius: 12px; padding: 1rem; text-align: center; margin-bottom: 1.2rem;">
+                <img src="/images/villas-exterior-1.webp" alt="Villa Floor Plan Schematic" style="max-height: 180px; width: 100%; object-fit: cover; margin: 0 auto; display: block; border-radius: 8px;" loading="lazy" decoding="async">
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <strong style="color: #25D366; font-size: 1.1rem;">From ₹1.8Cr* - ₹3.5Cr*</strong>
+                <button class="open-enquiry-modal" style="background: #D4AF37; color: #000; border: none; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; cursor: pointer;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">Request Plan</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Tab 3: Visual Gallery -->
+        <div id="tab-gallery" class="module-tab-content" style="display: none;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+            
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/drone-aerial.webp" alt="Township Panoramic Aerial View" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">190-Acre Panoramic Aerial View</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">Sahyadri Foothills Corridor</span>
+              </div>
+            </div>
+
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/cliff-club-pool-night.webp" alt="The Cliff Lifestyle Club & Pool" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">The Cliff Sports Club & Pool</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">1.5-Acre Lifestyle Hub</span>
+              </div>
+            </div>
+
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/equestrian.webp" alt="Equestrian Horse Riding Academy" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">Equestrian Riding Academy</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">Professional Horse Riding Arena</span>
+              </div>
+            </div>
+
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/villas-courtyard.webp" alt="The Rivolo Luxury Villa Courtyard" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">The Rivolo Villa Courtyard</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">Private Garden & Plunge Pool</span>
+              </div>
+            </div>
+
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/highgardens-realistic.webp" alt="Highgardens Terrace Garden Apartments" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">Highgardens Terrace Apartments</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">2 & 3 BHK Garden Facing Units</span>
+              </div>
+            </div>
+
+            <div style="position: relative; border-radius: 16px; overflow: hidden; height: 240px; border: 1px solid rgba(212,175,55,0.3);">
+              <img src="/images/canopy-realistic.webp" alt="The Canopy 21-Storey Tower" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
+              <div style="position: absolute; bottom: 0; inset-x: 0; background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.9) 100%); padding: 1rem;">
+                <strong style="color: #ffffff; font-size: 0.95rem; display: block;">The Canopy 21-Storey Tower</strong>
+                <span style="color: #D4AF37; font-size: 0.75rem;">Cloud 21 Floating Pool</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Tab Switcher JS Script -->
+    <script>
+      function switchMasterTab(tabId, btn) {
+        document.querySelectorAll('.module-tab-content').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.module-tab-btn').forEach(el => {
+          el.style.background = 'rgba(255,255,255,0.05)';
+          el.style.border = '1.5px solid rgba(255,255,255,0.2)';
+        });
+        document.getElementById(tabId).style.display = 'block';
+        btn.style.background = 'linear-gradient(135deg, #6B0D0D, #8B1A1A)';
+        btn.style.border = '1.5px solid #D4AF37';
+      }
+    </script>
+
 </main> <footer style="background: #080808; border-top: 1px solid rgba(212,175,55,0.3); color: #ffffff; padding: 4rem 0 2rem; font-family: 'Plus Jakarta Sans', sans-serif;">
   <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
     
