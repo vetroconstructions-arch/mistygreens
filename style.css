@@ -4275,3 +4275,59 @@ section::after {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
 }
+
+
+/* ==========================================================================
+   SEAMLESS TRANSLUCENT BREADCRUMB OVERLAY (SITS BEHIND / INSIDE HERO)
+   ========================================================================== */
+
+/* Hide standalone breadcrumbs that sit outside main or after header */
+body > nav.breadcrumb-nav,
+header + nav.breadcrumb-nav,
+header + div.breadcrumb-nav {
+    display: none !important;
+}
+
+/* Translucent floating glass pill breadcrumb inside hero */
+main .breadcrumb-nav,
+.hero-section .breadcrumb-nav,
+section .breadcrumb-nav {
+    display: inline-flex !important;
+    align-items: center !important;
+    background: rgba(0, 0, 0, 0.45) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-radius: 50px !important;
+    padding: 0.35rem 1.2rem !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    margin: 1rem auto !important;
+    z-index: 10 !important;
+}
+
+.breadcrumb-list {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.breadcrumb-item, .breadcrumb-item a {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+}
+
+.breadcrumb-item.active {
+    color: #D4AF37 !important;
+    font-weight: 700 !important;
+}
+
+.breadcrumb-separator {
+    color: rgba(212, 175, 55, 0.6) !important;
+    font-size: 0.72rem !important;
+}
