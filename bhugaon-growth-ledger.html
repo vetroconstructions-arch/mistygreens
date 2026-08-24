@@ -1524,5 +1524,18 @@
   <p>Bhugaon Pune real estate, Bavdhan plots for sale, Kothrud NA plots, Paud Road luxury villas, Chandani Chowk Pune property, Pashan Baner IT hub connectivity, PMRDA Ring Road Bhugaon interchange growth, 1 BHK 2 BHK 3 BHK 4 BHK 5 BHK flats Bhugaon Pune, Paranjape Schemes contact number +917744009295, Paranjape price list 2026, Paranjape master plan brochure PDF download.</p>
 </div>
 
+
+<script>
+function switchCardTab(btn, tabName) {
+    const card = btn.closest('.cluster-card');
+    if (!card) return;
+    card.querySelectorAll('.cluster-tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.cluster-tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    const target = card.querySelector(`.cluster-tab-content[data-tab="${tabName}"]`);
+    if (target) target.classList.add('active');
+}
+</script>
+
 </body>
 </html>
