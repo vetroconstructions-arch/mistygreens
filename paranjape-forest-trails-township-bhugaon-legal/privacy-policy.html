@@ -961,6 +961,10 @@
 }
 </script>
 
+<!-- Pannellum 360° WebGL Virtual Tour Engine -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.js" defer></script>
+
 </head>
 <body>
     <h1 id="voice-ready-h1" class="hero-title">Premium NA Bungalow Plots Bhugaon | Paranjape Forest Trails Legacy</h1>
@@ -1519,6 +1523,51 @@ function switchCardTab(btn, tabName) {
     btn.classList.add('active');
     const target = card.querySelector(`.cluster-tab-content[data-tab="${tabName}"]`);
     if (target) target.classList.add('active');
+}
+</script>
+
+
+<!-- Sovereign 360° WebGL Aerial Drone Virtual Tour Canvas Modal -->
+<div id="virtual-tour-modal" class="concierge-modal" style="display: none; position: fixed; inset: 0; z-index: 10005; background: rgba(0,0,0,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); align-items: center; justify-content: center; padding: 1.5rem;">
+  <div style="position: relative; max-width: 1300px; width: 95%; background: #0a0a0a; border: 1.5px solid #D4AF37; border-radius: 24px; padding: 2rem; box-shadow: 0 25px 60px rgba(0,0,0,0.9); overflow: hidden;">
+    <button type="button" onclick="document.getElementById('virtual-tour-modal').classList.remove('active'); document.getElementById('virtual-tour-modal').style.display='none';" style="position: absolute; top: 1.2rem; right: 1.5rem; background: rgba(255,255,255,0.15); color: #fff; border: 1px solid rgba(255,255,255,0.3); width: 42px; height: 42px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; z-index: 10;">✕</button>
+    <div style="text-align: center; margin-bottom: 1rem;">
+      <span style="color: #D4AF37; font-weight: 900; letter-spacing: 0.2rem; text-transform: uppercase; font-size: 0.7rem;">✦ Interactive WebGL 360° Panorama</span>
+      <h3 style="font-family: 'Playfair Display', serif; color: #ffffff; font-size: 1.8rem; margin-top: 0.3rem;">190-Acre Drone Aerial Virtual Walkthrough</h3>
+      <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">Click and drag mouse or swipe on mobile to explore 360° views of Sahyadri misty hills, Misty Greens plots & villas.</p>
+    </div>
+    
+    <!-- 360° WebGL Viewer Canvas Container -->
+    <div id="panorama-360-container" style="width: 100%; height: 60vh; border-radius: 16px; border: 1px solid rgba(212,175,55,0.4); overflow: hidden; background: #000;"></div>
+
+    <div style="margin-top: 1.2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <span style="color: #a3e6b4; font-size: 0.78rem; font-weight: 600;">🔄 Drag to rotate 360° | Scroll to zoom in/out</span>
+      <div style="display: flex; gap: 0.8rem;">
+        <a href="https://wa.me/917744009295?text=Hi%2C%20I%20toured%20the%20360%20Virtual%20Tour%20of%20Forest%20Trails%20Bhugaon.%20Please%20send%20site%20visit%20details." target="_blank" rel="noopener" style="background: #25D366; color: #fff; padding: 0.7rem 1.4rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; text-decoration: none;">💬 WHATSAPP TOUR ASSISTANT</a>
+        <button class="open-enquiry-modal" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1px solid #D4AF37; padding: 0.7rem 1.4rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; cursor: pointer;" onclick="document.getElementById('virtual-tour-modal').classList.remove('active'); document.getElementById('virtual-tour-modal').style.display='none'; window.openEnquiryModal && window.openEnquiryModal(event);">BOOK PHYSICAL SITE TOUR</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function init360VirtualTour() {
+  const modal = document.getElementById('virtual-tour-modal');
+  if (!modal) return;
+  modal.classList.add('active');
+  modal.style.display = 'flex';
+  
+  if (typeof pannellum !== 'undefined') {
+    pannellum.viewer('panorama-360-container', {
+      "type": "equirectangular",
+      "panorama": "/images/drone-aerial.webp",
+      "autoLoad": true,
+      "autoRotate": -2,
+      "compass": true,
+      "title": "Paranjape Forest Trails 190-Acre Township",
+      "author": "Paranjape Schemes"
+    });
+  }
 }
 </script>
 
