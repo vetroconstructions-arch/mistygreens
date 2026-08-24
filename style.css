@@ -3938,3 +3938,17 @@ html, body {
     width: auto !important;
     object-fit: contain !important;
 }
+
+
+/* ==========================================================================
+   GLOBAL STANDARD FLOATING NAVBAR PILL & GOOGLE FONTS
+   ========================================================================== */
+
+.nav-pill-container a:hover {
+    color: var(--pscl-gold) !important;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4) !important;
+}
+
+@media (max-width: 1024px) {
+    .nav-pill-container { display: none !important; }
+}
