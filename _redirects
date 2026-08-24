@@ -1,13 +1,11 @@
-https://paranjapetownship.com/* https://www.paranjapetownship.com/:splat 301!
-http://paranjapetownship.com/* https://www.paranjapetownship.com/:splat 301!
-http://www.paranjapetownship.com/* https://www.paranjapetownship.com/:splat 301!
+# Sovereign Cloudflare Edge 301 Redirect Rules v1.0
+# Domain: https://www.paranjapetownship.com
 
-/paranjape-forest-trails-township-bhugaon-the-cove-villas/about-paranjape-schemes/ / 301
-/paranjape-forest-trails-township-bhugaon-athashri-senior-living/ /paranjape-forest-trails-bhugaon-athashri/ 301
-/location/it-hub-proximity-hinjewadi/ / 301
-/paranjape-forest-trails-township-bhugaon-the-cove-villas-bhugaon/ /paranjape-forest-trails-bhugaon-the-cove/ 301
-/premium-apartments-forest-trails/ / 301
-/paranjape-forest-trails-township-bhugaon-the-cove-villas/ /paranjape-forest-trails-bhugaon-the-cove/ 301
-/legal/rera-compliance-guide/ / 301
-/highgardens-apartments-bhugaon/ / 301
-/paranjape-schemes-forest-trails-villas/ / 301
+# 1. Clean Trailing Slash Canonicalization
+/paranjape-forest-trails-township-bhugaon-villas-plots.html /paranjape-forest-trails-township-bhugaon-villas-plots/ 301
+/paranjape-forest-trails-township-bhugaon-facilities.html /paranjape-forest-trails-township-bhugaon-facilities/ 301
+
+# 2. Permanent Permalink Canonical Routing
+/misty-greens /paranjape-forest-trails-township-bhugaon-misty-greens/ 301
+/the-cliff-lifestyle-hub /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301
+/sri-sri-ravishankar-school /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301
