@@ -3921,3 +3921,20 @@ html, body {
 @media (max-width: 1024px) {
     .nav-links { display: none !important; }
 }
+
+
+/* ==========================================================================
+   MASTER CONTRAST BRAND EMBLEM & HEADER STYLING
+   ========================================================================== */
+
+.nav-brand-container {
+    background: #ffffff !important;
+    border: 1.5px solid #D4AF37 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.35) !important;
+}
+
+.nav-brand-container img {
+    max-height: 32px !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
