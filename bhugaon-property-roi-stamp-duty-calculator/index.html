@@ -19,7 +19,7 @@
   <meta property="og:title" content="Bhugaon Property ROI & Stamp Duty Calculator | Forest Trails">
   <meta property="og:description" content="Estimate your capital appreciation ROI and stamp duty breakdown for properties in Bhugaon.">
   <meta property="og:url" content="https://www.paranjapetownship.com/bhugaon-property-roi-stamp-duty-calculator/">
-  <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
+  <meta property="og:image" content="/images/hero-township.webp">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Schema.org JSON-LD -->
@@ -43,7 +43,7 @@
   "name": "Paranjape Forest Trails Township Aerial Walkthrough & Villa Showcase",
   "description": "Experience an aerial drone tour of the 190-acre Paranjape Forest Trails township in Bhugaon, Pune West, featuring 30,000 trees, equestrian riding academy, and luxury forest villas.",
   "thumbnailUrl": [
-    "https://www.paranjapetownship.com/images/hero-township.webp"
+    "/images/hero-township.webp"
   ],
   "uploadDate": "2026-01-15T08:00:00+05:30",
   "duration": "PT3M45S",
@@ -271,9 +271,9 @@
         <div style="margin-bottom: 25px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <label style="font-weight: 600; color: #E2E8F0;">Property Purchase Price (₹)</label>
-            <span id=data-dedup-id=price-val"price-val style="color: #D4AF37; font-weight: 800; font-size: 18px;">₹ 1,23,00,000</span>
+            <span id="price-val" style="color: #D4AF37; font-weight: 800; font-size: 18px;">₹ 1,23,00,000</span>
           </div>
-          <input type="range" id=data-dedup-id=price-input"price-input min="5000000" max="60000000" step="500000" value="12300000" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="price_input" aria-label="Price Input">
+          <input type="range" id="price-input" min="5000000" max="60000000" step="500000" value="12300000" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="price_input" aria-label="Price Input">
           <div style="display: flex; justify-content: space-between; color: #64748B; font-size: 12px; margin-top: 5px;">
             <span>₹ 50 L (Apts)</span>
             <span>₹ 6 Cr (Villas)</span>
@@ -284,9 +284,9 @@
         <div style="margin-bottom: 35px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
             <label style="font-weight: 600; color: #E2E8F0;">Expected Annual Appreciation (%)</label>
-            <span id=data-dedup-id=growth-val"growth-val style="color: #D4AF37; font-weight: 800; font-size: 18px;">12.0 %</span>
+            <span id="growth-val" style="color: #D4AF37; font-weight: 800; font-size: 18px;">12.0 %</span>
           </div>
-          <input type="range" id=data-dedup-id=growth-input"growth-input min="6.0" max="18.0" step="0.5" value="12.0" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="growth_input" aria-label="Growth Input">
+          <input type="range" id="growth-input" min="6.0" max="18.0" step="0.5" value="12.0" style="width: 100%; accent-color: #D4AF37; cursor: pointer;" name="growth_input" aria-label="Growth Input">
           <div style="display: flex; justify-content: space-between; color: #64748B; font-size: 12px; margin-top: 5px;">
             <span>6.0 % (Conservative)</span>
             <span>18.0 % (Ring Road Boom)</span>
@@ -297,15 +297,15 @@
         <div style="background: rgba(15, 23, 42, 0.9); padding: 25px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2); display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center;">
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">Stamp Duty (7%)</div>
-            <div id=data-dedup-id=result-stamp"result-stamp style="color: #F59E0B; font-size: 22px; font-weight: 800; margin-top: 6px;">₹ 8,61,000</div>
+            <div id="result-stamp" style="color: #F59E0B; font-size: 22px; font-weight: 800; margin-top: 6px;">₹ 8,61,000</div>
           </div>
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">Registration (1% / Max 30k)</div>
-            <div id=data-dedup-id=result-reg"result-reg style="color: #38BDF8; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 30,000</div>
+            <div id="result-reg" style="color: #38BDF8; font-size: 22px; font-weight: 700; margin-top: 6px;">₹ 30,000</div>
           </div>
           <div>
             <div style="color: #94A3B8; font-size: 13px; font-weight: 600; text-transform: uppercase;">5-Yr Projected Value</div>
-            <div id=data-dedup-id=result-5yr"result-5yr style="color: #4ADE80; font-size: 24px; font-weight: 800; margin-top: 6px;">₹ 2,16,76,966</div>
+            <div id="result-5yr" style="color: #4ADE80; font-size: 24px; font-weight: 800; margin-top: 6px;">₹ 2,16,76,966</div>
           </div>
         </div>
 
@@ -343,7 +343,7 @@
   </script>
 
   <!-- Mobile Quick Action Dock -->
-  <div id=data-dedup-id=mobile-action-dock"mobile-action-dock class="mobile-action-dock" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 10001; background: rgba(11, 17, 32, 0.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: space-around; padding: 10px 15px;">
+  <div id="mobile-action-dock" class="mobile-action-dock" style="position: fixed; bottom: 0; left: 0; right: 0; z-index: 10001; background: rgba(11, 17, 32, 0.96); backdrop-filter: blur(12px); border-top: 1px solid rgba(212, 175, 55, 0.3); display: flex; align-items: center; justify-content: space-around; padding: 10px 15px;">
     <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon%20Township." target="_blank" rel="noopener" style="background: #25D366; color: #ffffff; border: 1.5px solid #25D366; padding: 0.5rem 1rem; border-radius: 50px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.05em; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37,211,102,0.3);" aria-label="WhatsApp Enquiry Paranjape Forest Trails">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WHATSAPP ENQUIRY
       </a>
@@ -542,7 +542,7 @@ window.PARANJAPE_PROJECTS_DATA = {
     "layout_desc": "Integrated 190-acre township layout featuring 12m & 15m wide internal asphalt roads, underground electrical cabling, storm-water drainage, and street lighting.",
     "floor_plans": [
       { "name": "Type A - 3 BHK Villa Blueprint (2,400 sq.ft)", "img": "/images/plots.webp" },
-      { "name": "Type B - 4 BHK Luxury Mansion Blueprint (3,200 sq.ft)", "img": "/images/villas-exterior.webp" }
+      { "name": "Type B - 4 BHK Luxury Mansion Blueprint (3,200 sq.ft)", "img": "/images/villas-exterior-1.webp" }
     ],
     "amenities": [
       "🏇 Equestrian Horse Riding Academy & Stables",
@@ -563,13 +563,13 @@ window.PARANJAPE_PROJECTS_DATA = {
   "the-rivolo": {
     "title": "The Rivolo Luxury Forest Villas",
     "rera": "P52100021612 / P52100079518",
-    "price": "Starting ₹2.75 Cr*",
+    "price": "Starting ₹2.89 Cr*",
     "overview": "The Rivolo is an elite enclave of palatial 3, 4 & 5 BHK luxury forest villas offering unobstructed Sahyadri hill views. Features private swimming pool options, expansive private gardens, double-height living areas, and European architectural facades.",
-    "layout_img": "/images/villas-exterior.webp",
+    "layout_img": "/images/villas-exterior-1.webp",
     "layout_desc": "Exclusive hilltop villa layout designed for maximum privacy, natural ventilation, and hill slope views.",
     "floor_plans": [
-      { "name": "4 BHK Grand Villa Layout (3,500 sq.ft)", "img": "/images/villas-exterior.webp" },
-      { "name": "5 BHK Presidential Mansion Layout (4,800 sq.ft)", "img": "/images/villas-exterior.webp" }
+      { "name": "4 BHK Grand Villa Layout (3,500 sq.ft)", "img": "/images/villas-exterior-1.webp" },
+      { "name": "5 BHK Presidential Mansion Layout (4,800 sq.ft)", "img": "/images/villas-exterior-1.webp" }
     ],
     "amenities": [
       "🏊 Private Swimming Pool & Jacuzzi Options",
