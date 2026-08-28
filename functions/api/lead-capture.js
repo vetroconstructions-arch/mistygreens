@@ -1,7 +1,7 @@
 // Cloudflare Pages Serverless Edge Function: Lead Capture Engine v1.0
 // Route: /api/lead-capture
 
-export async function onRequestPost(context: any) {
+export async function onRequestPost(context) {
   const { request, env } = context;
 
   try {
@@ -28,7 +28,7 @@ export async function onRequestPost(context: any) {
     formData.append('_subject', `🌟 New Website Lead: ${project} - ${name} (${phone})`);
     formData.append('_captcha', 'false');
 
-    const emailResponse = await fetch('https://formsubmit.co/propsmartrealty@gmail.com', {
+    await fetch('https://formsubmit.co/propsmartrealty@gmail.com', {
       method: 'POST',
       body: formData
     });
@@ -52,7 +52,7 @@ export async function onRequestPost(context: any) {
         'Cache-Control': 'no-store, no-cache'
       }
     });
-  } catch (error: any) {
+  } catch (error) {
     return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }
