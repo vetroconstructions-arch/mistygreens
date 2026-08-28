@@ -68,22 +68,40 @@
             const form = document.getElementById('enquiry-form-modal');
             if (!modal) return;
 
-            const updateStep = (n) => {
-                modal.querySelectorAll('.advisory-step').forEach((s, i) => {
-                    s.style.display = (i + 1 === n) ? 'block' : 'none';
-                    if (i + 1 === n && typeof gsap !== 'undefined') {
-                        gsap.fromTo(s, { x: 15, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4 });
-                    }
-                });
-            };
+            const openModal = (project = 'Forest Trails Township') => {
+                const title = document.getElementById('enquiry-modal-title');
+                const projectCtx = document.getElementById('modal-project-context');
+                const interestSelect = document.getElementById('modal-interest-select');
 
-            const openModal = (project = 'Forest Trails Legacy') => {
-                const title = modal.querySelector('.form-header h3');
-                if (title) title.innerHTML = `${project} <i>Callback</i>`;
-                updateStep(1); 
+                if (title && project && project !== 'Forest Trails Legacy' && project !== 'General Township') {
+                    title.innerHTML = `Get <i style="color: #D4AF37;">${project}</i> Brochure & Price`;
+                }
+
+                if (projectCtx) projectCtx.value = project;
+
+                if (interestSelect && project) {
+                    const pLower = project.toLowerCase();
+                    if (pLower.includes('cove')) interestSelect.value = 'the-cove';
+                    else if (pLower.includes('rivolo')) interestSelect.value = 'the-rivolo';
+                    else if (pLower.includes('everglades')) interestSelect.value = 'everglades';
+                    else if (pLower.includes('athashri')) interestSelect.value = 'athashri-senior-living';
+                    else if (pLower.includes('misty') || pLower.includes('plot')) interestSelect.value = 'misty-greens';
+                    else if (pLower.includes('canopy')) interestSelect.value = 'the-canopy';
+                    else if (pLower.includes('highgarden')) interestSelect.value = 'the-highgardens';
+                    else if (pLower.includes('verandah')) interestSelect.value = 'verandah';
+                    else if (pLower.includes('orchard')) interestSelect.value = 'orchard-residences';
+                    else if (pLower.includes('swaniketan')) interestSelect.value = 'swaniketan';
+                }
+
                 modal.classList.add('active');
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
+
+                // Focus first input smoothly
+                setTimeout(() => {
+                    const nameInput = modal.querySelector('input[name="name"]');
+                    if (nameInput) nameInput.focus();
+                }, 100);
             };
 
             const closeModal = () => {
@@ -92,11 +110,14 @@
                 document.body.style.overflow = '';
             };
 
+            window.openEnquiryModal = openModal;
+            window.closeEnquiryModal = closeModal;
+
             document.addEventListener('click', (e) => {
                 const trigger = e.target.closest('#concierge-open, .open-enquiry-modal, #nav-enquire, .tour-btn, .pill-btn, .conversion-pill');
                 if (trigger && !trigger.classList.contains('direct-wa')) {
                     e.preventDefault();
-                    const p = trigger.getAttribute('data-project') || 'Forest Trails Legacy';
+                    const p = trigger.getAttribute('data-project') || trigger.innerText.trim() || 'Forest Trails Township';
                     openModal(p);
                 }
                 
@@ -105,30 +126,21 @@
                 }
             });
 
-            if (form) {
-                form.addEventListener('click', (e) => {
-                    const next = e.target.closest('.btn-next-advisory, .btn-next-step');
-                    const prev = e.target.closest('.btn-prev-advisory, .btn-prev-step');
-                    if (next) updateStep(parseInt(next.closest('.advisory-step').dataset.step) + 1);
-                    if (prev) updateStep(parseInt(prev.closest('.advisory-step').dataset.step) - 1);
-                });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    closeModal();
+                }
+            });
 
+            if (form) {
                 form.addEventListener('submit', (e) => {
                     const phone = form.querySelector('input[name="phone"]');
                     if (phone && !/^\d{10}$/.test(phone.value.trim())) {
                         e.preventDefault();
-                        this.showAlert('Invalid Phone', 'Please enter a 10-digit mobile number.', 'warning');
+                        UniversalModalManager.showAlert('Invalid Phone', 'Please enter a valid 10-digit mobile number.', 'warning');
                     }
                 });
             }
-
-            // Auto-open modal on page load after 3 seconds
-            setTimeout(() => {
-                if (!sessionStorage.getItem('modalAutoOpened')) {
-                    openModal();
-                    sessionStorage.setItem('modalAutoOpened', 'true');
-                }
-            }, 3000);
         },
 
         setupStructuralVault: function() {
@@ -1024,17 +1036,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     monitorIntent();
 
-    // Override Modal Trigger for Segmented Content
+    // Segmented Content Tracker
     const baseOpenModal = window.openEnquiryModal;
     window.openEnquiryModal = (project) => {
-        const modalTitle = document.querySelector('#enquiryModal .modal-title');
-        if (modalTitle) {
-            if (userIntent === 'Investor') {
-                modalTitle.innerHTML = `Request <i>Investor</i> Brief for ${project || 'Forest Trails'}`;
-            } else if (userIntent === 'Lifestyle') {
-                modalTitle.innerHTML = `Book <i>Family</i> Tour for ${project || 'Forest Trails'}`;
-            }
-        }
         if (baseOpenModal) baseOpenModal(project);
     };
 
