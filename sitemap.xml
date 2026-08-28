@@ -2,6 +2,7 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-core.xml</loc>
+<<<<<<< HEAD
     <lastmod>2026-08-28T08:26:10+00:00</lastmod>
   </sitemap>
   <sitemap>
@@ -31,5 +32,36 @@
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-legal.xml</loc>
     <lastmod>2026-08-28T08:26:10+00:00</lastmod>
+=======
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-sectors.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-amenities.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-blogs.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-connectivity.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-comparisons.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-investment.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.paranjapetownship.com/sitemap-legal.xml</loc>
+    <lastmod>2026-08-28T08:27:53+00:00</lastmod>
+>>>>>>> db070820 (feat: enforce 4 & 5 BHK only for The Rivolo across entire website)
   </sitemap>
 </sitemapindex>
