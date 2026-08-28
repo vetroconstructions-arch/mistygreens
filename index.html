@@ -646,6 +646,31 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.js" defer></script>
 
+
+<style>
+/* Modern 2026 Luxury Card Hover Micro-Interactions */
+.cluster-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  background: #111113 !important;
+}
+.cluster-card:hover {
+  transform: translateY(-8px) scale(1.01) !important;
+  border-color: #D4AF37 !important;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(212,175,55,0.2) !important;
+}
+.cluster-card img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cluster-card:hover img {
+  transform: scale(1.06) !important;
+}
+.filter-pill:hover {
+  border-color: #D4AF37 !important;
+  color: #fff !important;
+}
+</style>
+
 </head>
 <body>
 <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 0;">
@@ -738,17 +763,27 @@
 
 <!-- Sovereign 8 Unique Distinct Project Cards Grid (Zero Repetition) -->
 <!-- Sovereign 12 Uniform Distinct Project Cards Grid (100% Format Uniformity) -->
-<section class="cluster-grid-section" id="township-clusters" style="padding: 5rem 0; background: #080808;">
+<section class="cluster-grid-section" id="township-clusters" style="padding: 4.5rem 0 5.5rem; background: radial-gradient(circle at 50% 10%, rgba(212,175,55,0.06) 0%, #080808 60%);">
   <div class="container" style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
-    <div style="text-align: center; margin-bottom: 3.5rem;">
-      <span style="color: #D4AF37; font-weight: 900; letter-spacing: 0.3rem; text-transform: uppercase; font-size: 0.75rem; background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3); padding: 0.4rem 1.2rem; border-radius: 50px;">✦ Sovereign Project Portfolio</span>
-      <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); margin-top: 1rem; color: #ffffff;">Explore <i style="color: #D4AF37;">Paranjape Schemes</i> Complete Projects</h2>
-      <p style="color: rgba(255,255,255,0.7); max-width: 650px; margin: 1rem auto 0; font-size: 0.95rem;">All residential enclaves, NA plots, luxury villas, and retirement communities presented in uniform 3D glassmorphic architecture.</p>
+    <div style="text-align: center; margin-bottom: 2.8rem;">
+      <span style="color: #D4AF37; font-weight: 800; letter-spacing: 0.25rem; text-transform: uppercase; font-size: 0.72rem; background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.3); padding: 0.35rem 1.2rem; border-radius: 50px; display: inline-block;">✦ Sovereign Project Portfolio</span>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin: 0.8rem 0 0.5rem; color: #ffffff; letter-spacing: -0.01em;">Explore <i style="color: #D4AF37; font-style: normal; background: linear-gradient(135deg, #FFFFFF 20%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Paranjape Schemes</i> Complete Enclaves</h2>
+      <p style="color: rgba(255,255,255,0.72); max-width: 680px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6;">190 Acres of master-planned luxury NA plots, private villas, hillside apartments, and senior retirement enclaves.</p>
+      
+      <!-- Modern Interactive Category Filter Pills -->
+      <div class="project-filter-bar" style="display: flex; justify-content: center; gap: 0.6rem; margin-top: 2rem; flex-wrap: wrap;">
+        <button class="filter-pill active" data-filter="all" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #ffffff; border: 1px solid #D4AF37; padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 800; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(107,13,13,0.4);" onclick="filterProjects('all', this)">ALL ENCLAVES (12)</button>
+        <button class="filter-pill" data-filter="plots" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;" onclick="filterProjects('plots', this)">NA PLOTS</button>
+        <button class="filter-pill" data-filter="villas" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;" onclick="filterProjects('villas', this)">LUXURY VILLAS</button>
+        <button class="filter-pill" data-filter="apartments" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;" onclick="filterProjects('apartments', this)">APARTMENTS</button>
+        <button class="filter-pill" data-filter="senior" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;" onclick="filterProjects('senior', this)">SENIOR & ASSISTED LIVING</button>
+        <button class="filter-pill" data-filter="amenities" style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.15); padding: 0.55rem 1.3rem; border-radius: 50px; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; cursor: pointer; transition: all 0.3s ease;" onclick="filterProjects('amenities', this)">TOWNSHIP AMENITIES</button>
+      </div>
     </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+    <div id="project-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
 
       <!-- Card 1: Misty Greens NA Plots -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="plots" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/misty-greens-gate-day.webp" alt="Misty Greens 1,930 - 3,500+ sq.ft PMRDA Approved NA Bungalow Plots at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -781,7 +816,7 @@
       </div>
 
             <!-- Card 2: The Rivolo Luxury Forest Villas -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="villas" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/villas-exterior-1.webp" alt="The Rivolo 4 & 5 BHK Luxury Forest Villas Exterior at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -814,7 +849,7 @@
       </div>
 
       <!-- Card 3: The Canopy Apartments -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="apartments" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/canopy-realistic.webp" alt="The Canopy 2 & 3 BHK Valley View Nature Apartments at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -847,7 +882,7 @@
       </div>
 
       <!-- Card 4: Athashri Senior Living -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="senior" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/athashri-card.webp" alt="Athashri Superlative 2 BHK Senior Living Care Residences at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -880,7 +915,7 @@
       </div>
 
       <!-- Card 5: The Highgardens -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="apartments" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/highgardens-master-layout.webp" alt="The Highgardens 2 & 3 BHK Terrace Garden Residences at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -913,7 +948,7 @@
       </div>
 
                   <!-- Card 6: The Cove Duet Villas -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="villas" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/cove-duet.webp" alt="The Cove 4 BHK Luxury Duet Villas & Townhouses at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -946,7 +981,7 @@
       </div>
 
       <!-- Card 7: Verandah Duplex Homes -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="apartments" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/apartments-verandah-realistic.webp" alt="Verandah 2 & 3 BHK Duplex Nature Homes at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -979,7 +1014,7 @@
       </div>
 
       <!-- Card 8: Orchard Residences -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="apartments" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/landscape.webp" alt="Orchard Residences 2 & 3 BHK Hillside Homes at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -1012,7 +1047,7 @@
       </div>
 
       <!-- Card 9: Swaniketan -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="senior" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/alpha-realistic.webp" alt="Swaniketan Special Needs Assisted Living PSPD Community at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -1045,7 +1080,7 @@
       </div>
 
             <!-- Card 10: Everglades Bhugaon (Inside Forest Trails Township) -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="apartments" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/everglades-new.webp" alt="Everglades 1 & 2 BHK PRO Smart Homes 19-Storey Tower at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover; object-position: center;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -1078,7 +1113,7 @@
       </div>
 
       <!-- Card 11: The Cliff Club & Lifestyle Hub -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="amenities" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/cliff-club.webp" alt="The Cliff Club 25000 sq.ft Operational Lifestyle Sports Hub at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -1111,7 +1146,7 @@
       </div>
 
       <!-- Card 12: Equestrian Academy -->
-      <div class="cluster-card" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
+      <div class="cluster-card" data-category="amenities" style="background: #141414; border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.3s ease, border-color 0.3s ease;">
         <div style="position: relative; height: 210px; overflow: hidden; background: #000;">
           <img src="/images/equestrian.webp" alt="Equestrian Horse Riding Academy and Professional Stables at Paranjape Forest Trails Bhugaon Pune" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy" decoding="async">
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.65) 100%);"></div>
@@ -2011,6 +2046,38 @@ function switchPdmTab(tabName) {
         btn.style.border = '1.5px solid #D4AF37';
       }
     </script>
+
+
+<script>
+function filterProjects(category, btn) {
+  document.querySelectorAll('.filter-pill').forEach(function(p) {
+    p.style.background = 'rgba(255,255,255,0.05)';
+    p.style.color = 'rgba(255,255,255,0.85)';
+    p.style.border = '1px solid rgba(255,255,255,0.15)';
+    p.style.boxShadow = 'none';
+  });
+  if (btn) {
+    btn.style.background = 'linear-gradient(135deg, #6B0D0D, #8B1A1A)';
+    btn.style.color = '#ffffff';
+    btn.style.border = '1px solid #D4AF37';
+    btn.style.boxShadow = '0 4px 15px rgba(107,13,13,0.4)';
+  }
+  var cards = document.querySelectorAll('.cluster-card');
+  cards.forEach(function(card) {
+    var cat = card.getAttribute('data-category');
+    if (category === 'all' || cat === category) {
+      card.style.display = 'flex';
+      card.style.opacity = '0';
+      setTimeout(function() {
+        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        card.style.opacity = '1';
+      }, 50);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
 
 </body>
 </html>

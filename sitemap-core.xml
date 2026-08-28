@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+<<<<<<< HEAD
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html</loc>
+=======
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas-plots.html</loc>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <lastmod>2026-08-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -13,12 +17,22 @@
     <priority>1.0</priority>
   </url>
   <url>
+<<<<<<< HEAD
+=======
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <loc>https://www.paranjapetownship.com/bhugaon-growth-ledger.html</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas-plots.html</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>daily</changefreq>
@@ -26,18 +40,113 @@
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-price-list-brochure/</loc>
+=======
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-happiness-hub/</loc>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-na-bungalow-plots-bhugaon/</loc>
-    <lastmod>2026-08-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
+<<<<<<< HEAD
+=======
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-misty-greens/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-why-choose-forest-trails-bhugaon/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/na-plot-loan-emi-calculator-pune/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/swaniketan/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-pune/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/rivolo-residences/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/why-choose-forest-trails-bhugaon/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-aspire/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-pebbles/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-orchard-residences/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/misty-greens/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-kaleidoscope/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-about-paranjape-schemes/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-plots/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-rivolo-residences/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/misty-greens-na-plots-price-list/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -49,12 +158,64 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.paranjapetownship.com/luxury-townhouses-pune-west/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/bhugaon-property-roi-stamp-duty-calculator/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-canopy/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-swaniketan/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-na-bungalow-plots-bhugaon/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+<<<<<<< HEAD
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-misty-greens/</loc>
+=======
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-price-list-brochure/</loc>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+<<<<<<< HEAD
+    <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/</loc>
+=======
+    <loc>https://www.paranjapetownship.com/paranjape-plots-price-list-2026/</loc>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-paud-road/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+<<<<<<< HEAD
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-rivolo-residences/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -86,12 +247,16 @@
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-plots/</loc>
+=======
+    <loc>https://www.paranjapetownship.com/senior-living-pune-west-athashri-bhugaon-guide/</loc>
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/kothrud-extension-bungalow-plots/</loc>
+<<<<<<< HEAD
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -176,12 +341,15 @@
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/misty-greens-na-plots-price-list/</loc>
+=======
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-price/</loc>
+<<<<<<< HEAD
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -200,6 +368,8 @@
   </url>
   <url>
     <loc>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-why-choose-forest-trails-bhugaon/</loc>
+=======
+>>>>>>> 0332c331 (feat: modernize UI/UX design with interactive project category filter pills, luxury glassmorphism, and smooth card physics)
     <lastmod>2026-08-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
