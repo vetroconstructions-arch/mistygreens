@@ -28,9 +28,9 @@
 <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.65); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 0;">
   <nav style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; height: 50px;">
     <a href="/" style="background: #ffffff; padding: 4px 14px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; height: 42px; text-decoration: none; border: 1.5px solid #D4AF37;">
-      <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes" style="height: 26px;">
+      <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes Construction Ltd Official Corporate Brand Logo" style="height: 26px;" loading="lazy" decoding="async">
       <span style="width: 1px; height: 20px; background: #c5a059;"></span>
-      <img src="/assets/branding/forest-trails-emblem.png" alt="Forest Trails Emblem" style="height: 28px;" loading="lazy" decoding="async">
+      <img src="/assets/branding/forest-trails-emblem.png" alt="Paranjape Forest Trails Official Township Emblem Bhugaon Pune" style="height: 28px;" loading="lazy" decoding="async">
     </a>
     <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails." target="_blank" rel="noopener" style="background: #25D366; color: #ffffff; padding: 0.5rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; text-decoration: none;">💬 WHATSAPP ENQUIRY</a>
   </nav>
@@ -199,7 +199,7 @@ function openProjectDetailModal(projectId, defaultTab) {
   data.floor_plans.forEach(fp => {
     fpHTML += `<div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.8rem;">
       <h5 style="color: #D4AF37; margin-bottom: 0.5rem; font-size: 0.85rem;">${fp.name}</h5>
-      <img data-plan-src="${fp.img}" src="/images/hero-township.webp" alt="${fp.name}" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px;">
+      <img src="/images/hero-township.webp" alt="Paranjape Forest Trails 190-Acre Forest Themed Gated Township Bhugaon Pune" data-plan-src="${fp.img}" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px;" loading="lazy" decoding="async">
     </div>`;
   });
   document.getElementById('pdm-plans-container').innerHTML = fpHTML;
@@ -268,7 +268,7 @@ function switchPdmTab(tabName) {
 
     <!-- Tab 2: Layout -->
     <div id="pdm-tab-layout" class="pdm-tab-content" style="display: none;">
-      <img id="pdm-layout-img" src="/images/master-plan.webp" alt="Master Layout" style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3);" loading="lazy" decoding="async">
+      <img src="/images/master-plan.webp" alt="Paranjape Forest Trails 190-Acre Master Layout Plan Bhugaon Pune" id="pdm-layout-img" style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3);" loading="lazy" decoding="async">
       <p id="pdm-layout-desc" style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 0.8rem;"></p>
     </div>
 
