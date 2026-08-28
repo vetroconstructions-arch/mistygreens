@@ -15,7 +15,6 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    // Listen for custom trigger event
     const handleOpen = (e: CustomEvent) => {
       if (e.detail && e.detail.project) {
         setSelectedProject(e.detail.project);
@@ -60,7 +59,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
         })
       });
 
-      // 2. Direct fallback to standard formsubmit if offline
+      // 2. Direct fallback to standard formsubmit
       if (!res.ok) {
         const formData = new FormData();
         formData.append('name', fullName);
@@ -79,7 +78,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
       setIsSuccess(true);
       setTimeout(() => {
         window.location.href = '/thank-you.html';
-      }, 1200);
+      }, 1000);
     } catch (err) {
       console.error('Lead submission fallback:', err);
       window.location.href = '/thank-you.html';
@@ -92,15 +91,14 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
   return (
     <div
-      className="concierge-modal"
       style={{
         position: 'fixed',
         inset: 0,
-        zIndex: 100005,
+        zIndex: 999999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '0.75rem',
+        padding: '1rem',
         boxSizing: 'border-box'
       }}
     >
@@ -110,9 +108,9 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
         style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(0, 0, 0, 0.86)',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)'
+          background: 'rgba(0, 0, 0, 0.88)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)'
         }}
       />
 
@@ -120,40 +118,38 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
       <div
         style={{
           position: 'relative',
-          background: 'linear-gradient(165deg, #141416 0%, #0a0a0c 100%)',
+          background: 'linear-gradient(170deg, #16161c 0%, #0d0d10 100%)',
           width: '100%',
-          maxWidth: '440px',
+          maxWidth: '420px',
           borderRadius: '20px',
           overflow: 'hidden',
-          boxShadow: '0 20px 50px rgba(0,0,0,0.95), 0 0 30px rgba(212,175,55,0.18)',
-          border: '1.5px solid rgba(212, 175, 55, 0.4)',
-          padding: 0,
+          boxShadow: '0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(212,175,55,0.25)',
+          border: '1.5px solid rgba(212, 175, 55, 0.45)',
           boxSizing: 'border-box',
-          maxHeight: '92vh',
+          maxHeight: '88vh',
           display: 'flex',
-          flexDirection: 'column',
-          animation: 'sovereignModalEntry 0.3s cubic-bezier(0.16, 1, 0.3, 1)'
+          flexDirection: 'column'
         }}
       >
-        {/* Top Accent Line */}
+        {/* Top Gold Shimmer Bar */}
         <div style={{ height: '3px', background: 'linear-gradient(90deg, #6B0D0D, #D4AF37, #6B0D0D)', flexShrink: 0 }} />
 
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
-          aria-label="Close Modal"
+          aria-label="Close"
           type="button"
           style={{
             position: 'absolute',
-            top: '0.75rem',
-            right: '0.85rem',
-            background: 'rgba(255, 255, 255, 0.08)',
-            border: '1px solid rgba(255, 255, 255, 0.2)',
-            color: '#fff',
-            width: '30px',
-            height: '30px',
+            top: '10px',
+            right: '12px',
+            background: 'rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(255, 255, 255, 0.25)',
+            color: '#ffffff',
+            width: '28px',
+            height: '28px',
             borderRadius: '50%',
-            fontSize: '1rem',
+            fontSize: '0.85rem',
             cursor: 'pointer',
             zIndex: 10,
             display: 'flex',
@@ -165,30 +161,30 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
           ✕
         </button>
 
-        <div style={{ padding: '1.25rem 1.4rem 1.1rem', overflowY: 'auto', WebkitOverflowScrolling: 'touch', boxSizing: 'border-box' }}>
+        <div style={{ padding: '1.2rem 1.4rem 1.1rem', overflowY: 'auto', boxSizing: 'border-box' }}>
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: '0.9rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '0.8rem' }}>
             <span
               style={{
                 display: 'inline-block',
-                background: 'rgba(212, 175, 55, 0.12)',
-                border: '1px solid rgba(212, 175, 55, 0.35)',
+                background: 'rgba(212, 175, 55, 0.15)',
+                border: '1px solid rgba(212, 175, 55, 0.4)',
                 color: '#D4AF37',
                 fontWeight: 800,
                 fontSize: '0.62rem',
-                letterSpacing: '0.12rem',
+                letterSpacing: '0.1em',
                 textTransform: 'uppercase',
-                padding: '0.2rem 0.75rem',
+                padding: '0.15rem 0.7rem',
                 borderRadius: '50px',
-                marginBottom: '0.4rem'
+                marginBottom: '0.35rem'
               }}
             >
               ✦ OFFICIAL SALES DESK
             </span>
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.35rem', color: '#ffffff', margin: '0 0 0.2rem', lineHeight: 1.2, fontWeight: 700 }}>
+            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.3rem', color: '#ffffff', margin: '0 0 0.15rem', lineHeight: 1.2, fontWeight: 700 }}>
               Get Instant <span style={{ color: '#D4AF37' }}>Price & Brochure</span>
             </h3>
-            <p style={{ color: 'rgba(255, 255, 255, 0.72)', fontSize: '0.76rem', lineHeight: 1.35, margin: 0 }}>
+            <p style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.74rem', lineHeight: 1.3, margin: 0 }}>
               Direct developer pricing, master blueprints & site visit guidance.
             </p>
           </div>
@@ -200,10 +196,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
               <p style={{ color: '#fff', fontSize: '0.85rem', margin: 0 }}>Redirecting to your VIP brochure package...</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {/* Project Select */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Project Interest
                 </label>
                 <div style={{ position: 'relative' }}>
@@ -213,12 +209,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                     required
                     style={{
                       width: '100%',
-                      background: '#1a1a1c',
+                      background: '#1c1c22',
                       color: '#ffffff',
-                      border: '1.5px solid rgba(212, 175, 55, 0.3)',
+                      border: '1.5px solid rgba(212, 175, 55, 0.35)',
                       borderRadius: '8px',
-                      padding: '0.55rem 0.8rem',
-                      fontSize: '0.8rem',
+                      padding: '0.5rem 0.75rem',
+                      fontSize: '0.78rem',
                       outline: 'none',
                       appearance: 'none',
                       WebkitAppearance: 'none',
@@ -227,18 +223,18 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                     }}
                   >
                     <option value="all">🌟 All Paranjape Forest Trails Projects</option>
-                    <option value="misty-greens">🌳 Misty Greens (NA Bungalow Plots from ₹1.23 Cr*)</option>
-                    <option value="the-rivolo">🏡 The Rivolo (4 & 5 BHK Luxury Forest Villas from ₹3.89 Cr*)</option>
+                    <option value="misty-greens">🌳 Misty Greens (NA Plots from ₹1.23 Cr*)</option>
+                    <option value="the-rivolo">🏡 The Rivolo (4 & 5 BHK Villas from ₹3.89 Cr*)</option>
                     <option value="the-cove">🏰 The Cove (4 BHK Duet Villas from ₹2.85 Cr*)</option>
-                    <option value="athashri-senior-living">👴 Athashri (2 BHK Senior Living from ₹83 Lakhs*)</option>
-                    <option value="everglades">🏢 Everglades (1 & 2 BHK PRO Homes from ₹48.50 Lakhs*)</option>
-                    <option value="the-canopy">🌅 The Canopy (2 & 3 BHK Nature Flats from ₹89 Lakhs*)</option>
-                    <option value="the-highgardens">🌿 The Highgardens (Terrace Homes from ₹89 Lakhs*)</option>
-                    <option value="verandah">🏡 Verandah (Duplex Homes from ₹93 Lakhs*)</option>
-                    <option value="orchard-residences">🍃 Orchard Residences (Hillside Homes from ₹83 Lakhs*)</option>
-                    <option value="swaniketan">🤝 Swaniketan (Assisted Living from ₹79 Lakhs*)</option>
+                    <option value="athashri-senior-living">👴 Athashri (2 BHK Senior Living from ₹83 L*)</option>
+                    <option value="everglades">🏢 Everglades (1 & 2 BHK PRO Homes from ₹48.50 L*)</option>
+                    <option value="the-canopy">🌅 The Canopy (2 & 3 BHK Flats from ₹89 L*)</option>
+                    <option value="the-highgardens">🌿 The Highgardens (Terrace Homes from ₹89 L*)</option>
+                    <option value="verandah">🏡 Verandah (Duplex Homes from ₹93 L*)</option>
+                    <option value="orchard-residences">🍃 Orchard Residences (Hillside Homes from ₹83 L*)</option>
+                    <option value="swaniketan">🤝 Swaniketan (Assisted Living from ₹79 L*)</option>
                   </select>
-                  <div style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: '#D4AF37', fontSize: '0.65rem' }}>
+                  <div style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', pointerEvents: 'none', color: '#D4AF37', fontSize: '0.65rem' }}>
                     ▼
                   </div>
                 </div>
@@ -246,7 +242,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Full Name */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Full Name *
                 </label>
                 <input
@@ -257,12 +253,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                   required
                   style={{
                     width: '100%',
-                    background: '#1a1a1c',
+                    background: '#1c1c22',
                     color: '#ffffff',
-                    border: '1.5px solid rgba(255, 255, 255, 0.15)',
+                    border: '1.5px solid rgba(255, 255, 255, 0.18)',
                     borderRadius: '8px',
-                    padding: '0.55rem 0.8rem',
-                    fontSize: '0.8rem',
+                    padding: '0.5rem 0.75rem',
+                    fontSize: '0.78rem',
                     outline: 'none',
                     boxSizing: 'border-box'
                   }}
@@ -271,19 +267,19 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Mobile Phone */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Mobile Phone Number *
                 </label>
                 <div style={{ display: 'flex', gap: '6px' }}>
                   <div
                     style={{
-                      padding: '0.55rem 0.7rem',
-                      background: '#1a1a1c',
+                      padding: '0.5rem 0.65rem',
+                      background: '#1c1c22',
                       border: '1.5px solid rgba(212, 175, 55, 0.35)',
                       borderRadius: '8px',
                       color: '#D4AF37',
                       fontWeight: 800,
-                      fontSize: '0.78rem',
+                      fontSize: '0.75rem',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '4px',
@@ -303,12 +299,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                     style={{
                       flex: 1,
                       width: '100%',
-                      background: '#1a1a1c',
+                      background: '#1c1c22',
                       color: '#ffffff',
-                      border: '1.5px solid rgba(255, 255, 255, 0.15)',
+                      border: '1.5px solid rgba(255, 255, 255, 0.18)',
                       borderRadius: '8px',
-                      padding: '0.55rem 0.8rem',
-                      fontSize: '0.8rem',
+                      padding: '0.5rem 0.75rem',
+                      fontSize: '0.78rem',
                       outline: 'none',
                       boxSizing: 'border-box'
                     }}
@@ -318,7 +314,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Email Address */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.25rem' }}>
+                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Email Address (For Instant PDF Brochure)
                 </label>
                 <input
@@ -328,12 +324,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                   placeholder="e.g. rahul@gmail.com"
                   style={{
                     width: '100%',
-                    background: '#1a1a1c',
+                    background: '#1c1c22',
                     color: '#ffffff',
-                    border: '1.5px solid rgba(255, 255, 255, 0.15)',
+                    border: '1.5px solid rgba(255, 255, 255, 0.18)',
                     borderRadius: '8px',
-                    padding: '0.55rem 0.8rem',
-                    fontSize: '0.8rem',
+                    padding: '0.5rem 0.75rem',
+                    fontSize: '0.78rem',
                     outline: 'none',
                     boxSizing: 'border-box'
                   }}
@@ -344,10 +340,10 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
               <div
                 style={{
                   display: 'flex',
-                  alignItems: 'center',
+                  alignItems: 'flex-start',
                   gap: '8px',
                   background: 'rgba(37, 211, 102, 0.08)',
-                  padding: '0.45rem 0.75rem',
+                  padding: '0.4rem 0.65rem',
                   borderRadius: '8px',
                   border: '1px solid rgba(37, 211, 102, 0.25)'
                 }}
@@ -357,9 +353,9 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                   id="wa-modal-optin"
                   checked={whatsappOptin}
                   onChange={(e) => setWhatsappOptin(e.target.checked)}
-                  style={{ width: '15px', height: '15px', accentColor: '#25D366', cursor: 'pointer', flexShrink: 0 }}
+                  style={{ width: '15px', height: '15px', accentColor: '#25D366', cursor: 'pointer', flexShrink: 0, marginTop: '2px' }}
                 />
-                <label htmlFor="wa-modal-optin" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.7rem', cursor: 'pointer', lineHeight: 1.25 }}>
+                <label htmlFor="wa-modal-optin" style={{ color: 'rgba(255,255,255,0.9)', fontSize: '0.68rem', cursor: 'pointer', lineHeight: 1.3 }}>
                   Send brochure, pricing sheet & floor plans on WhatsApp
                 </label>
               </div>
@@ -372,17 +368,17 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                   width: '100%',
                   background: 'linear-gradient(135deg, #6B0D0D 0%, #8B1A1A 50%, #D4AF37 100%)',
                   color: '#ffffff',
-                  border: '1px solid #D4AF37',
+                  border: '1.5px solid #D4AF37',
                   padding: '0.75rem 1.2rem',
-                  borderRadius: '8px',
+                  borderRadius: '10px',
                   fontWeight: 800,
-                  fontSize: '0.8rem',
+                  fontSize: '0.78rem',
                   letterSpacing: '0.06em',
                   textTransform: 'uppercase',
                   cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                  boxShadow: '0 8px 20px rgba(107, 13, 13, 0.45)',
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  marginTop: '0.15rem',
+                  boxShadow: '0 8px 20px rgba(107, 13, 13, 0.5)',
+                  transition: 'all 0.2s',
+                  marginTop: '0.1rem',
                   opacity: isSubmitting ? 0.7 : 1
                 }}
               >
@@ -390,7 +386,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
               </button>
 
               {/* Trust Badges */}
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginTop: '0.1rem', color: 'rgba(255,255,255,0.5)', fontSize: '0.65rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginTop: '0.1rem', color: 'rgba(255,255,255,0.5)', fontSize: '0.63rem' }}>
                 <span>🔒 100% Privacy</span>
                 <span>•</span>
                 <span>🏛️ Direct PSCL Advisory</span>
