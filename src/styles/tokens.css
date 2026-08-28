@@ -1,52 +1,56 @@
 :root {
-  /* Ultra-Luxury Obsidian & Charcoal Theme */
-  --bg-primary: #09090b;
-  --bg-secondary: #121215;
-  --bg-card: #151518;
-  --bg-card-hover: #1c1c21;
+  /* Ultra-Luxury Obsidian & Nocturne Theme */
+  --bg-primary: #060608;
+  --bg-secondary: #0f0f13;
+  --bg-card: #131318;
+  --bg-card-hover: #181820;
   --bg-glass: rgba(255, 255, 255, 0.04);
-  --bg-glass-strong: rgba(18, 18, 22, 0.75);
+  --bg-glass-strong: rgba(15, 15, 20, 0.85);
 
-  /* Metallic Champagne Gold Palette */
+  /* Metallic 24K Champagne Gold Palette */
   --gold-primary: #D4AF37;
   --gold-light: #F3E5AB;
   --gold-dark: #AA820A;
-  --gold-gradient: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 50%, #A37F14 100%);
+  --gold-gradient: linear-gradient(135deg, #FFF5D0 0%, #D4AF37 40%, #AA771C 100%);
+  --gold-shimmer: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,0.4) 50%, rgba(212,175,55,0) 100%);
   --gold-border: rgba(212, 175, 55, 0.35);
-  --gold-border-glow: rgba(212, 175, 55, 0.65);
+  --gold-border-glow: rgba(212, 175, 55, 0.7);
 
   /* Royal Velvet Crimson Accent */
   --crimson-primary: #6B0D0D;
   --crimson-light: #8B1A1A;
   --crimson-dark: #4A0808;
-  --crimson-gradient: linear-gradient(135deg, #8B1A1A 0%, #6B0D0D 50%, #4A0808 100%);
+  --crimson-gradient: linear-gradient(135deg, #8B1A1A 0%, #6B0D0D 60%, #4A0808 100%);
 
-  /* WhatsApp & Status Greens */
-  --whatsapp-green: #25D366;
-  --status-verified: #28a745;
+  /* Category Aura Colors */
+  --aura-plots: rgba(16, 185, 129, 0.25);
+  --aura-villas: rgba(212, 175, 55, 0.35);
+  --aura-apartments: rgba(59, 130, 246, 0.25);
+  --aura-senior: rgba(249, 115, 22, 0.25);
+  --aura-amenities: rgba(168, 85, 247, 0.25);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows & Glows */
-  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.7);
-  --shadow-card-hover: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.2);
-  --shadow-modal: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.2);
-  --glow-gold: 0 0 25px rgba(212, 175, 55, 0.3);
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.7), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  --shadow-card-hover: 0 25px 60px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 175, 55, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  --shadow-modal: 0 30px 80px rgba(0, 0, 0, 0.98), 0 0 50px rgba(212, 175, 55, 0.25);
+  --glow-gold: 0 0 25px rgba(212, 175, 55, 0.4);
 
   /* Radii */
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
+  --radius-lg: 22px;
   --radius-pill: 50px;
 }
 
-/* Glassmorphic Surfaces */
+/* Glassmorphic Dynamic Surfaces */
 .glass-panel {
   background: var(--bg-glass-strong);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--gold-border);
 }
 
@@ -54,4 +58,64 @@
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Keyframe Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.7), 0 0 10px rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 240, 189, 0.8);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Interactive Card Physics */
+.cluster-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1.5px solid var(--gold-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-card);
+}
+
+.cluster-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gold-shimmer);
+  transition: 0.6s;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.cluster-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--gold-border-glow);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.cluster-card:hover::before {
+  left: 100%;
+}
+
+.cluster-card:hover img {
+  transform: scale(1.08);
 }

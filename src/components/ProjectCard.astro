@@ -6,15 +6,26 @@ interface Props {
 }
 
 const { project } = Astro.props;
+
+// Compute aura glow based on category
+const auraColorMap: Record<string, string> = {
+  plots: 'rgba(16, 185, 129, 0.15)',
+  villas: 'rgba(212, 175, 55, 0.22)',
+  apartments: 'rgba(59, 130, 246, 0.15)',
+  senior: 'rgba(249, 115, 22, 0.18)',
+  amenities: 'rgba(168, 85, 247, 0.18)'
+};
+
+const auraGlow = auraColorMap[project.category] || 'rgba(212, 175, 55, 0.15)';
 ---
 
 <div
   class="cluster-card"
   data-category={project.category}
-  style="background: #121215; border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.6); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;"
+  style={`background: radial-gradient(circle at 50% 0%, ${auraGlow} 0%, #111116 75%); border: 1.5px solid rgba(212, 175, 55, 0.3); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 1px 1px rgba(255,255,255,0.1);`}
 >
   {/* Card Header & Media */}
-  <div style="position: relative; height: 215px; overflow: hidden; background: #000;">
+  <div style="position: relative; height: 225px; overflow: hidden; background: #000;">
     <img
       src={project.image}
       alt={project.alt}
@@ -22,67 +33,73 @@ const { project } = Astro.props;
       loading="lazy"
       decoding="async"
     />
-    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%);"></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%);"></div>
 
-    {/* MahaRERA Badge */}
+    {/* Live RERA Badge */}
     <div style="position: absolute; top: 12px; left: 12px;">
-      <span style="background: rgba(0,0,0,0.82); color: #D4AF37; border: 1px solid rgba(212,175,55,0.45); padding: 0.25rem 0.65rem; border-radius: 50px; font-weight: 800; font-size: 0.68rem; backdrop-filter: blur(8px);">
+      <a
+        href={project.reraLink}
+        target="_blank"
+        rel="noopener"
+        style="display: inline-flex; align-items: center; gap: 5px; background: rgba(0,0,0,0.85); color: #D4AF37; border: 1px solid rgba(212,175,55,0.45); padding: 0.28rem 0.7rem; border-radius: 50px; font-weight: 800; font-size: 0.68rem; backdrop-filter: blur(10px); text-decoration: none;"
+      >
+        <span style="width: 6px; height: 6px; background: #25D366; border-radius: 50%; display: inline-block;"></span>
         📜 {project.reraNumber.startsWith('P') || project.reraNumber.startsWith('PM') ? `MahaRERA: ${project.reraNumber}` : project.reraNumber}
-      </span>
+      </a>
     </div>
 
     {/* Starting Price Pill */}
     {project.priceNumeric > 0 && (
       <div style="position: absolute; top: 12px; right: 12px;">
-        <span style="background: #6B0D0D; color: #fff; padding: 0.3rem 0.75rem; border-radius: 50px; font-weight: 900; font-size: 0.75rem; border: 1px solid #D4AF37; box-shadow: 0 4px 10px rgba(0,0,0,0.5);">
+        <span style="background: linear-gradient(135deg, #8B1A1A, #5A0A0A); color: #fff; padding: 0.32rem 0.85rem; border-radius: 50px; font-weight: 900; font-size: 0.76rem; border: 1px solid #D4AF37; box-shadow: 0 4px 15px rgba(0,0,0,0.6);">
           {project.price}
         </span>
       </div>
     )}
 
-    {/* Typology Pill */}
+    {/* Typology Badge */}
     <div style="position: absolute; bottom: 12px; left: 12px;">
-      <span style={`background: ${project.categoryBadgeColor}; color: ${project.category === 'villas' || project.category === 'amenities' ? '#000' : '#fff'}; padding: 0.25rem 0.65rem; border-radius: 6px; font-size: 0.65rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em;`}>
+      <span style={`background: ${project.categoryBadgeColor}; color: ${project.category === 'villas' || project.category === 'amenities' ? '#000' : '#fff'}; padding: 0.28rem 0.75rem; border-radius: 6px; font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; box-shadow: 0 2px 8px rgba(0,0,0,0.4);`}>
         {project.categoryLabel}
       </span>
     </div>
   </div>
 
   {/* Card Body */}
-  <div style="padding: 1.4rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
+  <div style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; flex: 1;">
     <div>
-      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.65rem; color: #fff; margin: 0 0 0.4rem; line-height: 1.2;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.7rem; color: #ffffff; margin: 0 0 0.4rem; line-height: 1.2;">
         {project.name}
       </h3>
-      <p style="color: rgba(255,255,255,0.78); font-size: 0.84rem; line-height: 1.55; margin-bottom: 1.1rem;">
+      <p style="color: rgba(255,255,255,0.78); font-size: 0.85rem; line-height: 1.55; margin-bottom: 1.2rem;">
         {project.description}
       </p>
     </div>
 
     <div>
-      {/* Spec Grid */}
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 0.75rem 0.9rem; border-radius: 10px; margin-bottom: 1.1rem;">
+      {/* Dynamic Spec Highlights */}
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); padding: 0.8rem 1rem; border-radius: 12px; margin-bottom: 1.2rem;">
         {project.specs.slice(0, 2).map((spec) => (
           <div>
-            <span style="display: block; font-size: 0.64rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.04em;">{spec.label}</span>
-            <strong style="display: block; font-size: 0.76rem; color: #fff; margin-top: 2px;">{spec.value}</strong>
+            <span style="display: block; font-size: 0.65rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.05em;">{spec.label}</span>
+            <strong style="display: block; font-size: 0.8rem; color: #fff; margin-top: 2px;">{spec.value}</strong>
           </div>
         ))}
       </div>
 
-      {/* Action Buttons */}
+      {/* Conversion Action Bar */}
       <div style="display: flex; gap: 0.6rem;">
         <a
           href={`https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}%20at%20Paranjape%20Forest%20Trails%20Bhugaon.`}
           target="_blank"
           rel="noopener"
-          style="flex: 1; background: #25D366; color: #fff; text-align: center; padding: 0.75rem 0.5rem; border-radius: 10px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 4px 12px rgba(37,211,102,0.3);"
+          style="flex: 1; background: #25D366; color: #fff; text-align: center; padding: 0.8rem 0.5rem; border-radius: 10px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 4px 15px rgba(37,211,102,0.35); transition: transform 0.2s ease;"
         >
           💬 WHATSAPP
         </a>
         <a
           href={project.url}
-          style="flex: 1.4; text-align: center; background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1px solid #D4AF37; padding: 0.75rem 0.5rem; border-radius: 10px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 4px 12px rgba(107,13,13,0.4);"
+          style="flex: 1.4; text-align: center; background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1.5px solid #D4AF37; padding: 0.8rem 0.5rem; border-radius: 10px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px; box-shadow: 0 4px 15px rgba(107,13,13,0.5); transition: transform 0.2s ease;"
         >
           EXPLORE ENCLAVE &rarr;
         </a>
