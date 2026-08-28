@@ -1,4 +1,4 @@
-// Cloudflare Pages Serverless Edge Function: Lead Capture Engine v1.0
+// Cloudflare Pages Serverless Edge Function: Lead Capture Engine v3.0
 // Route: /api/lead-capture
 
 export async function onRequestPost(context) {
@@ -16,35 +16,33 @@ export async function onRequestPost(context) {
       });
     }
 
-    // 2. Dispatch to FormSubmit Email Gateway
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('phone', phone);
-    formData.append('email', email || 'N/A');
-    formData.append('project_interest', project || 'Forest Trails');
-    formData.append('whatsapp_optin', whatsappOptin ? 'YES' : 'NO');
-    formData.append('source_url', source || 'https://www.paranjapetownship.com/');
-    formData.append('timestamp', timestamp || new Date().toISOString());
-    formData.append('_subject', `🌟 New Website Lead: ${project} - ${name} (${phone})`);
-    formData.append('_captcha', 'false');
+    // 2. Dispatch to FormSubmit AJAX Gateway with Authenticated Origin Headers
+    const payload = {
+      name: name,
+      phone: phone,
+      email: email || 'N/A',
+      project_interest: project || 'Paranjape Forest Trails',
+      whatsapp_optin: whatsappOptin ? 'YES' : 'NO',
+      source_url: source || 'https://www.paranjapetownship.com/',
+      timestamp: timestamp || new Date().toISOString(),
+      _subject: `🌟 New Website Lead: ${project} - ${name} (${phone})`,
+      _captcha: 'false'
+    };
 
-    await fetch('https://formsubmit.co/propsmartrealty@gmail.com', {
+    const formSubmitRes = await fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
       method: 'POST',
-      body: formData
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Origin': 'https://www.paranjapetownship.com',
+        'Referer': 'https://www.paranjapetownship.com/'
+      },
+      body: JSON.stringify(payload)
     });
 
-    // 3. If D1 Database is bound in Cloudflare dashboard, persist lead
-    if (env.DB) {
-      try {
-        await env.DB.prepare(
-          'INSERT INTO leads (name, phone, email, project, whatsapp_optin, source, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)'
-        ).bind(name, phone, email, project, whatsappOptin ? 1 : 0, source, timestamp).run();
-      } catch (dbErr) {
-        console.warn('D1 persistence skipped:', dbErr);
-      }
-    }
+    const result = await formSubmitRes.json().catch(() => ({}));
 
-    return new Response(JSON.stringify({ success: true, message: 'Lead captured successfully at edge' }), {
+    return new Response(JSON.stringify({ success: true, message: 'Lead captured & dispatched to propsmartrealty@gmail.com', gateway: result }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
@@ -66,7 +64,8 @@ export async function onRequestOptions() {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
+      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Max-Age': '86400'
     }
   });
 }

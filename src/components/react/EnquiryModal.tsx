@@ -43,44 +43,48 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
     }
     setIsSubmitting(true);
 
+    const leadPayload = {
+      name: fullName,
+      phone: `+91${phone}`,
+      email: email || 'N/A',
+      project: selectedProject,
+      whatsappOptin: whatsappOptin ? 'YES' : 'NO',
+      source: window.location.href,
+      timestamp: new Date().toISOString(),
+      _subject: `🌟 New Website Lead: ${selectedProject} - ${fullName} (+91${phone})`,
+      _captcha: 'false'
+    };
+
     try {
-      // 1. Submit to Cloudflare Pages Serverless Edge API
-      const res = await fetch('/api/lead-capture', {
+      // 1. Primary Direct Client-Side FormSubmit AJAX Dispatch
+      const clientDispatch = fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(leadPayload)
+      }).catch(err => console.warn('Direct FormSubmit error:', err));
+
+      // 2. Secondary Cloudflare Serverless Edge API Dispatch
+      const edgeDispatch = fetch('/api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: fullName,
-          phone: `+91${phone}`,
-          email: email || 'N/A',
-          project: selectedProject,
-          whatsappOptin,
-          source: window.location.pathname,
-          timestamp: new Date().toISOString()
-        })
-      });
+        body: JSON.stringify(leadPayload)
+      }).catch(err => console.warn('Edge API error:', err));
 
-      // 2. Direct fallback to standard formsubmit
-      if (!res.ok) {
-        const formData = new FormData();
-        formData.append('name', fullName);
-        formData.append('phone', `+91${phone}`);
-        formData.append('email', email);
-        formData.append('interest', selectedProject);
-        formData.append('_subject', `New Website Lead - ${selectedProject}`);
-        formData.append('_captcha', 'false');
-        await fetch('https://formsubmit.co/propsmartrealty@gmail.com', {
-          method: 'POST',
-          body: formData,
-          mode: 'no-cors'
-        });
-      }
+      // Wait for client dispatch or 1.5s max
+      await Promise.race([
+        Promise.allSettled([clientDispatch, edgeDispatch]),
+        new Promise(resolve => setTimeout(resolve, 1500))
+      ]);
 
       setIsSuccess(true);
       setTimeout(() => {
         window.location.href = '/thank-you.html';
-      }, 1000);
+      }, 800);
     } catch (err) {
-      console.error('Lead submission fallback:', err);
+      console.error('Lead submission:', err);
       window.location.href = '/thank-you.html';
     } finally {
       setIsSubmitting(false);
