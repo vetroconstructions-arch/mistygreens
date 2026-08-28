@@ -1,22 +1,24 @@
 ---
-// Astro Footer Component (Corporate Governance & MahaRERA Authority)
+// Astro Footer Component (Corporate Governance, MahaRERA Authority & Standard Disclaimer)
 ---
 
 <footer style="background: #060608; border-top: 1px solid rgba(212, 175, 55, 0.25); padding: 4.5rem 0 2.5rem; color: #ffffff;">
   <div style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
     
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
       
       {/* Col 1: Corporate Branding */}
       <div>
-        <div style="background: #ffffff; padding: 6px 16px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; height: 44px; margin-bottom: 1.2rem; border: 1.5px solid #D4AF37;">
-          <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes Corporate Brand Logo" style="height: 28px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
+        <div style="background: rgba(255,255,255,0.06); padding: 6px 14px; border-radius: 12px; display: inline-flex; align-items: center; gap: 10px; height: 44px; margin-bottom: 1.2rem; border: 1.5px solid rgba(212,175,55,0.4); backdrop-filter: blur(10px);">
+          <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes Corporate Brand Logo" style="height: 26px; width: auto; object-fit: contain; border-radius: 3px;" loading="lazy" decoding="async" />
+          <span style="width: 1px; height: 18px; background: rgba(212,175,55,0.4); display: inline-block;"></span>
+          <img src="/assets/branding/forest-trails-emblem.png" alt="Forest Trails Township Emblem" style="height: 28px; width: auto; object-fit: contain;" loading="lazy" decoding="async" />
         </div>
         <p style="color: rgba(255,255,255,0.7); font-size: 0.84rem; line-height: 1.6; margin-bottom: 1.2rem;">
-          Paranjape Schemes (Construction) Ltd is Pune's leading real estate developer with a 35+ year legacy of delivering 200+ landmark projects across 9 cities.
+          Paranjape Schemes (Construction) Ltd is Pune's premier real estate developer with a 35+ year legacy of delivering 200+ landmark projects across 9 cities.
         </p>
         <div style="display: flex; gap: 0.75rem;">
-          <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="background: #25D366; color: #fff; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+          <a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="background: #25D366; color: #fff; padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 4px 12px rgba(37,211,102,0.35);">
             💬 WhatsApp Sales Desk
           </a>
         </div>
@@ -51,7 +53,7 @@
       <div>
         <h4 style="font-family: 'Playfair Display', serif; font-size: 1.15rem; color: #D4AF37; margin: 0 0 1rem; letter-spacing: 0.05em;">MahaRERA Compliance</h4>
         <p style="color: rgba(255,255,255,0.7); font-size: 0.8rem; line-height: 1.5; margin-bottom: 0.8rem;">
-          All projects registered under Maharashtra Real Estate Regulatory Authority. Official verification link:
+          All projects are registered under Maharashtra Real Estate Regulatory Authority. Official verification link:
         </p>
         <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="color: #D4AF37; font-size: 0.82rem; font-weight: 700; text-decoration: underline;">
           maharera.maharashtra.gov.in &rarr;
@@ -63,8 +65,17 @@
 
     </div>
 
+    {/* Standard Real Estate Disclaimer Box */}
+    <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 1.2rem 1.5rem; margin-bottom: 2rem; font-size: 0.72rem; color: rgba(255, 255, 255, 0.55); line-height: 1.65; backdrop-filter: blur(10px);">
+      <strong style="color: #D4AF37; display: block; margin-bottom: 0.35rem; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem;">
+        ⚖️ Statutory Disclaimer & Consumer Disclosure:
+      </strong>
+      Disclaimer: The information, content, and visual representations provided on this website are for informational and conceptual presentation purposes only and do not constitute an offer, contract, guarantee, or warranty of any kind. All artistic impressions, 3D renderings, walkthroughs, floor plans, specifications, dimensions, amenities, layouts, and starting prices are indicative in nature and subject to change by the developer/promoter in accordance with PMRDA/MahaRERA sanctions and government guidelines without prior notice. 
+      Registered project certificates, sanctioned layout plans, and phase disclosures are available for public inspection on the official Maharashtra Real Estate Regulatory Authority (MahaRERA) portal at <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="color: #D4AF37; text-decoration: underline;">https://maharera.maharashtra.gov.in/</a> under registered projects. Prospective purchasers are advised to independently verify all details, titles, legal approvals, and terms of agreement with authorized sales personnel before entering into any transaction or booking.
+    </div>
+
     {/* Bottom Bar */}
-    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.76rem; color: rgba(255,255,255,0.55);">
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.76rem; color: rgba(255,255,255,0.55);">
       <div>
         © 2026 Paranjape Schemes (Construction) Ltd. All Rights Reserved.
       </div>
