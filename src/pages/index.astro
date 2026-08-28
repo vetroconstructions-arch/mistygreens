@@ -1,9 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { ProjectFilter } from '../components/react/ProjectFilter';
+import { ProjectPortfolioSection } from '../components/react/ProjectPortfolioSection';
 import { MasterPlanNavigator } from '../components/react/MasterPlanNavigator';
-import { PARANJAPE_PROJECTS } from '../data/projects';
 ---
 
 <BaseLayout
@@ -106,15 +104,8 @@ import { PARANJAPE_PROJECTS } from '../data/projects';
           190 Acres of master-planned luxury NA plots, private villas, hillside apartments, and senior retirement enclaves.
         </p>
 
-        {/* React Filter Island */}
-        <ProjectFilter client:load />
-      </div>
-
-      {/* 12 Sovereign Project Cards Grid */}
-      <div id="project-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
-        {PARANJAPE_PROJECTS.map((project) => (
-          <ProjectCard project={project} />
-        ))}
+        {/* Reactive Enclave Switcher & Project Cards Portfolio */}
+        <ProjectPortfolioSection client:load />
       </div>
 
       {/* Interactive 190-Acre Master Plan Hotspot Navigator */}
