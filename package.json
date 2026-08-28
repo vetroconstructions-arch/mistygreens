@@ -14,7 +14,7 @@
     "husky": "^9.1.7"
   },
   "scripts": {
-    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build && cp -r dist/* .",
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "prepare": "husky"
   }
