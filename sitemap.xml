@@ -2,66 +2,34 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-core.xml</loc>
-<<<<<<< HEAD
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-sectors.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-amenities.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-blogs.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-connectivity.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-comparisons.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-investment.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
   <sitemap>
     <loc>https://www.paranjapetownship.com/sitemap-legal.xml</loc>
-    <lastmod>2026-08-28T07:50:49+00:00</lastmod>
-=======
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-sectors.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-amenities.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-blogs.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-connectivity.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-comparisons.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-investment.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://www.paranjapetownship.com/sitemap-legal.xml</loc>
-    <lastmod>2026-08-28T07:53:16+00:00</lastmod>
->>>>>>> 09e1ef66 (feat: integrate official master layouts, floor plans, and visual assets for Highgardens, Canopy, Cliff Club, and Equestrian Academy)
+    <lastmod>2026-08-28T07:53:50+00:00</lastmod>
   </sitemap>
 </sitemapindex>
