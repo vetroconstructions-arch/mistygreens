@@ -1,17 +1,8 @@
-name = "mistygreens"
 compatibility_date = "2026-08-01"
-compatibility_flags = ["nodejs_compat", "transformstream_enable_standard_constructor"]
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "."
 
 # Cloudflare R2 Media Object Storage Binding
 [[r2_buckets]]
 binding = "MEDIA_BUCKET"
 bucket_name = "mistygreens-media"
-preview_bucket_name = "mistygreens-media-preview"
-
-# Cloudflare Edge Observability & Performance
-[observability]
-enabled = true
-
-[placement]
-mode = "smart"
