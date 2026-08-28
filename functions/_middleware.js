@@ -3,10 +3,17 @@
 
 export async function onRequest(context) {
   const { request, env, next } = context;
-  const url = new URL(request.url);
   const userAgent = request.headers.get("user-agent") || "";
   
-  // 1. Comprehensive Search Engine & AI Crawler Detection
+  // 1. Apex Domain & Protocol Canonical Normalization (paranjapetownship.com -> https://www.paranjapetownship.com)
+  if (url.hostname === "paranjapetownship.com" || url.protocol === "http:") {
+    const canonicalUrl = new URL(request.url);
+    canonicalUrl.hostname = "www.paranjapetownship.com";
+    canonicalUrl.protocol = "https:";
+    return Response.redirect(canonicalUrl.toString(), 301);
+  }
+
+  // 2. Comprehensive Search Engine & AI Crawler Detection
   const isSearchCrawler = /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Mediapartners-Google|AdsBot-Google|bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|ChatGPT-User|PerplexityBot|ClaudeBot|Bytespider/i.test(userAgent);
   const isGooglebot = /Googlebot|Google-InspectionTool|Googlebot-Image|Mediapartners-Google/i.test(userAgent);
 

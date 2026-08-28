@@ -92,10 +92,9 @@ def generate_seo_matrix(base_dir):
         elif "legal" in url_lower:
             categories["legal"].append((strict_url, "0.5", "monthly"))
         else:
-            # Fallback
             categories["core"].append((strict_url, "0.7", "weekly"))
-
-    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    # Deterministic Google standard date (prevents merge conflict churn)
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     
     # 4. Generate Sub-Sitemaps
     active_categories = []
