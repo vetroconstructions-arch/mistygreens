@@ -1,45 +1,50 @@
 import React, { useState } from 'react';
-import { PARANJAPE_PROJECTS, type ProjectEnclave } from '../../data/projects';
-
-const auraColorMap: Record<string, string> = {
-  plots: 'rgba(16, 185, 129, 0.18)',
-  villas: 'rgba(212, 175, 55, 0.25)',
-  apartments: 'rgba(59, 130, 246, 0.18)',
-  senior: 'rgba(249, 115, 22, 0.2)',
-  amenities: 'rgba(168, 85, 247, 0.2)'
-};
+import { PARANJAPE_PROJECTS } from '../../data/projects';
 
 export const ProjectPortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
 
   const categories = [
-    { id: 'all', label: 'ALL ENCLAVES', count: PARANJAPE_PROJECTS.length },
-    { id: 'plots', label: 'NA PLOTS', count: PARANJAPE_PROJECTS.filter(p => p.category === 'plots').length },
-    { id: 'villas', label: 'LUXURY VILLAS', count: PARANJAPE_PROJECTS.filter(p => p.category === 'villas').length },
-    { id: 'apartments', label: 'APARTMENTS', count: PARANJAPE_PROJECTS.filter(p => p.category === 'apartments').length },
-    { id: 'senior', label: 'SENIOR LIVING', count: PARANJAPE_PROJECTS.filter(p => p.category === 'senior').length },
-    { id: 'amenities', label: 'TOWNSHIP AMENITIES', count: PARANJAPE_PROJECTS.filter(p => p.category === 'amenities').length }
+    { id: 'all', label: '✦ ALL ENCLAVES', count: PARANJAPE_PROJECTS.length },
+    { id: 'plots', label: '🏡 NA PLOTS', count: PARANJAPE_PROJECTS.filter((p) => p.category === 'plots').length },
+    { id: 'villas', label: '🏰 LUXURY VILLAS', count: PARANJAPE_PROJECTS.filter((p) => p.category === 'villas').length },
+    { id: 'apartments', label: '🏢 APARTMENTS', count: PARANJAPE_PROJECTS.filter((p) => p.category === 'apartments').length },
+    { id: 'senior-living', label: '👴 SENIOR LIVING', count: PARANJAPE_PROJECTS.filter((p) => p.category === 'senior-living').length },
+    { id: 'amenities', label: '🏊 TOWNSHIP AMENITIES', count: PARANJAPE_PROJECTS.filter((p) => p.category === 'amenities').length }
   ];
 
-  const filteredProjects = activeCategory === 'all'
-    ? PARANJAPE_PROJECTS
-    : PARANJAPE_PROJECTS.filter(p => p.category === activeCategory);
+  const filteredProjects =
+    activeCategory === 'all'
+      ? PARANJAPE_PROJECTS
+      : PARANJAPE_PROJECTS.filter((p) => p.category === activeCategory);
 
-  const handleFilterClick = (catId: string) => {
-    setActiveCategory(catId);
+  const auraColorMap: Record<string, string> = {
+    plots: 'rgba(16, 185, 129, 0.18)',
+    villas: 'rgba(212, 175, 55, 0.22)',
+    apartments: 'rgba(59, 130, 246, 0.18)',
+    'senior-living': 'rgba(245, 158, 11, 0.2)',
+    amenities: 'rgba(168, 85, 247, 0.18)'
   };
 
   return (
-    <div>
-      {/* Category Filter Pills */}
+    <div style={{ marginTop: '2.5rem' }}>
+      {/* Reactive Category Filter Switcher */}
       <div
+        id="enclave-filter-bar"
         style={{
           display: 'flex',
-          justifyContent: 'center',
+          flexWrap: 'wrap',
           gap: '0.6rem',
-          marginTop: '1.8rem',
-          marginBottom: '2.8rem',
-          flexWrap: 'wrap'
+          justifyContent: 'center',
+          alignItems: 'center',
+          maxWidth: '960px',
+          margin: '0 auto 2.8rem',
+          padding: '0.5rem',
+          background: 'rgba(20, 20, 26, 0.85)',
+          border: '1.5px solid rgba(212, 175, 55, 0.35)',
+          borderRadius: '50px',
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 10px 30px rgba(0,0,0,0.6)'
         }}
       >
         {categories.map((cat) => {
@@ -47,16 +52,15 @@ export const ProjectPortfolioSection: React.FC = () => {
           return (
             <button
               key={cat.id}
-              onClick={() => handleFilterClick(cat.id)}
-              type="button"
+              onClick={() => setActiveCategory(cat.id)}
               style={{
-                background: isActive ? 'linear-gradient(135deg, #6B0D0D 0%, #8B1A1A 100%)' : 'rgba(255, 255, 255, 0.05)',
-                color: isActive ? '#ffffff' : 'rgba(255, 255, 255, 0.85)',
-                border: isActive ? '1.5px solid #D4AF37' : '1px solid rgba(255, 255, 255, 0.15)',
-                padding: '0.55rem 1.3rem',
+                background: isActive ? 'linear-gradient(135deg, #6B0D0D, #8B1A1A)' : 'transparent',
+                color: isActive ? '#FFFFFF' : 'rgba(255, 255, 255, 0.75)',
+                border: isActive ? '1.5px solid #D4AF37' : '1px solid transparent',
                 borderRadius: '50px',
-                fontWeight: isActive ? 800 : 700,
-                fontSize: '0.75rem',
+                padding: '0.55rem 1.15rem',
+                fontSize: '0.74rem',
+                fontWeight: 800,
                 letterSpacing: '0.05em',
                 cursor: 'pointer',
                 transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
@@ -130,32 +134,6 @@ export const ProjectPortfolioSection: React.FC = () => {
                 />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%)' }} />
 
-                {/* MahaRERA Badge */}
-                <div style={{ position: 'absolute', top: '12px', left: '12px' }}>
-                  <a
-                    href={project.reraLink}
-                    target="_blank"
-                    rel="noopener"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '5px',
-                      background: 'rgba(0,0,0,0.85)',
-                      color: '#D4AF37',
-                      border: '1px solid rgba(212,175,55,0.45)',
-                      padding: '0.28rem 0.7rem',
-                      borderRadius: '50px',
-                      fontWeight: 800,
-                      fontSize: '0.68rem',
-                      backdropFilter: 'blur(10px)',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    <span style={{ width: '6px', height: '6px', background: '#25D366', borderRadius: '50%', display: 'inline-block' }} />
-                    📜 {project.reraNumber.startsWith('P') || project.reraNumber.startsWith('PM') ? `MahaRERA: ${project.reraNumber}` : project.reraNumber}
-                  </a>
-                </div>
-
                 {/* Starting Price Pill */}
                 {project.priceNumeric > 0 && (
                   <div style={{ position: 'absolute', top: '12px', right: '12px' }}>
@@ -202,20 +180,47 @@ export const ProjectPortfolioSection: React.FC = () => {
                   <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.7rem', color: '#ffffff', margin: '0 0 0.4rem', lineHeight: 1.2 }}>
                     {project.name}
                   </h3>
-                  <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '0.85rem', lineHeight: 1.55, marginBottom: '1.2rem' }}>
+                  <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '0.85rem', lineHeight: 1.55, marginBottom: '1rem' }}>
                     {project.description}
                   </p>
                 </div>
 
                 <div>
                   {/* Spec Highlights */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '1.2rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '0.9rem' }}>
                     {project.specs.slice(0, 2).map((spec, i) => (
                       <div key={i}>
                         <span style={{ display: 'block', fontSize: '0.65rem', color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
                         <strong style={{ display: 'block', fontSize: '0.8rem', color: '#fff', marginTop: '2px' }}>{spec.value}</strong>
                       </div>
                     ))}
+                  </div>
+
+                  {/* Prominent MahaRERA Verification Strip */}
+                  <div
+                    style={{
+                      marginBottom: '1rem',
+                      background: 'rgba(212, 175, 55, 0.08)',
+                      border: '1px solid rgba(212, 175, 55, 0.35)',
+                      borderRadius: '8px',
+                      padding: '0.45rem 0.75rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <span style={{ fontSize: '0.72rem', color: '#D4AF37', fontWeight: 800, letterSpacing: '0.03em', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                      <span style={{ width: '6px', height: '6px', background: '#25D366', borderRadius: '50%', display: 'inline-block' }} />
+                      📜 MahaRERA: {project.reraNumber}
+                    </span>
+                    <a
+                      href={project.reraLink || 'https://maharera.maharashtra.gov.in/'}
+                      target="_blank"
+                      rel="noopener"
+                      style={{ fontSize: '0.68rem', color: '#25D366', fontWeight: 800, textDecoration: 'underline' }}
+                    >
+                      Verify ↗
+                    </a>
                   </div>
 
                   {/* Conversion Actions */}
@@ -251,7 +256,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                         background: 'linear-gradient(135deg, #6B0D0D, #8B1A1A)',
                         color: '#fff',
                         border: '1.5px solid #D4AF37',
-                        padding: '0.8rem 0.5rem',
+                        padding: '0.8rem 0.8rem',
                         borderRadius: '10px',
                         fontWeight: 800,
                         fontSize: '0.74rem',
@@ -259,11 +264,11 @@ export const ProjectPortfolioSection: React.FC = () => {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '4px',
-                        boxShadow: '0 4px 15px rgba(107,13,13,0.5)'
+                        boxShadow: '0 4px 15px rgba(107,13,13,0.5)',
+                        letterSpacing: '0.05em'
                       }}
                     >
-                      EXPLORE ENCLAVE &rarr;
+                      EXPLORE ENCLAVE →
                     </a>
                   </div>
                 </div>
