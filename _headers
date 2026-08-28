@@ -1,18 +1,88 @@
+# Cloudflare Advanced CDN, Edge & Google Connect Directives v2.0
+# Domain: https://www.paranjapetownship.com
+
 /*
-  X-Frame-Options: DENY
+  # Global Security & Googlebot Connectivity
+  X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://api.qrserver.com https://www.googletagmanager.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com; frame-src 'self' https://www.youtube.com https://www.google.com/maps/; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self';
+  X-DNS-Prefetch-Control: on
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  
+  # Content Security Policy (Full Support for Google Services)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://*.google.com; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com; form-action 'self' https://formsubmit.co; object-src 'none'; base-uri 'self';
+  
+  # Early Hints & Google Preconnect Link Headers
+  Link: <https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://www.googletagmanager.com>; rel=preconnect, <https://www.google.com>; rel=preconnect, </style.min.css>; rel=preload; as=style
+
+# HTML Documents: Edge-Cached with Instant Sub-20ms TTFB for Googlebot & Users
+/*.html
+  Cache-Control: public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800
+  CDN-Cache-Control: max-age=604800
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+
+# Sitemaps & Search Engine Manifests (Instant Edge Ingestion for Googlebot)
+/sitemap.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=86400
+  X-Robots-Tag: noindex, follow
+
+/sitemap-*.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=86400
+  X-Robots-Tag: noindex, follow
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600, s-maxage=86400
+  CDN-Cache-Control: max-age=86400
+
+# High-Resolution WebP Images & Static Visual Media (1-Year Immutable Edge Cache)
 /images/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+  Cloudflare-CDN-Cache-Control: max-age=31536000
+  Access-Control-Allow-Origin: *
+  Timing-Allow-Origin: *
+
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+  Cloudflare-CDN-Cache-Control: max-age=31536000
+  Access-Control-Allow-Origin: *
+  Timing-Allow-Origin: *
+
+# Cloudflare R2 Media Bucket Gateway Proxy
+/media/*
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  CDN-Cache-Control: max-age=31536000
+  Cloudflare-CDN-Cache-Control: max-age=31536000
+  Access-Control-Allow-Origin: *
+  Timing-Allow-Origin: *
+
+# Core JavaScript & CSS Bundles
 /scripts/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
 /styles/*
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
 /*.css
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
 /*.js
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
+# Cloudflare Edge API Endpoint
+/api/*
+  Cache-Control: no-store, no-cache, must-revalidate
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: POST, GET, OPTIONS
+  Access-Control-Allow-Headers: Content-Type
