@@ -1,0 +1,23 @@
+{
+  "version": "2026.1",
+  "bucket": "mistygreens-media",
+  "edge_prefix": "/media/",
+  "assets": {
+    "drone-aerial": "/images/drone-aerial.webp",
+    "hero-township": "/images/hero-township.webp",
+    "misty-greens": "/images/misty-greens-gate-day.webp",
+    "rivolo-exterior": "/images/villas-exterior-1.webp",
+    "canopy-realistic": "/images/canopy-realistic.webp",
+    "athashri-card": "/images/athashri-card.webp",
+    "highgardens-card": "/images/highgardens-card.webp",
+    "cove-duet": "/images/cove-duet.webp",
+    "verandah-card": "/images/verandah-card.webp",
+    "orchard-card": "/images/orchard-card.webp",
+    "swaniketan-card": "/images/swaniketan-card.webp",
+    "everglades-card": "/images/everglades-card.webp",
+    "cliff-club-card": "/images/cliff-club-card.webp",
+    "equestrian-card": "/images/equestrian-card.webp",
+    "school-card": "/images/school-exterior.webp",
+    "master-plan": "/images/master-plan.webp"
+  }
+}

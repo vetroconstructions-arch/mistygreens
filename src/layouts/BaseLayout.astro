@@ -65,6 +65,31 @@ const {
     gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
   </script>
 
+  {/* Cloudflare Edge Speculation Rules (Instant 0ms Page Pre-rendering) */}
+  <script type="speculationrules" is:inline>
+  {
+    "prerender": [
+      {
+        "source": "list",
+        "urls": [
+          "/paranjape-forest-trails-township-bhugaon-misty-greens/",
+          "/paranjape-forest-trails-township-bhugaon-rivolo-residences/",
+          "/paranjape-forest-trails-township-bhugaon-the-canopy/",
+          "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/",
+          "/paranjape-forest-trails-township-bhugaon-the-cove/",
+          "/paranjape-forest-trails-township-bhugaon-highgardens/",
+          "/paranjape-forest-trails-township-bhugaon-price/",
+          "/paranjape-forest-trails-township-bhugaon-location-proximity/"
+        ],
+        "eagerness": "moderate"
+      }
+    ]
+  }
+  </script>
+
+  {/* Cloudflare Web Analytics (RUM & Core Web Vitals Monitoring) */}
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "paranjape-forest-trails-edge"}'></script>
+
   <style is:global>
     body {
       margin: 0;
