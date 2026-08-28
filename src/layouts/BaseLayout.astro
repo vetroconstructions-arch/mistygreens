@@ -29,9 +29,11 @@ const {
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
 
-  {/* Google Directives */}
+  {/* Google Search Console & Directives */}
+  <meta name="google-site-verification" content="fA009Y6RAvi_yacg8Lw7JJu5uvAGR5po2RIUH8VcuvE" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large" />
 
   {/* Open Graph */}
   <meta property="og:type" content="website" />
@@ -89,6 +91,69 @@ const {
 
   {/* Cloudflare Web Analytics (RUM & Core Web Vitals Monitoring) */}
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "paranjape-forest-trails-edge"}'></script>
+
+  {/* Google Master Structured Data Knowledge Graph & Sitelinks Search */}
+  <script type="application/ld+json" is:inline>
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateProject",
+      "name": "Paranjape Forest Trails",
+      "description": "190-Acre Integrated Forest-Themed Township in Bhugaon, West Pune. Features luxury villas, premium apartments, and NA bungalow plots.",
+      "url": "https://www.paranjapetownship.com/",
+      "brand": { "@type": "Brand", "name": "Paranjape Schemes" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paud Road, Bhugaon",
+        "addressLocality": "Bhugaon",
+        "addressRegion": "Pune",
+        "postalCode": "412115",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "18.5050",
+        "longitude": "73.7406"
+      },
+      "amenityFeature": [
+        "The Cliff Club",
+        "Equestrian Academy",
+        "Forest Trails",
+        "Olympic Size Pool",
+        "Tennis Courts",
+        "SSRVM School"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Paranjape Forest Trails",
+      "alternateName": ["Paranjape Schemes Forest Trails", "Forest Trails Bhugaon"],
+      "url": "https://www.paranjapetownship.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.paranjapetownship.com/?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Paranjape Schemes (Construction) Ltd",
+      "url": "https://pscl.in",
+      "logo": "https://www.paranjapetownship.com/assets/branding/paranjape-corporate-logo.jpg",
+      "foundingDate": "1987",
+      "sameAs": [
+        "https://www.facebook.com/ParanjapeSchemes",
+        "https://twitter.com/pscl",
+        "https://www.linkedin.com/company/paranjape-schemes-construction-ltd-/"
+      ]
+    }
+  ]
+  </script>
 
   <style is:global>
     body {
