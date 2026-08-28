@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PARANJAPE_PROJECTS, type ProjectEnclave } from '../data/projects';
+
+export async function getStaticPaths() {
+  return PARANJAPE_PROJECTS.map((project) => {
+    // Strip leading and trailing slashes
+    const slug = project.url.replace(/^\/|\/$/g, '');
+    return {
+      params: { slug },
+      props: { project }
+    };
+  });
+}
+
+interface Props {
+  project: ProjectEnclave;
+}
+
+const { project } = Astro.props;
+---
+
+<BaseLayout
+  title={`${project.name} | Paranjape Forest Trails Bhugaon Pune`}
+  description={project.description}
+  image={project.image}
+>
+  {/* Enclave Hero Section */}
+  <section style="position: relative; padding: 120px 0 60px; background: #0a0a0c; overflow: hidden;">
+    <div
+      style={`background-image: url(${project.image}); position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.35; filter: blur(2px);`}
+    ></div>
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,12,0.85) 0%, rgba(10,10,12,0.6) 50%, #09090b 100%);"></div>
+
+    <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      {/* Breadcrumb */}
+      <nav style="display: flex; gap: 8px; font-size: 0.75rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem;">
+        <a href="/" style="color: #D4AF37; text-decoration: none;">Home</a>
+        <span>/</span>
+        <a href="/#township-clusters" style="color: #D4AF37; text-decoration: none;">Enclaves</a>
+        <span>/</span>
+        <span style="color: #fff;">{project.name}</span>
+      </nav>
+
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem;">
+        <div style="max-width: 750px;">
+          <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 0.8rem; flex-wrap: wrap;">
+            <span style={`background: ${project.categoryBadgeColor}; color: ${project.category === 'villas' || project.category === 'amenities' ? '#000' : '#fff'}; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.68rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em;`}>
+              {project.categoryLabel}
+            </span>
+            <span style="background: rgba(0,0,0,0.8); color: #D4AF37; border: 1px solid rgba(212,175,55,0.4); padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.68rem; font-weight: 800;">
+              📜 MahaRERA: {project.reraNumber}
+            </span>
+          </div>
+
+          <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: #ffffff; margin: 0 0 0.8rem; line-height: 1.15;">
+            {project.name}
+          </h1>
+          <p style="color: rgba(255,255,255,0.85); font-size: clamp(1rem, 1.6vw, 1.2rem); line-height: 1.6; margin: 0 0 1.5rem;">
+            {project.tagline}
+          </p>
+        </div>
+
+        {/* Pricing & CTA Card */}
+        <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(20px); border: 1.5px solid rgba(212,175,55,0.35); padding: 1.5rem 1.8rem; border-radius: 18px; min-width: 280px; box-shadow: 0 15px 35px rgba(0,0,0,0.7);">
+          <span style="display: block; font-size: 0.75rem; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em;">Exclusive Developer Pricing</span>
+          <strong style="display: block; font-size: 1.8rem; color: #D4AF37; font-family: 'Playfair Display', serif; margin: 0.2rem 0 1rem;">
+            {project.price}
+          </strong>
+          <button
+            class="open-enquiry-modal"
+            style="width: 100%; background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1px solid #D4AF37; padding: 0.85rem; border-radius: 10px; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; margin-bottom: 0.6rem; box-shadow: 0 6px 20px rgba(107,13,13,0.5);"
+            onclick={`window.openEnquiryModal && window.openEnquiryModal('${project.id}')`}
+          >
+            REQUEST BROCHURE & TOUR &rarr;
+          </button>
+          <a
+            href={`https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}%20at%20Paranjape%20Forest%20Trails.`}
+            target="_blank"
+            rel="noopener"
+            style="display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; background: #25D366; color: #fff; padding: 0.75rem; border-radius: 10px; font-weight: 800; font-size: 0.78rem; text-decoration: none; box-sizing: border-box;"
+          >
+            💬 CHAT ON WHATSAPP
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Main Content Section */}
+  <section style="padding: 4rem 0 5rem; background: #09090b;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
+        
+        {/* Left Column: Visuals & Highlights */}
+        <div>
+          <div style="border-radius: 20px; overflow: hidden; border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.8); margin-bottom: 2rem;">
+            <img src={project.image} alt={project.alt} style="width: 100%; height: auto; display: block;" loading="eager" />
+          </div>
+
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #D4AF37; margin: 0 0 1rem;">
+            Key Enclave Highlights
+          </h3>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem;">
+            {project.features.map(feat => (
+              <li style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; color: rgba(255,255,255,0.9); background: rgba(255,255,255,0.03); padding: 0.8rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06);">
+                <span style="color: #D4AF37; font-weight: 900;">✓</span>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Right Column: Architectural Overview & Specs */}
+        <div>
+          <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #fff; margin: 0 0 1rem;">
+            Architectural & Master Plan Overview
+          </h2>
+          <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+            {project.description} Set within the 190-acre gated township of Paranjape Forest Trails in Bhugaon, residents enjoy unmatched air quality (AQI 35% superior to Pune city center), proximity to Kothrud & Bavdhan, and direct access to The Cliff Club and Equestrian Academy.
+          </p>
+
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #D4AF37; margin: 0 0 1rem;">
+            Technical Specifications
+          </h3>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem;">
+            {project.specs.map(spec => (
+              <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.25); padding: 1rem; border-radius: 12px;">
+                <span style="display: block; font-size: 0.7rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.05em;">{spec.label}</span>
+                <strong style="display: block; font-size: 0.95rem; color: #fff; margin-top: 4px;">{spec.value}</strong>
+              </div>
+            ))}
+          </div>
+
+          <div style="background: linear-gradient(135deg, rgba(107,13,13,0.3) 0%, rgba(212,175,55,0.15) 100%); border: 1px solid #D4AF37; padding: 1.5rem; border-radius: 16px;">
+            <h4 style="color: #fff; font-family: 'Playfair Display', serif; font-size: 1.25rem; margin: 0 0 0.5rem;">
+              Plan Your VIP Site Visit
+            </h4>
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem; line-height: 1.5; margin: 0 0 1.2rem;">
+              Experience the actual location, sample residences, and 190-acre township amenities firsthand with a dedicated PSCL sales advisor.
+            </p>
+            <button
+              class="open-enquiry-modal"
+              style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1px solid #D4AF37; padding: 0.8rem 1.6rem; border-radius: 50px; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;"
+              onclick={`window.openEnquiryModal && window.openEnquiryModal('${project.id}')`}
+            >
+              BOOK SITE VISIT NOW &rarr;
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
