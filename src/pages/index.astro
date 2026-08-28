@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { ProjectFilter } from '../components/react/ProjectFilter';
+import { PARANJAPE_PROJECTS } from '../data/projects';
+---
+
+<BaseLayout
+  title="NA Plots & Villas | Paranjape Forest Trails Bhugaon | Pune West"
+  description="Explore Paranjape Forest Trails Bhugaon, Pune's premier 190-acre township. Featuring RERA approved NA plots & luxury villas near Kothrud & Bavdhan. Inquire now!"
+  image="/images/hero-township.webp"
+>
+  {/* Google Standards Compact Hero Section */}
+  <section
+    class="hero-section"
+    style="position: relative; min-height: 72vh; max-height: 680px; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #0a0505; overflow: hidden; padding: 95px 0 35px;"
+  >
+    <div
+      aria-label="Real Drone Aerial View of Paranjape Forest Trails Bhugaon Township"
+      class="hero-bg parallax-bg"
+      role="img"
+      style="background-image: url(/images/drone-aerial.webp); position: absolute; inset: 0; background-size: cover; background-position: center 35%; z-index: 0; opacity: 0.65;"
+    ></div>
+    <div
+      class="hero-vignette"
+      style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10, 5, 5, 0.75) 0%, rgba(10, 5, 5, 0.45) 50%, rgba(10, 5, 5, 0.92) 100%); z-index: 1;"
+    ></div>
+
+    <div class="container hero-container" style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; text-align: center;">
+      <div class="hero-label-wrap" style="margin-bottom: 0.8rem;">
+        <span
+          class="hero-label"
+          style="display: inline-block; font-size: 0.72rem; color: #D4AF37; font-weight: 800; letter-spacing: 0.3em; text-transform: uppercase; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); padding: 0.35rem 1.1rem; border-radius: 50px; backdrop-filter: blur(8px);"
+        >
+          ✦ #1 Integrated Township in Pune
+        </span>
+      </div>
+
+      <h1 class="hero-title" style="margin: 0;">
+        <span class="title-top" style="display: block; font-size: clamp(1.8rem, 3.5vw, 3rem); font-family: 'Playfair Display', serif; color: #FFFFFF; line-height: 1.1; letter-spacing: -0.01em;">
+          Paranjape Forest Trails
+        </span>
+        <span class="title-bottom" style="display: block; font-size: clamp(2.1rem, 4.2vw, 3.8rem); font-weight: 900; background: linear-gradient(135deg, #FFFFFF 30%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1.05; margin-top: 0.2rem;">
+          Integrated Nature Township Pune
+        </span>
+      </h1>
+
+      <p class="hero-subtitle" style="color: rgba(255,255,255,0.9); font-size: clamp(0.95rem, 1.4vw, 1.15rem); margin: 0.8rem auto 0; max-width: 680px; font-weight: 400; line-height: 1.55;">
+        RERA Approved Premium NA Bungalow Plots & Luxury Forest Villas starting from <strong style="color: #D4AF37; font-weight: 700;">₹1.23 Cr*</strong> near Bavdhan & Kothrud.
+      </p>
+
+      {/* Metrics Stats Grid */}
+      <div
+        class="hero-stats-grid"
+        style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; max-width: 760px; margin: 1.2rem auto 0; padding: 0.8rem 1rem; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 14px; backdrop-filter: blur(16px);"
+      >
+        <div style="text-align: left; padding: 0.3rem 0.6rem; border-left: 2px solid #D4AF37;">
+          <span style="display: block; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; font-family: 'Playfair Display', serif;">190 Acres</span>
+          <span style="font-size: 0.65rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Forest Township</span>
+        </div>
+        <div style="text-align: left; padding: 0.3rem 0.6rem; border-left: 2px solid #D4AF37;">
+          <span style="display: block; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; font-family: 'Playfair Display', serif;">30,000+</span>
+          <span style="font-size: 0.65rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Indigenous Trees</span>
+        </div>
+        <div style="text-align: left; padding: 0.3rem 0.6rem; border-left: 2px solid #D4AF37;">
+          <span style="display: block; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; font-family: 'Playfair Display', serif;">Equestrian</span>
+          <span style="font-size: 0.65rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Horse Academy</span>
+        </div>
+        <div style="text-align: left; padding: 0.3rem 0.6rem; border-left: 2px solid #D4AF37;">
+          <span style="display: block; font-size: 1.2rem; font-weight: 900; color: #FFFFFF; font-family: 'Playfair Display', serif;">100% RERA</span>
+          <span style="font-size: 0.65rem; color: rgba(255,255,255,0.75); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;">Gated Plots</span>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div style="margin-top: 1.4rem; display: flex; gap: 0.8rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <button
+          class="open-enquiry-modal"
+          style="background: linear-gradient(135deg, #B3302A 0%, #6B0D0D 100%); color: #fff; padding: 0.85rem 2.2rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; box-shadow: 0 10px 25px rgba(179,48,42,0.45);"
+          onclick="window.openEnquiryModal && window.openEnquiryModal()"
+        >
+          ⬥ ENQUIRE NOW
+        </button>
+        <a
+          href="#township-clusters"
+          style="color: #D4AF37; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; font-weight: 800; text-transform: uppercase; padding: 0.8rem 1.8rem; border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);"
+        >
+          EXPLORE TOWNSHIP ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* Sovereign Project Portfolio Section */}
+  <section class="cluster-grid-section" id="township-clusters" style="padding: 4.5rem 0 5.5rem; background: radial-gradient(circle at 50% 10%, rgba(212,175,55,0.06) 0%, #080808 60%);">
+    <div style="max-width: 1400px; margin: 0 auto; padding: 0 1.5rem;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span style="color: #D4AF37; font-weight: 800; letter-spacing: 0.25rem; text-transform: uppercase; font-size: 0.72rem; background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.3); padding: 0.35rem 1.2rem; border-radius: 50px; display: inline-block;">
+          ✦ Sovereign Project Portfolio
+        </span>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin: 0.8rem 0 0.5rem; color: #ffffff; letter-spacing: -0.01em;">
+          Explore <span style="color: #D4AF37; background: linear-gradient(135deg, #FFFFFF 20%, #D4AF37 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Paranjape Schemes</span> Complete Enclaves
+        </h2>
+        <p style="color: rgba(255,255,255,0.72); max-width: 680px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6;">
+          190 Acres of master-planned luxury NA plots, private villas, hillside apartments, and senior retirement enclaves.
+        </p>
+
+        {/* React Filter Island */}
+        <ProjectFilter client:load />
+      </div>
+
+      {/* 12 Sovereign Project Cards Grid */}
+      <div id="project-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        {PARANJAPE_PROJECTS.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

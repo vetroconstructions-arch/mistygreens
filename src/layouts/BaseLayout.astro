@@ -1,0 +1,120 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { EnquiryModal } from '../components/react/EnquiryModal';
+import { QuickContactBar } from '../components/react/QuickContactBar';
+import '../styles/tokens.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+}
+
+const {
+  title = "NA Plots & Villas | Paranjape Forest Trails Bhugaon | Pune West",
+  description = "Explore Paranjape Forest Trails Bhugaon, Pune's premier 190-acre township. Featuring RERA approved NA plots & luxury villas near Kothrud & Bavdhan.",
+  canonical = Astro.url.href,
+  image = "/images/hero-township.webp"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+
+  {/* Google Directives */}
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  {/* Open Graph */}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={image} />
+  <meta property="og:site_name" content="Paranjape Forest Trails Township Bhugaon" />
+
+  {/* Twitter Cards */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={image} />
+
+  {/* Preconnect & Preload */}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/style.min.css" />
+
+  {/* Favicons */}
+  <link rel="icon" type="image/png" href="/assets/branding/forest-trails-emblem.png" />
+
+  {/* Google Analytics GA4 */}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+  </script>
+
+  <style is:global>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #09090b;
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    @media (max-width: 768px) {
+      .mobile-quick-bar {
+        display: flex !important;
+      }
+      body {
+        padding-bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <Header />
+
+  <main>
+    <slot />
+  </main>
+
+  <Footer />
+
+  {/* React Islands */}
+  <EnquiryModal client:idle />
+  <QuickContactBar client:idle />
+
+  {/* Global Client Script for Filter Engine */}
+  <script is:inline>
+    window.filterProjects = function(category) {
+      const cards = document.querySelectorAll('.cluster-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            card.style.opacity = '1';
+          }, 40);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    };
+  </script>
+</body>
+</html>

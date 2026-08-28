@@ -1,0 +1,57 @@
+:root {
+  /* Ultra-Luxury Obsidian & Charcoal Theme */
+  --bg-primary: #09090b;
+  --bg-secondary: #121215;
+  --bg-card: #151518;
+  --bg-card-hover: #1c1c21;
+  --bg-glass: rgba(255, 255, 255, 0.04);
+  --bg-glass-strong: rgba(18, 18, 22, 0.75);
+
+  /* Metallic Champagne Gold Palette */
+  --gold-primary: #D4AF37;
+  --gold-light: #F3E5AB;
+  --gold-dark: #AA820A;
+  --gold-gradient: linear-gradient(135deg, #FFF0BD 0%, #D4AF37 50%, #A37F14 100%);
+  --gold-border: rgba(212, 175, 55, 0.35);
+  --gold-border-glow: rgba(212, 175, 55, 0.65);
+
+  /* Royal Velvet Crimson Accent */
+  --crimson-primary: #6B0D0D;
+  --crimson-light: #8B1A1A;
+  --crimson-dark: #4A0808;
+  --crimson-gradient: linear-gradient(135deg, #8B1A1A 0%, #6B0D0D 50%, #4A0808 100%);
+
+  /* WhatsApp & Status Greens */
+  --whatsapp-green: #25D366;
+  --status-verified: #28a745;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Shadows & Glows */
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.7);
+  --shadow-card-hover: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.2);
+  --shadow-modal: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.2);
+  --glow-gold: 0 0 25px rgba(212, 175, 55, 0.3);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 50px;
+}
+
+/* Glassmorphic Surfaces */
+.glass-panel {
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--gold-border);
+}
+
+.gold-gradient-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
