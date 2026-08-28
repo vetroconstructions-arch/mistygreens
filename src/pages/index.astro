@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ProjectPortfolioSection } from '../components/react/ProjectPortfolioSection';
 import { MasterPlanNavigator } from '../components/react/MasterPlanNavigator';
+import { StrategicKnowledgeHub } from '../components/react/StrategicKnowledgeHub';
 ---
 
 <BaseLayout
@@ -110,6 +111,9 @@ import { MasterPlanNavigator } from '../components/react/MasterPlanNavigator';
 
       {/* Interactive 190-Acre Master Plan Hotspot Navigator */}
       <MasterPlanNavigator client:visible />
+
+      {/* Strategic Knowledge Hub: FAQs, Location Infographics & Editorial Insights */}
+      <StrategicKnowledgeHub client:visible />
     </div>
   </section>
 </BaseLayout>
