@@ -1,4 +1,6 @@
-// Sovereign Cloudflare Edge Function: Serverless Lead Validation & Routing Engine v1.0
+// Sovereign Cloudflare Edge Function: Serverless Lead Validation & Routing Engine v2.0
+// Target Destination: propsmartrealty@gmail.com
+
 export async function onRequestPost(context) {
   try {
     const request = context.request;
@@ -16,8 +18,10 @@ export async function onRequestPost(context) {
 
     const name = (body.name || "").trim();
     const phone = (body.phone || "").trim();
-    const email = (body.email || "").trim();
-    const project = (body.project_context || body.interest || "Paranjape Forest Trails").trim();
+    const email = (body.email || "N/A").trim();
+    const project = (body.project_context || body.project || body.interest || "Paranjape Forest Trails").trim();
+    const source = (body.source || "https://www.paranjapetownship.com/").trim();
+    const timestamp = new Date().toISOString();
 
     // Edge Validation
     if (!name || !phone) {
@@ -27,12 +31,27 @@ export async function onRequestPost(context) {
       );
     }
 
-    // Response Payload from Cloudflare Edge
+    // Direct Dispatch to propsmartrealty@gmail.com
+    const dispatchFormData = new FormData();
+    dispatchFormData.append("name", name);
+    dispatchFormData.append("phone", phone);
+    dispatchFormData.append("email", email);
+    dispatchFormData.append("project_interest", project);
+    dispatchFormData.append("source_url", source);
+    dispatchFormData.append("timestamp", timestamp);
+    dispatchFormData.append("_subject", `🌟 New Website Lead: ${project} - ${name} (${phone})`);
+    dispatchFormData.append("_captcha", "false");
+
+    await fetch("https://formsubmit.co/propsmartrealty@gmail.com", {
+      method: "POST",
+      body: dispatchFormData
+    });
+
     const responsePayload = {
       success: true,
-      timestamp: new Date().toISOString(),
+      timestamp: timestamp,
       lead: { name, phone, email, project },
-      message: "Lead processed & authenticated successfully at Cloudflare Edge."
+      message: "Lead processed & dispatched to propsmartrealty@gmail.com successfully."
     };
 
     return new Response(JSON.stringify(responsePayload), {
