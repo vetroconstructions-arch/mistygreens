@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { ProjectFilter } from '../components/react/ProjectFilter';
+import { MasterPlanNavigator } from '../components/react/MasterPlanNavigator';
 import { PARANJAPE_PROJECTS } from '../data/projects';
 ---
 
@@ -110,11 +111,14 @@ import { PARANJAPE_PROJECTS } from '../data/projects';
       </div>
 
       {/* 12 Sovereign Project Cards Grid */}
-      <div id="project-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div id="project-cards-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
         {PARANJAPE_PROJECTS.map((project) => (
           <ProjectCard project={project} />
         ))}
       </div>
+
+      {/* Interactive 190-Acre Master Plan Hotspot Navigator */}
+      <MasterPlanNavigator client:visible />
     </div>
   </section>
 </BaseLayout>
