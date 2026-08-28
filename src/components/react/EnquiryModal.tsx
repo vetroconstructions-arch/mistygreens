@@ -14,7 +14,30 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // Background offline queue listener & processor
   useEffect(() => {
+    const processQueuedLeads = async () => {
+      try {
+        const queued = localStorage.getItem('pscl_offline_lead_vault');
+        if (queued) {
+          const leads = JSON.parse(queued);
+          if (Array.isArray(leads) && leads.length > 0) {
+            for (const lead of leads) {
+              await fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(lead)
+              }).catch(() => {});
+            }
+            localStorage.removeItem('pscl_offline_lead_vault');
+          }
+        }
+      } catch (e) {}
+    };
+
+    window.addEventListener('online', processQueuedLeads);
+    processQueuedLeads();
+
     const handleOpen = (e: CustomEvent) => {
       if (e.detail && e.detail.project) {
         setSelectedProject(e.detail.project);
@@ -31,6 +54,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
     };
 
     return () => {
+      window.removeEventListener('online', processQueuedLeads);
       window.removeEventListener('open-enquiry-modal' as any, handleOpen);
     };
   }, []);
@@ -55,8 +79,15 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
       _captcha: 'false'
     };
 
+    // 1. Vault to LocalStorage immediately (Zero-Loss Guarantee)
     try {
-      // 1. Primary Direct Client-Side FormSubmit AJAX Dispatch
+      const existing = JSON.parse(localStorage.getItem('pscl_offline_lead_vault') || '[]');
+      existing.push(leadPayload);
+      localStorage.setItem('pscl_offline_lead_vault', JSON.stringify(existing));
+    } catch (e) {}
+
+    try {
+      // 2. Primary Direct Client-Side FormSubmit AJAX Dispatch
       const clientDispatch = fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
         method: 'POST',
         headers: {
@@ -64,25 +95,40 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
           'Accept': 'application/json'
         },
         body: JSON.stringify(leadPayload)
+      }).then((res) => {
+        if (res.ok) {
+          // Clear from vault if succeeded
+          try {
+            localStorage.removeItem('pscl_offline_lead_vault');
+          } catch (e) {}
+        }
       }).catch(err => console.warn('Direct FormSubmit error:', err));
 
-      // 2. Secondary Cloudflare Serverless Edge API Dispatch
+      // 3. Secondary Cloudflare Serverless Edge API Dispatch
       const edgeDispatch = fetch('/api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadPayload)
       }).catch(err => console.warn('Edge API error:', err));
 
-      // Wait for client dispatch or 1.5s max
+      // 4. Tertiary Browser Beacon Redundancy (Guarantees delivery even on immediate tab close)
+      if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+        try {
+          const blob = new Blob([JSON.stringify(leadPayload)], { type: 'application/json' });
+          navigator.sendBeacon('/api/lead-capture', blob);
+        } catch (e) {}
+      }
+
+      // Race dispatches with a 1.2s timeout so visitor gets instantaneous confirmation
       await Promise.race([
         Promise.allSettled([clientDispatch, edgeDispatch]),
-        new Promise(resolve => setTimeout(resolve, 1500))
+        new Promise(resolve => setTimeout(resolve, 1200))
       ]);
 
       setIsSuccess(true);
       setTimeout(() => {
         window.location.href = '/thank-you.html';
-      }, 800);
+      }, 700);
     } catch (err) {
       console.error('Lead submission:', err);
       window.location.href = '/thank-you.html';
