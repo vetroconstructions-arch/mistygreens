@@ -306,5 +306,28 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     ],
     features: ['Private Riding Lessons', 'Equine Care Staff', 'Showjumping Grounds', 'Weekend Trail Rides'],
     url: '/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/'
+  },
+  {
+    id: 'sri-sri-ravishankar-school',
+    name: 'Sri Sri Ravishankar Vidya Mandir (SSRVM)',
+    category: 'amenities',
+    categoryLabel: 'Campus ICSE School',
+    categoryBadgeColor: '#007bff',
+    tagline: 'Premier ICSE Co-Educational School Inside Forest Trails Township',
+    description: 'Accredited ICSE school offering holistic value-based education, modern STEM laboratories, sprawling sports grounds, and performing arts inside the township.',
+    price: 'On-Campus ICSE School',
+    priceNumeric: 0,
+    reraNumber: 'Educational Campus',
+    reraLink: 'https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/',
+    image: '/images/school-card.webp',
+    alt: 'Sri Sri Ravishankar Vidya Mandir ICSE School at Paranjape Forest Trails Bhugaon Pune',
+    specs: [
+      { label: 'Board', value: 'ICSE Curriculum' },
+      { label: 'Campus', value: 'Integrated Township Campus' },
+      { label: 'Grades', value: 'Pre-Primary to Grade X' },
+      { label: 'Safety', value: 'Zero-Commute Walk to School' }
+    ],
+    features: ['Holistic Value-Based Learning', 'Smart Interactive Classrooms', 'Dedicated Athletics Ground', 'Yoga & Meditation Training'],
+    url: '/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/'
   }
 ];

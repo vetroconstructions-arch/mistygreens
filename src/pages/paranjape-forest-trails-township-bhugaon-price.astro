@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PARANJAPE_PROJECTS } from '../data/projects';
+
+const residentialProjects = PARANJAPE_PROJECTS.filter(p => p.priceNumeric > 0);
+---
+
+<BaseLayout
+  title="Official 2026 Price Sheet | Paranjape Forest Trails Bhugaon Pune"
+  description="Verified 2026 pricing for NA plots, luxury villas, and apartments at Paranjape Forest Trails Bhugaon. PMRDA & MahaRERA approved. Request cost sheets now."
+>
+  <section style="position: relative; padding: 130px 1.5rem 60px; background: radial-gradient(circle at 50% 15%, rgba(107, 13, 13, 0.35) 0%, #09090b 70%); text-align: center;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+      <span style="display: inline-block; background: rgba(212, 175, 55, 0.15); color: #D4AF37; border: 1px solid rgba(212, 175, 55, 0.4); padding: 0.35rem 1.1rem; border-radius: 50px; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.2rem;">
+        ✦ OFFICIAL STATUTORY 2026 PRICING MATRIX
+      </span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 5.5vw, 3.8rem); color: #ffffff; margin: 0 0 1rem; line-height: 1.15;">
+        Transparent, RERA-Approved <span style="background: linear-gradient(135deg, #D4AF37, #FFFFFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Township Pricing</span>
+      </h1>
+      <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; line-height: 1.65; max-width: 750px; margin: 0 auto 2.5rem;">
+        Explore verified starting prices, carpet areas, and PMRDA/MahaRERA registration numbers across all residential clusters at Paranjape Forest Trails Bhugaon, Pune West.
+      </p>
+
+      {/* Trust Badges */}
+      <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 3.5rem;">
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; color: #D4AF37;">
+          ✓ 100% Clear Title 7/12 Extracts
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(37,211,102,0.3); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; color: #25D366;">
+          ✓ PMRDA Sanctioned Layouts
+        </div>
+        <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 1.2rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; color: #D4AF37;">
+          ✓ Direct Developer Inventory (No Brokerage)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Pricing Table & Cards */}
+  <section style="max-width: 1300px; margin: 0 auto 5rem; padding: 0 1.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+      {residentialProjects.map((project) => (
+        <div
+          key={project.id}
+          style="background: #111116; border: 1.5px solid rgba(212, 175, 55, 0.35); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 15px 35px rgba(0,0,0,0.7);"
+        >
+          <div style="position: relative; height: 190px; overflow: hidden;">
+            <img
+              src={project.image}
+              alt={project.alt}
+              style="width: 100%; height: 100%; object-fit: cover;"
+              loading="lazy"
+            />
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.85) 100%);"></div>
+            <div style="position: absolute; top: 12px; right: 12px;">
+              <span style="background: linear-gradient(135deg, #8B1A1A, #5A0A0A); color: #fff; border: 1px solid #D4AF37; padding: 0.35rem 0.9rem; border-radius: 50px; font-weight: 900; font-size: 0.82rem;">
+                {project.price}
+              </span>
+            </div>
+            <div style="position: absolute; bottom: 12px; left: 12px;">
+              <span style={`background: ${project.categoryBadgeColor}; color: #000; padding: 0.25rem 0.7rem; border-radius: 6px; font-weight: 800; font-size: 0.68rem; text-transform: uppercase;`}>
+                {project.categoryLabel}
+              </span>
+            </div>
+          </div>
+
+          <div style="padding: 1.5rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #fff; margin: 0 0 0.5rem;">
+                {project.name}
+              </h3>
+              <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.5; margin-bottom: 1.2rem;">
+                {project.tagline}
+              </p>
+
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 0.8rem; margin-bottom: 1.2rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem; margin-bottom: 0.4rem;">
+                  <span style="color: rgba(255,255,255,0.6);">📜 MahaRERA:</span>
+                  <strong style="color: #D4AF37;">{project.reraNumber}</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.78rem;">
+                  <span style="color: rgba(255,255,255,0.6);">Typology:</span>
+                  <strong style="color: #fff;">{project.specs[0]?.value || 'Custom'}</strong>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 0.6rem;">
+              <a
+                href={`https://wa.me/917744009295?text=Hi%2C%20please%20send%20me%20the%20official%20all-inclusive%20cost%20sheet%20and%20payment%20plan%20for%20${encodeURIComponent(project.name)}.`}
+                target="_blank"
+                rel="noopener"
+                style="flex: 1; background: #25D366; color: #fff; text-align: center; padding: 0.75rem 0.5rem; border-radius: 8px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 4px;"
+              >
+                💬 COST SHEET
+              </a>
+              <a
+                href={project.url}
+                style="flex: 1.2; text-align: center; background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #fff; border: 1.5px solid #D4AF37; padding: 0.75rem 0.5rem; border-radius: 8px; font-weight: 800; font-size: 0.74rem; text-decoration: none; display: flex; align-items: center; justify-content: center;"
+              >
+                VIEW ENCLAVE →
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
