@@ -136,7 +136,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'View', value: 'Sahyadri Ridge' }
     ],
     features: ['Private Sky Terraces', 'Infinity Pool Access', 'Gymnasium', 'Landscaped Jogging Track'],
-    url: '/paranjape-forest-trails-township-bhugaon-highgardens/'
+    url: '/paranjape-forest-trails-township-bhugaon-highgardens/',
+    masterLayout: '/images/highgardens-layout.webp'
   },
   {
     id: 'the-cove',
