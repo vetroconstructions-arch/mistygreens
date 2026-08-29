@@ -3,6 +3,8 @@ import { PARANJAPE_PROJECTS } from '../../data/projects';
 
 export const ProjectPortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [cardModes, setCardModes] = useState<Record<string, 'exterior' | 'layout'>>({});
+  const [lightboxLayout, setLightboxLayout] = useState<{ name: string; image: string } | null>(null);
 
   const categories = [
     { id: 'all', label: '✦ ALL ENCLAVES', count: PARANJAPE_PROJECTS.length },
@@ -24,6 +26,10 @@ export const ProjectPortfolioSection: React.FC = () => {
     apartments: 'rgba(59, 130, 246, 0.18)',
     'senior-living': 'rgba(245, 158, 11, 0.2)',
     amenities: 'rgba(168, 85, 247, 0.18)'
+  };
+
+  const toggleCardMode = (projectId: string, mode: 'exterior' | 'layout') => {
+    setCardModes((prev) => ({ ...prev, [projectId]: mode }));
   };
 
   return (
@@ -100,6 +106,12 @@ export const ProjectPortfolioSection: React.FC = () => {
       >
         {filteredProjects.map((project) => {
           const auraGlow = auraColorMap[project.category] || 'rgba(212, 175, 55, 0.18)';
+          const currentMode = cardModes[project.id] || 'exterior';
+          const displayedImage =
+            currentMode === 'layout' && project.masterLayout
+              ? project.masterLayout
+              : project.image;
+
           return (
             <div
               key={project.id}
@@ -118,25 +130,32 @@ export const ProjectPortfolioSection: React.FC = () => {
               }}
             >
               {/* Card Header & Media */}
-              <div style={{ position: 'relative', height: '225px', overflow: 'hidden', background: '#000' }}>
+              <div style={{ position: 'relative', height: '235px', overflow: 'hidden', background: '#0a0a0c' }}>
                 <img
-                  src={project.image}
-                  alt={project.alt}
+                  src={displayedImage}
+                  alt={currentMode === 'layout' ? `${project.name} Master Layout Plan` : project.alt}
                   style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: 'cover',
+                    objectFit: currentMode === 'layout' ? 'contain' : 'cover',
                     objectPosition: 'center',
-                    transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+                    background: currentMode === 'layout' ? '#0d0d12' : '#000',
+                    transition: 'transform 0.4s ease, opacity 0.3s ease',
+                    cursor: currentMode === 'layout' ? 'zoom-in' : 'default'
+                  }}
+                  onClick={() => {
+                    if (project.masterLayout) {
+                      setLightboxLayout({ name: project.name, image: project.masterLayout });
+                    }
                   }}
                   loading="lazy"
                   decoding="async"
                 />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%)' }} />
+                <div style={{ position: 'absolute', inset: 0, background: currentMode === 'layout' ? 'none' : 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%)', pointerEvents: 'none' }} />
 
                 {/* Starting Price Pill */}
                 {project.priceNumeric > 0 && (
-                  <div style={{ position: 'absolute', top: '12px', right: '12px' }}>
+                  <div style={{ position: 'absolute', top: '12px', right: '12px', zIndex: 2 }}>
                     <span
                       style={{
                         background: 'linear-gradient(135deg, #8B1A1A, #5A0A0A)',
@@ -154,8 +173,61 @@ export const ProjectPortfolioSection: React.FC = () => {
                   </div>
                 )}
 
+                {/* In-Card Media Toggle: Exterior vs Master Layout */}
+                {project.masterLayout && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '12px',
+                      left: '12px',
+                      zIndex: 3,
+                      display: 'flex',
+                      background: 'rgba(0,0,0,0.88)',
+                      padding: '2px',
+                      borderRadius: '50px',
+                      border: '1px solid rgba(212, 175, 55, 0.4)',
+                      backdropFilter: 'blur(10px)'
+                    }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => toggleCardMode(project.id, 'exterior')}
+                      style={{
+                        background: currentMode === 'exterior' ? '#D4AF37' : 'transparent',
+                        color: currentMode === 'exterior' ? '#000' : '#fff',
+                        border: 'none',
+                        borderRadius: '50px',
+                        padding: '0.2rem 0.55rem',
+                        fontSize: '0.64rem',
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      📸 Photo
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => toggleCardMode(project.id, 'layout')}
+                      style={{
+                        background: currentMode === 'layout' ? '#D4AF37' : 'transparent',
+                        color: currentMode === 'layout' ? '#000' : '#fff',
+                        border: 'none',
+                        borderRadius: '50px',
+                        padding: '0.2rem 0.55rem',
+                        fontSize: '0.64rem',
+                        fontWeight: 800,
+                        cursor: 'pointer',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      📐 Master Layout
+                    </button>
+                  </div>
+                )}
+
                 {/* Typology Badge */}
-                <div style={{ position: 'absolute', bottom: '12px', left: '12px' }}>
+                <div style={{ position: 'absolute', bottom: '12px', left: '12px', zIndex: 2 }}>
                   <span
                     style={{
                       background: project.categoryBadgeColor,
@@ -177,9 +249,11 @@ export const ProjectPortfolioSection: React.FC = () => {
               {/* Card Body */}
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', flex: 1 }}>
                 <div>
-                  <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.7rem', color: '#ffffff', margin: '0 0 0.4rem', lineHeight: 1.2 }}>
-                    {project.name}
-                  </h3>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '0 0 0.4rem' }}>
+                    <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.65rem', color: '#ffffff', margin: 0, lineHeight: 1.2 }}>
+                      {project.name}
+                    </h3>
+                  </div>
                   <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '0.85rem', lineHeight: 1.55, marginBottom: '1rem' }}>
                     {project.description}
                   </p>
@@ -187,7 +261,7 @@ export const ProjectPortfolioSection: React.FC = () => {
 
                 <div>
                   {/* Spec Highlights */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '0.9rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '0.8rem' }}>
                     {project.specs.slice(0, 2).map((spec, i) => (
                       <div key={i}>
                         <span style={{ display: 'block', fontSize: '0.65rem', color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
@@ -277,6 +351,97 @@ export const ProjectPortfolioSection: React.FC = () => {
           );
         })}
       </div>
+
+      {/* Fullscreen Master Layout Lightbox Modal */}
+      {lightboxLayout && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 999999,
+            background: 'rgba(0,0,0,0.92)',
+            backdropFilter: 'blur(20px)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem'
+          }}
+          onClick={() => setLightboxLayout(null)}
+        >
+          <div
+            style={{
+              position: 'relative',
+              maxWidth: '1000px',
+              width: '100%',
+              background: '#121218',
+              border: '1.5px solid rgba(212, 175, 55, 0.45)',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 25px 70px rgba(0,0,0,0.95)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem', borderBottom: '1px solid rgba(212,175,55,0.3)', background: '#181822' }}>
+              <div>
+                <span style={{ color: '#D4AF37', fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                  ✦ Official Blueprint
+                </span>
+                <h4 style={{ color: '#ffffff', fontFamily: "'Playfair Display', serif", fontSize: '1.25rem', margin: '0.2rem 0 0' }}>
+                  {lightboxLayout.name} — Master Layout Plan
+                </h4>
+              </div>
+              <button
+                type="button"
+                onClick={() => setLightboxLayout(null)}
+                style={{
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                  color: '#ffffff',
+                  width: '32px',
+                  height: '32px',
+                  borderRadius: '50%',
+                  fontSize: '1rem',
+                  cursor: 'pointer'
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div style={{ padding: '1.5rem', background: '#0a0a0e', textAlign: 'center', maxHeight: '75vh', overflow: 'auto' }}>
+              <img
+                src={lightboxLayout.image}
+                alt={`${lightboxLayout.name} Master Layout Blueprint`}
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.8)' }}
+              />
+            </div>
+
+            <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+              <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.78rem' }}>
+                📍 Sanctioned PMRDA / MahaRERA Layout Blueprint
+              </span>
+              <div style={{ display: 'flex', gap: '0.8rem' }}>
+                <a
+                  href={`https://wa.me/917744009295?text=Hi%2C%20please%20send%20me%20the%20high-resolution%20PDF%20layout%20plan%20for%20${encodeURIComponent(lightboxLayout.name)}.`}
+                  target="_blank"
+                  rel="noopener"
+                  style={{
+                    background: '#25D366',
+                    color: '#ffffff',
+                    padding: '0.55rem 1.1rem',
+                    borderRadius: '8px',
+                    fontSize: '0.75rem',
+                    fontWeight: 800,
+                    textDecoration: 'none'
+                  }}
+                >
+                  Request High-Res PDF on WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

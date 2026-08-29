@@ -18,6 +18,7 @@ export interface ProjectEnclave {
   }[];
   features: string[];
   url: string;
+  masterLayout?: string;
 }
 
 export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
@@ -249,7 +250,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'Location', value: 'Forest Trails Main Gateway' }
     ],
     features: ['Optimal Space Planning', 'Modern Clubhouse Access', 'High Rental Yield Potential', 'Smart Home Readiness'],
-    url: '/paranjape-forest-trails-township-bhugaon-everglades/'
+    url: '/paranjape-forest-trails-township-bhugaon-everglades/',
+    masterLayout: '/images/everglades-layout.webp'
   },
   {
     id: 'the-cliff-club',
