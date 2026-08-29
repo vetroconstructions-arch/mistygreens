@@ -84,7 +84,7 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     priceNumeric: 8900000,
     reraNumber: 'P52100079518',
     reraLink: 'https://maharera.maharashtra.gov.in/',
-    image: '/images/canopy-realistic.webp',
+    image: '/images/canopy-card.webp',
     alt: 'The Canopy 2 & 3 BHK Valley View Nature Apartments at Paranjape Forest Trails Bhugaon Pune',
     specs: [
       { label: 'Configuration', value: '2 & 3 BHK Nature Homes' },
