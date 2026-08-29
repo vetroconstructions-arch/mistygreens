@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import { EnquiryModal } from '../components/react/EnquiryModal';
 import { QuickContactBar } from '../components/react/QuickContactBar';
 import { ComparisonDrawer } from '../components/react/ComparisonDrawer';
+import { GlobalSearchModal } from '../components/react/GlobalSearchModal';
 import '../styles/tokens.css';
 
 interface Props {
@@ -238,6 +239,7 @@ const {
   <EnquiryModal client:idle />
   <QuickContactBar client:idle />
   <ComparisonDrawer client:idle />
+  <GlobalSearchModal client:idle />
 
   {/* Global Client Script for Filter Engine */}
   <script is:inline>

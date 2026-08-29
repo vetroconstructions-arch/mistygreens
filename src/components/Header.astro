@@ -59,13 +59,16 @@
         <span class="nav-wa-text">WHATSAPP</span>
       </a>
 
-      <a
-        href="/#township-clusters"
+      <button
+        type="button"
         class="nav-search-btn"
-        style="background: rgba(0, 0, 0, 0.35); color: #ffffff; border: 1px solid rgba(212, 175, 55, 0.45); padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-decoration: none; white-space: nowrap;"
+        onclick="window.openGlobalSearch ? window.openGlobalSearch() : (window.location.href='/#township-clusters')"
+        style="background: rgba(0, 0, 0, 0.35); color: #ffffff; border: 1px solid rgba(212, 175, 55, 0.45); padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-decoration: none; white-space: nowrap; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;"
+        aria-label="Search enclaves and typologies"
       >
-        SEARCH
-      </a>
+        <span>🔍</span>
+        <span>SEARCH</span>
+      </button>
 
       <button
         class="open-enquiry-modal nav-enquire-btn"
