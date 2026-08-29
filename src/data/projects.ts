@@ -109,7 +109,7 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     reraNumber: 'P52100077686',
     reraLink: 'https://maharera.maharashtra.gov.in/',
     image: '/images/athashri-card.webp',
-    alt: 'Athashri Senior Living 2 BHK Assisted Residences at Paranjape Forest Trails Bhugaon Pune',
+    alt: 'Athashri Senior Living Vibrant Senior Citizen Community, Music and Recreation in Township Gardens at Paranjape Forest Trails Bhugaon',
     specs: [
       { label: 'Typology', value: '2 BHK Senior Apartments' },
       { label: 'Phases', value: 'Athashri B3 (P52100077686)' },
