@@ -3,7 +3,7 @@ import { PARANJAPE_PROJECTS } from '../../data/projects';
 
 export const ProjectPortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [cardModes, setCardModes] = useState<Record<string, 'exterior' | 'layout'>>({});
+  const [cardModes, setCardModes] = useState<Record<string, 'exterior' | 'layout' | 'floorplan'>>({});
   const [lightboxLayout, setLightboxLayout] = useState<{ name: string; image: string } | null>(null);
 
   const categories = [
@@ -28,7 +28,7 @@ export const ProjectPortfolioSection: React.FC = () => {
     amenities: 'rgba(168, 85, 247, 0.18)'
   };
 
-  const toggleCardMode = (projectId: string, mode: 'exterior' | 'layout') => {
+  const toggleCardMode = (projectId: string, mode: 'exterior' | 'layout' | 'floorplan') => {
     setCardModes((prev) => ({ ...prev, [projectId]: mode }));
   };
 
@@ -108,9 +108,13 @@ export const ProjectPortfolioSection: React.FC = () => {
           const auraGlow = auraColorMap[project.category] || 'rgba(212, 175, 55, 0.18)';
           const currentMode = cardModes[project.id] || 'exterior';
           const displayedImage =
-            currentMode === 'layout' && project.masterLayout
+            currentMode === 'floorplan' && project.floorPlan
+              ? project.floorPlan
+              : currentMode === 'layout' && project.masterLayout
               ? project.masterLayout
               : project.image;
+
+          const isPlanMode = currentMode === 'layout' || currentMode === 'floorplan';
 
           return (
             <div
@@ -133,25 +137,37 @@ export const ProjectPortfolioSection: React.FC = () => {
               <div style={{ position: 'relative', height: '235px', overflow: 'hidden', background: '#0a0a0c' }}>
                 <img
                   src={displayedImage}
-                  alt={currentMode === 'layout' ? `${project.name} Master Layout Plan` : project.alt}
+                  alt={
+                    currentMode === 'floorplan'
+                      ? `${project.name} Floor Plan`
+                      : currentMode === 'layout'
+                      ? `${project.name} Master Layout Plan`
+                      : project.alt
+                  }
                   style={{
                     width: '100%',
                     height: '100%',
-                    objectFit: currentMode === 'layout' ? 'contain' : 'cover',
+                    objectFit: isPlanMode ? 'contain' : 'cover',
                     objectPosition: 'center',
-                    background: currentMode === 'layout' ? '#0d0d12' : '#000',
+                    background: isPlanMode ? '#0d0d12' : '#000',
                     transition: 'transform 0.4s ease, opacity 0.3s ease',
-                    cursor: currentMode === 'layout' ? 'zoom-in' : 'default'
+                    cursor: isPlanMode ? 'zoom-in' : 'default'
                   }}
                   onClick={() => {
-                    if (project.masterLayout) {
-                      setLightboxLayout({ name: project.name, image: project.masterLayout });
+                    if (currentMode === 'floorplan' && project.floorPlan) {
+                      setLightboxLayout({ name: `${project.name} — Floor Plan`, image: project.floorPlan });
+                    } else if (currentMode === 'layout' && project.masterLayout) {
+                      setLightboxLayout({ name: `${project.name} — Master Layout`, image: project.masterLayout });
+                    } else if (project.floorPlan) {
+                      setLightboxLayout({ name: `${project.name} — Floor Plan`, image: project.floorPlan });
+                    } else if (project.masterLayout) {
+                      setLightboxLayout({ name: `${project.name} — Master Layout`, image: project.masterLayout });
                     }
                   }}
                   loading="lazy"
                   decoding="async"
                 />
-                <div style={{ position: 'absolute', inset: 0, background: currentMode === 'layout' ? 'none' : 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', inset: 0, background: isPlanMode ? 'none' : 'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.75) 100%)', pointerEvents: 'none' }} />
 
                 {/* Starting Price Pill */}
                 {project.priceNumeric > 0 && (
@@ -173,8 +189,8 @@ export const ProjectPortfolioSection: React.FC = () => {
                   </div>
                 )}
 
-                {/* In-Card Media Toggle: Exterior vs Master Layout */}
-                {project.masterLayout && (
+                {/* In-Card Media Toggle: Exterior vs Master Layout vs Floor Plan */}
+                {(project.masterLayout || project.floorPlan) && (
                   <div
                     style={{
                       position: 'absolute',
@@ -186,7 +202,8 @@ export const ProjectPortfolioSection: React.FC = () => {
                       padding: '2px',
                       borderRadius: '50px',
                       border: '1px solid rgba(212, 175, 55, 0.4)',
-                      backdropFilter: 'blur(10px)'
+                      backdropFilter: 'blur(10px)',
+                      gap: '2px'
                     }}
                   >
                     <button
@@ -206,23 +223,44 @@ export const ProjectPortfolioSection: React.FC = () => {
                     >
                       📸 Photo
                     </button>
-                    <button
-                      type="button"
-                      onClick={() => toggleCardMode(project.id, 'layout')}
-                      style={{
-                        background: currentMode === 'layout' ? '#D4AF37' : 'transparent',
-                        color: currentMode === 'layout' ? '#000' : '#fff',
-                        border: 'none',
-                        borderRadius: '50px',
-                        padding: '0.2rem 0.55rem',
-                        fontSize: '0.64rem',
-                        fontWeight: 800,
-                        cursor: 'pointer',
-                        transition: 'all 0.2s'
-                      }}
-                    >
-                      📐 Master Layout
-                    </button>
+                    {project.masterLayout && (
+                      <button
+                        type="button"
+                        onClick={() => toggleCardMode(project.id, 'layout')}
+                        style={{
+                          background: currentMode === 'layout' ? '#D4AF37' : 'transparent',
+                          color: currentMode === 'layout' ? '#000' : '#fff',
+                          border: 'none',
+                          borderRadius: '50px',
+                          padding: '0.2rem 0.55rem',
+                          fontSize: '0.64rem',
+                          fontWeight: 800,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        📐 Layout
+                      </button>
+                    )}
+                    {project.floorPlan && (
+                      <button
+                        type="button"
+                        onClick={() => toggleCardMode(project.id, 'floorplan')}
+                        style={{
+                          background: currentMode === 'floorplan' ? '#D4AF37' : 'transparent',
+                          color: currentMode === 'floorplan' ? '#000' : '#fff',
+                          border: 'none',
+                          borderRadius: '50px',
+                          padding: '0.2rem 0.55rem',
+                          fontSize: '0.64rem',
+                          fontWeight: 800,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s'
+                        }}
+                      >
+                        🏢 Floor Plan
+                      </button>
+                    )}
                   </div>
                 )}
 
@@ -352,7 +390,7 @@ export const ProjectPortfolioSection: React.FC = () => {
         })}
       </div>
 
-      {/* Fullscreen Master Layout Lightbox Modal */}
+      {/* Fullscreen Master Layout & Floor Plan Lightbox Modal */}
       {lightboxLayout && (
         <div
           style={{
@@ -384,10 +422,10 @@ export const ProjectPortfolioSection: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem', borderBottom: '1px solid rgba(212,175,55,0.3)', background: '#181822' }}>
               <div>
                 <span style={{ color: '#D4AF37', fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                  ✦ Official Blueprint
+                  ✦ Official Architectural Document
                 </span>
                 <h4 style={{ color: '#ffffff', fontFamily: "'Playfair Display', serif", fontSize: '1.25rem', margin: '0.2rem 0 0' }}>
-                  {lightboxLayout.name} — Master Layout Plan
+                  {lightboxLayout.name}
                 </h4>
               </div>
               <button
@@ -411,18 +449,18 @@ export const ProjectPortfolioSection: React.FC = () => {
             <div style={{ padding: '1.5rem', background: '#0a0a0e', textAlign: 'center', maxHeight: '75vh', overflow: 'auto' }}>
               <img
                 src={lightboxLayout.image}
-                alt={`${lightboxLayout.name} Master Layout Blueprint`}
+                alt={`${lightboxLayout.name} Architectural Blueprint`}
                 style={{ maxWidth: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 10px 30px rgba(0,0,0,0.8)' }}
               />
             </div>
 
             <div style={{ padding: '1rem 1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
               <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.78rem' }}>
-                📍 Sanctioned PMRDA / MahaRERA Layout Blueprint
+                📍 Sanctioned PMRDA / MahaRERA Architectural Plan
               </span>
               <div style={{ display: 'flex', gap: '0.8rem' }}>
                 <a
-                  href={`https://wa.me/917744009295?text=Hi%2C%20please%20send%20me%20the%20high-resolution%20PDF%20layout%20plan%20for%20${encodeURIComponent(lightboxLayout.name)}.`}
+                  href={`https://wa.me/917744009295?text=Hi%2C%20please%20send%20me%20the%20high-resolution%20PDF%20architectural%20plans%20for%20${encodeURIComponent(lightboxLayout.name)}.`}
                   target="_blank"
                   rel="noopener"
                   style={{

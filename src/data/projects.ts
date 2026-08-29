@@ -19,6 +19,7 @@ export interface ProjectEnclave {
   features: string[];
   url: string;
   masterLayout?: string;
+  floorPlan?: string;
 }
 
 export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
@@ -137,7 +138,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     ],
     features: ['Private Sky Terraces', 'Infinity Pool Access', 'Gymnasium', 'Landscaped Jogging Track'],
     url: '/paranjape-forest-trails-township-bhugaon-highgardens/',
-    masterLayout: '/images/highgardens-layout.webp'
+    masterLayout: '/images/highgardens-layout.webp',
+    floorPlan: '/images/highgardens-floor-plan.webp'
   },
   {
     id: 'the-cove',
