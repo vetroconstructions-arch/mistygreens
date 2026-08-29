@@ -31,7 +31,7 @@ export const ComparisonDrawer: React.FC = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           style={{
-            background: 'linear-gradient(135deg, #18181c, #0a0a0c)',
+            background: 'linear-gradient(135deg, #1a1724, #0f0d14)',
             color: '#D4AF37',
             border: '1.5px solid #D4AF37',
             padding: '0.65rem 1.2rem',

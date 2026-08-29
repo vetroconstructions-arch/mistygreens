@@ -122,7 +122,7 @@ export const ProjectPortfolioSection: React.FC = () => {
               className="cluster-card"
               data-category={project.category}
               style={{
-                background: `radial-gradient(circle at 50% 0%, ${auraGlow} 0%, #111116 75%)`,
+                background: `radial-gradient(circle at 50% 0%, ${auraGlow} 0%, #161320 75%)`,
                 border: '1.5px solid rgba(212, 175, 55, 0.3)',
                 borderRadius: '22px',
                 overflow: 'hidden',
@@ -134,7 +134,7 @@ export const ProjectPortfolioSection: React.FC = () => {
               }}
             >
               {/* Card Header & Media */}
-              <div style={{ position: 'relative', height: '235px', overflow: 'hidden', background: '#0a0a0c' }}>
+              <div style={{ position: 'relative', height: '235px', overflow: 'hidden', background: '#0f0d14' }}>
                 <img
                   src={displayedImage}
                   alt={
@@ -149,7 +149,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                     height: '100%',
                     objectFit: isPlanMode ? 'contain' : 'cover',
                     objectPosition: 'center',
-                    background: isPlanMode ? '#0d0d12' : '#000',
+                    background: isPlanMode ? '#100e16' : '#0f0d14',
                     transition: 'transform 0.4s ease, opacity 0.3s ease',
                     cursor: isPlanMode ? 'zoom-in' : 'default'
                   }}
@@ -411,7 +411,7 @@ export const ProjectPortfolioSection: React.FC = () => {
               position: 'relative',
               maxWidth: '1000px',
               width: '100%',
-              background: '#121218',
+              background: '#1a1724',
               border: '1.5px solid rgba(212, 175, 55, 0.45)',
               borderRadius: '20px',
               overflow: 'hidden',
@@ -419,7 +419,7 @@ export const ProjectPortfolioSection: React.FC = () => {
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem', borderBottom: '1px solid rgba(212,175,55,0.3)', background: '#181822' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1rem 1.5rem', borderBottom: '1px solid rgba(212,175,55,0.3)', background: '#201d2c' }}>
               <div>
                 <span style={{ color: '#D4AF37', fontSize: '0.68rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                   ✦ Official Architectural Document
@@ -446,7 +446,7 @@ export const ProjectPortfolioSection: React.FC = () => {
               </button>
             </div>
 
-            <div style={{ padding: '1.5rem', background: '#0a0a0e', textAlign: 'center', maxHeight: '75vh', overflow: 'auto' }}>
+            <div style={{ padding: '1.5rem', background: '#0f0d14', textAlign: 'center', maxHeight: '75vh', overflow: 'auto' }}>
               <img
                 src={lightboxLayout.image}
                 alt={`${lightboxLayout.name} Architectural Blueprint`}

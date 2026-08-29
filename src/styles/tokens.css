@@ -1,12 +1,12 @@
 :root {
-  /* Ultra-Luxury Obsidian & Nocturne Theme */
-  --bg-primary: #060608;
-  --bg-secondary: #0c0c10;
-  --bg-card: #121217;
-  --bg-card-hover: #171720;
-  --bg-glass: rgba(255, 255, 255, 0.035);
-  --bg-glass-strong: rgba(14, 14, 18, 0.82);
-  --bg-glass-acrylic: rgba(20, 20, 26, 0.72);
+  /* ✦ Midnight Forest — Rich Warm Dark Theme */
+  --bg-primary: #0e0c14;
+  --bg-secondary: #131119;
+  --bg-card: #1a1724;
+  --bg-card-hover: #221f2e;
+  --bg-glass: rgba(255, 255, 255, 0.045);
+  --bg-glass-strong: rgba(18, 16, 24, 0.88);
+  --bg-glass-acrylic: rgba(22, 20, 30, 0.78);
 
   /* Metallic 24K Champagne Gold Palette */
   --gold-primary: #D4AF37;
@@ -14,7 +14,7 @@
   --gold-dark: #A37F14;
   --gold-gradient: linear-gradient(135deg, #FFF8DC 0%, #D4AF37 45%, #996515 100%);
   --gold-shimmer: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(255,255,255,0.4) 50%, rgba(212,175,55,0) 100%);
-  --gold-border: rgba(212, 175, 55, 0.32);
+  --gold-border: rgba(212, 175, 55, 0.28);
   --gold-border-glow: rgba(255, 223, 114, 0.75);
 
   /* Royal Velvet Crimson */
@@ -22,21 +22,21 @@
   --crimson-light: #9B1C1C;
   --crimson-gradient: linear-gradient(135deg, #9B1C1C 0%, #6B0D0D 60%, #400606 100%);
 
-  /* Category Aura Ambient Colors */
-  --aura-plots: rgba(16, 185, 129, 0.22);
-  --aura-villas: rgba(212, 175, 55, 0.28);
-  --aura-apartments: rgba(59, 130, 246, 0.22);
-  --aura-senior: rgba(249, 115, 22, 0.22);
-  --aura-amenities: rgba(168, 85, 247, 0.22);
+  /* Category Aura Ambient Colors (Intensified) */
+  --aura-plots: rgba(16, 185, 129, 0.18);
+  --aura-villas: rgba(212, 175, 55, 0.22);
+  --aura-apartments: rgba(59, 130, 246, 0.18);
+  --aura-senior: rgba(249, 115, 22, 0.18);
+  --aura-amenities: rgba(168, 85, 247, 0.18);
 
   /* Typography */
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Shadows & Glass Bevels */
-  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.12);
-  --shadow-card-hover: 0 28px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 175, 55, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.3);
-  --shadow-modal: 0 35px 90px rgba(0, 0, 0, 0.98), 0 0 60px rgba(212, 175, 55, 0.3);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  --shadow-card-hover: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(212, 175, 55, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.22);
+  --shadow-modal: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(212, 175, 55, 0.2);
 
   /* Radii */
   --radius-sm: 8px;
@@ -64,13 +64,15 @@ html {
 
 /* Base Reset & Global Canvas */
 body {
-  background: var(--bg-primary);
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: #f5f3f0;
   font-family: var(--font-sans);
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 85% 60%, rgba(10, 42, 26, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 50% 90%, rgba(107, 13, 13, 0.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 18% 8%, rgba(212, 175, 55, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 82% 25%, rgba(45, 79, 60, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 65%, rgba(107, 13, 13, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 85%, rgba(88, 60, 130, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 90% 80%, rgba(212, 175, 55, 0.04) 0%, transparent 40%);
   background-attachment: fixed;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -102,12 +104,12 @@ button, a, input, select, textarea {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #100e16;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252530;
+  background: #2a2638;
   border-radius: 4px;
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #4A0808;
@@ -237,7 +239,7 @@ button, a, input, select, textarea {
 
 .btn-luxury-gold {
   background: var(--gold-gradient);
-  color: #09090b;
+  color: #0e0c14;
   border: 1.5px solid #ffffff;
   border-radius: var(--radius-pill);
   font-weight: 800;
