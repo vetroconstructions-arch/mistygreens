@@ -7,9 +7,9 @@ DOMAIN = "https://www.paranjapetownship.com"
 def generate_seo_matrix(base_dir):
     html_files = []
     
-    # 1. Walk directory and map all HTML files
     for root, dirs, files in os.walk(base_dir):
-        if 'node_modules' in root or '.git' in root or '.wrangler' in root or '/components' in root.replace(os.sep, '/') or root.endswith('components') or '/scripts' in root.replace(os.sep, '/') or root.endswith('scripts'):
+        parts = set(root.replace(os.sep, '/').split('/'))
+        if parts & {'node_modules', '.git', '.wrangler', 'components', 'scripts', 'dist', 'scratch', '.gemini'}:
             continue
         for file in files:
             if file.endswith('.html'):
