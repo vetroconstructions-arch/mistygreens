@@ -660,36 +660,155 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.min.js" defer></script>
 
+<style id="maroon-navbar-styles">
+  #main-site-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10000 !important;
+    background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%) !important;
+    border-bottom: 1.5px solid #D4AF37 !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7) !important;
+  }
+  .desktop-nav-capsule a:hover {
+    color: #D4AF37 !important;
+  }
+  @media (max-width: 1060px) {
+    .desktop-nav-capsule {
+      display: none !important;
+    }
+    .maroon-burger {
+      display: inline-flex !important;
+    }
+  }
+  @media (max-width: 640px) {
+    .nav-brand-pill {
+      height: 32px !important;
+      padding: 2px 8px !important;
+      gap: 6px !important;
+    }
+    .nav-brand-pill img:first-child {
+      height: 18px !important;
+    }
+    .nav-brand-pill img:last-child {
+      height: 20px !important;
+    }
+    .nav-search-btn {
+      display: none !important;
+    }
+    .nav-wa-text {
+      display: none !important;
+    }
+    .nav-wa-btn {
+      padding: 0.45rem 0.55rem !important;
+    }
+    .nav-enquire-btn {
+      padding: 0.45rem 0.75rem !important;
+      font-size: 0.68rem !important;
+    }
+  }
+</style>
 </head>
-<body> <!-- Architectural Navigation --> <header style="position: fixed; top: 0; width: 100%; z-index: 10002; background: rgba(8,8,8,0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(212,175,55,0.25); padding: 0.6rem 0;">
-  <nav class="nav-main" style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1.5rem; height: 50px;">
+<body> <!-- Architectural Navigation --> <header id="main-site-header" style="position: sticky; top: 0; width: 100%; z-index: 10000; background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%); border-bottom: 1.5px solid #D4AF37; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);">
+  <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 1.25rem; gap: 0.8rem;">
     
-    <!-- Left: Dual Brand White Pill Badge -->
-    <a href="/" class="nav-brand-container" style="background: #ffffff; padding: 4px 14px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; height: 42px; text-decoration: none; box-shadow: 0 4px 15px rgba(0,0,0,0.35); border: 1.5px solid #D4AF37; flex-shrink: 0;" aria-label="Paranjape Schemes & Forest Trails Township Home">
-      <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes Construction Ltd Official Corporate Brand Logo" style="height: 26px; width: auto; object-fit: contain;" loading="lazy" decoding="async">
-      <span style="width: 1px; height: 20px; background: #c5a059; display: inline-block;"></span>
-      <img src="/assets/branding/forest-trails-emblem.png" alt="Paranjape Forest Trails Official Township Emblem Bhugaon Pune" style="height: 28px; width: auto; object-fit: contain;" loading="lazy" decoding="async">
+    <!-- Left: Dual Brand Crisp White Pill Container -->
+    <a
+      href="/"
+      class="nav-brand-pill"
+      style="background: #ffffff; padding: 4px 14px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; height: 38px; text-decoration: none; border: 1.5px solid #D4AF37; box-shadow: 0 2px 10px rgba(0,0,0,0.3); flex-shrink: 0;"
+      aria-label="Paranjape Schemes & Forest Trails Township Home"
+    >
+      <img
+        src="/assets/branding/paranjape-corporate-logo.jpg"
+        alt="Paranjape Schemes Corporate Logo"
+        style="height: 22px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
+        loading="eager"
+      />
+      <span style="width: 1.5px; height: 20px; background: #D4AF37; display: inline-block;"></span>
+      <img
+        src="/assets/branding/forest-trails-emblem.png"
+        alt="Forest Trails Township Emblem"
+        style="height: 24px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
+        loading="eager"
+      />
     </a>
 
-    <!-- Center: Floating Glassmorphic Navigation Pill -->
-    <div class="nav-pill-container" style="background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 50px; padding: 0.45rem 1.6rem; display: flex; align-items: center; gap: 1.8rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);">
-      <a href="/paranjape-forest-trails-township-bhugaon-pune/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;">TOWNSHIP</a>
-      <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;">VILLAS & PLOTS</a>
-      <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;">APARTMENTS</a>
-      <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;">CLIFF CLUB</a>
-      <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s ease;">SCHOOL</a>
-    </div>
-
-    <!-- Right: Action Buttons Cluster Pill -->
-    <div class="nav-actions" style="display: flex; gap: 0.6rem; align-items: center; flex-shrink: 0;">
-      <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon%20Township." target="_blank" rel="noopener" style="background: #25D366; color: #ffffff; border: 1.5px solid #25D366; padding: 0.5rem 1rem; border-radius: 50px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.05em; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37,211,102,0.3);" aria-label="WhatsApp Enquiry Paranjape Forest Trails">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WHATSAPP ENQUIRY
+    <!-- Center: Classic Rounded Navigation Capsule -->
+    <nav class="desktop-nav-capsule" style="background: rgba(0, 0, 0, 0.32); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; padding: 0.45rem 1.6rem; display: flex; align-items: center; gap: 1.6rem; backdrop-filter: blur(12px);">
+      <a href="/#township-clusters" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;">
+        TOWNSHIP
       </a>
-      <button class="open-global-search" style="background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.25); padding: 0.5rem 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em; border-radius: 50px; cursor: pointer; white-space: nowrap;">SEARCH</button>
-      <button class="open-enquiry-modal" style="background: linear-gradient(135deg, #6B0D0D, #8B1A1A); color: #ffffff; border: 1.5px solid #D4AF37; padding: 0.5rem 1.2rem; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.08em; border-radius: 50px; cursor: pointer; white-space: nowrap;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">ENQUIRE</button>
+      <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;">
+        VILLAS & PLOTS
+      </a>
+      <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;">
+        APARTMENTS
+      </a>
+      <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;">
+        CLIFF CLUB
+      </a>
+      <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #ffffff; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;">
+        SCHOOL
+      </a>
+    </nav>
+
+    <!-- Right: Balanced Action Button Group -->
+    <div class="nav-right-actions" style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
+      <a
+        href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon%20Township."
+        target="_blank"
+        rel="noopener"
+        class="nav-wa-btn"
+        style="background: #25D366; color: #ffffff; text-decoration: none; padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 5px; box-shadow: 0 3px 10px rgba(37,211,102,0.4); white-space: nowrap;"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="nav-wa-text">WHATSAPP</span>
+      </a>
+
+      <a
+        href="/#township-clusters"
+        class="nav-search-btn"
+        style="background: rgba(0, 0, 0, 0.35); color: #ffffff; border: 1px solid rgba(212, 175, 55, 0.45); padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-decoration: none; white-space: nowrap;"
+      >
+        SEARCH
+      </a>
+
+      <button
+        class="open-enquiry-modal nav-enquire-btn"
+        style="background: linear-gradient(135deg, #4A0808, #6B0D0D); color: #ffffff; border: 1.5px solid #D4AF37; padding: 0.48rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; box-shadow: 0 3px 10px rgba(0,0,0,0.4); white-space: nowrap;"
+        onclick="window.openEnquiryModal && window.openEnquiryModal()"
+      >
+        ENQUIRE
+      </button>
+
+      <!-- Mobile Nav Trigger -->
+      <button
+        id="maroon-mobile-toggle"
+        aria-label="Toggle Menu"
+        class="maroon-burger"
+        style="display: none; background: rgba(0,0,0,0.4); border: 1px solid #D4AF37; color: #fff; width: 34px; height: 34px; border-radius: 8px; font-size: 1.05rem; cursor: pointer; align-items: center; justify-content: center;"
+      >
+        ☰
+      </button>
     </div>
 
-  </nav>
+  </div>
+
+  <!-- Mobile Dropdown Drawer -->
+  <div id="maroon-mobile-drawer" style="display: none; background: #2e0505; border-top: 1px solid #D4AF37; padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.85rem; box-shadow: 0 10px 30px rgba(0,0,0,0.8);">
+    <a href="/#township-clusters" style="color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🌳 TOWNSHIP OVERVIEW</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-misty-greens/" style="color: #10B981; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🏡 Misty Greens NA Plots (From ₹1.23 Cr*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-rivolo-residences/" style="color: #D4AF37; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🏡 The Rivolo Forest Villas (From ₹3.89 Cr*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-the-cove/" style="color: #D4AF37; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🏰 The Cove Duet Villas (From ₹2.85 Cr*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" style="color: #FB923C; text-decoration: none; font-size: 0.88rem; font-weight: 800;">👴 Athashri Senior Living (From ₹83 L*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color: #60A5FA; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🌅 The Canopy Flats (From ₹89 L*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-highgardens/" style="color: #C084FC; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🌿 The Highgardens (From ₹89 L*)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🏊 The Cliff Club & Sports Hub</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/" style="color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🐎 Equestrian Academy</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 800;">🎓 Sri Sri ICSE School (SSRVM)</a>
+    <a href="/paranjape-forest-trails-township-bhugaon-price/" style="color: #D4AF37; text-decoration: none; font-size: 0.92rem; font-weight: 900; padding-top: 0.4rem; border-top: 1px solid rgba(212,175,55,0.3);">📊 View Complete 2026 Price Sheet →</a>
+  </div>
 </header>
 <!-- Breadcrumb UI (Phase 33 Hierarchical Mesh) --> <main> <section class="hero-section" style="padding: 140px 0 60px; height: 60vh; background: #000; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;"> <div style="position: absolute; inset: 0; background-image: url('/images/hero-township.webp'); background-size: cover; background-position: center; opacity: 0.5;"></div> <div class="container" style="position: relative; z-index: 2; text-align: center; color: #fff;"> <h1 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3.2rem); color: #ffffff; line-height: 1.2; margin-bottom: 1rem;">Direct Transit to Kothrud, Nal Stop & Karve Road</h1>
  <p style="font-size: 1.25rem; margin-top: 1rem; color: #d4af37;">12 Minutes to Your Private Forest Sanctuary.</p> <div style="margin-top: 2rem; display: inline-block; background: rgba(255,255,255,0.1); padding: 1.2rem 2rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;"> <span style="font-weight: 800; font-size: 0.9rem; letter-spacing: 0.1em;">DRIVE TIME: 12 Mins</span> </div> </div> </section> <section class="section" style="padding: 2.5rem 0;"> <div class="container" style="max-width: 900px;"> <p style="font-size: 1.4rem; line-height: 1.8; color: #1a1a1a; border-left: 4px solid #d4af37; padding-left: 2rem; margin-bottom: 3rem; font-family: 'Inter', sans-serif;"> For generations, residents of Kothrud and Nal Stop have trusted the Paranjape legacy. Today, Forest Trails Bhugaon stands as the central focus point for Kothrud families seeking more space, better air, and the elite township lifestyle—just 12 minutes away. </p> <div class="proximity-card" style="background: #fff; padding: 3rem; border-radius: 12px; margin-top: 3rem; border-left: 5px solid #d4af37;"> <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; color: #1a1a1a;">Why Kothrud Residents Choose Forest Trails</h3> <p style="color: #444; line-height: 1.8; margin-top: 1rem;"> As Kothrud and Nal Stop reach peak density, Forest Trails in Bhugaon has become the **central upgrade destination**. With the new **Chandani Chowk flyover system**, your commute is signal-free and scenic. Whether you seek **NA bungalow plots** or **luxury villas**, you are never more than 12 minutes away from your Kothrud roots. </p> </div> <div style="margin-top: 4rem; background: #1a1a1a; color: #fff; padding: 3rem; border-radius: 12px; text-align: center;"> <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 1.5rem;">Join the Elite West Pune Community</h3> <p style="color: rgba(255,255,255,0.7); margin-bottom: 2.5rem;">Over 2,000 families from West Pune have already made Forest Trails their primary first-choice sanctuary.</p> <button class="open-enquiry-modal btn-primary dynamic-lift" id="cta-forest-trails-connectivity-kothrud-nal-stop-enquire" style="background: #d4af37; color: #000; border: none; padding: 1.5rem 3rem; border-radius: 50px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;" onclick="window.openEnquiryModal && window.openEnquiryModal(event)">Download West Pune Connectivity Map</button> </div> </div> </section> </main> <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -1263,5 +1382,18 @@ function switchPdmTab(tabName) {
   </div>
 </div>
 
+<script id="maroon-navbar-script">
+  (function() {
+    var toggle = document.getElementById('maroon-mobile-toggle');
+    var drawer = document.getElementById('maroon-mobile-drawer');
+    if (toggle && drawer) {
+      toggle.onclick = function() {
+        var isVisible = drawer.style.display === 'flex';
+        drawer.style.display = isVisible ? 'none' : 'flex';
+        toggle.textContent = isVisible ? '☰' : '✕';
+      };
+    }
+  })();
+</script>
 </body>
 </html>

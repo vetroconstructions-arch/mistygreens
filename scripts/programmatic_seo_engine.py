@@ -98,13 +98,28 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body style="background: #0B1120; color: #F8FAFC; font-family: 'Inter', sans-serif; margin: 0;">
 
-  <!-- Header Navigation -->
-  <header class="header-main" style="position: fixed; top: 0; left: 0; right: 0; z-index: 10002; background: rgba(11, 17, 32, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(212, 175, 55, 0.2); padding: 15px 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between;">
-      <a href="/" style="text-decoration: none;">
-        <img src="/assets/branding/logo.svg" alt="Paranjape Forest Trails Logo" width="180" height="60" class="header-logo" style="height: 42px; width: auto;">
+  <!-- Canonical Signature Maroon Header & Dual Brand Logo -->
+  <header id="main-site-header" style="position: sticky; top: 0; width: 100%; z-index: 10000; background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%); border-bottom: 1.5px solid #D4AF37; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);">
+    <div style="max-width: 1440px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 1.25rem; gap: 0.8rem;">
+      <a href="/" class="nav-brand-pill" style="background: #ffffff; padding: 4px 14px; border-radius: 50px; display: inline-flex; align-items: center; gap: 10px; height: 38px; text-decoration: none; border: 1.5px solid #D4AF37; box-shadow: 0 2px 10px rgba(0,0,0,0.3); flex-shrink: 0;" aria-label="Paranjape Schemes & Forest Trails Township Home">
+        <img src="/assets/branding/paranjape-corporate-logo.jpg" alt="Paranjape Schemes Corporate Logo" style="height: 22px; width: auto; object-fit: contain; display: block;" loading="eager" />
+        <span style="width: 1.5px; height: 20px; background: #D4AF37; display: inline-block;"></span>
+        <img src="/assets/branding/forest-trails-emblem.png" alt="Forest Trails Township Emblem" style="height: 24px; width: auto; object-fit: contain; display: block;" loading="eager" />
       </a>
-      <a href="tel:+917744009295" style="background: linear-gradient(135deg, #D4AF37, #AA7C11); color: #000; padding: 8px 18px; border-radius: 6px; font-weight: 700; text-decoration: none; font-size: 14px;">Call Sales Advisory</a>
+      <nav class="desktop-nav-capsule" style="background: rgba(0, 0, 0, 0.32); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; padding: 0.45rem 1.6rem; display: flex; align-items: center; gap: 1.6rem; backdrop-filter: blur(12px);">
+        <a href="/#township-clusters" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">TOWNSHIP</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">VILLAS & PLOTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">APARTMENTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">CLIFF CLUB</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">SCHOOL</a>
+      </nav>
+      <div class="nav-right-actions" style="display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;">
+        <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon%20Township." target="_blank" rel="noopener" style="background: #25D366; color: #ffffff; text-decoration: none; padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 5px;">
+          💬 WHATSAPP
+        </a>
+        <a href="/#township-clusters" style="background: rgba(0, 0, 0, 0.35); color: #ffffff; border: 1px solid rgba(212, 175, 55, 0.45); padding: 0.48rem 0.9rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-decoration: none;">SEARCH</a>
+        <button style="background: linear-gradient(135deg, #4A0808, #6B0D0D); color: #ffffff; border: 1.5px solid #D4AF37; padding: 0.48rem 1rem; border-radius: 50px; font-weight: 800; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;" onclick="window.openEnquiryModal && window.openEnquiryModal()">ENQUIRE</button>
+      </div>
     </div>
   </header>
 
