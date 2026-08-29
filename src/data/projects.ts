@@ -43,7 +43,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'Possession', value: 'Ready for Registration' }
     ],
     features: ['Independent Bungalow Construction', 'Wide Concrete Internal Roads', 'Underground Utilities Mesh', 'Township Club Access'],
-    url: '/paranjape-forest-trails-township-bhugaon-misty-greens/'
+    url: '/paranjape-forest-trails-township-bhugaon-misty-greens/',
+    masterLayout: '/images/misty-greens-layout.webp'
   },
   {
     id: 'the-rivolo',
