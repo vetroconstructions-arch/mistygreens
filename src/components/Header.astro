@@ -15,6 +15,8 @@
       <img
         src="/assets/branding/paranjape-corporate-logo.jpg"
         alt="Paranjape Schemes Corporate Logo"
+        width="110"
+        height="22"
         style="height: 22px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
         loading="eager"
       />
@@ -22,6 +24,8 @@
       <img
         src="/assets/branding/forest-trails-emblem.png"
         alt="Forest Trails Township Emblem"
+        width="24"
+        height="24"
         style="height: 24px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
         loading="eager"
       />
@@ -157,6 +161,12 @@
       const isVisible = drawer.style.display === 'flex';
       drawer.style.display = isVisible ? 'none' : 'flex';
       toggle.textContent = isVisible ? '☰' : '✕';
+    });
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        drawer.style.display = 'none';
+        toggle.textContent = '☰';
+      });
     });
   }
 </script>
