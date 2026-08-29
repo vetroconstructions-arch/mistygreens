@@ -91,7 +91,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'Clubhouse', value: 'Kaylasha Club Access' }
     ],
     features: ['Cross Ventilation Layouts', 'Designer Modular Kitchens', 'Covered Parking', 'Multi-tier Security'],
-    url: '/paranjape-forest-trails-township-bhugaon-the-canopy/'
+    url: '/paranjape-forest-trails-township-bhugaon-the-canopy/',
+    masterLayout: '/images/canopy-layout.webp'
   },
   {
     id: 'athashri-senior-living',
