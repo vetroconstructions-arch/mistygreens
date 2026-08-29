@@ -68,7 +68,9 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'Features', value: 'Private Pool & Garden' }
     ],
     features: ['Private Sundecks & Terraces', 'Italian Marble Flooring', 'Equestrian Center Proximity', 'Double Height Living Spaces'],
-    url: '/paranjape-forest-trails-township-bhugaon-rivolo-residences/'
+    url: '/paranjape-forest-trails-township-bhugaon-rivolo-residences/',
+    masterLayout: '/images/rivolo-layout.webp',
+    floorPlan: '/images/rivolo-floor-plan.webp'
   },
   {
     id: 'the-canopy',
