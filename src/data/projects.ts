@@ -158,7 +158,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
       { label: 'Outdoor', value: 'Private Garden Bay' }
     ],
     features: ['Tri-Level Floor Plans', 'Private Lawns', 'Clubhouse Privileges', 'Gated Cluster Security'],
-    url: '/paranjape-forest-trails-township-bhugaon-the-cove/'
+    url: '/paranjape-forest-trails-township-bhugaon-the-cove/',
+    masterLayout: '/images/cove-layout.webp'
   },
   {
     id: 'verandah',
