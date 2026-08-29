@@ -157,7 +157,7 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     reraNumber: 'P52100048536',
     reraLink: 'https://maharera.maharashtra.gov.in/',
     image: '/images/cove-duet.webp',
-    alt: 'The Cove 4 BHK Duet Villas & Townhouses at Paranjape Forest Trails Bhugaon Pune',
+    alt: 'The Cove 4 BHK Luxury Duet Bungalow & Villa Elevation at Paranjape Forest Trails Bhugaon Pune',
     specs: [
       { label: 'Configuration', value: '4 BHK Duet Villas' },
       { label: 'Layout', value: 'Semi-Detached Twin Homes' },
@@ -166,7 +166,8 @@ export const PARANJAPE_PROJECTS: ProjectEnclave[] = [
     ],
     features: ['Tri-Level Floor Plans', 'Private Lawns', 'Clubhouse Privileges', 'Gated Cluster Security'],
     url: '/paranjape-forest-trails-township-bhugaon-the-cove/',
-    masterLayout: '/images/cove-layout.webp'
+    masterLayout: '/images/cove-layout.webp',
+    floorPlan: '/images/cove-floor-plan.webp'
   },
   {
     id: 'verandah',
