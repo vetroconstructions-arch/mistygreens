@@ -1,0 +1,29 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# Cloudflare Worker Configuration — Paranjape Forest Trails SEO Worker
+# ═══════════════════════════════════════════════════════════════════════════
+
+name = "paranjape-seo-worker"
+main = "worker/index.ts"
+compatibility_date = "2026-09-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Routes & Custom Domains
+# routes = [
+#   { pattern = "www.paranjapetownship.com/*", zone_name = "paranjapetownship.com" },
+#   { pattern = "paranjapetownship.com/*", zone_name = "paranjapetownship.com" }
+# ]
+
+# Observability
+[observability]
+enabled = true
+
+# Optional R2 Bucket Binding for high-res media CDN
+# [[r2_buckets]]
+# binding = "MEDIA_BUCKET"
+# bucket_name = "paranjape-forest-trails-media"
+
+# Optional D1 Database for Edge Lead Ingestion backup
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "paranjape_leads_db"
+# database_id = "your-d1-database-id"

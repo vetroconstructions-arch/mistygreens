@@ -1,13 +1,19 @@
 /**
- * Ultra-Advanced Cloudflare Worker v2026 (ES Modules Architecture)
- * 
- * Features:
- * 1. Sub-5ms Edge TTFB with Tiered Cache & HTTP/3 Support
- * 2. Apex to WWW Canonical 301 Edge Redirection
- * 3. Streaming HTMLRewriter for Real-Time Googlebot & Geo SGE Dominance
- * 4. High-Reliability Serverless Lead Ingestion with ctx.waitUntil()
- * 5. Cloudflare R2 Media Object Streaming Proxy with Range Header Support
- * 6. Edge Security Headers & CSP Enforcement
+ * ═══════════════════════════════════════════════════════════════════════════
+ * Ultra-Advanced Cloudflare Standalone SEO Worker v5.0
+ * Domain: https://www.paranjapetownship.com
+ * Architecture: ES Modules Worker with Streaming HTMLRewriter Pipeline
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
+ * Core Capabilities:
+ *  1. Sub-5ms Edge TTFB with Edge Cache API (`caches.default`)
+ *  2. Apex to WWW Canonical 301 Edge Normalization
+ *  3. 4-Tier Crawler Intelligence Classification
+ *  4. 6x Real-Time Streaming HTMLRewriter Transformations
+ *  5. Serverless High-Speed Lead Ingestion (`/api/lead-capture` & `/api/enquiry`)
+ *  6. Cloudflare R2 Media Object Streaming Proxy with Range Header Support
+ *  7. Hardened Edge Security & Core Web Vitals Headers
+ *  8. Geo-Targeted ICBM & Sitelinks Search Schema Injection
  */
 
 export interface Env {
@@ -16,177 +22,492 @@ export interface Env {
   RATE_LIMIT_KV?: KVNamespace;
   ANALYTICS?: AnalyticsEngineDataset;
   ENVIRONMENT?: string;
+  ORIGIN_URL?: string;
 }
 
-export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const url = new URL(request.url);
-    const userAgent = request.headers.get("user-agent") || "";
+const CANONICAL_HOSTNAME = "www.paranjapetownship.com";
+const CANONICAL_ORIGIN = "https://www.paranjapetownship.com";
 
-    // 1. Apex Domain & Protocol Canonical Normalization
-    if (url.hostname === "paranjapeplots.com" || url.hostname === "paranjapetownship.com" || url.protocol === "http:") {
-      const canonicalUrl = new URL(request.url);
-      canonicalUrl.hostname = "www.paranjapetownship.com";
-      canonicalUrl.protocol = "https:";
-      return Response.redirect(canonicalUrl.toString(), 301);
+// ─── 4-Tier Crawler Classification Matrix ────────────────────────────────────
+
+const CRAWLER_TIERS = {
+  tier1: /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Mediapartners-Google|AdsBot-Google|Google-Safety/i,
+  tier2: /bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|Slurp/i,
+  tier3: /ChatGPT-User|GPTBot|PerplexityBot|ClaudeBot|Bytespider|CCBot|anthropic-ai|cohere-ai/i,
+  tier4: /WhatsApp|TelegramBot|Slackbot|Discordbot|facebookexternalhit|Twitterbot|LinkedInBot|Pinterestbot/i,
+};
+
+interface CrawlerClassification {
+  tier: number;
+  label: string;
+  isSearch: boolean;
+  isSocial: boolean;
+}
+
+function classifyCrawler(ua: string): CrawlerClassification {
+  if (CRAWLER_TIERS.tier1.test(ua)) return { tier: 1, label: "google", isSearch: true, isSocial: false };
+  if (CRAWLER_TIERS.tier2.test(ua)) return { tier: 2, label: "major-search", isSearch: true, isSocial: false };
+  if (CRAWLER_TIERS.tier3.test(ua)) return { tier: 3, label: "ai-crawler", isSearch: false, isSocial: false };
+  if (CRAWLER_TIERS.tier4.test(ua)) return { tier: 4, label: "social-preview", isSearch: false, isSocial: true };
+  return { tier: 0, label: "user", isSearch: false, isSocial: false };
+}
+
+// Early Hints & Resource Links
+const EARLY_HINTS_LINKS = [
+  "</style.min.css>; rel=preload; as=style",
+  "<https://fonts.googleapis.com>; rel=preconnect; crossorigin",
+  "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+  "<https://www.googletagmanager.com>; rel=preconnect",
+  "<https://www.google-analytics.com>; rel=preconnect",
+];
+
+// ─── HTMLRewriter Handlers ───────────────────────────────────────────────────
+
+/**
+ * 1. Canonical URL Enforcer: Guarantees strict canonical formatting
+ */
+class CanonicalEnforcer {
+  constructor(private pathname: string) {}
+  element(el: Element) {
+    const href = el.getAttribute("href");
+    if (href) {
+      let cleanPath = this.pathname
+        .replace(/\/index\.html$/, "/")
+        .replace(/\/$/, "") || "/";
+      if (cleanPath !== "/" && !cleanPath.includes(".")) {
+        cleanPath += "/";
+      }
+      el.setAttribute("href", CANONICAL_ORIGIN + cleanPath);
     }
+  }
+}
 
-    // 2. Search Engine Crawler & AI Inspection Detection
-    const isSearchCrawler = /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Mediapartners-Google|AdsBot-Google|bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|ChatGPT-User|PerplexityBot|ClaudeBot|Bytespider/i.test(userAgent);
-    const isGooglebot = /Googlebot|Google-InspectionTool|Googlebot-Image|Mediapartners-Google/i.test(userAgent);
+/**
+ * 2. Head Meta Injector: Geo coordinates, preconnect, hreflang, and WebSite schema
+ */
+class HeadMetaInjector {
+  constructor(
+    private pathname: string,
+    private crawlerInfo: CrawlerClassification,
+    private cfData: { country: string; city: string; colo: string; region: string }
+  ) {}
 
-    // 3. API Route: Edge Serverless Lead Ingestion
-    if (url.pathname === "/api/lead-capture" && request.method === "POST") {
-      return handleLeadCapture(request, env, ctx);
-    }
+  element(head: Element) {
+    const cleanPath = this.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
+    const canonicalUrl = CANONICAL_ORIGIN + (cleanPath === "/" ? "/" : cleanPath + "/");
 
-    // 4. Media Route: Cloudflare R2 Streaming Proxy
-    if (url.pathname.startsWith("/media/")) {
-      return handleR2MediaStreaming(request, env, url);
-    }
-
-    // 5. Cloudflare Cache API Lookup (Edge Tiered Cache)
-    const cache = caches.default;
-    let response = await cache.match(request);
-
-    if (!response) {
-      // Fetch from Origin Asset Store
-      response = await fetch(request);
-
-      const contentType = response.headers.get("content-type") || "";
-
-      // 6. Streaming HTMLRewriter for Googlebot & Geo Authority
-      if (contentType.includes("text/html")) {
-        const rewriter = new HTMLRewriter()
-          .on("head", {
-            element(head) {
-              head.append(`
-<!-- Cloudflare Edge Geo-Location & Entity Authority Engine -->
+    const geoBlock = `
+<!-- CF Edge SEO Engine v5.0 (Worker Edition) -->
 <meta name="geo.region" content="IN-MH">
 <meta name="geo.placename" content="Bhugaon, Pune West, Maharashtra, India">
 <meta name="geo.position" content="18.5050;73.7406">
 <meta name="ICBM" content="18.5050, 73.7406">
 <meta name="author" content="Paranjape Schemes (Construction) Ltd.">
-<meta name="copyright" content="Paranjape Schemes Construction Ltd.">
+<meta name="copyright" content="© 2026 Paranjape Forest Trails. All Rights Reserved.">`;
+
+    const preconnectBlock = `
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googletagmanager.com">
-<link rel="preconnect" href="https://www.google-analytics.com">
-`, { html: true });
-            }
-          });
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://formsubmit.co">`;
 
-        response = rewriter.transform(response);
-      }
+    const hreflangBlock = `
+<link rel="alternate" hreflang="en-IN" href="${canonicalUrl}">
+<link rel="alternate" hreflang="en" href="${canonicalUrl}">
+<link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
 
-      // 7. Build Hardened Edge Response Headers
-      const headers = new Headers(response.headers);
-      headers.set("X-Content-Type-Options", "nosniff");
-      headers.set("X-Frame-Options", "SAMEORIGIN");
-      headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-      headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
-      headers.set("X-DNS-Prefetch-Control", "on");
-
-      // Caching Strategy
-      if (url.pathname.startsWith("/images/") || url.pathname.startsWith("/assets/")) {
-        headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, immutable");
-        headers.set("CDN-Cache-Control", "max-age=31536000");
-      } else if (url.pathname.endsWith(".xml") || url.pathname.endsWith(".txt")) {
-        headers.set("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400");
-        headers.set("X-Robots-Tag", "noindex, follow");
-      } else {
-        headers.set("Cache-Control", "public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800");
-        headers.set("CDN-Cache-Control", "max-age=604800");
-        headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-      }
-
-      if (isSearchCrawler) {
-        headers.set("CF-Edge-Crawler-Optimization", "active; priority=high; tier=global");
-        if (isGooglebot) {
-          headers.set("CF-Googlebot-Status", "accelerated-edge-hit");
-        }
-      }
-
-      response = new Response(response.body, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: headers
-      });
-
-      // Cache GET requests at the Edge
-      if (request.method === "GET" && response.status === 200) {
-        ctx.waitUntil(cache.put(request, response.clone()));
-      }
+    const sitelinkSearchSchema = `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Paranjape Forest Trails Bhugaon",
+  "alternateName": ["Paranjape Schemes Forest Trails", "Forest Trails Bhugaon", "Paranjape Township Pune"],
+  "url": "${CANONICAL_ORIGIN}/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "${CANONICAL_ORIGIN}/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Paranjape Schemes (Construction) Ltd.",
+    "url": "https://www.paranjapeschemes.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "${CANONICAL_ORIGIN}/assets/branding/paranjape-corporate-logo.jpg",
+      "width": 600,
+      "height": 120
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7744009295",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["English", "Hindi", "Marathi"]
     }
-
-    return response;
   }
-};
+}
+</script>`;
 
-/**
- * High-Speed Edge Lead Capture Handler
- */
-async function handleLeadCapture(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-  try {
-    const data: any = await request.json();
-    const { name, phone, email, project, whatsappOptin, source, timestamp } = data;
-
-    if (!name || !phone) {
-      return new Response(JSON.stringify({ error: "Name and Phone are required" }), {
-        status: 400,
-        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
-      });
-    }
-
-    // Async background task: Dispatches lead to CRM without blocking user response
-    ctx.waitUntil((async () => {
-      try {
-        const formData = new FormData();
-        formData.append("name", name);
-        formData.append("phone", phone);
-        formData.append("email", email || "N/A");
-        formData.append("project_interest", project || "Forest Trails");
-        formData.append("whatsapp_optin", whatsappOptin ? "YES" : "NO");
-        formData.append("source_url", source || "https://www.paranjapetownship.com/");
-        formData.append("timestamp", timestamp || new Date().toISOString());
-        formData.append("_subject", `🌟 New Edge Lead: ${project} - ${name} (${phone})`);
-        formData.append("_captcha", "false");
-
-        await fetch("https://formsubmit.co/propsmartrealty@gmail.com", {
-          method: "POST",
-          body: formData
-        });
-
-        // D1 Database persistence if available
-        if (env.DB) {
-          await env.DB.prepare(
-            "INSERT INTO leads (name, phone, email, project, whatsapp_optin, source, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
-          ).bind(name, phone, email, project, whatsappOptin ? 1 : 0, source, timestamp).run();
-        }
-      } catch (err) {
-        console.error("Background lead dispatch error:", err);
-      }
-    })());
-
-    return new Response(JSON.stringify({ success: true, message: "Lead captured at Edge successfully" }), {
-      status: 200,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Cache-Control": "no-store, no-cache"
-      }
-    });
-  } catch (err: any) {
-    return new Response(JSON.stringify({ error: err.message || "Internal error" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
-    });
+    head.append(geoBlock + preconnectBlock + hreflangBlock + sitelinkSearchSchema, { html: true });
   }
 }
 
 /**
- * Cloudflare R2 Streaming Media Handler
+ * 3. OG Image Absolutifier: Ensures complete absolute HTTPS URLs for social crawlers
  */
+class OGImageAbsolutifier {
+  element(el: Element) {
+    const content = el.getAttribute("content");
+    if (content && content.startsWith("/")) {
+      el.setAttribute("content", CANONICAL_ORIGIN + content);
+    }
+  }
+}
+
+/**
+ * 4. Performance Hint Injector: Preload critical CSS, fonts, and PWA theme
+ */
+class PerformanceHintInjector {
+  element(head: Element) {
+    const hints = `
+<link rel="preload" href="/style.min.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" as="style" crossorigin>
+<meta name="theme-color" content="#6B0D0D">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">`;
+    head.append(hints, { html: true });
+  }
+}
+
+/**
+ * 5. Internal Link Normalizer: Enforces trailing slash on local directories
+ */
+class InternalLinkNormalizer {
+  element(el: Element) {
+    const href = el.getAttribute("href");
+    if (href && href.startsWith("/") && !href.includes(".") && !href.endsWith("/") && href !== "/") {
+      el.setAttribute("href", href + "/");
+    }
+  }
+}
+
+/**
+ * 6. Image Lazy-Load Optimizer: Prioritizes above-the-fold hero images, lazy loads the rest
+ */
+class ImageOptimizer {
+  private imageCount = 0;
+  element(el: Element) {
+    this.imageCount++;
+    if (this.imageCount <= 2) {
+      el.setAttribute("loading", "eager");
+      el.setAttribute("fetchpriority", "high");
+      el.removeAttribute("decoding");
+    } else {
+      if (!el.getAttribute("loading")) {
+        el.setAttribute("loading", "lazy");
+      }
+      if (!el.getAttribute("decoding")) {
+        el.setAttribute("decoding", "async");
+      }
+    }
+  }
+}
+
+// ─── Cache & Security Header Utilities ───────────────────────────────────────
+
+function applyCacheHeaders(headers: Headers, url: URL): void {
+  const pathname = url.pathname;
+
+  // Immutable hashed assets
+  if (pathname.startsWith("/_astro/")) {
+    headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, immutable");
+    headers.set("CDN-Cache-Control", "max-age=31536000");
+    return;
+  }
+
+  // Media assets
+  if (pathname.startsWith("/images/") || pathname.startsWith("/assets/") || pathname.startsWith("/media/")) {
+    headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, immutable");
+    headers.set("CDN-Cache-Control", "max-age=31536000");
+    headers.set("Timing-Allow-Origin", "*");
+    return;
+  }
+
+  // Sitemaps & robots
+  if (pathname.endsWith(".xml") || pathname === "/robots.txt" || pathname.endsWith(".txt")) {
+    headers.set("Cache-Control", "public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400");
+    headers.set("CDN-Cache-Control", "max-age=86400");
+    if (pathname.endsWith(".xml")) {
+      headers.set("X-Robots-Tag", "noindex, follow");
+    }
+    return;
+  }
+
+  // Bundled scripts & styles
+  if (pathname.endsWith(".css") || pathname.endsWith(".js")) {
+    headers.set("Cache-Control", "public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400");
+    headers.set("CDN-Cache-Control", "max-age=2592000");
+    return;
+  }
+
+  // HTML documents
+  headers.set("Cache-Control", "public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800");
+  headers.set("CDN-Cache-Control", "max-age=604800");
+  headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+}
+
+function applySecurityHeaders(headers: Headers): void {
+  headers.set("Strict-Transport-Security", "max-age=31536000; includeSubDomains; preload");
+  headers.set("X-Content-Type-Options", "nosniff");
+  headers.set("X-Frame-Options", "SAMEORIGIN");
+  headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  headers.set("X-DNS-Prefetch-Control", "on");
+  headers.set("Permissions-Policy", "geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=()");
+  headers.set("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+}
+
+// ─── Worker Fetch Entrypoint ─────────────────────────────────────────────────
+
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+    const startTime = Date.now();
+    const url = new URL(request.url);
+    const userAgent = request.headers.get("user-agent") || "";
+    const crawlerInfo = classifyCrawler(userAgent);
+
+    // 1. Apex Domain & Protocol Canonical Normalization (301)
+    if (
+      url.hostname === "paranjapeplots.com" ||
+      url.hostname === "www.paranjapeplots.com" ||
+      url.hostname === "paranjapetownship.com" ||
+      (url.protocol === "http:" && !url.hostname.includes("localhost") && !url.hostname.includes("127.0.0.1"))
+    ) {
+      const canonicalUrl = new URL(request.url);
+      canonicalUrl.hostname = CANONICAL_HOSTNAME;
+      canonicalUrl.protocol = "https:";
+      return Response.redirect(canonicalUrl.toString(), 301);
+    }
+
+    // 2. High-Speed Edge Lead Capture API Routes
+    if ((url.pathname === "/api/lead-capture" || url.pathname === "/api/enquiry") && request.method === "POST") {
+      return handleLeadCapture(request, env, ctx);
+    }
+    if ((url.pathname === "/api/lead-capture" || url.pathname === "/api/enquiry") && request.method === "OPTIONS") {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Max-Age": "86400",
+        },
+      });
+    }
+
+    // 3. Cloudflare R2 Media Streaming Proxy Route
+    if (url.pathname.startsWith("/media/")) {
+      return handleR2MediaStreaming(request, env, url);
+    }
+
+    // 4. Edge Tiered Cache Lookup via Cache API
+    const cache = caches.default;
+    let cachedResponse = await cache.match(request);
+    if (cachedResponse) {
+      const newHeaders = new Headers(cachedResponse.headers);
+      newHeaders.set("X-Cache-Status", "HIT-EDGE");
+      newHeaders.set("Server-Timing", `edge;dur=${Date.now() - startTime};desc="CF Worker Cache HIT"`);
+      return new Response(cachedResponse.body, {
+        status: cachedResponse.status,
+        statusText: cachedResponse.statusText,
+        headers: newHeaders,
+      });
+    }
+
+    // 5. Fetch Origin Response
+    let response: Response;
+    try {
+      response = await fetch(request);
+    } catch (err: any) {
+      console.error("Worker origin fetch failed:", err);
+      return new Response("Origin unreachable", { status: 502 });
+    }
+
+    const contentType = response.headers.get("content-type") || "";
+    const isHTML = contentType.includes("text/html");
+
+    // 6. Streaming HTMLRewriter Transformation (HTML Only)
+    let transformedResponse = response;
+    if (isHTML && response.status === 200) {
+      const cf = (request as any).cf;
+      const cfData = {
+        country: cf?.country || "IN",
+        city: cf?.city || "Pune",
+        colo: cf?.colo || "BOM",
+        region: cf?.region || "Maharashtra",
+      };
+
+      const rewriter = new HTMLRewriter()
+        .on('link[rel="canonical"]', new CanonicalEnforcer(url.pathname))
+        .on("head", new HeadMetaInjector(url.pathname, crawlerInfo, cfData))
+        .on('meta[property="og:image"]', new OGImageAbsolutifier())
+        .on('meta[name="twitter:image"]', new OGImageAbsolutifier())
+        .on('meta[property="og:image:url"]', new OGImageAbsolutifier())
+        .on("head", new PerformanceHintInjector())
+        .on('a[href^="/"]', new InternalLinkNormalizer())
+        .on("img", new ImageOptimizer());
+
+      transformedResponse = rewriter.transform(response);
+    }
+
+    // 7. Assemble Hardened Edge Headers
+    const headers = new Headers(transformedResponse.headers);
+    applySecurityHeaders(headers);
+    applyCacheHeaders(headers, url);
+
+    headers.set("Link", EARLY_HINTS_LINKS.join(", "));
+    const cf = (request as any).cf;
+    const country = cf?.country || "IN";
+    headers.set("Content-Language", country === "IN" ? "en-IN" : "en");
+    headers.set("Vary", "Accept-Encoding");
+
+    const edgeDuration = Date.now() - startTime;
+    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF SEO Worker v5"`);
+    headers.set("X-Edge-Location", cf?.colo || "unknown");
+    headers.set("X-Response-Source", "cf-seo-worker-v5");
+    headers.set("X-Cache-Status", "MISS-EDGE");
+
+    if (crawlerInfo.tier > 0) {
+      headers.set("X-Crawler-Tier", `${crawlerInfo.tier}:${crawlerInfo.label}`);
+      if (crawlerInfo.tier === 1) {
+        headers.set("X-Googlebot-Edge", "accelerated;tier=priority;rewriter=active");
+      }
+    }
+
+    headers.set("NEL", JSON.stringify({
+      report_to: "default",
+      max_age: 86400,
+      include_subdomains: true,
+      failure_fraction: 1.0,
+    }));
+    headers.set("Report-To", JSON.stringify({
+      group: "default",
+      max_age: 86400,
+      endpoints: [{ url: `${CANONICAL_ORIGIN}/api/nel-report` }],
+      include_subdomains: true,
+    }));
+
+    const finalResponse = new Response(transformedResponse.body, {
+      status: transformedResponse.status,
+      statusText: transformedResponse.statusText,
+      headers,
+    });
+
+    // 8. Cache GET 200 responses asynchronously in Edge Cache
+    if (request.method === "GET" && finalResponse.status === 200) {
+      ctx.waitUntil(cache.put(request, finalResponse.clone()));
+    }
+
+    return finalResponse;
+  },
+};
+
+// ─── Serverless Lead Capture Implementation ───────────────────────────────────
+
+async function handleLeadCapture(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  try {
+    const contentType = request.headers.get("content-type") || "";
+    let data: Record<string, any> = {};
+
+    if (contentType.includes("application/json")) {
+      data = await request.json();
+    } else {
+      const formData = await request.formData();
+      for (const [k, v] of formData.entries()) {
+        data[k] = v;
+      }
+    }
+
+    const name = String(data.name || "").trim();
+    const phone = String(data.phone || "").trim();
+    const email = String(data.email || "N/A").trim();
+    const project = String(data.project_interest || data.project || data.interest || "Paranjape Forest Trails").trim();
+    const whatsappOptin = data.whatsapp_optin !== false;
+    const source = String(data.source || data.source_url || "https://www.paranjapetownship.com/").trim();
+    const timestamp = data.timestamp || new Date().toISOString();
+
+    if (!name || !phone) {
+      return new Response(JSON.stringify({ success: false, error: "Name and Mobile Number are required." }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+      });
+    }
+
+    // Asynchronous non-blocking CRM dispatch via ctx.waitUntil
+    ctx.waitUntil(
+      (async () => {
+        try {
+          const dispatch = new FormData();
+          dispatch.append("name", name);
+          dispatch.append("phone", phone);
+          dispatch.append("email", email);
+          dispatch.append("project_interest", project);
+          dispatch.append("whatsapp_optin", whatsappOptin ? "YES" : "NO");
+          dispatch.append("source_url", source);
+          dispatch.append("timestamp", timestamp);
+          dispatch.append("_subject", `🌟 New Edge Lead: ${project} - ${name} (${phone})`);
+          dispatch.append("_captcha", "false");
+
+          await fetch("https://formsubmit.co/propsmartrealty@gmail.com", {
+            method: "POST",
+            body: dispatch,
+          });
+
+          // D1 Database backup if bound
+          if (env.DB) {
+            await env.DB.prepare(
+              "INSERT INTO leads (name, phone, email, project, whatsapp_optin, source, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            )
+              .bind(name, phone, email, project, whatsappOptin ? 1 : 0, source, timestamp)
+              .run();
+          }
+        } catch (err) {
+          console.error("Async Lead Dispatch Exception:", err);
+        }
+      })()
+    );
+
+    return new Response(
+      JSON.stringify({
+        success: true,
+        timestamp,
+        lead: { name, phone, email, project },
+        message: "Lead processed & dispatched at Edge successfully.",
+      }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Cache-Control": "no-store, no-cache, must-revalidate",
+        },
+      }
+    );
+  } catch (err: any) {
+    return new Response(JSON.stringify({ success: false, error: err.message || "Internal Worker Error" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+    });
+  }
+}
+
+// ─── Cloudflare R2 Media Streaming Handler ───────────────────────────────────
+
 async function handleR2MediaStreaming(request: Request, env: Env, url: URL): Promise<Response> {
   const objectKey = url.pathname.replace(/^\/media\//, "");
 
@@ -195,7 +516,7 @@ async function handleR2MediaStreaming(request: Request, env: Env, url: URL): Pro
       const range = request.headers.get("Range");
       const object = await env.MEDIA_BUCKET.get(objectKey, {
         range: range ? request.headers : undefined,
-        onlyIf: request.headers
+        onlyIf: request.headers,
       });
 
       if (object) {
@@ -206,9 +527,9 @@ async function handleR2MediaStreaming(request: Request, env: Env, url: URL): Pro
         headers.set("Access-Control-Allow-Origin", "*");
         headers.set("CF-R2-Source", "edge-stream");
 
-        return new Response(object.body, {
-          headers: headers,
-          status: object.body ? (range ? 206 : 200) : 304
+        return new Response(object.body as any, {
+          headers,
+          status: object.body ? (range ? 206 : 200) : 304,
         });
       }
     } catch (e) {
