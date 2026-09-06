@@ -1,24 +1,57 @@
-# Sovereign Cloudflare Edge 301 Redirect Rules v1.0
+# Sovereign Cloudflare Edge 301 Redirect Rules v2.0
 # Domain: https://www.paranjapetownship.com
+# Use 301! to force Cloudflare Pages edge to execute redirect even if static files exist
 
 # 1. Clean Trailing Slash Canonicalization
-/paranjape-forest-trails-township-bhugaon-villas-plots.html /paranjape-forest-trails-township-bhugaon-villas-plots/ 301
-/paranjape-forest-trails-township-bhugaon-facilities.html /paranjape-forest-trails-township-bhugaon-facilities/ 301
+/paranjape-forest-trails-township-bhugaon-villas-plots.html /paranjape-forest-trails-township-bhugaon-villas-plots/ 301!
+/paranjape-forest-trails-township-bhugaon-facilities.html /paranjape-forest-trails-township-bhugaon-facilities/ 301!
 
-# 2. Permanent Permalink Canonical Routing
-/misty-greens /paranjape-forest-trails-township-bhugaon-misty-greens/ 301
-/the-rivolo /paranjape-forest-trails-township-bhugaon-rivolo-residences/ 301
-/the-canopy /paranjape-forest-trails-township-bhugaon-the-canopy/ 301
-/athashri /paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/ 301
-/the-highgardens /paranjape-forest-trails-township-bhugaon-highgardens/ 301
-/the-cove /paranjape-forest-trails-township-bhugaon-the-cove/ 301
-/everglades /paranjape-forest-trails-township-bhugaon-everglades/ 301
-/verandah /paranjape-forest-trails-township-bhugaon-verandah/ 301
-/orchard /paranjape-forest-trails-township-bhugaon-orchard-residences/ 301
-/swaniketan /paranjape-forest-trails-township-bhugaon-swaniketan/ 301
-/the-cliff-lifestyle-hub /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301
-/cliff-club /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301
-/sri-sri-ravishankar-school /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301
-/ssrvm-school /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301
-/equestrian-academy /paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/ 301
+# 2. Permanent Permalink Canonical Routing (Forced 301!)
+/misty-greens /paranjape-forest-trails-township-bhugaon-misty-greens/ 301!
+/misty-greens/* /paranjape-forest-trails-township-bhugaon-misty-greens/ 301!
 
+/the-rivolo /paranjape-forest-trails-township-bhugaon-rivolo-residences/ 301!
+/the-rivolo/* /paranjape-forest-trails-township-bhugaon-rivolo-residences/ 301!
+/rivolo-residences /paranjape-forest-trails-township-bhugaon-rivolo-residences/ 301!
+/rivolo-residences/* /paranjape-forest-trails-township-bhugaon-rivolo-residences/ 301!
+
+/the-canopy /paranjape-forest-trails-township-bhugaon-the-canopy/ 301!
+/the-canopy/* /paranjape-forest-trails-township-bhugaon-the-canopy/ 301!
+/canopy-apartments-bhugaon /paranjape-forest-trails-township-bhugaon-the-canopy/ 301!
+/canopy-apartments-bhugaon/* /paranjape-forest-trails-township-bhugaon-the-canopy/ 301!
+
+/athashri /paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/ 301!
+/athashri/* /paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/ 301!
+
+/the-highgardens /paranjape-forest-trails-township-bhugaon-highgardens/ 301!
+/the-highgardens/* /paranjape-forest-trails-township-bhugaon-highgardens/ 301!
+/highgardens /paranjape-forest-trails-township-bhugaon-highgardens/ 301!
+/highgardens/* /paranjape-forest-trails-township-bhugaon-highgardens/ 301!
+
+/the-cove /paranjape-forest-trails-township-bhugaon-the-cove/ 301!
+/the-cove/* /paranjape-forest-trails-township-bhugaon-the-cove/ 301!
+
+/everglades /paranjape-forest-trails-township-bhugaon-everglades/ 301!
+/everglades/* /paranjape-forest-trails-township-bhugaon-everglades/ 301!
+
+/verandah /paranjape-forest-trails-township-bhugaon-verandah/ 301!
+/verandah/* /paranjape-forest-trails-township-bhugaon-verandah/ 301!
+
+/orchard /paranjape-forest-trails-township-bhugaon-orchard-residences/ 301!
+/orchard/* /paranjape-forest-trails-township-bhugaon-orchard-residences/ 301!
+
+/swaniketan /paranjape-forest-trails-township-bhugaon-swaniketan/ 301!
+/swaniketan/* /paranjape-forest-trails-township-bhugaon-swaniketan/ 301!
+
+/the-cliff-lifestyle-hub /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301!
+/the-cliff-lifestyle-hub/* /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301!
+/cliff-club /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301!
+/cliff-club/* /paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/ 301!
+
+/sri-sri-ravishankar-school /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301!
+/sri-sri-ravishankar-school/* /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301!
+/ssrvm-school /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301!
+/ssrvm-school/* /paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/ 301!
+
+/equestrian-academy /paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/ 301!
+/equestrian-academy/* /paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/ 301!
