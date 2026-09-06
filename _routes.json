@@ -4,8 +4,10 @@
     "/*"
   ],
   "exclude": [
+    "/_astro/*",
     "/images/*",
     "/assets/*",
+    "/media/*",
     "/scripts/*",
     "/styles/*",
     "/*.css",
@@ -13,8 +15,12 @@
     "/*.webp",
     "/*.png",
     "/*.jpg",
+    "/*.ico",
     "/*.svg",
     "/*.xml",
-    "/*.txt"
+    "/*.txt",
+    "/favicon.*",
+    "/manifest.json",
+    "/sw.js"
   ]
 }
