@@ -30,7 +30,6 @@ const CRAWLER_TIERS = {
 
 // Early Hints preconnect matrix
 const EARLY_HINTS_LINKS = [
-  "</style.min.css>; rel=preload; as=style",
   "<https://fonts.googleapis.com>; rel=preconnect; crossorigin",
   "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
   "<https://www.googletagmanager.com>; rel=preconnect",
@@ -75,7 +74,7 @@ class CanonicalEnforcer {
 
 /**
  * Handler 2: <head> Meta & Resource Injector
- * Appends geo tags, preconnect hints, hreflang, and WebSite JSON-LD
+ * Appends geo tags, preconnect hints, and hreflang
  */
 class HeadMetaInjector {
   constructor(pathname, crawlerInfo, cfData) {
@@ -111,45 +110,7 @@ class HeadMetaInjector {
 <link rel="alternate" hreflang="en" href="${canonicalUrl}">
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
 
-    // WebSite + SearchAction JSON-LD for Google Sitelinks Search Box
-    const sitelinkSearchSchema = `
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Paranjape Forest Trails Bhugaon",
-  "alternateName": ["Paranjape Schemes Forest Trails", "Forest Trails Bhugaon", "Paranjape Township Pune"],
-  "url": "${CANONICAL_ORIGIN}/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "${CANONICAL_ORIGIN}/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Paranjape Schemes (Construction) Ltd.",
-    "url": "https://www.paranjapeschemes.com/",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "${CANONICAL_ORIGIN}/assets/branding/paranjape-corporate-logo.jpg",
-      "width": 600,
-      "height": 120
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-7744009295",
-      "contactType": "sales",
-      "areaServed": "IN",
-      "availableLanguage": ["English", "Hindi", "Marathi"]
-    }
-  }
-}
-</script>`;
-
-    head.append(geoBlock + preconnectBlock + hreflangBlock + sitelinkSearchSchema, { html: true });
+    head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
   }
 }
 
@@ -168,14 +129,13 @@ class OGImageAbsolutifier {
 
 /**
  * Handler 4: Performance Resource Hint Injector
- * Injects critical resource preload directives and PWA meta
+ * Injects critical typography preload directives and PWA meta
  */
 class PerformanceHintInjector {
   element(head) {
     const perfHints = `
-<link rel="preload" href="/style.min.css" as="style">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" as="style" crossorigin>
-<meta name="theme-color" content="#6B0D0D">
+<meta name="theme-color" content="#4A0808">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">`;
     head.append(perfHints, { html: true });
