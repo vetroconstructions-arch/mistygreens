@@ -28,6 +28,30 @@ export interface Env {
 const CANONICAL_HOSTNAME = "www.paranjapetownship.com";
 const CANONICAL_ORIGIN = "https://www.paranjapetownship.com";
 
+// Permanent canonical routing for legacy enclaves & facilities
+const PERMALINK_REDIRECTS: Record<string, string> = {
+  "/misty-greens": "/paranjape-forest-trails-township-bhugaon-misty-greens/",
+  "/the-rivolo": "/paranjape-forest-trails-township-bhugaon-rivolo-residences/",
+  "/rivolo-residences": "/paranjape-forest-trails-township-bhugaon-rivolo-residences/",
+  "/the-canopy": "/paranjape-forest-trails-township-bhugaon-the-canopy/",
+  "/canopy-apartments-bhugaon": "/paranjape-forest-trails-township-bhugaon-the-canopy/",
+  "/athashri": "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/",
+  "/the-highgardens": "/paranjape-forest-trails-township-bhugaon-highgardens/",
+  "/highgardens": "/paranjape-forest-trails-township-bhugaon-highgardens/",
+  "/the-cove": "/paranjape-forest-trails-township-bhugaon-the-cove/",
+  "/everglades": "/paranjape-forest-trails-township-bhugaon-everglades/",
+  "/verandah": "/paranjape-forest-trails-township-bhugaon-verandah/",
+  "/orchard": "/paranjape-forest-trails-township-bhugaon-orchard-residences/",
+  "/swaniketan": "/paranjape-forest-trails-township-bhugaon-swaniketan/",
+  "/the-cliff-lifestyle-hub": "/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/",
+  "/cliff-club": "/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/",
+  "/sri-sri-ravishankar-school": "/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/",
+  "/ssrvm-school": "/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/",
+  "/equestrian-academy": "/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/",
+  "/paranjape-forest-trails-township-bhugaon-villas-plots.html": "/paranjape-forest-trails-township-bhugaon-villas-plots/",
+  "/paranjape-forest-trails-township-bhugaon-facilities.html": "/paranjape-forest-trails-township-bhugaon-facilities/",
+};
+
 // ─── 4-Tier Crawler Classification Matrix ────────────────────────────────────
 
 const CRAWLER_TIERS = {
@@ -253,6 +277,13 @@ export default {
       canonicalUrl.hostname = CANONICAL_HOSTNAME;
       canonicalUrl.protocol = "https:";
       return Response.redirect(canonicalUrl.toString(), 301);
+    }
+
+    // 1b. Legacy Permalink Edge 301 Canonical Routing
+    const cleanPath = url.pathname.replace(/\/$/, "");
+    if (PERMALINK_REDIRECTS[url.pathname] || PERMALINK_REDIRECTS[cleanPath]) {
+      const target = PERMALINK_REDIRECTS[url.pathname] || PERMALINK_REDIRECTS[cleanPath];
+      return Response.redirect(`${CANONICAL_ORIGIN}${target}`, 301);
     }
 
     // 2. High-Speed Edge Lead Capture API Routes
