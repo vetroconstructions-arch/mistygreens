@@ -44,6 +44,52 @@ const PERMALINK_REDIRECTS = {
   "/paranjape-forest-trails-township-bhugaon-facilities.html": "/paranjape-forest-trails-township-bhugaon-facilities/",
 };
 
+// ─── Edge Keyword Routing Table ───────────────────────────────────────────────
+// Maps URL path prefixes → page-specific keyword cluster injected at edge
+const BRAND_KW = "Paranjape Schemes Construction Ltd, Paranjape Forest Trails Bhugaon, Misty Greens NA Plots, The Rivolo Villas, The Canopy Apartments, Highgardens, The Cove Bungalows, Athashri Senior Living, Everglades Bavdhan, RERA approved Bhugaon, MahaRERA P52100053834, 190-acre gated township Pune West";
+
+const KEYWORD_ROUTES = {
+  "/": `NA plots Bhugaon, luxury villas Bhugaon, 2BHK in Bhugaon, 3BHK Pune West, property in Bhugaon, gated township Pune West, NA bungalow plots Pune, buy property near Kothrud Bavdhan, NRI investment Bhugaon, RERA approved plots Bhugaon, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-misty-greens": `NA plots in Bhugaon, NA bungalow plots Bhugaon, buy NA plots Bhugaon, NA plots price Bhugaon 2026, RERA NA plots Bhugaon P52100053834, Misty Greens NA plots, plots near Chandani Chowk, plots near Bavdhan Kothrud, ${BRAND_KW}`,
+  "/misty-greens": `NA plots in Bhugaon, NA bungalow plots Bhugaon, Misty Greens NA plots, RERA NA plots P52100053834, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-rivolo-residences": `luxury villas Bhugaon, luxury forest villas Pune, 4BHK villa Bhugaon, 5BHK villa Bhugaon, Rivolo villas price 2026, NRI luxury villa Bhugaon, luxury villa near Bavdhan Kothrud, RERA villa Bhugaon P52100031560, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-the-cove": `twin bungalows Bhugaon, twin bungalow price Bhugaon 2026, 4BHK twin bungalow Pune West, The Cove bungalows Forest Trails, bungalow near Bavdhan Kothrud, RERA bungalow P52100048536, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-the-canopy": `2BHK in Bhugaon, 3BHK in Bhugaon, 2BHK near Bavdhan, 3BHK near Kothrud, The Canopy apartments Bhugaon, RERA apartments P52100079518, apartments near Chandani Chowk, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-highgardens": `2BHK in Bhugaon, apartments Bhugaon, Highgardens apartments price 2026, RERA apartments P52100053310, 2BHK near Bavdhan, 2BHK near Chandani Chowk, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon": `senior living Bhugaon, Athashri senior living Pune, retirement homes Bhugaon, senior citizen homes Pune West, assisted living Bhugaon, RERA senior living P52100077686, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-verandah": `luxury apartments Bhugaon, Verandah Forest Trails price, apartments near Bavdhan Kothrud, RERA apartments P52100002194, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-orchard-residences": `apartments Bhugaon, Orchard Residences price, RERA apartments P52100055710, apartments near Chandani Chowk Bavdhan, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-swaniketan": `apartments Bhugaon, Swaniketan price, RERA apartments P52100052124, flats near Bavdhan Kothrud, ${BRAND_KW}`,
+  "/1-bhk-flats-near-bavdhan": `1BHK near Bavdhan, 1 BHK flats near Bavdhan Pune, 1BHK apartments Bavdhan, 1BHK price Bavdhan 2026, affordable 1BHK Bavdhan, 1BHK near Chandani Chowk, ${BRAND_KW}`,
+  "/1-bhk-flats-near-kothrud": `1BHK near Kothrud, 1 BHK flats Kothrud, 1BHK price Kothrud 2026, affordable 1BHK Kothrud, ${BRAND_KW}`,
+  "/1-bhk-flats-near-hinjewadi": `1BHK near Hinjewadi, 1 BHK flats Hinjewadi IT Park, 1BHK price Hinjewadi 2026, ${BRAND_KW}`,
+  "/2-bhk-flats-near-bavdhan": `2BHK near Bavdhan, 2 BHK flats near Bavdhan Pune, 2BHK apartments Bavdhan, 2BHK price Bavdhan 2026, 2BHK RERA Bavdhan, 2BHK near Chandani Chowk, ${BRAND_KW}`,
+  "/2-bhk-flats-near-kothrud": `2BHK near Kothrud, 2 BHK flats Kothrud, 2BHK apartments Kothrud, 2BHK price Kothrud 2026, 2BHK RERA Kothrud, 2BHK Kothrud extension, ${BRAND_KW}`,
+  "/2-bhk-flats-near-baner": `2BHK near Baner, 2 BHK flats Baner, 2BHK apartments Baner, 2BHK price Baner 2026, ${BRAND_KW}`,
+  "/3-bhk-flats-near-bavdhan": `3BHK near Bavdhan, 3 BHK flats near Bavdhan Pune, 3BHK apartments Bavdhan, 3BHK price Bavdhan 2026, luxury 3BHK Bavdhan, 3BHK near Chandani Chowk, ${BRAND_KW}`,
+  "/3-bhk-flats-near-kothrud": `3BHK near Kothrud, 3 BHK flats Kothrud, 3BHK apartments Kothrud, 3BHK price Kothrud 2026, luxury 3BHK Kothrud, ${BRAND_KW}`,
+  "/4-bhk-luxury-apartments-pune-west": `4BHK luxury apartments Pune West, 4 BHK flats Pune West, 4BHK price Pune West 2026, luxury 4BHK Bhugaon, ${BRAND_KW}`,
+  "/2bhk-in-bhugaon": `2BHK in Bhugaon, 2 BHK flat Bhugaon, 2BHK apartment Bhugaon, buy 2BHK Bhugaon, 2BHK price Bhugaon 2026, 2BHK RERA Bhugaon, ${BRAND_KW}`,
+  "/3bhk-in-pune": `3BHK in Pune, 3 BHK flat Pune, 3BHK apartment Pune, buy 3BHK Pune West, 3BHK price Pune 2026, ${BRAND_KW}`,
+  "/3bhk-in-kothrud": `3BHK in Kothrud, 3 BHK flat Kothrud Pune, buy 3BHK Kothrud, 3BHK price Kothrud 2026, ${BRAND_KW}`,
+  "/3bhk-near-chandani-chowk": `3BHK near Chandani Chowk, 3 BHK flat Chandani Chowk, buy 3BHK Chandani Chowk, 3BHK price Chandani Chowk 2026, ${BRAND_KW}`,
+  "/na-plots-in-bhugaon": `NA plots in Bhugaon, NA bungalow plots Bhugaon, buy NA plots Bhugaon, NA plots price Bhugaon 2026, RERA NA plots Bhugaon P52100053834, ${BRAND_KW}`,
+  "/na-plots-in-pune": `NA plots in Pune, NA bungalow plots Pune West, buy NA plots Pune, NA plots price Pune 2026, ${BRAND_KW}`,
+  "/plots-in-pune-west": `plots in Pune West, buy plots Pune West, bungalow plots Pune West, NA plots Pune West 2026, ${BRAND_KW}`,
+  "/rera-approved-plots-bhugaon": `RERA approved plots Bhugaon, MahaRERA plots Bhugaon, MahaRERA P52100053834, RERA certified plots Pune, ${BRAND_KW}`,
+  "/property-in-bhugaon": `property in Bhugaon, buy property Bhugaon Pune, flats in Bhugaon, villas in Bhugaon, plots in Bhugaon, Bhugaon property price 2026, ${BRAND_KW}`,
+  "/property-near-chandani-chowk": `property near Chandani Chowk, buy property Chandani Chowk Pune, flats near Chandani Chowk, property price Chandani Chowk 2026, ${BRAND_KW}`,
+  "/luxury-villas-bhugaon": `luxury villas Bhugaon, luxury forest villas Bhugaon, 4BHK villa Bhugaon, 5BHK villa Bhugaon, Rivolo villas Bhugaon, ${BRAND_KW}`,
+  "/5bhk-villas-pune-west": `5BHK villa Pune West, 5BHK bungalow Pune West, 5BHK luxury villa Bhugaon, ${BRAND_KW}`,
+  "/senior-living-bhugaon": `senior living Bhugaon, retirement homes Bhugaon Pune, Athashri Bhugaon, senior citizen homes Pune West, ${BRAND_KW}`,
+  "/nri-investment-bhugaon": `NRI investment Bhugaon, NRI property Bhugaon Pune, NRI plots Bhugaon, NRI villas Bhugaon, NRI real estate Pune West, ${BRAND_KW}`,
+  "/ready-to-move-flats-bavdhan": `ready to move flats Bavdhan, ready possession flats Bavdhan, ready to move 2BHK Bavdhan, ready possession Chandani Chowk, ${BRAND_KW}`,
+  "/under-construction-projects-bhugaon": `under construction projects Bhugaon, new launch Bhugaon Pune, under construction flats Bhugaon, new project Bhugaon 2026, ${BRAND_KW}`,
+  "/bavdhan-vs-bhugaon-property-appreciation": `Bavdhan vs Bhugaon property, Bavdhan vs Bhugaon investment, price comparison Pune West 2026, best locality Pune West 2026, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-price": `Paranjape Forest Trails price list 2026, NA plots price Bhugaon, luxury villas price Bhugaon, 2BHK price Bhugaon, ${BRAND_KW}`,
+  "/paranjape-forest-trails-township-bhugaon-location-proximity": `Forest Trails location proximity, Bhugaon near Chandani Chowk, Bhugaon near Bavdhan, Bhugaon near Kothrud, ${BRAND_KW}`,
+};
+
 // Crawler detection patterns by tier
 const CRAWLER_TIERS = {
   tier1: /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Mediapartners-Google|AdsBot-Google|Google-Safety/i,
@@ -135,6 +181,41 @@ class HeadMetaInjector {
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
 
     head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
+  }
+}
+
+/**
+ * Handler 7: Keyword Meta Injector
+ * Injects page-specific <meta name="keywords"> at the edge using KEYWORD_ROUTES.
+ * Runs on ALL HTML responses — covers Astro pages, legacy static files, and new keyword pages.
+ * Uses prefix matching so /path/ and /path/index.html both resolve.
+ */
+class KeywordMetaInjector {
+  constructor(pathname) {
+    // Normalize: strip trailing slash, strip index.html
+    this.cleanPath = pathname.replace(/\/index\.html$/, "").replace(/\/$/, "") || "/";
+  }
+  element(head) {
+    // Exact match first, then prefix match
+    let keywords = KEYWORD_ROUTES[this.cleanPath] || KEYWORD_ROUTES[this.cleanPath + "/"] || null;
+
+    // Prefix fallback: find longest matching prefix
+    if (!keywords) {
+      let bestLen = 0;
+      for (const [route, kw] of Object.entries(KEYWORD_ROUTES)) {
+        if (route !== "/" && this.cleanPath.startsWith(route) && route.length > bestLen) {
+          bestLen = route.length;
+          keywords = kw;
+        }
+      }
+    }
+
+    if (keywords) {
+      head.append(
+        `\n<meta name="keywords" content="${keywords.replace(/"/g, "&quot;")}">`,
+        { html: true }
+      );
+    }
   }
 }
 
@@ -331,7 +412,9 @@ export async function onRequest(context) {
         // Handler 5: Internal link trailing-slash normalization
         .on('a[href^="/"]', new InternalLinkNormalizer())
         // Handler 6: Image lazy-load optimization
-        .on("img", new ImageOptimizer());
+        .on("img", new ImageOptimizer())
+        // Handler 7: Page-specific keyword meta injection
+        .on("head", new KeywordMetaInjector(url.pathname));
 
       transformedResponse = rewriter.transform(response);
     }

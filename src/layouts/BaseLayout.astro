@@ -10,13 +10,17 @@ import '../styles/tokens.css';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
   canonical?: string;
   image?: string;
 }
 
+const GLOBAL_KEYWORDS = "Paranjape Forest Trails Bhugaon, NA plots Bhugaon, NA bungalow plots Pune, luxury villas Bhugaon, 2BHK in Bhugaon, 3BHK in Pune West, 4BHK villa Bhugaon, property in Bhugaon, property near Bavdhan, property near Kothrud, property near Chandani Chowk, property on Paud Road, property near Baner, gated township Pune West, 190-acre township Bhugaon, RERA approved Bhugaon, MahaRERA plots Bhugaon P52100053834, senior living Bhugaon, NRI investment Bhugaon, NA plots in Pune, buy plots Pune West, luxury forest villas Pune, twin bungalows Bhugaon, gated community Bavdhan, gated community Kothrud, Chandani Chowk flyover connectivity, Bhugaon property price 2026, Bavdhan property investment, Kothrud real estate 2026, Pune West investment 2026, ready to move flats Bavdhan, under construction projects Bhugaon, 1BHK near Bavdhan, 2BHK near Bavdhan, 3BHK near Bavdhan, 1BHK near Kothrud, 2BHK near Kothrud, 3BHK near Kothrud, NA plots near Chandani Chowk, gated township near Paud Road, luxury villas near Baner, luxury villas near Balewadi, plots near Hinjewadi, senior living Pune West, NRI investment Pune West 2026, Misty Greens NA plots, The Rivolo villas, The Cove bungalows, The Canopy apartments, Highgardens apartments, Orchard residences, Swaniketan, Athashri senior living, Everglades Bavdhan, Paranjape Schemes Pune, Paranjape Schemes Construction Ltd, PSCL Pune, Paranjape price list 2026, NRI investment Pune, ROI appreciation Pune West, Bhugaon 2026 growth, RERA approved township Bhugaon, MahaRERA P52100053834, MahaRERA P52100031560, MahaRERA P52100048536";
+
 const {
   title = "NA Plots & Villas | Paranjape Forest Trails Bhugaon | Pune West",
   description = "Explore Paranjape Forest Trails Bhugaon, Pune's premier 190-acre township. Featuring RERA approved NA plots & luxury villas near Kothrud & Bavdhan.",
+  keywords = GLOBAL_KEYWORDS,
   canonical = Astro.url.href,
   image = "/images/hero-township.webp"
 } = Astro.props;
@@ -33,6 +37,7 @@ const ogImageUrl = image.startsWith('http')
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>{title}</title>
   <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
   <link rel="canonical" href={canonical} />
 
   {/* Google Search Console & Directives */}
