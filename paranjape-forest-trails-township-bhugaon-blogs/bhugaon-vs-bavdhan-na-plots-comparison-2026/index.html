@@ -226,14 +226,14 @@ img{max-width:100%;height:auto}
         alt="Paranjape Schemes Corporate Logo"
         style="height: 22px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
         loading="eager"
-      />
+       width="280" height="84" />
       <span style="width: 1.5px; height: 20px; background: #D4AF37; display: inline-block;"></span>
       <img
         src="/assets/branding/forest-trails-emblem.png"
         alt="Forest Trails Township Emblem"
         style="height: 24px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; display: block;"
         loading="eager"
-      />
+       width="280" height="84" />
     </a>
 
     <!-- Center: Classic Rounded Navigation Capsule -->
@@ -550,7 +550,7 @@ function openProjectDetailModal(projectId, defaultTab) {
   data.floor_plans.forEach(fp => {
     fpHTML += `<div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 0.8rem;">
       <h5 style="color: #D4AF37; margin-bottom: 0.5rem; font-size: 0.85rem;">${fp.name}</h5>
-      <img src="/images/hero-township.webp" alt="Paranjape Forest Trails 190-Acre Forest Themed Gated Township Bhugaon Pune" data-plan-src="${fp.img}" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px;" loading="lazy" decoding="async">
+      <img src="/images/hero-township.webp" alt="Paranjape Forest Trails 190-Acre Forest Themed Gated Township Bhugaon Pune" data-plan-src="${fp.img}" style="width: 100%; max-height: 220px; object-fit: cover; border-radius: 8px;" loading="lazy" decoding="async" width="1280" height="720">
     </div>`;
   });
   document.getElementById('pdm-plans-container').innerHTML = fpHTML;
@@ -619,7 +619,7 @@ function switchPdmTab(tabName) {
 
     <!-- Tab 2: Layout -->
     <div id="pdm-tab-layout" class="pdm-tab-content" style="display: none;">
-      <img src="/images/master-plan.webp" alt="Paranjape Forest Trails 190-Acre Master Layout Plan Bhugaon Pune" id="pdm-layout-img" style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3);" loading="lazy" decoding="async">
+      <img src="/images/master-plan.webp" alt="Paranjape Forest Trails 190-Acre Master Layout Plan Bhugaon Pune" id="pdm-layout-img" style="width: 100%; max-height: 380px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(212,175,55,0.3);" loading="lazy" decoding="async" width="1280" height="720">
       <p id="pdm-layout-desc" style="color: rgba(255,255,255,0.8); font-size: 0.85rem; margin-top: 0.8rem;"></p>
     </div>
 

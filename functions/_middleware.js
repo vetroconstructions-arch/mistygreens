@@ -372,7 +372,9 @@ class PerformanceHintInjector {
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" as="style" crossorigin>
 <meta name="theme-color" content="#4A0808">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">`;
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=yes">
+<meta http-equiv="x-dns-prefetch-control" content="on">`;
     head.append(perfHints, { html: true });
   }
 }

@@ -115,7 +115,47 @@
         "priceCurrency": "INR",
         "lowPrice": "4500000",
         "highPrice": "150000000",
-        "offerCount": "50+"
+        "offerCount": "50+",
+        "priceValidUntil": "2027-12-31",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "IN",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+          "merchantReturnLink": "https://www.paranjapetownship.com/terms-of-use/"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "INR"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "IN"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 0,
+              "unitCode": "d"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 0,
+              "unitCode": "d"
+            }
+          }
+        },
+        "seller": {
+          "@type": "Organization",
+          "name": "Paranjape Schemes (Construction) Ltd",
+          "url": "https://www.paranjapetownship.com/"
+        },
+        "itemCondition": "https://schema.org/NewCondition"
       }
     }
   ]
