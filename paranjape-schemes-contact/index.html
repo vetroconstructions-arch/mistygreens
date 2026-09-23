@@ -22,40 +22,95 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.paranjapetownship.com/"},
-    {"@type":"ListItem","position":2,"name":"Contact Paranjape Schemes","item":"https://www.paranjapetownship.com/paranjape-schemes-contact/"}
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.paranjapetownship.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact Paranjape Schemes",
+          "item": "https://www.paranjapetownship.com/paranjape-schemes-contact/"
+        }
+      ]
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "Paranjape Forest Trails Sales Gallery",
+      "@id": "https://www.paranjapetownship.com/",
+      "url": "https://www.paranjapetownship.com/",
+      "telephone": "+917744009295",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paranjape Forest Trails, Paud Road",
+        "addressLocality": "Bhugaon",
+        "addressRegion": "Maharashtra",
+        "postalCode": "412115",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "18.5094",
+        "longitude": "73.7543"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+917744009295",
+          "contactType": "sales",
+          "areaServed": "IN",
+          "availableLanguage": [
+            "English",
+            "Hindi",
+            "Marathi"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+917744009295",
+          "contactType": "customer service",
+          "areaServed": [
+            "IN",
+            "GB",
+            "AE",
+            "US",
+            "AU"
+          ],
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://wa.me/917744009295"
+      ]
+    }
   ]
 }
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Paranjape Forest Trails Sales Gallery",
-  "@id": "https://www.paranjapetownship.com/",
-  "url": "https://www.paranjapetownship.com/",
-  "telephone": "+917744009295",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Paranjape Forest Trails, Paud Road",
-    "addressLocality": "Bhugaon",
-    "addressRegion": "Maharashtra",
-    "postalCode": "412115",
-    "addressCountry": "IN"
-  },
-  "geo": {"@type": "GeoCoordinates", "latitude": "18.5094", "longitude": "73.7543"},
-  "openingHoursSpecification": [
-    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"10:00","closes":"19:00"}
-  ],
-  "contactPoint": [
-    {"@type":"ContactPoint","telephone":"+917744009295","contactType":"sales","areaServed":"IN","availableLanguage":["English","Hindi","Marathi"]},
-    {"@type":"ContactPoint","telephone":"+917744009295","contactType":"customer service","areaServed":["IN","GB","AE","US","AU"],"availableLanguage":["English"]}
-  ],
-  "sameAs": ["https://wa.me/917744009295"]
-}
-  </script>
+</script>
+  
   <style>
   body{font-family:-apple-system,sans-serif;background:#fff;color:#1a1a1a;margin:0}
   .container{max-width:900px;margin:0 auto;padding:2rem}

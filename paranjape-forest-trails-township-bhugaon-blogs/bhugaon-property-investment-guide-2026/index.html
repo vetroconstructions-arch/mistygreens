@@ -34,99 +34,124 @@ img{max-width:100%;height:auto}
 
   <!-- BreadcrumbList JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paranjapetownship.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Real Estate Blog", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/"},
-      {"@type": "ListItem", "position": 3, "name": "Bhugaon Property Investment Guide 2026 — Why Bhugaon Is Pune's Next Hotspot", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bhugaon-property-investment-guide-2026/"}
-    ]
-  }
-  </script>
-
-  <!-- BlogPosting JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Bhugaon Property Investment Guide 2026 — Why Bhugaon Is Pune's Next Hotspot",
-    "datePublished": "2026-09-15",
-    "dateModified": "2026-09-15",
-    "author": {"@type": "Person", "name": "PropSmart Realty Team"},
-    "publisher": {
-      "@type": "Organization",
-  "sameAs": ["https://maps.google.com/maps?cid=1086438290382948382", "https://www.linkedin.com/company/paranjape-schemes/", "https://www.youtube.com/c/ParanjapeSchemes", "https://www.facebook.com/ParanjapeSchemes/", "https://maharera.mahaonline.gov.in/"],
-      "name": "PropSmart Realty",
-      "logo": {"@type": "ImageObject", "url": "https://www.paranjapetownship.com/images/logo.webp"}
-    },
-    "image": "https://www.paranjapetownship.com/images/hero-township.webp",
-    "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bhugaon-property-investment-guide-2026/",
-    "keywords": "Bhugaon property investment, Bhugaon real estate 2026, buy property Bhugaon Pune"
-  }
-  </script>
-
-  <!-- FAQPage JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is Bhugaon a good area to buy property in Pune?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, Bhugaon is one of the most promising areas to buy property in Pune in 2026. It offers relatively affordable entry prices compared to Bavdhan and Kothrud, access to a large integrated township (Paranjape Forest Trails), excellent Sahyadri views, and upcoming infrastructure improvements including the Chandani Chowk flyover that will significantly improve city connectivity."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What are property prices in Bhugaon in 2026?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "In 2026, Bhugaon property prices range from ₹89 L* for apartments (RERA: P52100079518) to ₹1.23 Cr* for NA plots (RERA: P52100053834), ₹2.85 Cr* for twin bungalows (RERA: P52100048536), and ₹3.89 Cr* for luxury villas (RERA: P52100031560) at Paranjape Forest Trails township."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How far is Bhugaon from Hinjewadi IT Park?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bhugaon is approximately 18–22 km from Hinjewadi Phase 1 IT Park, typically a 30–45 minute drive via Chandani Chowk and the Mumbai–Pune Bypass. The Chandani Chowk flyover, nearing completion, will reduce travel time significantly."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which developer is active in Bhugaon real estate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Paranjape Schemes (Construction) Ltd is the primary developer active in Bhugaon through their flagship Forest Trails township. They offer multiple sub-projects including Misty Greens (apartments & villas), The Canopy (luxury villas), Rivolo Residences, and NA plot offerings — all RERA registered."
-        }
-      }
-    ]
-  }
-  </script>
-
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "h1",
-      "h2",
-      ".speakable",
-      ".key-facts",
-      ".faq-answer",
-      "[itemprop='description']",
-      ".price-block",
-      ".enclave-intro"
-    ]
-  }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.paranjapetownship.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Real Estate Blog",
+          "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bhugaon Property Investment Guide 2026 — Why Bhugaon Is Pune's Next Hotspot",
+          "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bhugaon-property-investment-guide-2026/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Bhugaon Property Investment Guide 2026 — Why Bhugaon Is Pune's Next Hotspot",
+      "datePublished": "2026-09-15",
+      "dateModified": "2026-09-15",
+      "author": {
+        "@type": "Person",
+        "name": "PropSmart Realty Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "sameAs": [
+          "https://maps.google.com/maps?cid=1086438290382948382",
+          "https://www.linkedin.com/company/paranjape-schemes/",
+          "https://www.youtube.com/c/ParanjapeSchemes",
+          "https://www.facebook.com/ParanjapeSchemes/",
+          "https://maharera.mahaonline.gov.in/"
+        ],
+        "name": "PropSmart Realty",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.paranjapetownship.com/images/logo.webp"
+        }
+      },
+      "image": "https://www.paranjapetownship.com/images/hero-township.webp",
+      "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bhugaon-property-investment-guide-2026/",
+      "keywords": "Bhugaon property investment, Bhugaon real estate 2026, buy property Bhugaon Pune"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Bhugaon a good area to buy property in Pune?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Bhugaon is one of the most promising areas to buy property in Pune in 2026. It offers relatively affordable entry prices compared to Bavdhan and Kothrud, access to a large integrated township (Paranjape Forest Trails), excellent Sahyadri views, and upcoming infrastructure improvements including the Chandani Chowk flyover that will significantly improve city connectivity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are property prices in Bhugaon in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In 2026, Bhugaon property prices range from ₹89 L* for apartments (RERA: P52100079518) to ₹1.23 Cr* for NA plots (RERA: P52100053834), ₹2.85 Cr* for twin bungalows (RERA: P52100048536), and ₹3.89 Cr* for luxury villas (RERA: P52100031560) at Paranjape Forest Trails township."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How far is Bhugaon from Hinjewadi IT Park?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bhugaon is approximately 18–22 km from Hinjewadi Phase 1 IT Park, typically a 30–45 minute drive via Chandani Chowk and the Mumbai–Pune Bypass. The Chandani Chowk flyover, nearing completion, will reduce travel time significantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which developer is active in Bhugaon real estate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paranjape Schemes (Construction) Ltd is the primary developer active in Bhugaon through their flagship Forest Trails township. They offer multiple sub-projects including Misty Greens (apartments & villas), The Canopy (luxury villas), Rivolo Residences, and NA plot offerings — all RERA registered."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          "h2",
+          ".speakable",
+          ".key-facts",
+          ".faq-answer",
+          "[itemprop='description']",
+          ".price-block",
+          ".enclave-intro"
+        ]
+      }
+    }
+  ]
 }
 </script>
+
+  <!-- BlogPosting JSON-LD -->
+  
+
+  <!-- FAQPage JSON-LD -->
+  
+
+
   <link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">
   <link rel="preload" as="style" href="/style.min.css?v=2026.08.24.10">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>

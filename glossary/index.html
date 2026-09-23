@@ -126,142 +126,386 @@
 
   <!-- JSON-LD: BreadcrumbList -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.paranjapetownship.com/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.paranjapetownship.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Glossary",
+          "item": "https://www.paranjapetownship.com/glossary/"
+        }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "name": "Real Estate Glossary — Paranjape Forest Trails",
+      "description": "40+ key real estate terms explained for Pune property buyers, covering RERA, MahaRERA, carpet area, stamp duty, 7/12 extract, NA order, and more.",
+      "url": "https://www.paranjapetownship.com/glossary/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Paranjape Forest Trails",
+        "url": "https://www.paranjapetownship.com/"
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Glossary",
-        "item": "https://www.paranjapetownship.com/glossary/"
-      }
-    ]
-  }
-  </script>
+      "hasDefinedTerm": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Agreement for Sale",
+          "description": "A legally binding document between buyer and seller outlining terms of property sale, signed before the final Sale Deed and registered under MahaRERA.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Allotment Letter",
+          "description": "Official document issued by developer confirming a specific unit has been allotted to a buyer, mentioning unit number, floor, configuration, and price.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Amenities",
+          "description": "Facilities and features provided within a housing project such as swimming pool, clubhouse, and gymnasium. Under RERA, all advertised amenities must be delivered.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Bhogavata",
+          "description": "A Marathi term meaning 'enjoyment' or 'occupancy rights.' A property's Bhogavata entry confirms who currently occupies and enjoys the property.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Built-up Area",
+          "description": "Total area including carpet area plus thickness of external walls and balcony area, typically 10–15% more than carpet area.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "BHK",
+          "description": "Stands for Bedroom-Hall-Kitchen, denoting apartment configuration. 2-BHK means 2 bedrooms + 1 living hall + 1 kitchen.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Carpet Area",
+          "description": "As defined under RERA, the net usable floor area of an apartment excluding external walls, balconies, and common areas. RERA mandates apartments be sold on carpet area basis.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Completion Certificate",
+          "description": "Document issued by local authority certifying construction is complete as per approved plans. Do not confuse with OC (Occupancy Certificate).",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Conveyance Deed",
+          "description": "The final legal document transferring absolute ownership of a property from developer to buyer, registered at the Sub-Registrar's office.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Development Agreement",
+          "description": "A contract between landowner and developer giving the developer the right to develop the land in exchange for a share of units or revenue.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Deemed Conveyance",
+          "description": "Under Maharashtra law, residents can approach the District Deputy Registrar for a forced transfer of land title if the developer delays conveying the land to the housing society.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Encumbrance Certificate",
+          "description": "Certificate from the Sub-Registrar's office listing all financial and legal liabilities registered against a property. Essential before purchasing any resale property.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "EMI",
+          "description": "Equated Monthly Instalment — the fixed monthly payment to a bank towards repayment of a home loan, comprising principal and interest.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "FEMA",
+          "description": "Foreign Exchange Management Act — the law governing foreign exchange transactions in India, relevant for NRI property purchases.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "FSI",
+          "description": "Floor Space Index — planning regulation defining maximum total floor area that can be built on a plot relative to plot area. Determines floors and density.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "GPA",
+          "description": "General Power of Attorney — legal document authorizing a person to act on behalf of another in property-related matters including buying, selling, and registering.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Index II",
+          "description": "Document from Sub-Registrar's office (Maharashtra) recording every transaction and encumbrance registered against a property. Part of thorough title search.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "IOD",
+          "description": "Intimation of Disapproval — permission granted by local authority to start construction after approving building plans. Prerequisite to beginning construction.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Joint Development Agreement",
+          "description": "Agreement between landowner and developer where landowner provides land and developer constructs, sharing revenue/units as per agreed ratio.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Khata",
+          "description": "Used in Karnataka for property tax records. Maharashtra equivalent is 7/12 extract (Satbara Utara). Establishes owner's right to pay property tax.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Land Use Certificate",
+          "description": "Certificate confirming approved land use (residential, commercial, agricultural) for a plot. For NA plots, the NA Order itself serves this purpose.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Letter of Intent",
+          "description": "Document expressing buyer's serious intention to purchase a property, preceding the Agreement for Sale and outlining key deal terms.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "MahaRERA",
+          "description": "Maharashtra Real Estate Regulatory Authority overseeing real estate in Maharashtra under RERA Act 2016. All residential projects above 500 sq.mt must register.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Mutation",
+          "description": "Process of updating official government land records to reflect a change in ownership. Buyer must apply for mutation after purchasing a property.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Mortgage",
+          "description": "A loan secured against a property as collateral. Bank can take possession and sell the property if borrower defaults.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "NA Order",
+          "description": "Order from Collector/revenue authorities converting agricultural land to non-agricultural residential/commercial use. Critical document for plot buyers.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "NOC",
+          "description": "No Objection Certificate from various authorities (fire, environmental, water, electricity) confirming no objection to a construction project.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "NRI Property Rules",
+          "description": "NRIs and OCIs can buy residential and commercial properties in India without RBI permission but cannot buy agricultural land or farmhouses.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Occupancy Certificate",
+          "description": "Issued by local authority certifying the building is safe for occupation and built per approved plans. Mandatory before builder can legally give possession.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Open Plot",
+          "description": "An NA-converted, demarcated, and registered residential plot without any construction. Buyers can construct their own home per PMRDA guidelines.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Possession Letter",
+          "description": "Formal letter from developer informing buyer that the unit is ready for possession, mentioning possession date and any pending payments.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "POA",
+          "description": "Power of Attorney — legal document authorizing a person to act on behalf of another. Essential for NRI buyers who cannot be physically present for registration.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "PMC",
+          "description": "Pune Municipal Corporation — Pune's main municipal body. Bhugaon and Forest Trails fall under PMRDA jurisdiction, not PMC.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "PMRDA",
+          "description": "Pune Metropolitan Region Development Authority — planning authority for the Pune Metropolitan Region outside PMC limits, covering Bhugaon and Forest Trails.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "RERA",
+          "description": "Real Estate Regulatory Authority under RERA Act 2016 — mandates project registration, 70% fund escrow, defined possession timelines, and penalties for delays.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Registration Charges",
+          "description": "Fee paid to register a property document with the Sub-Registrar. In Maharashtra, 1% of property value (separate from stamp duty).",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Ready Reckoner Rate",
+          "description": "Minimum value set by Maharashtra government for property transactions. Stamp duty and registration charges calculated on higher of actual price or RR rate.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Sale Deed",
+          "description": "Final legally binding document transferring ownership from seller to buyer. Must be registered at Sub-Registrar's office after payment of stamp duty.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Stamp Duty",
+          "description": "Government tax paid when registering a property transaction. In Maharashtra, 5% for men buyers and 4% for women buyers.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Super Built-up Area",
+          "description": "Total area including carpet area + walls + proportionate share of common areas. RERA now requires prices to be quoted on carpet area basis.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Survey Number",
+          "description": "Unique identification number assigned to each parcel of land in government revenue records, appearing on 7/12 extract, sale deed, and development permissions.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Title Search",
+          "description": "Thorough examination of all historical records to confirm clear, marketable title free from encumbrances, disputes, and third-party claims (minimum 30 years).",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Transfer of Ownership",
+          "description": "Legal process of moving property rights from one party to another through a Sale Deed registered at the Sub-Registrar's office.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "TDS on Property",
+          "description": "Under Section 194-IA, if property value exceeds ₹50 Lakhs, buyer must deduct 1% TDS and deposit with government (20% for NRI sellers).",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Undivided Share",
+          "description": "In apartment complexes, the proportionate share of land belonging to each apartment owner. UDS gives legal ownership in land even though it cannot be physically separated.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Urban Land Ceiling",
+          "description": "The Urban Land Act was repealed in Maharashtra allowing land consolidation for township development — relevant context for how large projects like Forest Trails are assembled.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Valuation Certificate",
+          "description": "Document from registered property valuer estimating fair market value. Banks require it before sanctioning home loans.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Vaastu",
+          "description": "Ancient Indian science of architecture based on directional alignment. Misty Greens plots allow buyers complete freedom to design Vaastu-compliant homes.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "7/12 Extract (Satbara Utara)",
+          "description": "The most important land record document in Maharashtra, containing survey number, area, land type, owner's name, and encumbrances. Essential for every NA plot transaction.",
+          "inDefinedTermSet": "https://www.paranjapetownship.com/glossary/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between carpet area and super built-up area?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carpet area is the net usable area inside your apartment (excluding walls, balconies, and common spaces). Super built-up area includes carpet area + wall thickness + your proportionate share of common areas like lobby, lift, staircase, and amenity spaces. RERA mandates that prices be quoted on carpet area. Typically, carpet area is 65–75% of super built-up area for apartments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between OC and CC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CC (Completion Certificate) is issued by the authority when construction is complete as per sanctioned plans. OC (Occupancy Certificate) is issued after the authority inspects the completed building and certifies it is safe for occupation. OC is more comprehensive than CC and is required before legal possession can be given to buyers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Bhugaon under PMC or PMRDA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bhugaon and Paranjape Forest Trails fall under the jurisdiction of PMRDA (Pune Metropolitan Region Development Authority), not PMC (Pune Municipal Corporation). This matters for property taxes, building approvals, and stamp duty rates. PMRDA areas typically have lower property taxes than PMC areas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a plot loan and a home loan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A home loan is taken to buy a built property (apartment, house) or construct on an existing plot. A plot loan is specifically for purchasing a residential plot. Plot loans have higher interest rates (0.25–0.5% more), lower LTV (70% vs 80–85%), and cannot include construction costs. A separate construction loan must be taken for building."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an NA order to legally build on a plot?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, construction of residential buildings requires the plot to have a Non-Agricultural (NA) order from the District Collector converting the land use from agricultural to residential. All Misty Greens plots at Forest Trails have valid NA orders, making them fully legal for residential construction under PMRDA building regulations."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
   <!-- JSON-LD: DefinedTermSet -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "DefinedTermSet",
-    "name": "Real Estate Glossary — Paranjape Forest Trails",
-    "description": "40+ key real estate terms explained for Pune property buyers, covering RERA, MahaRERA, carpet area, stamp duty, 7/12 extract, NA order, and more.",
-    "url": "https://www.paranjapetownship.com/glossary/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Paranjape Forest Trails",
-      "url": "https://www.paranjapetownship.com/"
-    },
-    "hasDefinedTerm": [
-      {"@type":"DefinedTerm","name":"Agreement for Sale","description":"A legally binding document between buyer and seller outlining terms of property sale, signed before the final Sale Deed and registered under MahaRERA.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Allotment Letter","description":"Official document issued by developer confirming a specific unit has been allotted to a buyer, mentioning unit number, floor, configuration, and price.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Amenities","description":"Facilities and features provided within a housing project such as swimming pool, clubhouse, and gymnasium. Under RERA, all advertised amenities must be delivered.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Bhogavata","description":"A Marathi term meaning 'enjoyment' or 'occupancy rights.' A property's Bhogavata entry confirms who currently occupies and enjoys the property.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Built-up Area","description":"Total area including carpet area plus thickness of external walls and balcony area, typically 10–15% more than carpet area.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"BHK","description":"Stands for Bedroom-Hall-Kitchen, denoting apartment configuration. 2-BHK means 2 bedrooms + 1 living hall + 1 kitchen.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Carpet Area","description":"As defined under RERA, the net usable floor area of an apartment excluding external walls, balconies, and common areas. RERA mandates apartments be sold on carpet area basis.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Completion Certificate","description":"Document issued by local authority certifying construction is complete as per approved plans. Do not confuse with OC (Occupancy Certificate).","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Conveyance Deed","description":"The final legal document transferring absolute ownership of a property from developer to buyer, registered at the Sub-Registrar's office.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Development Agreement","description":"A contract between landowner and developer giving the developer the right to develop the land in exchange for a share of units or revenue.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Deemed Conveyance","description":"Under Maharashtra law, residents can approach the District Deputy Registrar for a forced transfer of land title if the developer delays conveying the land to the housing society.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Encumbrance Certificate","description":"Certificate from the Sub-Registrar's office listing all financial and legal liabilities registered against a property. Essential before purchasing any resale property.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"EMI","description":"Equated Monthly Instalment — the fixed monthly payment to a bank towards repayment of a home loan, comprising principal and interest.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"FEMA","description":"Foreign Exchange Management Act — the law governing foreign exchange transactions in India, relevant for NRI property purchases.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"FSI","description":"Floor Space Index — planning regulation defining maximum total floor area that can be built on a plot relative to plot area. Determines floors and density.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"GPA","description":"General Power of Attorney — legal document authorizing a person to act on behalf of another in property-related matters including buying, selling, and registering.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Index II","description":"Document from Sub-Registrar's office (Maharashtra) recording every transaction and encumbrance registered against a property. Part of thorough title search.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"IOD","description":"Intimation of Disapproval — permission granted by local authority to start construction after approving building plans. Prerequisite to beginning construction.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Joint Development Agreement","description":"Agreement between landowner and developer where landowner provides land and developer constructs, sharing revenue/units as per agreed ratio.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Khata","description":"Used in Karnataka for property tax records. Maharashtra equivalent is 7/12 extract (Satbara Utara). Establishes owner's right to pay property tax.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Land Use Certificate","description":"Certificate confirming approved land use (residential, commercial, agricultural) for a plot. For NA plots, the NA Order itself serves this purpose.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Letter of Intent","description":"Document expressing buyer's serious intention to purchase a property, preceding the Agreement for Sale and outlining key deal terms.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"MahaRERA","description":"Maharashtra Real Estate Regulatory Authority overseeing real estate in Maharashtra under RERA Act 2016. All residential projects above 500 sq.mt must register.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Mutation","description":"Process of updating official government land records to reflect a change in ownership. Buyer must apply for mutation after purchasing a property.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Mortgage","description":"A loan secured against a property as collateral. Bank can take possession and sell the property if borrower defaults.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"NA Order","description":"Order from Collector/revenue authorities converting agricultural land to non-agricultural residential/commercial use. Critical document for plot buyers.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"NOC","description":"No Objection Certificate from various authorities (fire, environmental, water, electricity) confirming no objection to a construction project.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"NRI Property Rules","description":"NRIs and OCIs can buy residential and commercial properties in India without RBI permission but cannot buy agricultural land or farmhouses.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Occupancy Certificate","description":"Issued by local authority certifying the building is safe for occupation and built per approved plans. Mandatory before builder can legally give possession.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Open Plot","description":"An NA-converted, demarcated, and registered residential plot without any construction. Buyers can construct their own home per PMRDA guidelines.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Possession Letter","description":"Formal letter from developer informing buyer that the unit is ready for possession, mentioning possession date and any pending payments.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"POA","description":"Power of Attorney — legal document authorizing a person to act on behalf of another. Essential for NRI buyers who cannot be physically present for registration.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"PMC","description":"Pune Municipal Corporation — Pune's main municipal body. Bhugaon and Forest Trails fall under PMRDA jurisdiction, not PMC.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"PMRDA","description":"Pune Metropolitan Region Development Authority — planning authority for the Pune Metropolitan Region outside PMC limits, covering Bhugaon and Forest Trails.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"RERA","description":"Real Estate Regulatory Authority under RERA Act 2016 — mandates project registration, 70% fund escrow, defined possession timelines, and penalties for delays.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Registration Charges","description":"Fee paid to register a property document with the Sub-Registrar. In Maharashtra, 1% of property value (separate from stamp duty).","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Ready Reckoner Rate","description":"Minimum value set by Maharashtra government for property transactions. Stamp duty and registration charges calculated on higher of actual price or RR rate.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Sale Deed","description":"Final legally binding document transferring ownership from seller to buyer. Must be registered at Sub-Registrar's office after payment of stamp duty.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Stamp Duty","description":"Government tax paid when registering a property transaction. In Maharashtra, 5% for men buyers and 4% for women buyers.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Super Built-up Area","description":"Total area including carpet area + walls + proportionate share of common areas. RERA now requires prices to be quoted on carpet area basis.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Survey Number","description":"Unique identification number assigned to each parcel of land in government revenue records, appearing on 7/12 extract, sale deed, and development permissions.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Title Search","description":"Thorough examination of all historical records to confirm clear, marketable title free from encumbrances, disputes, and third-party claims (minimum 30 years).","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Transfer of Ownership","description":"Legal process of moving property rights from one party to another through a Sale Deed registered at the Sub-Registrar's office.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"TDS on Property","description":"Under Section 194-IA, if property value exceeds ₹50 Lakhs, buyer must deduct 1% TDS and deposit with government (20% for NRI sellers).","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Undivided Share","description":"In apartment complexes, the proportionate share of land belonging to each apartment owner. UDS gives legal ownership in land even though it cannot be physically separated.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Urban Land Ceiling","description":"The Urban Land Act was repealed in Maharashtra allowing land consolidation for township development — relevant context for how large projects like Forest Trails are assembled.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Valuation Certificate","description":"Document from registered property valuer estimating fair market value. Banks require it before sanctioning home loans.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"Vaastu","description":"Ancient Indian science of architecture based on directional alignment. Misty Greens plots allow buyers complete freedom to design Vaastu-compliant homes.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"},
-      {"@type":"DefinedTerm","name":"7/12 Extract (Satbara Utara)","description":"The most important land record document in Maharashtra, containing survey number, area, land type, owner's name, and encumbrances. Essential for every NA plot transaction.","inDefinedTermSet":"https://www.paranjapetownship.com/glossary/"}
-    ]
-  }
-  </script>
+  
 
   <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the difference between carpet area and super built-up area?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Carpet area is the net usable area inside your apartment (excluding walls, balconies, and common spaces). Super built-up area includes carpet area + wall thickness + your proportionate share of common areas like lobby, lift, staircase, and amenity spaces. RERA mandates that prices be quoted on carpet area. Typically, carpet area is 65–75% of super built-up area for apartments."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between OC and CC?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "CC (Completion Certificate) is issued by the authority when construction is complete as per sanctioned plans. OC (Occupancy Certificate) is issued after the authority inspects the completed building and certifies it is safe for occupation. OC is more comprehensive than CC and is required before legal possession can be given to buyers."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Bhugaon under PMC or PMRDA?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bhugaon and Paranjape Forest Trails fall under the jurisdiction of PMRDA (Pune Metropolitan Region Development Authority), not PMC (Pune Municipal Corporation). This matters for property taxes, building approvals, and stamp duty rates. PMRDA areas typically have lower property taxes than PMC areas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between a plot loan and a home loan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A home loan is taken to buy a built property (apartment, house) or construct on an existing plot. A plot loan is specifically for purchasing a residential plot. Plot loans have higher interest rates (0.25–0.5% more), lower LTV (70% vs 80–85%), and cannot include construction costs. A separate construction loan must be taken for building."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need an NA order to legally build on a plot?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, construction of residential buildings requires the plot to have a Non-Agricultural (NA) order from the District Collector converting the land use from agricultural to residential. All Misty Greens plots at Forest Trails have valid NA orders, making them fully legal for residential construction under PMRDA building regulations."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt=""></noscript>

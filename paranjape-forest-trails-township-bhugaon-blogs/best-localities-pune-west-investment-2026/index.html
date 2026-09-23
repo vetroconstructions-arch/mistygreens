@@ -34,99 +34,124 @@ img{max-width:100%;height:auto}
 
   <!-- BreadcrumbList JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paranjapetownship.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Real Estate Blog", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/"},
-      {"@type": "ListItem", "position": 3, "name": "Best Localities in Pune West for Investment 2026 | Complete Guide", "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-localities-pune-west-investment-2026/"}
-    ]
-  }
-  </script>
-
-  <!-- BlogPosting JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Best Localities in Pune West for Investment 2026 | Complete Guide",
-    "datePublished": "2026-09-15",
-    "dateModified": "2026-09-15",
-    "author": {"@type": "Person", "name": "PropSmart Realty Team"},
-    "publisher": {
-      "@type": "Organization",
-  "sameAs": ["https://maps.google.com/maps?cid=1086438290382948382", "https://www.linkedin.com/company/paranjape-schemes/", "https://www.youtube.com/c/ParanjapeSchemes", "https://www.facebook.com/ParanjapeSchemes/", "https://maharera.mahaonline.gov.in/"],
-      "name": "PropSmart Realty",
-      "logo": {"@type": "ImageObject", "url": "https://www.paranjapetownship.com/images/logo.webp"}
-    },
-    "image": "https://www.paranjapetownship.com/images/hero-township.webp",
-    "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-localities-pune-west-investment-2026/",
-    "keywords": "best localities Pune West, best area to invest Pune West 2026, Bhugaon Bavdhan Kothrud investment comparison"
-  }
-  </script>
-
-  <!-- FAQPage JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Which is the best locality in Pune West for investment in 2026?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bhugaon stands out as the top locality in Pune West for 2026 investment due to its combination of affordable entry prices, upcoming infrastructure like the Chandani Chowk flyover, proximity to IT hubs in Hinjewadi, and luxury gated township options like Paranjape Forest Trails."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do Bhugaon and Bavdhan compare for real estate investment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bavdhan is already developed with higher per-sqft rates (₹9,500–₹12,000/sqft), whereas Bhugaon offers lower entry points (₹7,000–₹9,000/sqft) with higher appreciation potential as infrastructure catches up. Bhugaon is ideal for long-term investors; Bavdhan suits those wanting immediate rental yield."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Kothrud still a good area for investment in 2026?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Kothrud remains a premium established residential market, but property prices have plateaued between ₹12,000–₹16,000/sqft. New inventory is limited, making it better for end-users than fresh investors seeking growth."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What types of properties are available in Bhugaon in 2026?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Bhugaon offers a wide range of property types including NA residential plots from ₹1.23 Cr*, luxury villas from ₹3.89 Cr*, twin bungalows from ₹2.85 Cr*, and spacious apartments from ₹89 L* — primarily through Paranjape Forest Trails township."
-        }
-      }
-    ]
-  }
-  </script>
-
-<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "h1",
-      "h2",
-      ".speakable",
-      ".key-facts",
-      ".faq-answer",
-      "[itemprop='description']",
-      ".price-block",
-      ".enclave-intro"
-    ]
-  }
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.paranjapetownship.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Real Estate Blog",
+          "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Best Localities in Pune West for Investment 2026 | Complete Guide",
+          "item": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-localities-pune-west-investment-2026/"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Best Localities in Pune West for Investment 2026 | Complete Guide",
+      "datePublished": "2026-09-15",
+      "dateModified": "2026-09-15",
+      "author": {
+        "@type": "Person",
+        "name": "PropSmart Realty Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "sameAs": [
+          "https://maps.google.com/maps?cid=1086438290382948382",
+          "https://www.linkedin.com/company/paranjape-schemes/",
+          "https://www.youtube.com/c/ParanjapeSchemes",
+          "https://www.facebook.com/ParanjapeSchemes/",
+          "https://maharera.mahaonline.gov.in/"
+        ],
+        "name": "PropSmart Realty",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.paranjapetownship.com/images/logo.webp"
+        }
+      },
+      "image": "https://www.paranjapetownship.com/images/hero-township.webp",
+      "url": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/best-localities-pune-west-investment-2026/",
+      "keywords": "best localities Pune West, best area to invest Pune West 2026, Bhugaon Bavdhan Kothrud investment comparison"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which is the best locality in Pune West for investment in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bhugaon stands out as the top locality in Pune West for 2026 investment due to its combination of affordable entry prices, upcoming infrastructure like the Chandani Chowk flyover, proximity to IT hubs in Hinjewadi, and luxury gated township options like Paranjape Forest Trails."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do Bhugaon and Bavdhan compare for real estate investment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bavdhan is already developed with higher per-sqft rates (₹9,500–₹12,000/sqft), whereas Bhugaon offers lower entry points (₹7,000–₹9,000/sqft) with higher appreciation potential as infrastructure catches up. Bhugaon is ideal for long-term investors; Bavdhan suits those wanting immediate rental yield."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Kothrud still a good area for investment in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kothrud remains a premium established residential market, but property prices have plateaued between ₹12,000–₹16,000/sqft. New inventory is limited, making it better for end-users than fresh investors seeking growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of properties are available in Bhugaon in 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bhugaon offers a wide range of property types including NA residential plots from ₹1.23 Cr*, luxury villas from ₹3.89 Cr*, twin bungalows from ₹2.85 Cr*, and spacious apartments from ₹89 L* — primarily through Paranjape Forest Trails township."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          "h2",
+          ".speakable",
+          ".key-facts",
+          ".faq-answer",
+          "[itemprop='description']",
+          ".price-block",
+          ".enclave-intro"
+        ]
+      }
+    }
+  ]
 }
 </script>
+
+  <!-- BlogPosting JSON-LD -->
+  
+
+  <!-- FAQPage JSON-LD -->
+  
+
+
   <link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">
   <link rel="preload" as="style" href="/style.min.css?v=2026.08.24.10">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
