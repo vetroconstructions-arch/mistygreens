@@ -88,7 +88,23 @@ const KEYWORD_ROUTES = {
   "/bavdhan-vs-bhugaon-property-appreciation": `Bavdhan vs Bhugaon property, Bavdhan vs Bhugaon investment, price comparison Pune West 2026, best locality Pune West 2026, ${BRAND_KW}`,
   "/paranjape-forest-trails-township-bhugaon-price": `Paranjape Forest Trails price list 2026, NA plots price Bhugaon, luxury villas price Bhugaon, 2BHK price Bhugaon, ${BRAND_KW}`,
   "/paranjape-forest-trails-township-bhugaon-location-proximity": `Forest Trails location proximity, Bhugaon near Chandani Chowk, Bhugaon near Bavdhan, Bhugaon near Kothrud, ${BRAND_KW}`,
+  // ─── Paranjape Schemes Full Brand + Project Ecosystem ────────────────────────
+  "/paranjape-schemes-all-projects-pune": `Paranjape Schemes Pune, all Paranjape projects 2026, Paranjape Schemes Construction, Paranjape builder Pune, Paranjape real estate Pune, Paranjape projects list, best builder Pune, Paranjape Schemes review 2026, ${BRAND_KW}`,
+  "/paranjape-blue-ridge-hinjewadi": `Paranjape Blue Ridge, Blue Ridge Hinjewadi Pune, Paranjape Blue Ridge price 2026, 2BHK Hinjewadi, 3BHK Hinjewadi, Paranjape Schemes Hinjewadi, Blue Ridge apartments Pune, ${BRAND_KW}`,
+  "/paranjape-athashri-pune-projects": `Paranjape Athashri, Athashri Pune, Athashri senior living, Paranjape senior living Pune, retirement homes Pune, Athashri Bhugaon, Athashri price 2026, senior citizen apartments Pune, ${BRAND_KW}`,
+  "/paranjape-aspire-pune": `Paranjape Aspire, Aspire Pune, Paranjape Aspire price 2026, affordable flats Pune Paranjape, 1BHK Pune Paranjape, 2BHK affordable Pune, Paranjape Schemes affordable housing, ${BRAND_KW}`,
+  "/paranjape-schemes-wakad-pune": `Paranjape Schemes Wakad, Paranjape Wakad, Paranjape projects Wakad Pune, 2BHK Wakad Pune, Paranjape builder Wakad, flats Wakad Paranjape 2026, ${BRAND_KW}`,
+  "/paranjape-schemes-baner-pune": `Paranjape Schemes Baner, Paranjape Baner Pune, Paranjape projects Baner, 3BHK Baner Paranjape, luxury apartments Baner Pune Paranjape, ${BRAND_KW}`,
+  "/paranjape-schemes-kothrud-pune": `Paranjape Schemes Kothrud, Paranjape Kothrud Pune, Paranjape projects Kothrud, 3BHK Kothrud Paranjape, premium apartments Kothrud Pune Paranjape, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-complete-guide": `Paranjape Forest Trails Bhugaon, Forest Trails complete guide, Forest Trails all enclaves, Paranjape Forest Trails review 2026, Forest Trails township Bhugaon, ${BRAND_KW}`,
+  // ─── Paranjape Brand Vanity Slugs ────────────────────────────────────────────
+  "/paranjape-schemes": `Paranjape Schemes, Paranjape Schemes Construction Ltd, Paranjape builder Pune, Paranjape real estate, Paranjape projects Pune 2026, ${BRAND_KW}`,
+  "/paranjape-schemes-review": `Paranjape Schemes review, Paranjape Schemes customer review 2026, Paranjape builder review, is Paranjape Schemes good, Paranjape Schemes rating, ${BRAND_KW}`,
+  "/paranjape-schemes-contact": `Paranjape Schemes contact number, Paranjape Schemes phone number Pune, Paranjape builder contact, Forest Trails contact, +91 7744009295, ${BRAND_KW}`,
+  "/paranjape-forest-trails-review": `Paranjape Forest Trails review, Forest Trails Bhugaon review, Forest Trails rating 2026, Forest Trails buyer review, is Forest Trails good investment, ${BRAND_KW}`,
+  "/paranjape-nri-investment": `Paranjape Schemes NRI investment, Paranjape NRI property Pune, NRI buy Forest Trails, Paranjape Schemes FEMA, NRI real estate Paranjape Pune, ${BRAND_KW}`,
 };
+
 
 // Crawler detection patterns by tier
 const CRAWLER_TIERS = {
