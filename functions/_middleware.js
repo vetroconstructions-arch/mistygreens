@@ -520,6 +520,72 @@ class SemanticStructureGuardian {
   }
 }
 
+/**
+ * Handler 11: W3C Speculation Rules API Injector
+ * Chrome 121+ / Google Edge Prerendering Engine:
+ * Instructs Chromium browsers to prefetch and prerender high-probability next navigations
+ * in memory before the user clicks, delivering near-instant 0ms page loads.
+ */
+class SpeculationRulesInjector {
+  element(head) {
+    const rules = {
+      prerender: [
+        {
+          source: "list",
+          urls: [
+            "/paranjape-forest-trails-township-bhugaon-misty-greens/",
+            "/paranjape-forest-trails-township-bhugaon-the-canopy/",
+            "/paranjape-forest-trails-bhugaon-price-2026/",
+            "/paranjape-schemes-contact/"
+          ],
+          score: 0.9
+        }
+      ],
+      prefetch: [
+        {
+          source: "document",
+          where: {
+            and: [
+              { href_matches: "/*" },
+              { not: { href_matches: "/api/*" } }
+            ]
+          },
+          eagerness: "moderate"
+        }
+      ]
+    };
+
+    head.append(
+      `\n<!-- Chrome Instant Prerender Speculation Rules API -->\n<script type="speculationrules">\n${JSON.stringify(rules, null, 2)}\n</script>\n`,
+      { html: true }
+    );
+  }
+}
+
+/**
+ * Handler 12: Google Voice & Assistant Speakable Microdata Optimizer
+ * Injects SpeakableSpecification metadata targeting key audio summary paragraphs
+ */
+class EdgeSpeakableVoiceOptimizer {
+  constructor(pathname) {
+    this.pathname = pathname;
+  }
+  element(head) {
+    const speakable = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lead", ".enclave-intro", "main p:first-of-type"]
+      }
+    };
+    head.append(
+      `\n<!-- Google Assistant & Voice Search Speakable Spec -->\n<script type="application/ld+json">\n${JSON.stringify(speakable, null, 2)}\n</script>\n`,
+      { html: true }
+    );
+  }
+}
+
 // ─── Cache Strategy ──────────────────────────────────────────────────────────
 
 function applyCacheHeaders(headers, url) {
@@ -651,7 +717,11 @@ export async function onRequest(context) {
         // Handler 8: External link security and rel optimizer
         .on('a[href^="http"]', new ExternalLinkOptimizer())
         // Handler 9: Image accessibility and alt enforcement for Googlebot Image
-        .on("img", new ImageAltA11yEnforcer());
+        .on("img", new ImageAltA11yEnforcer())
+        // Handler 10: Chrome Instant Prerender Speculation Rules
+        .on("head", new SpeculationRulesInjector())
+        // Handler 11: Voice & Assistant Speakable Microdata
+        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname));
 
       transformedResponse = rewriter.transform(response);
     }
