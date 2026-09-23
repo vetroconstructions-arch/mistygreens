@@ -107,6 +107,13 @@ const KEYWORD_ROUTES = {
   "/paranjape-forest-trails-bhugaon-rera": `Paranjape Forest Trails RERA number, Forest Trails Bhugaon MahaRERA, Forest Trails RERA P52100053834, Forest Trails RERA registration, paranjapetownship MahaRERA verified, ${BRAND_KW}`,
   "/paranjape-forest-trails-bhugaon-amenities-complete": `Paranjape Forest Trails Bhugaon amenities, Forest Trails amenities list, Forest Trails Bhugaon facilities, Forest Trails club house, Forest Trails sports complex, ${BRAND_KW}`,
 
+
+  // ─── High-Converting Hub Routes ─────────────────────────────────────────────
+  "/nri-property-pune-west": `NRI property Pune, NRI real estate Pune 2026, buy property in India from USA UK Dubai, FEMA rules property India, NRI NA plots Pune, Paranjape NRI desk, ${BRAND_KW}`,
+  "/senior-living-pune-west": `senior living Pune, retirement homes Pune West 2026, Athashri Bhugaon, senior citizen flats Pune, assisted living Pune, Paranjape senior housing, ${BRAND_KW}`,
+  "/property-vs-stocks-vs-gold-pune": `property vs stocks India 2026, real estate vs gold ROI Pune, land investment vs mutual funds, Pune NA plots appreciation rate, best investment Pune 2026, ${BRAND_KW}`,
+  "/rera-status-forest-trails": `Forest Trails RERA number, MahaRERA P52100053834, Forest Trails possession date 2026, Paranjape RERA certificate, Bhugaon RERA approved projects, ${BRAND_KW}`,
+
   // ─── Permutation Routes (auto-generated)
   "/2bhk-near-bavdhan": `2BHK near Bavdhan, 2BHK flat near Bavdhan Pune, buy 2BHK near Bavdhan, 2BHK price near Bavdhan 2026, 2BHK apartment near Bavdhan, ready to move 2BHK near Bavdhan, 2BHK 3BHK near Bavdhan Pune, Forest Trails 2BHK Bavdhan, Paranjape 2BHK near Bavdhan, RERA 2BHK near Bavdhan, Paranjape Forest Trails Bhugaon, Paranjape Schemes Pune, Forest Trails township`,
   "/2bhk-near-paud-road": `2BHK near Paud Road, 2BHK flat near Paud Road Pune, buy 2BHK near Paud Road, 2BHK price near Paud Road 2026, 2BHK apartment near Paud Road, ready to move 2BHK near Paud Road, 2BHK 3BHK near Paud Road Pune, Forest Trails 2BHK Paud Road, Paranjape 2BHK near Paud Road, RERA 2BHK near Paud Road, Paranjape Forest Trails Bhugaon, Paranjape Schemes Pune, Forest Trails township`,
