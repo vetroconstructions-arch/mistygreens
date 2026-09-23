@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style id="critical-css">
+:root{--brand:#4A0808;--gold:#D4AF37;--bg:#0e0c14}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a;line-height:1.6}
+h1,h2,h3{font-weight:700;color:#1a1a1a}
+a{color:var(--brand);text-decoration:none}
+img{max-width:100%;height:auto}
+#loader{position:fixed;inset:0;z-index:10005;background:#000;display:flex;align-items:center;justify-content:center}
+</style>
+
     <meta charset="UTF-8">
     <link rel="icon" type="image/png" href="/assets/branding/favicon.png">
     <link rel="apple-touch-icon" href="/assets/branding/apple-touch-icon.png">
@@ -17,7 +27,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
+    <noscript><link rel="stylesheet" href="/style.min.css?v=2026.08.24.10"></noscript>
+  <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10" media="print" onload="this.media='all'">
 
     <style>
         :root { --pscl-maroon: #6B0D0D; --pscl-gold: #8C732F; --pscl-dark: #1A1A1A; }
@@ -1067,6 +1078,11 @@
   }
 }
 </script>
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//formsubmit.co">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 </head>
 <body>
 <header id="main-site-header" style="position: sticky; top: 0; width: 100%; z-index: 10000; background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%); border-bottom: 1.5px solid #D4AF37; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);">

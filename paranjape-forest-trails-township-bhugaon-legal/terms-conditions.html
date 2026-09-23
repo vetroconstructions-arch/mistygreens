@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style id="critical-css">
+:root{--brand:#4A0808;--gold:#D4AF37;--bg:#0e0c14}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a;line-height:1.6}
+h1,h2,h3{font-weight:700;color:#1a1a1a}
+a{color:var(--brand);text-decoration:none}
+img{max-width:100%;height:auto}
+#loader{position:fixed;inset:0;z-index:10005;background:#000;display:flex;align-items:center;justify-content:center}
+</style>
+
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +44,8 @@
     
     
     
-    <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
+    <noscript><link rel="stylesheet" href="/style.min.css?v=2026.08.24.10"></noscript>
+  <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10" media="print" onload="this.media='all'">
     <style>
         .legal-content { padding: 12rem 0 6rem; background: #fff; line-height: 1.8; color: #333; }
         .legal-header { text-align: center; margin-bottom: 4rem; }
