@@ -97,6 +97,16 @@ const KEYWORD_ROUTES = {
   "/paranjape-schemes-baner-pune": `Paranjape Schemes Baner, Paranjape Baner Pune, Paranjape projects Baner, 3BHK Baner Paranjape, luxury apartments Baner Pune Paranjape, ${BRAND_KW}`,
   "/paranjape-schemes-kothrud-pune": `Paranjape Schemes Kothrud, Paranjape Kothrud Pune, Paranjape projects Kothrud, 3BHK Kothrud Paranjape, premium apartments Kothrud Pune Paranjape, ${BRAND_KW}`,
   "/paranjape-forest-trails-bhugaon-complete-guide": `Paranjape Forest Trails Bhugaon, Forest Trails complete guide, Forest Trails all enclaves, Paranjape Forest Trails review 2026, Forest Trails township Bhugaon, ${BRAND_KW}`,
+
+  // ─── Brand Intent Dominance Routes ──────────────────────────────────────────
+  "/paranjape-forest-trails-bhugaon-price-2026": `Paranjape Forest Trails Bhugaon price 2026, Forest Trails Bhugaon price list, Paranjape Forest Trails price, Forest Trails plot price 2026, Forest Trails villa price, Forest Trails apartment price, paranjapetownship price list, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-location-map": `Paranjape Forest Trails Bhugaon location, Forest Trails Bhugaon map, how to reach Forest Trails Bhugaon, Forest Trails Bhugaon address, Forest Trails Bhugaon directions, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-floor-plan-2026": `Paranjape Forest Trails Bhugaon floor plan, Forest Trails floor plan 2026, Forest Trails Bhugaon plan, Forest Trails 2BHK floor plan, Forest Trails villa floor plan, Forest Trails NA plot layout, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-review": `Paranjape Forest Trails Bhugaon review, Forest Trails Bhugaon review 2026, Forest Trails Bhugaon rating, is Forest Trails worth buying, Forest Trails Bhugaon buyer review, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-site-visit": `Forest Trails Bhugaon site visit, Paranjape Forest Trails site visit booking, Forest Trails Bhugaon visit, book site visit Forest Trails, Forest Trails tour Bhugaon, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-rera": `Paranjape Forest Trails RERA number, Forest Trails Bhugaon MahaRERA, Forest Trails RERA P52100053834, Forest Trails RERA registration, paranjapetownship MahaRERA verified, ${BRAND_KW}`,
+  "/paranjape-forest-trails-bhugaon-amenities-complete": `Paranjape Forest Trails Bhugaon amenities, Forest Trails amenities list, Forest Trails Bhugaon facilities, Forest Trails club house, Forest Trails sports complex, ${BRAND_KW}`,
+
   // ─── Permutation Routes (auto-generated)
   "/2bhk-near-bavdhan": `2BHK near Bavdhan, 2BHK flat near Bavdhan Pune, buy 2BHK near Bavdhan, 2BHK price near Bavdhan 2026, 2BHK apartment near Bavdhan, ready to move 2BHK near Bavdhan, 2BHK 3BHK near Bavdhan Pune, Forest Trails 2BHK Bavdhan, Paranjape 2BHK near Bavdhan, RERA 2BHK near Bavdhan, Paranjape Forest Trails Bhugaon, Paranjape Schemes Pune, Forest Trails township`,
   "/2bhk-near-paud-road": `2BHK near Paud Road, 2BHK flat near Paud Road Pune, buy 2BHK near Paud Road, 2BHK price near Paud Road 2026, 2BHK apartment near Paud Road, ready to move 2BHK near Paud Road, 2BHK 3BHK near Paud Road Pune, Forest Trails 2BHK Paud Road, Paranjape 2BHK near Paud Road, RERA 2BHK near Paud Road, Paranjape Forest Trails Bhugaon, Paranjape Schemes Pune, Forest Trails township`,
