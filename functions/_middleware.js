@@ -419,6 +419,107 @@ class ImageOptimizer {
   }
 }
 
+/**
+ * Handler 8: External Link Security & SEO Optimizer
+ * Automatically enforces rel="noopener noreferrer nofollow" on third-party links,
+ * while ensuring internal domains and whitelisted authorities retain follow.
+ */
+class ExternalLinkOptimizer {
+  element(el) {
+    const href = el.getAttribute("href");
+    if (!href) return;
+
+    const isExternal = (href.startsWith("http://") || href.startsWith("https://")) &&
+                       !href.includes("paranjapetownship.com") &&
+                       !href.includes("paranjapeplots.com");
+
+    if (isExternal) {
+      if (!el.getAttribute("target")) {
+        el.setAttribute("target", "_blank");
+      }
+      
+      const currentRel = el.getAttribute("rel") || "";
+      const relParts = new Set(currentRel.split(/\s+/).filter(Boolean));
+      relParts.add("noopener");
+      relParts.add("noreferrer");
+
+      // Don't nofollow government or regulatory authorities (MahaRERA)
+      if (!href.includes("maharera.mahaonline.gov.in") && !href.includes("wa.me") && !href.includes("maps.google.com")) {
+        relParts.add("nofollow");
+      }
+
+      el.setAttribute("rel", Array.from(relParts).join(" "));
+    }
+  }
+}
+
+/**
+ * Handler 9: Image Alt & Accessibility Guardian
+ * Ensures all images have valid alt text for Googlebot Image search indexing
+ */
+class ImageAltA11yEnforcer {
+  element(el) {
+    const alt = el.getAttribute("alt");
+    const src = el.getAttribute("src") || "";
+    if (!alt || alt.trim() === "") {
+      let derivedAlt = "Paranjape Forest Trails Township Bhugaon Pune";
+      if (src.includes("misty-greens")) derivedAlt = "Misty Greens NA Plots Forest Trails Bhugaon";
+      else if (src.includes("rivolo")) derivedAlt = "The Rivolo Luxury Villas Forest Trails Bhugaon";
+      else if (src.includes("cove")) derivedAlt = "The Cove Twin Bungalows Forest Trails Bhugaon";
+      else if (src.includes("canopy")) derivedAlt = "The Canopy Nature Apartments Forest Trails Bhugaon";
+      else if (src.includes("athashri")) derivedAlt = "Athashri Senior Living Forest Trails Bhugaon";
+      else if (src.includes("logo")) derivedAlt = "Paranjape Schemes Corporate Logo";
+      el.setAttribute("alt", derivedAlt);
+    }
+  }
+}
+
+/**
+ * Handler 10: Dynamic JSON-LD Breadcrumb & Semantic Microdata Injector
+ * Dynamically synthesizes BreadcrumbList schema if not detected in static markup
+ */
+class SemanticStructureGuardian {
+  constructor(pathname) {
+    this.pathname = pathname;
+    this.hasSchema = false;
+  }
+  element(head) {
+    const cleanPath = this.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+    if (cleanPath && cleanPath !== "") {
+      const segments = cleanPath.split("/").filter(Boolean);
+      const breadcrumbList = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": CANONICAL_ORIGIN + "/"
+          }
+        ]
+      };
+
+      let accum = "";
+      segments.forEach((seg, idx) => {
+        accum += "/" + seg;
+        const name = seg.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        breadcrumbList.itemListElement.push({
+          "@type": "ListItem",
+          "position": idx + 2,
+          "name": name,
+          "item": CANONICAL_ORIGIN + accum + "/"
+        });
+      });
+
+      head.append(
+        `\n<!-- CF Edge Semantic Breadcrumb Guardian -->\n<script type="application/ld+json">\n${JSON.stringify(breadcrumbList, null, 2)}\n</script>\n`,
+        { html: true }
+      );
+    }
+  }
+}
+
 // ─── Cache Strategy ──────────────────────────────────────────────────────────
 
 function applyCacheHeaders(headers, url) {
@@ -546,7 +647,11 @@ export async function onRequest(context) {
         // Handler 6: Image lazy-load optimization
         .on("img", new ImageOptimizer())
         // Handler 7: Page-specific keyword meta injection
-        .on("head", new KeywordMetaInjector(url.pathname));
+        .on("head", new KeywordMetaInjector(url.pathname))
+        // Handler 8: External link security and rel optimizer
+        .on('a[href^="http"]', new ExternalLinkOptimizer())
+        // Handler 9: Image accessibility and alt enforcement for Googlebot Image
+        .on("img", new ImageAltA11yEnforcer());
 
       transformedResponse = rewriter.transform(response);
     }
