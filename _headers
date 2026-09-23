@@ -1,47 +1,59 @@
 /*
  * Cloudflare Pages _headers
- * Security + Performance + Cache-Control hardening
- * Restored: 2026-09-23
+ * Enterprise Security + Performance + Google / AI Crawler Optimization
  */
 
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self), interest-cohort=(), payment=()
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Cross-Origin-Resource-Policy: cross-origin
-  Cache-Control: public, max-age=86400, s-maxage=86400, stale-while-revalidate=3600
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  Cache-Control: public, max-age=0, s-maxage=604800, stale-while-revalidate=86400
 
 /images/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   X-Content-Type-Options: nosniff
+  Timing-Allow-Origin: *
 
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  Timing-Allow-Origin: *
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  Timing-Allow-Origin: *
 
 /style*.css
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
   Content-Type: text/css; charset=utf-8
 
 /*.js
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=2592000, s-maxage=2592000, stale-while-revalidate=86400
 
 /*.woff2
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
   Access-Control-Allow-Origin: *
 
 /*.webp
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable
+  Timing-Allow-Origin: *
 
 /sitemap*.xml
-  Cache-Control: public, max-age=3600, s-maxage=3600
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400
   Content-Type: application/xml; charset=utf-8
+  X-Robots-Tag: noindex, follow
 
 /robots.txt
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=3600, s-maxage=86400
+  Content-Type: text/plain; charset=utf-8
+
+/llms*.txt
+  Cache-Control: public, max-age=3600, s-maxage=86400
   Content-Type: text/plain; charset=utf-8
 
 /api/*

@@ -190,6 +190,8 @@ Disallow: /thank-you.html
 # 4. Master Sitemap Index & Host Reference
 Host: {DOMAIN}
 Sitemap: {DOMAIN}/sitemap.xml
+Sitemap: {DOMAIN}/sitemap-news.xml
+Sitemap: {DOMAIN}/sitemap-images.xml
 """
     with open(os.path.join(base_dir, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(robots_content)

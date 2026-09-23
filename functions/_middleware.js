@@ -215,9 +215,9 @@ const KEYWORD_ROUTES = {
 
 // Crawler detection patterns by tier
 const CRAWLER_TIERS = {
-  tier1: /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Mediapartners-Google|AdsBot-Google|Google-Safety/i,
-  tier2: /bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|Slurp/i,
-  tier3: /ChatGPT-User|GPTBot|PerplexityBot|ClaudeBot|Bytespider|CCBot|anthropic-ai|cohere-ai/i,
+  tier1: /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Googlebot-News|Mediapartners-Google|AdsBot-Google|Google-Safety|GoogleOther/i,
+  tier2: /bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|Slurp|SeznamBot/i,
+  tier3: /ChatGPT-User|GPTBot|PerplexityBot|ClaudeBot|Bytespider|CCBot|anthropic-ai|cohere-ai|Google-Extended|OAI-SearchBot/i,
   tier4: /WhatsApp|TelegramBot|Slackbot|Discordbot|facebookexternalhit|Twitterbot|LinkedInBot|Pinterestbot/i,
 };
 
@@ -577,6 +577,11 @@ export async function onRequest(context) {
 
       if (crawlerInfo.tier === 1) {
         headers.set("X-Googlebot-Edge", "accelerated;tier=priority;rewriter=active");
+        headers.set("X-Google-Indexing-Protocol", "v3;supported");
+      } else if (crawlerInfo.tier === 2) {
+        headers.set("X-Search-Edge", "accelerated;tier=major;indexnow=enabled");
+      } else if (crawlerInfo.tier === 3) {
+        headers.set("X-AI-Citation-Policy", "allowed;attribution=Paranjape Schemes (Construction) Ltd");
       }
     }
 
