@@ -5,7 +5,7 @@ ROOT = os.getcwd()
 
 KEYWORD_MATRIX = {
     "index": {
-        "title": "NA Plots Forest Trails Bhugaon | Residential Plots Pune West | Paranjape Forest Trails Township",
+        "title": "Paranjape Forest Trails Bhugaon | Official Site | Plots & Villas Pune",
         "keywords": "Paranjape Forest Trails Bhugaon, Forest Trails Pune Township, Paranjape Forest Trails price, Forest Trails Bhugaon Pune 190 acre township, Luxury township in Bhugaon Pune, Forest Trails near Bavdhan, Forest Trails near Kothrud, Paranjape Schemes Forest Trails Pune, Forest Trails investment Pune West, Premium gated township Bhugaon Pune, Nature township Pune luxury homes, Forest Trails master plan Bhugaon, Forest Trails brochure download, property near Chandani Chowk Pune, real estate near Bavdhan Pune, Bhugaon real estate investment, Pune west luxury properties, Paranjape Schemes Pune projects, top real estate developers in Pune, best township in Pune West 2026, luxury gated communities Pune",
         "faqs": [
             {"q": "What is the largest township in Bhugaon Pune?", "a": "Paranjape Forest Trails is the largest 190-acre integrated forest township in Bhugaon, Pune West."},

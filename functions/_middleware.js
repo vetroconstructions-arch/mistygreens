@@ -236,8 +236,9 @@ const CRAWLER_TIERS = {
   tier4: /WhatsApp|TelegramBot|Slackbot|Discordbot|facebookexternalhit|Twitterbot|LinkedInBot|Pinterestbot/i,
 };
 
-// Early Hints preconnect matrix
+// Early Hints preconnect & critical style matrix
 const EARLY_HINTS_LINKS = [
+  "</style.min.css?v=2026.08.24.10>; rel=preload; as=style",
   "<https://fonts.googleapis.com>; rel=preconnect; crossorigin",
   "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
   "<https://www.googletagmanager.com>; rel=preconnect",
@@ -319,6 +320,39 @@ class HeadMetaInjector {
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
 
     head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
+
+    // Sitelinks SearchBox & Knowledge Graph Root Schema
+    if (cleanPath === "/" || cleanPath === "") {
+      const sitelinksSchema = `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.paranjapetownship.com/#website",
+      "url": "https://www.paranjapetownship.com/",
+      "name": "Paranjape Forest Trails Bhugaon",
+      "description": "Official portal of Pune's premier 190-acre integrated forest township by Paranjape Schemes (Construction) Ltd.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.paranjapetownship.com/#organization",
+        "name": "Paranjape Schemes (Construction) Ltd.",
+        "url": "https://www.paranjapetownship.com/",
+        "logo": "https://www.paranjapetownship.com/assets/branding/logo.png"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.paranjapetownship.com/sitemap-page/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": ["en-IN", "hi-IN", "mr-IN"]
+    }
+  ]
+}
+</script>`;
+      head.append(sitelinksSchema, { html: true });
+    }
   }
 }
 
@@ -346,6 +380,109 @@ class KeywordMetaInjector {
           keywords = kw;
         }
       }
+    }
+
+    // Algorithmic Dynamic Keyword Synthesis for unmapped permutations
+    if (!keywords) {
+      const p = this.cleanPath.replace(/^\//, "").toLowerCase();
+      const kwSet = new Set();
+
+      // Check for BHK configuration
+      const bhkMatch = p.match(/(\d)\s*[-]?bhk/);
+      
+      // Recognized micro-markets
+      const localities = [
+        "aundh", "balewadi", "baner", "bavdhan", "bhugaon", "chandani chowk",
+        "erandwane", "hadapsar", "hinjewadi", "karve nagar", "kharadi", "kothrud",
+        "mulshi", "pashan", "paud road", "pirangut", "pune west", "shivaji nagar",
+        "sus", "undri", "viman nagar", "wagholi", "wakad", "warje"
+      ];
+      let matchedLoc = null;
+      for (const loc of localities) {
+        const slugForm = loc.replace(/\s+/g, "-");
+        if (p.includes(slugForm) || p.includes(loc)) {
+          matchedLoc = loc.replace(/\b\w/g, c => c.toUpperCase());
+          break;
+        }
+      }
+
+      if (bhkMatch) {
+        const bhk = bhkMatch[1] + "BHK";
+        if (matchedLoc) {
+          kwSet.add(`${bhk} near ${matchedLoc}`);
+          kwSet.add(`${bhk} flats near ${matchedLoc} Pune`);
+          kwSet.add(`${bhk} price ${matchedLoc} 2026`);
+          kwSet.add(`buy ${bhk} ${matchedLoc}`);
+          kwSet.add(`luxury ${bhk} apartments ${matchedLoc}`);
+        } else {
+          kwSet.add(`${bhk} in Pune`);
+          kwSet.add(`${bhk} flats Pune West 2026`);
+        }
+      }
+
+      if (p.includes("plot") || p.includes("plots")) {
+        if (matchedLoc) {
+          kwSet.add(`NA plots near ${matchedLoc}`);
+          kwSet.add(`NA bungalow plots ${matchedLoc}`);
+          kwSet.add(`gated township plots ${matchedLoc}`);
+          kwSet.add(`buy plots ${matchedLoc} Pune 2026`);
+        } else {
+          kwSet.add("NA plots in Bhugaon");
+          kwSet.add("NA bungalow plots Pune West");
+        }
+      }
+
+      if (p.includes("villa") || p.includes("villas") || p.includes("bungalow") || p.includes("bungalows")) {
+        if (matchedLoc) {
+          kwSet.add(`luxury villas near ${matchedLoc}`);
+          kwSet.add(`forest villas near ${matchedLoc}`);
+          kwSet.add(`independent bungalows ${matchedLoc}`);
+          kwSet.add(`twin bungalows near ${matchedLoc}`);
+        } else {
+          kwSet.add("luxury forest villas Bhugaon");
+          kwSet.add("4BHK 5BHK villas Pune West");
+        }
+      }
+
+      if (p.includes("property-in-")) {
+        if (matchedLoc) {
+          kwSet.add(`property in ${matchedLoc}`);
+          kwSet.add(`real estate ${matchedLoc} Pune 2026`);
+          kwSet.add(`property rates ${matchedLoc}`);
+          kwSet.add(`buy property ${matchedLoc}`);
+        }
+      }
+
+      if (p.includes("blog") || p.includes("guide")) {
+        const parts = p.split(/[-_/]+/).filter(Boolean);
+        const readable = parts.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+        kwSet.add(readable);
+        kwSet.add(`${readable} 2026`);
+        kwSet.add("Pune real estate guide 2026");
+      }
+
+      if (p.includes("madhe") || p.includes("marathi")) {
+        kwSet.add("पुण्यात प्लॉट");
+        kwSet.add("भुगाव मध्ये फ्लॅट");
+        kwSet.add("पुणे पश्चिम मालमत्ता");
+        kwSet.add("Paranjape Schemes Marathi");
+      } else if (p.includes("mein") || p.includes("hindi")) {
+        kwSet.add("पुणे में प्लॉट");
+        kwSet.add("भुगाव में फ्लैट");
+        kwSet.add("पुणे में लग्जरी विला");
+        kwSet.add("Paranjape Schemes Hindi");
+      }
+
+      // Always append sovereign brand trust cluster
+      kwSet.add("Paranjape Schemes Construction Ltd");
+      kwSet.add("Paranjape Forest Trails Bhugaon");
+      kwSet.add("Misty Greens NA Plots");
+      kwSet.add("The Rivolo Luxury Villas");
+      kwSet.add("The Canopy Apartments");
+      kwSet.add("MahaRERA P52100053834");
+      kwSet.add("190-acre gated township Pune West");
+
+      keywords = Array.from(kwSet).join(", ");
     }
 
     if (keywords) {

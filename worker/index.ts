@@ -86,6 +86,7 @@ function classifyCrawler(ua: string): CrawlerClassification {
 
 // Early Hints & Resource Links
 const EARLY_HINTS_LINKS = [
+  "</style.min.css?v=2026.08.24.10>; rel=preload; as=style",
   "<https://fonts.googleapis.com>; rel=preconnect; crossorigin",
   "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
   "<https://www.googletagmanager.com>; rel=preconnect",
@@ -149,6 +150,38 @@ class HeadMetaInjector {
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
 
     head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
+
+    if (cleanPath === "/" || cleanPath === "") {
+      const sitelinksSchema = `
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.paranjapetownship.com/#website",
+      "url": "https://www.paranjapetownship.com/",
+      "name": "Paranjape Forest Trails Bhugaon",
+      "description": "Official portal of Pune's premier 190-acre integrated forest township by Paranjape Schemes (Construction) Ltd.",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://www.paranjapetownship.com/#organization",
+        "name": "Paranjape Schemes (Construction) Ltd.",
+        "url": "https://www.paranjapetownship.com/",
+        "logo": "https://www.paranjapetownship.com/assets/branding/logo.png"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.paranjapetownship.com/sitemap-page/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": ["en-IN", "hi-IN", "mr-IN"]
+    }
+  ]
+}
+</script>`;
+      head.append(sitelinksSchema, { html: true });
+    }
   }
 }
 
