@@ -17,7 +17,7 @@ function getAllUrls(dir, urlList = []) {
     files.forEach(file => {
         const filePath = path.join(dir, file);
         if (fs.statSync(filePath).isDirectory()) {
-            if (!file.startsWith('.') && file !== 'node_modules' && file !== 'scripts' && file !== 'brain' && file !== 'images') {
+            if (!file.startsWith('.') && file !== 'node_modules' && file !== 'scripts' && file !== 'brain' && file !== 'images' && file !== 'scratch' && file !== 'components') {
                 getAllUrls(filePath, urlList);
             }
         } else if (file.endsWith('.html') && !file.includes('thank-you') && !file.includes('404')) {

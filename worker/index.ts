@@ -58,6 +58,13 @@ const PERMALINK_REDIRECTS: Record<string, string> = {
   "/equestrian-academy": "/paranjape-forest-trails-township-bhugaon-amenities/equestrian-academy-pune/",
   "/paranjape-forest-trails-township-bhugaon-villas-plots.html": "/paranjape-forest-trails-township-bhugaon-villas-plots/",
   "/paranjape-forest-trails-township-bhugaon-facilities.html": "/paranjape-forest-trails-township-bhugaon-facilities/",
+  "/bhugaon-growth-ledger.html": "/investment/growth-ledger/",
+  "/bhugaon-growth-ledger": "/investment/growth-ledger/",
+  "/paranjape-forest-trails-township-bhugaon-legal/privacy-policy.html": "/privacy-policy/",
+  "/paranjape-forest-trails-township-bhugaon-legal/privacy-policy": "/privacy-policy/",
+  "/paranjape-forest-trails-township-bhugaon-legal/terms-conditions.html": "/terms-of-use/",
+  "/paranjape-forest-trails-township-bhugaon-legal/terms-conditions": "/terms-of-use/",
+  "/terms-conditions": "/terms-of-use/",
 };
 
 // ─── 4-Tier Crawler Classification Matrix ────────────────────────────────────
@@ -322,9 +329,11 @@ export default {
 
     // 1b. Legacy Permalink Edge 301 Canonical Routing
     const cleanPath = url.pathname.replace(/\/$/, "");
-    if (PERMALINK_REDIRECTS[url.pathname] || PERMALINK_REDIRECTS[cleanPath]) {
+    if (PERMALINK_REDIRECTS[url.pathname] || (cleanPath && PERMALINK_REDIRECTS[cleanPath])) {
       const target = PERMALINK_REDIRECTS[url.pathname] || PERMALINK_REDIRECTS[cleanPath];
-      return Response.redirect(`${CANONICAL_ORIGIN}${target}`, 301);
+      if (target && target !== url.pathname && target !== url.pathname + "/") {
+        return Response.redirect(`${CANONICAL_ORIGIN}${target}`, 301);
+      }
     }
 
     // 1c. Strict Canonical Trailing Slash & index.html (301)

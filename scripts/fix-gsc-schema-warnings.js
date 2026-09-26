@@ -107,7 +107,7 @@ files.forEach(file => {
             "@type": "Organization",
             "name": "Paranjape Schemes (Construction) Ltd"
           },
-          "license": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/terms-conditions.html",
+          "license": "https://www.paranjapetownship.com/terms-of-use/",
           "spatialCoverage": "Pune, Maharashtra",
           "temporalCoverage": "2025/2030"`
             );

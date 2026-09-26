@@ -108,7 +108,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       </a>
       <nav class="desktop-nav-capsule" style="background: rgba(0, 0, 0, 0.32); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 50px; padding: 0.45rem 1.6rem; display: flex; align-items: center; gap: 1.6rem; backdrop-filter: blur(12px);">
         <a href="/#township-clusters" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">TOWNSHIP</a>
-        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots.html" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">VILLAS & PLOTS</a>
+        <a href="/paranjape-forest-trails-township-bhugaon-villas-plots/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">VILLAS & PLOTS</a>
         <a href="/paranjape-forest-trails-township-bhugaon-apartments/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">APARTMENTS</a>
         <a href="/paranjape-forest-trails-township-bhugaon-amenities/the-cliff-club/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">CLIFF CLUB</a>
         <a href="/paranjape-forest-trails-township-bhugaon-amenities/sri-sri-ravishankar-school/" style="color: #ffffff; text-decoration: none; font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">SCHOOL</a>

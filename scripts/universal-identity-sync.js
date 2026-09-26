@@ -12,9 +12,9 @@ const IDENTITY_MAP = {
     '/paranjape-forest-trails-township-bhugaon-canopy-apartments/': '/paranjape-forest-trails-township-bhugaon-the-canopy/',
     '/paranjape-forest-trails-township-bhugaon-verandah-flats/': '/paranjape-forest-trails-township-bhugaon-verandah/',
     '/paranjape-forest-trails-township-bhugaon-villas/': '/paranjape-forest-trails-township-bhugaon-luxury-forest-villas-bhugaon/',
-    '/paranjape-forest-trails-township-bhugaon-villas-plots/': '/paranjape-forest-trails-township-bhugaon-villas-plots.html',
+    '/paranjape-forest-trails-township-bhugaon-villas-plots/': '/paranjape-forest-trails-township-bhugaon-villas-plots/',
     '/paranjape-forest-trails-township-bhugaon-apartments/': '/paranjape-forest-trails-township-bhugaon-apartments-pune.html',
-    '/paranjape-forest-trails-township-bhugaon-facilities/': '/paranjape-forest-trails-township-bhugaon-facilities.html'
+    '/paranjape-forest-trails-township-bhugaon-facilities/': '/paranjape-forest-trails-township-bhugaon-facilities/'
 };
 
 const SKIP_DIRS = ['.git', 'node_modules', 'scripts', 'images', 'assets', 'fonts', '.well-known', 'components', 'styles', 'brain', '.venv', '.vscode', '.antigravityignore', '.github'];

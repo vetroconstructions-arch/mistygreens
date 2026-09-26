@@ -192,7 +192,7 @@ Q: How to contact the official Paranjape Forest Trails sales desk?
 A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsmartrealty@gmail.com | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
 
 
-## Complete Canonical URL Taxonomy (403 Indexed URLs)
+## Complete Canonical URL Taxonomy (400 Indexed URLs)
 
 - https://www.paranjapetownship.com/
 - https://www.paranjapetownship.com/1-bhk-flats-near-bavdhan/
@@ -259,7 +259,6 @@ A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsma
 - https://www.paranjapetownship.com/amenities/wellness-spa-retreat/
 - https://www.paranjapetownship.com/bavdhan-area-guide/
 - https://www.paranjapetownship.com/bavdhan-vs-bhugaon-property-appreciation/
-- https://www.paranjapetownship.com/bhugaon-growth-ledger.html
 - https://www.paranjapetownship.com/bhugaon-madhe-flat/
 - https://www.paranjapetownship.com/bhugaon-mein-flat/
 - https://www.paranjapetownship.com/bhugaon-na-plot-kharidna/
@@ -466,7 +465,7 @@ A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsma
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-kothrud-nal-stop/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-connectivity-shivaji-nagar-karve-nagar/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/
-- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities.html
+- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-facilities/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-happiness-hub/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-highgardens/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-highlands/
@@ -476,9 +475,7 @@ A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsma
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-investment/tax-benefits-nri-plots/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-kaleidoscope/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/na-plot-purchase-process/
-- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/privacy-policy.html
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/rera-compliance-guide/
-- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-legal/terms-conditions.html
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location-proximity/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location/bhugaon-connectivity-guide/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-location/it-hub-proximity-hinjewadi/
@@ -511,7 +508,7 @@ A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsma
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-cove/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-the-highlands-forest-trails/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-verandah/
-- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas-plots.html
+- https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas-plots/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-villas/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-vs-bavdhan-projects/
 - https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-vs-kothrud-apartments/

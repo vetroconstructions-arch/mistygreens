@@ -75,7 +75,7 @@ def generate_seo_matrix(base_dir):
         url_lower = strict_url.lower()
         
         # Classification rules
-        if rel_path in ['index.html', 'paranjape-forest-trails-township-bhugaon-villas-plots.html', 'paranjape-forest-trails-township-bhugaon-facilities.html', 'bhugaon-growth-ledger.html']:
+        if rel_path in ['index.html', 'paranjape-forest-trails-township-bhugaon-villas-plots/index.html', 'paranjape-forest-trails-township-bhugaon-facilities/index.html', 'investment/growth-ledger/index.html']:
             categories["core"].append((strict_url, "1.0", "daily"))
         elif any(x in url_lower for x in ["comparisons", "-vs-", "vs-"]):
             categories["comparisons"].append((strict_url, "0.85", "weekly"))

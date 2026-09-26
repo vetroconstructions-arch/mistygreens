@@ -71,7 +71,7 @@ def main():
                 continue
             fpath = os.path.join(root, fname)
             rel = os.path.relpath(fpath, BASE_DIR).replace('\\','/')
-            if any(x in rel for x in ['components/','scratch/','404']):
+            if any(x in rel for x in ['components/','scratch/','404','thank-you']):
                 continue
             
             # Compute page URL

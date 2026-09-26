@@ -258,7 +258,7 @@ def analyze():
 
     missing_from_sitemaps = []
     for u in url_to_file:
-        if u not in sitemap_urls and u != '/404.html' and u != '/thank-you.html':
+        if u not in sitemap_urls and u not in ['/404.html', '/thank-you.html', '/thank-you/']:
             missing_from_sitemaps.append(u)
 
     phantom_sitemap_urls = []
