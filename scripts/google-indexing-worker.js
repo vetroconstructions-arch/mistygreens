@@ -109,9 +109,11 @@ async function run() {
             const fullPath = path.join(dir, file);
             if (fs.statSync(fullPath).isDirectory()) {
                 if (!['node_modules', '.git', 'scripts', 'images', 'assets', 'styles', 'components'].includes(file)) getPriorityUrls(fullPath, urlList);
-            } else if (file.endsWith('.html')) {
-                const relative = path.relative(ROOT, fullPath);
-                const url = `${SITE}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
+            } else if (file.endsWith('.html') && !file.includes('thank-you') && !file.includes('404')) {
+                const relative = path.relative(ROOT, fullPath).replace(/\\/g, '/');
+                let relPath = relative === 'index.html' ? '' : relative.replace(/\/index\.html$/, '/').replace(/index\.html$/, '');
+                if (relPath && !relPath.endsWith('/')) relPath += '/';
+                const url = `${SITE}/${relPath}`;
                 
                 let score = 10;
                 if (url.includes('growth-ledger')) score += 100;

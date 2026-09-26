@@ -327,6 +327,18 @@ export default {
       return Response.redirect(`${CANONICAL_ORIGIN}${target}`, 301);
     }
 
+    // 1c. Strict Canonical Trailing Slash & index.html (301)
+    if (url.pathname === "/index.html") {
+      return Response.redirect(`${CANONICAL_ORIGIN}/${url.search}`, 301);
+    }
+    if (url.pathname.endsWith("/index.html")) {
+      const stripped = url.pathname.slice(0, -10);
+      return Response.redirect(`${CANONICAL_ORIGIN}${stripped}${url.search}`, 301);
+    }
+    if (!url.pathname.endsWith("/") && !url.pathname.includes(".") && !url.pathname.startsWith("/api/")) {
+      return Response.redirect(`${CANONICAL_ORIGIN}${url.pathname}/${url.search}`, 301);
+    }
+
     // 2. High-Speed Edge Lead Capture API Routes
     if ((url.pathname === "/api/lead-capture" || url.pathname === "/api/enquiry") && request.method === "POST") {
       return handleLeadCapture(request, env, ctx);

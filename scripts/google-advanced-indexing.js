@@ -20,9 +20,11 @@ function getAllUrls(dir, urlList = []) {
             if (!file.startsWith('.') && file !== 'node_modules' && file !== 'scripts' && file !== 'brain' && file !== 'images') {
                 getAllUrls(filePath, urlList);
             }
-        } else if (file.endsWith('.html') && !file.includes('thank-you')) {
-            const relative = path.relative(ROOT, filePath);
-            const url = `${SITE}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
+        } else if (file.endsWith('.html') && !file.includes('thank-you') && !file.includes('404')) {
+            const relative = path.relative(ROOT, filePath).replace(/\\/g, '/');
+            let relPath = relative === 'index.html' ? '' : relative.replace(/\/index\.html$/, '/').replace(/index\.html$/, '');
+            if (relPath && !relPath.endsWith('/')) relPath += '/';
+            const url = `${SITE}/${relPath}`;
             urlList.push(url);
         }
     });
