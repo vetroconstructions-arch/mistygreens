@@ -289,8 +289,8 @@ class CanonicalEnforcer {
 }
 
 /**
- * Handler 2: <head> Meta & Resource Injector
- * Appends geo tags, preconnect hints, and hreflang
+ * Handler 2: <head> Google Ecosystem & Resource Injector
+ * Appends geo tags, preconnect hints, Googlebot directives, LCP preloads, and hreflang
  */
 class HeadMetaInjector {
   constructor(pathname, crawlerInfo, cfData) {
@@ -302,15 +302,43 @@ class HeadMetaInjector {
     const cleanPath = this.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
     const canonicalUrl = CANONICAL_ORIGIN + (cleanPath === "/" ? "/" : cleanPath + "/");
 
-    // Geo-location meta tags
+    // Geo-location & Authority Meta
     const geoBlock = `
-<!-- CF Edge SEO Engine v5.0 -->
+<!-- CF Enterprise Edge SEO Engine v6.0 (Google Ecosystem Hardened) -->
 <meta name="geo.region" content="IN-MH">
 <meta name="geo.placename" content="Bhugaon, Pune West, Maharashtra, India">
 <meta name="geo.position" content="18.5050;73.7406">
 <meta name="ICBM" content="18.5050, 73.7406">
 <meta name="author" content="Paranjape Schemes (Construction) Ltd.">
 <meta name="copyright" content="© 2026 Paranjape Forest Trails. All Rights Reserved.">`;
+
+    // Google Crawler & SERP Snippet Directive Matrix
+    const googleDirectives = `
+<meta name="google-site-verification" content="fA009Y6RAvi_yacg8Lw7JJu5uvAGR5po2RIUH8VcuvE">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot-news" content="index, follow">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/apple-touch-icon.png">
+<link rel="alternate" type="text/plain" href="${CANONICAL_ORIGIN}/llms.txt" title="LLM Knowledge Base">
+<link rel="sitemap" type="application/xml" href="${CANONICAL_ORIGIN}/sitemap.xml">`;
+
+    // Dynamic LCP Hero Image Preload (Sub-1.2s Google Core Web Vitals)
+    let heroPreload = "";
+    if (cleanPath === "/" || cleanPath === "") {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("misty-greens") || cleanPath.includes("plot")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/misty-greens-plots.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("rivolo") || cleanPath.includes("villa")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/rivolo-villas.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("canopy") || cleanPath.includes("2bhk") || cleanPath.includes("flat") || cleanPath.includes("apartment")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/canopy-apartments.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("cove") || cleanPath.includes("bungalow")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/the-cove.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("athashri") || cleanPath.includes("senior")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/athashri.webp" fetchpriority="high">`;
+    }
 
     // Preconnect & DNS-prefetch hints
     const preconnectBlock = `
@@ -320,13 +348,18 @@ class HeadMetaInjector {
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="dns-prefetch" href="https://formsubmit.co">`;
 
-    // Hreflang for international SEO
-    const hreflangBlock = `
+    // Multilingual Hreflang for international & local indexing
+    let hreflangBlock = `
 <link rel="alternate" hreflang="en-IN" href="${canonicalUrl}">
 <link rel="alternate" hreflang="en" href="${canonicalUrl}">
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
+    if (cleanPath.includes("pune-mein-") || cleanPath.includes("bhugaon-mein-")) {
+      hreflangBlock += `\n<link rel="alternate" hreflang="hi-IN" href="${canonicalUrl}">`;
+    } else if (cleanPath.includes("pune-madhe-") || cleanPath.includes("bhugaon-madhe-")) {
+      hreflangBlock += `\n<link rel="alternate" hreflang="mr-IN" href="${canonicalUrl}">`;
+    }
 
-    head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
+    head.append(geoBlock + googleDirectives + heroPreload + preconnectBlock + hreflangBlock, { html: true });
 
     // Sitelinks SearchBox & Knowledge Graph Root Schema
     if (cleanPath === "/" || cleanPath === "") {
@@ -354,6 +387,45 @@ class HeadMetaInjector {
         "query-input": "required name=search_term_string"
       },
       "inLanguage": ["en-IN", "hi-IN", "mr-IN"]
+    },
+    {
+      "@type": ["Organization", "RealEstateAgent"],
+      "@id": "https://www.paranjapetownship.com/#organization",
+      "name": "Paranjape Schemes (Construction) Ltd.",
+      "alternateName": "Paranjape Forest Trails Bhugaon",
+      "url": "https://www.paranjapetownship.com/",
+      "logo": "https://www.paranjapetownship.com/assets/branding/logo.png",
+      "image": "https://www.paranjapetownship.com/images/hero-township.webp",
+      "telephone": "+91-7744009295",
+      "email": "propsmartrealty@gmail.com",
+      "priceRange": "₹₹₹₹",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.5099377,
+        "longitude": 73.738964
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Forest Trails Township, Paud Road, Bhugaon",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "412115",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/paranjapeschemes",
+        "https://www.instagram.com/paranjapeschemes",
+        "https://www.youtube.com/user/ParanjapeSchemes",
+        "https://en.wikipedia.org/wiki/Paranjape_Schemes"
+      ]
     }
   ]
 }
@@ -567,6 +639,17 @@ class ImageOptimizer {
       if (!el.getAttribute("decoding")) {
         el.setAttribute("decoding", "async");
       }
+      if (!el.getAttribute("fetchpriority")) {
+        el.setAttribute("fetchpriority", "low");
+      }
+    }
+
+    // Google CLS Guard: Ensure intrinsic aspect ratio is declared to prevent Cumulative Layout Shifts
+    const width = el.getAttribute("width");
+    const height = el.getAttribute("height");
+    const style = el.getAttribute("style") || "";
+    if (!width && !height && !style.includes("aspect-ratio")) {
+      el.setAttribute("style", (style ? style + "; " : "") + "aspect-ratio: 16/9; max-width: 100%; height: auto;");
     }
   }
 }
@@ -889,7 +972,9 @@ export async function onRequest(context) {
         // Handler 10: Chrome Instant Prerender Speculation Rules
         .on("head", new SpeculationRulesInjector())
         // Handler 11: Voice & Assistant Speakable Microdata
-        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname));
+        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname))
+        // Handler 12: Dynamic Hierarchical Breadcrumb Schema Guardian
+        .on("head", new SemanticStructureGuardian(url.pathname));
 
       transformedResponse = rewriter.transform(response);
     }
@@ -905,21 +990,30 @@ export async function onRequest(context) {
     // Cache strategy
     applyCacheHeaders(headers, url);
 
-    // Early Hints & preconnect
-    headers.set("Link", EARLY_HINTS_LINKS.join(", "));
+    // Early Hints & preconnect & Sitemap & LLMs discovery
+    const linkHeaders = [
+      ...EARLY_HINTS_LINKS,
+      `<${CANONICAL_ORIGIN}/sitemap.xml>; rel="sitemap"`,
+      `<${CANONICAL_ORIGIN}/llms.txt>; rel="alternate"; type="text/plain"`
+    ];
+    headers.set("Link", linkHeaders.join(", "));
+
+    // Google Chrome Client Hints
+    headers.set("Accept-CH", "Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-Width, Sec-CH-Viewport-Width");
+    headers.set("Critical-CH", "Sec-CH-Width, Sec-CH-Viewport-Width");
 
     // Content-Language based on geo
     const country = request.cf?.country || "IN";
     headers.set("Content-Language", country === "IN" ? "en-IN" : "en");
-    headers.set("Vary", "Accept-Encoding");
+    headers.set("Vary", "Accept-Encoding, Sec-CH-Width, Sec-CH-Viewport-Width");
 
     // ┌─────────────────────────────────────────────────────────┐
     // │ 5. Performance Instrumentation                          │
     // └─────────────────────────────────────────────────────────┘
     const edgeDuration = Date.now() - startTime;
-    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF Edge Rewriter"`);
+    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF Edge Rewriter v6", gbot;desc="Google Ecosystem Edge"`);
     headers.set("X-Edge-Location", request.cf?.colo || "unknown");
-    headers.set("X-Response-Source", "cf-edge-rewriter-v5");
+    headers.set("X-Response-Source", "cf-edge-rewriter-v6");
 
     // ┌─────────────────────────────────────────────────────────┐
     // │ 6. Crawler-Specific Headers                             │
@@ -928,12 +1022,14 @@ export async function onRequest(context) {
       headers.set("X-Crawler-Tier", `${crawlerInfo.tier}:${crawlerInfo.label}`);
 
       if (crawlerInfo.tier === 1) {
-        headers.set("X-Googlebot-Edge", "accelerated;tier=priority;rewriter=active");
-        headers.set("X-Google-Indexing-Protocol", "v3;supported");
+        headers.set("X-Googlebot-Edge", "accelerated;tier=priority;render=instant;cwv=pass;schemas=harmonized");
+        headers.set("X-Google-Indexing-Protocol", "v3;supported;status=canonical");
+        headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
       } else if (crawlerInfo.tier === 2) {
         headers.set("X-Search-Edge", "accelerated;tier=major;indexnow=enabled");
       } else if (crawlerInfo.tier === 3) {
         headers.set("X-AI-Citation-Policy", "allowed;attribution=Paranjape Schemes (Construction) Ltd");
+        headers.set("X-AI-Grounding-Source", `${CANONICAL_ORIGIN}/llms.txt`);
       }
     }
 

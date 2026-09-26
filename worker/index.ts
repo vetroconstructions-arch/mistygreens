@@ -136,13 +136,39 @@ class HeadMetaInjector {
     const canonicalUrl = CANONICAL_ORIGIN + (cleanPath === "/" ? "/" : cleanPath + "/");
 
     const geoBlock = `
-<!-- CF Edge SEO Engine v5.0 (Worker Edition) -->
+<!-- CF Enterprise Edge SEO Engine v6.0 (Worker Edition - Google Ecosystem Hardened) -->
 <meta name="geo.region" content="IN-MH">
 <meta name="geo.placename" content="Bhugaon, Pune West, Maharashtra, India">
 <meta name="geo.position" content="18.5050;73.7406">
 <meta name="ICBM" content="18.5050, 73.7406">
 <meta name="author" content="Paranjape Schemes (Construction) Ltd.">
 <meta name="copyright" content="© 2026 Paranjape Forest Trails. All Rights Reserved.">`;
+
+    const googleDirectives = `
+<meta name="google-site-verification" content="fA009Y6RAvi_yacg8Lw7JJu5uvAGR5po2RIUH8VcuvE">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="googlebot-news" content="index, follow">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/favicon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/apple-touch-icon.png">
+<link rel="alternate" type="text/plain" href="${CANONICAL_ORIGIN}/llms.txt" title="LLM Knowledge Base">
+<link rel="sitemap" type="application/xml" href="${CANONICAL_ORIGIN}/sitemap.xml">`;
+
+    let heroPreload = "";
+    if (cleanPath === "/" || cleanPath === "") {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("misty-greens") || cleanPath.includes("plot")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/misty-greens-plots.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("rivolo") || cleanPath.includes("villa")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/rivolo-villas.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("canopy") || cleanPath.includes("2bhk") || cleanPath.includes("flat") || cleanPath.includes("apartment")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/canopy-apartments.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("cove") || cleanPath.includes("bungalow")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/the-cove.webp" fetchpriority="high">`;
+    } else if (cleanPath.includes("athashri") || cleanPath.includes("senior")) {
+      heroPreload = `\n<link rel="preload" as="image" href="/images/athashri.webp" fetchpriority="high">`;
+    }
 
     const preconnectBlock = `
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -151,12 +177,17 @@ class HeadMetaInjector {
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="dns-prefetch" href="https://formsubmit.co">`;
 
-    const hreflangBlock = `
+    let hreflangBlock = `
 <link rel="alternate" hreflang="en-IN" href="${canonicalUrl}">
 <link rel="alternate" hreflang="en" href="${canonicalUrl}">
 <link rel="alternate" hreflang="x-default" href="${canonicalUrl}">`;
+    if (cleanPath.includes("pune-mein-") || cleanPath.includes("bhugaon-mein-")) {
+      hreflangBlock += `\n<link rel="alternate" hreflang="hi-IN" href="${canonicalUrl}">`;
+    } else if (cleanPath.includes("pune-madhe-") || cleanPath.includes("bhugaon-madhe-")) {
+      hreflangBlock += `\n<link rel="alternate" hreflang="mr-IN" href="${canonicalUrl}">`;
+    }
 
-    head.append(geoBlock + preconnectBlock + hreflangBlock, { html: true });
+    head.append(geoBlock + googleDirectives + heroPreload + preconnectBlock + hreflangBlock, { html: true });
 
     if (cleanPath === "/" || cleanPath === "") {
       const sitelinksSchema = `
@@ -183,6 +214,45 @@ class HeadMetaInjector {
         "query-input": "required name=search_term_string"
       },
       "inLanguage": ["en-IN", "hi-IN", "mr-IN"]
+    },
+    {
+      "@type": ["Organization", "RealEstateAgent"],
+      "@id": "https://www.paranjapetownship.com/#organization",
+      "name": "Paranjape Schemes (Construction) Ltd.",
+      "alternateName": "Paranjape Forest Trails Bhugaon",
+      "url": "https://www.paranjapetownship.com/",
+      "logo": "https://www.paranjapetownship.com/assets/branding/logo.png",
+      "image": "https://www.paranjapetownship.com/images/hero-township.webp",
+      "telephone": "+91-7744009295",
+      "email": "propsmartrealty@gmail.com",
+      "priceRange": "₹₹₹₹",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 18.5099377,
+        "longitude": 73.738964
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Forest Trails Township, Paud Road, Bhugaon",
+        "addressLocality": "Pune",
+        "addressRegion": "Maharashtra",
+        "postalCode": "412115",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "19:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/paranjapeschemes",
+        "https://www.instagram.com/paranjapeschemes",
+        "https://www.youtube.com/user/ParanjapeSchemes",
+        "https://en.wikipedia.org/wiki/Paranjape_Schemes"
+      ]
     }
   ]
 }
@@ -210,10 +280,13 @@ class OGImageAbsolutifier {
 class PerformanceHintInjector {
   element(head: Element) {
     const hints = `
+<link rel="preload" href="/style.min.css?v=2026.08.24.10" as="style">
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" as="style" crossorigin>
 <meta name="theme-color" content="#4A0808">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">`;
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=yes">
+<meta http-equiv="x-dns-prefetch-control" content="on">`;
     head.append(hints, { html: true });
   }
 }
@@ -231,7 +304,7 @@ class InternalLinkNormalizer {
 }
 
 /**
- * 6. Image Lazy-Load Optimizer: Prioritizes above-the-fold hero images, lazy loads the rest
+ * 6. Image Lazy-Load Optimizer: Prioritizes above-the-fold hero images, lazy loads the rest, prevents CLS
  */
 class ImageOptimizer {
   private imageCount = 0;
@@ -248,7 +321,183 @@ class ImageOptimizer {
       if (!el.getAttribute("decoding")) {
         el.setAttribute("decoding", "async");
       }
+      if (!el.getAttribute("fetchpriority")) {
+        el.setAttribute("fetchpriority", "low");
+      }
     }
+
+    const width = el.getAttribute("width");
+    const height = el.getAttribute("height");
+    const style = el.getAttribute("style") || "";
+    if (!width && !height && !style.includes("aspect-ratio")) {
+      el.setAttribute("style", (style ? style + "; " : "") + "aspect-ratio: 16/9; max-width: 100%; height: auto;");
+    }
+  }
+}
+
+/**
+ * 7. External Link Security & SEO Optimizer
+ */
+class ExternalLinkOptimizer {
+  element(el: Element) {
+    const href = el.getAttribute("href");
+    if (!href) return;
+
+    const isExternal = (href.startsWith("http://") || href.startsWith("https://")) &&
+                       !href.includes("paranjapetownship.com") &&
+                       !href.includes("paranjapeplots.com");
+
+    if (isExternal) {
+      if (!el.getAttribute("target")) {
+        el.setAttribute("target", "_blank");
+      }
+      const currentRel = el.getAttribute("rel") || "";
+      const relParts = new Set(currentRel.split(/\s+/).filter(Boolean));
+      relParts.add("noopener");
+      relParts.add("noreferrer");
+
+      if (!href.includes("maharera.mahaonline.gov.in") && !href.includes("wa.me") && !href.includes("maps.google.com")) {
+        relParts.add("nofollow");
+      }
+
+      el.setAttribute("rel", Array.from(relParts).join(" "));
+    }
+  }
+}
+
+/**
+ * 8. Image Alt & Accessibility Guardian for Googlebot Image
+ */
+class ImageAltA11yEnforcer {
+  element(el: Element) {
+    const alt = el.getAttribute("alt");
+    const src = el.getAttribute("src") || "";
+    if (!alt || alt.trim() === "") {
+      let derivedAlt = "Paranjape Forest Trails Township Bhugaon Pune";
+      if (src.includes("misty-greens")) derivedAlt = "Misty Greens NA Bungalow Plots Paranjape Forest Trails Bhugaon Pune";
+      else if (src.includes("rivolo")) derivedAlt = "The Rivolo Luxury Forest Villas 4BHK 5BHK Bhugaon Pune West";
+      else if (src.includes("cove")) derivedAlt = "The Cove Twin Bungalows Forest Trails Bhugaon Pune";
+      else if (src.includes("canopy")) derivedAlt = "The Canopy 2BHK 3BHK Nature Apartments Bhugaon Pune";
+      else if (src.includes("athashri")) derivedAlt = "Athashri Senior Living Community Forest Trails Bhugaon Pune";
+      else if (src.includes("highgardens")) derivedAlt = "The Highgardens Nature Living Apartments Bhugaon";
+      else if (src.includes("verandah")) derivedAlt = "The Verandah Luxury Duplex Apartments Bhugaon Pune";
+      else if (src.includes("cliff-club") || src.includes("amenities")) derivedAlt = "The Cliff Lifestyle Club Amenities Forest Trails Bhugaon";
+      else if (src.includes("ssrvm")) derivedAlt = "Sri Sri Ravishankar Vidya Mandir School Forest Trails Bhugaon";
+      else if (src.includes("equestrian")) derivedAlt = "Equestrian Academy Horse Riding Forest Trails Bhugaon";
+      else if (src.includes("logo")) derivedAlt = "Paranjape Schemes Construction Ltd Official Logo";
+      el.setAttribute("alt", derivedAlt);
+    }
+  }
+}
+
+/**
+ * 9. Semantic Structure Guardian (Dynamic Hierarchical Breadcrumb Schema)
+ */
+class SemanticStructureGuardian {
+  private pathname: string;
+  constructor(pathname: string) {
+    this.pathname = pathname;
+  }
+  element(head: Element) {
+    const cleanPath = this.pathname.replace(/\/index\.html$/, "").replace(/\/$/, "");
+    if (cleanPath && cleanPath !== "") {
+      const segments = cleanPath.split("/").filter(Boolean);
+      const breadcrumbList = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": CANONICAL_ORIGIN + "/"
+          }
+        ]
+      };
+
+      let accum = "";
+      segments.forEach((seg, idx) => {
+        accum += "/" + seg;
+        const name = seg.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        breadcrumbList.itemListElement.push({
+          "@type": "ListItem",
+          "position": idx + 2,
+          "name": name,
+          "item": CANONICAL_ORIGIN + accum + "/"
+        });
+      });
+
+      head.append(
+        `\n<!-- CF Edge Semantic Breadcrumb Guardian -->\n<script type="application/ld+json">\n${JSON.stringify(breadcrumbList, null, 2)}\n</script>\n`,
+        { html: true }
+      );
+    }
+  }
+}
+
+/**
+ * 10. W3C Speculation Rules API Injector (Chrome Instant Prerender 2.0)
+ */
+class SpeculationRulesInjector {
+  element(head: Element) {
+    const rules = {
+      prerender: [
+        {
+          source: "list",
+          urls: [
+            "/paranjape-forest-trails-township-bhugaon-misty-greens/",
+            "/paranjape-forest-trails-township-bhugaon-the-canopy/",
+            "/paranjape-forest-trails-township-bhugaon-rivolo-residences/",
+            "/paranjape-forest-trails-bhugaon-price-2026/",
+            "/paranjape-schemes-contact/",
+            "/sitemap-page/"
+          ],
+          score: 0.95
+        }
+      ],
+      prefetch: [
+        {
+          source: "document",
+          where: {
+            and: [
+              { href_matches: "/*" },
+              { not: { href_matches: "/api/*" } },
+              { not: { href_matches: "/404*" } }
+            ]
+          },
+          eagerness: "moderate"
+        }
+      ]
+    };
+
+    head.append(
+      `\n<!-- Chrome Instant Prerender Speculation Rules API v2.0 -->\n<script type="speculationrules">\n${JSON.stringify(rules, null, 2)}\n</script>\n`,
+      { html: true }
+    );
+  }
+}
+
+/**
+ * 11. Google Voice & Assistant Speakable Microdata Optimizer
+ */
+class EdgeSpeakableVoiceOptimizer {
+  private pathname: string;
+  constructor(pathname: string) {
+    this.pathname = pathname;
+  }
+  element(head: Element) {
+    const speakable = {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lead", ".enclave-intro", "main p:first-of-type"]
+      }
+    };
+    head.append(
+      `\n<!-- Google Assistant & Voice Search Speakable Spec -->\n<script type="application/ld+json">\n${JSON.stringify(speakable, null, 2)}\n</script>\n`,
+      { html: true }
+    );
   }
 }
 
@@ -414,7 +663,12 @@ export default {
         .on('meta[property="og:image:url"]', new OGImageAbsolutifier())
         .on("head", new PerformanceHintInjector())
         .on('a[href^="/"]', new InternalLinkNormalizer())
-        .on("img", new ImageOptimizer());
+        .on("img", new ImageOptimizer())
+        .on('a[href^="http"]', new ExternalLinkOptimizer())
+        .on("img", new ImageAltA11yEnforcer())
+        .on("head", new SemanticStructureGuardian(url.pathname))
+        .on("head", new SpeculationRulesInjector())
+        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname));
 
       transformedResponse = rewriter.transform(response);
     }
@@ -424,22 +678,38 @@ export default {
     applySecurityHeaders(headers);
     applyCacheHeaders(headers, url);
 
-    headers.set("Link", EARLY_HINTS_LINKS.join(", "));
+    const linkHeaders = [
+      ...EARLY_HINTS_LINKS,
+      `<${CANONICAL_ORIGIN}/sitemap.xml>; rel="sitemap"`,
+      `<${CANONICAL_ORIGIN}/llms.txt>; rel="alternate"; type="text/plain"`
+    ];
+    headers.set("Link", linkHeaders.join(", "));
+
+    headers.set("Accept-CH", "Sec-CH-UA-Model, Sec-CH-UA-Platform-Version, Sec-CH-Width, Sec-CH-Viewport-Width");
+    headers.set("Critical-CH", "Sec-CH-Width, Sec-CH-Viewport-Width");
+
     const cf = (request as any).cf;
     const country = cf?.country || "IN";
     headers.set("Content-Language", country === "IN" ? "en-IN" : "en");
-    headers.set("Vary", "Accept-Encoding");
+    headers.set("Vary", "Accept-Encoding, Sec-CH-Width, Sec-CH-Viewport-Width");
 
     const edgeDuration = Date.now() - startTime;
-    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF SEO Worker v5"`);
+    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF SEO Worker v6", gbot;desc="Google Ecosystem Edge"`);
     headers.set("X-Edge-Location", cf?.colo || "unknown");
-    headers.set("X-Response-Source", "cf-seo-worker-v5");
+    headers.set("X-Response-Source", "cf-seo-worker-v6");
     headers.set("X-Cache-Status", "MISS-EDGE");
 
     if (crawlerInfo.tier > 0) {
       headers.set("X-Crawler-Tier", `${crawlerInfo.tier}:${crawlerInfo.label}`);
       if (crawlerInfo.tier === 1) {
-        headers.set("X-Googlebot-Edge", "accelerated;tier=priority;rewriter=active");
+        headers.set("X-Googlebot-Edge", "accelerated;tier=priority;render=instant;cwv=pass;schemas=harmonized");
+        headers.set("X-Google-Indexing-Protocol", "v3;supported;status=canonical");
+        headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+      } else if (crawlerInfo.tier === 2) {
+        headers.set("X-Search-Edge", "accelerated;tier=major;indexnow=enabled");
+      } else if (crawlerInfo.tier === 3) {
+        headers.set("X-AI-Citation-Policy", "allowed;attribution=Paranjape Schemes (Construction) Ltd");
+        headers.set("X-AI-Grounding-Source", `${CANONICAL_ORIGIN}/llms.txt`);
       }
     }
 
