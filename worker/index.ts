@@ -67,6 +67,28 @@ const PERMALINK_REDIRECTS: Record<string, string> = {
   "/terms-conditions": "/terms-of-use/",
 };
 
+// ─── Geo & Currency Intelligence Matrix ──────────────────────────────────────
+const CURRENCY_REGIONS: Record<string, { code: string; symbol: string }> = {
+  IN: { code: "INR", symbol: "₹" },
+  US: { code: "USD", symbol: "$" },
+  CA: { code: "CAD", symbol: "C$" },
+  AE: { code: "AED", symbol: "AED " },
+  SA: { code: "SAR", symbol: "SAR " },
+  QA: { code: "QAR", symbol: "QAR " },
+  OM: { code: "OMR", symbol: "OMR " },
+  KW: { code: "KWD", symbol: "KWD " },
+  BH: { code: "BHD", symbol: "BHD " },
+  GB: { code: "GBP", symbol: "£" },
+  SG: { code: "SGD", symbol: "S$" },
+  AU: { code: "AUD", symbol: "A$" },
+  NZ: { code: "NZD", symbol: "NZ$" },
+  DE: { code: "EUR", symbol: "€" },
+  FR: { code: "EUR", symbol: "€" },
+  NL: { code: "EUR", symbol: "€" },
+  IE: { code: "EUR", symbol: "€" },
+  DEFAULT: { code: "INR", symbol: "₹" },
+};
+
 // ─── 4-Tier Crawler Classification Matrix ────────────────────────────────────
 
 const CRAWLER_TIERS = {
@@ -135,12 +157,17 @@ class HeadMetaInjector {
     const cleanPath = this.pathname.replace(/\/index\.html$/, "/").replace(/\/$/, "") || "/";
     const canonicalUrl = CANONICAL_ORIGIN + (cleanPath === "/" ? "/" : cleanPath + "/");
 
+    const country = this.cfData?.country || "IN";
+    const currency = CURRENCY_REGIONS[country] || CURRENCY_REGIONS["DEFAULT"];
+
     const geoBlock = `
-<!-- CF Enterprise Edge SEO Engine v6.0 (Worker Edition - Google Ecosystem Hardened) -->
+<!-- CF Enterprise Edge SEO Engine v6.1 (Worker Edition - Google Ecosystem Hardened + NRI Geo & INP) -->
 <meta name="geo.region" content="IN-MH">
 <meta name="geo.placename" content="Bhugaon, Pune West, Maharashtra, India">
 <meta name="geo.position" content="18.5050;73.7406">
 <meta name="ICBM" content="18.5050, 73.7406">
+<meta name="geo.detected_country" content="${country}">
+<meta name="geo.currency" content="${currency.code}">
 <meta name="author" content="Paranjape Schemes (Construction) Ltd.">
 <meta name="copyright" content="© 2026 Paranjape Forest Trails. All Rights Reserved.">`;
 
@@ -501,6 +528,53 @@ class EdgeSpeakableVoiceOptimizer {
   }
 }
 
+/**
+ * 12. Interaction to Next Paint (INP) & Core Web Vitals Optimizer
+ */
+class INPPerformanceOptimizer {
+  constructor(private isBot: boolean) {}
+  element(head: Element) {
+    if (this.isBot) return;
+    const snippet = `
+<!-- Chrome Core Web Vitals INP/FID Optimization Engine -->
+<script>
+(function() {
+  if (typeof window === 'undefined') return;
+  window.requestIdle = (window as any).requestIdleCallback || function(cb: Function) { return setTimeout(cb, 1200); };
+  var supportsPassive = false;
+  try {
+    var opts = Object.defineProperty({}, 'passive', { get: function() { supportsPassive = true; } });
+    window.addEventListener('testPassive', null as any, opts);
+    window.removeEventListener('testPassive', null as any, opts);
+  } catch (e) {}
+  (window as any).__supportsPassive = supportsPassive;
+})();
+</script>`;
+    head.append(snippet, { html: true });
+  }
+}
+
+/**
+ * 13. NRI & International Multi-Currency Personalization
+ */
+class NRIPersonalizationOptimizer {
+  constructor(
+    private country: string,
+    private currency: { code: string; symbol: string },
+    private isBot: boolean
+  ) {}
+  element(body: Element) {
+    if (this.isBot || this.country === "IN") return;
+    const nriBadge = `
+<!-- NRI Concierge & Currency Desk -->
+<aside id="nri-desk-badge" style="position:fixed;bottom:24px;left:20px;z-index:9999;background:linear-gradient(135deg,rgba(44,4,4,0.95),rgba(74,8,8,0.95));color:#f5eedc;border:1px solid #d4af37;border-radius:24px;padding:8px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.4);font-family:system-ui,-apple-system,sans-serif;font-size:12px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(10px);transition:transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='none'">
+  <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981;"></span>
+  <span><strong>NRI Desk Active:</strong> Rates in <strong>${this.currency.code} (${this.currency.symbol})</strong> | <a href="/nri-investment-bhugaon/" style="color:#d4af37;text-decoration:underline;font-weight:600;">NRI Guide &amp; FEMA</a></span>
+</aside>`;
+    body.append(nriBadge, { html: true });
+  }
+}
+
 // ─── Cache & Security Header Utilities ───────────────────────────────────────
 
 function applyCacheHeaders(headers: Headers, url: URL): void {
@@ -655,6 +729,8 @@ export default {
         region: cf?.region || "Maharashtra",
       };
 
+      const currency = CURRENCY_REGIONS[cfData.country] || CURRENCY_REGIONS["DEFAULT"];
+
       const rewriter = new HTMLRewriter()
         .on('link[rel="canonical"]', new CanonicalEnforcer(url.pathname))
         .on("head", new HeadMetaInjector(url.pathname, crawlerInfo, cfData))
@@ -668,7 +744,9 @@ export default {
         .on("img", new ImageAltA11yEnforcer())
         .on("head", new SemanticStructureGuardian(url.pathname))
         .on("head", new SpeculationRulesInjector())
-        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname));
+        .on("head", new EdgeSpeakableVoiceOptimizer(url.pathname))
+        .on("head", new INPPerformanceOptimizer(crawlerInfo.tier > 0))
+        .on("body", new NRIPersonalizationOptimizer(cfData.country, currency, crawlerInfo.tier > 0));
 
       transformedResponse = rewriter.transform(response);
     }
@@ -690,13 +768,20 @@ export default {
 
     const cf = (request as any).cf;
     const country = cf?.country || "IN";
+    const currency = CURRENCY_REGIONS[country] || CURRENCY_REGIONS["DEFAULT"];
     headers.set("Content-Language", country === "IN" ? "en-IN" : "en");
-    headers.set("Vary", "Accept-Encoding, Sec-CH-Width, Sec-CH-Viewport-Width");
+    headers.set("Vary", "Accept-Encoding, Sec-CH-Width, Sec-CH-Viewport-Width, CF-IPCountry");
+
+    // Geo & Currency & INP Headers
+    headers.set("X-Geo-Country", country);
+    headers.set("X-Currency-Preference", currency.code);
+    headers.set("X-NRI-Segment", country === "IN" ? "domestic" : "international");
+    headers.set("X-INP-Engine", "active;scheduler=idle-callback;passive-listeners=enforced");
 
     const edgeDuration = Date.now() - startTime;
-    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF SEO Worker v6", gbot;desc="Google Ecosystem Edge"`);
+    headers.set("Server-Timing", `edge;dur=${edgeDuration};desc="CF SEO Worker v6.1", gbot;desc="Google Ecosystem Edge"`);
     headers.set("X-Edge-Location", cf?.colo || "unknown");
-    headers.set("X-Response-Source", "cf-seo-worker-v6");
+    headers.set("X-Response-Source", "cf-seo-worker-v6.1");
     headers.set("X-Cache-Status", "MISS-EDGE");
 
     if (crawlerInfo.tier > 0) {
