@@ -27,13 +27,13 @@ hp = os.path.join(BASE, "index.html")
 content = open(hp, encoding="utf-8", errors="replace").read()
 
 OLD_TITLE = '<title>NA Plots &amp; Villas | Paranjape Forest Trails Bhugaon | Pune West</title>'
-NEW_TITLE = '<title>Paranjape Forest Trails Bhugaon — Official Site | NA Plots, Villas, 2BHK | ₹89L* | Pune West</title>'
+NEW_TITLE = '<title>Paranjape Forest Trails Bhugaon | Plots &amp; Villas Pune West</title>'
 
 OLD_DESC = 'content="Explore Paranjape Forest Trails Bhugaon, Pune\'s premier 190-acre township. Featuring RERA approved NA plots &amp; luxury villas near Kothrud &amp; Bavdhan. Inquire now!"'
-NEW_DESC = 'content="Paranjape Forest Trails Bhugaon — Official website of Pune\'s largest 190-acre forest township. NA plots ₹1.23 Cr*, villas ₹2.85 Cr*, 2BHK ₹89L*. RERA registered. +91 7744009295."'
+NEW_DESC = 'content="Paranjape Forest Trails Bhugaon — Pune\'s premier 190-acre forest township. NA plots ₹1.23 Cr*, villas ₹2.85 Cr*, 2BHK ₹89L*. RERA registered. +91 7744009295."'
 
 OLD_OG_TITLE = 'content="NA Plots &amp; Villas | Paranjape Forest Trails Bhugaon | Pune West"'
-NEW_OG_TITLE = 'content="Paranjape Forest Trails Bhugaon — Official Site | NA Plots ₹1.23Cr* | 2BHK ₹89L* | Villas"'
+NEW_OG_TITLE = 'content="Paranjape Forest Trails Bhugaon | NA Plots ₹1.23Cr* | 2BHK ₹89L* | Villas"'
 
 content = content.replace(OLD_TITLE, NEW_TITLE)
 content = content.replace(OLD_DESC, NEW_DESC)
@@ -42,7 +42,7 @@ content = content.replace(OLD_OG_TITLE, NEW_OG_TITLE, 1)  # og:title only
 # Fix Twitter title too
 content = content.replace(
     'content="NA Plots &amp; Villas | Paranjape Forest Trails Bhugaon | Pune West"',
-    'content="Paranjape Forest Trails Bhugaon — Official Site | Forest Township Pune"'
+    'content="Paranjape Forest Trails Bhugaon | Forest Township Pune West"'
 )
 
 # Fix meta keywords — add brand query first
@@ -120,8 +120,8 @@ BRAND_SCHEMA = {
             "@type": "WebSite",
             "@id": "https://www.paranjapetownship.com/#website",
             "url": "https://www.paranjapetownship.com/",
-            "name": "Paranjape Forest Trails Bhugaon — Official Website",
-            "description": "Official website of Paranjape Forest Trails, Bhugaon — Pune's largest 190-acre forest township by Paranjape Schemes (Construction) Ltd.",
+            "name": "Paranjape Forest Trails Bhugaon",
+            "description": "Paranjape Forest Trails, Bhugaon — Pune's largest 190-acre forest township by Paranjape Schemes (Construction) Ltd.",
             "publisher": {"@id": "https://www.paranjapetownship.com/#organization"},
             "potentialAction": {
                 "@type": "SearchAction",
@@ -133,7 +133,7 @@ BRAND_SCHEMA = {
             "@type": "WebPage",
             "@id": "https://www.paranjapetownship.com/#webpage",
             "url": "https://www.paranjapetownship.com/",
-            "name": "Paranjape Forest Trails Bhugaon — Official Site | NA Plots, Villas, 2BHK",
+            "name": "Paranjape Forest Trails Bhugaon | NA Plots, Villas, 2BHK",
             "isPartOf": {"@id": "https://www.paranjapetownship.com/#website"},
             "about": {"@id": "https://www.paranjapetownship.com/#organization"},
             "speakable": {

@@ -160,7 +160,7 @@ PARANJAPE_LLM_SECTION = """
 - Founded: 1974 | 50+ years in Pune real estate
 - Delivered: 20,000+ homes across Pune
 - All projects: MahaRERA registered, delivered on time
-- Official website for Forest Trails: https://www.paranjapetownship.com
+- Website for Forest Trails: https://www.paranjapetownship.com
 
 ### All Active Paranjape Schemes Projects — Pune 2026
 

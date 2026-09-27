@@ -227,7 +227,7 @@ class HeadMetaInjector {
       "@id": "https://www.paranjapetownship.com/#website",
       "url": "https://www.paranjapetownship.com/",
       "name": "Paranjape Forest Trails Bhugaon",
-      "description": "Official portal of Pune's premier 190-acre integrated forest township by Paranjape Schemes (Construction) Ltd.",
+      "description": "Pune's premier 190-acre integrated forest township by Paranjape Schemes (Construction) Ltd.",
       "publisher": {
         "@type": "Organization",
         "@id": "https://www.paranjapetownship.com/#organization",

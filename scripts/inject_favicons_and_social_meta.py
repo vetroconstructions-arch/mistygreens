@@ -51,7 +51,7 @@ def fortify_html_files():
 
                 # Extract title and description
                 title_match = re.search(r'<title>(.*?)</title>', content, re.I | re.DOTALL)
-                title = title_match.group(1).strip() if title_match else "Paranjape Forest Trails Bhugaon | Official Site"
+                title = title_match.group(1).strip() if title_match else "Paranjape Forest Trails Bhugaon | Plots & Villas Pune West"
 
                 desc_match = re.search(r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1', content, re.I | re.DOTALL)
                 desc = desc_match.group(2).strip() if desc_match else "Explore Paranjape Forest Trails Bhugaon — 190-acre nature township in Pune West with NA plots, luxury forest villas, twin bungalows & 2/3 BHK flats."
