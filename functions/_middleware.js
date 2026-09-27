@@ -61,7 +61,7 @@ const PERMALINK_REDIRECTS = {
 
 // ─── Edge Keyword Routing Table ───────────────────────────────────────────────
 // Maps URL path prefixes → page-specific keyword cluster injected at edge
-const BRAND_KW = "Paranjape Schemes Construction Ltd, Paranjape Forest Trails Bhugaon, Misty Greens NA Plots, The Rivolo Villas, The Canopy Apartments, Highgardens, The Cove Bungalows, Athashri Senior Living, Everglades Bavdhan, RERA approved Bhugaon, MahaRERA P52100053834, 190-acre gated township Pune West";
+const BRAND_KW = "Paranjape Schemes Construction Ltd, Paranjape Forest Trails Bhugaon, Forest Trails Pune, Forest Trails Township Paud Road, Misty Greens NA Plots, The Rivolo Villas, The Canopy Apartments, The Highgardens, The Cove Twin Bungalows, Athashri Senior Living, Everglades Bavdhan, The Verandah, Orchard Residences, Swaniketan, RERA approved Bhugaon, MahaRERA P52100053834, MahaRERA P52100031560, MahaRERA P52100079518, MahaRERA P52100048536, 190-acre gated forest township Pune West, luxury real estate Bhugaon, buy property near Chandani Chowk Bavdhan Kothrud";
 
 const KEYWORD_ROUTES = {
   "/": `NA plots Bhugaon, luxury villas Bhugaon, 2BHK in Bhugaon, 3BHK Pune West, property in Bhugaon, gated township Pune West, NA bungalow plots Pune, buy property near Kothrud Bavdhan, NRI investment Bhugaon, RERA approved plots Bhugaon, ${BRAND_KW}`,
@@ -232,6 +232,51 @@ const KEYWORD_ROUTES = {
   "/paranjape-schemes-contact": `Paranjape Schemes contact number, Paranjape Schemes phone number Pune, Paranjape builder contact, Forest Trails contact, +91 7744009295, ${BRAND_KW}`,
   "/paranjape-forest-trails-review": `Paranjape Forest Trails review, Forest Trails Bhugaon review, Forest Trails rating 2026, Forest Trails buyer review, is Forest Trails good investment, ${BRAND_KW}`,
   "/paranjape-nri-investment": `Paranjape Schemes NRI investment, Paranjape NRI property Pune, NRI buy Forest Trails, Paranjape Schemes FEMA, NRI real estate Paranjape Pune, ${BRAND_KW}`,
+
+  // ─── Pillar Guides & Specialized Real Estate Hubs ───────────────────────────
+  "/ultimate-guide-na-plots-bhugaon": `ultimate guide NA plots Bhugaon, NA plots Bhugaon guide, buy NA plots Bhugaon 2026, NA bungalow plots Bhugaon price, NA plot purchase process Pune, Misty Greens NA plots, 7/12 extract NA plots Bhugaon, MahaRERA P52100053834, ${BRAND_KW}`,
+  "/complete-guide-buying-property-pune-west-2026": `complete guide buying property Pune West 2026, property guide Pune West, Bhugaon Bavdhan Kothrud property guide, invest Pune West 2026, real estate Pune West, Paranjape Forest Trails complete guide, ${BRAND_KW}`,
+  "/compare-all-enclaves": `compare Forest Trails enclaves, Forest Trails enclave comparison, Misty Greens vs Rivolo, Canopy vs Highgardens, Forest Trails all enclaves price list 2026, which enclave Forest Trails Bhugaon, ${BRAND_KW}`,
+  "/floor-plans": `Paranjape Forest Trails floor plans, Forest Trails floor plan 2026, Misty Greens plot layout, Rivolo villa floor plan, Canopy 2BHK 3BHK layout, Cove twin bungalow plan, ${BRAND_KW}`,
+  "/virtual-tour-forest-trails": `virtual tour Forest Trails Bhugaon, 360 tour Paranjape Bhugaon, online property tour Forest Trails Pune, Forest Trails 360 walk, explore Forest Trails online, ${BRAND_KW}`,
+  "/testimonials": `Paranjape Forest Trails reviews, Forest Trails Bhugaon testimonials, Misty Greens buyers review, Paranjape Schemes review Pune, Forest Trails buyer ratings 2026, ${BRAND_KW}`,
+  "/faqs": `Paranjape Forest Trails FAQs, real estate FAQs Pune, buying plot in Bhugaon FAQ, MahaRERA Forest Trails FAQ, plot loan FAQ Pune, Forest Trails possession FAQ, ${BRAND_KW}`,
+  "/glossary": `real estate glossary Pune, property terms Maharashtra, 7/12 extract meaning, NA order meaning, RERA carpet area definition, ready reckoner rate Pune, index 2 meaning, ${BRAND_KW}`,
+  "/bhugaon-neighbourhood-guide": `Bhugaon neighbourhood guide 2026, living in Bhugaon Pune, Bhugaon pin code 412115, schools near Bhugaon, hospitals near Bhugaon, restaurants near Bhugaon, Forest Trails neighbourhood, ${BRAND_KW}`,
+  "/bavdhan-area-guide": `Bavdhan area guide 2026, living in Bavdhan Pune, Bavdhan connectivity, Bavdhan real estate guide, Bavdhan schools hospitals, property near Bavdhan, ${BRAND_KW}`,
+  "/chandani-chowk-area-guide": `Chandani Chowk area guide, Chandani Chowk flyover Pune, property near Chandani Chowk 2026, Chandani Chowk real estate impact, Chandani Chowk to Bhugaon, ${BRAND_KW}`,
+  "/kothrud-area-guide": `Kothrud area guide 2026, Kothrud Pune real estate, Kothrud property prices, Kothrud extension guide, Kothrud to Bhugaon distance, ${BRAND_KW}`,
+  "/paud-road-area-guide": `Paud Road area guide, Paud Road real estate Pune, property on Paud Road Bhugaon, Paud Road connectivity, Forest Trails Paud Road corridor, ${BRAND_KW}`,
+  "/bhugaon-property-price-history": `Bhugaon property price history, Bhugaon price trend 2019 2026, NA plot price appreciation Bhugaon, Forest Trails price history, property CAGR Bhugaon, ${BRAND_KW}`,
+  "/roi-calculator-pune": `property ROI calculator Pune, real estate ROI calculator, calculate plot appreciation Pune, Forest Trails ROI calculator, Pune property returns 2026, ${BRAND_KW}`,
+  "/stamp-duty-calculator-pune": `stamp duty calculator Pune 2026, Maharashtra stamp duty calculator, plot registration charges Pune, property tax calculator Pune, stamp duty for women Pune, ${BRAND_KW}`,
+
+  // ─── Authority & Brand E-E-A-T Routes ────────────────────────────────────────
+  "/paranjape-schemes-track-record": `Paranjape Schemes track record, Paranjape Schemes history 1974, 50 years of Paranjape Schemes, 20000 homes delivered Pune, Paranjape Schemes awards, builder reliability Pune, ${BRAND_KW}`,
+  "/why-choose-paranjape-schemes": `why choose Paranjape Schemes, 10 reasons buy Paranjape, Paranjape Schemes benefits, builder quality Pune, Paranjape Schemes reliability, ${BRAND_KW}`,
+  "/about/paranjape-editorial-team": `Paranjape editorial team, Pune real estate experts, MahaRERA certified advisors, property advisory Pune West, ${BRAND_KW}`,
+  "/press-and-awards": `Paranjape Forest Trails awards, best township Pune West, Paranjape Schemes press coverage, Economic Times Pune real estate awards, ${BRAND_KW}`,
+
+  // ─── Multilingual Regional Dominance (Hindi & Marathi) ───────────────────────
+  "/pune-mein-plot": `पुणे में प्लॉट, पुणे में एनए प्लॉट, भुगाव में प्लॉट, पुणे वेस्ट प्लॉट, NA plot pune mein, buy plot in pune hindi, ${BRAND_KW}`,
+  "/bhugaon-mein-flat": `भुगाव में फ्लैट, bhugaon mein flat, भुगाव में 2BHK, भुगाव में 3BHK, पुणे वेस्ट अपार्टमेंट, flat in bhugaon hindi, ${BRAND_KW}`,
+  "/pune-mein-villa": `पुणे में विला, pune mein villa, लग्जरी विला पुणे, 4BHK villa pune, luxury villa pune hindi, ${BRAND_KW}`,
+  "/pune-madhe-plot": `पुण्यात प्लॉट, एनए प्लॉट पुणे, भुगाव मध्ये प्लॉट, NA plot Pune Marathi, plot bhugaon pune marathi, ${BRAND_KW}`,
+  "/bhugaon-madhe-flat": `भुगाव मध्ये फ्लॅट, bhugaon madhe flat, पुणे पश्चिम फ्लॅट, 2BHK pune marathi, flat in bhugaon marathi, ${BRAND_KW}`,
+  "/pune-madhe-villa": `पुण्यात व्हिला, luxury villa pune marathi, bhugaon villa pune, 4BHK villa pune marathi, ${BRAND_KW}`,
+
+  // ─── Competitor Intelligence & Comparison Routes ─────────────────────────────
+  "/forest-trails-vs-godrej-pune": `Paranjape Forest Trails vs Godrej Pune, Forest Trails vs Godrej, compare Paranjape Godrej Pune 2026, Godrej vs Forest Trails Bhugaon, ${BRAND_KW}`,
+  "/forest-trails-vs-kolte-patil-pune": `Paranjape Forest Trails vs Kolte Patil, Forest Trails vs Kolte Patil Pune, compare Kolte Patil Paranjape plots, ${BRAND_KW}`,
+  "/forest-trails-vs-amanora": `Forest Trails vs Amanora, Paranjape vs Amanora Pune, Bhugaon vs Hadapsar investment 2026, West Pune vs East Pune township, ${BRAND_KW}`,
+  "/forest-trails-vs-rohan-nilay": `Forest Trails vs Rohan Nilay, Paranjape vs Rohan Nilay, Forest Trails vs Kothrud projects 2026, ${BRAND_KW}`,
+  "/forest-trails-vs-vtp-urbana": `Forest Trails vs VTP Urbana, Paranjape vs VTP Pune, compare VTP Urbana Forest Trails 2026, ${BRAND_KW}`,
+  "/forest-trails-vs-gera-isle-royale": `Forest Trails vs Gera Isle Royale, Paranjape vs Gera Pune, compare Gera Isle Royale Forest Trails, ${BRAND_KW}`,
+  "/forest-trails-vs-kalpataru-elegante": `Forest Trails vs Kalpataru Pune, Paranjape vs Kalpataru, Forest Trails vs Kalpataru Elegante 2026, ${BRAND_KW}`,
+  "/paranjape-forest-trails-vs-blue-ridge": `Paranjape Forest Trails vs Blue Ridge, Forest Trails Bhugaon vs Blue Ridge Hinjewadi, which Paranjape project is better, ${BRAND_KW}`,
+
+  // ─── Blog Ecosystem Prefix Route ─────────────────────────────────────────────
+  "/paranjape-forest-trails-township-bhugaon-blogs": `Paranjape Forest Trails blog, Pune real estate blog 2026, Bhugaon property articles, property investment advice Pune, NA plot buying guides, stamp duty plots Pune, ${BRAND_KW}`,
 };
 
 
