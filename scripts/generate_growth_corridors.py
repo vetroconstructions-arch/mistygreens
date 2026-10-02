@@ -179,6 +179,45 @@ PAGES = [
             ("Is high-speed broadband available for remote work?", "Yes. Dedicated fiber lines support gigabit speeds, making it an ideal work-from-nature hybrid home during weekdays."),
             ("How do I book a private weekend tour of the villas and club?", "Directly contact the sales concierge at +91 7744009295 or tap the WhatsApp button to reserve your VIP tour of The Cliff Club and sample villas.")
         ]
+    },
+    {
+        "slug": "pune-metro-extension-paud-road-bhugaon-connectivity",
+        "title": "Pune Metro Extension Paud Road 2026 | Bhugaon Transit",
+        "h1": "Pune Metro Line 3 Extension: Paud Road & Bhugaon Connectivity (2026)",
+        "meta_desc": "Impact of Pune Metro Line 3 extension along Paud Road to Bhugaon. Discover station corridors, Chandani Chowk integration, and property appreciation.",
+        "keywords": "Pune Metro Line 3 Paud Road, Bhugaon metro connectivity, Pune metro extension Chandani Chowk, Vanaz metro to Bhugaon, Paranjape Forest Trails metro impact 2026",
+        "category": "Rapid Transit & Infrastructure",
+        "intro": "The rapid expansion of the Pune Metro network is fundamentally reshaping daily transit across West Pune. Following the commercial success of the Vanaz–Ruby Hall corridor, the planned western spur linking Vanaz, Chandani Chowk, and the Paud Road arterial provides high-speed, traffic-free mass transit straight to the doorstep of Bhugaon. Homeowners and investors at Paranjape Forest Trails will enjoy rapid, eco-friendly transit to Pune Station, Deccan Gymkhana, and the Hinjewadi IT corridor.",
+        "sections": [
+            {
+                "title": "Pune Metro Western Expansion: Connectivity to Bhugaon",
+                "content": "<p>With the Vanaz Metro Station currently operational just 12 minutes (7.8 km) from Paranjape Forest Trails via the signal-free Paud Road flyover corridor, residents already enjoy rapid rail transit into Central Pune. The proposed Paud Road multi-modal transit hub at Chandani Chowk creates a direct feeder connection linking Bhugaon to both Line 2 (Vanaz to Ramwadi) and Line 3 (Hinjewadi to Shivajinagar), dramatically compressing everyday commutes.</p>"
+            },
+            {
+                "title": "Transit Proximity & Commute Times via Pune Metro",
+                "content": "<p>Review actual travel benchmarks from Paranjape Forest Trails via the Pune Metro network:</p>",
+                "table": {
+                    "headers": ["Key Destination", "Current Road Commute", "Metro Transit Duration", "Nearest Metro Station"],
+                    "rows": [
+                        ["Kothrud / Paud Phata", "15 - 20 mins", "8 mins (via Vanaz)", "Vanaz Metro Station (7.8 km)"],
+                        ["Deccan Gymkhana", "30 - 40 mins", "15 mins", "Garware College Station"],
+                        ["Civil Court Interchange", "45 - 55 mins", "22 mins", "Civil Court Station (Central Hub)"],
+                        ["Pune Railway Station", "50 - 65 mins", "26 mins", "Pune Railway Station Metro"],
+                        ["Hinjewadi Megapolis", "35 - 45 mins", "20 mins", "Megapolis Metro Terminal (Line 3)"]
+                    ]
+                }
+            },
+            {
+                "title": "Transit-Oriented Capital Appreciation in Bhugaon",
+                "content": "<p>Global and domestic real estate analyses prove that prime residential assets within 10 to 15 minutes of rapid transit hubs appreciate 18% to 26% faster than non-transit-connected neighborhoods. Investing in Paranjape Forest Trails combines the sanctuary of 190 acres of virgin forest with the unbeatable accessibility of Pune's premier transit arteries.</p>"
+            }
+        ],
+        "faqs": [
+            ("How far is the nearest operational metro station from Paranjape Forest Trails?", "The Vanaz Metro Station in Kothrud is currently the closest operational station, located only 7.8 km (12 minutes drive) via Paud Road."),
+            ("Will the Pune Metro directly connect to Chandani Chowk and Paud Road?", "Yes. The MahaMetro Phase 2 master plan and comprehensive mobility survey include feeder routes and extension spurs connecting Vanaz to Chandani Chowk along Paud Road."),
+            ("How does rapid transit affect plot and villa values in Forest Trails?", "Transit connectivity accelerates end-user demand from Hinjewadi IT professionals and downtown Pune executives, driving consistent 18-22% capital appreciation for gated assets."),
+            ("What configurations are currently open for booking at Forest Trails?", "Forest Trails offers ready & custom NA bungalow plots (₹1.23 Cr*), 2 & 3 BHK nature apartments (₹89 Lakhs*), and 4 & 5 BHK luxury forest villas (₹3.89 Cr*).")
+        ]
     }
 ]
 

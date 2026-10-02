@@ -1,0 +1,874 @@
+#!/usr/bin/env python3
+"""
+Generate Interactive Master Plan & Sector Explorer for Paranjape Forest Trails
+Slug: /master-plan-layout-explorer/
+"""
+
+import os
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Forest Trails Master Plan &amp; Sector Explorer 2026 | Paranjape</title>
+  <meta name="description" content="Explore the 190-acre master plan of Paranjape Forest Trails Bhugaon. Interactive sector map for Misty Greens plots, Rivolo villas, and Canopy apartments.">
+  <meta name="keywords" content="Forest Trails master plan, Paranjape Bhugaon layout, Misty Greens layout map, Rivolo villas master plan, Canopy floor plan layout, Forest Trails sector map, Bhugaon plot layout 2026">
+  <link rel="canonical" href="https://www.paranjapetownship.com/master-plan-layout-explorer/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="google-site-verification" content="fA009Y6RAvi_yacg8Lw7JJu5uvAGR5po2RIUH8VcuvE">
+  <meta name="geo.region" content="IN-MH">
+  <meta name="geo.placename" content="Bhugaon, Pune West, Maharashtra, India">
+  <meta name="geo.position" content="18.5050;73.7406">
+  <meta name="ICBM" content="18.5050, 73.7406">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Forest Trails Master Plan &amp; Sector Explorer 2026 | Paranjape">
+  <meta property="og:description" content="Explore the 190-acre master plan of Paranjape Forest Trails Bhugaon. Interactive sector maps for Misty Greens plots, Rivolo villas, and Canopy apartments.">
+  <meta property="og:url" content="https://www.paranjapetownship.com/master-plan-layout-explorer/">
+  <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#4A0808">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
+
+  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 & GA4: G-PARANJAPE -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+    gtag('config', 'AW-17430583486');
+    if (!window.__psclContactTracked) {
+      window.__psclContactTracked = true;
+      document.addEventListener('click', function(e) {
+        try {
+          var a = e.target && e.target.closest ? e.target.closest('a') : null;
+          if (!a) return;
+          var h = a.getAttribute('href') || '';
+          if (h.indexOf('tel:') === 0) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+            }
+          } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+            }
+          }
+        } catch(err) {}
+      }, { passive: true });
+    }
+  </script>
+
+  <!-- Schema JSON-LD -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.paranjapetownship.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Floor Plans & Layouts", "item": "https://www.paranjapetownship.com/floor-plans/" },
+        { "@type": "ListItem", "position": 3, "name": "Master Plan Explorer", "item": "https://www.paranjapetownship.com/master-plan-layout-explorer/" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Paranjape Forest Trails Interactive Master Plan & Sector Explorer",
+      "url": "https://www.paranjapetownship.com/master-plan-layout-explorer/",
+      "applicationCategory": "RealEstateApplication",
+      "operatingSystem": "All",
+      "description": "Interactive SVG layout and sector explorer for Paranjape Forest Trails 190-acre township in Bhugaon, West Pune."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the total acreage of Paranjape Forest Trails?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Paranjape Forest Trails spans 190 sprawling acres in Bhugaon, Pune West, comprising 10 distinct residential enclaves, private forest reserves, The Cliff Club, and Equestrian Academy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which sectors in Forest Trails offer NA Bungalow Plots?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Misty Greens spans Sectors A, B, C, D, and E offering collector-sanctioned, MahaRERA registered (P52100053834) NA plots ranging from 1,800 to 3,600 sq.ft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where are the luxury forest villas located in the master plan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Rivolo luxury villas (P52100031560) occupy prime hilltop ridge elevations overlooking the valley, offering 4BHK and 5BHK private estates from ₹3.89 Crore*."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I download high-resolution PDF blueprints for individual sectors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Select any sector on the interactive layout and tap 'Download Sector Blueprint' or connect directly on WhatsApp at +91 7744009295 for instant PDF transmission."
+          }
+        }
+      ]
+    }
+  ]
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #0f121a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    .top-nav {
+      background: #181822;
+      border-bottom: 1.5px solid rgba(212, 175, 55, 0.3);
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .top-nav a.brand {
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.05em;
+    }
+    .top-nav .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .top-nav .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .top-nav .nav-links a:hover {
+      color: #D4AF37;
+    }
+    .top-nav .cta-call {
+      background: #D4AF37;
+      color: #1a1a1a;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 0.82rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem;
+    }
+    .header-box {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #D4AF37;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 50px;
+      margin-bottom: 0.8rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 2.2rem;
+      color: #ffffff;
+      margin: 0.2rem 0 0.8rem;
+      line-height: 1.25;
+    }
+    h1 span {
+      color: #D4AF37;
+    }
+    .subtitle {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      color: #cbd5e1;
+      padding: 0.5rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #4A0808;
+      border-color: #D4AF37;
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    }
+    .explorer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    @media (max-width: 960px) {
+      .explorer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .map-wrap {
+      background: #141724;
+      border: 1.5px solid rgba(212, 175, 55, 0.35);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+    .map-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .sector-polygon {
+      cursor: pointer;
+      transition: all 0.3s ease;
+      stroke-width: 2.5;
+    }
+    .sector-polygon:hover, .sector-polygon.active-sector {
+      stroke: #ffffff !important;
+      stroke-width: 4 !important;
+      filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+    }
+    .inspector-card {
+      background: #181b29;
+      border: 1.5px solid rgba(212, 175, 55, 0.4);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      position: sticky;
+      top: 5rem;
+    }
+    .inspector-card h2 {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin: 0 0 0.4rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .inspector-tag {
+      display: inline-block;
+      background: #4A0808;
+      color: #D4AF37;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .inspector-detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+    }
+    .inspector-detail-row span.label {
+      color: #94a3b8;
+    }
+    .inspector-detail-row strong {
+      color: #f1f5f9;
+      text-align: right;
+    }
+    .inspector-price {
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid #D4AF37;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      margin: 1.25rem 0;
+      text-align: center;
+    }
+    .inspector-price .val {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #D4AF37;
+    }
+    .inspector-price .sub {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+    .inspector-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .btn-wa {
+      background: #25D366;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-wa:hover {
+      background: #20bd5a;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #D4AF37, #B8860B);
+      color: #1a1a1a;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    .data-table-wrap {
+      background: #141724;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 2.5rem 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.88rem;
+    }
+    th {
+      background: #4A0808;
+      color: #D4AF37;
+      padding: 0.9rem 1.1rem;
+      font-weight: 700;
+      border-bottom: 2px solid #D4AF37;
+    }
+    td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+    }
+    tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .faq-section {
+      margin: 3.5rem 0;
+    }
+    .faq-item {
+      background: #181b29;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .faq-q {
+      color: #D4AF37;
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .faq-a {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav">
+    <a href="/" class="brand">PARANJAPE FOREST TRAILS</a>
+    <nav class="nav-links">
+      <a href="/floor-plans/">All Floor Plans</a>
+      <a href="/na-plots-in-bhugaon/">NA Plots</a>
+      <a href="/luxury-villas-bhugaon/">Villas</a>
+      <a href="/2bhk-in-bhugaon/">Apartments</a>
+      <a href="tel:+917744009295" class="cta-call">📞 +91 7744009295</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="header-box">
+      <span class="badge">✦ 190 ACRES • 10 ENCLAVES • PUNE WEST ✦</span>
+      <h1>Paranjape Forest Trails: <span>Interactive Master Plan</span> &amp; Sector Explorer (2026)</h1>
+      <p class="subtitle">Click on any sector below to inspect plot configurations, elevation profiles, MahaRERA numbers, and current price bands across the 190-acre township in Bhugaon.</p>
+      
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Show All Enclaves</button>
+        <button class="filter-btn" data-filter="plots">NA Plots (Misty Greens)</button>
+        <button class="filter-btn" data-filter="villas">Forest Villas (Rivolo &amp; Cove)</button>
+        <button class="filter-btn" data-filter="apts">Apartments (Canopy &amp; Highgardens)</button>
+        <button class="filter-btn" data-filter="amenities">Club &amp; Equestrian Hub</button>
+      </div>
+    </div>
+
+    <div class="explorer-grid">
+      <!-- Interactive SVG Canvas -->
+      <div class="map-wrap">
+        <svg class="map-svg" viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background / Forest Contour -->
+          <defs>
+            <linearGradient id="forestBg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0a120c" />
+              <stop offset="50%" stop-color="#112215" />
+              <stop offset="100%" stop-color="#0d180f" />
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#D4AF37" />
+              <stop offset="100%" stop-color="#AA8010" />
+            </linearGradient>
+          </defs>
+
+          <!-- Township Boundary Contour -->
+          <rect width="1000" height="650" fill="url(#forestBg)" rx="14" />
+          
+          <!-- Topography Contour Lines -->
+          <path d="M 50 150 Q 300 80 600 130 T 950 100" stroke="rgba(212,175,55,0.12)" stroke-width="1.5" fill="none" />
+          <path d="M 30 320 Q 350 250 650 310 T 970 280" stroke="rgba(212,175,55,0.12)" stroke-width="1.5" fill="none" />
+          <path d="M 70 500 Q 400 420 700 480 T 960 450" stroke="rgba(212,175,55,0.12)" stroke-width="1.5" fill="none" />
+
+          <!-- Internal 40-ft Spine Arterial Road -->
+          <path d="M 50 600 C 180 550, 240 420, 320 340 S 520 280, 680 220 S 840 180, 950 120" stroke="#475569" stroke-width="20" stroke-linecap="round" fill="none" opacity="0.65" />
+          <path d="M 50 600 C 180 550, 240 420, 320 340 S 520 280, 680 220 S 840 180, 950 120" stroke="#f8fafc" stroke-width="2" stroke-dasharray="8 8" fill="none" opacity="0.8" />
+          <text x="80" y="625" fill="#94a3b8" font-size="12" font-weight="700">Paud Road Main Entry Gate →</text>
+
+          <!-- Sector A: Skyline Villas & Plots (Plots/Villas) -->
+          <polygon class="sector-polygon" data-sector="sec-a" data-cat="plots" points="160,380 280,310 320,380 220,460" fill="rgba(34, 197, 94, 0.25)" stroke="#22c55e" />
+          <text x="210" y="380" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">Sector A</text>
+          <text x="210" y="398" fill="#86efac" font-size="10" text-anchor="middle">Skyline Plots</text>
+
+          <!-- Sector B: Misty Heights (Plots) -->
+          <polygon class="sector-polygon" data-sector="sec-b" data-cat="plots" points="290,290 410,230 450,300 340,360" fill="rgba(34, 197, 94, 0.3)" stroke="#22c55e" />
+          <text x="370" y="290" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">Sector B</text>
+          <text x="370" y="308" fill="#86efac" font-size="10" text-anchor="middle">Misty Heights</text>
+
+          <!-- Sector C: Riverview NA Plots -->
+          <polygon class="sector-polygon" data-sector="sec-c" data-cat="plots" points="430,220 560,180 590,260 470,300" fill="rgba(34, 197, 94, 0.35)" stroke="#22c55e" />
+          <text x="510" y="235" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">Sector C</text>
+          <text x="510" y="253" fill="#86efac" font-size="10" text-anchor="middle">Riverview Plots</text>
+
+          <!-- Sector D & E: Forest Edge & Valley Plots -->
+          <polygon class="sector-polygon" data-sector="sec-d" data-cat="plots" points="580,170 700,130 730,210 610,250" fill="rgba(34, 197, 94, 0.28)" stroke="#22c55e" />
+          <text x="655" y="185" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">Sector D &amp; E</text>
+          <text x="655" y="203" fill="#86efac" font-size="10" text-anchor="middle">Forest Edge</text>
+
+          <!-- The Rivolo Luxury Forest Villas -->
+          <polygon class="sector-polygon" data-sector="rivolo" data-cat="villas" points="720,110 880,70 920,160 760,200" fill="rgba(212, 175, 55, 0.35)" stroke="#D4AF37" />
+          <text x="820" y="130" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">The Rivolo</text>
+          <text x="820" y="148" fill="#fef08a" font-size="10" text-anchor="middle">Luxury Villas 4/5 BHK</text>
+
+          <!-- The Cove Twin Bungalows -->
+          <polygon class="sector-polygon" data-sector="cove" data-cat="villas" points="750,230 890,190 920,280 780,320" fill="rgba(234, 179, 8, 0.3)" stroke="#eab308" />
+          <text x="835" y="250" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">The Cove</text>
+          <text x="835" y="268" fill="#fde047" font-size="10" text-anchor="middle">Twin Bungalows</text>
+
+          <!-- The Canopy & Highgardens (Apartments) -->
+          <polygon class="sector-polygon" data-sector="canopy" data-cat="apts" points="500,340 680,290 710,400 530,440" fill="rgba(56, 189, 248, 0.3)" stroke="#38bdf8" />
+          <text x="605" y="360" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">The Canopy</text>
+          <text x="605" y="378" fill="#bae6fd" font-size="10" text-anchor="middle">2 &amp; 3 BHK Apartments</text>
+
+          <!-- Athashri Senior Living -->
+          <polygon class="sector-polygon" data-sector="athashri" data-cat="apts" points="340,430 480,380 510,480 370,520" fill="rgba(168, 85, 247, 0.3)" stroke="#a855f7" />
+          <text x="425" y="445" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">Athashri</text>
+          <text x="425" y="463" fill="#e9d5ff" font-size="10" text-anchor="middle">Senior Living</text>
+
+          <!-- The Cliff Lifestyle Club & Amenities -->
+          <circle class="sector-polygon" data-sector="cliff-club" data-cat="amenities" cx="440" cy="140" r="45" fill="rgba(244, 63, 94, 0.35)" stroke="#f43f5e" />
+          <text x="440" y="138" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">The Cliff Club</text>
+          <text x="440" y="152" fill="#fecdd3" font-size="8" text-anchor="middle">Olympic Pool &amp; Spa</text>
+
+          <!-- Equestrian Academy -->
+          <circle class="sector-polygon" data-sector="equestrian" data-cat="amenities" cx="200" cy="220" r="42" fill="rgba(244, 63, 94, 0.35)" stroke="#f43f5e" />
+          <text x="200" y="218" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">Equestrian</text>
+          <text x="200" y="232" fill="#fecdd3" font-size="8" text-anchor="middle">Riding Arena</text>
+        </svg>
+      </div>
+
+      <!-- Live Inspector HUD -->
+      <aside class="inspector-card" id="inspector-hud">
+        <span class="inspector-tag" id="hud-type">NA BUNGALOW PLOTS</span>
+        <h2 id="hud-title">Misty Greens — Sector A</h2>
+        <p style="color: #94a3b8; font-size: 0.82rem; margin: 0 0 1rem;" id="hud-tagline">Panoramic Sahyadri ridge elevation with private internal road access.</p>
+
+        <div class="inspector-price">
+          <div class="sub">STARTING INDICATIVE PRICE</div>
+          <div class="val" id="hud-price">₹ 1.23 Cr*</div>
+          <div class="sub">Ready for Immediate Construction</div>
+        </div>
+
+        <div class="inspector-detail-row">
+          <span class="label">MahaRERA ID:</span>
+          <strong id="hud-rera">P52100053834</strong>
+        </div>
+        <div class="inspector-detail-row">
+          <span class="label">Plot / Unit Sizes:</span>
+          <strong id="hud-sizes">1,800 – 3,600 Sq.Ft.</strong>
+        </div>
+        <div class="inspector-detail-row">
+          <span class="label">Vaastu Orientation:</span>
+          <strong id="hud-vaastu">East &amp; North-East Facing</strong>
+        </div>
+        <div class="inspector-detail-row">
+          <span class="label">Possession Status:</span>
+          <strong id="hud-possession">Ready Possession with 7/12</strong>
+        </div>
+
+        <div class="inspector-actions" style="margin-top: 1.5rem;">
+          <a class="btn-wa" id="hud-wa-link" href="https://wa.me/917744009295?text=Hi%2C%20please%20send%20the%20Misty%20Greens%20Sector%20A%20layout%20and%20price%20sheet." target="_blank" rel="noopener">
+            WhatsApp Blueprint Request →
+          </a>
+          <a class="btn-primary" href="tel:+917744009295">
+            Book VIP Site Visit (Paud Rd)
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Fallback Search-Engine Data Table -->
+    <section>
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 0.5rem;">
+        Master Enclave Inventory &amp; Blueprint Specifications (2026)
+      </h2>
+      <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Complete overview of all 10 enclaves across the 190-acre gated ecosystem in Bhugaon, Pune West.
+      </p>
+
+      <div class="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Enclave Name</th>
+              <th>Property Type</th>
+              <th>Configurations</th>
+              <th>Starting Price*</th>
+              <th>MahaRERA Reg.</th>
+              <th>Possession Timeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Misty Greens (Sectors A to E)</strong></td>
+              <td>NA Bungalow Plots</td>
+              <td>1,800 to 3,600 sq.ft.</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹1.23 Cr*</span></td>
+              <td>P52100053834</td>
+              <td>Ready for Registration</td>
+            </tr>
+            <tr>
+              <td><strong>The Rivolo Residences</strong></td>
+              <td>Luxury Forest Villas</td>
+              <td>4 &amp; 5 BHK (3,200–4,100 sq.ft.)</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹3.89 Cr*</span></td>
+              <td>P52100031560</td>
+              <td>Q4 2026 Handover</td>
+            </tr>
+            <tr>
+              <td><strong>The Cove</strong></td>
+              <td>Twin Bungalows</td>
+              <td>4 BHK (2,800 sq.ft.)</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹2.85 Cr*</span></td>
+              <td>P52100048536</td>
+              <td>Ready Possession</td>
+            </tr>
+            <tr>
+              <td><strong>The Canopy</strong></td>
+              <td>Nature Apartments</td>
+              <td>2 &amp; 3 BHK (850–1,150 sq.ft.)</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹89 Lakhs*</span></td>
+              <td>P52100079518</td>
+              <td>Under Construction (2027)</td>
+            </tr>
+            <tr>
+              <td><strong>The Highgardens</strong></td>
+              <td>Scenic Hilltop Flats</td>
+              <td>2 BHK (820 sq.ft.)</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹89 Lakhs*</span></td>
+              <td>P52100053310</td>
+              <td>Ready to Move</td>
+            </tr>
+            <tr>
+              <td><strong>Athashri Senior Living</strong></td>
+              <td>Assisted Living Apartments</td>
+              <td>1 &amp; 2 BHK (Senior Design)</td>
+              <td><span style="color:#D4AF37; font-weight:700;">₹83 Lakhs*</span></td>
+              <td>P52100077686</td>
+              <td>Ready Possession</td>
+            </tr>
+            <tr>
+              <td><strong>The Cliff Club &amp; Spa</strong></td>
+              <td>Integrated Township Club</td>
+              <td>Olympic Pool, Squash, Fine Dining</td>
+              <td>Included in Township</td>
+              <td>Fully Operational</td>
+              <td>Active Lifestyle Facility</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; color: #ffffff; margin-bottom: 1.5rem;">
+        Frequently Asked Questions — Forest Trails Master Plan
+      </h2>
+      <div class="faq-item">
+        <div class="faq-q">Q: What is the total acreage of Paranjape Forest Trails?</div>
+        <div class="faq-a">Paranjape Forest Trails spans 190 sprawling acres in Bhugaon, Pune West, comprising 10 distinct residential enclaves, private forest reserves, The Cliff Club, and Equestrian Academy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: Which sectors in Forest Trails offer NA Bungalow Plots?</div>
+        <div class="faq-a">Misty Greens spans Sectors A, B, C, D, and E offering collector-sanctioned, MahaRERA registered (P52100053834) NA plots ranging from 1,800 to 3,600 sq.ft. with immediate registration.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: Where are the luxury forest villas located in the master plan?</div>
+        <div class="faq-a">The Rivolo luxury villas (P52100031560) occupy prime hilltop ridge elevations overlooking the valley, offering 4BHK and 5BHK private estates from ₹3.89 Crore*.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: Can I download high-resolution PDF blueprints for individual sectors?</div>
+        <div class="faq-a">Yes. Select any sector on the interactive layout and tap 'Download Sector Blueprint' or connect directly on WhatsApp at +91 7744009295 for instant PDF transmission.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #141724; border-top: 1px solid rgba(212, 175, 55, 0.3); padding: 2.5rem 1.5rem; text-align: center; color: #94a3b8; font-size: 0.85rem;">
+    <p style="color: #ffffff; font-weight: 700; font-size: 1rem; margin: 0 0 0.5rem;">Paranjape Forest Trails Township Bhugaon</p>
+    <p>Paud Road, Bhugaon, Pune West, Maharashtra 412115 | Direct Sales Desk: <a href="tel:+917744009295" style="color: #D4AF37; text-decoration: none; font-weight: 700;">+91 7744009295</a></p>
+    <p style="font-size: 0.75rem; color: #64748b; margin-top: 1rem;">
+      MahaRERA Numbers: Misty Greens P52100053834 | The Rivolo P52100031560 | The Canopy P52100079518 | The Cove P52100048536 | Highgardens P52100053310 | Athashri P52100077686
+    </p>
+    <p style="margin-top: 1rem;">
+      <a href="/" style="color: #cbd5e1; margin: 0 0.5rem;">Home</a> |
+      <a href="/floor-plans/" style="color: #cbd5e1; margin: 0 0.5rem;">Floor Plans</a> |
+      <a href="/na-plots-in-bhugaon/" style="color: #cbd5e1; margin: 0 0.5rem;">NA Plots</a> |
+      <a href="/luxury-villas-bhugaon/" style="color: #cbd5e1; margin: 0 0.5rem;">Villas</a> |
+      <a href="/sitemap-page/" style="color: #cbd5e1; margin: 0 0.5rem;">HTML Sitemap</a>
+    </p>
+  </footer>
+
+  <!-- Interactive Inspector Engine Script -->
+  <script>
+    const SECTOR_DATA = {
+      'sec-a': {
+        type: 'NA BUNGALOW PLOTS',
+        title: 'Misty Greens — Sector A (Skyline Plots)',
+        tagline: 'Elevated ridge plots with sweeping views of the Western Ghats canopy.',
+        price: '₹ 1.23 Cr*',
+        rera: 'P52100053834',
+        sizes: '1,800 – 2,400 Sq.Ft.',
+        vaastu: 'East & North Facing Parcels',
+        possession: 'Immediate Registry / Sanctioned NA',
+        waText: 'Hi, please send the Misty Greens Sector A layout and price sheet.'
+      },
+      'sec-b': {
+        type: 'NA BUNGALOW PLOTS',
+        title: 'Misty Greens — Sector B (Misty Heights)',
+        tagline: 'Nestled between the equestrian forest trails and central green spine.',
+        price: '₹ 1.45 Cr*',
+        rera: 'P52100053834',
+        sizes: '2,000 – 3,000 Sq.Ft.',
+        vaastu: 'North-East Corner Available',
+        possession: 'Ready Possession NA Land',
+        waText: 'Hi, please send the Sector B Misty Heights plot details.'
+      },
+      'sec-c': {
+        type: 'NA BUNGALOW PLOTS',
+        title: 'Misty Greens — Sector C (Riverview Ridge)',
+        tagline: 'Gentle sloping topography with seasonal river valley sightlines.',
+        price: '₹ 1.65 Cr*',
+        rera: 'P52100053834',
+        sizes: '2,400 – 3,200 Sq.Ft.',
+        vaastu: '100% Vaastu Compliant Cuts',
+        possession: 'Collector Sanctioned Title',
+        waText: 'Hi, please send details for Sector C Riverview Plots at Forest Trails.'
+      },
+      'sec-d': {
+        type: 'NA BUNGALOW PLOTS',
+        title: 'Misty Greens — Sector D & E (Forest Edge)',
+        tagline: 'Deep virgin forest frontage with private tree-lined cul-de-sacs.',
+        price: '₹ 1.95 Cr*',
+        rera: 'P52100053834',
+        sizes: '2,800 – 3,600 Sq.Ft.',
+        vaastu: 'East & North Facing Estates',
+        possession: 'Ready for Immediate Construction',
+        waText: 'Hi, please send Sector D & E Forest Edge plot sizes and rates.'
+      },
+      'rivolo': {
+        type: 'LUXURY FOREST VILLAS',
+        title: 'The Rivolo Residences (4 & 5 BHK)',
+        tagline: 'Exclusive private hill-villas with expansive sundecks and manicured lawns.',
+        price: '₹ 3.89 Cr* – ₹ 5.50 Cr*',
+        rera: 'P52100031560',
+        sizes: '3,200 – 4,100 Sq.Ft.',
+        vaastu: 'Custom Architect Designed',
+        possession: 'Q4 2026 Handover',
+        waText: 'Hi, please send The Rivolo 4/5 BHK villa brochure and floor plans.'
+      },
+      'cove': {
+        type: 'TWIN BUNGALOWS',
+        title: 'The Cove (4 BHK Twin Bungalows)',
+        tagline: 'Private multi-level bungalows featuring dedicated family lounges and private parking.',
+        price: '₹ 2.85 Cr*',
+        rera: 'P52100048536',
+        sizes: '2,800 Sq.Ft. Carpet',
+        vaastu: 'North & East Facing',
+        possession: 'Ready to Move In',
+        waText: 'Hi, please send The Cove twin bungalow pricing and floor plan.'
+      },
+      'canopy': {
+        type: 'NATURE LIVING APARTMENTS',
+        title: 'The Canopy (2 & 3 BHK Apartments)',
+        tagline: 'Low-density forest apartments with panoramic deck balconies and cross ventilation.',
+        price: '₹ 89 L* – ₹ 1.45 Cr*',
+        rera: 'P52100079518',
+        sizes: '850 – 1,150 Sq.Ft. Carpet',
+        vaastu: 'East & West Oriented Decks',
+        possession: 'Under Construction (2027)',
+        waText: 'Hi, please send The Canopy 2BHK/3BHK brochure and payment plans.'
+      },
+      'athashri': {
+        type: 'SENIOR LIVING COMMUNITY',
+        title: 'Paranjape Athashri Bhugaon',
+        tagline: 'Pioneering senior living residences with dedicated geriatric wellness and concierge dining.',
+        price: '₹ 83 L* – ₹ 1.15 Cr*',
+        rera: 'P52100077686',
+        sizes: '750 – 950 Sq.Ft.',
+        vaastu: 'Barrier-Free Wheelchair Access',
+        possession: 'Ready Possession',
+        waText: 'Hi, please send Athashri senior living brochure and services breakdown.'
+      },
+      'cliff-club': {
+        type: 'INTEGRATED LIFESTYLE HUB',
+        title: 'The Cliff Lifestyle Club & Spa',
+        tagline: '100,000 sq.ft. country club with heated swimming pools, squash courts, gym, and dining.',
+        price: 'Included for Residents',
+        rera: 'Fully Operational',
+        sizes: 'Multi-Acre Sports Complex',
+        vaastu: 'Township Central Anchor',
+        possession: 'Active Club Membership',
+        waText: 'Hi, please send details on The Cliff Club amenities at Forest Trails.'
+      },
+      'equestrian': {
+        type: 'SPORTS & LEISURE',
+        title: 'Forest Trails Equestrian Academy',
+        tagline: 'Private show jumping arena, horse stables, and scenic trail riding paths throughout the forest.',
+        price: 'Professional Training Academy',
+        rera: 'Township Feature',
+        sizes: 'Dedicated Riding Paddock',
+        vaastu: 'Natural Contour Integrated',
+        possession: 'Operational',
+        waText: 'Hi, please send information about the Equestrian Academy at Forest Trails.'
+      }
+    };
+
+    function updateHUD(sectorKey) {
+      const data = SECTOR_DATA[sectorKey];
+      if (!data) return;
+
+      document.getElementById('hud-type').innerText = data.type;
+      document.getElementById('hud-title').innerText = data.title;
+      document.getElementById('hud-tagline').innerText = data.tagline;
+      document.getElementById('hud-price').innerText = data.price;
+      document.getElementById('hud-rera').innerText = data.rera;
+      document.getElementById('hud-sizes').innerText = data.sizes;
+      document.getElementById('hud-vaastu').innerText = data.vaastu;
+      document.getElementById('hud-possession').innerText = data.possession;
+      
+      const waLink = document.getElementById('hud-wa-link');
+      waLink.href = 'https://wa.me/917744009295?text=' + encodeURIComponent(data.waText);
+
+      // Highlight active polygon
+      document.querySelectorAll('.sector-polygon').forEach(p => p.classList.remove('active-sector'));
+      const activeEl = document.querySelector(`[data-sector="${sectorKey}"]`);
+      if (activeEl) activeEl.classList.add('active-sector');
+    }
+
+    // Attach Click and Hover to Polygons
+    document.querySelectorAll('.sector-polygon').forEach(polygon => {
+      polygon.addEventListener('click', function() {
+        const sectorKey = this.getAttribute('data-sector');
+        updateHUD(sectorKey);
+      });
+      polygon.addEventListener('mouseenter', function() {
+        const sectorKey = this.getAttribute('data-sector');
+        updateHUD(sectorKey);
+      });
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+
+        document.querySelectorAll('.sector-polygon').forEach(p => {
+          const cat = p.getAttribute('data-cat');
+          if (filter === 'all' || cat === filter) {
+            p.style.opacity = '1';
+            p.style.pointerEvents = 'auto';
+          } else {
+            p.style.opacity = '0.15';
+            p.style.pointerEvents = 'none';
+          }
+        });
+      });
+    });
+  </script>
+
+  <script defer src="/exit-intent-concierge.js"></script>
+</body>
+</html>
+"""
+
+def generate():
+    os.makedirs("master-plan-layout-explorer", exist_ok=True)
+    file_path = os.path.join("master-plan-layout-explorer", "index.html")
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(HTML_CONTENT.strip() + "\n")
+    print(f"Generated: {file_path}")
+
+if __name__ == "__main__":
+    generate()

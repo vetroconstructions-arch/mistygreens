@@ -275,6 +275,17 @@ const KEYWORD_ROUTES = {
   "/forest-trails-vs-kalpataru-elegante": `Forest Trails vs Kalpataru Pune, Paranjape vs Kalpataru, Forest Trails vs Kalpataru Elegante 2026, ${BRAND_KW}`,
   "/paranjape-forest-trails-vs-blue-ridge": `Paranjape Forest Trails vs Blue Ridge, Forest Trails Bhugaon vs Blue Ridge Hinjewadi, which Paranjape project is better, ${BRAND_KW}`,
 
+  // ─── Strategic Growth Corridors & VIP Landing Pages ───────────────────────
+  "/pmrda-ring-road-bhugaon-package-interchange": `PMRDA ring road Bhugaon, PMRDA ring road package 1 alignment, Bhugaon ring road interchange, Pune ring road property appreciation 2026, Forest Trails ring road impact, ${BRAND_KW}`,
+  "/chandani-chowk-flyover-travel-time-bhugaon-commute": `Chandani Chowk flyover travel time, Bhugaon to Kothrud commute, Bavdhan to Bhugaon travel time, Hinjewadi to Bhugaon driving time, Chandani Chowk flyover impact 2026, ${BRAND_KW}`,
+  "/luxury-homes-near-hinjewadi-for-tech-leaders": `luxury homes near Hinjewadi, villas for tech executives Pune, premium residential near Hinjewadi IT park, forest living Hinjewadi Pune, tech leaders luxury housing Pune West, ${BRAND_KW}`,
+  "/defence-personnel-bungalow-plots-pune-west": `defence personnel plots Pune, NDA officers bungalow plots Pune, army naval air force housing Pune West, defence community Forest Trails, ${BRAND_KW}`,
+  "/weekend-villa-near-pune-nature-living": `weekend villa near Pune, second home near Pune West, nature villa Pune weekend, luxury farmhouse alternative Pune, Forest Trails weekend home Bhugaon, ${BRAND_KW}`,
+  "/pune-metro-extension-paud-road-bhugaon-connectivity": `Pune Metro Line 3 Paud Road, Bhugaon metro connectivity, Pune metro extension Chandani Chowk, Vanaz metro to Bhugaon, Paranjape Forest Trails metro impact 2026, ${BRAND_KW}`,
+  "/lp/forest-trails-plots": `Misty Greens NA plots Bhugaon, buy bungalow plots Pune West, RERA approved plots Bhugaon, Forest Trails plots price, ${BRAND_KW}`,
+  "/lp/luxury-villas-bhugaon": `luxury villas Bhugaon Pune, The Rivolo villas Forest Trails, 4BHK 5BHK luxury villas Pune West, forest villa price, ${BRAND_KW}`,
+  "/lp/apartments-the-canopy": `The Canopy apartments Bhugaon, 2BHK 3BHK flats near Bavdhan, Paranjape Canopy price, nature apartments Pune, ${BRAND_KW}`,
+
   // ─── Blog Ecosystem Prefix Route ─────────────────────────────────────────────
   "/paranjape-forest-trails-township-bhugaon-blogs": `Paranjape Forest Trails blog, Pune real estate blog 2026, Bhugaon property articles, property investment advice Pune, NA plot buying guides, stamp duty plots Pune, ${BRAND_KW}`,
 };
@@ -956,6 +967,24 @@ class NRIPersonalizationOptimizer {
   }
 }
 
+/**
+ * Handler 15: Sovereign Exit-Intent & Conversion Concierge v2.0
+ * Recovers abandoning high-intent visitors with 2026 Price Sheet & Master Plan offer
+ */
+class ExitIntentConciergeInjector {
+  constructor(isBot, isThankYou) {
+    this.isBot = isBot;
+    this.isThankYou = isThankYou;
+  }
+  element(body) {
+    if (this.isBot || this.isThankYou) return;
+    body.append(
+      `\n<!-- Sovereign Exit-Intent & Conversion Concierge v2.0 -->\n<script defer src="/exit-intent-concierge.js"></script>\n`,
+      { html: true }
+    );
+  }
+}
+
 // ─── Cache Strategy ──────────────────────────────────────────────────────────
 
 function applyCacheHeaders(headers, url) {
@@ -1121,7 +1150,9 @@ export async function onRequest(context) {
         // Handler 13: Interaction to Next Paint (INP) & Core Web Vitals Optimizer
         .on("head", new INPPerformanceOptimizer(crawlerInfo.tier > 0))
         // Handler 14: NRI & International Multi-Currency Personalization
-        .on("body", new NRIPersonalizationOptimizer(cfData.country, currency, crawlerInfo.tier > 0));
+        .on("body", new NRIPersonalizationOptimizer(cfData.country, currency, crawlerInfo.tier > 0))
+        // Handler 15: Sovereign Exit-Intent & Conversion Concierge
+        .on("body", new ExitIntentConciergeInjector(crawlerInfo.tier > 0, url.pathname.startsWith("/thank-you")));
 
       transformedResponse = rewriter.transform(response);
     }
