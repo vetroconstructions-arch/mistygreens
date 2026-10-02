@@ -84,13 +84,15 @@ const ogImageUrl = image.startsWith('http')
   <meta name="theme-color" content="#4A0808" />
   <meta name="msapplication-TileColor" content="#4A0808" />
 
-  {/* Google Analytics GA4 */}
+  {/* Google Tag (gtag.js) - Google Ads: AW-17430583486 & GA4: G-PARANJAPE */}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
   <script is:inline>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+    gtag('config', 'AW-17430583486');
   </script>
 
   {/* Cloudflare Edge Speculation Rules (Instant 0ms Page Pre-rendering) */}

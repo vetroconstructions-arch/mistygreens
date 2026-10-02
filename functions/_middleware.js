@@ -317,6 +317,8 @@ const EARLY_HINTS_LINKS = [
   "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
   "<https://www.googletagmanager.com>; rel=preconnect",
   "<https://www.google-analytics.com>; rel=preconnect",
+  "<https://www.googleadservices.com>; rel=preconnect",
+  "<https://googleads.g.doubleclick.net>; rel=preconnect",
 ];
 
 // ─── Crawler Classification ──────────────────────────────────────────────────
@@ -416,8 +418,11 @@ class HeadMetaInjector {
     const preconnectBlock = `
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googleadservices.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://www.googleadservices.com">
+<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
 <link rel="dns-prefetch" href="https://formsubmit.co">`;
 
     // Multilingual Hreflang for international & local indexing

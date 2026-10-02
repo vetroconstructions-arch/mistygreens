@@ -32,8 +32,11 @@ HEAD_TEMPLATE = """<!DOCTYPE html>
   <link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">
   <link rel="preload" as="style" href="/style.min.css?v=2026.08.24.10">
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
+  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
   <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');</script>
+  <script>gtag('config','AW-17430583486');</script>
   {schemas}
 </head>
 <body>

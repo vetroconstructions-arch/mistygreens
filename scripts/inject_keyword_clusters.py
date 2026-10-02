@@ -844,9 +844,10 @@ NEW_PAGE_TEMPLATE = """<!DOCTYPE html>
     }}
   }}
   </script>
-  <!-- Google Analytics GA4 -->
+  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 & GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');gtag('config','AW-17430583486');</script>
 </head>
 <body>
   <script>window.location.replace("{redirect_url}");</script>

@@ -1521,12 +1521,14 @@ img{max-width:100%;height:auto}
 
 
 <!-- Google Analytics GA4 Infrastructure Tag -->
+<!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+  gtag('config', 'G-PARANJAPE', { 'send_page_view': true }); gtag('config', 'AW-17430583486');
   window.trackEnquiryEvent = function(category, action, label) {
     if (typeof gtag === 'function') {
       gtag('event', action, { 'event_category': category, 'event_label': label });

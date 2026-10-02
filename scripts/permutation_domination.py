@@ -184,8 +184,10 @@ def page_html(title, desc, canonical, keywords_str, h1, content_body, schemas_js
   <link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">
   <link rel="preload" as="style" href="/style.min.css?v=2026.08.24.10">
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
+  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
   <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');gtag('config','AW-17430583486');</script>
   {schemas_html}
   <style>
   body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a;margin:0;line-height:1.75}}

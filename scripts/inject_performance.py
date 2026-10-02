@@ -23,10 +23,13 @@ img{max-width:100%;height:auto}
 """
 
 PERF_HINTS = """  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//www.googleadservices.com">
+  <link rel="dns-prefetch" href="//googleads.g.doubleclick.net">
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="dns-prefetch" href="//formsubmit.co">
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>"""
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://www.googleadservices.com" crossorigin>"""
 
 def read(p):
     try:
