@@ -11395,3 +11395,27 @@ Sovereign Sweep Initiated: Sat Sep 26 01:00:01 IST 2026
 ✅ Updated sitemap.xml with 55 target URLs.
 Sovereign Sweep Completed: Sat Sep 26 13:02:28 IST 2026
 =====================================================
+>> Running IndexNow Protocol...
+🚀 Starting Stage 51 IndexNow Worker...
+ 🚀 Verification file 95c994594228606fa65442d1b61243200b7dd984.txt synchronized at root.
+📦 Discovered 423 URLs for submission.
+ ❌ Hardware Error: getaddrinfo ENOTFOUND api.indexnow.org
+>> Running Legacy Sitemap Pings...
+🚀 Starting Advanced Indexing Engine...
+
+📦 Discovered 417 target URLs in public domain.
+
+🌐 Pinging Sitemap to Search Engines...
+  ❌ Failed ping to Google: getaddrinfo ENOTFOUND www.google.com
+  ❌ Failed ping to Bing: getaddrinfo ENOTFOUND www.bing.com
+
+💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the official Indexing API.
+
+🎯 Advanced Indexing Burst Complete.
+>> Running Unified URL Pings...
+🚀 Pinging Search Engines for Master Sitemap: https://www.paranjapetownship.com/sitemap.xml
+⚠️ Ping warning for https://www.google.com/ping?sitemap=https%3A%2F%2Fwww.paranjapetownship.com%2Fsitemap.xml: getaddrinfo ENOTFOUND www.google.com
+⚠️ Ping warning for https://www.bing.com/ping?sitemap=https%3A%2F%2Fwww.paranjapetownship.com%2Fsitemap.xml: getaddrinfo ENOTFOUND www.bing.com
+✅ Search engine sitemap ping completed successfully.
+Sovereign Sweep Completed: Fri Oct  2 19:46:41 IST 2026
+=====================================================

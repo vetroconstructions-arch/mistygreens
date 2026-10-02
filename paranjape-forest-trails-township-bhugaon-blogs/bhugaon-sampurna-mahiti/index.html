@@ -32,7 +32,7 @@
   <meta property="og:title" content="भुगाव संपूर्ण माहिती 2026 | स्थान, कनेक्टिव्हिटी, मालमत्ता" />
   <meta property="og:description" content="भुगाव, पुणे संपूर्ण माहिती 2026 — स्थान, शाळा, रुग्णालय, वाहतूक, मालमत्ता किंमती आणि परांजपे फॉरेस्ट ट्रेल्स प्रकल्प माहिती." />
   <meta property="og:url" content="https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/bhugaon-sampurna-mahiti/" />
-  <meta property="og:image" content="https://www.paranjapetownship.com/images/bhugaon-area-guide-og.jpg" />
+  <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="article:published_time" content="2026-09-20T08:00:00+05:30" />
@@ -42,7 +42,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="भुगाव संपूर्ण माहिती 2026 | स्थान, कनेक्टिव्हिटी, मालमत्ता" />
   <meta name="twitter:description" content="भुगाव, पुणे संपूर्ण माहिती 2026 — स्थान, शाळा, रुग्णालय, वाहतूक, मालमत्ता किंमती आणि परांजपे फॉरेस्ट ट्रेल्स प्रकल्प माहिती." />
-  <meta name="twitter:image" content="https://www.paranjapetownship.com/images/bhugaon-area-guide-og.jpg" />
+  <meta name="twitter:image" content="https://www.paranjapetownship.com/images/hero-township.webp" />
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10" />
@@ -182,6 +182,26 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-PARANJAPE'); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+
   </script>
 
   <!-- JSON-LD 1: BreadcrumbList -->
@@ -216,7 +236,7 @@
       "@type": "BlogPosting",
       "headline": "भुगाव संपूर्ण माहिती 2026",
       "description": "भुगाव, पुणे संपूर्ण माहिती 2026 — स्थान, शाळा, रुग्णालय, वाहतूक, मालमत्ता किंमती आणि परांजपे फॉरेस्ट ट्रेल्स प्रकल्प माहिती.",
-      "image": "https://www.paranjapetownship.com/images/bhugaon-area-guide-og.jpg",
+      "image": "https://www.paranjapetownship.com/images/hero-township.webp",
       "author": {
         "@type": "Organization",
         "name": "Paranjape Forest Trails Team",

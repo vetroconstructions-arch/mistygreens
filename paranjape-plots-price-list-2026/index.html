@@ -717,6 +717,26 @@ img{max-width:100%;height:auto}
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-PARANJAPE', { 'send_page_view': true }); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+
   window.trackEnquiryEvent = function(category, action, label) {
     if (typeof gtag === 'function') {
       gtag('event', action, { 'event_category': category, 'event_label': label });
@@ -1653,7 +1673,7 @@ function switchPdmTab(tabName) {
 
 <!-- Universal Mobile Sticky Action Dock -->
 <div class="universal-mobile-dock" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: rgba(14, 14, 18, 0.96); backdrop-filter: blur(15px); border-top: 1px solid rgba(212, 175, 55, 0.35); padding: 0.5rem 1rem; align-items: center; justify-content: space-between; gap: 0.5rem;">
-  <a href="tel:<span itemprop="telephone">+917744009295</span>" style="flex: 1; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 800; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.2);">
+  <a href="tel:+917744009295" style="flex: 1; background: rgba(255,255,255,0.08); color: #fff; text-decoration: none; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 800; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.2);">
     📞 CALL
   </a>
   <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon." target="_blank" rel="noopener" style="flex: 1.2; background: #25D366; color: #fff; text-decoration: none; text-align: center; padding: 0.6rem; border-radius: 8px; font-weight: 800; font-size: 0.75rem; box-shadow: 0 3px 10px rgba(37,211,102,0.4);">
@@ -1681,7 +1701,7 @@ function switchPdmTab(tabName) {
     }
   };
 
-  // Universal Lead Submission Handler
+  // Universal Lead Submission Handler (with Google Ads Enhanced Conversions & Zero-Loss Deduplication)
   function handleUniversalLeadSubmit(e) {
     e.preventDefault();
     var name = document.getElementById('u-name').value;
@@ -1692,23 +1712,58 @@ function switchPdmTab(tabName) {
     btn.textContent = 'SUBMITTING...';
     btn.disabled = true;
 
+    var leadId = 'LEAD_' + Date.now();
     var payload = {
       name: name,
       phone: phone,
       email: email,
       enclave: enclave,
+      leadId: leadId,
       page: window.location.pathname,
       timestamp: new Date().toISOString()
     };
 
-    // 1. Offline Vault Backup
+    // 1. Offline Vault Backup & Enhanced Conversion Storage
     try {
       var vault = JSON.parse(localStorage.getItem('pscl_offline_lead_vault') || '[]');
       vault.push(payload);
       localStorage.setItem('pscl_offline_lead_vault', JSON.stringify(vault));
+      sessionStorage.setItem('pscl_last_lead', JSON.stringify(payload));
+      localStorage.setItem('pscl_last_lead', JSON.stringify(payload));
     } catch(err){}
 
-    // 2. Direct AJAX to FormSubmit
+    // 2. Pre-Redirect Google Ads Enhanced Conversion Fire (Failsafe)
+    try {
+      if (typeof gtag === 'function') {
+        var userData = {};
+        if (email) userData.email = email.trim().toLowerCase();
+        if (phone) {
+          var p = phone.replace(/[\s\-\(\)]/g, '');
+          userData.phone_number = p.startsWith('+') ? p : ('+91' + p.replace(/^0+/, ''));
+        }
+        if (name) {
+          var parts = name.trim().split(/\s+/);
+          userData.address = {
+            first_name: parts[0],
+            last_name: parts.slice(1).join(' ') || undefined,
+            country: 'IN'
+          };
+        }
+        gtag('set', 'user_data', userData);
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
+          'transaction_id': leadId
+        });
+        gtag('event', 'generate_lead', {
+          'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
+          'transaction_id': leadId,
+          'value': 1.0,
+          'currency': 'INR'
+        });
+      }
+    } catch(gerr){}
+
+    // 3. Direct AJAX to FormSubmit
     fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
@@ -1717,6 +1772,7 @@ function switchPdmTab(tabName) {
         Phone: phone,
         Email: email,
         Enclave: enclave,
+        LeadId: leadId,
         Source: window.location.href,
         _subject: 'New Lead: ' + enclave + ' - ' + name,
         _template: 'table'

@@ -20,7 +20,7 @@ img{max-width:100%;height:auto}
     <meta property="og:title" content="Forest Trails vs Rohan Nilay Kothrud 2026 — Which is Better?">
     <meta property="og:description" content="Compare Paranjape Forest Trails (Bhugaon) with Rohan Nilay (Kothrud). Analyze size, amenities, price, and ROI to find the best 2026 real estate investment.">
     <meta property="og:url" content="https://paranjapetownship.com/forest-trails-vs-rohan-nilay/">
-    <meta property="og:image" content="https://paranjapetownship.com/images/og-image.jpg">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
     <meta name="geo.region" content="IN-MH">
     <meta name="geo.placename" content="Pune">
     <meta name="theme-color" content="#4A0808">
@@ -36,6 +36,26 @@ img{max-width:100%;height:auto}
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-PARANJAPE'); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+
     </script>
     <script type="application/ld+json">
     [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://paranjapetownship.com/"}, {"@type": "ListItem", "position": 2, "name": "Comparison", "item": "https://paranjapetownship.com/forest-trails-vs-rohan-nilay/"}]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which is larger, Forest Trails or Rohan Nilay?", "acceptedAnswer": {"@type": "Answer", "text": "Forest Trails is a 190-acre township, significantly larger than Rohan Nilay."}}, {"@type": "Question", "name": "Which offers better nature views?", "acceptedAnswer": {"@type": "Answer", "text": "Forest Trails in Bhugaon offers unparalleled valley and forest views."}}, {"@type": "Question", "name": "Is Bhugaon as well-connected as Kothrud?", "acceptedAnswer": {"@type": "Answer", "text": "With the new Chandani Chowk flyover, Bhugaon offers fast connectivity while maintaining a serene environment."}}]}]

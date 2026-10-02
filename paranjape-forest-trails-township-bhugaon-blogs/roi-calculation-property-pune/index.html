@@ -20,7 +20,7 @@ img{max-width:100%;height:auto}
     <meta property="og:title" content="ROI Calculation for Property Investment in Pune 2026 | Full ">
     <meta property="og:description" content="Learn how to calculate ROI for property investment in Pune. See a worked example for Misty Greens NA plots showing 46% total ROI over 3 years.">
     <meta property="og:url" content="https://paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/roi-calculation-property-pune/">
-    <meta property="og:image" content="https://paranjapetownship.com/images/og-image.jpg">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
     <meta name="geo.region" content="IN-MH">
     <meta name="geo.placename" content="Pune">
     <meta name="theme-color" content="#4A0808">
@@ -36,6 +36,26 @@ img{max-width:100%;height:auto}
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-PARANJAPE'); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+
     </script>
     <script type="application/ld+json">
 {

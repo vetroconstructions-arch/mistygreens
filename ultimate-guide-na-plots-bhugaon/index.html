@@ -20,7 +20,7 @@ img{max-width:100%;height:auto}
     <meta property="og:title" content="Ultimate Guide to NA Plots in Bhugaon Pune 2026 | Buy, Price">
     <meta property="og:description" content="Complete 2026 guide to buying NA bungalow plots in Bhugaon, Pune. Covers prices, RERA projects, loan process, stamp duty and NRI guidelines.">
     <meta property="og:url" content="https://paranjapetownship.com/ultimate-guide-na-plots-bhugaon/">
-    <meta property="og:image" content="https://paranjapetownship.com/images/og-image.jpg">
+    <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
     <meta name="geo.region" content="IN-MH">
     <meta name="geo.placename" content="Pune">
     <meta name="theme-color" content="#4A0808">
@@ -36,6 +36,26 @@ img{max-width:100%;height:auto}
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-PARANJAPE'); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+
     </script>
     <script type="application/ld+json">
 {

@@ -134,7 +134,7 @@ def analyze():
         else:
             c = canonicals[0].strip()
             expected = DOMAIN + url_path
-            if c != expected:
+            if c != expected and not (url_path == '/thank-you.html' and c == DOMAIN + '/thank-you/'):
                 canonical_issues.append((url_path, f"Canonical mismatch: has '{c}', expected '{expected}'"))
 
         # 4. H1 tag

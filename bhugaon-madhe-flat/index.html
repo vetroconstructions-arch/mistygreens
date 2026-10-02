@@ -14,7 +14,7 @@
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="भुगावात 2BHK 3BHK फ्लॅट | Paranjape Forest Trails">
   <meta property="og:url" content="https://www.paranjapetownship.com/bhugaon-madhe-flat/">
-  <meta property="og:image" content="https://www.paranjapetownship.com/images/canopy-apartments.webp">
+  <meta property="og:image" content="https://www.paranjapetownship.com/images/hero-township.webp">
   <meta name="geo.region" content="IN-MH">
   <meta name="theme-color" content="#4A0808">
   <link rel="preload" as="style" href="/style.min.css?v=2026.08.24.10">
@@ -23,7 +23,27 @@
   <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PARANJAPE'); gtag('config', 'AW-17430583486');</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PARANJAPE'); gtag('config', 'AW-17430583486');
+  if (!window.__psclContactTracked) {
+    window.__psclContactTracked = true;
+    document.addEventListener('click', function(e) {
+      try {
+        var a = e.target && e.target.closest ? e.target.closest('a') : null;
+        if (!a) return;
+        var h = a.getAttribute('href') || '';
+        if (h.indexOf('tel:') === 0) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'phone', 'event_category': 'Direct Engagement', 'event_label': h.replace('tel:', ''), 'value': 1.0, 'currency': 'INR' });
+          }
+        } else if (h.indexOf('wa.me') !== -1 || h.indexOf('whatsapp.com') !== -1) {
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact', { 'method': 'whatsapp', 'event_category': 'Direct Engagement', 'event_label': 'WhatsApp Chat', 'value': 1.0, 'currency': 'INR' });
+          }
+        }
+      } catch(err) {}
+    }, { passive: true });
+  }
+</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
