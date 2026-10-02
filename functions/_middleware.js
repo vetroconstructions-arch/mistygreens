@@ -387,7 +387,10 @@ class HeadMetaInjector {
 <meta name="copyright" content="© 2026 Paranjape Forest Trails. All Rights Reserved.">`;
 
     // Google Crawler & SERP Snippet Directive Matrix
-    const googleDirectives = `
+    const isThankYou = cleanPath.startsWith("/thank-you");
+    const googleDirectives = isThankYou ? `
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">` : `
 <meta name="google-site-verification" content="fA009Y6RAvi_yacg8Lw7JJu5uvAGR5po2RIUH8VcuvE">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -991,9 +994,15 @@ function applyCacheHeaders(headers, url) {
   }
 
   // HTML pages
-  headers.set("Cache-Control", "public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800");
-  headers.set("CDN-Cache-Control", "max-age=604800");
-  headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  if (pathname.startsWith("/thank-you")) {
+    headers.set("Cache-Control", "no-store, no-cache, private");
+    headers.set("CDN-Cache-Control", "no-store");
+    headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  } else {
+    headers.set("Cache-Control", "public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800");
+    headers.set("CDN-Cache-Control", "max-age=604800");
+    headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+  }
 }
 
 // ─── Security Headers ────────────────────────────────────────────────────────
@@ -1169,7 +1178,9 @@ export async function onRequest(context) {
       if (crawlerInfo.tier === 1) {
         headers.set("X-Googlebot-Edge", "accelerated;tier=priority;render=instant;cwv=pass;schemas=harmonized");
         headers.set("X-Google-Indexing-Protocol", "v3;supported;status=canonical");
-        headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+        if (!url.pathname.startsWith("/thank-you")) {
+          headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+        }
       } else if (crawlerInfo.tier === 2) {
         headers.set("X-Search-Edge", "accelerated;tier=major;indexnow=enabled");
       } else if (crawlerInfo.tier === 3) {
