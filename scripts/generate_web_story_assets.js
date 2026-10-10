@@ -125,27 +125,42 @@ async function generateAssets() {
     const posterSrc = path.join(BASE_DIR, story.poster);
 
     // Portrait (720x960 - 3:4)
-    const portraitDest = path.join(OUT_DIR, `${story.slug}-portrait.webp`);
+    const portraitDestWebp = path.join(OUT_DIR, `${story.slug}-portrait.webp`);
+    const portraitDestJpg = path.join(OUT_DIR, `${story.slug}-portrait.jpg`);
     await sharp(posterSrc)
       .resize(720, 960, { fit: 'cover', position: 'center' })
       .webp({ quality: 85 })
-      .toFile(portraitDest);
+      .toFile(portraitDestWebp);
+    await sharp(posterSrc)
+      .resize(720, 960, { fit: 'cover', position: 'center' })
+      .jpeg({ quality: 85, progressive: true })
+      .toFile(portraitDestJpg);
 
     // Square (720x720 - 1:1)
-    const squareDest = path.join(OUT_DIR, `${story.slug}-square.webp`);
+    const squareDestWebp = path.join(OUT_DIR, `${story.slug}-square.webp`);
+    const squareDestJpg = path.join(OUT_DIR, `${story.slug}-square.jpg`);
     await sharp(posterSrc)
       .resize(720, 720, { fit: 'cover', position: 'center' })
       .webp({ quality: 85 })
-      .toFile(squareDest);
+      .toFile(squareDestWebp);
+    await sharp(posterSrc)
+      .resize(720, 720, { fit: 'cover', position: 'center' })
+      .jpeg({ quality: 85, progressive: true })
+      .toFile(squareDestJpg);
 
     // Landscape (960x720 - 4:3)
-    const landscapeDest = path.join(OUT_DIR, `${story.slug}-landscape.webp`);
+    const landscapeDestWebp = path.join(OUT_DIR, `${story.slug}-landscape.webp`);
+    const landscapeDestJpg = path.join(OUT_DIR, `${story.slug}-landscape.jpg`);
     await sharp(posterSrc)
       .resize(960, 720, { fit: 'cover', position: 'center' })
       .webp({ quality: 85 })
-      .toFile(landscapeDest);
+      .toFile(landscapeDestWebp);
+    await sharp(posterSrc)
+      .resize(960, 720, { fit: 'cover', position: 'center' })
+      .jpeg({ quality: 85, progressive: true })
+      .toFile(landscapeDestJpg);
 
-    console.log(`Generated posters for: ${story.slug}`);
+    console.log(`Generated posters (webp + jpg) for: ${story.slug}`);
 
     // Slides (720x1280 - 9:16)
     for (let i = 0; i < story.slides.length; i++) {
