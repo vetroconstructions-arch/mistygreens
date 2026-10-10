@@ -2089,7 +2089,15 @@ def inject_tray_into_pages(tray_html):
         os.path.join(BASE_DIR, "pune-madhe-plot", "index.html"),
         os.path.join(BASE_DIR, "pune-madhe-villa", "index.html"),
         os.path.join(BASE_DIR, "pune-mein-plot", "index.html"),
-        os.path.join(BASE_DIR, "bhugaon-mein-flat", "index.html")
+        os.path.join(BASE_DIR, "bhugaon-mein-flat", "index.html"),
+        os.path.join(BASE_DIR, "na-plots-in-bhugaon", "index.html"),
+        os.path.join(BASE_DIR, "luxury-villas-bhugaon", "index.html"),
+        os.path.join(BASE_DIR, "2bhk-in-bhugaon", "index.html"),
+        os.path.join(BASE_DIR, "3bhk-in-pune", "index.html"),
+        os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-facilities", "index.html"),
+        os.path.join(BASE_DIR, "paranjape-forest-trails-bhugaon-location-map", "index.html"),
+        os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-price", "index.html"),
+        os.path.join(BASE_DIR, "rera-approved-plots-bhugaon", "index.html"),
     ]
 
     wrapped_tray = f"""<!-- Interactive Web Stories Visual Carousel Tray -->
@@ -2101,24 +2109,24 @@ def inject_tray_into_pages(tray_html):
             continue
         try:
             content = open(target, "r", encoding="utf-8").read()
-            if "<!-- Interactive Web Stories Visual Carousel Tray -->" in content:
-                content = re.sub(
-                    r'<!-- Interactive Web Stories Visual Carousel Tray -->.*?<!-- /Interactive Web Stories Visual Carousel Tray -->',
-                    wrapped_tray,
-                    content,
-                    flags=re.DOTALL
-                )
-            else:
-                if "</header>" in content:
-                    content = content.replace("</header>", f"</header>\n{wrapped_tray}\n", 1)
-                elif "<main>" in content:
-                    content = content.replace("<main>", f"<main>\n{wrapped_tray}\n", 1)
-                elif "<body>" in content:
-                    content = content.replace("<body>", f"<body>\n{wrapped_tray}\n", 1)
+            # 1. Strip any existing tray from document
+            content = re.sub(
+                r'<!-- Interactive Web Stories Visual Carousel Tray -->.*?<!-- /Interactive Web Stories Visual Carousel Tray -->\n?',
+                '',
+                content,
+                flags=re.DOTALL
+            )
+            # 2. Inject cleanly right at footer location (directly before <footer)
+            if "<footer" in content:
+                content = re.sub(r'(<footer\b)', f"{wrapped_tray}\n\\1", content, count=1)
+            elif '<p style="color:#999' in content:
+                content = content.replace('<p style="color:#999', f"{wrapped_tray}\n<p style=\"color:#999", 1)
+            elif "</body>" in content:
+                content = content.replace("</body>", f"{wrapped_tray}\n</body>", 1)
 
             with open(target, "w", encoding="utf-8") as f:
                 f.write(content)
-            print(f"Injected Web Stories Tray into: {os.path.relpath(target, BASE_DIR)}")
+            print(f"Shifted Web Stories Tray to footer in: {os.path.relpath(target, BASE_DIR)}")
         except Exception as e:
             print(f"Error injecting into {target}: {e}")
 
