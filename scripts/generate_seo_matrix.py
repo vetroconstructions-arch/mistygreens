@@ -64,7 +64,8 @@ def generate_seo_matrix(base_dir):
         "connectivity": [],
         "comparisons": [],
         "investment": [],
-        "legal": []
+        "legal": [],
+        "stories": []
     }
     
     for file_path, strict_url, rel_path in html_files:
@@ -77,6 +78,8 @@ def generate_seo_matrix(base_dir):
         # Classification rules
         if rel_path in ['index.html', 'paranjape-forest-trails-township-bhugaon-villas-plots/index.html', 'paranjape-forest-trails-township-bhugaon-facilities/index.html', 'investment/growth-ledger/index.html']:
             categories["core"].append((strict_url, "1.0", "daily"))
+        elif "web-stories" in url_lower:
+            categories["stories"].append((strict_url, "0.9", "weekly"))
         elif any(x in url_lower for x in ["comparisons", "-vs-", "vs-"]):
             categories["comparisons"].append((strict_url, "0.85", "weekly"))
         elif any(x in url_lower for x in ["investment", "growth-ledger", "appreciation-forecast", "rental-yield", "tax-benefits", "pmrda-ring-road"]):

@@ -51,6 +51,8 @@ def build_human_label(url_path):
     p = url_path.strip('/')
     if not p:
         return "Home"
+    if p == "web-stories":
+        return "Google Web Stories Visual Portal"
     # Format slug into human label
     slug = p.split('/')[-1].replace('.html', '')
     words = slug.split('-')
@@ -71,6 +73,7 @@ def update_sitemap_page(pages):
     # Categorize all URLs
     categories = {
         "Core Township & Flagship Enclaves": [],
+        "Interactive Google Web Stories": [],
         "BHK Flats & Apartments by Locality": [],
         "NA Bungalow Plots by Locality": [],
         "Luxury Forest Villas & Bungalows": [],
@@ -95,7 +98,9 @@ def update_sitemap_page(pages):
         label = build_human_label(url)
         
         # Categorize
-        if 'pune-mein-' in url_lower or 'bhugaon-mein-' in url_lower:
+        if 'web-stories' in url_lower:
+            categories["Interactive Google Web Stories"].append((url, label))
+        elif 'pune-mein-' in url_lower or 'bhugaon-mein-' in url_lower:
             categories["Hindi Language Editions"].append((url, label))
         elif 'pune-madhe-' in url_lower or 'bhugaon-madhe-' in url_lower or '-marathi' in url_lower:
             categories["Marathi Language Editions"].append((url, label))
