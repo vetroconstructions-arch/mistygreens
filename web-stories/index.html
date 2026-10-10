@@ -47,7 +47,7 @@
   },
   "mainEntity": {
     "@type": "ItemList",
-    "numberOfItems": 8,
+    "numberOfItems": 12,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -96,6 +96,30 @@
         "position": 8,
         "url": "https://www.paranjapetownship.com/web-stories/highgardens-panoramic-apartments/",
         "name": "Highgardens 2 BHK Panoramic Apartments | Paranjape Forest Trails Bhugaon"
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "url": "https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/",
+        "name": "\u092a\u0941\u0923\u094d\u092f\u093e\u0924 \u090f\u0928\u090f \u092c\u0902\u0917\u0932\u094b \u092a\u094d\u0932\u0949\u091f | Misty Greens Forest Trails \u092d\u0941\u0917\u093e\u0935"
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "url": "https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/",
+        "name": "\u092a\u0941\u0923\u0947 \u092d\u0941\u0917\u093e\u0935 \u0932\u0915\u094d\u091d\u0930\u0940 \u0935\u094d\u0939\u093f\u0932\u093e | The Rivolo Forest Trails"
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "url": "https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/",
+        "name": "\u092a\u0941\u0923\u0947 \u092e\u0947\u0902 \u090f\u0928\u090f \u092a\u094d\u0932\u0949\u091f\u094d\u0938 | Misty Greens Paranjape Forest Trails"
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "url": "https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/",
+        "name": "\u092d\u0941\u0917\u093e\u0935 \u092e\u0947\u0902 2BHK 3BHK \u092b\u094d\u0932\u0948\u091f\u094d\u0938 | The Canopy Forest Trails"
       }
     ]
   }
@@ -509,11 +533,12 @@
     
     <!-- Filter Chips -->
     <div class="filter-bar">
-      <button type="button" class="filter-btn active" onclick="filterStories('all', this)">All Stories (8)</button>
+      <button type="button" class="filter-btn active" onclick="filterStories('all', this)">All Stories (12)</button>
       <button type="button" class="filter-btn" onclick="filterStories('plots', this)">NA Plots</button>
       <button type="button" class="filter-btn" onclick="filterStories('villas', this)">Forest Villas</button>
       <button type="button" class="filter-btn" onclick="filterStories('apartments', this)">Apartments</button>
       <button type="button" class="filter-btn" onclick="filterStories('senior', this)">Senior Living</button>
+      <button type="button" class="filter-btn" onclick="filterStories('vernacular', this)">मराठी / हिंदी</button>
       <button type="button" class="filter-btn" onclick="filterStories('lifestyle', this)">190-Acre Life</button>
       <button type="button" class="filter-btn" onclick="filterStories('infrastructure', this)">Infrastructure</button>
     </div>
@@ -527,7 +552,9 @@
         <a href="/web-stories/misty-greens-plots-bhugaon/" class="card-media-wrap" aria-label="Watch Web Story: NA Bungalow Plots at Misty Greens Bhugaon | Paranjape Forest Trails">
           <img src="/images/web-stories/misty-greens-plots-bhugaon-portrait.webp" alt="NA Bungalow Plots at Misty Greens Bhugaon | Paranjape Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">NA Bungalow Plots</span>
+            <div>
+              <span class="category-pill">NA Bungalow Plots</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -586,7 +613,9 @@
         <a href="/web-stories/luxury-forest-villas-rivolo/" class="card-media-wrap" aria-label="Watch Web Story: The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes">
           <img src="/images/web-stories/luxury-forest-villas-rivolo-portrait.webp" alt="The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Luxury Forest Villas</span>
+            <div>
+              <span class="category-pill">Luxury Forest Villas</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -645,7 +674,9 @@
         <a href="/web-stories/the-canopy-nature-apartments/" class="card-media-wrap" aria-label="Watch Web Story: The Canopy 2 & 3 BHK Nature Apartments Bhugaon | Paranjape Forest Trails">
           <img src="/images/web-stories/the-canopy-nature-apartments-portrait.webp" alt="The Canopy 2 & 3 BHK Nature Apartments Bhugaon | Paranjape Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Nature Apartments</span>
+            <div>
+              <span class="category-pill">Nature Apartments</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -704,7 +735,9 @@
         <a href="/web-stories/the-cove-twin-bungalows/" class="card-media-wrap" aria-label="Watch Web Story: The Cove Twin Bungalows Bhugaon Pune | 4 BHK Hillview Bungalows">
           <img src="/images/web-stories/the-cove-twin-bungalows-portrait.webp" alt="The Cove Twin Bungalows Bhugaon Pune | 4 BHK Hillview Bungalows" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Twin Bungalows</span>
+            <div>
+              <span class="category-pill">Twin Bungalows</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -763,7 +796,9 @@
         <a href="/web-stories/forest-trails-190-acre-lifestyle/" class="card-media-wrap" aria-label="Watch Web Story: Living in a 190-Acre Forest: The Lifestyle at Paranjape Forest Trails">
           <img src="/images/web-stories/forest-trails-190-acre-lifestyle-portrait.webp" alt="Living in a 190-Acre Forest: The Lifestyle at Paranjape Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Township Lifestyle</span>
+            <div>
+              <span class="category-pill">Township Lifestyle</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -822,7 +857,9 @@
         <a href="/web-stories/pmrda-ring-road-bhugaon-connectivity/" class="card-media-wrap" aria-label="Watch Web Story: Chandani Chowk & PMRDA Ring Road: Bhugaon Connectivity Advantage">
           <img src="/images/web-stories/pmrda-ring-road-bhugaon-connectivity-portrait.webp" alt="Chandani Chowk & PMRDA Ring Road: Bhugaon Connectivity Advantage" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Connectivity & Growth</span>
+            <div>
+              <span class="category-pill">Connectivity & Growth</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -881,7 +918,9 @@
         <a href="/web-stories/athashri-senior-living-bhugaon/" class="card-media-wrap" aria-label="Watch Web Story: Athashri Senior Living Bhugaon Pune | Paranjape Forest Trails">
           <img src="/images/web-stories/athashri-senior-living-bhugaon-portrait.webp" alt="Athashri Senior Living Bhugaon Pune | Paranjape Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Senior Living</span>
+            <div>
+              <span class="category-pill">Senior Living</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -940,7 +979,9 @@
         <a href="/web-stories/highgardens-panoramic-apartments/" class="card-media-wrap" aria-label="Watch Web Story: Highgardens 2 BHK Panoramic Apartments | Paranjape Forest Trails Bhugaon">
           <img src="/images/web-stories/highgardens-panoramic-apartments-portrait.webp" alt="Highgardens 2 BHK Panoramic Apartments | Paranjape Forest Trails Bhugaon" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">Panoramic 2 BHK</span>
+            <div>
+              <span class="category-pill">Panoramic 2 BHK</span>
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -988,6 +1029,250 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h3v3h-3v-3zm3 3h2v3h-2v-3zm2 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm7 0h2v2h-2v-2z"/></svg>
               </button>
               <button type="button" class="dock-btn embed" onclick="openEmbedModal('Highgardens 2 BHK Panoramic Apartments Bhugaon', 'https://www.paranjapetownship.com/web-stories/highgardens-panoramic-apartments/')" title="Get Embed Code" aria-label="Embed">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card" data-category="plots vernacular">
+        <a href="/web-stories/pune-madhe-na-plots-marathi/" class="card-media-wrap" aria-label="Watch Web Story: पुण्यात एनए बंगलो प्लॉट | Misty Greens Forest Trails भुगाव">
+          <img src="/images/web-stories/pune-madhe-na-plots-marathi-portrait.webp" alt="पुण्यात एनए बंगलो प्लॉट | Misty Greens Forest Trails भुगाव" width="720" height="960" loading="lazy" class="story-thumb">
+          <div class="media-overlay">
+            <div>
+              <span class="category-pill">एनए बंगलो प्लॉट</span><span class="lang-pill mr" style="background: rgba(245, 158, 11, 0.25); border: 1px solid rgba(245, 158, 11, 0.5); color: #f59e0b; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">मराठी</span>
+            </div>
+            <div class="play-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div class="meta-bottom">
+              <span class="badge-price">₹१.२३ कोटी* पासून</span>
+              <span class="read-time">6 Slides • 1 Min</span>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h2 class="card-title"><a href="/web-stories/pune-madhe-na-plots-marathi/">पुण्यात एनए बंगलो प्लॉट — मिस्टी ग्रीन्स भुगाव</a></h2>
+          <p class="card-desc">पुणे पश्चिम भुगाव येथे परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए बंगलो प्लॉट ₹१.२३ कोटी* पासून उपलब्ध. १८०० ते ३६०० चौ.फूट, MahaRERA P52100053834.</p>
+          
+          <!-- Primary Actions -->
+          <div class="card-actions">
+            <a href="/web-stories/pune-madhe-na-plots-marathi/" class="btn-watch">
+              <span>Watch Full Story</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/pune-madhe-plot/" class="btn-sub">एनए प्लॉट संपूर्ण माहिती</a>
+          </div>
+
+          <!-- Cross-Platform Syndication & Sharing Bar -->
+          <div class="syndication-dock">
+            <span class="dock-title">Share across platforms:</span>
+            <div class="dock-buttons">
+              <a href="https://api.whatsapp.com/send?text=पुण्यात एनए बंगलो प्लॉट पहा - परांजपे फॉरेस्ट ट्रेल्स भुगाव (१८००-३६०० चौ.फूट, ₹१.२३ कोटी*):%20https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/" target="_blank" rel="noopener" class="dock-btn wa" title="Share to WhatsApp" aria-label="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/" target="_blank" rel="noopener" class="dock-btn li" title="Share to LinkedIn" aria-label="LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=पुण्यात एनए बंगलो प्लॉट पहा - परांजपे फॉरेस्ट ट्रेल्स भुगाव (१८००-३६०० चौ.फूट, ₹१.२३ कोटी*):&url=https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/" target="_blank" rel="noopener" class="dock-btn tw" title="Post to X / Twitter" aria-label="X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/" target="_blank" rel="noopener" class="dock-btn fb" title="Share on Facebook" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://t.me/share/url?url=https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/&text=पुण्यात एनए बंगलो प्लॉट पहा - परांजपे फॉरेस्ट ट्रेल्स भुगाव (१८००-३६०० चौ.फूट, ₹१.२३ कोटी*):" target="_blank" rel="noopener" class="dock-btn tg" title="Share via Telegram" aria-label="Telegram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </a>
+              <button type="button" class="dock-btn qr" onclick="openQrModal('पुण्यात एनए बंगलो प्लॉट — मिस्टी ग्रीन्स भुगाव', '/images/web-stories/pune-madhe-na-plots-marathi-qr.svg', 'https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/')" title="Scan QR to View on Mobile" aria-label="QR Code">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h3v3h-3v-3zm3 3h2v3h-2v-3zm2 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm7 0h2v2h-2v-2z"/></svg>
+              </button>
+              <button type="button" class="dock-btn embed" onclick="openEmbedModal('पुण्यात एनए बंगलो प्लॉट — मिस्टी ग्रीन्स भुगाव', 'https://www.paranjapetownship.com/web-stories/pune-madhe-na-plots-marathi/')" title="Get Embed Code" aria-label="Embed">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card" data-category="villas vernacular">
+        <a href="/web-stories/bhugaon-luxury-villas-marathi/" class="card-media-wrap" aria-label="Watch Web Story: पुणे भुगाव लक्झरी व्हिला | The Rivolo Forest Trails">
+          <img src="/images/web-stories/bhugaon-luxury-villas-marathi-portrait.webp" alt="पुणे भुगाव लक्झरी व्हिला | The Rivolo Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
+          <div class="media-overlay">
+            <div>
+              <span class="category-pill">लक्झरी फॉरेस्ट व्हिला</span><span class="lang-pill mr" style="background: rgba(245, 158, 11, 0.25); border: 1px solid rgba(245, 158, 11, 0.5); color: #f59e0b; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">मराठी</span>
+            </div>
+            <div class="play-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div class="meta-bottom">
+              <span class="badge-price">₹३.८९ कोटी* पासून</span>
+              <span class="read-time">6 Slides • 1 Min</span>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h2 class="card-title"><a href="/web-stories/bhugaon-luxury-villas-marathi/">पुणे भुगाव लक्झरी व्हिला — द रिव्होलो</a></h2>
+          <p class="card-desc">पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी फॉरेस्ट व्हिला ₹३.८९ कोटी* पासून. १९० एकर निसर्गरम्य टाऊनशिप, खाजगी डेक, MahaRERA P52100031560.</p>
+          
+          <!-- Primary Actions -->
+          <div class="card-actions">
+            <a href="/web-stories/bhugaon-luxury-villas-marathi/" class="btn-watch">
+              <span>Watch Full Story</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/pune-madhe-villa/" class="btn-sub">लक्झरी व्हिला माहिती</a>
+          </div>
+
+          <!-- Cross-Platform Syndication & Sharing Bar -->
+          <div class="syndication-dock">
+            <span class="dock-title">Share across platforms:</span>
+            <div class="dock-buttons">
+              <a href="https://api.whatsapp.com/send?text=पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी व्हिला पहा (₹३.८९ कोटी*):%20https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/" target="_blank" rel="noopener" class="dock-btn wa" title="Share to WhatsApp" aria-label="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/" target="_blank" rel="noopener" class="dock-btn li" title="Share to LinkedIn" aria-label="LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी व्हिला पहा (₹३.८९ कोटी*):&url=https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/" target="_blank" rel="noopener" class="dock-btn tw" title="Post to X / Twitter" aria-label="X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/" target="_blank" rel="noopener" class="dock-btn fb" title="Share on Facebook" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://t.me/share/url?url=https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/&text=पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी व्हिला पहा (₹३.८९ कोटी*):" target="_blank" rel="noopener" class="dock-btn tg" title="Share via Telegram" aria-label="Telegram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </a>
+              <button type="button" class="dock-btn qr" onclick="openQrModal('पुणे भुगाव लक्झरी व्हिला — द रिव्होलो', '/images/web-stories/bhugaon-luxury-villas-marathi-qr.svg', 'https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/')" title="Scan QR to View on Mobile" aria-label="QR Code">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h3v3h-3v-3zm3 3h2v3h-2v-3zm2 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm7 0h2v2h-2v-2z"/></svg>
+              </button>
+              <button type="button" class="dock-btn embed" onclick="openEmbedModal('पुणे भुगाव लक्झरी व्हिला — द रिव्होलो', 'https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/')" title="Get Embed Code" aria-label="Embed">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card" data-category="plots vernacular">
+        <a href="/web-stories/pune-mein-na-plots-hindi/" class="card-media-wrap" aria-label="Watch Web Story: पुणे में एनए प्लॉट्स | Misty Greens Paranjape Forest Trails">
+          <img src="/images/web-stories/pune-mein-na-plots-hindi-portrait.webp" alt="पुणे में एनए प्लॉट्स | Misty Greens Paranjape Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
+          <div class="media-overlay">
+            <div>
+              <span class="category-pill">एनए प्लॉट्स</span><span class="lang-pill hi" style="background: rgba(59, 130, 246, 0.25); border: 1px solid rgba(59, 130, 246, 0.5); color: #60a5fa; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">हिंदी</span>
+            </div>
+            <div class="play-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div class="meta-bottom">
+              <span class="badge-price">₹1.23 करोड़* से</span>
+              <span class="read-time">6 Slides • 1 Min</span>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h2 class="card-title"><a href="/web-stories/pune-mein-na-plots-hindi/">पुणे में एनए बंगला प्लॉट्स — मिस्टी ग्रीन्स भुगाव</a></h2>
+          <p class="card-desc">पुणे वेस्ट भुगाव में परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए प्लॉट्स ₹1.23 करोड़* से उपलब्ध। 1800-3600 वर्ग फुट, MahaRERA P52100053834.</p>
+          
+          <!-- Primary Actions -->
+          <div class="card-actions">
+            <a href="/web-stories/pune-mein-na-plots-hindi/" class="btn-watch">
+              <span>Watch Full Story</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/pune-mein-plot/" class="btn-sub">एनए प्लॉट्स पूरी जानकारी</a>
+          </div>
+
+          <!-- Cross-Platform Syndication & Sharing Bar -->
+          <div class="syndication-dock">
+            <span class="dock-title">Share across platforms:</span>
+            <div class="dock-buttons">
+              <a href="https://api.whatsapp.com/send?text=पुणे वेस्ट भुगाव में एनए बंगला प्लॉट्स देखें (1800-3600 वर्ग फुट, ₹1.23 करोड़*):%20https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/" target="_blank" rel="noopener" class="dock-btn wa" title="Share to WhatsApp" aria-label="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/" target="_blank" rel="noopener" class="dock-btn li" title="Share to LinkedIn" aria-label="LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=पुणे वेस्ट भुगाव में एनए बंगला प्लॉट्स देखें (1800-3600 वर्ग फुट, ₹1.23 करोड़*):&url=https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/" target="_blank" rel="noopener" class="dock-btn tw" title="Post to X / Twitter" aria-label="X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/" target="_blank" rel="noopener" class="dock-btn fb" title="Share on Facebook" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://t.me/share/url?url=https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/&text=पुणे वेस्ट भुगाव में एनए बंगला प्लॉट्स देखें (1800-3600 वर्ग फुट, ₹1.23 करोड़*):" target="_blank" rel="noopener" class="dock-btn tg" title="Share via Telegram" aria-label="Telegram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </a>
+              <button type="button" class="dock-btn qr" onclick="openQrModal('पुणे में एनए बंगला प्लॉट्स — मिस्टी ग्रीन्स भुगाव', '/images/web-stories/pune-mein-na-plots-hindi-qr.svg', 'https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/')" title="Scan QR to View on Mobile" aria-label="QR Code">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h3v3h-3v-3zm3 3h2v3h-2v-3zm2 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm7 0h2v2h-2v-2z"/></svg>
+              </button>
+              <button type="button" class="dock-btn embed" onclick="openEmbedModal('पुणे में एनए बंगला प्लॉट्स — मिस्टी ग्रीन्स भुगाव', 'https://www.paranjapetownship.com/web-stories/pune-mein-na-plots-hindi/')" title="Get Embed Code" aria-label="Embed">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="story-card" data-category="apartments vernacular">
+        <a href="/web-stories/bhugaon-mein-flats-hindi/" class="card-media-wrap" aria-label="Watch Web Story: भुगाव में 2BHK 3BHK फ्लैट्स | The Canopy Forest Trails">
+          <img src="/images/web-stories/bhugaon-mein-flats-hindi-portrait.webp" alt="भुगाव में 2BHK 3BHK फ्लैट्स | The Canopy Forest Trails" width="720" height="960" loading="lazy" class="story-thumb">
+          <div class="media-overlay">
+            <div>
+              <span class="category-pill">2 व 3 BHK फ्लैट्स</span><span class="lang-pill hi" style="background: rgba(59, 130, 246, 0.25); border: 1px solid rgba(59, 130, 246, 0.5); color: #60a5fa; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">हिंदी</span>
+            </div>
+            <div class="play-badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+            <div class="meta-bottom">
+              <span class="badge-price">₹89 लाख* से</span>
+              <span class="read-time">6 Slides • 1 Min</span>
+            </div>
+          </div>
+        </a>
+        <div class="card-body">
+          <h2 class="card-title"><a href="/web-stories/bhugaon-mein-flats-hindi/">भुगाव पुणे में 2 और 3 BHK फ्लैट्स — द कैनोपी</a></h2>
+          <p class="card-desc">पुणे बावधन के पास भुगाव में 2 और 3 BHK नेचर फ्लैट्स ₹89 लाख* से। 190 एकड़ टाउनशिप, 10,000+ पेड़, क्लबहाउस, MahaRERA P52100079518.</p>
+          
+          <!-- Primary Actions -->
+          <div class="card-actions">
+            <a href="/web-stories/bhugaon-mein-flats-hindi/" class="btn-watch">
+              <span>Watch Full Story</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="/bhugaon-mein-flat/" class="btn-sub">फ्लैट्स विवरण व कीमतें</a>
+          </div>
+
+          <!-- Cross-Platform Syndication & Sharing Bar -->
+          <div class="syndication-dock">
+            <span class="dock-title">Share across platforms:</span>
+            <div class="dock-buttons">
+              <a href="https://api.whatsapp.com/send?text=भुगाव पुणे में 2 व 3 BHK नेचर अपार्टमेंट्स देखें (₹89 लाख* से):%20https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/" target="_blank" rel="noopener" class="dock-btn wa" title="Share to WhatsApp" aria-label="WhatsApp">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/" target="_blank" rel="noopener" class="dock-btn li" title="Share to LinkedIn" aria-label="LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=भुगाव पुणे में 2 व 3 BHK नेचर अपार्टमेंट्स देखें (₹89 लाख* से):&url=https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/" target="_blank" rel="noopener" class="dock-btn tw" title="Post to X / Twitter" aria-label="X">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/" target="_blank" rel="noopener" class="dock-btn fb" title="Share on Facebook" aria-label="Facebook">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+              </a>
+              <a href="https://t.me/share/url?url=https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/&text=भुगाव पुणे में 2 व 3 BHK नेचर अपार्टमेंट्स देखें (₹89 लाख* से):" target="_blank" rel="noopener" class="dock-btn tg" title="Share via Telegram" aria-label="Telegram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+              </a>
+              <button type="button" class="dock-btn qr" onclick="openQrModal('भुगाव पुणे में 2 और 3 BHK फ्लैट्स — द कैनोपी', '/images/web-stories/bhugaon-mein-flats-hindi-qr.svg', 'https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/')" title="Scan QR to View on Mobile" aria-label="QR Code">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h3v3h-3v-3zm3 3h2v3h-2v-3zm2 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm7 0h2v2h-2v-2z"/></svg>
+              </button>
+              <button type="button" class="dock-btn embed" onclick="openEmbedModal('भुगाव पुणे में 2 और 3 BHK फ्लैट्स — द कैनोपी', 'https://www.paranjapetownship.com/web-stories/bhugaon-mein-flats-hindi/')" title="Get Embed Code" aria-label="Embed">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>
               </button>
             </div>
@@ -1049,7 +1334,8 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.story-card').forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
+        var cats = (card.getAttribute('data-category') || '').split(' ');
+        if (category === 'all' || cats.indexOf(category) !== -1) {
           card.style.display = 'flex';
         } else {
           card.style.display = 'none';

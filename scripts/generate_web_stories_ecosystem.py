@@ -585,20 +585,312 @@ STORIES = [
                 "cta_text": "Inspect Ready Flats"
             }
         ]
+    },
+    {
+        "slug": "pune-madhe-na-plots-marathi",
+        "title": "पुण्यात एनए बंगलो प्लॉट | Misty Greens Forest Trails भुगाव",
+        "h1": "पुण्यात एनए बंगलो प्लॉट — मिस्टी ग्रीन्स भुगाव",
+        "meta_desc": "पुणे पश्चिम भुगाव येथे परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए बंगलो प्लॉट ₹१.२३ कोटी* पासून उपलब्ध. १८०० ते ३६०० चौ.फूट, MahaRERA P52100053834.",
+        "category": "एनए बंगलो प्लॉट",
+        "filter": "plots",
+        "lang": "mr",
+        "locale": "mr_IN",
+        "in_language": "mr-IN",
+        "price_badge": "₹१.२३ कोटी* पासून",
+        "rera": "P52100053834",
+        "target_url": "/pune-madhe-plot/",
+        "target_label": "एनए प्लॉट संपूर्ण माहिती",
+        "whatsapp_share_text": "पुण्यात एनए बंगलो प्लॉट पहा - परांजपे फॉरेस्ट ट्रेल्स भुगाव (१८००-३६०० चौ.फूट, ₹१.२३ कोटी*):",
+        "slides": [
+            {
+                "id": "cover",
+                "tag": "१००% एनए प्लॉट",
+                "h2": "मिस्टी ग्रीन्स: १९० एकर निसर्गरम्य टाऊनशिपमध्ये स्वतःचा बंगला बांधा",
+                "desc": "पुणे पश्चिमेतील सर्वात मोठी निसर्ग टाऊनशिप. कलेक्टर एनए मंजूर आणि महा-रेरा प्रमाणित स्वतंत्र बंगलो प्लॉट.",
+                "badge": "MahaRERA: P52100053834",
+                "cta_url": "/pune-madhe-plot/",
+                "cta_text": "प्लॉट मास्टरप्लॅन पहा"
+            },
+            {
+                "id": "sizes",
+                "tag": "प्लॉटचे विविध पर्याय",
+                "h2": "१८०० ते ३६०० चौरस फूट स्वतंत्र एनए प्लॉट",
+                "desc": "प्रत्येक प्लॉटला स्वतंत्र सीमाभिंत, पाणीपुरवठा, भूमिगत वीज केबल आणि डांबरी अंतर्गत रस्ते उपलब्ध.",
+                "badge": "तात्काळ ताबा उपलब्ध",
+                "cta_url": "/pune-madhe-plot/",
+                "cta_text": "प्लॉट लेआउट तपासा"
+            },
+            {
+                "id": "location",
+                "tag": "उत्कृष्ट कनेक्टिव्हिटी",
+                "h2": "चंदणी चौक फ्लायओव्हरपासून फक्त ७ मिनिटे अंतर",
+                "desc": "पौड रोड, भुगाव येथे मोक्याचे स्थान. कोथरूड १० मिनिटे, बावधन ५ मिनिटे आणि हिंजवडी २५ मिनिटांत.",
+                "badge": "पीएमआरडीए रिंग रोड कॉरिडोअर",
+                "cta_url": "/paranjape-forest-trails-bhugaon-location-map/",
+                "cta_text": "स्थान नकाशा उघडा"
+            },
+            {
+                "id": "amenities",
+                "tag": "१९० एकर लक्झरी जीवनशैली",
+                "h2": "द क्लिफ क्लब आणि अश्वारोहण अकादमी जवळच",
+                "desc": "ऑलिम्पिक आकाराचा स्विमिंग पूल, टेनिस कोर्ट, ४.५ किमी फॉरेस्ट ट्रेल आणि १०,००० पेक्षा जास्त वृक्षांची सावली.",
+                "badge": "५०+ जागतिक दर्जाच्या सुविधा",
+                "cta_url": "/paranjape-forest-trails-township-bhugaon-facilities/",
+                "cta_text": "टाऊनशिप सुविधा पहा"
+            },
+            {
+                "id": "legals",
+                "tag": "१००% कायदेशीर व सुरक्षित",
+                "h2": "महा-रेरा मंजूर आणि स्वतंत्र ७/१२ उतारा",
+                "desc": "एसबीआय, एचडीएफसी आणि आयसीआयसीआय बँकेकडून ८०% पर्यंत गृहकर्ज उपलब्ध. एनआरआय खरेदीदारांसाठी विशेष मदत.",
+                "badge": "कायदेशीर दस्तऐवज पडताळणी",
+                "cta_url": "/pune-madhe-plot/",
+                "cta_text": "रेरा प्रमाणपत्र तपासा"
+            },
+            {
+                "id": "pricing",
+                "tag": "मर्यादित प्लॉट शिल्लक",
+                "h2": "किंमत ₹१.२३ कोटी* पासून — आजच साइट व्हिजिट बुक करा",
+                "desc": "निसर्गाच्या सान्निध्यात प्रत्यक्ष प्लॉट पाहण्यासाठी दररोज मोफत मार्गदर्शन साइट व्हिजिट उपलब्ध.",
+                "badge": "कॉल करा: +91 7744009295",
+                "cta_url": "https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Misty%20Greens%20NA%20Plots%20Marathi",
+                "cta_text": "मोफत साइट व्हिजिट बुक करा"
+            }
+        ]
+    },
+    {
+        "slug": "bhugaon-luxury-villas-marathi",
+        "title": "पुणे भुगाव लक्झरी व्हिला | The Rivolo Forest Trails",
+        "h1": "पुणे भुगाव लक्झरी व्हिला — द रिव्होलो",
+        "meta_desc": "पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी फॉरेस्ट व्हिला ₹३.८९ कोटी* पासून. १९० एकर निसर्गरम्य टाऊनशिप, खाजगी डेक, MahaRERA P52100031560.",
+        "category": "लक्झरी फॉरेस्ट व्हिला",
+        "filter": "villas",
+        "lang": "mr",
+        "locale": "mr_IN",
+        "in_language": "mr-IN",
+        "price_badge": "₹३.८९ कोटी* पासून",
+        "rera": "P52100031560",
+        "target_url": "/pune-madhe-villa/",
+        "target_label": "लक्झरी व्हिला माहिती",
+        "whatsapp_share_text": "पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी व्हिला पहा (₹३.८९ कोटी*):",
+        "slides": [
+            {
+                "id": "cover",
+                "tag": "अल्ट्रा लक्झरी व्हिला",
+                "h2": "द रिव्होलो: ४ आणि ५ बीएचके स्वतंत्र फॉरेस्ट व्हिला",
+                "desc": "फॉरेस्ट ट्रेल्सच्या सर्वोच्च शिखरावर स्थित. सह्याद्रीच्या डोंगररांगांचे विहंगम दृश्य आणि खाजगी सनडेक.",
+                "badge": "MahaRERA: P52100031560",
+                "cta_url": "/pune-madhe-villa/",
+                "cta_text": "व्हिला तपशील पहा"
+            },
+            {
+                "id": "architecture",
+                "tag": "भव्य वास्तुरचना",
+                "h2": "३२०० ते ४१०० चौ.फूट राजेशाही राहण्याची जागा",
+                "desc": "इटालियन मार्बल फ्लोअरिंग, दुहेरी उंचीचे दिवाणखाने, खाजगी लिफ्टची तरतूद आणि स्वतंत्र अंगण.",
+                "badge": "फक्त २४ निवडक व्हिला",
+                "cta_url": "/pune-madhe-villa/",
+                "cta_text": "फ्लोअर प्लॅन तपासा"
+            },
+            {
+                "id": "lifestyle",
+                "tag": "निसर्गाचा आनंद",
+                "h2": "खाजगी प्लंज पूल आणि सनसेट व्ह्यूइंग गॅलरी",
+                "desc": "हिरवेगार व्हॅली व्ह्यूज आणि पक्षांचा किलबिलाट. ९०% शुद्ध डोंगर हवा आणि संपूर्ण प्रदूषणमुक्त वातावरण.",
+                "badge": "शुद्ध डोंगर हवा",
+                "cta_url": "/pune-madhe-villa/",
+                "cta_text": "व्हिला ब्रोशर डाउनलोड करा"
+            },
+            {
+                "id": "privacy",
+                "tag": "संपूर्ण सुरक्षा",
+                "h2": "स्वतंत्र गेट आणि ३-स्तरीय २४/७ सुरक्षा यंत्रणा",
+                "desc": "आरएफआयडी प्रवेश, मोटराइज्ड पेट्रोलिंग आणि सीसीटीव्ही निगराणीमुळे कुटुंबीयांसाठी १००% सुरक्षित वातावरण.",
+                "badge": "गेटेड हिलटॉप समुदाय",
+                "cta_url": "/paranjape-forest-trails-township-bhugaon-facilities/",
+                "cta_text": "सुरक्षा व्यवस्था पहा"
+            },
+            {
+                "id": "developer",
+                "tag": "५० वर्षांचा विश्वास",
+                "h2": "परांजपे स्कीम्स — २०,०००+ समाधानी कुटुंबांची परंपरा",
+                "desc": "उच्च दर्जाचे बांधकाम आणि वेळेवर ताबा. महा-रेरा नियमांचे काटेकोर पालन.",
+                "badge": "ताबा टप्पा: Q4 2026",
+                "cta_url": "/pune-madhe-villa/",
+                "cta_text": "बांधकाम प्रगती तपासा"
+            },
+            {
+                "id": "pricing",
+                "tag": "खाजगी भेटीसाठी",
+                "h2": "किंमत ₹३.८९ कोटी* पासून — व्हीआयपी व्हिला प्रिव्ह्यू",
+                "desc": "आमच्या वरिष्ठ सल्लागारांशी संपर्क साधून वैयक्तिक व्हिला प्रदर्शन आणि सविस्तर माहिती मिळवा.",
+                "badge": "कॉल करा: +91 7744009295",
+                "cta_url": "https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20The%20Rivolo%20Forest%20Villas%20Marathi",
+                "cta_text": "व्हीआयपी प्रिव्ह्यू बुक करा"
+            }
+        ]
+    },
+    {
+        "slug": "pune-mein-na-plots-hindi",
+        "title": "पुणे में एनए प्लॉट्स | Misty Greens Paranjape Forest Trails",
+        "h1": "पुणे में एनए बंगला प्लॉट्स — मिस्टी ग्रीन्स भुगाव",
+        "meta_desc": "पुणे वेस्ट भुगाव में परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए प्लॉट्स ₹1.23 करोड़* से उपलब्ध। 1800-3600 वर्ग फुट, MahaRERA P52100053834.",
+        "category": "एनए प्लॉट्स",
+        "filter": "plots",
+        "lang": "hi",
+        "locale": "hi_IN",
+        "in_language": "hi-IN",
+        "price_badge": "₹1.23 करोड़* से",
+        "rera": "P52100053834",
+        "target_url": "/pune-mein-plot/",
+        "target_label": "एनए प्लॉट्स पूरी जानकारी",
+        "whatsapp_share_text": "पुणे वेस्ट भुगाव में एनए बंगला प्लॉट्स देखें (1800-3600 वर्ग फुट, ₹1.23 करोड़*):",
+        "slides": [
+            {
+                "id": "cover",
+                "tag": "कलेक्टर एनए प्लॉट्स",
+                "h2": "मिस्टी ग्रीन्स: 190 एकड़ नेचर टाउनशिप में अपना बंगला बनाएं",
+                "desc": "पुणे वेस्ट की सबसे बड़ी ग्रीन टाउनशिप। अपनी पसंद का बंगला बनाने की पूरी आजादी के साथ महा-रेरा अप्रूव्ड प्लॉट्स।",
+                "badge": "MahaRERA: P52100053834",
+                "cta_url": "/pune-mein-plot/",
+                "cta_text": "मास्टरप्लान देखें"
+            },
+            {
+                "id": "sizes",
+                "tag": "प्लॉट के साइज़",
+                "h2": "1,800 से 3,600 वर्ग फुट के स्वतंत्र एनए प्लॉट्स",
+                "desc": "हर प्लॉट के लिए बाउंड्री वॉल, डेडिकेटेड पानी का कनेक्शन, अंडरग्राउंड वायरिंग और चौड़ी पक्की सड़कें।",
+                "badge": "तत्काल पजेशन उपलब्ध",
+                "cta_url": "/pune-mein-plot/",
+                "cta_text": "उपलब्ध प्लॉट्स जांचें"
+            },
+            {
+                "id": "location",
+                "tag": "शानदार कनेक्टिविटी",
+                "h2": "चांदनी चौक फ्लाईओवर से मात्र 7 मिनट की दूरी",
+                "desc": "पौड रोड, भुगाव पर स्थित। कोथरुड 10 मिनट, बावधन 5 मिनट और हिंजेवाड़ी 25 मिनट की दूरी पर।",
+                "badge": "PMRDA ग्रोथ कॉरिडोर",
+                "cta_url": "/paranjape-forest-trails-bhugaon-location-map/",
+                "cta_text": "लोकेशन मैप खोलें"
+            },
+            {
+                "id": "amenities",
+                "tag": "190 एकड़ लाइफस्टाइल",
+                "h2": "द क्लिफ क्लब और हॉर्स राइडिंग एकेडमी आपके द्वार पर",
+                "desc": "ओलंपिक साइज स्विमिंग पूल, टेनिस कोर्ट, 4.5 किमी फॉरेस्ट ट्रेल्स और 10,000+ पेड़ों से घिरी हरियाली।",
+                "badge": "50+ विश्वस्तरीय सुविधाएं",
+                "cta_url": "/paranjape-forest-trails-township-bhugaon-facilities/",
+                "cta_text": "टाउनशिप सुविधाएं देखें"
+            },
+            {
+                "id": "legals",
+                "tag": "100% क्लियर टाइटल",
+                "h2": "महा-रेरा व कलेक्टर एनए अप्रूव्ड, अलग 7/12 उतारा",
+                "desc": "SBI, HDFC, ICICI से 80% तक होम लोन सुविधा। एनआरआई निवेशकों के लिए फेमा-कंप्लायंट प्रक्रिया।",
+                "badge": "क्लियर टाइटल सर्टिफाइड",
+                "cta_url": "/pune-mein-plot/",
+                "cta_text": "रेरा डिटेल्स देखें"
+            },
+            {
+                "id": "pricing",
+                "tag": "सीमित प्लॉट्स उपलब्ध",
+                "h2": "कीमत ₹1.23 करोड़* से — आज ही साइट विजिट बुक करें",
+                "desc": "पहाड़ों की खूबसूरत वादियों का अनुभव स्वयं करें। रोजाना निशुल्क गाइडेड साइट विजिट उपलब्ध।",
+                "badge": "कॉल: +91 7744009295",
+                "cta_url": "https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Misty%20Greens%20NA%20Plots%20Hindi",
+                "cta_text": "फ्री साइट विजिट बुक करें"
+            }
+        ]
+    },
+    {
+        "slug": "bhugaon-mein-flats-hindi",
+        "title": "भुगाव में 2BHK 3BHK फ्लैट्स | The Canopy Forest Trails",
+        "h1": "भुगाव पुणे में 2 और 3 BHK फ्लैट्स — द कैनोपी",
+        "meta_desc": "पुणे बावधन के पास भुगाव में 2 और 3 BHK नेचर फ्लैट्स ₹89 लाख* से। 190 एकड़ टाउनशिप, 10,000+ पेड़, क्लबहाउस, MahaRERA P52100079518.",
+        "category": "2 व 3 BHK फ्लैट्स",
+        "filter": "apartments",
+        "lang": "hi",
+        "locale": "hi_IN",
+        "in_language": "hi-IN",
+        "price_badge": "₹89 लाख* से",
+        "rera": "P52100079518",
+        "target_url": "/bhugaon-mein-flat/",
+        "target_label": "फ्लैट्स विवरण व कीमतें",
+        "whatsapp_share_text": "भुगाव पुणे में 2 व 3 BHK नेचर अपार्टमेंट्स देखें (₹89 लाख* से):",
+        "slides": [
+            {
+                "id": "cover",
+                "tag": "नेचर-थीम्ड घर",
+                "h2": "द कैनोपी: 2 और 3 BHK फॉरेस्ट फ्लैट्स ₹89 लाख* से",
+                "desc": "जहां से जंगल शुरू होता है। बावधन के पास 10,000+ पेड़ों की हरियाली के बीच आधुनिक फ्लैट्स।",
+                "badge": "MahaRERA: P52100079518",
+                "cta_url": "/bhugaon-mein-flat/",
+                "cta_text": "द कैनोपी एक्सप्लोर करें"
+            },
+            {
+                "id": "layouts",
+                "tag": "स्मार्ट लेआउट्स",
+                "h2": "850 से 1,150 वर्ग फुट का अनुकूलित स्पेस",
+                "desc": "जीरो स्पेस वेस्टेज, बड़ी बालकनी, हवादार बेडरूम और वास्तु सम्मत डिजाइन।",
+                "badge": "वास्तु सम्मत योजना",
+                "cta_url": "/bhugaon-mein-flat/",
+                "cta_text": "फ्लोर प्लान्स देखें"
+            },
+            {
+                "id": "greens",
+                "tag": "पहाड़ी दृश्य",
+                "h2": "बालकनी से सह्याद्री की पहाड़ियों के मनोरम दृश्य",
+                "desc": "सुबह की चाय के साथ हरी-भरी वादियों का आनंद। शहर के प्रदूषण से दूर स्वच्छ और शांत वातावरण।",
+                "badge": "फॉरेस्ट फेसिंग बालकनी",
+                "cta_url": "/bhugaon-mein-flat/",
+                "cta_text": "बालकनी व्यूज जांचें"
+            },
+            {
+                "id": "club",
+                "tag": "रेजिडेंशियल सुविधाएं",
+                "h2": "क्लबहाउस, स्विमिंग पूल, जिम और किड्स प्ले एरिया",
+                "desc": "निजी क्लबहाउस सुविधाओं के साथ 190 एकड़ टाउनशिप के क्लिफ क्लब और खेल सुविधाओं का पूरा उपयोग।",
+                "badge": "15+ प्रीमियम सुविधाएं",
+                "cta_url": "/paranjape-forest-trails-township-bhugaon-facilities/",
+                "cta_text": "सुविधाएं देखें"
+            },
+            {
+                "id": "connectivity",
+                "tag": "त्वरित यात्रा",
+                "h2": "बावधन सिर्फ 5 मिनट और कोथरुड 7 मिनट की दूरी पर",
+                "desc": "चांदनी चौक तक सिग्नल-मुक्त ड्राइविंग। SSRVM स्कूल टाउनशिप के अंदर स्थित।",
+                "badge": "बावधन के निकट",
+                "cta_url": "/paranjape-forest-trails-bhugaon-location-map/",
+                "cta_text": "दूरी व मैप देखें"
+            },
+            {
+                "id": "pricing",
+                "tag": "विशेष ऑफर",
+                "h2": "2 BHK ₹89 लाख* | 3 BHK ₹1.24 करोड़* — तुरंत संपर्क करें",
+                "desc": "फ्लेक्सिबल पेमेंट प्लान्स और प्रमुख राष्ट्रीय बैंकों से प्री-अप्रूव्ड होम लोन की सुविधा।",
+                "badge": "कॉल: +91 7744009295",
+                "cta_url": "https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20The%20Canopy%20Apartments%20Hindi",
+                "cta_text": "प्राइस शीट व ब्रोशर पाएं"
+            }
+        ]
     }
 ]
 
 def generate_qr_codes():
     out_dir = os.path.join(BASE_DIR, "images", "web-stories")
+    public_dir = os.path.join(BASE_DIR, "public", "images", "web-stories")
     os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(public_dir, exist_ok=True)
     factory = qrcode.image.svg.SvgPathImage
+    import shutil
     for s in STORIES:
         slug = s["slug"]
         url = f"{DOMAIN}/web-stories/{slug}/"
         qr = qrcode.make(url, image_factory=factory, box_size=10, border=2)
         qr_file = os.path.join(out_dir, f"{slug}-qr.svg")
         qr.save(qr_file)
-    print("Generated 8 SVG QR codes for offline / mobile scanning.")
+        shutil.copyfile(qr_file, os.path.join(public_dir, f"{slug}-qr.svg"))
+    print(f"Generated {len(STORIES)} SVG QR codes for offline / mobile scanning.")
 
 def generate_feed_xml():
     items_xml = []
@@ -662,6 +954,10 @@ def generate_web_story_html(story):
     poster_jpg = f"{DOMAIN}/images/web-stories/{slug}-portrait.jpg"
     publisher_logo = f"{DOMAIN}/images/web-stories/publisher-logo-192x192.png"
 
+    lang = story.get("lang", "en")
+    locale = story.get("locale", "en_IN")
+    in_language = story.get("in_language", "en-IN")
+
     # Schema JSON-LD
     schema_json = {
         "@context": "https://schema.org",
@@ -679,7 +975,7 @@ def generate_web_story_html(story):
         "datePublished": "2026-10-10T08:00:00+05:30",
         "dateModified": TODAY_ISO,
         "isAccessibleForFree": "true",
-        "inLanguage": "en-IN",
+        "inLanguage": in_language,
         "author": {
             "@type": "Organization",
             "name": "Paranjape Schemes",
@@ -743,7 +1039,7 @@ def generate_web_story_html(story):
     slides_joined = "\n".join(slides_html)
 
     html_content = f"""<!DOCTYPE html>
-<html ⚡ lang="en">
+<html ⚡ lang="{lang}">
 <head>
   <meta charset="utf-8">
   <title>{title}</title>
@@ -762,7 +1058,7 @@ def generate_web_story_html(story):
   <meta property="og:image:width" content="720">
   <meta property="og:image:height" content="960">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:locale" content="en_IN">
+  <meta property="og:locale" content="{locale}">
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@ParanjapeScheme">
@@ -955,12 +1251,25 @@ def generate_hub_html():
         li_url = f"https://www.linkedin.com/sharing/share-offsite/?url={abs_story_url}"
         tg_url = f"https://t.me/share/url?url={abs_story_url}&text={share_text}"
 
+        categories = [s['filter']]
+        if s.get('lang') in ['mr', 'hi']:
+            categories.append('vernacular')
+        cat_attr = ' '.join(categories)
+
+        lang_badge = ""
+        if s.get("lang") == "mr":
+            lang_badge = '<span class="lang-pill mr" style="background: rgba(245, 158, 11, 0.25); border: 1px solid rgba(245, 158, 11, 0.5); color: #f59e0b; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">मराठी</span>'
+        elif s.get("lang") == "hi":
+            lang_badge = '<span class="lang-pill hi" style="background: rgba(59, 130, 246, 0.25); border: 1px solid rgba(59, 130, 246, 0.5); color: #60a5fa; font-size: 0.65rem; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px;">हिंदी</span>'
+
         card = f"""
-      <article class="story-card" data-category="{s['filter']}">
+      <article class="story-card" data-category="{cat_attr}">
         <a href="{story_url}" class="card-media-wrap" aria-label="Watch Web Story: {s['title']}">
           <img src="{thumb_url}" alt="{s['title']}" width="720" height="960" loading="lazy" class="story-thumb">
           <div class="media-overlay">
-            <span class="category-pill">{s['category']}</span>
+            <div>
+              <span class="category-pill">{s['category']}</span>{lang_badge}
+            </div>
             <div class="play-badge">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M8 5v14l11-7z"/>
@@ -1464,11 +1773,12 @@ def generate_hub_html():
     
     <!-- Filter Chips -->
     <div class="filter-bar">
-      <button type="button" class="filter-btn active" onclick="filterStories('all', this)">All Stories (8)</button>
+      <button type="button" class="filter-btn active" onclick="filterStories('all', this)">All Stories ({len(STORIES)})</button>
       <button type="button" class="filter-btn" onclick="filterStories('plots', this)">NA Plots</button>
       <button type="button" class="filter-btn" onclick="filterStories('villas', this)">Forest Villas</button>
       <button type="button" class="filter-btn" onclick="filterStories('apartments', this)">Apartments</button>
       <button type="button" class="filter-btn" onclick="filterStories('senior', this)">Senior Living</button>
+      <button type="button" class="filter-btn" onclick="filterStories('vernacular', this)">मराठी / हिंदी</button>
       <button type="button" class="filter-btn" onclick="filterStories('lifestyle', this)">190-Acre Life</button>
       <button type="button" class="filter-btn" onclick="filterStories('infrastructure', this)">Infrastructure</button>
     </div>
@@ -1533,7 +1843,8 @@ def generate_hub_html():
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       document.querySelectorAll('.story-card').forEach(card => {{
-        if (category === 'all' || card.getAttribute('data-category') === category) {{
+        var cats = (card.getAttribute('data-category') || '').split(' ');
+        if (category === 'all' || cats.indexOf(category) !== -1) {{
           card.style.display = 'flex';
         }} else {{
           card.style.display = 'none';
@@ -1607,7 +1918,7 @@ def generate_stories_tray_component():
       <div style="display: flex; align-items: center; gap: 8px;">
         <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #EF4444; box-shadow: 0 0 10px #EF4444;"></span>
         <span style="font-size: 0.76rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: #D4AF37;">VISUAL WEB STORIES</span>
-        <span style="font-size: 0.7rem; color: #e2e8f0; background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 9999px;">8 Live Stories</span>
+        <span style="font-size: 0.7rem; color: #e2e8f0; background: rgba(255,255,255,0.08); padding: 2px 8px; border-radius: 9999px;">{len(STORIES)} Live Stories</span>
       </div>
       <a href="/web-stories/" style="font-size: 0.75rem; font-weight: 700; color: #D4AF37; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">Explore Hub →</a>
     </div>
@@ -1634,7 +1945,11 @@ def inject_tray_into_pages(tray_html):
         os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-the-canopy", "index.html"),
         os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-the-cove", "index.html"),
         os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon", "index.html"),
-        os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-highgardens", "index.html")
+        os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-highgardens", "index.html"),
+        os.path.join(BASE_DIR, "pune-madhe-plot", "index.html"),
+        os.path.join(BASE_DIR, "pune-madhe-villa", "index.html"),
+        os.path.join(BASE_DIR, "pune-mein-plot", "index.html"),
+        os.path.join(BASE_DIR, "bhugaon-mein-flat", "index.html")
     ]
 
     for target in targets:
@@ -1661,13 +1976,52 @@ def inject_tray_into_pages(tray_html):
         except Exception as e:
             print(f"Error injecting into {target}: {e}")
 
+def generate_sitemap_stories():
+    out_path = os.path.join(BASE_DIR, "sitemap-stories.xml")
+    stories_urls = [f"{DOMAIN}/web-stories/"]
+    for s in STORIES:
+        stories_urls.append(f"{DOMAIN}/web-stories/{s['slug']}/")
+
+    xml_lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+    ]
+    for u in stories_urls:
+        priority = "0.95" if u.endswith("/web-stories/") else "0.90"
+        xml_lines.append("  <url>")
+        xml_lines.append(f"    <loc>{u}</loc>")
+        xml_lines.append(f"    <lastmod>{DATE_STR}</lastmod>")
+        xml_lines.append("    <changefreq>weekly</changefreq>")
+        xml_lines.append(f"    <priority>{priority}</priority>")
+        xml_lines.append("  </url>")
+    xml_lines.append("</urlset>")
+
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(xml_lines) + "\n")
+    print(f"Generated: {out_path} ({len(stories_urls)} URLs)")
+
+    sitemap_index_path = os.path.join(BASE_DIR, "sitemap.xml")
+    if os.path.exists(sitemap_index_path):
+        with open(sitemap_index_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        if "sitemap-stories.xml" not in content:
+            entry = f"""  <sitemap>
+    <loc>{DOMAIN}/sitemap-stories.xml</loc>
+    <lastmod>{DATE_STR}</lastmod>
+  </sitemap>
+</sitemapindex>"""
+            content = content.replace("</sitemapindex>", entry)
+            with open(sitemap_index_path, "w", encoding="utf-8") as f:
+                f.write(content)
+            print("Registered sitemap-stories.xml inside sitemap.xml.")
+
 def main():
     print("Executing Expansive Cross-Platform Web Stories Ecosystem Engine...")
 
     # 1. Generate SVG QR Codes
     generate_qr_codes()
 
-    # 2. Generate 8 AMP Web Stories with full cross-platform meta
+    # 2. Generate 12 AMP Web Stories with full cross-platform meta
     for story in STORIES:
         slug = story["slug"]
         story_dir = os.path.join(BASE_DIR, "web-stories", slug)
@@ -1691,6 +2045,9 @@ def main():
     # 5. Generate and Inject Stories Tray
     tray_html = generate_stories_tray_component()
     inject_tray_into_pages(tray_html)
+
+    # 6. Generate Dedicated Stories Sitemap
+    generate_sitemap_stories()
 
     print("Expansive Cross-Platform Web Stories Ecosystem successfully generated!")
 

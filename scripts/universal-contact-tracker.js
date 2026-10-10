@@ -21,11 +21,25 @@
             'value': 1.0,
             'currency': 'INR'
           });
+          gtag('event', 'phone_call_lead', {
+            'send_to': 'AW-17430583486',
+            'event_category': 'Direct Engagement',
+            'event_label': href.replace('tel:', ''),
+            'value': 1.0,
+            'currency': 'INR'
+          });
         }
       } else if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
         if (typeof gtag === 'function') {
           gtag('event', 'contact', {
             'method': 'whatsapp',
+            'event_category': 'Direct Engagement',
+            'event_label': 'WhatsApp Chat Initiated',
+            'value': 1.0,
+            'currency': 'INR'
+          });
+          gtag('event', 'whatsapp_lead', {
+            'send_to': 'AW-17430583486',
             'event_category': 'Direct Engagement',
             'event_label': 'WhatsApp Chat Initiated',
             'value': 1.0,

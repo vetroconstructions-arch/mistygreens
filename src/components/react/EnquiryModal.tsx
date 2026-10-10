@@ -86,6 +86,31 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
       localStorage.setItem('pscl_offline_lead_vault', JSON.stringify(existing));
     } catch (e) {}
 
+    // 1b. Enhanced Conversions Persistence & Direct Google Ads Conversion Dispatch
+    try {
+      const leadInfo = {
+        name: fullName,
+        phone: `+91${phone}`,
+        email: email || '',
+        project: selectedProject,
+        leadId: 'LEAD_' + Date.now()
+      };
+      sessionStorage.setItem('pscl_last_lead', JSON.stringify(leadInfo));
+      localStorage.setItem('pscl_last_lead', JSON.stringify(leadInfo));
+      if (typeof (window as any).gtag === 'function') {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
+          'transaction_id': leadInfo.leadId
+        });
+        (window as any).gtag('event', 'generate_lead', {
+          'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
+          'transaction_id': leadInfo.leadId,
+          'value': 1.0,
+          'currency': 'INR'
+        });
+      }
+    } catch (e) {}
+
     try {
       // 2. Primary Direct Client-Side FormSubmit AJAX Dispatch
       const clientDispatch = fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {

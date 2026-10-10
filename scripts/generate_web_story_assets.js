@@ -105,6 +105,54 @@ const stories = [
       'images/misty-greens-gate-day.webp',
       'images/highgardens-realistic.webp'
     ]
+  },
+  {
+    slug: 'pune-madhe-na-plots-marathi',
+    poster: 'images/misty-greens.webp',
+    slides: [
+      'images/misty-greens-gate-day.webp',
+      'images/plots.webp',
+      'images/drone-aerial.webp',
+      'images/the-cliff-club.webp',
+      'images/misty-greens-layout.webp',
+      'images/misty-greens.webp'
+    ]
+  },
+  {
+    slug: 'bhugaon-luxury-villas-marathi',
+    poster: 'images/rivolo-luxury.webp',
+    slides: [
+      'images/rivolo-luxury.webp',
+      'images/villas-exterior.webp',
+      'images/villas-courtyard.webp',
+      'images/villas-pool-night.webp',
+      'images/rivolo-floor-plan.webp',
+      'images/township-aerial.webp'
+    ]
+  },
+  {
+    slug: 'pune-mein-na-plots-hindi',
+    poster: 'images/misty-greens.webp',
+    slides: [
+      'images/misty-greens-gate-day.webp',
+      'images/plots.webp',
+      'images/drone-aerial.webp',
+      'images/the-cliff-club.webp',
+      'images/misty-greens-layout.webp',
+      'images/misty-greens.webp'
+    ]
+  },
+  {
+    slug: 'bhugaon-mein-flats-hindi',
+    poster: 'images/canopy-realistic.webp',
+    slides: [
+      'images/canopy-realistic.webp',
+      'images/canopy-card.webp',
+      'images/canopy-layout.webp',
+      'images/landscape.webp',
+      'images/the-cliff-club.webp',
+      'images/canopy-realistic.webp'
+    ]
   }
 ];
 
@@ -173,6 +221,17 @@ async function generateAssets() {
     }
     console.log(`Generated ${story.slides.length} slides for: ${story.slug}`);
   }
+
+  // 3. Mirror all assets to public/images/web-stories
+  const PUBLIC_OUT = path.join(BASE_DIR, 'public', 'images', 'web-stories');
+  if (!fs.existsSync(PUBLIC_OUT)) {
+    fs.mkdirSync(PUBLIC_OUT, { recursive: true });
+  }
+  const files = fs.readdirSync(OUT_DIR);
+  for (const f of files) {
+    fs.copyFileSync(path.join(OUT_DIR, f), path.join(PUBLIC_OUT, f));
+  }
+  console.log(`Mirrored ${files.length} assets to ${PUBLIC_OUT}`);
 
   console.log('All Web Story assets successfully generated!');
 }
