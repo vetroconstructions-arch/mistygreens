@@ -6,6 +6,11 @@
   <link rel="canonical" href="https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta name="description" content="Experience ultra-luxury hilltop living at The Rivolo, Paranjape Forest Trails Bhugaon Pune. 4 & 5 BHK bespoke forest villas from ₹3.89 Cr* with private decks.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="alternate" hreflang="en" href="https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/">
+  <link rel="alternate" hreflang="mr" href="https://www.paranjapetownship.com/web-stories/bhugaon-luxury-villas-marathi/">
+  <link rel="alternate" hreflang="x-default" href="https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/">
   <meta name="theme-color" content="#4A0808">
   <!-- Multi-Platform Open Graph (WhatsApp, Telegram, Facebook, LinkedIn) -->
   <meta property="og:site_name" content="Paranjape Forest Trails Township Bhugaon">
@@ -132,37 +137,65 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/"
-  },
-  "headline": "The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes",
-  "image": [
-    "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-portrait.webp",
-    "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-square.webp",
-    "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-landscape.webp"
-  ],
-  "datePublished": "2026-10-10T08:00:00+05:30",
-  "dateModified": "2026-10-10T14:01:49+05:30",
-  "isAccessibleForFree": "true",
-  "inLanguage": "en-IN",
-  "author": {
-    "@type": "Organization",
-    "name": "Paranjape Schemes",
-    "url": "https://www.paranjapetownship.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Paranjape Forest Trails",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://www.paranjapetownship.com/images/web-stories/publisher-logo-192x192.png",
-      "width": 192,
-      "height": 192
+  "@graph": [
+    {
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/"
+      },
+      "headline": "The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes",
+      "image": [
+        "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-portrait.webp",
+        "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-square.webp",
+        "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-landscape.webp",
+        "https://www.paranjapetownship.com/images/web-stories/luxury-forest-villas-rivolo-portrait.jpg"
+      ],
+      "datePublished": "2026-10-10T08:00:00+05:30",
+      "dateModified": "2026-10-10T14:30:03+05:30",
+      "isAccessibleForFree": "true",
+      "inLanguage": "en-IN",
+      "author": {
+        "@type": "Organization",
+        "name": "Paranjape Schemes",
+        "url": "https://www.paranjapetownship.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Paranjape Forest Trails",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.paranjapetownship.com/images/web-stories/publisher-logo-192x192.png",
+          "width": 192,
+          "height": 192
+        }
+      },
+      "description": "Experience ultra-luxury hilltop living at The Rivolo, Paranjape Forest Trails Bhugaon Pune. 4 & 5 BHK bespoke forest villas from ₹3.89 Cr* with private decks."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.paranjapetownship.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Web Stories",
+          "item": "https://www.paranjapetownship.com/web-stories/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The Rivolo Villas",
+          "item": "https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/"
+        }
+      ]
     }
-  },
-  "description": "Experience ultra-luxury hilltop living at The Rivolo, Paranjape Forest Trails Bhugaon Pune. 4 & 5 BHK bespoke forest villas from \u20b93.89 Cr* with private decks."
+  ]
 }
   </script>
 </head>
@@ -184,6 +217,22 @@
           "config": {
             "AW-17430583486": { "groups": "default" },
             "G-PARANJAPE": { "groups": "default" }
+          }
+        },
+        "triggers": {
+          "storyPageVisible": {
+            "on": "story-page-visible",
+            "request": "event",
+            "vars": {
+              "event_name": "story_page_view"
+            }
+          },
+          "storyEnd": {
+            "on": "story-last-page-visible",
+            "request": "event",
+            "vars": {
+              "event_name": "story_completion"
+            }
           }
         }
       }

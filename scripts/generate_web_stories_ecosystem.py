@@ -36,6 +36,9 @@ DATE_STR = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 STORIES = [
     {
         "slug": "misty-greens-plots-bhugaon",
+        "tray_title": "Misty Greens",
+        "tray_price": "₹1.23 Cr*",
+        "breadcrumb_name": "Misty Greens NA Plots",
         "title": "NA Bungalow Plots at Misty Greens Bhugaon | Paranjape Forest Trails",
         "h1": "NA Bungalow Plots at Misty Greens Bhugaon",
         "meta_desc": "Explore premium NA bungalow plots at Misty Greens, Paranjape Forest Trails Bhugaon Pune. 1800-3600 sq ft plots from ₹1.23 Cr* with clear RERA title.",
@@ -105,6 +108,9 @@ STORIES = [
     },
     {
         "slug": "luxury-forest-villas-rivolo",
+        "tray_title": "Rivolo Villas",
+        "tray_price": "₹3.89 Cr*",
+        "breadcrumb_name": "The Rivolo Villas",
         "title": "The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes",
         "h1": "The Rivolo Luxury Forest Villas Bhugaon",
         "meta_desc": "Experience ultra-luxury hilltop living at The Rivolo, Paranjape Forest Trails Bhugaon Pune. 4 & 5 BHK bespoke forest villas from ₹3.89 Cr* with private decks.",
@@ -174,6 +180,9 @@ STORIES = [
     },
     {
         "slug": "the-canopy-nature-apartments",
+        "tray_title": "The Canopy",
+        "tray_price": "₹89 L*",
+        "breadcrumb_name": "The Canopy Apartments",
         "title": "The Canopy 2 & 3 BHK Nature Apartments Bhugaon | Paranjape Forest Trails",
         "h1": "The Canopy 2 & 3 BHK Nature Apartments Bhugaon",
         "meta_desc": "Discover forest-facing 2 & 3 BHK apartments at The Canopy, Paranjape Forest Trails Bhugaon near Bavdhan Pune from ₹89 Lakh*. Modern amenities & green views.",
@@ -243,6 +252,9 @@ STORIES = [
     },
     {
         "slug": "the-cove-twin-bungalows",
+        "tray_title": "The Cove",
+        "tray_price": "₹2.85 Cr*",
+        "breadcrumb_name": "The Cove Bungalows",
         "title": "The Cove Twin Bungalows Bhugaon Pune | 4 BHK Hillview Bungalows",
         "h1": "The Cove Twin Bungalows Bhugaon Pune",
         "meta_desc": "Explore 4 BHK twin bungalows at The Cove, Paranjape Forest Trails Bhugaon. Hillview independent living from ₹2.85 Cr* with private gardens and club access.",
@@ -312,6 +324,9 @@ STORIES = [
     },
     {
         "slug": "forest-trails-190-acre-lifestyle",
+        "tray_title": "190-Acre Life",
+        "tray_price": "190 Acres",
+        "breadcrumb_name": "Township Lifestyle",
         "title": "Living in a 190-Acre Forest: The Lifestyle at Paranjape Forest Trails",
         "h1": "The 190-Acre Forest Lifestyle at Paranjape Forest Trails",
         "meta_desc": "Explore daily life across 190 acres at Paranjape Forest Trails Bhugaon Pune. Equestrian academy, The Cliff Club, forest trails, SSRVM school, and pure air.",
@@ -381,6 +396,9 @@ STORIES = [
     },
     {
         "slug": "pmrda-ring-road-bhugaon-connectivity",
+        "tray_title": "Connectivity",
+        "tray_price": "7 Min Flyover",
+        "breadcrumb_name": "PMRDA Connectivity",
         "title": "Chandani Chowk & PMRDA Ring Road: Bhugaon Connectivity Advantage",
         "h1": "Chandani Chowk & PMRDA Ring Road Connectivity",
         "meta_desc": "See how Chandani Chowk Flyover & the PMRDA Ring Road cut travel times to Kothrud, Bavdhan, and Hinjewadi IT Park from Paranjape Forest Trails Bhugaon Pune.",
@@ -450,6 +468,9 @@ STORIES = [
     },
     {
         "slug": "athashri-senior-living-bhugaon",
+        "tray_title": "Athashri",
+        "tray_price": "₹83 L*",
+        "breadcrumb_name": "Athashri Senior Living",
         "title": "Athashri Senior Living Bhugaon Pune | Paranjape Forest Trails",
         "h1": "Athashri Senior Living Bhugaon Pune",
         "meta_desc": "Discover Athashri Senior Living at Paranjape Forest Trails Bhugaon. Thoughtfully designed 2 BHK homes from ₹83 Lakh* with 24x7 doctor, nurse & senior care.",
@@ -519,6 +540,9 @@ STORIES = [
     },
     {
         "slug": "highgardens-panoramic-apartments",
+        "tray_title": "Highgardens",
+        "tray_price": "₹89 L*",
+        "breadcrumb_name": "Highgardens Apartments",
         "title": "Highgardens 2 BHK Panoramic Apartments | Paranjape Forest Trails Bhugaon",
         "h1": "Highgardens 2 BHK Panoramic Apartments Bhugaon",
         "meta_desc": "Ready possession panoramic 2 BHK apartments at Highgardens, Paranjape Forest Trails Bhugaon Pune from ₹89 Lakh*. Hill views, clubhouse & swift connectivity.",
@@ -588,6 +612,9 @@ STORIES = [
     },
     {
         "slug": "pune-madhe-na-plots-marathi",
+        "tray_title": "मिस्टी ग्रीन्स (MR)",
+        "tray_price": "₹१.२३ कोटी*",
+        "breadcrumb_name": "पुण्यात एनए प्लॉट (मराठी)",
         "title": "पुण्यात एनए बंगलो प्लॉट | Misty Greens Forest Trails भुगाव",
         "h1": "पुण्यात एनए बंगलो प्लॉट — मिस्टी ग्रीन्स भुगाव",
         "meta_desc": "पुणे पश्चिम भुगाव येथे परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए बंगलो प्लॉट ₹१.२३ कोटी* पासून उपलब्ध. १८०० ते ३६०० चौ.फूट, MahaRERA P52100053834.",
@@ -660,6 +687,9 @@ STORIES = [
     },
     {
         "slug": "bhugaon-luxury-villas-marathi",
+        "tray_title": "रिव्होलो व्हिला (MR)",
+        "tray_price": "₹३.८९ कोटी*",
+        "breadcrumb_name": "लक्झरी व्हिला भुगाव (मराठी)",
         "title": "पुणे भुगाव लक्झरी व्हिला | The Rivolo Forest Trails",
         "h1": "पुणे भुगाव लक्झरी व्हिला — द रिव्होलो",
         "meta_desc": "पुणे पश्चिम भुगाव येथे ४ आणि ५ बीएचके लक्झरी फॉरेस्ट व्हिला ₹३.८९ कोटी* पासून. १९० एकर निसर्गरम्य टाऊनशिप, खाजगी डेक, MahaRERA P52100031560.",
@@ -732,6 +762,9 @@ STORIES = [
     },
     {
         "slug": "pune-mein-na-plots-hindi",
+        "tray_title": "मिस्टी ग्रीन्स (HI)",
+        "tray_price": "₹1.23 Cr*",
+        "breadcrumb_name": "पुणे में एनए प्लॉट्स (हिंदी)",
         "title": "पुणे में एनए प्लॉट्स | Misty Greens Paranjape Forest Trails",
         "h1": "पुणे में एनए बंगला प्लॉट्स — मिस्टी ग्रीन्स भुगाव",
         "meta_desc": "पुणे वेस्ट भुगाव में परांजपे फॉरेस्ट ट्रेल्स मिस्टी ग्रीन्स एनए प्लॉट्स ₹1.23 करोड़* से उपलब्ध। 1800-3600 वर्ग फुट, MahaRERA P52100053834.",
@@ -804,6 +837,9 @@ STORIES = [
     },
     {
         "slug": "bhugaon-mein-flats-hindi",
+        "tray_title": "द कैनोपी (HI)",
+        "tray_price": "₹89 L*",
+        "breadcrumb_name": "द कैनोपी फ्लैट्स (हिंदी)",
         "title": "भुगाव में 2BHK 3BHK फ्लैट्स | The Canopy Forest Trails",
         "h1": "भुगाव पुणे में 2 और 3 BHK फ्लैट्स — द कैनोपी",
         "meta_desc": "पुणे बावधन के पास भुगाव में 2 और 3 BHK नेचर फ्लैट्स ₹89 लाख* से। 190 एकड़ टाउनशिप, 10,000+ पेड़, क्लबहाउस, MahaRERA P52100079518.",
@@ -942,6 +978,51 @@ def generate_feed_xml():
         f.write(xml_content)
     print(f"Generated Web Stories Media RSS Feed: {out_path}")
 
+
+HREFLANG_MAP = {
+    # Plots Cluster
+    "misty-greens-plots-bhugaon": [
+        ("en", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+        ("mr", f"{DOMAIN}/web-stories/pune-madhe-na-plots-marathi/"),
+        ("hi", f"{DOMAIN}/web-stories/pune-mein-na-plots-hindi/"),
+        ("x-default", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+    ],
+    "pune-madhe-na-plots-marathi": [
+        ("en", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+        ("mr", f"{DOMAIN}/web-stories/pune-madhe-na-plots-marathi/"),
+        ("hi", f"{DOMAIN}/web-stories/pune-mein-na-plots-hindi/"),
+        ("x-default", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+    ],
+    "pune-mein-na-plots-hindi": [
+        ("en", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+        ("mr", f"{DOMAIN}/web-stories/pune-madhe-na-plots-marathi/"),
+        ("hi", f"{DOMAIN}/web-stories/pune-mein-na-plots-hindi/"),
+        ("x-default", f"{DOMAIN}/web-stories/misty-greens-plots-bhugaon/"),
+    ],
+    # Villas Cluster
+    "luxury-forest-villas-rivolo": [
+        ("en", f"{DOMAIN}/web-stories/luxury-forest-villas-rivolo/"),
+        ("mr", f"{DOMAIN}/web-stories/bhugaon-luxury-villas-marathi/"),
+        ("x-default", f"{DOMAIN}/web-stories/luxury-forest-villas-rivolo/"),
+    ],
+    "bhugaon-luxury-villas-marathi": [
+        ("en", f"{DOMAIN}/web-stories/luxury-forest-villas-rivolo/"),
+        ("mr", f"{DOMAIN}/web-stories/bhugaon-luxury-villas-marathi/"),
+        ("x-default", f"{DOMAIN}/web-stories/luxury-forest-villas-rivolo/"),
+    ],
+    # Apartments Cluster
+    "the-canopy-nature-apartments": [
+        ("en", f"{DOMAIN}/web-stories/the-canopy-nature-apartments/"),
+        ("hi", f"{DOMAIN}/web-stories/bhugaon-mein-flats-hindi/"),
+        ("x-default", f"{DOMAIN}/web-stories/the-canopy-nature-apartments/"),
+    ],
+    "bhugaon-mein-flats-hindi": [
+        ("en", f"{DOMAIN}/web-stories/the-canopy-nature-apartments/"),
+        ("hi", f"{DOMAIN}/web-stories/bhugaon-mein-flats-hindi/"),
+        ("x-default", f"{DOMAIN}/web-stories/the-canopy-nature-apartments/"),
+    ],
+}
+
 def generate_web_story_html(story):
     slug = story["slug"]
     title = story["title"]
@@ -957,43 +1038,82 @@ def generate_web_story_html(story):
     lang = story.get("lang", "en")
     locale = story.get("locale", "en_IN")
     in_language = story.get("in_language", "en-IN")
+    breadcrumb_name = story.get("breadcrumb_name") or title
 
-    # Schema JSON-LD
+    # Dynamic hreflang tags
+    hreflang_tags = []
+    if slug in HREFLANG_MAP:
+        for lang_code, href in HREFLANG_MAP[slug]:
+            hreflang_tags.append(f'  <link rel="alternate" hreflang="{lang_code}" href="{href}">')
+    else:
+        hreflang_tags.append(f'  <link rel="alternate" hreflang="{lang}" href="{canonical_url}">')
+        hreflang_tags.append(f'  <link rel="alternate" hreflang="x-default" href="{canonical_url}">')
+    hreflang_str = chr(10).join(hreflang_tags)
+
+    # Schema JSON-LD with @graph (NewsArticle + BreadcrumbList)
     schema_json = {
         "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": canonical_url
-        },
-        "headline": title,
-        "image": [
-            poster_portrait,
-            poster_square,
-            poster_landscape
-        ],
-        "datePublished": "2026-10-10T08:00:00+05:30",
-        "dateModified": TODAY_ISO,
-        "isAccessibleForFree": "true",
-        "inLanguage": in_language,
-        "author": {
-            "@type": "Organization",
-            "name": "Paranjape Schemes",
-            "url": DOMAIN
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Paranjape Forest Trails",
-            "logo": {
-                "@type": "ImageObject",
-                "url": publisher_logo,
-                "width": 192,
-                "height": 192
+        "@graph": [
+            {
+                "@type": "NewsArticle",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": canonical_url
+                },
+                "headline": title,
+                "image": [
+                    poster_portrait,
+                    poster_square,
+                    poster_landscape,
+                    poster_jpg
+                ],
+                "datePublished": "2026-10-10T08:00:00+05:30",
+                "dateModified": TODAY_ISO,
+                "isAccessibleForFree": "true",
+                "inLanguage": in_language,
+                "author": {
+                    "@type": "Organization",
+                    "name": "Paranjape Schemes",
+                    "url": DOMAIN
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Paranjape Forest Trails",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": publisher_logo,
+                        "width": 192,
+                        "height": 192
+                    }
+                },
+                "description": meta_desc
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Web Stories",
+                        "item": f"{DOMAIN}/web-stories/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": breadcrumb_name,
+                        "item": canonical_url
+                    }
+                ]
             }
-        },
-        "description": meta_desc
+        ]
     }
-    schema_str = json.dumps(schema_json, indent=2)
+    schema_str = json.dumps(schema_json, indent=2, ensure_ascii=False)
 
     # Build slides
     slides_html = []
@@ -1036,7 +1156,7 @@ def generate_web_story_html(story):
     </amp-story-page>"""
         slides_html.append(slide_markup)
 
-    slides_joined = "\n".join(slides_html)
+    slides_joined = chr(10).join(slides_html)
 
     html_content = f"""<!DOCTYPE html>
 <html ⚡ lang="{lang}">
@@ -1046,6 +1166,9 @@ def generate_web_story_html(story):
   <link rel="canonical" href="{canonical_url}">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
   <meta name="description" content="{meta_desc}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{hreflang_str}
   <meta name="theme-color" content="#4A0808">
   <!-- Multi-Platform Open Graph (WhatsApp, Telegram, Facebook, LinkedIn) -->
   <meta property="og:site_name" content="Paranjape Forest Trails Township Bhugaon">
@@ -1192,6 +1315,22 @@ def generate_web_story_html(story):
             "AW-17430583486": {{ "groups": "default" }},
             "G-PARANJAPE": {{ "groups": "default" }}
           }}
+        }},
+        "triggers": {{
+          "storyPageVisible": {{
+            "on": "story-page-visible",
+            "request": "event",
+            "vars": {{
+              "event_name": "story_page_view"
+            }}
+          }},
+          "storyEnd": {{
+            "on": "story-last-page-visible",
+            "request": "event",
+            "vars": {{
+              "event_name": "story_completion"
+            }}
+          }}
         }}
       }}
       </script>
@@ -1234,7 +1373,7 @@ def generate_hub_html():
             "itemListElement": items_json
         }
     }
-    hub_schema_str = json.dumps(hub_schema, indent=2)
+    hub_schema_str = json.dumps(hub_schema, indent=2, ensure_ascii=False)
 
     # Cards HTML with Multi-Platform Sharing Drawer
     cards_html = []
@@ -1897,8 +2036,8 @@ def generate_stories_tray_component():
         slug = s["slug"]
         story_url = f"/web-stories/{slug}/"
         thumb_url = f"/images/web-stories/{slug}-square.webp"
-        short_title = s["h1"].split("Bhugaon")[0].split("at")[0].strip()
-        price = s["price_badge"].split("Onwards")[0].strip()
+        short_title = s.get("tray_title") or s["h1"].split("Bhugaon")[0].split("at")[0].strip()
+        price = s.get("tray_price") or s["price_badge"].split("Onwards")[0].strip()
 
         item = f"""      <a href="{story_url}" class="story-tray-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none; min-width: 86px; flex-shrink: 0; text-align: center;">
         <div class="avatar-ring" style="width: 72px; height: 72px; border-radius: 50%; padding: 2.5px; background: linear-gradient(135deg, #4A0808, #b89326, #D4AF37); box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35); transition: transform 0.2s ease;">
@@ -1909,10 +2048,9 @@ def generate_stories_tray_component():
       </a>"""
         avatars_html.append(item)
 
-    avatars_joined = "\n".join(avatars_html)
+    avatars_joined = chr(10).join(avatars_html)
 
-    tray_html = f"""<!-- Interactive Web Stories Visual Carousel Tray -->
-<section class="web-stories-tray-section" style="background: linear-gradient(180deg, #0e0a10 0%, #17111f 100%); padding: 1.35rem 1rem 1.6rem; border-top: 1px solid rgba(212, 175, 55, 0.2); border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: relative; z-index: 10;">
+    tray_html = f"""<section class="web-stories-tray-section" style="background: linear-gradient(180deg, #0e0a10 0%, #17111f 100%); padding: 1.35rem 1rem 1.6rem; border-top: 1px solid rgba(212, 175, 55, 0.2); border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: relative; z-index: 10;">
   <div style="max-width: 1400px; margin: 0 auto;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; padding: 0 0.5rem;">
       <div style="display: flex; align-items: center; gap: 8px;">
@@ -1926,12 +2064,14 @@ def generate_stories_tray_component():
 {avatars_joined}
     </div>
   </div>
-</section>
-"""
+</section>"""
     comp_path = os.path.join(BASE_DIR, "components", "web-stories-tray.html")
     os.makedirs(os.path.dirname(comp_path), exist_ok=True)
     with open(comp_path, "w", encoding="utf-8") as f:
-        f.write(tray_html)
+        f.write(f"""<!-- Interactive Web Stories Visual Carousel Tray -->
+{tray_html}
+<!-- /Interactive Web Stories Visual Carousel Tray -->
+""")
     print(f"Generated Web Stories Tray component: {comp_path}")
     return tray_html
 
@@ -1952,23 +2092,29 @@ def inject_tray_into_pages(tray_html):
         os.path.join(BASE_DIR, "bhugaon-mein-flat", "index.html")
     ]
 
+    wrapped_tray = f"""<!-- Interactive Web Stories Visual Carousel Tray -->
+{tray_html}
+<!-- /Interactive Web Stories Visual Carousel Tray -->"""
+
     for target in targets:
         if not os.path.exists(target):
             continue
         try:
             content = open(target, "r", encoding="utf-8").read()
-            if "web-stories-tray-section" in content:
-                # Already injected, replace if needed
-                content = re.sub(r'<!-- Interactive Web Stories Visual Carousel Tray -->.*?<!-- /Interactive Web Stories Visual Carousel Tray -->', f"<!-- Interactive Web Stories Visual Carousel Tray -->\n{tray_html}\n<!-- /Interactive Web Stories Visual Carousel Tray -->", content, flags=re.DOTALL)
+            if "<!-- Interactive Web Stories Visual Carousel Tray -->" in content:
+                content = re.sub(
+                    r'<!-- Interactive Web Stories Visual Carousel Tray -->.*?<!-- /Interactive Web Stories Visual Carousel Tray -->',
+                    wrapped_tray,
+                    content,
+                    flags=re.DOTALL
+                )
             else:
-                # Find appropriate injection spot (after main header or before first major content section)
-                wrapped_tray = f"\n<!-- Interactive Web Stories Visual Carousel Tray -->\n{tray_html}\n<!-- /Interactive Web Stories Visual Carousel Tray -->\n"
                 if "</header>" in content:
-                    content = content.replace("</header>", f"</header>{wrapped_tray}", 1)
+                    content = content.replace("</header>", f"</header>\n{wrapped_tray}\n", 1)
                 elif "<main>" in content:
-                    content = content.replace("<main>", f"<main>{wrapped_tray}", 1)
+                    content = content.replace("<main>", f"<main>\n{wrapped_tray}\n", 1)
                 elif "<body>" in content:
-                    content = content.replace("<body>", f"<body>{wrapped_tray}", 1)
+                    content = content.replace("<body>", f"<body>\n{wrapped_tray}\n", 1)
 
             with open(target, "w", encoding="utf-8") as f:
                 f.write(content)
