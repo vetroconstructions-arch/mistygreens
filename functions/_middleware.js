@@ -403,9 +403,9 @@ class HeadMetaInjector {
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="googlebot-news" content="index, follow">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/favicon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/favicon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/favicon.png?v=20261015">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/favicon.png?v=20261015">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/apple-touch-icon.png?v=20261015">
 <link rel="alternate" type="text/plain" href="${CANONICAL_ORIGIN}/llms.txt" title="LLM Knowledge Base">
 <link rel="sitemap" type="application/xml" href="${CANONICAL_ORIGIN}/sitemap.xml">`;
 
