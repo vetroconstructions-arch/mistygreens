@@ -30,6 +30,7 @@ export const ComparisonDrawer: React.FC = () => {
       }}>
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Compare selected enclaves specifications"
           style={{
             background: 'linear-gradient(135deg, #1a1724, #0f0d14)',
             color: '#D4AF37',
@@ -86,6 +87,7 @@ export const ComparisonDrawer: React.FC = () => {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
+                aria-label="Close comparison matrix"
                 style={{
                   background: 'none',
                   border: 'none',

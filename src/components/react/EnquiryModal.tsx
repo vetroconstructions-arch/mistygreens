@@ -212,7 +212,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
         {/* Close Button */}
         <button
           onClick={() => setIsOpen(false)}
-          aria-label="Close"
+          aria-label="Close enquiry modal window"
           type="button"
           style={{
             position: 'absolute',
@@ -274,11 +274,13 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
               {/* Project Select */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
+                <label htmlFor="modal-project-interest" style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Project Interest
                 </label>
                 <div style={{ position: 'relative' }}>
                   <select
+                    id="modal-project-interest"
+                    aria-label="Project Interest"
                     value={selectedProject}
                     onChange={(e) => setSelectedProject(e.target.value)}
                     required
@@ -317,10 +319,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Full Name */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
+                <label htmlFor="modal-full-name" style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Full Name *
                 </label>
                 <input
+                  id="modal-full-name"
+                  aria-label="Full Name"
                   type="text"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -342,7 +346,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Mobile Phone */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
+                <label htmlFor="modal-mobile-phone" style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Mobile Phone Number *
                 </label>
                 <div style={{ display: 'flex', gap: '6px' }}>
@@ -364,6 +368,8 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                     <span>🇮🇳</span> +91
                   </div>
                   <input
+                    id="modal-mobile-phone"
+                    aria-label="10-digit mobile phone number"
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
@@ -389,10 +395,12 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
               {/* Email Address */}
               <div>
-                <label style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
+                <label htmlFor="modal-email-address" style={{ display: 'block', color: 'rgba(255,255,255,0.85)', fontSize: '0.66rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', marginBottom: '0.2rem' }}>
                   Email Address (For Instant PDF Brochure)
                 </label>
                 <input
+                  id="modal-email-address"
+                  aria-label="Email Address"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}

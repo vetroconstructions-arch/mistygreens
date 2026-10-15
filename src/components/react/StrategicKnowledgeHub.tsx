@@ -203,6 +203,7 @@ export const StrategicKnowledgeHub: React.FC = () => {
               >
                 <button
                   type="button"
+                  aria-expanded={isOpen}
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
                   style={{
                     width: '100%',

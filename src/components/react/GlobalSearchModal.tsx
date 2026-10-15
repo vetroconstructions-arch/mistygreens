@@ -118,6 +118,8 @@ export const GlobalSearchModal: React.FC = () => {
         >
           <span style={{ fontSize: '1.3rem', color: '#D4AF37' }}>🔍</span>
           <input
+            id="global-search-query"
+            aria-label="Search enclaves and typologies"
             ref={inputRef}
             type="text"
             value={query}
@@ -137,6 +139,7 @@ export const GlobalSearchModal: React.FC = () => {
           {query && (
             <button
               type="button"
+              aria-label="Clear search query"
               onClick={() => setQuery('')}
               style={{
                 background: 'rgba(255,255,255,0.1)',
@@ -154,6 +157,7 @@ export const GlobalSearchModal: React.FC = () => {
           )}
           <button
             type="button"
+            aria-label="Close search dialog"
             onClick={() => setIsOpen(false)}
             style={{
               background: 'rgba(255, 255, 255, 0.08)',

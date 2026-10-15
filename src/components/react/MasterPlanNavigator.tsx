@@ -89,6 +89,7 @@ export const MasterPlanNavigator: React.FC = () => {
               <button
                 key={spot.id}
                 onClick={() => setSelectedEnclave(spot.id)}
+                aria-label={`Select ${spot.label} on master plan`}
                 style={{
                   position: 'absolute',
                   left: spot.x,

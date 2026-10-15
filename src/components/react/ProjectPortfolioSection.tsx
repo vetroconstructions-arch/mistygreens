@@ -208,6 +208,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                   >
                     <button
                       type="button"
+                      aria-label={`View photos of ${project.name}`}
                       onClick={() => toggleCardMode(project.id, 'exterior')}
                       style={{
                         background: currentMode === 'exterior' ? '#D4AF37' : 'transparent',
@@ -226,6 +227,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                     {project.masterLayout && (
                       <button
                         type="button"
+                        aria-label={`View master layout of ${project.name}`}
                         onClick={() => toggleCardMode(project.id, 'layout')}
                         style={{
                           background: currentMode === 'layout' ? '#D4AF37' : 'transparent',
@@ -245,6 +247,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                     {project.floorPlan && (
                       <button
                         type="button"
+                        aria-label={`View floor plan of ${project.name}`}
                         onClick={() => toggleCardMode(project.id, 'floorplan')}
                         style={{
                           background: currentMode === 'floorplan' ? '#D4AF37' : 'transparent',
@@ -302,7 +305,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '0.8rem' }}>
                     {project.specs.slice(0, 2).map((spec, i) => (
                       <div key={i}>
-                        <span style={{ display: 'block', fontSize: '0.65rem', color: 'rgba(255,255,255,0.55)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
+                        <span style={{ display: 'block', fontSize: '0.65rem', color: 'rgba(255,255,255,0.82)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
                         <strong style={{ display: 'block', fontSize: '0.8rem', color: '#fff', marginTop: '2px' }}>{spec.value}</strong>
                       </div>
                     ))}
@@ -329,6 +332,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                       href={project.reraLink || 'https://maharera.maharashtra.gov.in/'}
                       target="_blank"
                       rel="noopener"
+                      aria-label={`Verify MahaRERA registration for ${project.name} on official portal`}
                       style={{ fontSize: '0.68rem', color: '#25D366', fontWeight: 800, textDecoration: 'underline' }}
                     >
                       Verify ↗
@@ -341,6 +345,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                       href={`https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20${encodeURIComponent(project.name)}%20at%20Paranjape%20Forest%20Trails%20Bhugaon.`}
                       target="_blank"
                       rel="noopener"
+                      aria-label={`Enquire about ${project.name} on WhatsApp`}
                       style={{
                         flex: 1,
                         background: '#25D366',
@@ -362,6 +367,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                     </a>
                     <a
                       href={project.url}
+                      aria-label={`Explore ${project.name} enclave details and brochure`}
                       style={{
                         flex: 1.4,
                         textAlign: 'center',

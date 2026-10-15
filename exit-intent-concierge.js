@@ -198,6 +198,17 @@
       .pscl-dismiss-link:hover {
         color: #94A3B8;
       }
+      .pscl-visually-hidden {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        padding: 0 !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        clip: rect(0, 0, 0, 0) !important;
+        white-space: nowrap !important;
+        border: 0 !important;
+      }
     `;
     document.head.appendChild(style);
 
@@ -205,12 +216,12 @@
     wrap.id = 'pscl-exit-concierge-wrap';
     wrap.innerHTML = `
       <div class="pscl-concierge-card" role="dialog" aria-modal="true" aria-labelledby="pscl-card-title">
-        <button class="pscl-close-btn" id="pscl-concierge-close" aria-label="Close dialog">✕</button>
+        <button class="pscl-close-btn" id="pscl-concierge-close" aria-label="Close download dialog" type="button">✕</button>
         <span class="pscl-badge">✦ Direct Developer Desk</span>
         <h3 class="pscl-title" id="pscl-card-title">Before You Go: Download the <span>2026 Price Sheet</span> &amp; Master Plan</h3>
         <p class="pscl-desc">Get the latest MahaRERA approved inventory layout, plot dimension matrix, and bank pre-approved EMI schemes delivered directly.</p>
         
-        <a class="pscl-wa-cta" id="pscl-concierge-wa" href="https://wa.me/917744009295?text=Hi%2C%20please%20send%20the%20Official%202026%20Price%20Sheet%20%26%20Master%20Layout%20PDF%20for%20Paranjape%20Forest%20Trails." target="_blank" rel="noopener">
+        <a class="pscl-wa-cta" id="pscl-concierge-wa" href="https://wa.me/917744009295?text=Hi%2C%20please%20send%20the%20Official%202026%20Price%20Sheet%20%26%20Master%20Layout%20PDF%20for%20Paranjape%20Forest%20Trails." target="_blank" rel="noopener" aria-label="Download Official 2026 Price Sheet &amp; Master Layout PDF via WhatsApp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Instant Download via WhatsApp
         </a>
@@ -218,18 +229,23 @@
         <div class="pscl-divider">OR REQUEST QUICK CALLBACK</div>
 
         <form class="pscl-form" id="pscl-exit-form">
-          <input type="text" class="pscl-input" id="pscl-exit-name" placeholder="Your Name" required />
-          <input type="tel" class="pscl-input" id="pscl-exit-phone" pattern="[0-9]{10}" placeholder="Phone Number (10 Digits) *" required />
-          <select class="pscl-input" id="pscl-exit-preference" style="background: #181822;">
+          <label for="pscl-exit-name" class="pscl-visually-hidden">Your Full Name</label>
+          <input type="text" class="pscl-input" id="pscl-exit-name" name="name" aria-label="Your Full Name" placeholder="Your Name" required />
+
+          <label for="pscl-exit-phone" class="pscl-visually-hidden">Phone Number (10 Digits)</label>
+          <input type="tel" class="pscl-input" id="pscl-exit-phone" name="phone" aria-label="Phone Number (10 Digits)" pattern="[0-9]{10}" placeholder="Phone Number (10 Digits) *" required />
+
+          <label for="pscl-exit-preference" class="pscl-visually-hidden">Preferred Enclave or Brochure</label>
+          <select class="pscl-input" id="pscl-exit-preference" name="preference" aria-label="Preferred Enclave or Brochure" style="background: #181822;">
             <option value="Misty Greens NA Plots (From ₹1.23 Cr*)">Misty Greens NA Plots (From ₹1.23 Cr*)</option>
             <option value="The Rivolo Luxury Villas (From ₹3.89 Cr*)">The Rivolo Luxury Villas (From ₹3.89 Cr*)</option>
             <option value="The Canopy Apartments (From ₹89 L*)">The Canopy Apartments (From ₹89 L*)</option>
             <option value="General Forest Trails Township Brochure">General Forest Trails Master Brochure</option>
           </select>
-          <button type="submit" class="pscl-submit-btn">Send My Brochure &amp; Price List →</button>
+          <button type="submit" class="pscl-submit-btn" aria-label="Send My Brochure &amp; Price List">Send My Brochure &amp; Price List →</button>
         </form>
 
-        <span class="pscl-dismiss-link" id="pscl-concierge-skip">No thanks, I'll continue browsing</span>
+        <span class="pscl-dismiss-link" id="pscl-concierge-skip" role="button" tabindex="0" aria-label="Dismiss and continue browsing">No thanks, I'll continue browsing</span>
       </div>
     `;
 

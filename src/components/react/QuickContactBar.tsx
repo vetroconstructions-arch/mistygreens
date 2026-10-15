@@ -34,6 +34,7 @@ export const QuickContactBar: React.FC = () => {
     >
       <a
         href="tel:+917744009295"
+        aria-label="Call Sales Advisory Desk at +91 7744009295"
         style={{
           flex: 1,
           background: 'rgba(255, 255, 255, 0.08)',
@@ -58,6 +59,7 @@ export const QuickContactBar: React.FC = () => {
         href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20Paranjape%20Forest%20Trails%20Bhugaon%20Township."
         target="_blank"
         rel="noopener"
+        aria-label="Chat on WhatsApp with Sales Advisory Desk"
         style={{
           flex: 1.2,
           background: '#25D366',
@@ -80,6 +82,7 @@ export const QuickContactBar: React.FC = () => {
 
       <button
         onClick={handleEnquireClick}
+        aria-label="Open Instant Developer Enquiry Form"
         style={{
           flex: 1.4,
           background: 'linear-gradient(135deg, #6B0D0D, #8B1A1A)',
