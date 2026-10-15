@@ -215,8 +215,12 @@ export const ProjectPortfolioSection: React.FC = () => {
                         color: currentMode === 'exterior' ? '#000' : '#fff',
                         border: 'none',
                         borderRadius: '50px',
-                        padding: '0.2rem 0.55rem',
-                        fontSize: '0.64rem',
+                        minHeight: '38px',
+                        padding: '0.35rem 0.8rem',
+                        fontSize: '0.72rem',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         fontWeight: 800,
                         cursor: 'pointer',
                         transition: 'all 0.2s'
@@ -305,7 +309,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.6rem', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', padding: '0.8rem 1rem', borderRadius: '12px', marginBottom: '0.8rem' }}>
                     {project.specs.slice(0, 2).map((spec, i) => (
                       <div key={i}>
-                        <span style={{ display: 'block', fontSize: '0.65rem', color: 'rgba(255,255,255,0.82)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
+                        <span style={{ display: 'block', fontSize: '0.65rem', color: '#F8FAFC', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{spec.label}</span>
                         <strong style={{ display: 'block', fontSize: '0.8rem', color: '#fff', marginTop: '2px' }}>{spec.value}</strong>
                       </div>
                     ))}

@@ -323,13 +323,10 @@ const CRAWLER_TIERS = {
 
 // Early Hints preconnect & critical style matrix
 const EARLY_HINTS_LINKS = [
-  "</style.min.css?v=2026.08.24.10>; rel=preload; as=style",
   "<https://fonts.googleapis.com>; rel=preconnect; crossorigin",
   "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
-  "<https://www.googletagmanager.com>; rel=preconnect",
-  "<https://www.google-analytics.com>; rel=preconnect",
-  "<https://www.googleadservices.com>; rel=preconnect",
-  "<https://googleads.g.doubleclick.net>; rel=preconnect",
+  "<https://www.googletagmanager.com>; rel=dns-prefetch",
+  "<https://www.googleadservices.com>; rel=dns-prefetch",
 ];
 
 // ─── Crawler Classification ──────────────────────────────────────────────────
@@ -415,7 +412,7 @@ class HeadMetaInjector {
     // Dynamic LCP Hero Image Preload (Sub-1.2s Google Core Web Vitals)
     let heroPreload = "";
     if (cleanPath === "/" || cleanPath === "") {
-      heroPreload = `\n<link rel="preload" as="image" href="/images/hero-township.webp" fetchpriority="high">`;
+      heroPreload = `\n<link rel="preload" as="image" href="/images/drone-aerial.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("misty-greens") || cleanPath.includes("plot")) {
       heroPreload = `\n<link rel="preload" as="image" href="/images/misty-greens-plots.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("rivolo") || cleanPath.includes("villa")) {
@@ -430,13 +427,10 @@ class HeadMetaInjector {
 
     // Preconnect & DNS-prefetch hints
     const preconnectBlock = `
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://www.googleadservices.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="dns-prefetch" href="https://www.googleadservices.com">
-<link rel="dns-prefetch" href="https://googleads.g.doubleclick.net">
 <link rel="dns-prefetch" href="https://formsubmit.co">`;
 
     // Multilingual Hreflang for international & local indexing
