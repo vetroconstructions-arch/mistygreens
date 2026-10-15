@@ -269,10 +269,10 @@ const ogImageUrl = image.startsWith('http')
   <Footer />
 
   {/* React Islands */}
-  <EnquiryModal client:idle />
-  <QuickContactBar client:idle />
-  <ComparisonDrawer client:idle />
-  <GlobalSearchModal client:idle />
+  <EnquiryModal client:visible />
+  <QuickContactBar />
+  <ComparisonDrawer client:visible />
+  <GlobalSearchModal client:visible />
 
   {/* Global Client Script for Filter Engine */}
   <script is:inline>

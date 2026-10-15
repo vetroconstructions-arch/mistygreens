@@ -388,19 +388,35 @@
   // Trigger 2: Mobile Scroll Abandonment (>75% scrolled, then idle or rapid scroll back)
   var maxScroll = 0;
   var scrollCheckTimer = null;
-  window.addEventListener('scroll', function() {
-    var totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (totalHeight <= 0) return;
-    var currentScroll = (window.scrollY / totalHeight) * 100;
+  var scrollTicking = false;
+  var cachedDocHeight = 0;
+
+  function updateScrollMetrics() {
+    scrollTicking = false;
+    if (!cachedDocHeight) {
+      cachedDocHeight = (document.documentElement.scrollHeight || document.body.scrollHeight || 0) - window.innerHeight;
+    }
+    if (cachedDocHeight <= 0) return;
+    var currentScroll = (window.scrollY / cachedDocHeight) * 100;
     if (currentScroll > maxScroll) maxScroll = currentScroll;
 
     if (maxScroll > 75 && !hasTriggered) {
       clearTimeout(scrollCheckTimer);
       scrollCheckTimer = setTimeout(function() {
-        // Trigger if reading at bottom for 8 seconds
         triggerConcierge();
       }, 8000);
     }
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(updateScrollMetrics);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  window.addEventListener('resize', function() {
+    cachedDocHeight = 0;
   }, { passive: true });
 
   // Expose trigger globally if needed
