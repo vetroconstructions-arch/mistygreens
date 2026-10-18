@@ -991,8 +991,10 @@ function applyCacheHeaders(headers, url) {
     return;
   }
 
-  // Static media (images, assets, branding)
-  if (pathname.startsWith("/images/") || pathname.startsWith("/assets/") || pathname.startsWith("/media/")) {
+  // Static media, favicons, manifests & branding assets
+  if (pathname.startsWith("/images/") || pathname.startsWith("/assets/") || pathname.startsWith("/media/") ||
+      pathname === "/manifest.json" || pathname.startsWith("/favicon") || pathname.includes("apple-touch-icon") ||
+      pathname.endsWith(".ico") || pathname.endsWith(".png") || pathname.endsWith(".webp")) {
     headers.set("Cache-Control", "public, max-age=31536000, s-maxage=31536000, immutable");
     headers.set("CDN-Cache-Control", "max-age=31536000");
     headers.set("Timing-Allow-Origin", "*");
