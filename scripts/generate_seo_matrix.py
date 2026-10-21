@@ -138,11 +138,18 @@ def generate_seo_matrix(base_dir):
         index_lines.append(f"    <lastmod>{date_str}</lastmod>")
         index_lines.append("  </sitemap>")
         
+    for extra_sm in ["sitemap-products.xml", "sitemap-news.xml", "sitemap-images.xml"]:
+        if os.path.exists(os.path.join(base_dir, extra_sm)):
+            index_lines.append("  <sitemap>")
+            index_lines.append(f"    <loc>{DOMAIN}/{extra_sm}</loc>")
+            index_lines.append(f"    <lastmod>{date_str}</lastmod>")
+            index_lines.append("  </sitemap>")
+            
     index_lines.append("</sitemapindex>")
     
     with open(os.path.join(base_dir, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write("\n".join(index_lines))
-    print(f"Generated master sitemap index sitemap.xml pointing to {len(active_categories)} sub-sitemaps.")
+    print(f"Generated master sitemap index sitemap.xml pointing to {len(active_categories)} sub-sitemaps + extra feeds.")
     
     # 6. Generate Sovereign Hardened Robots.txt
     robots_content = f"""# Sovereign Search & AI Robot Directive Architecture v8.0
@@ -193,6 +200,7 @@ Disallow: /thank-you.html
 # 4. Master Sitemap Index & Host Reference
 Host: {DOMAIN}
 Sitemap: {DOMAIN}/sitemap.xml
+Sitemap: {DOMAIN}/sitemap-products.xml
 Sitemap: {DOMAIN}/sitemap-news.xml
 Sitemap: {DOMAIN}/sitemap-images.xml
 """

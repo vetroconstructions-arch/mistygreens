@@ -46,5 +46,6 @@ Disallow: /thank-you.html
 # 4. Master Sitemap Index & Host Reference
 Host: https://www.paranjapetownship.com
 Sitemap: https://www.paranjapetownship.com/sitemap.xml
+Sitemap: https://www.paranjapetownship.com/sitemap-products.xml
 Sitemap: https://www.paranjapetownship.com/sitemap-news.xml
 Sitemap: https://www.paranjapetownship.com/sitemap-images.xml
