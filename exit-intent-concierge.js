@@ -60,35 +60,38 @@
       }
       .pscl-close-btn {
         position: absolute;
-        top: 14px;
-        right: 14px;
-        background: rgba(255, 255, 255, 0.1);
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.15);
         border: none;
         color: #ffffff;
-        width: 32px;
-        height: 32px;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 1;
         transition: background 0.2s;
+        touch-action: manipulation;
       }
       .pscl-close-btn:hover {
-        background: rgba(212, 175, 55, 0.3);
+        background: rgba(212, 175, 55, 0.4);
       }
       .pscl-badge {
         display: inline-block;
         background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(212, 175, 55, 0.1));
-        border: 1px solid rgba(212, 175, 55, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.6);
         color: #D4AF37;
         font-size: 0.72rem;
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        padding: 0.25rem 0.65rem;
+        padding: 0.35rem 0.75rem;
         border-radius: 50px;
         margin-bottom: 0.8rem;
       }
@@ -103,8 +106,8 @@
         color: #D4AF37;
       }
       .pscl-desc {
-        color: #94A3B8;
-        font-size: 0.85rem;
+        color: #E2E8F0;
+        font-size: 0.86rem;
         line-height: 1.5;
         margin: 0 0 1.25rem;
       }
@@ -116,13 +119,15 @@
         background: #25D366;
         color: #ffffff;
         text-decoration: none;
-        font-weight: 700;
+        font-weight: 800;
         font-size: 0.92rem;
         padding: 0.85rem 1rem;
+        min-height: 48px;
         border-radius: 10px;
         margin-bottom: 1rem;
         box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
         transition: transform 0.2s, background 0.2s;
+        touch-action: manipulation;
       }
       .pscl-wa-cta:hover {
         background: #20bd5a;
@@ -132,9 +137,9 @@
         display: flex;
         align-items: center;
         text-align: center;
-        color: #64748B;
-        font-size: 0.72rem;
-        font-weight: 600;
+        color: #CBD5E1;
+        font-size: 0.75rem;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.08em;
         margin: 0.8rem 0;
@@ -142,7 +147,7 @@
       .pscl-divider::before, .pscl-divider::after {
         content: '';
         flex: 1;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       }
       .pscl-divider:not(:empty)::before {
         margin-right: 0.75em;
@@ -156,47 +161,60 @@
         gap: 0.65rem;
       }
       .pscl-input {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.4);
         border-radius: 8px;
         padding: 0.7rem 0.9rem;
         color: #ffffff;
-        font-size: 0.85rem;
+        font-size: 0.88rem;
         outline: none;
         transition: border-color 0.2s;
         box-sizing: border-box;
         width: 100%;
+        min-height: 48px;
+      }
+      .pscl-input::placeholder {
+        color: #CBD5E1 !important;
+        opacity: 1 !important;
       }
       .pscl-input:focus {
         border-color: #D4AF37;
-        background: rgba(255, 255, 255, 0.09);
+        background: rgba(255, 255, 255, 0.12);
       }
       .pscl-submit-btn {
         background: linear-gradient(135deg, #D4AF37, #B8860B);
-        color: #1a1a1a;
+        color: #0e0c14;
         font-weight: 800;
         font-size: 0.9rem;
         padding: 0.8rem;
+        min-height: 48px;
         border: none;
         border-radius: 8px;
         cursor: pointer;
         transition: transform 0.2s, box-shadow 0.2s;
+        touch-action: manipulation;
       }
       .pscl-submit-btn:hover {
         transform: translateY(-1px);
         box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
       }
       .pscl-dismiss-link {
-        display: block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 48px;
         text-align: center;
-        color: #64748B;
-        font-size: 0.75rem;
-        margin-top: 0.75rem;
+        color: #CBD5E1;
+        font-size: 0.78rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
         cursor: pointer;
         text-decoration: underline;
+        touch-action: manipulation;
       }
       .pscl-dismiss-link:hover {
-        color: #94A3B8;
+        color: #FFFFFF;
       }
       .pscl-visually-hidden {
         position: absolute !important;
