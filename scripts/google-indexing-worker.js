@@ -149,33 +149,53 @@ async function run() {
     
     let keyIndex = 0;
     let quotaCounter = 0;
-    const QUOTA_PER_KEY = 150; // Safety margin for 200 limit
-
-    for (const item of pendingUrls) {
-        if (quotaCounter >= QUOTA_PER_KEY) {
-            keyIndex++;
-            quotaCounter = 0;
-            if (keyIndex >= KEYS.length) {
-                console.log("\n🛑 All daily project quotas exhausted. Stopping pass.");
-                break;
+    let consecutive429s = 0;
+    try {
+        for (const item of pendingUrls) {
+            if (quotaCounter >= QUOTA_PER_KEY) {
+                keyIndex++;
+                quotaCounter = 0;
+                if (keyIndex >= KEYS.length) {
+                    console.log("\n🛑 All daily project quotas exhausted. Stopping pass.");
+                    break;
+                }
+                console.log(`\n🔄 Switching to Project Key #${keyIndex + 1} (${KEYS[keyIndex].email})`);
             }
-            console.log(`\n🔄 Switching to Project Key #${keyIndex + 1} (${KEYS[keyIndex].email})`);
-        }
 
-        const token = await getAccessToken(KEYS[keyIndex]);
-        const result = await publishUrl(item.url, token);
-        
-        if (result.success) {
-            history[item.url] = now;
-            quotaCounter++;
+            try {
+                const token = await getAccessToken(KEYS[keyIndex]);
+                const result = await publishUrl(item.url, token);
+                
+                if (result.success) {
+                    history[item.url] = now;
+                    quotaCounter++;
+                    consecutive429s = 0;
+                    saveLedger(ledger);
+                } else if (result.status === 429) {
+                    consecutive429s++;
+                    if (consecutive429s >= 2) {
+                        console.log(`\n⚠️ Project Key #${keyIndex + 1} quota reached. Advancing key...`);
+                        keyIndex++;
+                        quotaCounter = 0;
+                        consecutive429s = 0;
+                        if (keyIndex >= KEYS.length) {
+                            console.log("\n🛑 All daily project quotas exhausted. Stopping pass.");
+                            break;
+                        }
+                        console.log(`\n🔄 Switching to Project Key #${keyIndex + 1} (${KEYS[keyIndex].email})`);
+                    }
+                }
+            } catch (err) {
+                console.error(`  ⚠️ Worker Exception: ${err.message}`);
+            }
+            
+            // Base throttle
+            await new Promise(r => setTimeout(r, 1000));
         }
-        
-        // Base throttle
-        await new Promise(r => setTimeout(r, 1000));
+    } finally {
+        saveLedger(ledger);
+        console.log("\n✅ Sovereign Indexing Ledger saved.");
     }
-
-    saveLedger(ledger);
-    console.log("\n✅ Sovereign Indexing Pass Complete.");
 }
 
 run();

@@ -73,6 +73,10 @@
   Content-Type: application/xml; charset=utf-8
   X-Robots-Tag: noindex, follow
 
+/google-*.xml
+  Cache-Control: public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400
+  Content-Type: application/xml; charset=utf-8
+
 /robots.txt
   Cache-Control: public, max-age=3600, s-maxage=86400
   Content-Type: text/plain; charset=utf-8
