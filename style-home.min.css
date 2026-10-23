@@ -1,6 +1,6 @@
 /* Paranjape Forest Trails — Ultra-Optimized Homepage Stylesheet (0-CLS, High-Performance) */
 .nav-brand-pill,.footer-brand-container,.nav-brand-container{display:inline-flex !important;align-items:center !important;box-sizing:border-box !important;flex-shrink:0 !important;overflow:hidden !important;vertical-align:middle !important;}
-.nav-brand-pill{height:38px !important;max-height:38px !important;padding:4px 14px !important;border-radius:50px !important;background:#ffffff !important;border:1.5px solid #D4AF37 !important;box-shadow:0 2px 10px rgba(0,0,0,0.3) !important;text-decoration:none !important;gap:10px !important;}
+.nav-brand-pill{height:48px !important;min-height:48px !important;max-height:48px !important;padding:4px 14px !important;border-radius:50px !important;background:#ffffff !important;border:1.5px solid #D4AF37 !important;box-shadow:0 2px 10px rgba(0,0,0,0.3) !important;text-decoration:none !important;gap:10px !important;}
 .nav-brand-pill img,.nav-brand-pill img:first-child,.nav-brand-pill img:last-child{height:22px !important;max-height:22px !important;width:auto !important;object-fit:contain !important;display:inline-block !important;vertical-align:middle !important;}
 .web-stories-tray-section{padding:1.2rem 0;position:relative;z-index:5;background:#0e0c14;}
 .stories-tray-scroll{display:flex;gap:1.25rem;overflow-x:auto;padding:0.5rem 1rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
@@ -13,7 +13,7 @@
 .cluster-card:hover{transform:translateY(-8px) scale(1.01) !important;border-color:rgba(212, 175, 55, 0.75) !important;box-shadow:0 25px 50px rgba(212, 175, 55, 0.25) !important;}
 .cluster-card img{transition:transform 0.5s ease;}
 .cluster-card:hover img{transform:scale(1.05);}
-.mobile-quick-bar a,.mobile-quick-bar button{min-height:48px !important;min-width:48px !important;box-sizing:border-box !important;}
+.mobile-quick-bar a,.mobile-quick-bar button,.cluster-card a,.cluster-card button,.nav-wa-btn,.nav-search-btn,.nav-enquire-btn,.maroon-burger,.open-enquiry-modal{min-height:48px !important;min-width:48px !important;box-sizing:border-box !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;}
 @supports (content-visibility: auto){
   section:not(:first-of-type):not(.hero-section):not(.hero):not(#township-clusters){
     content-visibility:auto;

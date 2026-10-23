@@ -221,3 +221,5 @@ img, picture, video, canvas, svg {
     justify-content: center !important;
   }
 }
+/* Universal Lighthouse Accessibility 100 Tap Targets Safety */
+.mobile-quick-bar a,.mobile-quick-bar button,.cluster-card a,.cluster-card button,.nav-wa-btn,.nav-search-btn,.nav-enquire-btn,.maroon-burger,.open-enquiry-modal,.nav-brand-pill{min-height:48px !important;min-width:48px !important;box-sizing:border-box !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;}
