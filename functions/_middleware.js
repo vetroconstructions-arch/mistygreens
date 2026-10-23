@@ -789,9 +789,18 @@ class ImageOptimizer {
     this.imageCount = 0;
   }
   element(el) {
+    const src = el.getAttribute("src") || "";
+    const priority = el.getAttribute("fetchpriority");
+    const isHeroOrHighPriority = priority === "high" || src.includes("hero") || src.includes("drone-aerial");
+
+    // Exclude 1x1 tracking pixels from counting
+    if (el.getAttribute("width") === "1" && el.getAttribute("height") === "1") {
+      return;
+    }
+
     this.imageCount++;
-    // First 2 images are above-the-fold: eager load, high priority
-    if (this.imageCount <= 2) {
+    // Above-the-fold or high-priority hero images: eager load, high priority
+    if (this.imageCount <= 4 || isHeroOrHighPriority) {
       el.setAttribute("loading", "eager");
       el.setAttribute("fetchpriority", "high");
       el.removeAttribute("decoding");
