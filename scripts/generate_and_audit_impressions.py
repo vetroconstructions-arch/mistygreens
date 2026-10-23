@@ -22,9 +22,9 @@ DOMAIN = "https://www.paranjapetownship.com"
 
 QUERY_CLUSTERS = [
     {
-        "cluster_name": "Cluster 1: Sovereign Brand Dominance",
-        "monthly_search_vol": 42000,
-        "daily_target_impressions": 350,
+        "cluster_name": "Cluster 1: Sovereign Brand & Master Township Dominance",
+        "monthly_search_vol": 65000,
+        "daily_target_impressions": 850,
         "avg_ctr": "18.5%",
         "target_enclaves": ["Paranjape Forest Trails Master Township", "Paranjape Schemes Corporate"],
         "representative_queries": [
@@ -35,7 +35,7 @@ QUERY_CLUSTERS = [
             "forest trails bhugaon price list 2026",
             "paranjape township bhugaon address",
             "forest trails master plan layout",
-            "cliff club forest trails bhugaon"
+            "the cliff club forest trails bhugaon"
         ],
         "top_urls": [
             f"{DOMAIN}/",
@@ -46,9 +46,9 @@ QUERY_CLUSTERS = [
         "rich_snippets": ["AggregateRating 4.9/5", "RealEstateProject", "SitelinksSearchBox", "FAQPage"]
     },
     {
-        "cluster_name": "Cluster 2: NA Bungalow Plots & Land Investment",
-        "monthly_search_vol": 78000,
-        "daily_target_impressions": 520,
+        "cluster_name": "Cluster 2: NA Bungalow Plots & Land Investment Permutations",
+        "monthly_search_vol": 110000,
+        "daily_target_impressions": 1250,
         "avg_ctr": "8.4%",
         "target_enclaves": ["Misty Greens NA Plots (P52100053834)"],
         "representative_queries": [
@@ -73,9 +73,9 @@ QUERY_CLUSTERS = [
         "rich_snippets": ["Product Offer (₹1.23 Cr*)", "HowTo Schema (8-step plot purchase)", "AggregateRating", "FAQPage"]
     },
     {
-        "cluster_name": "Cluster 3: Luxury Villas & Twin Bungalows",
-        "monthly_search_vol": 46000,
-        "daily_target_impressions": 380,
+        "cluster_name": "Cluster 3: Luxury Forest Villas & Duet Bungalows Permutations",
+        "monthly_search_vol": 75000,
+        "daily_target_impressions": 850,
         "avg_ctr": "7.8%",
         "target_enclaves": ["The Rivolo (P52100031560)", "The Cove (P52100048536)"],
         "representative_queries": [
@@ -99,9 +99,9 @@ QUERY_CLUSTERS = [
         "rich_snippets": ["Product (₹3.89 Cr* / ₹2.85 Cr*)", "SingleFamilyResidence", "AggregateRating", "FAQPage"]
     },
     {
-        "cluster_name": "Cluster 4: Apartments, Penthouses & PRO Homes",
-        "monthly_search_vol": 62000,
-        "daily_target_impressions": 410,
+        "cluster_name": "Cluster 4: Apartments, PRO Homes & Duplexes (1, 2, 3 & 4 BHK)",
+        "monthly_search_vol": 130000,
+        "daily_target_impressions": 1150,
         "avg_ctr": "6.9%",
         "target_enclaves": ["The Canopy (P52100079518)", "Everglades (P52100055711)", "The Highgardens (P52100053310)", "Verandah", "Orchard"],
         "representative_queries": [
@@ -112,6 +112,7 @@ QUERY_CLUSTERS = [
             "flats near chandani chowk pune",
             "terrace apartments highgardens",
             "duplex homes verandah forest trails",
+            "flats under 50 lakhs pune west",
             "flats under 1 crore pune west 2026",
             "affordable homes near kothrud extension"
         ],
@@ -121,16 +122,17 @@ QUERY_CLUSTERS = [
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-highgardens/",
             f"{DOMAIN}/2bhk-in-bhugaon/",
             f"{DOMAIN}/3bhk-in-pune/",
+            f"{DOMAIN}/flats-under-50-lakhs-pune-west/",
             f"{DOMAIN}/flats-under-1-crore-pune-west/"
         ],
-        "rich_snippets": ["Product (₹48.5 L* - ₹89 L*)", "ApartmentComplex", "AggregateRating", "FAQPage"]
+        "rich_snippets": ["Product (₹48.50 L* - ₹93 L*)", "ApartmentComplex", "AggregateRating", "FAQPage"]
     },
     {
         "cluster_name": "Cluster 5: Senior Living & Assisted Care Communities",
-        "monthly_search_vol": 31000,
-        "daily_target_impressions": 220,
+        "monthly_search_vol": 45000,
+        "daily_target_impressions": 450,
         "avg_ctr": "9.2%",
-        "target_enclaves": ["Athashri (P52100077686)", "Swaniketan (P52100052124)"],
+        "target_enclaves": ["Athashri 2 & 3 BHK (P52100077686)", "Swaniketan 2 & 3 BHK (P52100052124)"],
         "representative_queries": [
             "athashri senior living pune",
             "paranjape athashri bhugaon",
@@ -150,9 +152,9 @@ QUERY_CLUSTERS = [
         "rich_snippets": ["LocalBusiness / MedicalService", "AggregateRating", "Product (₹83 L* / ₹79 L*)", "FAQPage"]
     },
     {
-        "cluster_name": "Cluster 6: Infrastructure Corridors & Micro-Market Insights",
-        "monthly_search_vol": 54000,
-        "daily_target_impressions": 240,
+        "cluster_name": "Cluster 6: Transit, Commute & Infrastructure Corridors",
+        "monthly_search_vol": 55000,
+        "daily_target_impressions": 500,
         "avg_ctr": "6.5%",
         "target_enclaves": ["PMRDA Corridor", "Chandani Chowk Flyover", "Paud Road Expressway"],
         "representative_queries": [
@@ -167,13 +169,40 @@ QUERY_CLUSTERS = [
         ],
         "top_urls": [
             f"{DOMAIN}/pmrda-ring-road-bhugaon-interchange-growth/",
-            f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-near-chandani-chowk/",
+            f"{DOMAIN}/chandani-chowk-flyover-travel-time-bhugaon-commute/",
+            f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-location-proximity/",
             f"{DOMAIN}/bhugaon-property-price-history/",
             f"{DOMAIN}/bhugaon-property-roi-stamp-duty-calculator/",
             f"{DOMAIN}/roi-calculator-pune/",
             f"{DOMAIN}/stamp-duty-calculator-pune/"
         ],
         "rich_snippets": ["Dataset", "SoftwareApplication", "Place", "FAQPage"]
+    },
+    {
+        "cluster_name": "Cluster 7: Multilingual Vernacular Search (Hindi & Marathi)",
+        "monthly_search_vol": 35000,
+        "daily_target_impressions": 250,
+        "avg_ctr": "8.0%",
+        "target_enclaves": ["Misty Greens (Hindi/Marathi)", "The Canopy", "The Rivolo"],
+        "representative_queries": [
+            "पुण्यात एनए प्लॉट",
+            "भुगावात 2BHK 3BHK फ्लॅट",
+            "पुण्यात लक्झरी व्हिला",
+            "भुगाव एनए प्लॉट किंमत 2026",
+            "पुणे में प्लॉट",
+            "भुगाव में फ्लैट",
+            "पुणे में लग्जरी विला",
+            "पुणे में घर 2026"
+        ],
+        "top_urls": [
+            f"{DOMAIN}/pune-madhe-plot/",
+            f"{DOMAIN}/bhugaon-madhe-flat/",
+            f"{DOMAIN}/pune-madhe-villa/",
+            f"{DOMAIN}/pune-mein-plot/",
+            f"{DOMAIN}/bhugaon-mein-flat/",
+            f"{DOMAIN}/pune-mein-villa/"
+        ],
+        "rich_snippets": ["RealEstateListing", "BreadcrumbList", "FAQPage"]
     }
 ]
 

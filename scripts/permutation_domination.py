@@ -34,7 +34,7 @@ PROJECTS = {
         "type": "NA bungalow plot",
         "price": "₹1.23 Cr*",
         "rera": "P52100053834",
-        "config": "1800–3600 sq.ft plots",
+        "config": "1930–3500+ sq.ft plots",
         "url": "/paranjape-forest-trails-township-bhugaon-misty-greens/"
     },
     "rivolo": {
@@ -42,7 +42,7 @@ PROJECTS = {
         "type": "luxury villa",
         "price": "₹3.89 Cr*",
         "rera": "P52100031560",
-        "config": "4/5BHK, 3200–4100 sq.ft",
+        "config": "4/5BHK, 3400–5500 sq.ft",
         "url": "/paranjape-forest-trails-township-bhugaon-rivolo-residences/"
     },
     "the-cove": {
@@ -50,7 +50,7 @@ PROJECTS = {
         "type": "twin bungalow",
         "price": "₹2.85 Cr*",
         "rera": "P52100048536",
-        "config": "4BHK, 2800 sq.ft",
+        "config": "4BHK, 2400–3800 sq.ft",
         "url": "/paranjape-forest-trails-township-bhugaon-the-cove/"
     },
     "the-canopy": {
@@ -58,7 +58,7 @@ PROJECTS = {
         "type": "apartment",
         "price": "₹89 L*",
         "rera": "P52100079518",
-        "config": "2BHK & 3BHK, 850–1150 sq.ft",
+        "config": "2BHK & 3BHK, 850–1250 sq.ft",
         "url": "/paranjape-forest-trails-township-bhugaon-the-canopy/"
     },
     "highgardens": {
@@ -66,16 +66,48 @@ PROJECTS = {
         "type": "apartment",
         "price": "₹89 L*",
         "rera": "P52100053310",
-        "config": "2BHK, 820 sq.ft",
+        "config": "2 & 3 BHK, 950–1450 sq.ft",
         "url": "/paranjape-forest-trails-township-bhugaon-highgardens/"
+    },
+    "everglades": {
+        "name": "Everglades Bavdhan",
+        "type": "1 & 2 BHK PRO homes",
+        "price": "₹48.50 L*",
+        "rera": "P52100055711",
+        "config": "1 & 2 BHK, 480–750 sq.ft",
+        "url": "/paranjape-forest-trails-township-bhugaon-everglades/"
     },
     "athashri": {
         "name": "Athashri Senior Living",
         "type": "senior living",
         "price": "₹83 L*",
         "rera": "P52100077686",
-        "config": "2BHK, 750–900 sq.ft",
+        "config": "2 & 3 BHK, 750–1150 sq.ft",
         "url": "/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/"
+    },
+    "swaniketan": {
+        "name": "Swaniketan Assisted Living",
+        "type": "assisted living",
+        "price": "₹79 L*",
+        "rera": "P52100052124",
+        "config": "2 & 3 BHK, 720–1100 sq.ft",
+        "url": "/paranjape-forest-trails-township-bhugaon-swaniketan/"
+    },
+    "verandah": {
+        "name": "The Verandah Duplex Homes",
+        "type": "duplex homes",
+        "price": "₹93 L*",
+        "rera": "P52100002194",
+        "config": "3 & 4 BHK, 1300–2200 sq.ft",
+        "url": "/paranjape-forest-trails-township-bhugaon-verandah/"
+    },
+    "orchard": {
+        "name": "Orchard Residences",
+        "type": "apartment",
+        "price": "₹83 L*",
+        "rera": "P52100055710",
+        "config": "2 & 3 BHK, 850–1300 sq.ft",
+        "url": "/paranjape-forest-trails-township-bhugaon-orchard-residences/"
     }
 }
 
@@ -213,7 +245,7 @@ def page_html(title, desc, canonical, keywords_str, h1, content_body, schemas_js
   </style>
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt=""></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt="Google Tag Manager"></noscript>
 <header style="background:#4A0808;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem">
   <a href="/" style="color:#D4AF37;font-weight:700;font-size:1.15rem;text-decoration:none">Paranjape Forest Trails — Bhugaon</a>
   <nav style="display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.9rem">
@@ -230,9 +262,10 @@ def page_html(title, desc, canonical, keywords_str, h1, content_body, schemas_js
 <footer style="background:#1a1a1a;color:#999;padding:2rem;text-align:center;margin-top:3rem">
   <p><a href="/" style="color:#D4AF37;text-decoration:none">Paranjape Forest Trails</a> | Bhugaon, Paud Road, Pune West 412115</p>
   <p>📞 <a href="tel:+917744009295" style="color:#ccc">+91 7744009295</a> | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--></p>
-  <p style="font-size:.82rem;margin-top:.5rem">MahaRERA: P52100053834 | P52100031560 | P52100048536 | P52100079518 | P52100053310 | P52100077686</p>
+  <p style="font-size:.82rem;margin-top:.5rem">MahaRERA: P52100053834 | P52100031560 | P52100048536 | P52100079518 | P52100053310 | P52100077686 | P52100055711 | P52100052124 | P52100002194 | P52100055710</p>
   <p style="font-size:.82rem"><a href="/privacy-policy/" style="color:#aaa">Privacy</a> | <a href="/terms-of-use/" style="color:#aaa">Terms</a> | <a href="/sitemap-page/" style="color:#aaa">Sitemap</a> | <a href="/paranjape-schemes-all-projects-pune/" style="color:#aaa">All Projects</a></p>
 </footer>
+<script defer src="/exit-intent-concierge.js"></script>
 </body>
 </html>"""
 
@@ -287,6 +320,7 @@ def add_route(slug, keywords_list):
 # BATCH 1: BHK × LOCATION PERMUTATIONS (not already existing)
 # ============================================================
 BHK_LOCATIONS = [
+    ("1BHK", "1bhk", "Everglades Bavdhan", "₹48.50 L*", "P52100055711", 4850000),
     ("2BHK", "2bhk", "The Canopy", "₹89 L*", "P52100079518", 8900000),
     ("3BHK", "3bhk", "Verandah/The Canopy", "₹93 L*", "P52100002194", 9300000),
     ("4BHK", "4bhk", "The Rivolo/The Cove", "₹2.85 Cr*", "P52100048536", 28500000),
@@ -378,6 +412,15 @@ b1 = len(pages_created)
 # ============================================================
 PRICE_PAGES = [
     {
+        "slug": "flats-under-50-lakhs-pune-west",
+        "title": "Flats Under 50 Lakhs in Pune West 2026 | 1 & 2 BHK | Forest Trails",
+        "desc": "Buy 1 & 2 BHK apartments under ₹50 lakhs in Pune West. Everglades at Paranjape Forest Trails Bavdhan from ₹48.50 Lakhs* — RERA P52100055711, 190-acre township.",
+        "h1": "Flats Under ₹50 Lakhs in Pune West — Everglades Forest Trails",
+        "keywords": ["flats under 50 lakhs Pune West", "apartments under 50 lakhs Pune", "1BHK under 50 lakhs Bavdhan",
+                     "2BHK under 50 lakhs Bhugaon", "affordable homes Pune West 2026", "RERA flat under 50 lakhs Pune"],
+        "price_raw": 4850000, "rera": "P52100055711"
+    },
+    {
         "slug": "flats-under-1-crore-pune-west",
         "title": "Flats Under 1 Crore in Pune West 2026 | RERA Apartments | Forest Trails",
         "desc": "Buy apartments under ₹1 crore in Pune West. The Canopy & Highgardens at Forest Trails Bhugaon from ₹89 Lakhs* — RERA registered, forest township, 190 acres.",
@@ -433,11 +476,16 @@ for p in PRICE_PAGES:
   <h2>Best Options in This Price Range — Forest Trails Bhugaon</h2>
   <table>
     <tr><th>Enclave</th><th>Type</th><th>Price</th><th>RERA</th><th>Status</th></tr>
-    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color:#4A0808">The Canopy</a></td><td>2/3BHK</td><td>₹89 L*</td><td>P52100079518</td><td>Under Construction</td></tr>
-    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-highgardens/" style="color:#4A0808">Highgardens</a></td><td>2BHK</td><td>₹89 L*</td><td>P52100053310</td><td>✅ Ready</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-everglades/" style="color:#4A0808">Everglades</a></td><td>1 & 2 BHK PRO</td><td>₹48.50 L*</td><td>P52100055711</td><td>🔵 Active</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color:#4A0808">The Canopy</a></td><td>2 & 3 BHK</td><td>₹89 L*</td><td>P52100079518</td><td>Under Construction</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-highgardens/" style="color:#4A0808">Highgardens</a></td><td>2 & 3 BHK</td><td>₹89 L*</td><td>P52100053310</td><td>✅ Ready</td></tr>
     <tr><td><a href="/paranjape-forest-trails-township-bhugaon-misty-greens/" style="color:#4A0808">Misty Greens</a></td><td>NA Plot</td><td>₹1.23 Cr*</td><td>P52100053834</td><td>✅ Available</td></tr>
     <tr><td><a href="/paranjape-forest-trails-township-bhugaon-the-cove/" style="color:#4A0808">The Cove</a></td><td>4BHK Bungalow</td><td>₹2.85 Cr*</td><td>P52100048536</td><td>✅ Available</td></tr>
     <tr><td><a href="/paranjape-forest-trails-township-bhugaon-rivolo-residences/" style="color:#4A0808">The Rivolo</a></td><td>4/5BHK Villa</td><td>₹3.89 Cr*</td><td>P52100031560</td><td>✅ Available</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" style="color:#4A0808">Athashri</a></td><td>Senior Living 2 & 3 BHK</td><td>₹83 L*</td><td>P52100077686</td><td>🏠 Available</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-swaniketan/" style="color:#4A0808">Swaniketan</a></td><td>Assisted Living 2 & 3 BHK</td><td>₹79 L*</td><td>P52100052124</td><td>🏠 Available</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-verandah/" style="color:#4A0808">The Verandah</a></td><td>3-4 BHK Duplex</td><td>₹93 L*</td><td>P52100002194</td><td>✅ Ready</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-orchard-residences/" style="color:#4A0808">Orchard Residences</a></td><td>2-3 BHK</td><td>₹83 L*</td><td>P52100055710</td><td>✅ Ready</td></tr>
   </table>
   <p style="color:#777;font-size:.85rem">*All prices indicative. Contact for current pricing and availability.</p>
   <h2>Why Forest Trails is the Best Choice</h2>
@@ -549,11 +597,16 @@ for p in LANDMARK_PAGES:
   </ul>
   <h2>All Available Property Options</h2>
   <div class="grid">
-    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-misty-greens/" style="color:#4A0808">Misty Greens — NA Plots</a></h3><div class="price">₹1.23 Cr*</div><p>1800–3600 sqft | P52100053834</p></div>
-    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color:#4A0808">The Canopy — 2/3BHK</a></h3><div class="price">₹89 L*</div><p>850–1150 sqft | P52100079518</p></div>
-    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-the-cove/" style="color:#4A0808">The Cove — 4BHK</a></h3><div class="price">₹2.85 Cr*</div><p>Twin bungalow | P52100048536</p></div>
-    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-rivolo-residences/" style="color:#4A0808">The Rivolo — 4/5BHK</a></h3><div class="price">₹3.89 Cr*</div><p>Luxury forest villa | P52100031560</p></div>
-    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" style="color:#4A0808">Athashri — Senior Living</a></h3><div class="price">₹83 L*</div><p>2BHK | P52100077686</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-everglades/" style="color:#4A0808">Everglades</a></h3><div class="price">₹48.50 L*</div><p>1 & 2 BHK PRO Homes | P52100055711</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-misty-greens/" style="color:#4A0808">Misty Greens</a></h3><div class="price">₹1.23 Cr*</div><p>NA Bungalow Plots | P52100053834</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color:#4A0808">The Canopy</a></h3><div class="price">₹89 L*</div><p>2 & 3 BHK Nature Apts | P52100079518</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-highgardens/" style="color:#4A0808">The Highgardens</a></h3><div class="price">₹89 L*</div><p>2 & 3 BHK Stepped Homes | P52100053310</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-the-cove/" style="color:#4A0808">The Cove</a></h3><div class="price">₹2.85 Cr*</div><p>4 BHK Twin Bungalows | P52100048536</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-rivolo-residences/" style="color:#4A0808">The Rivolo</a></h3><div class="price">₹3.89 Cr*</div><p>4 & 5 BHK Forest Villas | P52100031560</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" style="color:#4A0808">Athashri</a></h3><div class="price">₹83 L*</div><p>2 & 3 BHK Senior Living | P52100077686</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-swaniketan/" style="color:#4A0808">Swaniketan</a></h3><div class="price">₹79 L*</div><p>2 & 3 BHK Assisted Care | P52100052124</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-verandah/" style="color:#4A0808">The Verandah</a></h3><div class="price">₹93 L*</div><p>3 & 4 BHK Duplex | P52100002194</p></div>
+    <div class="card"><h3><a href="/paranjape-forest-trails-township-bhugaon-orchard-residences/" style="color:#4A0808">Orchard</a></h3><div class="price">₹83 L*</div><p>2 & 3 BHK Hillside Apts | P52100055710</p></div>
   </div>
   <div class="cta">
     <h3>Book a Free Site Visit Today</h3>
@@ -797,14 +850,19 @@ for p in PROCESS_PAGES:
   <p class="lead">{p['desc']}</p>
   <h2>Why This Matters for Pune Property Buyers</h2>
   <p>Understanding <strong>{p['keywords'][0]}</strong> is critical before any property purchase in Pune 2026. All Paranjape Schemes projects at Forest Trails are fully compliant and transparent on all legal documentation.</p>
-  <h2>Forest Trails — RERA Compliant Across All 9 Enclaves</h2>
+  <h2>Forest Trails — RERA Compliant Across All 10 Enclaves</h2>
   <table>
-    <tr><th>Project</th><th>Type</th><th>Price</th><th>RERA</th></tr>
-    <tr><td>Misty Greens</td><td>NA Plot</td><td>₹1.23 Cr*</td><td>P52100053834</td></tr>
-    <tr><td>The Canopy</td><td>2/3BHK</td><td>₹89 L*</td><td>P52100079518</td></tr>
-    <tr><td>The Rivolo</td><td>4/5BHK Villa</td><td>₹3.89 Cr*</td><td>P52100031560</td></tr>
-    <tr><td>The Cove</td><td>4BHK Bungalow</td><td>₹2.85 Cr*</td><td>P52100048536</td></tr>
-    <tr><td>Athashri</td><td>Senior Living</td><td>₹83 L*</td><td>P52100077686</td></tr>
+    <tr><th>Project</th><th>Type</th><th>Price</th><th>MahaRERA</th></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-everglades/" style="color:#4A0808">Everglades</a></td><td>1 & 2 BHK PRO</td><td>₹48.50 L*</td><td>P52100055711</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-the-canopy/" style="color:#4A0808">The Canopy</a></td><td>2 & 3 BHK</td><td>₹89 L*</td><td>P52100079518</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-highgardens/" style="color:#4A0808">Highgardens</a></td><td>2 & 3 BHK</td><td>₹89 L*</td><td>P52100053310</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-misty-greens/" style="color:#4A0808">Misty Greens</a></td><td>NA Plot</td><td>₹1.23 Cr*</td><td>P52100053834</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-the-cove/" style="color:#4A0808">The Cove</a></td><td>4BHK Bungalow</td><td>₹2.85 Cr*</td><td>P52100048536</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-rivolo-residences/" style="color:#4A0808">The Rivolo</a></td><td>4/5BHK Villa</td><td>₹3.89 Cr*</td><td>P52100031560</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/" style="color:#4A0808">Athashri</a></td><td>Senior Living 2 & 3 BHK</td><td>₹83 L*</td><td>P52100077686</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-swaniketan/" style="color:#4A0808">Swaniketan</a></td><td>Assisted Living 2 & 3 BHK</td><td>₹79 L*</td><td>P52100052124</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-verandah/" style="color:#4A0808">The Verandah</a></td><td>3-4 BHK Duplex</td><td>₹93 L*</td><td>P52100002194</td></tr>
+    <tr><td><a href="/paranjape-forest-trails-township-bhugaon-orchard-residences/" style="color:#4A0808">Orchard Residences</a></td><td>2-3 BHK</td><td>₹83 L*</td><td>P52100055710</td></tr>
   </table>
   <p style="color:#777;font-size:.85rem">*Prices indicative. Verify all RERA details at maharera.mahaonline.gov.in</p>
   <div class="cta">
@@ -816,7 +874,7 @@ for p in PROCESS_PAGES:
   <p style="margin-top:1.5rem">
     Related: <a href="/stamp-duty-calculator-pune/">Stamp Duty Calculator</a> |
     <a href="/roi-calculator-pune/">ROI Calculator</a> |
-    <a href="/rera-compliance-guide/">RERA Compliance Guide</a> |
+    <a href="/rera-status-forest-trails/">RERA Compliance Guide</a> |
     <a href="/faqs/">FAQs (50+ Answered)</a>
   </p>
 """
