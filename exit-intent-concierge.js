@@ -1037,6 +1037,10 @@
           '<span style="font-size:0.95rem;">💬</span>' +
           '<span>Instant WhatsApp Advisory</span>' +
         '</a>' +
+        '<button type="button" class="pscl-fab-item" id="pscl-fab-action-calc">' +
+          '<span style="font-size:0.95rem;">🧮</span>' +
+          '<span>Cost &amp; EMI Visualizer</span>' +
+        '</button>' +
         '<button type="button" class="pscl-fab-item" id="pscl-fab-action-cab">' +
           '<span style="font-size:0.95rem;">🚗</span>' +
           '<span>Book Free AC Cab Site Visit</span>' +
@@ -1071,10 +1075,19 @@
       window.openEnquiryModal && window.openEnquiryModal();
     });
 
+    var calcAction = document.getElementById('pscl-fab-action-calc');
+    if (calcAction) {
+      calcAction.addEventListener('click', function() {
+        menu.classList.remove('pscl-menu-active');
+        btn.textContent = '✦';
+        openCostVisualizerModal();
+      });
+    }
+
     document.getElementById('pscl-fab-action-cab').addEventListener('click', function() {
       menu.classList.remove('pscl-menu-active');
       btn.textContent = '✦';
-      window.openEnquiryModal && window.openEnquiryModal();
+      openVipCabModal();
     });
 
     var waLink = document.getElementById('pscl-fab-action-whatsapp');
@@ -1083,15 +1096,655 @@
     }
   }
 
-  // ─── Initialize Sovereign Engagement Layer ─────────────────────────────────
+  
+  // ─── Sovereign Multi-Currency Cost & EMI Visualizer Engine ───────────────────
+  var ENCLAVES_DATA = [
+    { id: 'misty-greens', name: 'Misty Greens NA Plots', typology: 'Gated NA Bungalow Plots (1,930 – 3,500+ sq.ft)', baseINR: 12300000, priceDisplay: '₹1.23 Cr*', rera: 'P52100053834', isPlot: true, gstRate: 0.00, status: 'Ready for Registration', minINR: 12300000, maxINR: 35000000 },
+    { id: 'rivolo', name: 'The Rivolo Luxury Forest Villas', typology: '4 & 5 BHK Bespoke Forest Villas (3,400 – 5,500 sq.ft)', baseINR: 38900000, priceDisplay: '₹3.89 Cr*', rera: 'P52100031560', isPlot: false, gstRate: 0.05, status: 'Under Construction (Possession Q4 2026)', minINR: 38900000, maxINR: 55000000 },
+    { id: 'the-cove', name: 'The Cove Duet & Twin Villas', typology: '4 BHK Duet Villas (2,400 – 3,800 sq.ft)', baseINR: 28500000, priceDisplay: '₹2.85 Cr*', rera: 'P52100048536', isPlot: false, gstRate: 0.05, status: 'Active Bookings', minINR: 28500000, maxINR: 38000000 },
+    { id: 'the-canopy', name: 'The Canopy Nature Apartments', typology: '2 & 3 BHK Hillside Apartments (850 – 1,250 sq.ft)', baseINR: 8900000, priceDisplay: '₹89 Lakhs*', rera: 'P52100079518', isPlot: false, gstRate: 0.05, status: 'Possession 2027', minINR: 8900000, maxINR: 14500000 },
+    { id: 'highgardens', name: 'The Highgardens Terrace Homes', typology: '2 & 3 BHK Stepped Terrace Homes (950 – 1,450 sq.ft)', baseINR: 8900000, priceDisplay: '₹89 Lakhs*', rera: 'P52100053310', isPlot: false, gstRate: 0.00, status: 'Ready to Move In (OC Received)', minINR: 8900000, maxINR: 13500000 },
+    { id: 'everglades', name: 'Everglades Bavdhan 1 & 2 BHK', typology: '1 & 2 BHK PRO Efficient Homes (480 – 750 sq.ft)', baseINR: 4850000, priceDisplay: '₹48.50 Lakhs*', rera: 'P52100055711', isPlot: false, gstRate: 0.05, status: 'Active Booking', minINR: 4850000, maxINR: 7500000 },
+    { id: 'athashri', name: 'Athashri Senior Living (2 & 3 BHK)', typology: '2 & 3 BHK Assisted Senior Living (750 – 1,150 sq.ft)', baseINR: 8300000, priceDisplay: '₹83 Lakhs*', rera: 'P52100077686', isPlot: false, gstRate: 0.00, status: 'Ready & Available', minINR: 8300000, maxINR: 12500000 },
+    { id: 'swaniketan', name: 'Swaniketan Assisted Care (2 & 3 BHK)', typology: '2 & 3 BHK Assisted Care Living (720 – 1,100 sq.ft)', baseINR: 7900000, priceDisplay: '₹79 Lakhs*', rera: 'P52100052124', isPlot: false, gstRate: 0.00, status: 'Available', minINR: 7900000, maxINR: 11000000 },
+    { id: 'verandah', name: 'The Verandah Duplex Homes', typology: '3 & 4 BHK Luxury Duplex Homes (1,300 – 2,200 sq.ft)', baseINR: 9300000, priceDisplay: '₹93 Lakhs*', rera: 'P52100002194', isPlot: false, gstRate: 0.00, status: 'Ready to Move In', minINR: 9300000, maxINR: 16000000 },
+    { id: 'orchard', name: 'Orchard Residences (2 & 3 BHK)', typology: '2 & 3 BHK Hillside Apartments (850 – 1,300 sq.ft)', baseINR: 8300000, priceDisplay: '₹83 Lakhs*', rera: 'P52100055710', isPlot: false, gstRate: 0.00, status: 'Ready to Move In', minINR: 8300000, maxINR: 12500000 }
+  ];
+
+  var FOREX_RATES = {
+    INR: { symbol: '₹', rate: 1, label: '₹ INR', locale: 'en-IN' },
+    USD: { symbol: '$', rate: 86.50, label: '$ USD', locale: 'en-US' },
+    AED: { symbol: 'AED ', rate: 23.55, label: 'د.إ AED', locale: 'en-AE' },
+    GBP: { symbol: '£', rate: 110.20, label: '£ GBP', locale: 'en-GB' },
+    EUR: { symbol: '€', rate: 92.80, label: '€ EUR', locale: 'de-DE' },
+    SGD: { symbol: 'S$', rate: 64.50, label: 'S$ SGD', locale: 'en-SG' }
+  };
+
+  function formatMoney(amountINR, currKey) {
+    var c = FOREX_RATES[currKey] || FOREX_RATES.INR;
+    var converted = amountINR / c.rate;
+    if (currKey === 'INR') {
+      if (converted >= 10000000) {
+        return '₹' + (converted / 10000000).toFixed(2) + ' Cr*';
+      }
+      if (converted >= 100000) {
+        return '₹' + (converted / 100000).toFixed(2) + ' L*';
+      }
+      return '₹' + Math.round(converted).toLocaleString('en-IN');
+    }
+    return c.symbol + Math.round(converted).toLocaleString('en-US');
+  }
+
+  function calculateCosts(baseINR, gender, isPlot, gstRate, downPaymentPct, loanYears, interestRateAnnual) {
+    // Stamp Duty: Male 5%, Female 4% (1% MH Govt concession), Joint 4.5%
+    var sdPct = gender === 'female' ? 0.04 : (gender === 'joint' ? 0.045 : 0.05);
+    var stampDuty = Math.round(baseINR * sdPct);
+    // Registration: capped at 30,000 for residential, or 1% for plots
+    var regFee = isPlot ? Math.min(Math.round(baseINR * 0.01), 30000) : 30000;
+    var gst = Math.round(baseINR * gstRate);
+    var totalOutlay = baseINR + stampDuty + regFee + gst;
+
+    // Loan & EMI
+    var loanAmount = Math.round(baseINR * (1 - (downPaymentPct / 100)));
+    var monthlyRate = (interestRateAnnual / 100) / 12;
+    var totalMonths = loanYears * 12;
+    var emi = 0;
+    if (monthlyRate > 0 && totalMonths > 0) {
+      emi = Math.round(loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1));
+    }
+    var totalLoanRepayment = emi * totalMonths;
+    var totalInterest = totalLoanRepayment - loanAmount;
+
+    return {
+      baseINR: baseINR,
+      sdPct: sdPct,
+      stampDuty: stampDuty,
+      regFee: regFee,
+      gst: gst,
+      totalOutlay: totalOutlay,
+      loanAmount: loanAmount,
+      emi: emi,
+      totalInterest: totalInterest
+    };
+  }
+
+  // ─── Inject Interactive Cost Visualizer Modal ──────────────────────────────
+  function injectCostVisualizerModal() {
+    if (document.getElementById('pscl-cost-modal-wrap')) return;
+
+    var style = document.createElement('style');
+    style.id = 'pscl-cost-modal-styles';
+    style.textContent = `
+      #pscl-cost-modal-wrap {
+        position: fixed;
+        inset: 0;
+        z-index: 999998;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 10, 16, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      #pscl-cost-modal-wrap.pscl-active {
+        display: flex;
+        opacity: 1;
+      }
+      .pscl-cost-card {
+        background: #14141e;
+        border: 1.5px solid rgba(212, 175, 55, 0.5);
+        border-radius: 20px;
+        max-width: 680px;
+        width: 100%;
+        max-height: 92vh;
+        overflow-y: auto;
+        color: #ffffff;
+        padding: 1.8rem;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.2);
+        position: relative;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        box-sizing: border-box;
+      }
+      .pscl-curr-pills {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+      .pscl-curr-btn {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+        padding: 0.35rem 0.75rem;
+        border-radius: 50px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .pscl-curr-btn.active, .pscl-curr-btn:hover {
+        background: #D4AF37;
+        color: #000;
+        border-color: #D4AF37;
+      }
+      .pscl-cost-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin: 1.2rem 0;
+      }
+      @media (max-width: 600px) {
+        .pscl-cost-grid { grid-template-columns: 1fr; }
+        .pscl-cost-card { padding: 1.2rem; }
+      }
+      .pscl-cost-box {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(212,175,55,0.25);
+        border-radius: 12px;
+        padding: 1rem;
+      }
+      .pscl-cost-box.highlight {
+        background: linear-gradient(135deg, rgba(74,8,8,0.4), rgba(212,175,55,0.15));
+        border-color: #D4AF37;
+      }
+      .pscl-slider-row {
+        margin: 0.8rem 0;
+      }
+      .pscl-slider-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.76rem;
+        color: rgba(255,255,255,0.8);
+        margin-bottom: 0.3rem;
+      }
+      .pscl-slider-input {
+        width: 100%;
+        accent-color: #D4AF37;
+        cursor: pointer;
+      }
+      .pscl-cost-cta-row {
+        display: flex;
+        gap: 0.8rem;
+        margin-top: 1.4rem;
+        flex-wrap: wrap;
+      }
+      .pscl-cost-cta-wa {
+        flex: 1.2;
+        background: #25D366;
+        color: #fff;
+        border: none;
+        padding: 0.85rem;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 0.82rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+      }
+      .pscl-cost-cta-cab {
+        flex: 1;
+        background: linear-gradient(135deg, #6B0D0D, #8B1A1A);
+        color: #fff;
+        border: 1px solid #D4AF37;
+        padding: 0.85rem;
+        border-radius: 10px;
+        font-weight: 800;
+        font-size: 0.82rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        box-shadow: 0 4px 15px rgba(107,13,13,0.5);
+      }
+    `;
+    document.head.appendChild(style);
+
+    var modalWrap = document.createElement('div');
+    modalWrap.id = 'pscl-cost-modal-wrap';
+    modalWrap.innerHTML = `
+      <div class="pscl-cost-card" role="dialog" aria-modal="true" aria-labelledby="pscl-calc-title">
+        <button type="button" class="pscl-close-btn" id="pscl-cost-close-btn" aria-label="Close Cost Visualizer">✕</button>
+        <span class="pscl-badge">✦ Interactive Real Estate Visualizer</span>
+        <h2 id="pscl-calc-title" style="margin:0 0 0.3rem;font-size:1.35rem;color:#ffffff;font-weight:800;">Enclave Cost, Taxes &amp; EMI Calculator</h2>
+        <p style="margin:0 0 1rem;font-size:0.8rem;color:rgba(255,255,255,0.7);">Live Maharashtra Stamp Duty, Registration, Indicative Bank EMI &amp; Global Currency Converter.</p>
+        
+        <!-- Multi-Currency Selector -->
+        <div style="font-size:0.7rem;color:#D4AF37;font-weight:800;margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em;">Select Currency (NRI Friendly):</div>
+        <div class="pscl-curr-pills" id="pscl-curr-pills-wrap">
+          <button type="button" class="pscl-curr-btn active" data-curr="INR">₹ INR</button>
+          <button type="button" class="pscl-curr-btn" data-curr="USD">$ USD</button>
+          <button type="button" class="pscl-curr-btn" data-curr="AED">د.إ AED</button>
+          <button type="button" class="pscl-curr-btn" data-curr="GBP">£ GBP</button>
+          <button type="button" class="pscl-curr-btn" data-curr="EUR">€ EUR</button>
+          <button type="button" class="pscl-curr-btn" data-curr="SGD">S$ SGD</button>
+        </div>
+
+        <!-- Enclave Select -->
+        <div style="margin-bottom:0.8rem;">
+          <label for="pscl-calc-enclave-select" style="display:block;font-size:0.75rem;color:rgba(255,255,255,0.8);margin-bottom:0.3rem;font-weight:700;">Select Enclave &amp; Typology:</label>
+          <select id="pscl-calc-enclave-select" style="width:100%;background:#1d1d2b;border:1px solid rgba(212,175,55,0.4);color:#fff;padding:0.65rem 0.8rem;border-radius:10px;font-size:0.82rem;font-weight:700;outline:none;">
+            ${ENCLAVES_DATA.map(function(e) {
+              return '<option value="' + e.id + '">' + e.name + ' — ' + e.priceDisplay + ' (' + e.rera + ')</option>';
+            }).join('')}
+          </select>
+        </div>
+
+        <!-- Stamp Duty Gender Benefit -->
+        <div style="margin-bottom:0.8rem;">
+          <span style="display:block;font-size:0.75rem;color:rgba(255,255,255,0.8);margin-bottom:0.3rem;font-weight:700;">Buyer Category (Stamp Duty Concession):</span>
+          <div style="display:flex;gap:12px;font-size:0.76rem;">
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+              <input type="radio" name="pscl_calc_gender" value="male" checked style="accent-color:#D4AF37;"> Standard (5% Stamp Duty)
+            </label>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;color:#10B981;font-weight:700;">
+              <input type="radio" name="pscl_calc_gender" value="female" style="accent-color:#10B981;"> Female Buyer (4% — Save 1%!)
+            </label>
+            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
+              <input type="radio" name="pscl_calc_gender" value="joint" style="accent-color:#D4AF37;"> Joint (4.5%)
+            </label>
+          </div>
+        </div>
+
+        <!-- Loan Sliders -->
+        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:0.8rem;margin-bottom:0.8rem;">
+          <div class="pscl-slider-row">
+            <div class="pscl-slider-label">
+              <span>Down Payment: <strong id="pscl-dp-val" style="color:#D4AF37;">20%</strong></span>
+              <span id="pscl-dp-amount" style="color:rgba(255,255,255,0.6);">₹24.60 L*</span>
+            </div>
+            <input type="range" id="pscl-dp-slider" min="10" max="50" step="5" value="20" class="pscl-slider-input">
+          </div>
+          <div class="pscl-slider-row">
+            <div class="pscl-slider-label">
+              <span>Loan Tenure: <strong id="pscl-tenure-val" style="color:#D4AF37;">20 Years</strong></span>
+              <span>Interest Rate: <strong id="pscl-rate-val" style="color:#D4AF37;">8.50%</strong></span>
+            </div>
+            <input type="range" id="pscl-tenure-slider" min="5" max="30" step="1" value="20" class="pscl-slider-input">
+          </div>
+        </div>
+
+        <!-- Results Display Cards -->
+        <div class="pscl-cost-grid">
+          <!-- Card 1: Outlay Breakdown -->
+          <div class="pscl-cost-box highlight">
+            <span style="display:block;font-size:0.68rem;text-transform:uppercase;color:#D4AF37;font-weight:800;letter-spacing:0.06em;">Indicative Total Outlay</span>
+            <div id="pscl-res-total-outlay" style="font-size:1.45rem;font-weight:900;color:#ffffff;margin:0.25rem 0;">₹1.29 Cr*</div>
+            <div style="font-size:0.73rem;color:rgba(255,255,255,0.75);line-height:1.4;">
+              <div>• Base Agreement: <span id="pscl-res-base" style="color:#fff;font-weight:700;">₹1.23 Cr*</span></div>
+              <div>• Stamp Duty: <span id="pscl-res-sd" style="color:#fff;font-weight:700;">₹6.15 L*</span></div>
+              <div>• Registration: <span id="pscl-res-reg" style="color:#fff;font-weight:700;">₹30,000*</span></div>
+              <div>• GST: <span id="pscl-res-gst" style="color:#fff;font-weight:700;">0% (Nil)</span></div>
+            </div>
+          </div>
+
+          <!-- Card 2: EMI Visualizer -->
+          <div class="pscl-cost-box">
+            <span style="display:block;font-size:0.68rem;text-transform:uppercase;color:#10B981;font-weight:800;letter-spacing:0.06em;">Indicative Bank EMI</span>
+            <div id="pscl-res-emi" style="font-size:1.45rem;font-weight:900;color:#10B981;margin:0.25rem 0;">₹85,420<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span></div>
+            <div style="font-size:0.73rem;color:rgba(255,255,255,0.75);line-height:1.4;">
+              <div>• Loan Amount: <span id="pscl-res-loan" style="color:#fff;font-weight:700;">₹98.40 L*</span></div>
+              <div>• Bank Partners: <span style="color:#D4AF37;">SBI, HDFC, ICICI, BoB</span></div>
+              <div>• Tax Benefit: <span style="color:#fff;">Sec 24(b) &amp; 80C</span></div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.66rem;color:rgba(255,255,255,0.5);margin:0;line-height:1.3;">*All calculations are indicative estimates. Stamp duty, registration, and tax figures are subject to Maharashtra Government IGR notifications. Final figures as per official agreement for sale.</p>
+
+        <!-- CTAs -->
+        <div class="pscl-cost-cta-row">
+          <a class="pscl-cost-cta-wa" id="pscl-cost-cta-wa-btn" href="#" target="_blank" rel="noopener">
+            <span>💬</span><span>Send Cost Sheet on WhatsApp</span>
+          </a>
+          <button type="button" class="pscl-cost-cta-cab" id="pscl-cost-cta-cab-btn">
+            <span>🚗</span><span>Book Free AC Cab Site Visit</span>
+          </button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modalWrap);
+
+    var currentCurrency = 'INR';
+
+    function getSelectedEnclave() {
+      var sel = document.getElementById('pscl-calc-enclave-select');
+      var val = sel ? sel.value : 'misty-greens';
+      for (var i = 0; i < ENCLAVES_DATA.length; i++) {
+        if (ENCLAVES_DATA[i].id === val) return ENCLAVES_DATA[i];
+      }
+      return ENCLAVES_DATA[0];
+    }
+
+    function refreshCalculations() {
+      var enclave = getSelectedEnclave();
+      var genderRadio = document.querySelector('input[name="pscl_calc_gender"]:checked');
+      var gender = genderRadio ? genderRadio.value : 'male';
+      var dpPct = parseInt(document.getElementById('pscl-dp-slider').value, 10);
+      var tenure = parseInt(document.getElementById('pscl-tenure-slider').value, 10);
+      var interest = 8.5;
+
+      document.getElementById('pscl-dp-val').textContent = dpPct + '%';
+      document.getElementById('pscl-tenure-val').textContent = tenure + ' Years';
+
+      var res = calculateCosts(enclave.baseINR, gender, enclave.isPlot, enclave.gstRate, dpPct, tenure, interest);
+
+      var dpINR = Math.round(enclave.baseINR * (dpPct / 100));
+      document.getElementById('pscl-dp-amount').textContent = formatMoney(dpINR, currentCurrency);
+
+      document.getElementById('pscl-res-total-outlay').textContent = formatMoney(res.totalOutlay, currentCurrency);
+      document.getElementById('pscl-res-base').textContent = formatMoney(res.baseINR, currentCurrency);
+      document.getElementById('pscl-res-sd').textContent = formatMoney(res.stampDuty, currentCurrency) + ' (' + (res.sdPct * 100) + '%)';
+      document.getElementById('pscl-res-reg').textContent = formatMoney(res.regFee, currentCurrency);
+      document.getElementById('pscl-res-gst').textContent = enclave.gstRate > 0 ? formatMoney(res.gst, currentCurrency) + ' (5%)' : '0% (Exempt)';
+
+      var emiDisplay = currentCurrency === 'INR' ? '₹' + res.emi.toLocaleString('en-IN') : formatMoney(res.emi, currentCurrency);
+      document.getElementById('pscl-res-emi').innerHTML = emiDisplay + '<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span>';
+      document.getElementById('pscl-res-loan').textContent = formatMoney(res.loanAmount, currentCurrency);
+
+      // WhatsApp link update
+      var waBtn = document.getElementById('pscl-cost-cta-wa-btn');
+      if (waBtn) {
+        var waMsg = 'Hello, I generated a cost breakdown on your website:%0A' +
+          '• Enclave: ' + encodeURIComponent(enclave.name) + '%0A' +
+          '• Base Price: ' + encodeURIComponent(formatMoney(res.baseINR, 'INR')) + ' (' + encodeURIComponent(formatMoney(res.baseINR, currentCurrency)) + ')%0A' +
+          '• Stamp Duty: ' + encodeURIComponent(formatMoney(res.stampDuty, 'INR')) + '%0A' +
+          '• Total Estimated Outlay: ' + encodeURIComponent(formatMoney(res.totalOutlay, 'INR')) + '%0A' +
+          '• Est. Monthly EMI: ' + encodeURIComponent('₹' + res.emi.toLocaleString('en-IN') + '/mo') + '%0A%0A' +
+          'Please share the official builder cost sheet, payment schedule, and site visit slot.';
+        waBtn.href = 'https://wa.me/917744009295?text=' + waMsg;
+      }
+    }
+
+    // Attach currency pills
+    var pills = document.querySelectorAll('.pscl-curr-btn');
+    pills.forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        pills.forEach(function(p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+        currentCurrency = pill.getAttribute('data-curr') || 'INR';
+        refreshCalculations();
+      });
+    });
+
+    document.getElementById('pscl-calc-enclave-select').addEventListener('change', refreshCalculations);
+    document.querySelectorAll('input[name="pscl_calc_gender"]').forEach(function(r) {
+      r.addEventListener('change', refreshCalculations);
+    });
+    document.getElementById('pscl-dp-slider').addEventListener('input', refreshCalculations);
+    document.getElementById('pscl-tenure-slider').addEventListener('input', refreshCalculations);
+
+    document.getElementById('pscl-cost-close-btn').addEventListener('click', function() {
+      modalWrap.classList.remove('pscl-active');
+    });
+    modalWrap.addEventListener('click', function(e) {
+      if (e.target === modalWrap) modalWrap.classList.remove('pscl-active');
+    });
+
+    // Conversion tracking on WhatsApp click
+    document.getElementById('pscl-cost-cta-wa-btn').addEventListener('click', function() {
+      var enc = getSelectedEnclave();
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'Cost Visualizer',
+          event_label: enc.name,
+          value: 100.0,
+          currency: 'INR'
+        });
+        gtag('event', 'conversion', {
+          send_to: 'AW-17430583486',
+          event_category: 'Cost Sheet Lead',
+          event_label: enc.name
+        });
+      }
+    });
+
+    // Cab button trigger
+    document.getElementById('pscl-cost-cta-cab-btn').addEventListener('click', function() {
+      modalWrap.classList.remove('pscl-active');
+      openVipCabModal();
+    });
+
+    // Initial calculation
+    refreshCalculations();
+  }
+
+  function openCostVisualizerModal(defaultEnclaveId) {
+    injectCostVisualizerModal();
+    var wrap = document.getElementById('pscl-cost-modal-wrap');
+    if (!wrap) return;
+    if (defaultEnclaveId) {
+      var sel = document.getElementById('pscl-calc-enclave-select');
+      if (sel) {
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].value === defaultEnclaveId) {
+            sel.selectedIndex = i;
+            sel.dispatchEvent(new Event('change'));
+            break;
+          }
+        }
+      }
+    }
+    wrap.classList.add('pscl-active');
+  }
+
+  // ─── Inject VIP AC Chauffeur Booking Modal ───────────────────────────────────
+  function injectVipCabModal() {
+    if (document.getElementById('pscl-vip-cab-wrap')) return;
+
+    var style = document.createElement('style');
+    style.id = 'pscl-cab-modal-styles';
+    style.textContent = `
+      #pscl-vip-cab-wrap {
+        position: fixed;
+        inset: 0;
+        z-index: 999999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(10, 10, 16, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 1rem;
+        box-sizing: border-box;
+      }
+      #pscl-vip-cab-wrap.pscl-active {
+        display: flex;
+        opacity: 1;
+      }
+      .pscl-cab-card {
+        background: #151522;
+        border: 1.5px solid #D4AF37;
+        border-radius: 20px;
+        max-width: 500px;
+        width: 100%;
+        color: #ffffff;
+        padding: 1.8rem;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 35px rgba(212, 175, 55, 0.25);
+        position: relative;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        box-sizing: border-box;
+      }
+      .pscl-cab-field {
+        margin-bottom: 0.85rem;
+      }
+      .pscl-cab-field label {
+        display: block;
+        font-size: 0.76rem;
+        color: rgba(255,255,255,0.8);
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+      .pscl-cab-field input, .pscl-cab-field select {
+        width: 100%;
+        background: #1e1e2d;
+        border: 1px solid rgba(212,175,55,0.4);
+        color: #fff;
+        padding: 0.7rem 0.85rem;
+        border-radius: 10px;
+        font-size: 0.85rem;
+        box-sizing: border-box;
+        outline: none;
+      }
+      .pscl-cab-submit {
+        width: 100%;
+        background: linear-gradient(135deg, #6B0D0D, #8B1A1A);
+        color: #ffffff;
+        border: 1.5px solid #D4AF37;
+        padding: 0.9rem;
+        border-radius: 10px;
+        font-size: 0.86rem;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        box-shadow: 0 6px 20px rgba(107,13,13,0.5);
+      }
+    `;
+    document.head.appendChild(style);
+
+    var wrap = document.createElement('div');
+    wrap.id = 'pscl-vip-cab-wrap';
+    wrap.innerHTML = `
+      <div class="pscl-cab-card" role="dialog" aria-modal="true" aria-labelledby="pscl-cab-title">
+        <button type="button" class="pscl-close-btn" id="pscl-cab-close-btn" aria-label="Close VIP Cab Modal">✕</button>
+        <span class="pscl-badge" style="background:rgba(37,211,102,0.15);border-color:#25D366;color:#25D366;">🚗 Complimentary VIP Chauffeur</span>
+        <h2 id="pscl-cab-title" style="margin:0 0 0.3rem;font-size:1.35rem;color:#ffffff;font-weight:800;">Book Free AC Cab Site Visit</h2>
+        <p style="margin:0 0 1.1rem;font-size:0.8rem;color:rgba(255,255,255,0.75);">Doorstep pickup and drop anywhere in Pune to Paranjape Forest Trails, Bhugaon.</p>
+        
+        <form id="pscl-cab-form">
+          <div class="pscl-cab-field">
+            <label for="pscl-cab-name">Full Name *</label>
+            <input type="text" id="pscl-cab-name" required placeholder="e.g. Rahul Sharma">
+          </div>
+          <div class="pscl-cab-field">
+            <label for="pscl-cab-phone">WhatsApp / Mobile Number *</label>
+            <input type="tel" id="pscl-cab-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+          </div>
+          <div class="pscl-cab-field">
+            <label for="pscl-cab-hub">Select Free Pickup Location Hub *</label>
+            <select id="pscl-cab-hub" required>
+              <option value="Chandani Chowk Flyover Junction (7 Mins)">Chandani Chowk Flyover Junction (7 Mins)</option>
+              <option value="Bavdhan Paud Road (5 Mins)">Bavdhan / Paud Road (5 Mins)</option>
+              <option value="Kothrud Nal Stop / Vanaz Metro (10 Mins)">Kothrud Nal Stop / Vanaz Metro (10 Mins)</option>
+              <option value="Baner / Balewadi High Street (15 Mins)">Baner / Balewadi High Street (15 Mins)</option>
+              <option value="Hinjewadi Phase 1 / 2 / 3 (20 Mins)">Hinjewadi Phase 1 / 2 / 3 (20 Mins)</option>
+              <option value="Pune Airport / Railway Station">Pune Airport (PNQ) / Pune Railway Station</option>
+              <option value="Direct at Site / Self-Drive">Direct at Site / Self-Drive</option>
+            </select>
+          </div>
+          <div class="pscl-cab-field">
+            <label for="pscl-cab-date">Preferred Site Visit Date *</label>
+            <select id="pscl-cab-date" required>
+              <option value="Tomorrow (Morning 10:30 AM)">Tomorrow (Morning 10:30 AM)</option>
+              <option value="Tomorrow (Afternoon 3:30 PM)">Tomorrow (Afternoon 3:30 PM)</option>
+              <option value="This Upcoming Saturday">This Upcoming Saturday</option>
+              <option value="This Upcoming Sunday">This Upcoming Sunday</option>
+              <option value="Next Week / Custom Date">Next Week / Custom Date</option>
+            </select>
+          </div>
+          <div class="pscl-cab-field">
+            <label for="pscl-cab-interest">Enclave of Primary Interest</label>
+            <select id="pscl-cab-interest">
+              <option value="Misty Greens NA Plots (From ₹1.23 Cr*)">Misty Greens NA Plots (From ₹1.23 Cr*)</option>
+              <option value="The Rivolo Luxury Villas (From ₹3.89 Cr*)">The Rivolo Luxury Villas (From ₹3.89 Cr*)</option>
+              <option value="The Cove Twin Bungalows (From ₹2.85 Cr*)">The Cove Twin Bungalows (From ₹2.85 Cr*)</option>
+              <option value="The Canopy Hillside Flats (From ₹89 L*)">The Canopy Hillside Flats (From ₹89 L*)</option>
+              <option value="Everglades 1 & 2 BHK (From ₹48.50 L*)">Everglades 1 & 2 BHK (From ₹48.50 L*)</option>
+              <option value="Athashri Senior Living (From ₹83 L*)">Athashri Senior Living (From ₹83 L*)</option>
+              <option value="Swaniketan Assisted Living (From ₹79 L*)">Swaniketan Assisted Living (From ₹79 L*)</option>
+              <option value="All Enclaves / General Tour">All Enclaves / 190-Acre General Tour</option>
+            </select>
+          </div>
+          <button type="submit" class="pscl-cab-submit">
+            <span>🚗</span><span>Confirm VIP Chauffeur Booking</span>
+          </button>
+        </form>
+      </div>
+    `;
+    document.body.appendChild(wrap);
+
+    document.getElementById('pscl-cab-close-btn').addEventListener('click', function() {
+      wrap.classList.remove('pscl-active');
+    });
+    wrap.addEventListener('click', function(e) {
+      if (e.target === wrap) wrap.classList.remove('pscl-active');
+    });
+
+    document.getElementById('pscl-cab-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('pscl-cab-name').value.trim();
+      var phone = document.getElementById('pscl-cab-phone').value.trim();
+      var hub = document.getElementById('pscl-cab-hub').value;
+      var date = document.getElementById('pscl-cab-date').value;
+      var interest = document.getElementById('pscl-cab-interest').value;
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', {
+          event_category: 'VIP Cab Booking',
+          event_label: interest + ' | ' + hub,
+          value: 500.0,
+          currency: 'INR'
+        });
+        gtag('event', 'conversion', {
+          send_to: 'AW-17430583486',
+          event_category: 'VIP Site Visit',
+          event_label: interest
+        });
+      }
+
+      var waMsg = 'Hello, I booked a VIP AC Chauffeur Site Visit on your website:%0A' +
+        '• Name: ' + encodeURIComponent(name) + '%0A' +
+        '• Phone: ' + encodeURIComponent(phone) + '%0A' +
+        '• Pickup Location: ' + encodeURIComponent(hub) + '%0A' +
+        '• Date & Slot: ' + encodeURIComponent(date) + '%0A' +
+        '• Interested Enclave: ' + encodeURIComponent(interest) + '%0A%0A' +
+        'Please confirm driver assignment and chauffeur pickup time.';
+
+      window.open('https://wa.me/917744009295?text=' + waMsg, '_blank');
+      wrap.classList.remove('pscl-active');
+      alert('Thank you ' + name + '! Your VIP Chauffeur site visit request has been received. Our concierge team is coordinating your private AC cab details.');
+    });
+  }
+
+  function openVipCabModal() {
+    injectVipCabModal();
+    var wrap = document.getElementById('pscl-vip-cab-wrap');
+    if (wrap) wrap.classList.add('pscl-active');
+  }
+
+  // Global exports
+  window.openCostVisualizerModal = openCostVisualizerModal;
+  window.openVipCabModal = openVipCabModal;
+  window.psclEnclaves = ENCLAVES_DATA;
+
+// ─── Initialize Sovereign Engagement Layer ─────────────────────────────────
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       injectSocialProofPulse();
       injectConciergeFAB();
+      injectCostVisualizerModal();
+      injectVipCabModal();
     });
   } else {
     injectSocialProofPulse();
     injectConciergeFAB();
+    injectCostVisualizerModal();
+    injectVipCabModal();
   }
 
 })();
