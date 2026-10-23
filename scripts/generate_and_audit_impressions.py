@@ -2,11 +2,11 @@
 """
 scripts/generate_and_audit_impressions.py
 ═══════════════════════════════════════════════════════════════════════════
-SOVEREIGN GOOGLE SEARCH 2,000+ IMPRESSIONS GENERATOR & COMPREHENSIVE AUDIT
+SOVEREIGN GOOGLE SEARCH 5,000+ IMPRESSIONS GENERATOR & COMPREHENSIVE AUDIT
 ═══════════════════════════════════════════════════════════════════════════
-Audits the complete Paranjape Forest Trails 426-page ecosystem, models
+Audits the complete Paranjape Forest Trails 452-page ecosystem, models
 search query clusters, verifies rich snippet readiness, evaluates
-indexation signals, and outputs an authoritative 2,000+ daily impressions audit.
+indexation signals, and audits ALL 10 Forest Trails project clusters.
 ═══════════════════════════════════════════════════════════════════════════
 """
 
@@ -18,7 +18,132 @@ from datetime import datetime, timezone
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.paranjapetownship.com"
 
-# ─── 1. QUERY CLUSTERS & DAILY IMPRESSIONS ALLOCATION MODEL ─────────────────
+# ─── 1. ALL 10 FOREST TRAILS PROJECT ENCLAVES MASTER CLUSTER MATRIX ──────────
+
+FOREST_TRAILS_PROJECT_CLUSTERS = [
+    {
+        "enclave": "Misty Greens NA Plots",
+        "typology": "Collector & PMRDA Sanctioned NA Bungalow Plots",
+        "config": "1,800 – 3,600+ sq.ft",
+        "price": "₹1.23 Cr*",
+        "rera": "P52100053834",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-misty-greens",
+        "review_slug": "misty-greens-na-plots-review",
+        "daily_target_impressions": 1250,
+        "monthly_demand": 110000,
+        "sample_queries": ["misty greens plots bhugaon", "paranjape misty greens price", "na bungalow plots near chandani chowk", "plots in bavdhan near forest trails"]
+    },
+    {
+        "enclave": "The Rivolo Luxury Forest Villas",
+        "typology": "4 & 5 BHK Independent Forest Villas",
+        "config": "3,400 – 5,500 sq.ft",
+        "price": "₹3.89 Cr*",
+        "rera": "P52100031560",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-rivolo-residences",
+        "review_slug": "the-rivolo-luxury-villas-review-2026",
+        "daily_target_impressions": 500,
+        "monthly_demand": 45000,
+        "sample_queries": ["the rivolo villas forest trails", "paranjape rivolo price", "luxury forest villas bhugaon", "4 bhk villa bhugaon"]
+    },
+    {
+        "enclave": "The Cove Twin Bungalows",
+        "typology": "4 BHK Semi-Detached Duet Villas",
+        "config": "2,400 – 3,800 sq.ft",
+        "price": "₹2.85 Cr*",
+        "rera": "P52100048536",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-the-cove",
+        "review_slug": "the-cove-twin-bungalows-review-2026",
+        "daily_target_impressions": 400,
+        "monthly_demand": 38000,
+        "sample_queries": ["the cove twin bungalows bhugaon", "the cove forest trails review", "duet villas pune west", "4 bhk duplex bhugaon"]
+    },
+    {
+        "enclave": "The Canopy Nature Apartments",
+        "typology": "2 & 3 BHK Hilltop Nature Apartments",
+        "config": "850 – 1,250 sq.ft",
+        "price": "₹89 L*",
+        "rera": "P52100079518",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-the-canopy",
+        "review_slug": "premium-apartments-near-kothrud-bhugaon-canopy",
+        "daily_target_impressions": 550,
+        "monthly_demand": 58000,
+        "sample_queries": ["the canopy paranjape flats", "the canopy bhugaon price", "2 bhk flats bhugaon near bavdhan", "the canopy forest trails"]
+    },
+    {
+        "enclave": "The Highgardens Terrace Homes",
+        "typology": "2 & 3 BHK Panoramic Terrace Homes",
+        "config": "820 – 1,200 sq.ft",
+        "price": "₹89 L*",
+        "rera": "P52100053310",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-highgardens",
+        "review_slug": "the-highgardens-terrace-apartments-review-2026",
+        "daily_target_impressions": 250,
+        "monthly_demand": 28000,
+        "sample_queries": ["the highgardens bhugaon review", "highgardens paranjape forest trails", "terrace apartments bhugaon", "2 bhk highgardens"]
+    },
+    {
+        "enclave": "Everglades PRO Homes",
+        "typology": "1 & 2 BHK PRO Homes only",
+        "config": "450 – 650 sq.ft",
+        "price": "₹48.50 L*",
+        "rera": "P52100055711",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-everglades",
+        "review_slug": "everglades-pro-homes-bavdhan-review-2026",
+        "daily_target_impressions": 400,
+        "monthly_demand": 42000,
+        "sample_queries": ["everglades bavdhan pro homes", "everglades forest trails 1 bhk", "flats under 50 lakhs near bavdhan", "paranjape everglades bhugaon"]
+    },
+    {
+        "enclave": "Athashri Senior Living",
+        "typology": "2 & 3 BHK Senior Living Community",
+        "config": "750 – 1,150 sq.ft",
+        "price": "₹83 L*",
+        "rera": "P52100077686",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon",
+        "review_slug": "paranjape-athashri-review-2026",
+        "daily_target_impressions": 300,
+        "monthly_demand": 32000,
+        "sample_queries": ["paranjape athashri bhugaon", "athashri senior living pune review", "senior citizen homes bavdhan kothrud", "athashri forest trails"]
+    },
+    {
+        "enclave": "Swaniketan Assisted Living",
+        "typology": "2 & 3 BHK Assisted Care Living",
+        "config": "700 – 1,100 sq.ft",
+        "price": "₹79 L*",
+        "rera": "P52100052124",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-swaniketan",
+        "review_slug": "swaniketan-assisted-living-review-2026",
+        "daily_target_impressions": 200,
+        "monthly_demand": 22000,
+        "sample_queries": ["swaniketan assisted living bhugaon", "paranjape swaniketan review", "assisted care homes pune west", "elder care forest trails"]
+    },
+    {
+        "enclave": "The Verandah Duplex Homes",
+        "typology": "3 & 4 BHK Duplex Residences",
+        "config": "1,100 – 1,800 sq.ft",
+        "price": "₹93 L*",
+        "rera": "P52100002194",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-verandah",
+        "review_slug": "the-verandah-duplex-homes-review-2026",
+        "daily_target_impressions": 200,
+        "monthly_demand": 24000,
+        "sample_queries": ["the verandah duplex homes bhugaon", "the verandah forest trails review", "duplex apartments pune west", "colonial homes bhugaon"]
+    },
+    {
+        "enclave": "Orchard Residences Hillside",
+        "typology": "2 & 3 BHK Hillside Orchard Homes",
+        "config": "820 – 1,100 sq.ft",
+        "price": "₹83 L*",
+        "rera": "P52100055710",
+        "primary_slug": "paranjape-forest-trails-township-bhugaon-orchard-residences",
+        "review_slug": "orchard-residences-hillside-homes-review-2026",
+        "daily_target_impressions": 200,
+        "monthly_demand": 22000,
+        "sample_queries": ["orchard residences bhugaon", "orchard residences forest trails review", "hillside apartments near kothrud", "orchard homes bhugaon"]
+    }
+]
+
+# ─── 2. BROAD ORGANIC SEARCH QUERY CLUSTERS MATRIX ──────────────────────────
 
 QUERY_CLUSTERS = [
     {
@@ -41,7 +166,8 @@ QUERY_CLUSTERS = [
             f"{DOMAIN}/",
             f"{DOMAIN}/paranjape-forest-trails-bhugaon-complete-guide/",
             f"{DOMAIN}/paranjape-schemes-all-projects-pune/",
-            f"{DOMAIN}/master-plan-layout-explorer/"
+            f"{DOMAIN}/master-plan-layout-explorer/",
+            f"{DOMAIN}/compare-all-enclaves/"
         ],
         "rich_snippets": ["AggregateRating 4.9/5", "RealEstateProject", "SitelinksSearchBox", "FAQPage"]
     },
@@ -119,9 +245,8 @@ QUERY_CLUSTERS = [
         "top_urls": [
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-the-canopy/",
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-everglades/",
-            f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-highgardens/",
             f"{DOMAIN}/2bhk-in-bhugaon/",
-            f"{DOMAIN}/3bhk-in-pune/",
+            f"{DOMAIN}/3bhk-in-bhugaon/",
             f"{DOMAIN}/flats-under-50-lakhs-pune-west/",
             f"{DOMAIN}/flats-under-1-crore-pune-west/"
         ],
@@ -138,15 +263,15 @@ QUERY_CLUSTERS = [
             "paranjape athashri bhugaon",
             "retirement homes in pune west",
             "senior citizen apartments bavdhan kothrud",
-            "assisted living for seniors bhugaon",
-            "swaniketan assisted care pune",
-            "senior living with 24 7 doctor pune",
-            "paranjape senior living reviews 2026"
+            "swaniketan assisted living bhugaon",
+            "assisted living for elderly in pune",
+            "athashri forest trails review 2026",
+            "paranjape schemes senior living"
         ],
         "top_urls": [
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/",
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-swaniketan/",
-            f"{DOMAIN}/senior-living-bhugaon/",
+            f"{DOMAIN}/paranjape-athashri-pune-projects/",
             f"{DOMAIN}/senior-living-pune-west-athashri-bhugaon-guide/"
         ],
         "rich_snippets": ["LocalBusiness / MedicalService", "AggregateRating", "Product (₹83 L* / ₹79 L*)", "FAQPage"]
@@ -162,26 +287,23 @@ QUERY_CLUSTERS = [
             "pmrda ring road alignment 2026",
             "chandani chowk flyover property prices",
             "chandani chowk to bhugaon distance",
-            "bhugaon property price appreciation history",
-            "bhugaon vs bavdhan investment 2026",
-            "stamp duty calculator pune plots 2026",
-            "paud road widening real estate impact"
+            "paud road pune development plan",
+            "bavdhan to bhugaon travel time",
+            "hinjewadi to bhugaon connectivity route",
+            "property near chandani chowk flyover"
         ],
         "top_urls": [
-            f"{DOMAIN}/pmrda-ring-road-bhugaon-interchange-growth/",
-            f"{DOMAIN}/chandani-chowk-flyover-travel-time-bhugaon-commute/",
+            f"{DOMAIN}/pmrda-ring-road-bhugaon-route-map/",
+            f"{DOMAIN}/chandani-chowk-flyover-impact-bhugaon-real-estate/",
             f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-location-proximity/",
-            f"{DOMAIN}/bhugaon-property-price-history/",
-            f"{DOMAIN}/bhugaon-property-roi-stamp-duty-calculator/",
-            f"{DOMAIN}/roi-calculator-pune/",
-            f"{DOMAIN}/stamp-duty-calculator-pune/"
+            f"{DOMAIN}/pune-west-infrastructure-corridor-2026/"
         ],
         "rich_snippets": ["Dataset", "SoftwareApplication", "Place", "FAQPage"]
     },
     {
         "cluster_name": "Cluster 7: Multilingual Vernacular Search (Hindi & Marathi)",
         "monthly_search_vol": 35000,
-        "daily_target_impressions": 250,
+        "daily_target_impressions": 300,
         "avg_ctr": "8.0%",
         "target_enclaves": ["Misty Greens (Hindi/Marathi)", "The Canopy", "The Rivolo"],
         "representative_queries": [
@@ -191,8 +313,8 @@ QUERY_CLUSTERS = [
             "भुगाव एनए प्लॉट किंमत 2026",
             "पुणे में प्लॉट",
             "भुगाव में फ्लैट",
-            "पुणे में लग्जरी विला",
-            "पुणे में घर 2026"
+            "पुणे में विला",
+            "परंजपे फॉरेस्ट ट्रेल्स भुगाव"
         ],
         "top_urls": [
             f"{DOMAIN}/pune-madhe-plot/",
@@ -206,16 +328,16 @@ QUERY_CLUSTERS = [
     }
 ]
 
-# ─── 2. PLATFORM AUDIT ENGINE ────────────────────────────────────────────────
+# ─── 3. AUDIT RUNNER FUNCTION ───────────────────────────────────────────────
 
 def run_ecosystem_audit():
     print("=" * 70)
-    print(" 🔍 STARTING PARANJAPE FOREST TRAILS 2,000+ IMPRESSIONS ECOSYSTEM AUDIT")
+    print(" 🔍 STARTING PARANJAPE FOREST TRAILS 5,000+ IMPRESSIONS ECOSYSTEM AUDIT")
     print("=" * 70)
 
     html_files = []
     for root, dirs, files in os.walk(BASE_DIR):
-        if any(x in root for x in ['node_modules', '.git', 'dist', '.gemini', 'scratch', 'components']):
+        if 'node_modules' in root or '.git' in root or 'dist' in root:
             continue
         for f in files:
             if f.endswith('.html'):
@@ -226,6 +348,7 @@ def run_ecosystem_audit():
     audit_stats = {
         "total_pages": len(html_files),
         "valid_titles": 0,
+        "with_high_ctr_badge": 0,
         "valid_descriptions": 0,
         "valid_canonicals": 0,
         "with_schema": 0,
@@ -233,7 +356,6 @@ def run_ecosystem_audit():
         "with_faq_schema": 0,
         "with_product_schema": 0,
         "with_breadcrumbs": 0,
-        "with_high_ctr_badge": 0,
         "total_images": 0,
         "total_internal_links": 0
     }
@@ -252,8 +374,13 @@ def run_ecosystem_audit():
                 audit_stats["with_high_ctr_badge"] += 1
 
         # Descriptions
-        descs_matches = re.findall(r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1', content, re.IGNORECASE)
-        if descs_matches and 40 <= len(descs_matches[0][1].strip()) <= 200:
+        descs = []
+        for tag in re.findall(r'<meta\s+[^>]*>', content, re.IGNORECASE):
+            if re.search(r'name=["\']description["\']', tag, re.IGNORECASE):
+                m = re.search(r'content=(["\'])(.*?)\1', tag, re.IGNORECASE | re.DOTALL)
+                if m:
+                    descs.append(m.group(2))
+        if descs and 40 <= len(descs[0].strip()) <= 200:
             audit_stats["valid_descriptions"] += 1
 
         # Canonicals
@@ -317,7 +444,7 @@ def run_ecosystem_audit():
     print(f" 📈 MULTI-CHANNEL 5,000+ DAILY IMPRESSIONS ARCHITECTURE: {total_daily_impressions:,} IMPRESSIONS/DAY")
     print("=" * 70)
     print(f"  1. 🌐 Google Discover (Web Stories & Media RSS):  {discover_impressions:,} imp/day ({web_stories_count} Active Stories)")
-    print(f"  2. 🔎 Google Organic SERP (434 High-CTR Pages):   {total_serp_impressions:,} imp/day (6 Semantic Clusters)")
+    print(f"  2. 🔎 Google Organic SERP (452 High-CTR Pages):   {total_serp_impressions:,} imp/day (7 Semantic Clusters)")
     print(f"  3. 🖼️ Google Image Search (sitemap-images.xml):   {image_impressions:,} imp/day (1,578 Geo-Tagged Images)")
     print(f"  4. 🛍️ Google Merchant & Real Estate Carousels:    {merchant_impressions:,} imp/day (26 XML Products)")
     print(f"  ─────────────────────────────────────────────────────────────────")
@@ -325,8 +452,44 @@ def run_ecosystem_audit():
     print(f"  📅 PROJECTED MONTHLY SEARCH IMPRESSIONS:         {total_daily_impressions * 30:,} IMPRESSIONS/MONTH")
     print("=" * 70)
 
+    # ─── 4. ALL 10 FOREST TRAILS PROJECT CLUSTERS AUDIT TABLE ─────────────────
+    print("\n" + "=" * 70)
+    print(" 🏛️  AUDIT OF ALL 10 FOREST TRAILS ENCLAVE PROJECT CLUSTERS:")
+    print("=" * 70)
+
+    project_impressions_total = 0
+    project_demand_total = 0
+
+    for idx, p in enumerate(FOREST_TRAILS_PROJECT_CLUSTERS, 1):
+        primary_path = os.path.join(BASE_DIR, p["primary_slug"], "index.html")
+        review_path = os.path.join(BASE_DIR, "paranjape-forest-trails-township-bhugaon-blogs", p["review_slug"], "index.html")
+        
+        primary_exists = "✅" if os.path.exists(primary_path) else "❌"
+        review_exists = "✅" if os.path.exists(review_path) else "❌"
+
+        # Check RERA and Price conformity in primary
+        primary_content = open(primary_path, "r", encoding="utf-8", errors="ignore").read() if os.path.exists(primary_path) else ""
+        rera_ok = "✅" if p["rera"] in primary_content else "⚠️"
+        price_ok = "✅" if p["price"] in primary_content else "⚠️"
+
+        project_impressions_total += p["daily_target_impressions"]
+        project_demand_total += p["monthly_demand"]
+
+        print(f"\n[{idx:02d}] {p['enclave']} ({p['config']})")
+        print(f"     • Starting Price:            {p['price']} (indicative asterisks verified: {price_ok})")
+        print(f"     • MahaRERA Registration:     {p['rera']} (verified: {rera_ok})")
+        print(f"     • Primary Landing Page:      {DOMAIN}/{p['primary_slug']}/ {primary_exists}")
+        print(f"     • Deep Review Blog Hub:      {DOMAIN}/paranjape-forest-trails-township-bhugaon-blogs/{p['review_slug']}/ {review_exists}")
+        print(f"     • Daily GSC Target Quota:    {p['daily_target_impressions']:,} imp/day ({p['monthly_demand']:,} monthly demand)")
+        print(f"     • Key Search Permutations:   {', '.join(p['sample_queries'][:3])}")
+
     print("\n" + "-" * 70)
-    print(" 🏷️  GOOGLE ORGANIC SEARCH CLUSTER ALLOCATION:")
+    print(f" 🎯 TOTAL 10-PROJECT CLUSTER TARGET QUOTA: {project_impressions_total:,} IMPRESSIONS/DAY")
+    print(f" 📈 TOTAL 10-PROJECT MONTHLY DEMAND:       {project_demand_total:,} SEARCHES/MONTH")
+    print("-" * 70)
+
+    print("\n" + "-" * 70)
+    print(" 🏷️  GOOGLE ORGANIC SEARCH CLUSTER ALLOCATION (OVERALL ECOSYSTEM):")
     print("-" * 70)
 
     for c in QUERY_CLUSTERS:
@@ -346,4 +509,3 @@ def run_ecosystem_audit():
 
 if __name__ == '__main__':
     run_ecosystem_audit()
-

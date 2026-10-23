@@ -110,8 +110,12 @@ def analyze():
                 title_issues.append((url_path, f"Title too long ({len(t)} chars): {t[:60]}..."))
 
         # 2. Meta description
-        descs_matches = re.findall(r'<meta\s+name=["\']description["\']\s+content=(["\'])(.*?)\1', content, re.IGNORECASE | re.DOTALL)
-        descs = [m[1] for m in descs_matches]
+        descs = []
+        for tag in re.findall(r'<meta\s+[^>]*>', content, re.IGNORECASE):
+            if re.search(r'name=["\']description["\']', tag, re.IGNORECASE):
+                m = re.search(r'content=(["\'])(.*?)\1', tag, re.IGNORECASE | re.DOTALL)
+                if m:
+                    descs.append(m.group(2))
         if not descs:
             desc_issues.append((url_path, "Missing meta description"))
         elif len(descs) > 1:
