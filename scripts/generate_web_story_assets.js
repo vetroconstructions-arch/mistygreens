@@ -153,6 +153,102 @@ const stories = [
       'images/the-cliff-club.webp',
       'images/canopy-realistic.webp'
     ]
+  },
+  {
+    slug: 'everglades-smart-homes-bavdhan',
+    poster: 'images/everglades-card.webp',
+    slides: [
+      'images/everglades-exterior.webp',
+      'images/everglades-tower.webp',
+      'images/everglades-pool.webp',
+      'images/everglades-aerial.webp',
+      'images/everglades-master-layout.webp',
+      'images/everglades-card.webp'
+    ]
+  },
+  {
+    slug: 'swaniketan-assisted-living-bhugaon',
+    poster: 'images/swaniketan-card.webp',
+    slides: [
+      'images/swaniketan-card.webp',
+      'images/swaniketan-master.webp',
+      'images/athashri-community.webp',
+      'images/athashri-senior-living.webp',
+      'images/the-cliff-club.webp',
+      'images/swaniketan-card.webp'
+    ]
+  },
+  {
+    slug: 'verandah-duplex-residences-bhugaon',
+    poster: 'images/verandah-card.webp',
+    slides: [
+      'images/verandah-card.webp',
+      'images/verandah-pool-lifestyle.webp',
+      'images/apartments-verandah-realistic.webp',
+      'images/verandah-master.webp',
+      'images/the-cliff-club.webp',
+      'images/verandah-card.webp'
+    ]
+  },
+  {
+    slug: 'orchard-residences-hillside-homes',
+    poster: 'images/orchard-card.webp',
+    slides: [
+      'images/orchard-card.webp',
+      'images/orchard-master.webp',
+      'images/canopy-card.webp',
+      'images/landscape.webp',
+      'images/the-cliff-club.webp',
+      'images/orchard-card.webp'
+    ]
+  },
+  {
+    slug: 'cliff-club-equestrian-academy-lifestyle',
+    poster: 'images/cliff-club.webp',
+    slides: [
+      'images/cliff-club.webp',
+      'images/equestrian-academy.webp',
+      'images/cliff-club-pool-night.webp',
+      'images/the-cliff-club.webp',
+      'images/drone-aerial.webp',
+      'images/cliff-club.webp'
+    ]
+  },
+  {
+    slug: 'na-plots-buying-guide-maharashtra-2026',
+    poster: 'images/misty-greens-gate-day.webp',
+    slides: [
+      'images/misty-greens-gate-day.webp',
+      'images/plots.webp',
+      'images/misty-greens-layout.webp',
+      'images/drone-aerial.webp',
+      'images/the-cliff-club.webp',
+      'images/misty-greens.webp'
+    ]
+  },
+  {
+    slug: 'bhugaon-vs-bavdhan-appreciation-2026',
+    poster: 'images/hero-township.webp',
+    slides: [
+      'images/hero-township.webp',
+      'images/drone-aerial.webp',
+      'images/township-aerial.webp',
+      'images/master-plan.webp',
+      'images/landscape.webp',
+      'images/hero-township.webp'
+    ]
+  },
+  {
+    slug: 'nri-property-investment-pune-west',
+    poster: 'images/rivolo-luxury.webp',
+    slides: [
+      'images/rivolo-luxury.webp',
+      'images/drone-aerial.webp',
+      'images/villas-courtyard.webp',
+      'images/the-cliff-club.webp',
+      'images/misty-greens.webp',
+      'images/township-aerial.webp'
+    ]
   }
 ];
 

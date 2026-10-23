@@ -609,19 +609,67 @@ def resolve_typology(url, title):
             "price": "28500000",
             "offerCount": "18"
         }
-    elif any(k in u for k in ['athashri', 'senior-living', 'senior', 'swaniketan']):
+    elif any(k in u for k in ['swaniketan', 'assisted-living']):
         return {
-            "name": "Paranjape Athashri Senior Living Residences",
+            "name": "Swaniketan Assisted Living 2 & 3 BHK Residences",
+            "sku": "PFT-SWANIKETAN-CARE",
+            "mpn": "P52100052124",
+            "image": f"{DOMAIN}/images/athashri-realistic.webp",
+            "description": "Dedicated 2 & 3 BHK Assisted Care Living Suites (700 - 950 sq.ft) at Swaniketan inside Forest Trails Bhugaon. Full geriatric nursing & barrier-free design. MahaRERA: P52100052124.",
+            "lowPrice": "7900000",
+            "highPrice": "10500000",
+            "price": "7900000",
+            "offerCount": "22"
+        }
+    elif any(k in u for k in ['athashri', 'senior-living', 'senior']):
+        return {
+            "name": "Paranjape Athashri Senior Living 2 & 3 BHK Residences",
             "sku": "PFT-ATHASHRI-SENIOR",
             "mpn": "P52100077686",
             "image": f"{DOMAIN}/images/athashri-realistic.webp",
-            "description": "Dedicated 1 & 2 BHK Senior Living Apartments (750 - 900 sq.ft) at Athashri Bhugaon, Paranjape Forest Trails. 24x7 medical support, dining, and geriatric care. MahaRERA: P52100077686.",
+            "description": "Dedicated 2 & 3 BHK Senior Living Apartments (850 - 1,150 sq.ft) at Athashri Bhugaon, Paranjape Forest Trails. 24x7 medical support, dining, and geriatric care. MahaRERA: P52100077686.",
             "lowPrice": "8300000",
-            "highPrice": "11000000",
+            "highPrice": "11500000",
             "price": "8300000",
             "offerCount": "36"
         }
-    elif any(k in u for k in ['canopy', 'highgardens', 'orchard', 'everglades', 'verandah', 'apartment', 'apartments', 'flat', 'flats', '1-bhk', '2-bhk', '3-bhk', '4-bhk', '1bhk', '2bhk', '3bhk', '4bhk']):
+    elif any(k in u for k in ['everglades']):
+        return {
+            "name": "Everglades 1 & 2 BHK PRO Homes Bavdhan",
+            "sku": "PFT-EVERGLADES-PRO",
+            "mpn": "P52100055711",
+            "image": f"{DOMAIN}/images/hero-township.webp",
+            "description": "Smart 1 & 2 BHK PRO Homes (450 - 750 sq.ft) at Everglades, Bavdhan Extension by Paranjape Schemes. From ₹48.5 L* with 190-acre township club access. MahaRERA: P52100055711.",
+            "lowPrice": "4850000",
+            "highPrice": "7500000",
+            "price": "4850000",
+            "offerCount": "58"
+        }
+    elif any(k in u for k in ['verandah', 'duplex']):
+        return {
+            "name": "The Verandah 3 & 4 BHK Duplex Residences",
+            "sku": "PFT-VERANDAH-DUPLEX",
+            "mpn": "P52100002194",
+            "image": f"{DOMAIN}/images/hero-township.webp",
+            "description": "Magnificent 3 & 4 BHK Duplex Residences (1,100 - 1,800 sq.ft) at The Verandah, Paranjape Forest Trails Bhugaon. Double-height living, ready possession. MahaRERA: P52100002194.",
+            "lowPrice": "9300000",
+            "highPrice": "16000000",
+            "price": "9300000",
+            "offerCount": "19"
+        }
+    elif any(k in u for k in ['orchard']):
+        return {
+            "name": "Orchard Residences 2 & 3 BHK Hillside Homes",
+            "sku": "PFT-ORCHARD-HOMES",
+            "mpn": "P52100055710",
+            "image": f"{DOMAIN}/images/hero-township.webp",
+            "description": "Hillside 2 & 3 BHK Apartments (820 - 1,100 sq.ft) at Orchard Residences, Forest Trails Bhugaon. Private fruit orchards, nature views. MahaRERA: P52100055710.",
+            "lowPrice": "8300000",
+            "highPrice": "12500000",
+            "price": "8300000",
+            "offerCount": "32"
+        }
+    elif any(k in u for k in ['canopy', 'highgardens', 'apartment', 'apartments', 'flat', 'flats', '1-bhk', '2-bhk', '3-bhk', '4-bhk', '1bhk', '2bhk', '3bhk', '4bhk']):
         return {
             "name": "The Canopy & Highgardens Premium Apartments",
             "sku": "PFT-CANOPY-HIGHGARDENS",

@@ -4,7 +4,7 @@
     <title>Paranjape Forest Trails Township — Official Property &amp; Inventory Feed</title>
     <link>https://www.paranjapetownship.com</link>
     <description>Official Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>
-    <lastBuildDate>Wed, 21 Oct 2026 07:19:38 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 13:39:36 +0000</lastBuildDate>
     <item>
       <g:id>PFT-MISTY-GREENS-1800</g:id>
       <g:title>Paranjape Misty Greens NA Bungalow Plot 1800 sq ft Bhugaon Pune — MahaRERA P52100053834</g:title>
@@ -275,9 +275,9 @@
       <g:custom_label_4>The Highgardens</g:custom_label_4>
     </item>
     <item>
-      <g:id>PFT-ATHASHRI-1BHK</g:id>
-      <g:title>Paranjape Athashri Senior Living 1 BHK Residence 750 sq ft Bhugaon Pune — MahaRERA P52100077686</g:title>
-      <g:description>Purpose-built 1 BHK Senior Living Home (750 sq.ft) at Athashri Bhugaon. Senior-friendly design: anti-skid floors, panic buttons, 24/7 nursing and ambulance on-site, dining and recreation.</g:description>
+      <g:id>PFT-ATHASHRI-2BHK</g:id>
+      <g:title>Paranjape Athashri Senior Living 2 BHK Residence 850 sq ft Bhugaon Pune — MahaRERA P52100077686</g:title>
+      <g:description>Dedicated 2 BHK Senior Living Home (850 sq.ft) at Athashri Bhugaon. Senior-friendly design: anti-skid floors, panic buttons, 24/7 nursing and ambulance on-site, dining and recreation.</g:description>
       <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/</g:link>
       <g:image_link>https://www.paranjapetownship.com/images/athashri-realistic.webp</g:image_link>
       <g:additional_image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:additional_image_link>
@@ -301,15 +301,15 @@
       <g:custom_label_4>Athashri</g:custom_label_4>
     </item>
     <item>
-      <g:id>PFT-ATHASHRI-2BHK</g:id>
-      <g:title>Paranjape Athashri Senior Living 2 BHK Residence 900 sq ft Bhugaon Pune — MahaRERA P52100077686</g:title>
-      <g:description>Spacious 2 BHK Senior Living Apartment (900 sq.ft) at Athashri Bhugaon inside Forest Trails. Full geriatric wellness support, housekeeping, daily wellness programs, temple and community hall.</g:description>
+      <g:id>PFT-ATHASHRI-3BHK</g:id>
+      <g:title>Paranjape Athashri Senior Living 3 BHK Residence 1150 sq ft Bhugaon Pune — MahaRERA P52100077686</g:title>
+      <g:description>Spacious 3 BHK Senior Living Apartment (1,150 sq.ft) at Athashri Bhugaon inside Forest Trails. Full geriatric wellness support, housekeeping, daily wellness programs, temple and community hall.</g:description>
       <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-athashri-senior-living-bhugaon/</g:link>
       <g:image_link>https://www.paranjapetownship.com/images/athashri-realistic.webp</g:image_link>
       <g:additional_image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>10500000.00 INR</g:price>
+      <g:price>11500000.00 INR</g:price>
       <g:brand>Paranjape Schemes</g:brand>
       <g:google_product_category>Real Estate &gt; Properties &gt; Residential Properties</g:google_product_category>
       <g:product_type>Real Estate &gt; Residential &gt; Senior Living</g:product_type>
@@ -405,9 +405,9 @@
       <g:custom_label_4>Orchard Residences</g:custom_label_4>
     </item>
     <item>
-      <g:id>PFT-SWANIKETAN-SUITE</g:id>
-      <g:title>Swaniketan Assisted Living Suite 700 sq ft Bhugaon Pune — MahaRERA P52100052124</g:title>
-      <g:description>Dedicated Assisted Living Care Suite (700 sq.ft) at Swaniketan inside Forest Trails Bhugaon. 24x7 attendant care, physio support, nutritious dining, accessible architecture.</g:description>
+      <g:id>PFT-SWANIKETAN-2BHK</g:id>
+      <g:title>Swaniketan Assisted Living 2 BHK Care Suite 700 sq ft Bhugaon Pune — MahaRERA P52100052124</g:title>
+      <g:description>Dedicated Assisted Living 2 BHK Care Suite (700 sq.ft) at Swaniketan inside Forest Trails Bhugaon. 24x7 attendant care, physio support, nutritious dining, accessible architecture.</g:description>
       <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-swaniketan/</g:link>
       <g:image_link>https://www.paranjapetownship.com/images/athashri-realistic.webp</g:image_link>
       <g:additional_image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:additional_image_link>
@@ -431,15 +431,67 @@
       <g:custom_label_4>Swaniketan</g:custom_label_4>
     </item>
     <item>
-      <g:id>PFT-EVERGLADES-2BHK</g:id>
-      <g:title>Everglades Bavdhan 2 BHK Forest Flat 750 sq ft Bavdhan Pune — MahaRERA P52100055711</g:title>
-      <g:description>Modern 2 BHK Apartment (750 sq.ft) at Everglades Bavdhan. Direct highway connectivity to Kothrud and Hinjewadi IT Park while sharing the scenic greenery of Forest Trails.</g:description>
+      <g:id>PFT-SWANIKETAN-3BHK</g:id>
+      <g:title>Swaniketan Assisted Living 3 BHK Care Suite 950 sq ft Bhugaon Pune — MahaRERA P52100052124</g:title>
+      <g:description>Spacious Assisted Living 3 BHK Family Suite (950 sq.ft) at Swaniketan Bhugaon with dedicated nurse station access, wheelchair-ready bathrooms, and nutritious dietary support.</g:description>
+      <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-swaniketan/</g:link>
+      <g:image_link>https://www.paranjapetownship.com/images/athashri-realistic.webp</g:image_link>
+      <g:additional_image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>10500000.00 INR</g:price>
+      <g:brand>Paranjape Schemes</g:brand>
+      <g:google_product_category>Real Estate &gt; Properties &gt; Residential Properties</g:google_product_category>
+      <g:product_type>Real Estate &gt; Residential &gt; Assisted Living</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:mpn>P52100052124</g:mpn>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Site Visit &amp; Conveyance Advisory</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
+      <g:custom_label_0>MahaRERA Registered</g:custom_label_0>
+      <g:custom_label_1>Bhugaon Pune West</g:custom_label_1>
+      <g:custom_label_2>Assisted Living</g:custom_label_2>
+      <g:custom_label_3>Active Care</g:custom_label_3>
+      <g:custom_label_4>Swaniketan</g:custom_label_4>
+    </item>
+    <item>
+      <g:id>PFT-EVERGLADES-1BHK</g:id>
+      <g:title>Everglades Bavdhan Smart 1 BHK PRO Flat 450 sq ft Bavdhan Pune — MahaRERA P52100055711</g:title>
+      <g:description>Smart 1 BHK PRO Apartment (450 sq.ft) at Everglades Bavdhan Extension by Paranjape Schemes. From ₹48.5 L* with swift highway connectivity to Kothrud and Hinjewadi IT Park.</g:description>
       <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/</g:link>
       <g:image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:image_link>
       <g:additional_image_link>https://www.paranjapetownship.com/images/lifestyle.webp</g:additional_image_link>
       <g:condition>new</g:condition>
       <g:availability>in_stock</g:availability>
-      <g:price>11500000.00 INR</g:price>
+      <g:price>4850000.00 INR</g:price>
+      <g:brand>Paranjape Schemes</g:brand>
+      <g:google_product_category>Real Estate &gt; Properties &gt; Residential Properties</g:google_product_category>
+      <g:product_type>Real Estate &gt; Residential &gt; Apartments &amp; Flats</g:product_type>
+      <g:identifier_exists>no</g:identifier_exists>
+      <g:mpn>P52100055711</g:mpn>
+      <g:shipping>
+        <g:country>IN</g:country>
+        <g:service>Site Visit &amp; Conveyance Advisory</g:service>
+        <g:price>0.00 INR</g:price>
+      </g:shipping>
+      <g:custom_label_0>MahaRERA Registered</g:custom_label_0>
+      <g:custom_label_1>Bavdhan Pune West</g:custom_label_1>
+      <g:custom_label_2>1 BHK Apartments</g:custom_label_2>
+      <g:custom_label_3>Active Project</g:custom_label_3>
+      <g:custom_label_4>Everglades</g:custom_label_4>
+    </item>
+    <item>
+      <g:id>PFT-EVERGLADES-2BHK</g:id>
+      <g:title>Everglades Bavdhan Smart 2 BHK PRO Flat 750 sq ft Bavdhan Pune — MahaRERA P52100055711</g:title>
+      <g:description>Optimized 2 BHK PRO Apartment (750 sq.ft) at Everglades Bavdhan Extension. Scenic hill views, club access, and prime West Pune appreciation potential. MahaRERA P52100055711.</g:description>
+      <g:link>https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-everglades/</g:link>
+      <g:image_link>https://www.paranjapetownship.com/images/hero-township.webp</g:image_link>
+      <g:additional_image_link>https://www.paranjapetownship.com/images/lifestyle.webp</g:additional_image_link>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:price>7500000.00 INR</g:price>
       <g:brand>Paranjape Schemes</g:brand>
       <g:google_product_category>Real Estate &gt; Properties &gt; Residential Properties</g:google_product_category>
       <g:product_type>Real Estate &gt; Residential &gt; Apartments &amp; Flats</g:product_type>
