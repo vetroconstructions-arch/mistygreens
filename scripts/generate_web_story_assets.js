@@ -292,15 +292,15 @@ async function generateAssets() {
       .jpeg({ quality: 85, progressive: true })
       .toFile(squareDestJpg);
 
-    // Landscape (960x720 - 4:3)
+    // Landscape (1280x720 - 16:9 Google Discover Large Cards >=1200px)
     const landscapeDestWebp = path.join(OUT_DIR, `${story.slug}-landscape.webp`);
     const landscapeDestJpg = path.join(OUT_DIR, `${story.slug}-landscape.jpg`);
     await sharp(posterSrc)
-      .resize(960, 720, { fit: 'cover', position: 'center' })
+      .resize(1280, 720, { fit: 'cover', position: 'center' })
       .webp({ quality: 85 })
       .toFile(landscapeDestWebp);
     await sharp(posterSrc)
-      .resize(960, 720, { fit: 'cover', position: 'center' })
+      .resize(1280, 720, { fit: 'cover', position: 'center' })
       .jpeg({ quality: 85, progressive: true })
       .toFile(landscapeDestJpg);
 
