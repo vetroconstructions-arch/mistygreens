@@ -23,6 +23,7 @@ function findKeyFiles() {
 }
 
 const KEYS = findKeyFiles();
+const QUOTA_PER_KEY = 200;
 const SCOPES = ['https://www.googleapis.com/auth/indexing'];
 const AUTH_URL = 'https://oauth2.googleapis.com/token';
 const API_URL = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
@@ -108,7 +109,7 @@ async function run() {
         fs.readdirSync(dir).forEach(file => {
             const fullPath = path.join(dir, file);
             if (fs.statSync(fullPath).isDirectory()) {
-                if (!['node_modules', '.git', 'scripts', 'images', 'assets', 'styles', 'components', 'scratch', '.gemini'].includes(file)) getPriorityUrls(fullPath, urlList);
+                if (!['node_modules', '.git', 'dist', 'scripts', 'images', 'assets', 'styles', 'components', 'scratch', '.gemini'].includes(file)) getPriorityUrls(fullPath, urlList);
             } else if (file.endsWith('.html') && !file.includes('thank-you') && !file.includes('404')) {
                 const relative = path.relative(ROOT, fullPath).replace(/\\/g, '/');
                 let relPath = relative === 'index.html' ? '' : relative.replace(/\/index\.html$/, '/').replace(/index\.html$/, '');

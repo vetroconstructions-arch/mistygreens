@@ -61,29 +61,47 @@ async function submitIndexNow() {
 
   const endpoints = ['api.indexnow.org', 'www.bing.com', 'yandex.com'];
 
-  for (const endpoint of endpoints) {
-    const options = {
-      hostname: endpoint,
-      port: 443,
-      path: '/IndexNow',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': Buffer.byteLength(payload)
-      }
-    };
+  const promises = endpoints.map(endpoint => {
+    return new Promise((resolve) => {
+      const options = {
+        hostname: endpoint,
+        port: 443,
+        path: '/IndexNow',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'Content-Length': Buffer.byteLength(payload)
+        },
+        timeout: 8000
+      };
 
-    const req = https.request(options, (res) => {
-      console.log(`  🚀 IndexNow Response [${endpoint}]: HTTP ${res.statusCode}`);
+      const req = https.request(options, (res) => {
+        let body = '';
+        res.on('data', chunk => body += chunk);
+        res.on('end', () => {
+          console.log(`  🚀 IndexNow Response [${endpoint}]: HTTP ${res.statusCode}`);
+          resolve({ endpoint, status: res.statusCode });
+        });
+      });
+
+      req.on('timeout', () => {
+        console.warn(`  ⚠️ IndexNow Timeout [${endpoint}]`);
+        req.destroy();
+        resolve({ endpoint, status: 'TIMEOUT' });
+      });
+
+      req.on('error', (e) => {
+        console.warn(`  ⚠️ IndexNow Notice [${endpoint}]: ${e.message}`);
+        resolve({ endpoint, error: e.message });
+      });
+
+      req.write(payload);
+      req.end();
     });
+  });
 
-    req.on('error', (e) => {
-      console.warn(`  ⚠️ IndexNow Notice [${endpoint}]: ${e.message}`);
-    });
-
-    req.write(payload);
-    req.end();
-  }
+  await Promise.allSettled(promises);
+  console.log('✅ IndexNow broadcast pass completed.');
 }
 
-submitIndexNow();
+submitIndexNow().catch(console.error);
