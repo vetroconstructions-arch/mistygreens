@@ -13,18 +13,10 @@ const SITE_DOMAIN = 'www.paranjapetownship.com';
 const INDEXNOW_API = 'https://api.indexnow.org/indexnow';
 const ROOT = path.join(__dirname, '..');
 
-// 1. Key Management: Generate or Load IndexNow Key
+// 1. Key Management: Hardened Verified Production Key
 function ensureIndexNowKey() {
-    const keyFile = path.join(ROOT, 'indexnow_key.txt');
-    let key;
-    if (fs.existsSync(keyFile)) {
-        key = fs.readFileSync(keyFile, 'utf8').trim();
-    } else {
-        key = crypto.randomUUID().replace(/-/g, '');
-        fs.writeFileSync(keyFile, key);
-        console.log(` ✅ Generated NEW IndexNow Key: ${key}`);
-    }
-    // Always ensure the verification file [key].txt exists at root
+    const key = 'c4d1685458394e80820063db1a48c6fb';
+    fs.writeFileSync(path.join(ROOT, 'indexnow_key.txt'), key);
     fs.writeFileSync(path.join(ROOT, `${key}.txt`), key);
     console.log(` 🚀 Verification file ${key}.txt synchronized at root.`);
     return key;
