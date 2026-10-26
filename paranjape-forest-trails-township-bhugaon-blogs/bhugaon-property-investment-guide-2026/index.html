@@ -417,6 +417,15 @@ img{max-width:100%;height:auto}
           "url": "https://www.paranjapetownship.com",
           "telephone": "+91-7744009295"
         }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-title",
+          ".hero-subtitle",
+          ".section-heading"
+        ]
       }
     },
     {
@@ -503,6 +512,42 @@ img{max-width:100%;height:auto}
   ]
 }
 </script>
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
+<meta property="og:locale" content="en_IN">
 </head>
 <body>
 
@@ -638,5 +683,12 @@ img{max-width:100%;height:auto}
   </article>
 
 <script defer src="/exit-intent-concierge.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {});
+  });
+}
+</script>
 </body>
 </html>

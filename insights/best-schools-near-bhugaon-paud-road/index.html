@@ -88,16 +88,40 @@ img{max-width:100%;height:auto}
     <link rel="stylesheet" href="/trust-mesh.css">
     <link rel="preload" as="image" href="/images/drone-aerial.webp" fetchpriority="high">
     <script type="speculationrules">
+{
+  "prerender": [
     {
-      "prerender": [
-        {
-          "source": "list",
-          "urls": ["/na-bungalow-plots-bhugaon/", "/premium-apartments-forest-trails/", "/luxury-forest-villas-bhugaon/", "/misty-greens/"],
-          "eagerness": "moderate"
-        }
-      ]
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
     }
-    </script>
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
     <!-- /Sovereign Intelligence Layer -->
 
 <link rel="canonical" href="https://www.paranjapetownship.com/insights/best-schools-near-bhugaon-paud-road/">
@@ -592,6 +616,15 @@ img{max-width:100%;height:auto}
           "url": "https://www.paranjapetownship.com",
           "telephone": "+91-7744009295"
         }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-title",
+          ".hero-subtitle",
+          ".section-heading"
+        ]
       }
     },
     {
@@ -901,7 +934,8 @@ img{max-width:100%;height:auto}
                     "ratingValue": "4.9",
                     "reviewCount": "1840"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -967,7 +1001,8 @@ img{max-width:100%;height:auto}
                     "ratingValue": "4.9",
                     "reviewCount": "120"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1033,7 +1068,8 @@ img{max-width:100%;height:auto}
                     "ratingValue": "4.9",
                     "reviewCount": "450"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1099,7 +1135,8 @@ img{max-width:100%;height:auto}
                     "ratingValue": "4.9",
                     "reviewCount": "380"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               }
             ]
           },
@@ -1113,7 +1150,8 @@ img{max-width:100%;height:auto}
                   "@type": "Place",
                   "name": "Bhugaon & Paud Road Corridor",
                   "description": "Gated NA plots, luxury villas, 1-5 BHK flats, PMRDA Ring Road interchange connectivity."
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1121,7 +1159,8 @@ img{max-width:100%;height:auto}
                   "@type": "Place",
                   "name": "Bavdhan & Chandani Chowk Axis",
                   "description": "10-min proximity luxury township projects, high rental yield, 2026-2030 appreciation forecast."
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1129,7 +1168,8 @@ img{max-width:100%;height:auto}
                   "@type": "Place",
                   "name": "Kothrud & Erandwane Axis",
                   "description": "Premium real estate developments near Nal Stop, Karve Road, and Shivaji Nagar."
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1137,7 +1177,8 @@ img{max-width:100%;height:auto}
                   "@type": "Place",
                   "name": "Hinjewadi & Baner IT Axis",
                   "description": "Blue Ridge, The Altius, Trident Towers, and The Ridges 41 near Hinjewadi IT Park Phase 1, 2 & 3."
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               }
             ]
           }
@@ -1363,7 +1404,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1423,7 +1465,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -1483,7 +1526,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               }
             ]
           }
@@ -1638,6 +1682,7 @@ img{max-width:100%;height:auto}
   ]
 }
   </script>
+<meta property="og:locale" content="en_IN">
 </head>
 <body class="insight-page">
     <header id="main-site-header" style="position: sticky; top: 0; width: 100%; z-index: 10000; background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%); border-bottom: 1.5px solid #D4AF37; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);">

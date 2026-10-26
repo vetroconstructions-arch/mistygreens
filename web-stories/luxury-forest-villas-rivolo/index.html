@@ -419,13 +419,31 @@
           "url": "https://www.paranjapetownship.com",
           "telephone": "+91-7744009295"
         }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-title",
+          ".hero-subtitle",
+          ".section-heading"
+        ]
       }
     },
     {
       "@type": "NewsArticle",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/"
+        "@id": "https://www.paranjapetownship.com/web-stories/luxury-forest-villas-rivolo/",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "h1",
+            ".hero-title",
+            ".hero-subtitle",
+            ".section-heading"
+          ]
+        }
       },
       "headline": "The Rivolo Luxury Forest Villas Bhugaon | 4 & 5 BHK Hilltop Homes",
       "image": [
@@ -465,7 +483,42 @@
     }
   ]
 }
-  </script>
+</script>
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
 </head>
 <body>
   <amp-story
@@ -658,5 +711,12 @@
     </amp-story-page>
 
   </amp-story>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {});
+  });
+}
+</script>
 </body>
 </html>

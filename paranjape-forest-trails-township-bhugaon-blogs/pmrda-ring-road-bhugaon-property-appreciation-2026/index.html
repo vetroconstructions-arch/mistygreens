@@ -500,6 +500,15 @@ img{max-width:100%;height:auto}
           "url": "https://www.paranjapetownship.com",
           "telephone": "+91-7744009295"
         }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-title",
+          ".hero-subtitle",
+          ".section-heading"
+        ]
       }
     },
     {
@@ -543,7 +552,16 @@ img{max-width:100%;height:auto}
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/pmrda-ring-road-bhugaon-property-appreciation-2026/"
+        "@id": "https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/pmrda-ring-road-bhugaon-property-appreciation-2026/",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [
+            "h1",
+            ".hero-title",
+            ".hero-subtitle",
+            ".section-heading"
+          ]
+        }
       },
       "keywords": "PMRDA ring road Bhugaon, PMRDA ring road property appreciation, Bhugaon interchange 2026",
       "image": "https://www.paranjapetownship.com/images/hero-township.webp",
@@ -594,6 +612,42 @@ img{max-width:100%;height:auto}
   ]
 }
   </script>
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
+<meta property="og:locale" content="en_IN">
 </head>
 <body style="background: #080808; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">
 <header id="main-site-header" style="position: sticky; top: 0; width: 100%; z-index: 10000; background: linear-gradient(90deg, #4A0808 0%, #6B0D0D 50%, #4A0808 100%); border-bottom: 1.5px solid #D4AF37; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);">
@@ -1342,5 +1396,12 @@ function switchPdmTab(tabName) {
 </style>
 
 <script defer src="/exit-intent-concierge.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {});
+  });
+}
+</script>
 </body>
 </html>

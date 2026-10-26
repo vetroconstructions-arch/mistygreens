@@ -9,16 +9,24 @@
   X-XSS-Protection: 1; mode=block
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(self), interest-cohort=(), payment=()
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self), interest-cohort=(), payment=(), usb=(), bluetooth=(), magnetometer=(), gyroscope=(), screen-wake-lock=()
+  Accept-CH: Sec-CH-DPR, Sec-CH-Width, Sec-CH-Viewport-Width, Sec-CH-Prefers-Reduced-Motion
   Cross-Origin-Opener-Policy: same-origin-allow-popups
   Cross-Origin-Resource-Policy: cross-origin
   X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 
 /
   Cache-Control: public, max-age=0, s-maxage=604800, stale-while-revalidate=86400
+  Link: </style-home.min.css>; rel=preload; as=style, </images/drone-aerial.webp>; rel=preload; as=image; fetchpriority=high
 
 /*.html
   Cache-Control: public, max-age=0, s-maxage=604800, stale-while-revalidate=86400
+  Link: </style.min.css>; rel=preload; as=style
+
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+  Service-Worker-Allowed: /
+  Content-Type: application/javascript; charset=utf-8
 
 /favicon.ico
   Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable

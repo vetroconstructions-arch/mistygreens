@@ -529,6 +529,15 @@ img{max-width:100%;height:auto}
           "url": "https://www.paranjapetownship.com",
           "telephone": "+91-7744009295"
         }
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          "h1",
+          ".hero-title",
+          ".hero-subtitle",
+          ".section-heading"
+        ]
       }
     },
     {
@@ -542,7 +551,8 @@ img{max-width:100%;height:auto}
         "priceCurrency": "INR",
         "lowPrice": "38900000",
         "highPrice": "55000000",
-        "offerCount": "24"
+        "offerCount": "24",
+        "priceValidUntil": "2027-12-31"
       },
       "address": {
         "@type": "PostalAddress",
@@ -805,7 +815,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -865,7 +876,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               },
               {
                 "@type": "Offer",
@@ -925,7 +937,8 @@ img{max-width:100%;height:auto}
                     "@type": "Brand",
                     "name": "Paranjape Schemes (Construction) Ltd"
                   }
-                }
+                },
+                "priceValidUntil": "2027-12-31"
               }
             ]
           }
@@ -1092,6 +1105,42 @@ img{max-width:100%;height:auto}
   ]
 }
 </script>
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
+<meta property="og:locale" content="en_IN">
 </head>
 <body style="background: #0B1120; color: #F8FAFC; font-family: 'Inter', sans-serif; margin: 0;">
 
@@ -2041,5 +2090,12 @@ function switchPdmTab(tabName) {
 </style>
 
 <script defer src="/exit-intent-concierge.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {});
+  });
+}
+</script>
 </body>
 </html>

@@ -82,7 +82,8 @@
     "priceCurrency": "INR",
     "price": "4850000",
     "availability": "https://schema.org/InStock",
-    "url": "https://www.paranjapetownship.com/1bhk-near-paud-road/"
+    "url": "https://www.paranjapetownship.com/1bhk-near-paud-road/",
+    "priceValidUntil": "2027-12-31"
   },
   "additionalProperty": [
     {
@@ -156,6 +157,44 @@
   ]
 }
   </script>
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "list",
+      "urls": [
+        "/",
+        "/misty-greens/",
+        "/the-rivolo/",
+        "/the-cove/",
+        "/the-canopy/",
+        "/the-highgardens/",
+        "/athashri-bhugaon-pune/",
+        "/the-verandah/",
+        "/orchard-residences/",
+        "/swaniketan/",
+        "/everglades-bhugaon/"
+      ],
+      "eagerness": "moderate"
+    }
+  ],
+  "prefetch": [
+    {
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/thank-you*" } },
+          { "not": { "href_matches": "/*\\?*" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
+</script>
+<meta property="og:site_name" content="Paranjape Forest Trails">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt="Google Tag Manager"></noscript>
@@ -221,5 +260,12 @@
   <p style="font-size:.82rem"><a href="/privacy-policy/" style="color:#aaa">Privacy</a> | <a href="/terms-of-use/" style="color:#aaa">Terms</a> | <a href="/sitemap-page/" style="color:#aaa">Sitemap</a> | <a href="/paranjape-schemes-all-projects-pune/" style="color:#aaa">All Projects</a></p>
 </footer>
 <script defer src="/exit-intent-concierge.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function() {});
+  });
+}
+</script>
 </body>
 </html>
