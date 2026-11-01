@@ -22,10 +22,33 @@ DOMAIN = "https://www.paranjapetownship.com"
 # Exclude directories
 EXCLUDE_DIRS = {'node_modules', '.git', 'dist', '.gemini', '_astro', 'scratch', 'components'}
 
+def get_redirected_dirs():
+    redirects = set()
+    rf = os.path.join(BASE, '_redirects')
+    if os.path.exists(rf):
+        with open(rf, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'): continue
+                parts = line.split()
+                if len(parts) >= 2:
+                    src = parts[0].rstrip('/*').rstrip('*').strip('/')
+                    # Only root-level legacy directories
+                    if src and '/' not in src:
+                        # Ensure it is actually a top-level directory in BASE
+                        if os.path.isdir(os.path.join(BASE, src)):
+                            redirects.add(src)
+    return redirects
+
 def get_all_html_files():
+    redirected = get_redirected_dirs()
     html_files = []
     for root, dirs, files in os.walk(BASE):
-        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        # Only exclude root-level redirected directories
+        if root == BASE:
+            dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS and d not in redirected]
+        else:
+            dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for f in files:
             if f.endswith('.html'):
                 html_files.append(os.path.join(root, f))

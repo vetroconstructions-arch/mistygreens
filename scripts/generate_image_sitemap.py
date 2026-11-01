@@ -60,6 +60,22 @@ def main():
     print("Generating sitemap-images.xml...")
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     
+    # Load _redirects to remap any legacy redirect paths to their canonical target
+    redirects_map = {}
+    redirects_file = os.path.join(BASE_DIR, '_redirects')
+    if os.path.exists(redirects_file):
+        with open(redirects_file, 'r', encoding='utf-8') as rf:
+            for line in rf:
+                line = line.strip()
+                if not line or line.startswith('#'): continue
+                parts = line.split()
+                if len(parts) >= 2:
+                    src = parts[0].rstrip('/*').rstrip('*').strip('/')
+                    dst = parts[1].rstrip('/*').rstrip('*')
+                    if not dst.endswith('/'): dst += '/'
+                    if src:
+                        redirects_map[src] = dst
+
     # Collect all page → images mappings
     page_images = {}  # page_url → [(img_url, title, caption)]
     
@@ -78,9 +94,17 @@ def main():
             if rel == 'index.html':
                 page_url = f"{DOMAIN}/"
             elif rel.endswith('/index.html'):
-                page_url = f"{DOMAIN}/{rel[:-10]}"
+                clean_slug = rel[:-11].strip('/')
+                if clean_slug in redirects_map:
+                    page_url = f"{DOMAIN}{redirects_map[clean_slug]}"
+                else:
+                    page_url = f"{DOMAIN}/{rel[:-10]}"
             else:
-                page_url = f"{DOMAIN}/{rel}"
+                clean_slug = rel.strip('/')
+                if clean_slug in redirects_map:
+                    page_url = f"{DOMAIN}{redirects_map[clean_slug]}"
+                else:
+                    page_url = f"{DOMAIN}/{rel}"
             
             try:
                 with open(fpath, 'r', encoding='utf-8', errors='replace') as f:

@@ -5,6 +5,22 @@ from datetime import datetime, timezone
 DOMAIN = "https://www.paranjapetownship.com"
 
 def generate_seo_matrix(base_dir):
+    # Load _redirects to exclude 301 paths from sitemaps and align legacy canonicals
+    redirects_map = {}
+    redirects_file = os.path.join(base_dir, '_redirects')
+    if os.path.exists(redirects_file):
+        with open(redirects_file, 'r', encoding='utf-8') as rf:
+            for line in rf:
+                line = line.strip()
+                if not line or line.startswith('#'): continue
+                parts = line.split()
+                if len(parts) >= 2:
+                    src = parts[0].rstrip('/*').rstrip('*').strip('/')
+                    dst = parts[1].rstrip('/*').rstrip('*')
+                    if not dst.endswith('/'): dst += '/'
+                    if src:
+                        redirects_map[src] = dst
+
     html_files = []
     
     for root, dirs, files in os.walk(base_dir):
@@ -27,18 +43,23 @@ def generate_seo_matrix(base_dir):
                     url_path = url_path[:-10]
                 
                 final_url = f"{DOMAIN}/{url_path}"
-                html_files.append((full_path, final_url, rel_path))
+                html_files.append((full_path, final_url, rel_path, url_path.strip('/')))
                 
     # 2. Sync Canonicals
     modified_count = 0
     canonical_pattern = re.compile(r'<link\s+rel="canonical"\s+href="[^"]*"\s*/?>', re.IGNORECASE)
     
-    for file_path, strict_url, _ in html_files:
+    for file_path, strict_url, _, clean_slug in html_files:
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 content = f.read()
             
-            new_tag = f'<link rel="canonical" href="{strict_url}">'
+            # If this file is a 301 redirect source, point canonical to destination
+            if clean_slug in redirects_map:
+                target_canonical = f"{DOMAIN}{redirects_map[clean_slug]}"
+                new_tag = f'<link rel="canonical" href="{target_canonical}">'
+            else:
+                new_tag = f'<link rel="canonical" href="{strict_url}">'
             
             if canonical_pattern.search(content):
                 new_content = canonical_pattern.sub(new_tag, content)
@@ -68,9 +89,9 @@ def generate_seo_matrix(base_dir):
         "stories": []
     }
     
-    for file_path, strict_url, rel_path in html_files:
-        # Don't index 404 or thank you pages
-        if "404" in strict_url or "thank-you" in strict_url:
+    for file_path, strict_url, rel_path, clean_slug in html_files:
+        # Don't index 404, thank you pages, or 301 redirected source URLs
+        if "404" in strict_url or "thank-you" in strict_url or clean_slug in redirects_map:
             continue
             
         url_lower = strict_url.lower()
