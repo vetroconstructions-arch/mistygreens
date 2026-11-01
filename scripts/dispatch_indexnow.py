@@ -10,7 +10,7 @@ import os, json, urllib.request
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.paranjapetownship.com"
 HOST = "www.paranjapetownship.com"
-KEY = "paranjape-seo-indexnow-key-2026"
+KEY = "c4d1685458394e80820063db1a48c6fb"
 KEY_LOCATION = f"{DOMAIN}/{KEY}.txt"
 
 # 1. Ensure verification key file exists in repository root

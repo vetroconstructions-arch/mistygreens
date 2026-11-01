@@ -22,22 +22,26 @@ function ensureIndexNowKey() {
     return key;
 }
 
-// 2. Discover URLs
-function getAllUrls(dir, urlList = []) {
-    const files = fs.readdirSync(dir);
-    files.forEach(file => {
-        const filePath = path.join(dir, file);
-        if (fs.statSync(filePath).isDirectory()) {
-            if (!['node_modules', '.git', 'scripts', 'brain', 'images', 'assets', 'vendor'].includes(file)) {
-                getAllUrls(filePath, urlList);
+// 2. Discover Canonical URLs from Sitemaps (0 Redirects)
+function getAllUrls(dir) {
+    const urlSet = new Set();
+    const sitemapFiles = fs.readdirSync(ROOT).filter(f => f.startsWith('sitemap-') && f.endsWith('.xml') && !f.includes('images') && !f.includes('news'));
+    for (const sf of sitemapFiles) {
+        try {
+            const content = fs.readFileSync(path.join(ROOT, sf), 'utf8');
+            const matches = content.match(/<loc>(https:\/\/www\.paranjapetownship\.com[^<]+)<\/loc>/g);
+            if (matches) {
+                for (const m of matches) {
+                    const u = m.replace('<loc>', '').replace('</loc>', '').trim();
+                    if (!u.endsWith('.xml') && !u.includes('404') && !u.includes('thank-you')) {
+                        urlSet.add(u);
+                    }
+                }
             }
-        } else if (file.endsWith('.html') && !file.includes('thank-you')) {
-            const relative = path.relative(ROOT, filePath);
-            const url = `https://${SITE_DOMAIN}/${relative.replace('index.html', '').replace(/\\/g, '/')}`;
-            urlList.push(url);
-        }
-    });
-    return urlList;
+        } catch (e) {}
+    }
+    if (urlSet.size === 0) urlSet.add(`https://${SITE_DOMAIN}/`);
+    return Array.from(urlSet).sort();
 }
 
 // 3. Execution Engine
