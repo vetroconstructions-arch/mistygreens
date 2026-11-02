@@ -86,6 +86,11 @@ for root, dirs, files in os.walk(BASE_DIR):
             if 'RealEstateListing' in content or 'Product' in content or 'AggregateOffer' in content:
                 results["invalid_schema_on_utility_pages"].append(rel)
 
+# 7. PropSmart RERA Check
+privacy_content = open(os.path.join(BASE_DIR, 'privacy-policy/index.html'), 'r', encoding='utf-8', errors='ignore').read()
+terms_content = open(os.path.join(BASE_DIR, 'terms-of-use/index.html'), 'r', encoding='utf-8', errors='ignore').read()
+propsmart_rera_verified = ('A031262401295' in privacy_content) and ('A031262401295' in terms_content)
+
 print("=" * 60)
 print("GOOGLE WEB POLICIES & GOOGLE ADS COMPLIANCE AUDIT RESULTS")
 print("=" * 60)
@@ -97,6 +102,7 @@ print(f"Forms Missing Privacy Policy Consent Link: {len(results['missing_privacy
 print(f"Pages with CAGR (18-22%) without Disclaimer: {len(results['cagr_without_disclaimer'])}")
 print(f"Pages Missing MahaRERA Disclosure: {len(results['missing_maharera_disclosure'])}")
 print(f"Utility Pages with Invalid Commercial Schema: {len(results['invalid_schema_on_utility_pages'])}")
+print(f"PropSmart MahaRERA Agent Verified (A031262401295): {'PASSED' if propsmart_rera_verified else 'FAILED'}")
 
 if results['invalid_schema_on_utility_pages']:
     print("\n⚠️ Invalid Schema on Utility Pages:")
