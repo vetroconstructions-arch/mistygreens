@@ -260,6 +260,9 @@
             <option value="General Forest Trails Township Brochure">General Forest Trails Master Brochure</option>
           </select>
           <button type="submit" class="pscl-submit-btn" aria-label="Send My Brochure &amp; Price List">Send My Brochure &amp; Price List →</button>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.7);text-align:center;margin:0.5rem 0 0.2rem;line-height:1.4;">
+            🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp. Zero spam.
+          </p>
         </form>
 
         <span class="pscl-dismiss-link" id="pscl-concierge-skip" role="button" tabindex="0" aria-label="Dismiss and continue browsing">No thanks, I'll continue browsing</span>
@@ -523,6 +526,9 @@
             '<button id="modal-submit-btn" style="width:100%;background:linear-gradient(135deg,#6B0D0D 0%,#8B1A1A 50%,#D4AF37 100%);color:#fff;border:1.5px solid #D4AF37;padding:0.75rem 1.2rem;border-radius:10px;font-weight:800;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(107,13,13,0.5);transition:all 0.2s;" type="submit">' +
               'SUBMIT ENQUIRY →' +
             '</button>' +
+            '<p style="font-size:0.65rem;color:rgba(255,255,255,0.65);text-align:center;margin:0.45rem 0 0.1rem;line-height:1.4;">' +
+              '🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp.' +
+            '</p>' +
           '</form>' +
           '<div style="margin-top:0.8rem;text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:0.7rem;">' +
             '<span style="font-size:0.68rem;color:#CBD5E1;">Direct Sales Helpline: </span>' +
@@ -1673,6 +1679,9 @@
           <button type="submit" class="pscl-cab-submit">
             <span>🚗</span><span>Confirm VIP Chauffeur Booking</span>
           </button>
+          <p style="font-size:0.68rem;color:rgba(255,255,255,0.7);text-align:center;margin:0.5rem 0 0.2rem;line-height:1.4;">
+            🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified site visit coordination via Call/WhatsApp.
+          </p>
         </form>
       </div>
     `;
