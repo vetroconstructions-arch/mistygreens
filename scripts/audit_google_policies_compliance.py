@@ -41,7 +41,7 @@ for root, dirs, files in os.walk(BASE_DIR):
             continue
         fp = os.path.join(root, fname)
         rel = os.path.relpath(fp, BASE_DIR).replace('\\', '/')
-        if rel in ['404.html', 'thank-you.html']:
+        if rel in ['404.html', 'thank-you.html'] or rel.startswith('google'):
             continue
         
         results["total_pages"] += 1

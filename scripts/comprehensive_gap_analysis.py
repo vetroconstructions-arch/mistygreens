@@ -50,7 +50,7 @@ def get_all_html_files():
         else:
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for f in files:
-            if f.endswith('.html'):
+            if f.endswith('.html') and not f.startswith('google'):
                 html_files.append(os.path.join(root, f))
     return sorted(html_files)
 

@@ -28,7 +28,7 @@ def generate_seo_matrix(base_dir):
         if parts & {'node_modules', '.git', '.wrangler', 'components', 'scripts', 'dist', 'scratch', '.gemini'}:
             continue
         for file in files:
-            if file.endswith('.html'):
+            if file.endswith('.html') and not file.startswith('google'):
                 full_path = os.path.join(root, file)
                 # Compute relative URL path
                 rel_path = os.path.relpath(full_path, base_dir)
@@ -224,6 +224,7 @@ Sitemap: {DOMAIN}/sitemap.xml
 Sitemap: {DOMAIN}/sitemap-products.xml
 Sitemap: {DOMAIN}/sitemap-news.xml
 Sitemap: {DOMAIN}/sitemap-images.xml
+Sitemap: {DOMAIN}/rss.xml
 """
     with open(os.path.join(base_dir, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(robots_content)
