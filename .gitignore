@@ -27,6 +27,7 @@ scripts/google-service-account.json
 keys/*.json
 scripts/.indexing-history.json
 scripts/.indexing-ledger.json
+scripts/.enterprise-indexing-ledger.json
 indexnow_key.txt
 
 # Exemptions

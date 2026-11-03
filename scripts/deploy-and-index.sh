@@ -46,10 +46,9 @@ sleep 3
 echo "  ✅ Ready for indexing"
 echo ""
 
-# Step 4: Run Hard-Force Indexing Engine (Stage 51)
-echo "🤖 Step 4: Running Hard-Force Indexing Suite..."
-node scripts/google-indexing-worker.js || echo "  ⚠️  Google Indexing API skipped (Missing service-account.json)"
-node scripts/index-now-worker.js || echo "  ⚠️  IndexNow skipped"
+# Step 4: Run Enterprise Google & Multi-Engine Indexing Suite (v3.0)
+echo "🤖 Step 4: Running Sovereign Enterprise Google Indexing Suite..."
+node scripts/enterprise_google_indexing.js || echo "  ⚠️  Enterprise Indexing Suite execution notice"
 echo ""
 
 echo "╔══════════════════════════════════════════════════╗"

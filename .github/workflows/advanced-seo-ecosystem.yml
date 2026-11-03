@@ -52,25 +52,8 @@ jobs:
           echo "Setting up Google Service Account..."
           echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service-account.json
 
-      - name: Sovereign Indexing Pass (Google API)
+      - name: Sovereign Enterprise Google & Multi-Engine Indexing Suite
         run: |
-          echo "🚀 Firing Google Indexing API Force-Ping..."
-          node scripts/google-indexing-worker.js || echo "⚠️ Google Indexing API execution failed or skipped"
-
-      - name: Sovereign Indexing Pass (IndexNow Ecosystem)
-        run: |
-          echo "🚀 Firing IndexNow API Force-Ping (Bing/Yahoo/Yandex/DuckDuckGo)..."
-          node scripts/index-now-worker.js || echo "⚠️ IndexNow API execution failed or skipped"
-
-      - name: Legacy Ecosystem Ping
-        run: |
-          echo "🚀 Firing Legacy Sitemap Pings..."
-          node scripts/google-index-ping.js || echo "⚠️ Legacy Ping execution failed or skipped"
-
-      - name: Direct Search Engine Sitemap Ping
-        run: |
-          echo "🌐 Pinging all search engines with fresh sitemap..."
-          curl -s "https://www.google.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
-          curl -s "https://www.bing.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
-          curl -s "https://webmaster.yandex.com/ping?sitemap=https://www.paranjapetownship.com/sitemap.xml" || true
-          echo "✅ All search engine pings fired."
+          echo "🚀 Executing Sovereign Enterprise Google Indexing Suite v3.0..."
+          node scripts/enterprise_google_indexing.js || echo "⚠️ Enterprise Indexing Suite execution notice"
+          echo "✅ Enterprise indexing pass completed."
