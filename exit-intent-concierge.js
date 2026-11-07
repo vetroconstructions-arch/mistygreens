@@ -8,6 +8,8 @@
 
   // Do not execute on thank-you pages
   if (window.location.pathname.indexOf('/thank-you') !== -1) return;
+  if (window.__psclConciergeInitialized) return;
+  window.__psclConciergeInitialized = true;
 
   var hasTriggered = false;
   var pageLoadTime = Date.now();
@@ -837,15 +839,21 @@
         background: #D4AF37;
         color: #0e0c14;
         border: none;
-        padding: 5px 10px;
-        border-radius: 6px;
+        min-height: 48px;
+        min-width: 76px;
+        padding: 0.5rem 0.9rem;
+        border-radius: 8px;
         font-weight: 800;
-        font-size: 0.68rem;
+        font-size: 0.75rem;
         cursor: pointer;
         margin-left: auto;
         white-space: nowrap;
         text-transform: uppercase;
         letter-spacing: 0.04em;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        touch-action: manipulation;
         transition: transform 0.15s, background 0.15s;
       }
       .pscl-pulse-cta:hover {
@@ -855,12 +863,17 @@
       .pscl-pulse-close {
         background: transparent;
         border: none;
-        color: rgba(255,255,255,0.5);
-        font-size: 0.9rem;
+        color: rgba(255,255,255,0.7);
+        font-size: 1.15rem;
         cursor: pointer;
-        padding: 2px 4px;
-        margin-left: 2px;
+        min-height: 48px;
+        min-width: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 4px;
         line-height: 1;
+        touch-action: manipulation;
       }
       .pscl-pulse-close:hover {
         color: #fff;
@@ -960,8 +973,10 @@
         }
       }
       #pscl-fab-btn {
-        width: 52px;
-        height: 52px;
+        width: 54px;
+        height: 54px;
+        min-width: 54px;
+        min-height: 54px;
         border-radius: 50%;
         background: linear-gradient(135deg, #6B0D0D 0%, #8B1A1A 50%, #D4AF37 100%);
         border: 2px solid #D4AF37;
@@ -972,14 +987,23 @@
         align-items: center;
         justify-content: center;
         font-size: 1.35rem;
-        transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s;
+        transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
         touch-action: manipulation;
-        animation: psclFabPulse 2.5s infinite;
+        position: relative;
       }
-      @keyframes psclFabPulse {
-        0% { box-shadow: 0 8px 25px rgba(107,13,13,0.6), 0 0 0 0 rgba(212,175,55,0.6); }
-        70% { box-shadow: 0 8px 25px rgba(107,13,13,0.6), 0 0 0 14px rgba(212,175,55,0); }
-        100% { box-shadow: 0 8px 25px rgba(107,13,13,0.6), 0 0 0 0 rgba(212,175,55,0); }
+      #pscl-fab-btn::before {
+        content: '';
+        position: absolute;
+        inset: -5px;
+        border-radius: 50%;
+        border: 2px solid rgba(212, 175, 55, 0.7);
+        pointer-events: none;
+        will-change: transform, opacity;
+        animation: psclFabPulseComposited 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      }
+      @keyframes psclFabPulseComposited {
+        0% { transform: scale(0.92); opacity: 0.85; }
+        70%, 100% { transform: scale(1.35); opacity: 0; }
       }
       #pscl-fab-btn:hover {
         transform: scale(1.08);
@@ -1009,9 +1033,11 @@
         border: 1px solid rgba(255,255,255,0.12);
         color: #ffffff;
         text-decoration: none;
-        padding: 0.55rem 0.75rem;
+        min-height: 48px;
+        min-width: 48px;
+        padding: 0.65rem 0.85rem;
         border-radius: 10px;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         font-weight: 700;
         display: flex;
         align-items: center;
@@ -1019,6 +1045,7 @@
         cursor: pointer;
         transition: all 0.2s;
         box-sizing: border-box;
+        touch-action: manipulation;
       }
       .pscl-fab-item:hover {
         background: rgba(212, 175, 55, 0.2);
@@ -1742,18 +1769,26 @@
   window.psclEnclaves = ENCLAVES_DATA;
 
 // ─── Initialize Sovereign Engagement Layer ─────────────────────────────────
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      injectSocialProofPulse();
-      injectConciergeFAB();
-      injectCostVisualizerModal();
-      injectVipCabModal();
-    });
-  } else {
+  function initEngagementLayer() {
     injectSocialProofPulse();
     injectConciergeFAB();
-    injectCostVisualizerModal();
-    injectVipCabModal();
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(function() {
+        injectCostVisualizerModal();
+        injectVipCabModal();
+      }, { timeout: 3500 });
+    } else {
+      setTimeout(function() {
+        injectCostVisualizerModal();
+        injectVipCabModal();
+      }, 2500);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initEngagementLayer);
+  } else {
+    initEngagementLayer();
   }
 
 })();

@@ -958,7 +958,7 @@ class SpeculationRulesInjector {
               { not: { href_matches: "/api/*" } }
             ]
           },
-          eagerness: "moderate"
+          eagerness: "conservative"
         }
       ]
     };
