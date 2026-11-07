@@ -10,8 +10,18 @@ to Bing, Yandex, Seznam, Naver, and IndexNow API endpoints for ALL canonical pag
 import os
 import json
 import glob
+import ssl
 import urllib.request
 import urllib.error
+
+# Setup SSL context that handles local certificate issues gracefully
+ctx = ssl.create_default_context()
+try:
+    import certifi
+    ctx.load_verify_locations(certifi.where())
+except Exception:
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.paranjapetownship.com"
@@ -74,7 +84,7 @@ for endpoint in ENDPOINTS:
                 "User-Agent": "ParanjapeEnterpriseIndexer/3.0"
             }
         )
-        with urllib.request.urlopen(req, timeout=10) as response:
+        with urllib.request.urlopen(req, timeout=10, context=ctx) as response:
             status = response.getcode()
             print(f"  ⚡ IndexNow [{endpoint}]: HTTP {status} (Accepted for crawling)")
     except urllib.error.HTTPError as e:
