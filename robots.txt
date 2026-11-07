@@ -50,3 +50,4 @@ Sitemap: https://www.paranjapetownship.com/sitemap-products.xml
 Sitemap: https://www.paranjapetownship.com/sitemap-news.xml
 Sitemap: https://www.paranjapetownship.com/sitemap-images.xml
 Sitemap: https://www.paranjapetownship.com/rss.xml
+Sitemap: https://www.paranjapetownship.com/web-stories/feed.xml

@@ -225,6 +225,7 @@ Sitemap: {DOMAIN}/sitemap-products.xml
 Sitemap: {DOMAIN}/sitemap-news.xml
 Sitemap: {DOMAIN}/sitemap-images.xml
 Sitemap: {DOMAIN}/rss.xml
+Sitemap: {DOMAIN}/web-stories/feed.xml
 """
     with open(os.path.join(base_dir, 'robots.txt'), 'w', encoding='utf-8') as f:
         f.write(robots_content)

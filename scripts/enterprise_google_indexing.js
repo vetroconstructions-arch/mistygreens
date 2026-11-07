@@ -334,35 +334,40 @@ async function publishSingleUrl(url, token, retries = 0) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function dispatchWebSubPing() {
-  console.log('\n📡 [WebSub Syndication] Firing Google PubSubHubbub RSS Push Notification...');
-  const feedUrl = `${SITE_DOMAIN}/rss.xml`;
-  const postData = `hub.mode=publish&hub.url=${encodeURIComponent(feedUrl)}`;
+  console.log('\n📡 [WebSub Syndication] Firing Google PubSubHubbub RSS Push Notifications...');
+  const feeds = [
+    `${SITE_DOMAIN}/rss.xml`,
+    `${SITE_DOMAIN}/web-stories/feed.xml`
+  ];
 
-  return new Promise((resolve) => {
-    const req = https.request(WEBSUB_HUB, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': Buffer.byteLength(postData)
-      }
-    }, res => {
-      if (res.statusCode === 204 || res.statusCode === 200) {
-        console.log(`  ✅ WebSub Google Hub Accepted Feed: HTTP ${res.statusCode} (Real-time Googlebot crawl trigger)`);
-        resolve(true);
-      } else {
-        console.log(`  ℹ️ WebSub Google Hub Status: HTTP ${res.statusCode}`);
+  for (const feedUrl of feeds) {
+    const postData = `hub.mode=publish&hub.url=${encodeURIComponent(feedUrl)}`;
+    await new Promise((resolve) => {
+      const req = https.request(WEBSUB_HUB, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Length': Buffer.byteLength(postData)
+        }
+      }, res => {
+        if (res.statusCode === 204 || res.statusCode === 200) {
+          console.log(`  ✅ WebSub Google Hub Accepted Feed [${feedUrl.split('/').pop()}]: HTTP ${res.statusCode} (Real-time Googlebot crawl trigger)`);
+          resolve(true);
+        } else {
+          console.log(`  ℹ️ WebSub Google Hub Status [${feedUrl.split('/').pop()}]: HTTP ${res.statusCode}`);
+          resolve(false);
+        }
+      });
+
+      req.on('error', err => {
+        console.log(`  ⚠️ WebSub Hub Notice [${feedUrl.split('/').pop()}]: ${err.message}`);
         resolve(false);
-      }
-    });
+      });
 
-    req.on('error', err => {
-      console.log(`  ⚠️ WebSub Hub Notice: ${err.message} (offline or blocked)`);
-      resolve(false);
+      req.write(postData);
+      req.end();
     });
-
-    req.write(postData);
-    req.end();
-  });
+  }
 }
 
 async function dispatchIndexNowCluster(urls) {
