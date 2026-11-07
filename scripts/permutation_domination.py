@@ -218,8 +218,8 @@ def page_html(title, desc, canonical, keywords_str, h1, content_body, schemas_js
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
   <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
-  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');gtag('config','AW-17430583486');</script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','AW-17430583486');gtag('config','AW-17430583486');</script>
   {schemas_html}
   <style>
   body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#fff;color:#1a1a1a;margin:0;line-height:1.75}}
@@ -245,7 +245,7 @@ def page_html(title, desc, canonical, keywords_str, h1, content_body, schemas_js
   </style>
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt="Google Tag Manager"></noscript>
+<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=AW-17430583486" alt="Google Tag Manager"></noscript>
 <header style="background:#4A0808;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.8rem">
   <a href="/" style="color:#D4AF37;font-weight:700;font-size:1.15rem;text-decoration:none">Paranjape Forest Trails — Bhugaon</a>
   <nav style="display:flex;gap:1.2rem;flex-wrap:wrap;font-size:.9rem">

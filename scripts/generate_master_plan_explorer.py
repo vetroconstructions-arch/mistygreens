@@ -34,14 +34,14 @@ HTML_CONTENT = """<!DOCTYPE html>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
 
-  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 & GA4: G-PARANJAPE -->
+  <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 & GA4: AW-17430583486 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-PARANJAPE', { 'send_page_view': true });
+    gtag('config', 'AW-17430583486', { 'send_page_view': true });
     gtag('config', 'AW-17430583486');
     if (!window.__psclContactTracked) {
       window.__psclContactTracked = true;

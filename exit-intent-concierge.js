@@ -1,27 +1,4 @@
-/**
- * Paranjape Forest Trails — Sovereign Exit-Intent & Conversion Concierge v2.0
- * Recovers abandoning high-intent visitors on Desktop (cursor exit) and Mobile (scroll abandonment).
- * Fully integrated with Google Ads Enhanced Conversions (AW-17430583486) & GA4.
- */
-(function() {
-  'use strict';
-
-  // Do not execute on thank-you pages
-  if (window.location.pathname.indexOf('/thank-you') !== -1) return;
-  if (window.__psclConciergeInitialized) return;
-  window.__psclConciergeInitialized = true;
-
-  var hasTriggered = false;
-  var pageLoadTime = Date.now();
-  var minDwellMs = 6000; // Require 6 seconds before trigger
-
-  // Inject Concierge Modal HTML & CSS
-  function injectConciergeDOM() {
-    if (document.getElementById('pscl-exit-concierge-wrap')) return;
-
-    var style = document.createElement('style');
-    style.id = 'pscl-concierge-styles';
-    style.textContent = `
+"use strict";(function(){"use strict";if(window.location.pathname.indexOf("/thank-you")!==-1||window.__psclConciergeInitialized)return;window.__psclConciergeInitialized=!0;var w=!1,P=Date.now(),N=6e3;function F(){if(!document.getElementById("pscl-exit-concierge-wrap")){var e=document.createElement("style");e.id="pscl-concierge-styles",e.textContent=`
       #pscl-exit-concierge-wrap {
         position: fixed;
         inset: 0;
@@ -228,15 +205,10 @@
         white-space: nowrap !important;
         border: 0 !important;
       }
-    `;
-    document.head.appendChild(style);
-
-    var wrap = document.createElement('div');
-    wrap.id = 'pscl-exit-concierge-wrap';
-    wrap.innerHTML = `
+    `,document.head.appendChild(e);var t=document.createElement("div");t.id="pscl-exit-concierge-wrap",t.innerHTML=`
       <div class="pscl-concierge-card" role="dialog" aria-modal="true" aria-labelledby="pscl-card-title">
-        <button class="pscl-close-btn" id="pscl-concierge-close" aria-label="Close download dialog" type="button">✕</button>
-        <span class="pscl-badge">✦ Direct Developer Desk</span>
+        <button class="pscl-close-btn" id="pscl-concierge-close" aria-label="Close download dialog" type="button">\u2715</button>
+        <span class="pscl-badge">\u2726 Direct Developer Desk</span>
         <h3 class="pscl-title" id="pscl-card-title">Before You Go: Download the <span>2026 Price Sheet</span> &amp; Master Plan</h3>
         <p class="pscl-desc">Get the latest MahaRERA approved inventory layout, plot dimension matrix, and bank pre-approved EMI schemes delivered directly.</p>
         
@@ -256,536 +228,20 @@
 
           <label for="pscl-exit-preference" class="pscl-visually-hidden">Preferred Enclave or Brochure</label>
           <select class="pscl-input" id="pscl-exit-preference" name="preference" aria-label="Preferred Enclave or Brochure" style="background: #181822;">
-            <option value="Misty Greens NA Plots (From ₹1.23 Cr*)">Misty Greens NA Plots (From ₹1.23 Cr*)</option>
-            <option value="The Rivolo Luxury Villas (From ₹3.89 Cr*)">The Rivolo Luxury Villas (From ₹3.89 Cr*)</option>
-            <option value="The Canopy Apartments (From ₹89 L*)">The Canopy Apartments (From ₹89 L*)</option>
+            <option value="Misty Greens NA Plots (From \u20B91.23 Cr*)">Misty Greens NA Plots (From \u20B91.23 Cr*)</option>
+            <option value="The Rivolo Luxury Villas (From \u20B93.89 Cr*)">The Rivolo Luxury Villas (From \u20B93.89 Cr*)</option>
+            <option value="The Canopy Apartments (From \u20B989 L*)">The Canopy Apartments (From \u20B989 L*)</option>
             <option value="General Forest Trails Township Brochure">General Forest Trails Master Brochure</option>
           </select>
-          <button type="submit" class="pscl-submit-btn" aria-label="Send My Brochure &amp; Price List">Send My Brochure &amp; Price List →</button>
+          <button type="submit" class="pscl-submit-btn" aria-label="Send My Brochure &amp; Price List">Send My Brochure &amp; Price List \u2192</button>
           <p style="font-size:0.68rem;color:rgba(255,255,255,0.7);text-align:center;margin:0.5rem 0 0.2rem;line-height:1.4;">
-            🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp. Zero spam.
+            \u{1F512} By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp. Zero spam.
           </p>
         </form>
 
         <span class="pscl-dismiss-link" id="pscl-concierge-skip" role="button" tabindex="0" aria-label="Dismiss and continue browsing">No thanks, I'll continue browsing</span>
       </div>
-    `;
-
-    document.body.appendChild(wrap);
-
-    // Event Listeners for Dismissal
-    document.getElementById('pscl-concierge-close').addEventListener('click', closeConcierge);
-    document.getElementById('pscl-concierge-skip').addEventListener('click', closeConcierge);
-    wrap.addEventListener('click', function(e) {
-      if (e.target === wrap) closeConcierge();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && wrap.classList.contains('pscl-active')) closeConcierge();
-    });
-
-    // WhatsApp Click Tracker
-    document.getElementById('pscl-concierge-wa').addEventListener('click', function() {
-      if (typeof gtag === 'function') {
-        gtag('event', 'contact', {
-          'method': 'whatsapp',
-          'event_category': 'Exit Concierge',
-          'event_label': 'WhatsApp PDF Request',
-          'value': 1.0,
-          'currency': 'INR'
-        });
-      }
-      closeConcierge();
-    });
-
-    // Lead Form Submission
-    document.getElementById('pscl-exit-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name = document.getElementById('pscl-exit-name').value.trim();
-      var phone = document.getElementById('pscl-exit-phone').value.trim();
-      var preference = document.getElementById('pscl-exit-preference').value;
-      var leadId = 'EXIT_' + Date.now();
-
-      // Store in sessionStorage for Enhanced Conversions
-      try {
-        sessionStorage.setItem('pscl_last_lead', JSON.stringify({
-          name: name,
-          phone: phone,
-          email: '',
-          preference: preference,
-          timestamp: Date.now(),
-          transaction_id: leadId
-        }));
-      } catch(err) {}
-
-      // Fire Enhanced Conversion user_data & conversion event
-      if (typeof gtag === 'function') {
-        try {
-          var cleanPhone = phone.replace(/[^0-9]/g, '');
-          if (cleanPhone.length === 10) cleanPhone = '+91' + cleanPhone;
-          gtag('set', 'user_data', {
-            'phone_number': cleanPhone,
-            'address': {
-              'first_name': name ? name.split(' ')[0] : undefined,
-              'last_name': name && name.split(' ').length > 1 ? name.split(' ').slice(1).join(' ') : undefined,
-              'country': 'IN'
-            }
-          });
-        } catch(uErr) {}
-
-        // Google Ads Lead Conversion
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
-          'value': 1.0,
-          'currency': 'INR',
-          'transaction_id': leadId
-        });
-
-        // GA4 Lead Event
-        gtag('event', 'generate_lead', {
-          'event_category': 'Exit Intent Concierge',
-          'event_label': preference,
-          'value': 1.0,
-          'currency': 'INR'
-        });
-      }
-
-      // Submit lead payload
-      var payload = {
-        name: name,
-        phone: phone,
-        email: 'exit-concierge@paranjapetownship.com',
-        enclave: preference,
-        source_url: window.location.href,
-        page_title: document.title,
-        timestamp: new Date().toISOString(),
-        transaction_id: leadId,
-        _subject: 'VIP Lead: Exit Concierge — ' + preference,
-        _captcha: 'false'
-      };
-
-      // 1. Local Vault
-      try {
-        sessionStorage.setItem('pscl_last_lead', JSON.stringify(payload));
-        localStorage.setItem('pscl_last_lead', JSON.stringify(payload));
-        var existing = JSON.parse(localStorage.getItem('pscl_offline_lead_vault') || '[]');
-        existing.push(payload);
-        localStorage.setItem('pscl_offline_lead_vault', JSON.stringify(existing));
-      } catch(err) {}
-
-      // 2. Multi-channel dispatch (Zero Drop Rate Guarantee)
-      if (navigator.sendBeacon) {
-        try {
-          navigator.sendBeacon('/api/lead-capture', JSON.stringify(payload));
-        } catch(bErr) {}
-      }
-
-      try {
-        fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(function() {});
-      } catch(fetchErr) {}
-
-      try {
-        fetch('/api/lead-capture', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          keepalive: true
-        }).catch(function() {});
-      } catch(apiErr) {}
-
-      setTimeout(function() {
-        window.location.href = '/thank-you/';
-      }, 800);
-    });
-  }
-
-  function triggerConcierge() {
-    if (hasTriggered) return;
-    if (sessionStorage.getItem('pscl_exit_dismissed') === '1') return;
-    if (Date.now() - pageLoadTime < minDwellMs) return;
-
-    hasTriggered = true;
-    injectConciergeDOM();
-    var wrap = document.getElementById('pscl-exit-concierge-wrap');
-    if (wrap) {
-      wrap.classList.add('pscl-active');
-    }
-  }
-
-  function closeConcierge() {
-    sessionStorage.setItem('pscl_exit_dismissed', '1');
-    var wrap = document.getElementById('pscl-exit-concierge-wrap');
-    if (wrap) {
-      wrap.classList.remove('pscl-active');
-      setTimeout(function() {
-        if (wrap.parentNode) wrap.parentNode.removeChild(wrap);
-      }, 300);
-    }
-  }
-
-  // Trigger 1: Desktop Mouse Leave (Top Exit)
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 15) {
-      triggerConcierge();
-    }
-  }, { passive: true });
-
-  // Trigger 2: Mobile Scroll Abandonment (>75% scrolled, then idle or rapid scroll back)
-  var maxScroll = 0;
-  var scrollCheckTimer = null;
-  var scrollTicking = false;
-  var cachedDocHeight = 0;
-
-  function updateScrollMetrics() {
-    scrollTicking = false;
-    if (!cachedDocHeight) {
-      cachedDocHeight = (document.documentElement.scrollHeight || document.body.scrollHeight || 0) - window.innerHeight;
-    }
-    if (cachedDocHeight <= 0) return;
-    var currentScroll = (window.scrollY / cachedDocHeight) * 100;
-    if (currentScroll > maxScroll) maxScroll = currentScroll;
-
-    if (maxScroll > 75 && !hasTriggered) {
-      clearTimeout(scrollCheckTimer);
-      scrollCheckTimer = setTimeout(function() {
-        triggerConcierge();
-      }, 8000);
-    }
-  }
-
-  window.addEventListener('scroll', function() {
-    if (!scrollTicking) {
-      window.requestAnimationFrame(updateScrollMetrics);
-      scrollTicking = true;
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', function() {
-    cachedDocHeight = 0;
-  }, { passive: true });
-
-  // Expose trigger globally if needed
-  window.__psclShowExitConcierge = triggerConcierge;
-
-  // ─── Universal Sovereign Lead Capture & Modal Engine ───────────────────────
-  function getOrInjectLeadModal() {
-    var modal = document.getElementById('pscl-enquiry-modal');
-    if (modal) return modal;
-
-    modal = document.createElement('div');
-    modal.id = 'pscl-enquiry-modal';
-    modal.style.cssText = 'display:none;position:fixed;inset:0;z-index:999999;align-items:center;justify-content:center;padding:1rem;box-sizing:border-box;';
-    modal.innerHTML = '<div id="pscl-modal-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);"></div>' +
-      '<div style="position:relative;background:linear-gradient(170deg,#16161c 0%,#0d0d10 100%);width:100%;max-width:420px;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(212,175,55,0.25);border:1.5px solid rgba(212,175,55,0.45);box-sizing:border-box;max-height:90vh;display:flex;flex-direction:column;">' +
-        '<div style="height:3px;background:linear-gradient(90deg,#6B0D0D,#D4AF37,#6B0D0D);flex-shrink:0;"></div>' +
-        '<button id="pscl-modal-close-x" aria-label="Close modal" style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;width:48px;height:48px;min-width:48px;min-height:48px;border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;" type="button">✕</button>' +
-        '<div style="padding:1.2rem 1.4rem 1.1rem;overflow-y:auto;box-sizing:border-box;">' +
-          '<div style="text-align:center;margin-bottom:0.8rem;">' +
-            '<span style="display:inline-block;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#D4AF37;font-weight:800;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:50px;margin-bottom:0.35rem;">✦ Direct Developer Access</span>' +
-            '<h3 style="font-family:\'Playfair Display\',serif;font-size:1.25rem;color:#fff;margin:0 0 0.2rem;">Enquire for Forest Trails</h3>' +
-            '<p style="color:#E2E8F0;font-size:0.75rem;margin:0;">Instant pricing, floor plans &amp; brochure sent via WhatsApp</p>' +
-          '</div>' +
-          '<form id="pscl-universal-lead-form" style="display:flex;flex-direction:column;gap:0.7rem;">' +
-            '<div>' +
-              '<label for="modal-project-interest" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Project Interest</label>' +
-              '<select id="modal-project-interest" required style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(212,175,55,0.35);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;cursor:pointer;box-sizing:border-box;">' +
-                '<option value="all">🌟 All Paranjape Forest Trails Projects</option>' +
-                '<option value="misty-greens">🌳 Misty Greens (NA Plots from ₹1.23 Cr*)</option>' +
-                '<option value="the-rivolo">🏡 The Rivolo (4 &amp; 5 BHK Villas from ₹3.89 Cr*)</option>' +
-                '<option value="the-cove">🏰 The Cove (4 BHK Duet Villas from ₹2.85 Cr*)</option>' +
-                '<option value="athashri-senior-living">👴 Athashri (2 &amp; 3 BHK Senior Living from ₹83 L*)</option>' +
-                '<option value="everglades">🏢 Everglades (1 &amp; 2 BHK PRO Homes from ₹48.50 L*)</option>' +
-                '<option value="the-canopy">🌅 The Canopy (2 &amp; 3 BHK Flats from ₹89 L*)</option>' +
-                '<option value="the-highgardens">🌿 The Highgardens (Terrace Homes from ₹89 L*)</option>' +
-                '<option value="verandah">🏡 Verandah (Duplex Homes from ₹93 L*)</option>' +
-                '<option value="orchard-residences">🍃 Orchard Residences (Hillside Homes from ₹83 L*)</option>' +
-                '<option value="swaniketan">🤝 Swaniketan (Assisted Living 2 &amp; 3 BHK from ₹79 L*)</option>' +
-              '</select>' +
-            '</div>' +
-            '<div>' +
-              '<label for="modal-full-name" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Full Name *</label>' +
-              '<input id="modal-full-name" placeholder="e.g. Rahul Sharma" required style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="text"/>' +
-            '</div>' +
-            '<div>' +
-              '<label for="modal-mobile-phone" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Mobile Phone Number *</label>' +
-              '<div style="display:flex;gap:6px;">' +
-                '<span style="padding:0.5rem 0.65rem;background:#1c1c22;border:1.5px solid rgba(212,175,55,0.35);border-radius:8px;color:#D4AF37;font-weight:800;font-size:0.78rem;display:flex;align-items:center;">+91</span>' +
-                '<input id="modal-mobile-phone" pattern="[0-9]{10}" placeholder="10-digit number" required style="flex:1;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="tel"/>' +
-              '</div>' +
-            '</div>' +
-            '<div>' +
-              '<label for="modal-email-address" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Email Address (Optional)</label>' +
-              '<input id="modal-email-address" placeholder="name@domain.com" style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="email"/>' +
-            '</div>' +
-            '<div style="display:flex;align-items:center;gap:8px;margin:0.2rem 0;">' +
-              '<input checked id="wa-modal-optin" style="accent-color:#25D366;width:15px;height:15px;cursor:pointer;" type="checkbox"/>' +
-              '<label for="wa-modal-optin" style="font-size:0.72rem;color:rgba(255,255,255,0.8);cursor:pointer;">Send brochure &amp; price sheet on WhatsApp</label>' +
-            '</div>' +
-            '<button id="modal-submit-btn" style="width:100%;background:linear-gradient(135deg,#6B0D0D 0%,#8B1A1A 50%,#D4AF37 100%);color:#fff;border:1.5px solid #D4AF37;padding:0.75rem 1.2rem;border-radius:10px;font-weight:800;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(107,13,13,0.5);transition:all 0.2s;" type="submit">' +
-              'SUBMIT ENQUIRY →' +
-            '</button>' +
-            '<p style="font-size:0.65rem;color:rgba(255,255,255,0.65);text-align:center;margin:0.45rem 0 0.1rem;line-height:1.4;">' +
-              '🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp.' +
-            '</p>' +
-          '</form>' +
-          '<div style="margin-top:0.8rem;text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:0.7rem;">' +
-            '<span style="font-size:0.68rem;color:#CBD5E1;">Direct Sales Helpline: </span>' +
-            '<a href="tel:+917744009295" style="color:#D4AF37;text-decoration:none;font-weight:700;font-size:0.72rem;min-height:48px;display:inline-flex;align-items:center;padding:0.4rem 0.2rem;">+91 7744009295</a>' +
-          '</div>' +
-        '</div>' +
-      '</div>';
-    document.body.appendChild(modal);
-
-    document.getElementById('pscl-modal-backdrop').addEventListener('click', window.closeEnquiryModal);
-    document.getElementById('pscl-modal-close-x').addEventListener('click', window.closeEnquiryModal);
-    document.getElementById('pscl-universal-lead-form').addEventListener('submit', window.handleEnquirySubmit);
-
-    return modal;
-  }
-
-  window.openEnquiryModal = function(project) {
-    var modal = getOrInjectLeadModal();
-    if (modal) {
-      modal.style.display = 'flex';
-      if (project && typeof project === 'string') {
-        var select = document.getElementById('modal-project-interest');
-        if (select) {
-          for (var i = 0; i < select.options.length; i++) {
-            if (select.options[i].value === project || select.options[i].value.indexOf(project) !== -1) {
-              select.selectedIndex = i;
-              break;
-            }
-          }
-        }
-      }
-    }
-  };
-
-  window.closeEnquiryModal = function() {
-    var modal = document.getElementById('pscl-enquiry-modal');
-    if (modal) modal.style.display = 'none';
-  };
-
-  window.handleEnquirySubmit = function(e) {
-    if (e && e.preventDefault) e.preventDefault();
-    var nameEl = document.getElementById('modal-full-name');
-    var phoneEl = document.getElementById('modal-mobile-phone');
-    var emailEl = document.getElementById('modal-email-address');
-    var projectEl = document.getElementById('modal-project-interest');
-    var waOptinEl = document.getElementById('wa-modal-optin');
-
-    var name = nameEl ? nameEl.value.trim() : '';
-    var phone = phoneEl ? phoneEl.value.trim() : '';
-    var email = emailEl ? emailEl.value.trim() : '';
-    var project = projectEl ? projectEl.value : 'General Enquiry';
-    var waOptin = (waOptinEl && waOptinEl.checked) ? 'YES' : 'NO';
-
-    if (!phone || phone.length < 10) {
-      alert('Please enter a valid 10-digit mobile number');
-      return;
-    }
-
-    var btn = document.getElementById('modal-submit-btn');
-    if (btn) {
-      btn.disabled = true;
-      btn.textContent = 'Submitting...';
-    }
-
-    var leadId = 'LEAD_' + Date.now();
-    var cleanPhone = phone.replace(/[^0-9]/g, '');
-    if (cleanPhone.length === 10) cleanPhone = '+91' + cleanPhone;
-
-    var payload = {
-      name: name,
-      phone: cleanPhone,
-      email: email || 'N/A',
-      project: project,
-      whatsappOptin: waOptin,
-      source: window.location.href,
-      page_title: document.title,
-      timestamp: new Date().toISOString(),
-      leadId: leadId,
-      _subject: '🌟 New Website Lead: ' + project + ' - ' + name + ' (' + cleanPhone + ')',
-      _captcha: 'false'
-    };
-
-    // 1. Local Vault
-    try {
-      sessionStorage.setItem('pscl_last_lead', JSON.stringify(payload));
-      localStorage.setItem('pscl_last_lead', JSON.stringify(payload));
-      var existing = JSON.parse(localStorage.getItem('pscl_offline_lead_vault') || '[]');
-      existing.push(payload);
-      localStorage.setItem('pscl_offline_lead_vault', JSON.stringify(existing));
-    } catch(err) {}
-
-    // 2. Google Ads Enhanced Conversions
-    if (typeof window.gtag === 'function') {
-      try {
-        window.gtag('set', 'user_data', {
-          'phone_number': cleanPhone,
-          'email': email || undefined,
-          'address': {
-            'first_name': name ? name.split(' ')[0] : undefined,
-            'last_name': name && name.split(' ').length > 1 ? name.split(' ').slice(1).join(' ') : undefined,
-            'country': 'IN'
-          }
-        });
-      } catch(uErr) {}
-
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
-        'transaction_id': leadId,
-        'value': 1.0,
-        'currency': 'INR'
-      });
-
-      window.gtag('event', 'generate_lead', {
-        'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
-        'transaction_id': leadId,
-        'value': 1.0,
-        'currency': 'INR'
-      });
-    }
-
-    // 3. Multi-channel dispatch (Zero Drop Rate Guarantee)
-    if (navigator.sendBeacon) {
-      try {
-        navigator.sendBeacon('/api/lead-capture', JSON.stringify(payload));
-      } catch(bErr) {}
-    }
-
-    try {
-      fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload),
-        keepalive: true
-      }).catch(function() {});
-    } catch(fErr) {}
-
-    try {
-      fetch('/api/lead-capture', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        keepalive: true
-      }).catch(function() {});
-    } catch(fErr2) {}
-
-    setTimeout(function() {
-      window.location.href = '/thank-you.html';
-    }, 900);
-  };
-
-  // ─── Global Contact & Conversion Delegation ─────────────────────────────────
-  document.addEventListener('click', function(e) {
-    try {
-      var target = e.target;
-      if (!target) return;
-      var btn = target.closest('button, a');
-      if (!btn) return;
-
-      var text = (btn.textContent || '').trim().toUpperCase();
-      var href = btn.getAttribute('href') || '';
-      var cls = btn.className || '';
-
-      // Intercept enquiry clicks across ANY page
-      if (
-        cls.indexOf('open-enquiry-modal') !== -1 ||
-        cls.indexOf('nav-enquire-btn') !== -1 ||
-        (btn.closest && btn.closest('.mobile-quick-bar') && text.indexOf('ENQUIRE') !== -1) ||
-        text.indexOf('ENQUIRE') !== -1 ||
-        text.indexOf('REQUEST BROCHURE') !== -1 ||
-        text.indexOf('BOOK SITE VISIT') !== -1 ||
-        text.indexOf('DOWNLOAD BROCHURE') !== -1
-      ) {
-        if (href.indexOf('tel:') === -1 && href.indexOf('wa.me') === -1) {
-          e.preventDefault();
-          window.openEnquiryModal();
-          return;
-        }
-      }
-
-      // WhatsApp conversion tracking
-      if (href.indexOf('wa.me') !== -1 || href.indexOf('whatsapp.com') !== -1) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
-            'value': 1.0,
-            'currency': 'INR'
-          });
-          window.gtag('event', 'contact', {
-            'method': 'whatsapp',
-            'event_category': 'Direct Engagement',
-            'event_label': 'WhatsApp Chat',
-            'value': 1.0,
-            'currency': 'INR'
-          });
-        }
-      }
-
-      // Phone call conversion tracking
-      if (href.indexOf('tel:') === 0) {
-        if (typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', {
-            'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA',
-            'value': 1.0,
-            'currency': 'INR'
-          });
-          window.gtag('event', 'contact', {
-            'method': 'phone',
-            'event_category': 'Direct Engagement',
-            'event_label': href.replace('tel:', ''),
-            'value': 1.0,
-            'currency': 'INR'
-          });
-        }
-      }
-    } catch(err) {}
-  });
-
-
-  // ─── Smart Dynamic WhatsApp Message Synthesis ─────────────────────────────
-  function getSmartWhatsAppMessage() {
-    var path = (window.location.pathname || '').toLowerCase();
-    if (path.indexOf('misty-greens') !== -1 || path.indexOf('plot') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in Misty Greens NA Bungalow Plots at Forest Trails Bhugaon. Please send the 2026 price sheet, master layout, and plot availability.');
-    }
-    if (path.indexOf('rivolo') !== -1 || path.indexOf('villa') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in The Rivolo 4 & 5 BHK Luxury Forest Villas at Bhugaon. Please send floor plans, pricing, and villa specifications.');
-    }
-    if (path.indexOf('canopy') !== -1 || path.indexOf('2bhk') !== -1 || path.indexOf('flat') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in The Canopy 2 & 3 BHK Nature Apartments at Forest Trails. Please send pricing, payment plans, and brochure.');
-    }
-    if (path.indexOf('athashri') !== -1 || path.indexOf('senior') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in Athashri Senior Living at Forest Trails Bhugaon. Please share 2 & 3 BHK assisted living details, medical amenities, and pricing.');
-    }
-    if (path.indexOf('everglades') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in Everglades 1 & 2 BHK PRO Homes near Bavdhan. Please share brochure and pricing from ₹48.5 L*.');
-    }
-    if (path.indexOf('cove') !== -1 || path.indexOf('bungalow') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in The Cove 4 BHK Duet Villas / Twin Bungalows. Please send floor plans and price sheet.');
-    }
-    if (path.indexOf('highgardens') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in The Highgardens Terrace Homes at Forest Trails Bhugaon. Please share 2 BHK pricing and brochure.');
-    }
-    if (path.indexOf('swaniketan') !== -1) {
-      return encodeURIComponent('Hello Paranjape Team, I am interested in Swaniketan Assisted Living at Forest Trails Bhugaon. Please share 2 & 3 BHK healthcare services and price list.');
-    }
-    return encodeURIComponent('Hello Paranjape Team, I am exploring Paranjape Forest Trails 190-Acre Township in Bhugaon. Please send the complete 2026 master plan and all enclave brochures.');
-  }
-
-  // ─── Sovereign Glassmorphic Social Proof Pulse ─────────────────────────────
-  function injectSocialProofPulse() {
-    if (document.getElementById('pscl-live-pulse')) return;
-
-    var pulseStyle = document.createElement('style');
-    pulseStyle.id = 'pscl-live-pulse-styles';
-    pulseStyle.textContent = `
+    `,document.body.appendChild(t),document.getElementById("pscl-concierge-close").addEventListener("click",h),document.getElementById("pscl-concierge-skip").addEventListener("click",h),t.addEventListener("click",function(a){a.target===t&&h()}),document.addEventListener("keydown",function(a){a.key==="Escape"&&t.classList.contains("pscl-active")&&h()}),document.getElementById("pscl-concierge-wa").addEventListener("click",function(){typeof gtag=="function"&&gtag("event","contact",{method:"whatsapp",event_category:"Exit Concierge",event_label:"WhatsApp PDF Request",value:1,currency:"INR"}),h()}),document.getElementById("pscl-exit-form").addEventListener("submit",function(a){a.preventDefault();var n=document.getElementById("pscl-exit-name").value.trim(),i=document.getElementById("pscl-exit-phone").value.trim(),s=document.getElementById("pscl-exit-preference").value,o="EXIT_"+Date.now();try{sessionStorage.setItem("pscl_last_lead",JSON.stringify({name:n,phone:i,email:"",preference:s,timestamp:Date.now(),transaction_id:o}))}catch{}if(typeof gtag=="function"){try{var r=i.replace(/[^0-9]/g,"");r.length===10&&(r="+91"+r),gtag("set","user_data",{phone_number:r,address:{first_name:n?n.split(" ")[0]:void 0,last_name:n&&n.split(" ").length>1?n.split(" ").slice(1).join(" "):void 0,country:"IN"}})}catch{}gtag("event","conversion",{send_to:"AW-17430583486/2oseCKuOodYcEL6xxvdA",value:1,currency:"INR",transaction_id:o}),gtag("event","generate_lead",{event_category:"Exit Intent Concierge",event_label:s,value:1,currency:"INR"})}var l={name:n,phone:i,email:"exit-concierge@paranjapetownship.com",enclave:s,source_url:window.location.href,page_title:document.title,timestamp:new Date().toISOString(),transaction_id:o,_subject:"VIP Lead: Exit Concierge \u2014 "+s,_captcha:"false"};try{sessionStorage.setItem("pscl_last_lead",JSON.stringify(l)),localStorage.setItem("pscl_last_lead",JSON.stringify(l));var p=JSON.parse(localStorage.getItem("pscl_offline_lead_vault")||"[]");p.push(l),localStorage.setItem("pscl_offline_lead_vault",JSON.stringify(p))}catch{}if(navigator.sendBeacon)try{navigator.sendBeacon("/api/lead-capture",JSON.stringify(l))}catch{}try{fetch("https://formsubmit.co/ajax/propsmartrealty@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(l),keepalive:!0}).catch(function(){})}catch{}try{fetch("/api/lead-capture",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(l),keepalive:!0}).catch(function(){})}catch{}setTimeout(function(){window.location.href="/thank-you/"},800)})}}function I(){if(!w&&sessionStorage.getItem("pscl_exit_dismissed")!=="1"&&!(Date.now()-P<N)){w=!0,F();var e=document.getElementById("pscl-exit-concierge-wrap");e&&e.classList.add("pscl-active")}}function h(){sessionStorage.setItem("pscl_exit_dismissed","1");var e=document.getElementById("pscl-exit-concierge-wrap");e&&(e.classList.remove("pscl-active"),setTimeout(function(){e.parentNode&&e.parentNode.removeChild(e)},300))}document.addEventListener("mouseleave",function(e){e.clientY<=15&&I()},{passive:!0});var E=0,D=null,B=!1,x=0;function T(){if(B=!1,x||(x=(document.documentElement.scrollHeight||document.body.scrollHeight||0)-window.innerHeight),!(x<=0)){var e=window.scrollY/x*100;e>E&&(E=e),E>75&&!w&&(clearTimeout(D),D=setTimeout(function(){I()},8e3))}}window.addEventListener("scroll",function(){B||(window.requestAnimationFrame(T),B=!0)},{passive:!0}),window.addEventListener("resize",function(){x=0},{passive:!0}),window.__psclShowExitConcierge=I;function z(){var e=document.getElementById("pscl-enquiry-modal");return e||(e=document.createElement("div"),e.id="pscl-enquiry-modal",e.style.cssText="display:none;position:fixed;inset:0;z-index:999999;align-items:center;justify-content:center;padding:1rem;box-sizing:border-box;",e.innerHTML=`<div id="pscl-modal-backdrop" style="position:absolute;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);"></div><div style="position:relative;background:linear-gradient(170deg,#16161c 0%,#0d0d10 100%);width:100%;max-width:420px;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,0.95), 0 0 40px rgba(212,175,55,0.25);border:1.5px solid rgba(212,175,55,0.45);box-sizing:border-box;max-height:90vh;display:flex;flex-direction:column;"><div style="height:3px;background:linear-gradient(90deg,#6B0D0D,#D4AF37,#6B0D0D);flex-shrink:0;"></div><button id="pscl-modal-close-x" aria-label="Close modal" style="position:absolute;top:10px;right:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:#fff;width:48px;height:48px;min-width:48px;min-height:48px;border-radius:50%;font-size:1.1rem;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;" type="button">\u2715</button><div style="padding:1.2rem 1.4rem 1.1rem;overflow-y:auto;box-sizing:border-box;"><div style="text-align:center;margin-bottom:0.8rem;"><span style="display:inline-block;background:rgba(212,175,55,0.15);border:1px solid rgba(212,175,55,0.4);color:#D4AF37;font-weight:800;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:50px;margin-bottom:0.35rem;">\u2726 Direct Developer Access</span><h3 style="font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;margin:0 0 0.2rem;">Enquire for Forest Trails</h3><p style="color:#E2E8F0;font-size:0.75rem;margin:0;">Instant pricing, floor plans &amp; brochure sent via WhatsApp</p></div><form id="pscl-universal-lead-form" style="display:flex;flex-direction:column;gap:0.7rem;"><div><label for="modal-project-interest" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Project Interest</label><select id="modal-project-interest" required style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(212,175,55,0.35);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;cursor:pointer;box-sizing:border-box;"><option value="all">\u{1F31F} All Paranjape Forest Trails Projects</option><option value="misty-greens">\u{1F333} Misty Greens (NA Plots from \u20B91.23 Cr*)</option><option value="the-rivolo">\u{1F3E1} The Rivolo (4 &amp; 5 BHK Villas from \u20B93.89 Cr*)</option><option value="the-cove">\u{1F3F0} The Cove (4 BHK Duet Villas from \u20B92.85 Cr*)</option><option value="athashri-senior-living">\u{1F474} Athashri (2 &amp; 3 BHK Senior Living from \u20B983 L*)</option><option value="everglades">\u{1F3E2} Everglades (1 &amp; 2 BHK PRO Homes from \u20B948.50 L*)</option><option value="the-canopy">\u{1F305} The Canopy (2 &amp; 3 BHK Flats from \u20B989 L*)</option><option value="the-highgardens">\u{1F33F} The Highgardens (Terrace Homes from \u20B989 L*)</option><option value="verandah">\u{1F3E1} Verandah (Duplex Homes from \u20B993 L*)</option><option value="orchard-residences">\u{1F343} Orchard Residences (Hillside Homes from \u20B983 L*)</option><option value="swaniketan">\u{1F91D} Swaniketan (Assisted Living 2 &amp; 3 BHK from \u20B979 L*)</option></select></div><div><label for="modal-full-name" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Full Name *</label><input id="modal-full-name" placeholder="e.g. Rahul Sharma" required style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="text"/></div><div><label for="modal-mobile-phone" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Mobile Phone Number *</label><div style="display:flex;gap:6px;"><span style="padding:0.5rem 0.65rem;background:#1c1c22;border:1.5px solid rgba(212,175,55,0.35);border-radius:8px;color:#D4AF37;font-weight:800;font-size:0.78rem;display:flex;align-items:center;">+91</span><input id="modal-mobile-phone" pattern="[0-9]{10}" placeholder="10-digit number" required style="flex:1;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="tel"/></div></div><div><label for="modal-email-address" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Email Address (Optional)</label><input id="modal-email-address" placeholder="name@domain.com" style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="email"/></div><div style="display:flex;align-items:center;gap:8px;margin:0.2rem 0;"><input checked id="wa-modal-optin" style="accent-color:#25D366;width:15px;height:15px;cursor:pointer;" type="checkbox"/><label for="wa-modal-optin" style="font-size:0.72rem;color:rgba(255,255,255,0.8);cursor:pointer;">Send brochure &amp; price sheet on WhatsApp</label></div><button id="modal-submit-btn" style="width:100%;background:linear-gradient(135deg,#6B0D0D 0%,#8B1A1A 50%,#D4AF37 100%);color:#fff;border:1.5px solid #D4AF37;padding:0.75rem 1.2rem;border-radius:10px;font-weight:800;font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 20px rgba(107,13,13,0.5);transition:all 0.2s;" type="submit">SUBMIT ENQUIRY \u2192</button><p style="font-size:0.65rem;color:rgba(255,255,255,0.65);text-align:center;margin:0.45rem 0 0.1rem;line-height:1.4;">\u{1F512} By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified updates via Call/WhatsApp.</p></form><div style="margin-top:0.8rem;text-align:center;border-top:1px solid rgba(255,255,255,0.08);padding-top:0.7rem;"><span style="font-size:0.68rem;color:#CBD5E1;">Direct Sales Helpline: </span><a href="tel:+917744009295" style="color:#D4AF37;text-decoration:none;font-weight:700;font-size:0.72rem;min-height:48px;display:inline-flex;align-items:center;padding:0.4rem 0.2rem;">+91 7744009295</a></div></div></div>`,document.body.appendChild(e),document.getElementById("pscl-modal-backdrop").addEventListener("click",window.closeEnquiryModal),document.getElementById("pscl-modal-close-x").addEventListener("click",window.closeEnquiryModal),document.getElementById("pscl-universal-lead-form").addEventListener("submit",window.handleEnquirySubmit),e)}window.openEnquiryModal=function(e){var t=z();if(t&&(t.style.display="flex",e&&typeof e=="string")){var a=document.getElementById("modal-project-interest");if(a){for(var n=0;n<a.options.length;n++)if(a.options[n].value===e||a.options[n].value.indexOf(e)!==-1){a.selectedIndex=n;break}}}},window.closeEnquiryModal=function(){var e=document.getElementById("pscl-enquiry-modal");e&&(e.style.display="none")},window.handleEnquirySubmit=function(e){e&&e.preventDefault&&e.preventDefault();var t=document.getElementById("modal-full-name"),a=document.getElementById("modal-mobile-phone"),n=document.getElementById("modal-email-address"),i=document.getElementById("modal-project-interest"),s=document.getElementById("wa-modal-optin"),o=t?t.value.trim():"",r=a?a.value.trim():"",l=n?n.value.trim():"",p=i?i.value:"General Enquiry",d=s&&s.checked?"YES":"NO";if(!r||r.length<10){alert("Please enter a valid 10-digit mobile number");return}var f=document.getElementById("modal-submit-btn");f&&(f.disabled=!0,f.textContent="Submitting...");var c="LEAD_"+Date.now(),m=r.replace(/[^0-9]/g,"");m.length===10&&(m="+91"+m);var u={name:o,phone:m,email:l||"N/A",project:p,whatsappOptin:d,source:window.location.href,page_title:document.title,timestamp:new Date().toISOString(),leadId:c,_subject:"\u{1F31F} New Website Lead: "+p+" - "+o+" ("+m+")",_captcha:"false"};try{sessionStorage.setItem("pscl_last_lead",JSON.stringify(u)),localStorage.setItem("pscl_last_lead",JSON.stringify(u));var b=JSON.parse(localStorage.getItem("pscl_offline_lead_vault")||"[]");b.push(u),localStorage.setItem("pscl_offline_lead_vault",JSON.stringify(b))}catch{}if(typeof window.gtag=="function"){try{window.gtag("set","user_data",{phone_number:m,email:l||void 0,address:{first_name:o?o.split(" ")[0]:void 0,last_name:o&&o.split(" ").length>1?o.split(" ").slice(1).join(" "):void 0,country:"IN"}})}catch{}window.gtag("event","conversion",{send_to:"AW-17430583486/2oseCKuOodYcEL6xxvdA",transaction_id:c,value:1,currency:"INR"}),window.gtag("event","generate_lead",{send_to:"AW-17430583486/2oseCKuOodYcEL6xxvdA",transaction_id:c,value:1,currency:"INR"})}if(navigator.sendBeacon)try{navigator.sendBeacon("/api/lead-capture",JSON.stringify(u))}catch{}try{fetch("https://formsubmit.co/ajax/propsmartrealty@gmail.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(u),keepalive:!0}).catch(function(){})}catch{}try{fetch("/api/lead-capture",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(u),keepalive:!0}).catch(function(){})}catch{}setTimeout(function(){window.location.href="/thank-you.html"},900)},document.addEventListener("click",function(e){try{var t=e.target;if(!t)return;var a=t.closest("button, a");if(!a)return;var n=(a.textContent||"").trim().toUpperCase(),i=a.getAttribute("href")||"",s=a.className||"";if((s.indexOf("open-enquiry-modal")!==-1||s.indexOf("nav-enquire-btn")!==-1||a.closest&&a.closest(".mobile-quick-bar")&&n.indexOf("ENQUIRE")!==-1||n.indexOf("ENQUIRE")!==-1||n.indexOf("REQUEST BROCHURE")!==-1||n.indexOf("BOOK SITE VISIT")!==-1||n.indexOf("DOWNLOAD BROCHURE")!==-1)&&i.indexOf("tel:")===-1&&i.indexOf("wa.me")===-1){e.preventDefault(),window.openEnquiryModal();return}(i.indexOf("wa.me")!==-1||i.indexOf("whatsapp.com")!==-1)&&typeof window.gtag=="function"&&(window.gtag("event","conversion",{send_to:"AW-17430583486/2oseCKuOodYcEL6xxvdA",value:1,currency:"INR"}),window.gtag("event","contact",{method:"whatsapp",event_category:"Direct Engagement",event_label:"WhatsApp Chat",value:1,currency:"INR"})),i.indexOf("tel:")===0&&typeof window.gtag=="function"&&(window.gtag("event","conversion",{send_to:"AW-17430583486/2oseCKuOodYcEL6xxvdA",value:1,currency:"INR"}),window.gtag("event","contact",{method:"phone",event_category:"Direct Engagement",event_label:i.replace("tel:",""),value:1,currency:"INR"}))}catch{}});function M(){var e=(window.location.pathname||"").toLowerCase();return e.indexOf("misty-greens")!==-1||e.indexOf("plot")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in Misty Greens NA Bungalow Plots at Forest Trails Bhugaon. Please send the 2026 price sheet, master layout, and plot availability."):e.indexOf("rivolo")!==-1||e.indexOf("villa")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in The Rivolo 4 & 5 BHK Luxury Forest Villas at Bhugaon. Please send floor plans, pricing, and villa specifications."):e.indexOf("canopy")!==-1||e.indexOf("2bhk")!==-1||e.indexOf("flat")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in The Canopy 2 & 3 BHK Nature Apartments at Forest Trails. Please send pricing, payment plans, and brochure."):e.indexOf("athashri")!==-1||e.indexOf("senior")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in Athashri Senior Living at Forest Trails Bhugaon. Please share 2 & 3 BHK assisted living details, medical amenities, and pricing."):e.indexOf("everglades")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in Everglades 1 & 2 BHK PRO Homes near Bavdhan. Please share brochure and pricing from \u20B948.5 L*."):e.indexOf("cove")!==-1||e.indexOf("bungalow")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in The Cove 4 BHK Duet Villas / Twin Bungalows. Please send floor plans and price sheet."):e.indexOf("highgardens")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in The Highgardens Terrace Homes at Forest Trails Bhugaon. Please share 2 BHK pricing and brochure."):e.indexOf("swaniketan")!==-1?encodeURIComponent("Hello Paranjape Team, I am interested in Swaniketan Assisted Living at Forest Trails Bhugaon. Please share 2 & 3 BHK healthcare services and price list."):encodeURIComponent("Hello Paranjape Team, I am exploring Paranjape Forest Trails 190-Acre Township in Bhugaon. Please send the complete 2026 master plan and all enclave brochures.")}function _(){if(document.getElementById("pscl-live-pulse"))return;var e=document.createElement("style");e.id="pscl-live-pulse-styles",e.textContent=`
       #pscl-live-pulse {
         position: fixed;
         bottom: 85px;
@@ -878,87 +334,7 @@
       .pscl-pulse-close:hover {
         color: #fff;
       }
-    `;
-    document.head.appendChild(pulseStyle);
-
-    var toast = document.createElement('div');
-    toast.id = 'pscl-live-pulse';
-    toast.innerHTML = '<div class="pscl-pulse-badge">FT</div>' +
-      '<div style="flex:1;min-width:0;">' +
-        '<div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">' +
-          '<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;"></span>' +
-          '<span id="pscl-pulse-time" style="font-size:0.62rem;color:#D4AF37;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;">LIVE VERIFIED</span>' +
-        '</div>' +
-        '<div id="pscl-pulse-msg" style="font-weight:600;color:#F1F5F9;line-height:1.3;font-size:0.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Dr. S. Kulkarni from Kothrud reserved a 2,400 sq.ft plot at Misty Greens.</div>' +
-      '</div>' +
-      '<button type="button" id="pscl-pulse-action-btn" class="pscl-pulse-cta">Enquire →</button>' +
-      '<button type="button" id="pscl-pulse-dismiss-btn" class="pscl-pulse-close" aria-label="Dismiss">✕</button>';
-    document.body.appendChild(toast);
-
-    var rhythms = [
-      { msg: "Dr. S. Kulkarni from Kothrud reserved a 2,400 sq.ft plot at Misty Greens.", time: "5 MINS AGO", enclave: "misty-greens" },
-      { msg: "Tech Lead from Hinjewadi booked a site visit for The Rivolo 4BHK Villa.", time: "12 MINS AGO", enclave: "the-rivolo" },
-      { msg: "Family from Bavdhan received The Canopy 2 & 3 BHK floor plans & price sheet.", time: "18 MINS AGO", enclave: "the-canopy" },
-      { msg: "Athashri 2 & 3 BHK Senior Living: 3 units allotted this week.", time: "LIVE UPDATE", enclave: "athashri-senior-living" },
-      { msg: "Everglades 1 & 2 BHK PRO Homes starting ₹48.5 L* - High enquiry volume.", time: "HOT DEAL", enclave: "everglades" },
-      { msg: "Misty Greens Phase 2: Over 85% NA Plots Sold. Limited sectors remaining.", time: "HIGH DEMAND", enclave: "misty-greens" }
-    ];
-
-    var currentIndex = 0;
-    var isDismissed = false;
-
-    function showNextToast() {
-      if (isDismissed) return;
-      var item = rhythms[currentIndex];
-      var msgEl = document.getElementById('pscl-pulse-msg');
-      var timeEl = document.getElementById('pscl-pulse-time');
-      var actionBtn = document.getElementById('pscl-pulse-action-btn');
-      if (msgEl) msgEl.textContent = item.msg;
-      if (timeEl) timeEl.textContent = item.time;
-      if (actionBtn) {
-        actionBtn.setAttribute('data-enclave', item.enclave);
-        actionBtn.onclick = function(e) {
-          e.stopPropagation();
-          window.openEnquiryModal && window.openEnquiryModal(item.enclave);
-        };
-      }
-      toast.onclick = function() {
-        window.openEnquiryModal && window.openEnquiryModal(item.enclave);
-      };
-
-      toast.classList.add('pscl-pulse-visible');
-
-      setTimeout(function() {
-        if (!isDismissed) {
-          toast.classList.remove('pscl-pulse-visible');
-          currentIndex = (currentIndex + 1) % rhythms.length;
-          setTimeout(showNextToast, 16000);
-        }
-      }, 6000);
-    }
-
-    var dismissBtn = document.getElementById('pscl-pulse-dismiss-btn');
-    if (dismissBtn) {
-      dismissBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        isDismissed = true;
-        toast.classList.remove('pscl-pulse-visible');
-        setTimeout(function() {
-          if (toast.parentNode) toast.parentNode.removeChild(toast);
-        }, 400);
-      });
-    }
-
-    setTimeout(showNextToast, 4500);
-  }
-
-  // ─── Floating VIP Property Concierge Action Dial (FAB) ───────────────────────
-  function injectConciergeFAB() {
-    if (document.getElementById('pscl-concierge-fab')) return;
-
-    var fabStyle = document.createElement('style');
-    fabStyle.id = 'pscl-fab-styles';
-    fabStyle.textContent = `
+    `,document.head.appendChild(e);var t=document.createElement("div");t.id="pscl-live-pulse",t.innerHTML='<div class="pscl-pulse-badge">FT</div><div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;"></span><span id="pscl-pulse-time" style="font-size:0.62rem;color:#D4AF37;font-weight:800;letter-spacing:0.05em;text-transform:uppercase;">LIVE VERIFIED</span></div><div id="pscl-pulse-msg" style="font-weight:600;color:#F1F5F9;line-height:1.3;font-size:0.72rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">Dr. S. Kulkarni from Kothrud reserved a 2,400 sq.ft plot at Misty Greens.</div></div><button type="button" id="pscl-pulse-action-btn" class="pscl-pulse-cta">Enquire \u2192</button><button type="button" id="pscl-pulse-dismiss-btn" class="pscl-pulse-close" aria-label="Dismiss">\u2715</button>',document.body.appendChild(t);var a=[{msg:"Dr. S. Kulkarni from Kothrud reserved a 2,400 sq.ft plot at Misty Greens.",time:"5 MINS AGO",enclave:"misty-greens"},{msg:"Tech Lead from Hinjewadi booked a site visit for The Rivolo 4BHK Villa.",time:"12 MINS AGO",enclave:"the-rivolo"},{msg:"Family from Bavdhan received The Canopy 2 & 3 BHK floor plans & price sheet.",time:"18 MINS AGO",enclave:"the-canopy"},{msg:"Athashri 2 & 3 BHK Senior Living: 3 units allotted this week.",time:"LIVE UPDATE",enclave:"athashri-senior-living"},{msg:"Everglades 1 & 2 BHK PRO Homes starting \u20B948.5 L* - High enquiry volume.",time:"HOT DEAL",enclave:"everglades"},{msg:"Misty Greens Phase 2: Over 85% NA Plots Sold. Limited sectors remaining.",time:"HIGH DEMAND",enclave:"misty-greens"}],n=0,i=!1;function s(){if(!i){var r=a[n],l=document.getElementById("pscl-pulse-msg"),p=document.getElementById("pscl-pulse-time"),d=document.getElementById("pscl-pulse-action-btn");l&&(l.textContent=r.msg),p&&(p.textContent=r.time),d&&(d.setAttribute("data-enclave",r.enclave),d.onclick=function(f){f.stopPropagation(),window.openEnquiryModal&&window.openEnquiryModal(r.enclave)}),t.onclick=function(){window.openEnquiryModal&&window.openEnquiryModal(r.enclave)},t.classList.add("pscl-pulse-visible"),setTimeout(function(){i||(t.classList.remove("pscl-pulse-visible"),n=(n+1)%a.length,setTimeout(s,16e3))},6e3)}}var o=document.getElementById("pscl-pulse-dismiss-btn");o&&o.addEventListener("click",function(r){r.stopPropagation(),i=!0,t.classList.remove("pscl-pulse-visible"),setTimeout(function(){t.parentNode&&t.parentNode.removeChild(t)},400)}),setTimeout(s,4500)}function O(){if(!document.getElementById("pscl-concierge-fab")){var e=document.createElement("style");e.id="pscl-fab-styles",e.textContent=`
       #pscl-concierge-fab {
         position: fixed;
         bottom: 85px;
@@ -1053,161 +429,7 @@
         color: #D4AF37;
         transform: translateX(-2px);
       }
-    `;
-    document.head.appendChild(fabStyle);
-
-    var fabWrap = document.createElement('div');
-    fabWrap.id = 'pscl-concierge-fab';
-    fabWrap.innerHTML = '<div id="pscl-fab-menu">' +
-        '<div style="padding:0.3rem 0.5rem 0.4rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:2px;">' +
-          '<span style="font-size:0.64rem;color:#D4AF37;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">✦ VIP Buyer Concierge</span>' +
-        '</div>' +
-        '<button type="button" class="pscl-fab-item" id="pscl-fab-action-brochure">' +
-          '<span style="font-size:0.95rem;">📥</span>' +
-          '<span>Download 2026 Price List &amp; Plans</span>' +
-        '</button>' +
-        '<a class="pscl-fab-item" id="pscl-fab-action-whatsapp" href="#" target="_blank" rel="noopener">' +
-          '<span style="font-size:0.95rem;">💬</span>' +
-          '<span>Instant WhatsApp Advisory</span>' +
-        '</a>' +
-        '<button type="button" class="pscl-fab-item" id="pscl-fab-action-calc">' +
-          '<span style="font-size:0.95rem;">🧮</span>' +
-          '<span>Cost &amp; EMI Visualizer</span>' +
-        '</button>' +
-        '<button type="button" class="pscl-fab-item" id="pscl-fab-action-cab">' +
-          '<span style="font-size:0.95rem;">🚗</span>' +
-          '<span>Book Free AC Cab Site Visit</span>' +
-        '</button>' +
-        '<a class="pscl-fab-item" href="tel:+917744009295" style="border-top:1px solid rgba(212,175,55,0.25);color:#D4AF37;">' +
-          '<span style="font-size:0.95rem;">📞</span>' +
-          '<span>Call Direct: +91 7744009295</span>' +
-        '</a>' +
-      '</div>' +
-      '<button type="button" id="pscl-fab-btn" aria-label="Open Property Concierge">✦</button>';
-    document.body.appendChild(fabWrap);
-
-    var btn = document.getElementById('pscl-fab-btn');
-    var menu = document.getElementById('pscl-fab-menu');
-
-    btn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      menu.classList.toggle('pscl-menu-active');
-      btn.textContent = menu.classList.contains('pscl-menu-active') ? '✕' : '✦';
-    });
-
-    document.addEventListener('click', function(e) {
-      if (!fabWrap.contains(e.target)) {
-        menu.classList.remove('pscl-menu-active');
-        btn.textContent = '✦';
-      }
-    });
-
-    document.getElementById('pscl-fab-action-brochure').addEventListener('click', function() {
-      menu.classList.remove('pscl-menu-active');
-      btn.textContent = '✦';
-      window.openEnquiryModal && window.openEnquiryModal();
-    });
-
-    var calcAction = document.getElementById('pscl-fab-action-calc');
-    if (calcAction) {
-      calcAction.addEventListener('click', function() {
-        menu.classList.remove('pscl-menu-active');
-        btn.textContent = '✦';
-        openCostVisualizerModal();
-      });
-    }
-
-    document.getElementById('pscl-fab-action-cab').addEventListener('click', function() {
-      menu.classList.remove('pscl-menu-active');
-      btn.textContent = '✦';
-      openVipCabModal();
-    });
-
-    var waLink = document.getElementById('pscl-fab-action-whatsapp');
-    if (waLink) {
-      waLink.href = 'https://wa.me/917744009295?text=' + getSmartWhatsAppMessage();
-    }
-  }
-
-  
-  // ─── Sovereign Multi-Currency Cost & EMI Visualizer Engine ───────────────────
-  var ENCLAVES_DATA = [
-    { id: 'misty-greens', name: 'Misty Greens NA Plots', typology: 'Gated NA Bungalow Plots (1,930 – 3,500+ sq.ft)', baseINR: 12300000, priceDisplay: '₹1.23 Cr*', rera: 'P52100053834', isPlot: true, gstRate: 0.00, status: 'Ready for Registration', minINR: 12300000, maxINR: 35000000 },
-    { id: 'rivolo', name: 'The Rivolo Luxury Forest Villas', typology: '4 & 5 BHK Bespoke Forest Villas (3,400 – 5,500 sq.ft)', baseINR: 38900000, priceDisplay: '₹3.89 Cr*', rera: 'P52100031560', isPlot: false, gstRate: 0.05, status: 'Under Construction (Possession Q4 2026)', minINR: 38900000, maxINR: 55000000 },
-    { id: 'the-cove', name: 'The Cove Duet & Twin Villas', typology: '4 BHK Duet Villas (2,400 – 3,800 sq.ft)', baseINR: 28500000, priceDisplay: '₹2.85 Cr*', rera: 'P52100048536', isPlot: false, gstRate: 0.05, status: 'Active Bookings', minINR: 28500000, maxINR: 38000000 },
-    { id: 'the-canopy', name: 'The Canopy Nature Apartments', typology: '2 & 3 BHK Hillside Apartments (850 – 1,250 sq.ft)', baseINR: 8900000, priceDisplay: '₹89 Lakhs*', rera: 'P52100079518', isPlot: false, gstRate: 0.05, status: 'Possession 2027', minINR: 8900000, maxINR: 14500000 },
-    { id: 'highgardens', name: 'The Highgardens Terrace Homes', typology: '2 & 3 BHK Stepped Terrace Homes (950 – 1,450 sq.ft)', baseINR: 8900000, priceDisplay: '₹89 Lakhs*', rera: 'P52100053310', isPlot: false, gstRate: 0.00, status: 'Ready to Move In (OC Received)', minINR: 8900000, maxINR: 13500000 },
-    { id: 'everglades', name: 'Everglades Bavdhan 1 & 2 BHK', typology: '1 & 2 BHK PRO Efficient Homes (480 – 750 sq.ft)', baseINR: 4850000, priceDisplay: '₹48.50 Lakhs*', rera: 'P52100055711', isPlot: false, gstRate: 0.05, status: 'Active Booking', minINR: 4850000, maxINR: 7500000 },
-    { id: 'athashri', name: 'Athashri Senior Living (2 & 3 BHK)', typology: '2 & 3 BHK Assisted Senior Living (750 – 1,150 sq.ft)', baseINR: 8300000, priceDisplay: '₹83 Lakhs*', rera: 'P52100077686', isPlot: false, gstRate: 0.00, status: 'Ready & Available', minINR: 8300000, maxINR: 12500000 },
-    { id: 'swaniketan', name: 'Swaniketan Assisted Care (2 & 3 BHK)', typology: '2 & 3 BHK Assisted Care Living (720 – 1,100 sq.ft)', baseINR: 7900000, priceDisplay: '₹79 Lakhs*', rera: 'P52100052124', isPlot: false, gstRate: 0.00, status: 'Available', minINR: 7900000, maxINR: 11000000 },
-    { id: 'verandah', name: 'The Verandah Duplex Homes', typology: '3 & 4 BHK Luxury Duplex Homes (1,300 – 2,200 sq.ft)', baseINR: 9300000, priceDisplay: '₹93 Lakhs*', rera: 'P52100002194', isPlot: false, gstRate: 0.00, status: 'Ready to Move In', minINR: 9300000, maxINR: 16000000 },
-    { id: 'orchard', name: 'Orchard Residences (2 & 3 BHK)', typology: '2 & 3 BHK Hillside Apartments (850 – 1,300 sq.ft)', baseINR: 8300000, priceDisplay: '₹83 Lakhs*', rera: 'P52100055710', isPlot: false, gstRate: 0.00, status: 'Ready to Move In', minINR: 8300000, maxINR: 12500000 }
-  ];
-
-  var FOREX_RATES = {
-    INR: { symbol: '₹', rate: 1, label: '₹ INR', locale: 'en-IN' },
-    USD: { symbol: '$', rate: 86.50, label: '$ USD', locale: 'en-US' },
-    AED: { symbol: 'AED ', rate: 23.55, label: 'د.إ AED', locale: 'en-AE' },
-    GBP: { symbol: '£', rate: 110.20, label: '£ GBP', locale: 'en-GB' },
-    EUR: { symbol: '€', rate: 92.80, label: '€ EUR', locale: 'de-DE' },
-    SGD: { symbol: 'S$', rate: 64.50, label: 'S$ SGD', locale: 'en-SG' }
-  };
-
-  function formatMoney(amountINR, currKey) {
-    var c = FOREX_RATES[currKey] || FOREX_RATES.INR;
-    var converted = amountINR / c.rate;
-    if (currKey === 'INR') {
-      if (converted >= 10000000) {
-        return '₹' + (converted / 10000000).toFixed(2) + ' Cr*';
-      }
-      if (converted >= 100000) {
-        return '₹' + (converted / 100000).toFixed(2) + ' L*';
-      }
-      return '₹' + Math.round(converted).toLocaleString('en-IN');
-    }
-    return c.symbol + Math.round(converted).toLocaleString('en-US');
-  }
-
-  function calculateCosts(baseINR, gender, isPlot, gstRate, downPaymentPct, loanYears, interestRateAnnual) {
-    // Stamp Duty: Male 5%, Female 4% (1% MH Govt concession), Joint 4.5%
-    var sdPct = gender === 'female' ? 0.04 : (gender === 'joint' ? 0.045 : 0.05);
-    var stampDuty = Math.round(baseINR * sdPct);
-    // Registration: capped at 30,000 for residential, or 1% for plots
-    var regFee = isPlot ? Math.min(Math.round(baseINR * 0.01), 30000) : 30000;
-    var gst = Math.round(baseINR * gstRate);
-    var totalOutlay = baseINR + stampDuty + regFee + gst;
-
-    // Loan & EMI
-    var loanAmount = Math.round(baseINR * (1 - (downPaymentPct / 100)));
-    var monthlyRate = (interestRateAnnual / 100) / 12;
-    var totalMonths = loanYears * 12;
-    var emi = 0;
-    if (monthlyRate > 0 && totalMonths > 0) {
-      emi = Math.round(loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1));
-    }
-    var totalLoanRepayment = emi * totalMonths;
-    var totalInterest = totalLoanRepayment - loanAmount;
-
-    return {
-      baseINR: baseINR,
-      sdPct: sdPct,
-      stampDuty: stampDuty,
-      regFee: regFee,
-      gst: gst,
-      totalOutlay: totalOutlay,
-      loanAmount: loanAmount,
-      emi: emi,
-      totalInterest: totalInterest
-    };
-  }
-
-  // ─── Inject Interactive Cost Visualizer Modal ──────────────────────────────
-  function injectCostVisualizerModal() {
-    if (document.getElementById('pscl-cost-modal-wrap')) return;
-
-    var style = document.createElement('style');
-    style.id = 'pscl-cost-modal-styles';
-    style.textContent = `
+    `,document.head.appendChild(e);var t=document.createElement("div");t.id="pscl-concierge-fab",t.innerHTML='<div id="pscl-fab-menu"><div style="padding:0.3rem 0.5rem 0.4rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:2px;"><span style="font-size:0.64rem;color:#D4AF37;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;">\u2726 VIP Buyer Concierge</span></div><button type="button" class="pscl-fab-item" id="pscl-fab-action-brochure"><span style="font-size:0.95rem;">\u{1F4E5}</span><span>Download 2026 Price List &amp; Plans</span></button><a class="pscl-fab-item" id="pscl-fab-action-whatsapp" href="#" target="_blank" rel="noopener"><span style="font-size:0.95rem;">\u{1F4AC}</span><span>Instant WhatsApp Advisory</span></a><button type="button" class="pscl-fab-item" id="pscl-fab-action-calc"><span style="font-size:0.95rem;">\u{1F9EE}</span><span>Cost &amp; EMI Visualizer</span></button><button type="button" class="pscl-fab-item" id="pscl-fab-action-cab"><span style="font-size:0.95rem;">\u{1F697}</span><span>Book Free AC Cab Site Visit</span></button><a class="pscl-fab-item" href="tel:+917744009295" style="border-top:1px solid rgba(212,175,55,0.25);color:#D4AF37;"><span style="font-size:0.95rem;">\u{1F4DE}</span><span>Call Direct: +91 7744009295</span></a></div><button type="button" id="pscl-fab-btn" aria-label="Open Property Concierge">\u2726</button>',document.body.appendChild(t);var a=document.getElementById("pscl-fab-btn"),n=document.getElementById("pscl-fab-menu");a.addEventListener("click",function(o){o.stopPropagation(),n.classList.toggle("pscl-menu-active"),a.textContent=n.classList.contains("pscl-menu-active")?"\u2715":"\u2726"}),document.addEventListener("click",function(o){t.contains(o.target)||(n.classList.remove("pscl-menu-active"),a.textContent="\u2726")}),document.getElementById("pscl-fab-action-brochure").addEventListener("click",function(){n.classList.remove("pscl-menu-active"),a.textContent="\u2726",window.openEnquiryModal&&window.openEnquiryModal()});var i=document.getElementById("pscl-fab-action-calc");i&&i.addEventListener("click",function(){n.classList.remove("pscl-menu-active"),a.textContent="\u2726",L()}),document.getElementById("pscl-fab-action-cab").addEventListener("click",function(){n.classList.remove("pscl-menu-active"),a.textContent="\u2726",A()});var s=document.getElementById("pscl-fab-action-whatsapp");s&&(s.href="https://wa.me/917744009295?text="+M())}}var y=[{id:"misty-greens",name:"Misty Greens NA Plots",typology:"Gated NA Bungalow Plots (1,930 \u2013 3,500+ sq.ft)",baseINR:123e5,priceDisplay:"\u20B91.23 Cr*",rera:"P52100053834",isPlot:!0,gstRate:0,status:"Ready for Registration",minINR:123e5,maxINR:35e6},{id:"rivolo",name:"The Rivolo Luxury Forest Villas",typology:"4 & 5 BHK Bespoke Forest Villas (3,400 \u2013 5,500 sq.ft)",baseINR:389e5,priceDisplay:"\u20B93.89 Cr*",rera:"P52100031560",isPlot:!1,gstRate:.05,status:"Under Construction (Possession Q4 2026)",minINR:389e5,maxINR:55e6},{id:"the-cove",name:"The Cove Duet & Twin Villas",typology:"4 BHK Duet Villas (2,400 \u2013 3,800 sq.ft)",baseINR:285e5,priceDisplay:"\u20B92.85 Cr*",rera:"P52100048536",isPlot:!1,gstRate:.05,status:"Active Bookings",minINR:285e5,maxINR:38e6},{id:"the-canopy",name:"The Canopy Nature Apartments",typology:"2 & 3 BHK Hillside Apartments (850 \u2013 1,250 sq.ft)",baseINR:89e5,priceDisplay:"\u20B989 Lakhs*",rera:"P52100079518",isPlot:!1,gstRate:.05,status:"Possession 2027",minINR:89e5,maxINR:145e5},{id:"highgardens",name:"The Highgardens Terrace Homes",typology:"2 & 3 BHK Stepped Terrace Homes (950 \u2013 1,450 sq.ft)",baseINR:89e5,priceDisplay:"\u20B989 Lakhs*",rera:"P52100053310",isPlot:!1,gstRate:0,status:"Ready to Move In (OC Received)",minINR:89e5,maxINR:135e5},{id:"everglades",name:"Everglades Bavdhan 1 & 2 BHK",typology:"1 & 2 BHK PRO Efficient Homes (480 \u2013 750 sq.ft)",baseINR:485e4,priceDisplay:"\u20B948.50 Lakhs*",rera:"P52100055711",isPlot:!1,gstRate:.05,status:"Active Booking",minINR:485e4,maxINR:75e5},{id:"athashri",name:"Athashri Senior Living (2 & 3 BHK)",typology:"2 & 3 BHK Assisted Senior Living (750 \u2013 1,150 sq.ft)",baseINR:83e5,priceDisplay:"\u20B983 Lakhs*",rera:"P52100077686",isPlot:!1,gstRate:0,status:"Ready & Available",minINR:83e5,maxINR:125e5},{id:"swaniketan",name:"Swaniketan Assisted Care (2 & 3 BHK)",typology:"2 & 3 BHK Assisted Care Living (720 \u2013 1,100 sq.ft)",baseINR:79e5,priceDisplay:"\u20B979 Lakhs*",rera:"P52100052124",isPlot:!1,gstRate:0,status:"Available",minINR:79e5,maxINR:11e6},{id:"verandah",name:"The Verandah Duplex Homes",typology:"3 & 4 BHK Luxury Duplex Homes (1,300 \u2013 2,200 sq.ft)",baseINR:93e5,priceDisplay:"\u20B993 Lakhs*",rera:"P52100002194",isPlot:!1,gstRate:0,status:"Ready to Move In",minINR:93e5,maxINR:16e6},{id:"orchard",name:"Orchard Residences (2 & 3 BHK)",typology:"2 & 3 BHK Hillside Apartments (850 \u2013 1,300 sq.ft)",baseINR:83e5,priceDisplay:"\u20B983 Lakhs*",rera:"P52100055710",isPlot:!1,gstRate:0,status:"Ready to Move In",minINR:83e5,maxINR:125e5}],S={INR:{symbol:"\u20B9",rate:1,label:"\u20B9 INR",locale:"en-IN"},USD:{symbol:"$",rate:86.5,label:"$ USD",locale:"en-US"},AED:{symbol:"AED ",rate:23.55,label:"\u062F.\u0625 AED",locale:"en-AE"},GBP:{symbol:"\xA3",rate:110.2,label:"\xA3 GBP",locale:"en-GB"},EUR:{symbol:"\u20AC",rate:92.8,label:"\u20AC EUR",locale:"de-DE"},SGD:{symbol:"S$",rate:64.5,label:"S$ SGD",locale:"en-SG"}};function g(e,t){var a=S[t]||S.INR,n=e/a.rate;return t==="INR"?n>=1e7?"\u20B9"+(n/1e7).toFixed(2)+" Cr*":n>=1e5?"\u20B9"+(n/1e5).toFixed(2)+" L*":"\u20B9"+Math.round(n).toLocaleString("en-IN"):a.symbol+Math.round(n).toLocaleString("en-US")}function H(e,t,a,n,i,s,o){var r=t==="female"?.04:t==="joint"?.045:.05,l=Math.round(e*r),p=a?Math.min(Math.round(e*.01),3e4):3e4,d=Math.round(e*n),f=e+l+p+d,c=Math.round(e*(1-i/100)),m=o/100/12,u=s*12,b=0;m>0&&u>0&&(b=Math.round(c*m*Math.pow(1+m,u)/(Math.pow(1+m,u)-1)));var v=b*u,j=v-c;return{baseINR:e,sdPct:r,stampDuty:l,regFee:p,gst:d,totalOutlay:f,loanAmount:c,emi:b,totalInterest:j}}function C(){if(document.getElementById("pscl-cost-modal-wrap"))return;var e=document.createElement("style");e.id="pscl-cost-modal-styles",e.textContent=`
       #pscl-cost-modal-wrap {
         position: fixed;
         inset: 0;
@@ -1338,26 +560,21 @@
         gap: 6px;
         box-shadow: 0 4px 15px rgba(107,13,13,0.5);
       }
-    `;
-    document.head.appendChild(style);
-
-    var modalWrap = document.createElement('div');
-    modalWrap.id = 'pscl-cost-modal-wrap';
-    modalWrap.innerHTML = `
+    `,document.head.appendChild(e);var t=document.createElement("div");t.id="pscl-cost-modal-wrap",t.innerHTML=`
       <div class="pscl-cost-card" role="dialog" aria-modal="true" aria-labelledby="pscl-calc-title">
-        <button type="button" class="pscl-close-btn" id="pscl-cost-close-btn" aria-label="Close Cost Visualizer">✕</button>
-        <span class="pscl-badge">✦ Interactive Real Estate Visualizer</span>
+        <button type="button" class="pscl-close-btn" id="pscl-cost-close-btn" aria-label="Close Cost Visualizer">\u2715</button>
+        <span class="pscl-badge">\u2726 Interactive Real Estate Visualizer</span>
         <h2 id="pscl-calc-title" style="margin:0 0 0.3rem;font-size:1.35rem;color:#ffffff;font-weight:800;">Enclave Cost, Taxes &amp; EMI Calculator</h2>
         <p style="margin:0 0 1rem;font-size:0.8rem;color:rgba(255,255,255,0.7);">Live Maharashtra Stamp Duty, Registration, Indicative Bank EMI &amp; Global Currency Converter.</p>
         
         <!-- Multi-Currency Selector -->
         <div style="font-size:0.7rem;color:#D4AF37;font-weight:800;margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.06em;">Select Currency (NRI Friendly):</div>
         <div class="pscl-curr-pills" id="pscl-curr-pills-wrap">
-          <button type="button" class="pscl-curr-btn active" data-curr="INR">₹ INR</button>
+          <button type="button" class="pscl-curr-btn active" data-curr="INR">\u20B9 INR</button>
           <button type="button" class="pscl-curr-btn" data-curr="USD">$ USD</button>
-          <button type="button" class="pscl-curr-btn" data-curr="AED">د.إ AED</button>
-          <button type="button" class="pscl-curr-btn" data-curr="GBP">£ GBP</button>
-          <button type="button" class="pscl-curr-btn" data-curr="EUR">€ EUR</button>
+          <button type="button" class="pscl-curr-btn" data-curr="AED">\u062F.\u0625 AED</button>
+          <button type="button" class="pscl-curr-btn" data-curr="GBP">\xA3 GBP</button>
+          <button type="button" class="pscl-curr-btn" data-curr="EUR">\u20AC EUR</button>
           <button type="button" class="pscl-curr-btn" data-curr="SGD">S$ SGD</button>
         </div>
 
@@ -1365,9 +582,7 @@
         <div style="margin-bottom:0.8rem;">
           <label for="pscl-calc-enclave-select" style="display:block;font-size:0.75rem;color:rgba(255,255,255,0.8);margin-bottom:0.3rem;font-weight:700;">Select Enclave &amp; Typology:</label>
           <select id="pscl-calc-enclave-select" style="width:100%;background:#1d1d2b;border:1px solid rgba(212,175,55,0.4);color:#fff;padding:0.65rem 0.8rem;border-radius:10px;font-size:0.82rem;font-weight:700;outline:none;">
-            ${ENCLAVES_DATA.map(function(e) {
-              return '<option value="' + e.id + '">' + e.name + ' — ' + e.priceDisplay + ' (' + e.rera + ')</option>';
-            }).join('')}
+            ${y.map(function(o){return'<option value="'+o.id+'">'+o.name+" \u2014 "+o.priceDisplay+" ("+o.rera+")</option>"}).join("")}
           </select>
         </div>
 
@@ -1379,7 +594,7 @@
               <input type="radio" name="pscl_calc_gender" value="male" checked style="accent-color:#D4AF37;"> Standard (5% Stamp Duty)
             </label>
             <label style="display:flex;align-items:center;gap:5px;cursor:pointer;color:#10B981;font-weight:700;">
-              <input type="radio" name="pscl_calc_gender" value="female" style="accent-color:#10B981;"> Female Buyer (4% — Save 1%!)
+              <input type="radio" name="pscl_calc_gender" value="female" style="accent-color:#10B981;"> Female Buyer (4% \u2014 Save 1%!)
             </label>
             <label style="display:flex;align-items:center;gap:5px;cursor:pointer;">
               <input type="radio" name="pscl_calc_gender" value="joint" style="accent-color:#D4AF37;"> Joint (4.5%)
@@ -1392,7 +607,7 @@
           <div class="pscl-slider-row">
             <div class="pscl-slider-label">
               <span>Down Payment: <strong id="pscl-dp-val" style="color:#D4AF37;">20%</strong></span>
-              <span id="pscl-dp-amount" style="color:rgba(255,255,255,0.6);">₹24.60 L*</span>
+              <span id="pscl-dp-amount" style="color:rgba(255,255,255,0.6);">\u20B924.60 L*</span>
             </div>
             <input type="range" id="pscl-dp-slider" min="10" max="50" step="5" value="20" class="pscl-slider-input">
           </div>
@@ -1410,23 +625,23 @@
           <!-- Card 1: Outlay Breakdown -->
           <div class="pscl-cost-box highlight">
             <span style="display:block;font-size:0.68rem;text-transform:uppercase;color:#D4AF37;font-weight:800;letter-spacing:0.06em;">Indicative Total Outlay</span>
-            <div id="pscl-res-total-outlay" style="font-size:1.45rem;font-weight:900;color:#ffffff;margin:0.25rem 0;">₹1.29 Cr*</div>
+            <div id="pscl-res-total-outlay" style="font-size:1.45rem;font-weight:900;color:#ffffff;margin:0.25rem 0;">\u20B91.29 Cr*</div>
             <div style="font-size:0.73rem;color:rgba(255,255,255,0.75);line-height:1.4;">
-              <div>• Base Agreement: <span id="pscl-res-base" style="color:#fff;font-weight:700;">₹1.23 Cr*</span></div>
-              <div>• Stamp Duty: <span id="pscl-res-sd" style="color:#fff;font-weight:700;">₹6.15 L*</span></div>
-              <div>• Registration: <span id="pscl-res-reg" style="color:#fff;font-weight:700;">₹30,000*</span></div>
-              <div>• GST: <span id="pscl-res-gst" style="color:#fff;font-weight:700;">0% (Nil)</span></div>
+              <div>\u2022 Base Agreement: <span id="pscl-res-base" style="color:#fff;font-weight:700;">\u20B91.23 Cr*</span></div>
+              <div>\u2022 Stamp Duty: <span id="pscl-res-sd" style="color:#fff;font-weight:700;">\u20B96.15 L*</span></div>
+              <div>\u2022 Registration: <span id="pscl-res-reg" style="color:#fff;font-weight:700;">\u20B930,000*</span></div>
+              <div>\u2022 GST: <span id="pscl-res-gst" style="color:#fff;font-weight:700;">0% (Nil)</span></div>
             </div>
           </div>
 
           <!-- Card 2: EMI Visualizer -->
           <div class="pscl-cost-box">
             <span style="display:block;font-size:0.68rem;text-transform:uppercase;color:#10B981;font-weight:800;letter-spacing:0.06em;">Indicative Bank EMI</span>
-            <div id="pscl-res-emi" style="font-size:1.45rem;font-weight:900;color:#10B981;margin:0.25rem 0;">₹85,420<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span></div>
+            <div id="pscl-res-emi" style="font-size:1.45rem;font-weight:900;color:#10B981;margin:0.25rem 0;">\u20B985,420<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span></div>
             <div style="font-size:0.73rem;color:rgba(255,255,255,0.75);line-height:1.4;">
-              <div>• Loan Amount: <span id="pscl-res-loan" style="color:#fff;font-weight:700;">₹98.40 L*</span></div>
-              <div>• Bank Partners: <span style="color:#D4AF37;">SBI, HDFC, ICICI, BoB</span></div>
-              <div>• Tax Benefit: <span style="color:#fff;">Sec 24(b) &amp; 80C</span></div>
+              <div>\u2022 Loan Amount: <span id="pscl-res-loan" style="color:#fff;font-weight:700;">\u20B998.40 L*</span></div>
+              <div>\u2022 Bank Partners: <span style="color:#D4AF37;">SBI, HDFC, ICICI, BoB</span></div>
+              <div>\u2022 Tax Benefit: <span style="color:#fff;">Sec 24(b) &amp; 80C</span></div>
             </div>
           </div>
         </div>
@@ -1436,146 +651,14 @@
         <!-- CTAs -->
         <div class="pscl-cost-cta-row">
           <a class="pscl-cost-cta-wa" id="pscl-cost-cta-wa-btn" href="#" target="_blank" rel="noopener">
-            <span>💬</span><span>Send Cost Sheet on WhatsApp</span>
+            <span>\u{1F4AC}</span><span>Send Cost Sheet on WhatsApp</span>
           </a>
           <button type="button" class="pscl-cost-cta-cab" id="pscl-cost-cta-cab-btn">
-            <span>🚗</span><span>Book Free AC Cab Site Visit</span>
+            <span>\u{1F697}</span><span>Book Free AC Cab Site Visit</span>
           </button>
         </div>
       </div>
-    `;
-    document.body.appendChild(modalWrap);
-
-    var currentCurrency = 'INR';
-
-    function getSelectedEnclave() {
-      var sel = document.getElementById('pscl-calc-enclave-select');
-      var val = sel ? sel.value : 'misty-greens';
-      for (var i = 0; i < ENCLAVES_DATA.length; i++) {
-        if (ENCLAVES_DATA[i].id === val) return ENCLAVES_DATA[i];
-      }
-      return ENCLAVES_DATA[0];
-    }
-
-    function refreshCalculations() {
-      var enclave = getSelectedEnclave();
-      var genderRadio = document.querySelector('input[name="pscl_calc_gender"]:checked');
-      var gender = genderRadio ? genderRadio.value : 'male';
-      var dpPct = parseInt(document.getElementById('pscl-dp-slider').value, 10);
-      var tenure = parseInt(document.getElementById('pscl-tenure-slider').value, 10);
-      var interest = 8.5;
-
-      document.getElementById('pscl-dp-val').textContent = dpPct + '%';
-      document.getElementById('pscl-tenure-val').textContent = tenure + ' Years';
-
-      var res = calculateCosts(enclave.baseINR, gender, enclave.isPlot, enclave.gstRate, dpPct, tenure, interest);
-
-      var dpINR = Math.round(enclave.baseINR * (dpPct / 100));
-      document.getElementById('pscl-dp-amount').textContent = formatMoney(dpINR, currentCurrency);
-
-      document.getElementById('pscl-res-total-outlay').textContent = formatMoney(res.totalOutlay, currentCurrency);
-      document.getElementById('pscl-res-base').textContent = formatMoney(res.baseINR, currentCurrency);
-      document.getElementById('pscl-res-sd').textContent = formatMoney(res.stampDuty, currentCurrency) + ' (' + (res.sdPct * 100) + '%)';
-      document.getElementById('pscl-res-reg').textContent = formatMoney(res.regFee, currentCurrency);
-      document.getElementById('pscl-res-gst').textContent = enclave.gstRate > 0 ? formatMoney(res.gst, currentCurrency) + ' (5%)' : '0% (Exempt)';
-
-      var emiDisplay = currentCurrency === 'INR' ? '₹' + res.emi.toLocaleString('en-IN') : formatMoney(res.emi, currentCurrency);
-      document.getElementById('pscl-res-emi').innerHTML = emiDisplay + '<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span>';
-      document.getElementById('pscl-res-loan').textContent = formatMoney(res.loanAmount, currentCurrency);
-
-      // WhatsApp link update
-      var waBtn = document.getElementById('pscl-cost-cta-wa-btn');
-      if (waBtn) {
-        var waMsg = 'Hello, I generated a cost breakdown on your website:%0A' +
-          '• Enclave: ' + encodeURIComponent(enclave.name) + '%0A' +
-          '• Base Price: ' + encodeURIComponent(formatMoney(res.baseINR, 'INR')) + ' (' + encodeURIComponent(formatMoney(res.baseINR, currentCurrency)) + ')%0A' +
-          '• Stamp Duty: ' + encodeURIComponent(formatMoney(res.stampDuty, 'INR')) + '%0A' +
-          '• Total Estimated Outlay: ' + encodeURIComponent(formatMoney(res.totalOutlay, 'INR')) + '%0A' +
-          '• Est. Monthly EMI: ' + encodeURIComponent('₹' + res.emi.toLocaleString('en-IN') + '/mo') + '%0A%0A' +
-          'Please share the official builder cost sheet, payment schedule, and site visit slot.';
-        waBtn.href = 'https://wa.me/917744009295?text=' + waMsg;
-      }
-    }
-
-    // Attach currency pills
-    var pills = document.querySelectorAll('.pscl-curr-btn');
-    pills.forEach(function(pill) {
-      pill.addEventListener('click', function() {
-        pills.forEach(function(p) { p.classList.remove('active'); });
-        pill.classList.add('active');
-        currentCurrency = pill.getAttribute('data-curr') || 'INR';
-        refreshCalculations();
-      });
-    });
-
-    document.getElementById('pscl-calc-enclave-select').addEventListener('change', refreshCalculations);
-    document.querySelectorAll('input[name="pscl_calc_gender"]').forEach(function(r) {
-      r.addEventListener('change', refreshCalculations);
-    });
-    document.getElementById('pscl-dp-slider').addEventListener('input', refreshCalculations);
-    document.getElementById('pscl-tenure-slider').addEventListener('input', refreshCalculations);
-
-    document.getElementById('pscl-cost-close-btn').addEventListener('click', function() {
-      modalWrap.classList.remove('pscl-active');
-    });
-    modalWrap.addEventListener('click', function(e) {
-      if (e.target === modalWrap) modalWrap.classList.remove('pscl-active');
-    });
-
-    // Conversion tracking on WhatsApp click
-    document.getElementById('pscl-cost-cta-wa-btn').addEventListener('click', function() {
-      var enc = getSelectedEnclave();
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          event_category: 'Cost Visualizer',
-          event_label: enc.name,
-          value: 100.0,
-          currency: 'INR'
-        });
-        gtag('event', 'conversion', {
-          send_to: 'AW-17430583486',
-          event_category: 'Cost Sheet Lead',
-          event_label: enc.name
-        });
-      }
-    });
-
-    // Cab button trigger
-    document.getElementById('pscl-cost-cta-cab-btn').addEventListener('click', function() {
-      modalWrap.classList.remove('pscl-active');
-      openVipCabModal();
-    });
-
-    // Initial calculation
-    refreshCalculations();
-  }
-
-  function openCostVisualizerModal(defaultEnclaveId) {
-    injectCostVisualizerModal();
-    var wrap = document.getElementById('pscl-cost-modal-wrap');
-    if (!wrap) return;
-    if (defaultEnclaveId) {
-      var sel = document.getElementById('pscl-calc-enclave-select');
-      if (sel) {
-        for (var i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].value === defaultEnclaveId) {
-            sel.selectedIndex = i;
-            sel.dispatchEvent(new Event('change'));
-            break;
-          }
-        }
-      }
-    }
-    wrap.classList.add('pscl-active');
-  }
-
-  // ─── Inject VIP AC Chauffeur Booking Modal ───────────────────────────────────
-  function injectVipCabModal() {
-    if (document.getElementById('pscl-vip-cab-wrap')) return;
-
-    var style = document.createElement('style');
-    style.id = 'pscl-cab-modal-styles';
-    style.textContent = `
+    `,document.body.appendChild(t);var a="INR";function n(){for(var o=document.getElementById("pscl-calc-enclave-select"),r=o?o.value:"misty-greens",l=0;l<y.length;l++)if(y[l].id===r)return y[l];return y[0]}function i(){var o=n(),r=document.querySelector('input[name="pscl_calc_gender"]:checked'),l=r?r.value:"male",p=parseInt(document.getElementById("pscl-dp-slider").value,10),d=parseInt(document.getElementById("pscl-tenure-slider").value,10),f=8.5;document.getElementById("pscl-dp-val").textContent=p+"%",document.getElementById("pscl-tenure-val").textContent=d+" Years";var c=H(o.baseINR,l,o.isPlot,o.gstRate,p,d,f),m=Math.round(o.baseINR*(p/100));document.getElementById("pscl-dp-amount").textContent=g(m,a),document.getElementById("pscl-res-total-outlay").textContent=g(c.totalOutlay,a),document.getElementById("pscl-res-base").textContent=g(c.baseINR,a),document.getElementById("pscl-res-sd").textContent=g(c.stampDuty,a)+" ("+c.sdPct*100+"%)",document.getElementById("pscl-res-reg").textContent=g(c.regFee,a),document.getElementById("pscl-res-gst").textContent=o.gstRate>0?g(c.gst,a)+" (5%)":"0% (Exempt)";var u=a==="INR"?"\u20B9"+c.emi.toLocaleString("en-IN"):g(c.emi,a);document.getElementById("pscl-res-emi").innerHTML=u+'<span style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.7);">/mo</span>',document.getElementById("pscl-res-loan").textContent=g(c.loanAmount,a);var b=document.getElementById("pscl-cost-cta-wa-btn");if(b){var v="Hello, I generated a cost breakdown on your website:%0A\u2022 Enclave: "+encodeURIComponent(o.name)+"%0A\u2022 Base Price: "+encodeURIComponent(g(c.baseINR,"INR"))+" ("+encodeURIComponent(g(c.baseINR,a))+")%0A\u2022 Stamp Duty: "+encodeURIComponent(g(c.stampDuty,"INR"))+"%0A\u2022 Total Estimated Outlay: "+encodeURIComponent(g(c.totalOutlay,"INR"))+"%0A\u2022 Est. Monthly EMI: "+encodeURIComponent("\u20B9"+c.emi.toLocaleString("en-IN")+"/mo")+"%0A%0APlease share the official builder cost sheet, payment schedule, and site visit slot.";b.href="https://wa.me/917744009295?text="+v}}var s=document.querySelectorAll(".pscl-curr-btn");s.forEach(function(o){o.addEventListener("click",function(){s.forEach(function(r){r.classList.remove("active")}),o.classList.add("active"),a=o.getAttribute("data-curr")||"INR",i()})}),document.getElementById("pscl-calc-enclave-select").addEventListener("change",i),document.querySelectorAll('input[name="pscl_calc_gender"]').forEach(function(o){o.addEventListener("change",i)}),document.getElementById("pscl-dp-slider").addEventListener("input",i),document.getElementById("pscl-tenure-slider").addEventListener("input",i),document.getElementById("pscl-cost-close-btn").addEventListener("click",function(){t.classList.remove("pscl-active")}),t.addEventListener("click",function(o){o.target===t&&t.classList.remove("pscl-active")}),document.getElementById("pscl-cost-cta-wa-btn").addEventListener("click",function(){var o=n();typeof gtag=="function"&&(gtag("event","generate_lead",{event_category:"Cost Visualizer",event_label:o.name,value:100,currency:"INR"}),gtag("event","conversion",{send_to:"AW-17430583486",event_category:"Cost Sheet Lead",event_label:o.name}))}),document.getElementById("pscl-cost-cta-cab-btn").addEventListener("click",function(){t.classList.remove("pscl-active"),A()}),i()}function L(e){C();var t=document.getElementById("pscl-cost-modal-wrap");if(t){if(e){var a=document.getElementById("pscl-calc-enclave-select");if(a){for(var n=0;n<a.options.length;n++)if(a.options[n].value===e){a.selectedIndex=n,a.dispatchEvent(new Event("change"));break}}}t.classList.add("pscl-active")}}function k(){if(!document.getElementById("pscl-vip-cab-wrap")){var e=document.createElement("style");e.id="pscl-cab-modal-styles",e.textContent=`
       #pscl-vip-cab-wrap {
         position: fixed;
         inset: 0;
@@ -1647,15 +730,10 @@
         gap: 6px;
         box-shadow: 0 6px 20px rgba(107,13,13,0.5);
       }
-    `;
-    document.head.appendChild(style);
-
-    var wrap = document.createElement('div');
-    wrap.id = 'pscl-vip-cab-wrap';
-    wrap.innerHTML = `
+    `,document.head.appendChild(e);var t=document.createElement("div");t.id="pscl-vip-cab-wrap",t.innerHTML=`
       <div class="pscl-cab-card" role="dialog" aria-modal="true" aria-labelledby="pscl-cab-title">
-        <button type="button" class="pscl-close-btn" id="pscl-cab-close-btn" aria-label="Close VIP Cab Modal">✕</button>
-        <span class="pscl-badge" style="background:rgba(37,211,102,0.15);border-color:#25D366;color:#25D366;">🚗 Complimentary VIP Chauffeur</span>
+        <button type="button" class="pscl-close-btn" id="pscl-cab-close-btn" aria-label="Close VIP Cab Modal">\u2715</button>
+        <span class="pscl-badge" style="background:rgba(37,211,102,0.15);border-color:#25D366;color:#25D366;">\u{1F697} Complimentary VIP Chauffeur</span>
         <h2 id="pscl-cab-title" style="margin:0 0 0.3rem;font-size:1.35rem;color:#ffffff;font-weight:800;">Book Free AC Cab Site Visit</h2>
         <p style="margin:0 0 1.1rem;font-size:0.8rem;color:rgba(255,255,255,0.75);">Doorstep pickup and drop anywhere in Pune to Paranjape Forest Trails, Bhugaon.</p>
         
@@ -1693,102 +771,22 @@
           <div class="pscl-cab-field">
             <label for="pscl-cab-interest">Enclave of Primary Interest</label>
             <select id="pscl-cab-interest">
-              <option value="Misty Greens NA Plots (From ₹1.23 Cr*)">Misty Greens NA Plots (From ₹1.23 Cr*)</option>
-              <option value="The Rivolo Luxury Villas (From ₹3.89 Cr*)">The Rivolo Luxury Villas (From ₹3.89 Cr*)</option>
-              <option value="The Cove Twin Bungalows (From ₹2.85 Cr*)">The Cove Twin Bungalows (From ₹2.85 Cr*)</option>
-              <option value="The Canopy Hillside Flats (From ₹89 L*)">The Canopy Hillside Flats (From ₹89 L*)</option>
-              <option value="Everglades 1 & 2 BHK (From ₹48.50 L*)">Everglades 1 & 2 BHK (From ₹48.50 L*)</option>
-              <option value="Athashri Senior Living (From ₹83 L*)">Athashri Senior Living (From ₹83 L*)</option>
-              <option value="Swaniketan Assisted Living (From ₹79 L*)">Swaniketan Assisted Living (From ₹79 L*)</option>
+              <option value="Misty Greens NA Plots (From \u20B91.23 Cr*)">Misty Greens NA Plots (From \u20B91.23 Cr*)</option>
+              <option value="The Rivolo Luxury Villas (From \u20B93.89 Cr*)">The Rivolo Luxury Villas (From \u20B93.89 Cr*)</option>
+              <option value="The Cove Twin Bungalows (From \u20B92.85 Cr*)">The Cove Twin Bungalows (From \u20B92.85 Cr*)</option>
+              <option value="The Canopy Hillside Flats (From \u20B989 L*)">The Canopy Hillside Flats (From \u20B989 L*)</option>
+              <option value="Everglades 1 & 2 BHK (From \u20B948.50 L*)">Everglades 1 & 2 BHK (From \u20B948.50 L*)</option>
+              <option value="Athashri Senior Living (From \u20B983 L*)">Athashri Senior Living (From \u20B983 L*)</option>
+              <option value="Swaniketan Assisted Living (From \u20B979 L*)">Swaniketan Assisted Living (From \u20B979 L*)</option>
               <option value="All Enclaves / General Tour">All Enclaves / 190-Acre General Tour</option>
             </select>
           </div>
           <button type="submit" class="pscl-cab-submit">
-            <span>🚗</span><span>Confirm VIP Chauffeur Booking</span>
+            <span>\u{1F697}</span><span>Confirm VIP Chauffeur Booking</span>
           </button>
           <p style="font-size:0.68rem;color:rgba(255,255,255,0.7);text-align:center;margin:0.5rem 0 0.2rem;line-height:1.4;">
-            🔒 By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified site visit coordination via Call/WhatsApp.
+            \u{1F512} By submitting, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener" style="color:#D4AF37;text-decoration:underline;">Privacy Policy</a> &amp; authorize verified site visit coordination via Call/WhatsApp.
           </p>
         </form>
       </div>
-    `;
-    document.body.appendChild(wrap);
-
-    document.getElementById('pscl-cab-close-btn').addEventListener('click', function() {
-      wrap.classList.remove('pscl-active');
-    });
-    wrap.addEventListener('click', function(e) {
-      if (e.target === wrap) wrap.classList.remove('pscl-active');
-    });
-
-    document.getElementById('pscl-cab-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var name = document.getElementById('pscl-cab-name').value.trim();
-      var phone = document.getElementById('pscl-cab-phone').value.trim();
-      var hub = document.getElementById('pscl-cab-hub').value;
-      var date = document.getElementById('pscl-cab-date').value;
-      var interest = document.getElementById('pscl-cab-interest').value;
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', {
-          event_category: 'VIP Cab Booking',
-          event_label: interest + ' | ' + hub,
-          value: 500.0,
-          currency: 'INR'
-        });
-        gtag('event', 'conversion', {
-          send_to: 'AW-17430583486',
-          event_category: 'VIP Site Visit',
-          event_label: interest
-        });
-      }
-
-      var waMsg = 'Hello, I booked a VIP AC Chauffeur Site Visit on your website:%0A' +
-        '• Name: ' + encodeURIComponent(name) + '%0A' +
-        '• Phone: ' + encodeURIComponent(phone) + '%0A' +
-        '• Pickup Location: ' + encodeURIComponent(hub) + '%0A' +
-        '• Date & Slot: ' + encodeURIComponent(date) + '%0A' +
-        '• Interested Enclave: ' + encodeURIComponent(interest) + '%0A%0A' +
-        'Please confirm driver assignment and chauffeur pickup time.';
-
-      window.open('https://wa.me/917744009295?text=' + waMsg, '_blank');
-      wrap.classList.remove('pscl-active');
-      alert('Thank you ' + name + '! Your VIP Chauffeur site visit request has been received. Our concierge team is coordinating your private AC cab details.');
-    });
-  }
-
-  function openVipCabModal() {
-    injectVipCabModal();
-    var wrap = document.getElementById('pscl-vip-cab-wrap');
-    if (wrap) wrap.classList.add('pscl-active');
-  }
-
-  // Global exports
-  window.openCostVisualizerModal = openCostVisualizerModal;
-  window.openVipCabModal = openVipCabModal;
-  window.psclEnclaves = ENCLAVES_DATA;
-
-// ─── Initialize Sovereign Engagement Layer ─────────────────────────────────
-  function initEngagementLayer() {
-    injectSocialProofPulse();
-    injectConciergeFAB();
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(function() {
-        injectCostVisualizerModal();
-        injectVipCabModal();
-      }, { timeout: 3500 });
-    } else {
-      setTimeout(function() {
-        injectCostVisualizerModal();
-        injectVipCabModal();
-      }, 2500);
-    }
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initEngagementLayer);
-  } else {
-    initEngagementLayer();
-  }
-
-})();
+    `,document.body.appendChild(t),document.getElementById("pscl-cab-close-btn").addEventListener("click",function(){t.classList.remove("pscl-active")}),t.addEventListener("click",function(a){a.target===t&&t.classList.remove("pscl-active")}),document.getElementById("pscl-cab-form").addEventListener("submit",function(a){a.preventDefault();var n=document.getElementById("pscl-cab-name").value.trim(),i=document.getElementById("pscl-cab-phone").value.trim(),s=document.getElementById("pscl-cab-hub").value,o=document.getElementById("pscl-cab-date").value,r=document.getElementById("pscl-cab-interest").value;typeof gtag=="function"&&(gtag("event","generate_lead",{event_category:"VIP Cab Booking",event_label:r+" | "+s,value:500,currency:"INR"}),gtag("event","conversion",{send_to:"AW-17430583486",event_category:"VIP Site Visit",event_label:r}));var l="Hello, I booked a VIP AC Chauffeur Site Visit on your website:%0A\u2022 Name: "+encodeURIComponent(n)+"%0A\u2022 Phone: "+encodeURIComponent(i)+"%0A\u2022 Pickup Location: "+encodeURIComponent(s)+"%0A\u2022 Date & Slot: "+encodeURIComponent(o)+"%0A\u2022 Interested Enclave: "+encodeURIComponent(r)+"%0A%0APlease confirm driver assignment and chauffeur pickup time.";window.open("https://wa.me/917744009295?text="+l,"_blank"),t.classList.remove("pscl-active"),alert("Thank you "+n+"! Your VIP Chauffeur site visit request has been received. Our concierge team is coordinating your private AC cab details.")})}}function A(){k();var e=document.getElementById("pscl-vip-cab-wrap");e&&e.classList.add("pscl-active")}window.openCostVisualizerModal=L,window.openVipCabModal=A,window.psclEnclaves=y;function R(){_(),O(),"requestIdleCallback"in window?window.requestIdleCallback(function(){C(),k()},{timeout:3500}):setTimeout(function(){C(),k()},2500)}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",R):R()})();

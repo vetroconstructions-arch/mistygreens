@@ -130,9 +130,9 @@
 .opening-btn::after {
     content: '';
     position: absolute;
-    top: 0; left: -100%;
+    top: 0; left: 0;
     width: 60%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); will-change: transform;
     animation: shimmer-swipe 4s infinite;
 }
 
@@ -142,10 +142,7 @@
     background: #c4352e;
 }
 
-@keyframes shimmer-swipe {
-    0% { left: -120%; }
-    100% { left: 220%; }
-}
+@keyframes shimmer-swipe { 0% { transform: translateX(-120%); } 100% { transform: translateX(250%); } }
 
 @media (max-width: 768px) {
     .opening-modal-container {

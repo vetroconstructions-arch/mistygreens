@@ -23,12 +23,12 @@ TEMPLATE = """<!DOCTYPE html>
     <meta name="theme-color" content="#4A0808">
     <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){{dataLayer.push(arguments);}}
       gtag('js', new Date());
-      gtag('config', 'G-PARANJAPE');
+      gtag('config', 'AW-17430583486');
     </script>
     {JSON_LD}
 </head>

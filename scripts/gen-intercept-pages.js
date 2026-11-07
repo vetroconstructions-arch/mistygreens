@@ -97,10 +97,7 @@ const MODAL_HTML = `
                             from { opacity: 0; transform: scale(0.95) translateY(20px); }
                             to { opacity: 1; transform: scale(1) translateY(0); }
                         }
-                        @keyframes scarcity-shimmer {
-                            0% { left: -100%; }
-                            100% { left: 200%; }
-                        }
+                        @keyframes scarcity-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
                         .enquiry-input-premium {
                             width: 100%; padding: 1.2rem 1.5rem; 
                             background: #f5f5f0; 
@@ -212,14 +209,11 @@ const MASTER_PLAN_HTML = `
                     }
                     .mp-submit-btn::after {
                         content: '';
-                        position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+                        position: absolute; top: 0; left: 0; width: 50%; height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); will-change: transform;
                         animation: mp-shimmer 3s infinite;
                     }
-                    @keyframes mp-shimmer {
-                        0% { left: -100%; }
-                        100% { left: 200%; }
-                    }
+                    @keyframes mp-shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
                 </style>
 
                 <div class="form-header" style="margin-bottom: 3rem;">

@@ -33,13 +33,13 @@ for root, dirs, files in os.walk(BASE):
         
         # 1. Fix GTM noscript
         content = re.sub(
-            r'<img\s+([^>]*src=["\']https://www\.googletagmanager\.com/ns\.html\?id=G-PARANJAPE["\'][^>]*?)alt=["\']["\']',
+            r'<img\s+([^>]*src=["\']https://www\.googletagmanager\.com/ns\.html\?id=AW-17430583486["\'][^>]*?)alt=["\']["\']',
             r'<img \1alt="Google Tag Manager"',
             content,
             flags=re.IGNORECASE
         )
         content = re.sub(
-            r'<img\s+([^>]*?)alt=["\']["\']([^>]*src=["\']https://www\.googletagmanager\.com/ns\.html\?id=G-PARANJAPE["\'][^>]*)>',
+            r'<img\s+([^>]*?)alt=["\']["\']([^>]*src=["\']https://www\.googletagmanager\.com/ns\.html\?id=AW-17430583486["\'][^>]*)>',
             r'<img \1alt="Google Tag Manager"\2>',
             content,
             flags=re.IGNORECASE

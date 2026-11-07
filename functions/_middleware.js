@@ -713,6 +713,18 @@ class KeywordMetaInjector {
         }
       }
 
+      if (p.includes("flat") || p.includes("flats") || p.includes("apartment") || p.includes("apartments")) {
+        if (matchedLoc) {
+          kwSet.add(`flats in ${matchedLoc}`);
+          kwSet.add(`apartments in ${matchedLoc}`);
+          kwSet.add(`2BHK 3BHK flats near ${matchedLoc}`);
+          kwSet.add(`nature view apartments ${matchedLoc} Pune`);
+        } else {
+          kwSet.add("flats in Bhugaon");
+          kwSet.add("2BHK 3BHK flats Pune West");
+        }
+      }
+
       if (p.includes("property-in-")) {
         if (matchedLoc) {
           kwSet.add(`property in ${matchedLoc}`);
@@ -1207,6 +1219,34 @@ export async function onRequest(context) {
     }
 
     // ┌─────────────────────────────────────────────────────────┐
+    // │ 1d. Cloudflare Edge Cache Lookup (GET requests)         │
+    // └─────────────────────────────────────────────────────────┘
+    const isGet = request.method === "GET";
+    const cacheKey = new Request(url.toString(), request);
+    let edgeCache = null;
+    try {
+      if (typeof caches !== "undefined" && caches.default) {
+        edgeCache = caches.default;
+      }
+    } catch (_) {}
+
+    if (edgeCache && isGet && !url.searchParams.has("preview") && !url.pathname.startsWith("/thank-you")) {
+      try {
+        const cached = await edgeCache.match(cacheKey);
+        if (cached) {
+          const hitHeaders = new Headers(cached.headers);
+          hitHeaders.set("CF-Cache-Status", "HIT");
+          hitHeaders.set("X-Edge-Cache", "HIT-PARANJAPE-EDGE");
+          return new Response(cached.body, {
+            status: cached.status,
+            statusText: cached.statusText,
+            headers: hitHeaders,
+          });
+        }
+      } catch (_) {}
+    }
+
+    // ┌─────────────────────────────────────────────────────────┐
     // │ 2. Fetch Origin Response                                │
     // └─────────────────────────────────────────────────────────┘
     const response = await next();
@@ -1345,11 +1385,23 @@ export async function onRequest(context) {
       include_subdomains: true,
     }));
 
-    return new Response(transformedResponse.body, {
+    const finalResponse = new Response(transformedResponse.body, {
       status: transformedResponse.status,
       statusText: transformedResponse.statusText,
       headers,
     });
+
+    if (edgeCache && isGet && transformedResponse.status === 200 && !url.pathname.startsWith("/thank-you")) {
+      try {
+        if (context.waitUntil) {
+          context.waitUntil(edgeCache.put(cacheKey, finalResponse.clone()));
+        } else {
+          edgeCache.put(cacheKey, finalResponse.clone());
+        }
+      } catch (_) {}
+    }
+
+    return finalResponse;
 
   } catch (err) {
     // ┌─────────────────────────────────────────────────────────┐

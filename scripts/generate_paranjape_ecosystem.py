@@ -34,13 +34,13 @@ HEAD_TEMPLATE = """<!DOCTYPE html>
   <link rel="stylesheet" href="/style.min.css?v=2026.08.24.10">
   <!-- Google tag (gtag.js) - Google Ads: AW-17430583486 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
-  <script async defer src="https://www.googletagmanager.com/gtag/js?id=G-PARANJAPE"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-PARANJAPE');</script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=AW-17430583486"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','AW-17430583486');</script>
   <script>gtag('config','AW-17430583486');</script>
   {schemas}
 </head>
 <body>
-<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt=""></noscript>"""
+<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=AW-17430583486" alt=""></noscript>"""
 
 FOOTER = """<footer style="background:#1a1a1a;color:#999;padding:2rem;text-align:center;margin-top:3rem">
   <p><a href="/" style="color:#D4AF37;text-decoration:none">Paranjape Forest Trails</a> | Bhugaon, Paud Road, Pune West 412115</p>

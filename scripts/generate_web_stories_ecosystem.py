@@ -8,7 +8,7 @@ Generates and orchestrates the complete Web Stories suite for Paranjape Forest T
    - Twitter Cards (summary_large_image)
    - Pinterest Rich Pin tags
    - schema.org NewsArticle & WebPage structured data
-   - amp-analytics with GA4 (G-PARANJAPE) & Google Ads (AW-17430583486)
+   - amp-analytics with GA4 (AW-17430583486) & Google Ads (AW-17430583486)
 2. Standalone SVG QR Codes for every story (images/web-stories/{slug}-qr.svg)
 3. Media RSS 2.0 Syndication Feed (web-stories/feed.xml) for Google News / Discover
 4. Cross-Platform Web Stories Hub (web-stories/index.html) with:
@@ -2283,7 +2283,7 @@ def generate_web_story_html(story):
           "gtag_id": "AW-17430583486",
           "config": {{
             "AW-17430583486": {{ "groups": "default" }},
-            "G-PARANJAPE": {{ "groups": "default" }}
+            "AW-17430583486": {{ "groups": "default" }}
           }}
         }},
         "triggers": {{
@@ -2469,7 +2469,7 @@ def generate_hub_html():
     function gtag(){{dataLayer.push(arguments);}}
     gtag('js', new Date());
     gtag('config', 'AW-17430583486');
-    gtag('config', 'G-PARANJAPE');
+    gtag('config', 'AW-17430583486');
   </script>
   <script type="application/ld+json">
 {hub_schema_str}

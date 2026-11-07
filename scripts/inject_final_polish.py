@@ -87,7 +87,7 @@ CONTACT_SCHEMA = {
     }
 }
 
-NOSCRIPT_GA = '<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=G-PARANJAPE" alt=""></noscript>'
+NOSCRIPT_GA = '<noscript><img height="1" width="1" style="display:none" src="https://www.googletagmanager.com/ns.html?id=AW-17430583486" alt=""></noscript>'
 
 def read(p):
     try: return open(p, encoding='utf-8', errors='replace').read()
