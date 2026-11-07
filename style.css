@@ -2235,8 +2235,6 @@ body.mode-night::after {
     border: 1px solid rgba(255,255,255,0.1);
 }
 @keyframes concierge-pulse { 0%, 100% { transform: scale(1); opacity: 0.95; } 50% { transform: scale(1.04); opacity: 1; } }
-    50% { box-shadow: 0 10px 30px rgba(107, 13, 13, 0.4), 0 0 0 8px rgba(107, 13, 13, 0); }
-}
 .concierge-trigger:hover { 
     transform: translateY(-5px) scale(1.05); 
     box-shadow: 0 16px 40px rgba(107, 13, 13, 0.5);
