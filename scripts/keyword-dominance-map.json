@@ -1,114 +1,208 @@
 {
+  "master_township": {
+    "name": "Paranjape Forest Trails",
+    "location": "Bhugaon, Paud Road, Pune West 412115",
+    "developer": "Paranjape Schemes (Construction) Ltd",
+    "marketingPartner": "PropSmart Realty (MahaRERA Agent: A031262401295)",
+    "size": "190 Acres",
+    "trees": "30,000+ Indigenous Living Trees",
+    "keywords": [
+      "Paranjape Forest Trails",
+      "Paranjape Forest Trails Bhugaon",
+      "Forest Trails Pune",
+      "Forest Trails Bhugaon",
+      "Paranjape Schemes Forest Trails",
+      "Paranjape Schemes",
+      "Paranjape Schemes Construction Ltd",
+      "Paranjape builder Pune",
+      "Paranjape Schemes projects Pune",
+      "Forest Trails Paud Road Pune",
+      "Paranjape Township Bhugaon",
+      "PropSmart Realty MahaRERA A031262401295",
+      "190 acre township Pune West",
+      "gated community near Chandani Chowk"
+    ]
+  },
   "clusters": {
-    "rivolo": [
-      "Rivolo Residences 2 BHK apartments",
-      "Rivolo Bhugaon price",
-      "Rivolo luxury apartments Pune",
-      "Rivolo Forest Trails configuration",
-      "Rivolo resale deals",
-      "Rivolo investment Bhugaon"
-    ],
-    "orchard": [
-      "Orchard Residences flats",
-      "Orchard 2 BHK 3 BHK Bhugaon",
-      "Orchard Forest Trails pricing",
-      "Orchard homes near Chandani Chowk",
-      "Orchard resale apartments"
-    ],
-    "highgardens": [
-      "Highgardens luxury flats",
-      "Highgardens 3 BHK 4 BHK Pune",
-      "Highgardens premium apartments Bhugaon",
-      "Highgardens view homes",
-      "Highgardens Forest Trails price"
-    ],
-    "canopy": [
-      "The Canopy apartments",
-      "Canopy Bhugaon flats",
-      "Canopy Forest Trails 2 BHK price",
-      "Canopy nature homes Pune",
-      "Canopy resale units"
-    ],
-    "cove": [
-      "The Cove at Forest Trails",
-      "Cove luxury apartments Bhugaon",
-      "Cove scenic homes Pune",
-      "Cove Forest Trails pricing",
-      "Cove premium flats resale"
-    ],
-    "aspire": [
-      "Aspire Bhugaon",
-      "Aspire 1 BHK Forest Trails",
-      "Aspire affordable homes Pune",
-      "Aspire investment flats Bhugaon",
-      "Aspire rental income properties"
-    ],
-    "happiness-hub": [
-      "Happiness Hub",
-      "Happiness Hub 1 BHK price",
-      "Happiness Hub affordable flats Pune",
-      "Happiness Hub Bhugaon investment",
-      "Happiness Hub compact homes"
-    ],
-    "misty-greens": [
-      "Misty Greens",
-      "Misty Greens villas Bhugaon",
-      "Misty Greens bungalow price",
-      "Misty Greens premium homes Pune",
-      "Misty Greens forest view villas"
-    ],
-    "kaleidoscope": [
-      "Kaleidoscope apartments",
-      "Kaleidoscope Bhugaon 2 BHK 3 BHK",
-      "Kaleidoscope price Forest Trails",
-      "Kaleidoscope resale flats Pune"
-    ]
+    "misty-greens": {
+      "name": "Misty Greens NA Plots",
+      "typology": "Collector & PMRDA Sanctioned NA Bungalow Plots",
+      "price": "₹1.23 Cr*",
+      "maharera": "P52100053834",
+      "keywords": [
+        "Misty Greens NA Plots",
+        "Misty Greens Forest Trails",
+        "Paranjape Misty Greens Bhugaon",
+        "PMRDA sanctioned plots Bhugaon",
+        "NA bungalow plots near Chandani Chowk",
+        "collector sanctioned plots Pune West",
+        "freehold plots Bhugaon Paud Road",
+        "Misty Greens price list 2026",
+        "MahaRERA P52100053834",
+        "bungalow plots near Bavdhan Kothrud"
+      ]
+    },
+    "rivolo": {
+      "name": "The Rivolo Luxury Forest Villas",
+      "typology": "4 & 5 BHK Independent Bespoke Forest Villas",
+      "price": "₹3.89 Cr*",
+      "maharera": "P52100031560",
+      "keywords": [
+        "The Rivolo Luxury Forest Villas",
+        "Rivolo Forest Trails Bhugaon",
+        "Paranjape Rivolo price 2026",
+        "4 BHK luxury villas Bhugaon",
+        "5 BHK bespoke forest villas Pune",
+        "luxury hillside villas Sahyadri",
+        "MahaRERA P52100031560",
+        "custom forest villas near Chandani Chowk"
+      ]
+    },
+    "the-cove": {
+      "name": "The Cove Twin Bungalows",
+      "typology": "4 BHK Duet & Twin Villas",
+      "price": "₹2.85 Cr*",
+      "maharera": "P52100048536",
+      "keywords": [
+        "The Cove Twin Bungalows",
+        "The Cove Forest Trails",
+        "4 BHK twin duet bungalows Bhugaon",
+        "semi-detached luxury villas Pune West",
+        "The Cove price list 2026",
+        "MahaRERA P52100048536",
+        "duet homes near Bavdhan"
+      ]
+    },
+    "the-canopy": {
+      "name": "The Canopy Hillside Apartments",
+      "typology": "2 & 3 BHK Nature Apartments with Valley Views",
+      "price": "₹89 L*",
+      "maharera": "P52100079518",
+      "keywords": [
+        "The Canopy nature apartments",
+        "The Canopy Forest Trails Bhugaon",
+        "2 BHK flats in Bhugaon",
+        "3 BHK valley view flats Bhugaon",
+        "The Canopy price starting 89 Lakhs*",
+        "MahaRERA P52100079518",
+        "nature homes near Chandani Chowk"
+      ]
+    },
+    "highgardens": {
+      "name": "The Highgardens Terrace Homes",
+      "typology": "2 & 3 BHK Stepped Terrace Apartments",
+      "price": "₹89 L*",
+      "maharera": "P52100053310",
+      "keywords": [
+        "The Highgardens Forest Trails",
+        "Highgardens stepped terrace apartments",
+        "2 BHK terrace flats Bhugaon",
+        "3 BHK panoramic view apartments",
+        "Highgardens price starting 89 Lakhs*",
+        "MahaRERA P52100053310"
+      ]
+    },
+    "everglades": {
+      "name": "Everglades Bavdhan",
+      "typology": "1 & 2 BHK PRO Efficient Smart Homes",
+      "price": "₹48.50 L*",
+      "maharera": "P52100055711",
+      "keywords": [
+        "Everglades Bavdhan Forest Trails",
+        "Everglades 1 BHK PRO homes",
+        "Everglades 2 BHK PRO homes",
+        "flats under 50 lakhs near Bavdhan",
+        "Everglades price starting 48.50 Lakhs*",
+        "MahaRERA P52100055711",
+        "smart compact homes Pune West"
+      ]
+    },
+    "athashri": {
+      "name": "Athashri Senior Living",
+      "typology": "2 & 3 BHK Senior Citizen Living with Medical Care",
+      "price": "₹83 L*",
+      "maharera": "P52100077686",
+      "keywords": [
+        "Athashri Senior Living Bhugaon",
+        "Paranjape Athashri Forest Trails",
+        "2 BHK senior citizen apartments",
+        "3 BHK retirement homes Pune West",
+        "senior living with medical care",
+        "Athashri starting 83 Lakhs*",
+        "MahaRERA P52100077686",
+        "geriatric care community Bavdhan Kothrud"
+      ]
+    },
+    "swaniketan": {
+      "name": "Swaniketan Assisted Living",
+      "typology": "2 & 3 BHK Assisted Care Residences for Seniors & Differently-Abled",
+      "price": "₹79 L*",
+      "maharera": "P52100052124",
+      "keywords": [
+        "Swaniketan Assisted Living",
+        "Swaniketan Forest Trails Bhugaon",
+        "2 BHK assisted care senior apartments",
+        "3 BHK assisted living Pune West",
+        "Swaniketan starting 79 Lakhs*",
+        "MahaRERA P52100052124",
+        "special care retirement homes"
+      ]
+    },
+    "verandah": {
+      "name": "The Verandah Duplex Homes",
+      "typology": "3 & 4 BHK Luxury Duplexes with Private Verandahs",
+      "price": "₹93 L*",
+      "maharera": "P52100002194",
+      "keywords": [
+        "The Verandah Duplex Homes",
+        "Verandah Forest Trails Bhugaon",
+        "3 BHK luxury duplex Pune West",
+        "4 BHK duplex with private verandah",
+        "Verandah starting 93 Lakhs*",
+        "MahaRERA P52100002194"
+      ]
+    },
+    "orchard": {
+      "name": "Orchard Residences",
+      "typology": "2 & 3 BHK Hillside Nature Apartments",
+      "price": "₹83 L*",
+      "maharera": "P52100055710",
+      "keywords": [
+        "Orchard Residences Bhugaon",
+        "Orchard Forest Trails apartments",
+        "2 BHK hillside apartments",
+        "3 BHK forest view homes",
+        "Orchard starting 83 Lakhs*",
+        "MahaRERA P52100055710"
+      ]
+    }
   },
-  "intent": {
-    "investment": [
-      "Forest Trails Bhugaon investment opportunity",
-      "real estate investment Pune west",
-      "Bhugaon property appreciation",
-      "rental income Forest Trails",
-      "second home Pune hills",
-      "nature homes investment Pune",
-      "prelaunch price Bhugaon projects",
-      "under 50 lakh investment Pune",
-      "Paranjape Forest Trails Bhugaon master plan",
-      "Forest Trails Bhugaon RERA",
-      "Paranjape township in Bhugaon Pune",
-      "Paranjape Schemes Bhugaon projects"
+  "intent_clusters": {
+    "transactional": [
+      "buy NA plots in Bhugaon Pune",
+      "Paranjape Forest Trails price list 2026",
+      "Paranjape Forest Trails brochure pdf download",
+      "Paranjape Forest Trails floor plan 2 BHK 3 BHK",
+      "Paranjape Forest Trails resale flats and villas",
+      "plots in Bhugaon near Chandani Chowk",
+      "flats near Bavdhan under 50 lakhs",
+      "luxury villas in Pune with mountain view"
     ],
-    "location": [
-      "property near Bhugaon",
-      "flats near Chandani Chowk Pune",
-      "homes near Bavdhan",
-      "property near Mulshi Road",
-      "Pune west luxury township projects",
-      "190 acre township in Bhugaon",
-      "best township projects in Pune west"
+    "connectivity": [
+      "Chandani Chowk Flyover to Forest Trails commute time",
+      "Bhugaon Paud Road Metro connectivity 2026",
+      "PMRDA Ring Road Bhugaon interchange growth",
+      "Forest Trails distance to Hinjewadi IT Park",
+      "Forest Trails distance to Kothrud Nal Stop",
+      "property near SSRVM school Bhugaon"
     ],
-    "longtail": [
-      "1 BHK in Forest Trails starting 47 lakhs",
-      "last 1 BHK opportunity Bhugaon Pune",
-      "ready to move flats Forest Trails Pune",
-      "forest facing apartments Pune west",
-      "gated township near Chandani Chowk Pune",
-      "premium lifestyle homes in 190 acre township",
-      "nature living apartments Pune west",
-      "investment property near Mulshi road",
-      "Paranjape Forest Trails Bhugaon reviews",
-      "Forest Trails Bhugaon floor plan",
-      "Paranjape Forest Trails Bhugaon latest photos",
-      "Plots in Paranjape Forest Trails Bhugaon",
-      "Forest Trails Bhugaon construction update"
+    "vernacular": [
+      "परांजपे फॉरेस्ट ट्रेल्स भुगाव",
+      "भुगावात 2BHK 3BHK फ्लॅट",
+      "पुण्यात एनए प्लॉट खरेदी",
+      "पुण्यात लक्झरी व्हिला",
+      "पुणे में प्लॉट कीमत 2026",
+      "भुगाव में 2BHK फ्लैट्स"
     ]
-  },
-  "ads": [
-    "Forest Trails + 1 BHK + Price",
-    "Bhugaon + Luxury Apartments + Ready Possession",
-    "Pune West + Villas + Forest Facing",
-    "Under 50 Lakhs + Township + Pune",
-    "Investment + Property + Bhugaon Pune"
-  ]
+  }
 }
