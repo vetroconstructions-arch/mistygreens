@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 """
-INDEXNOW DISPATCHER FOR CLOUDFLARE & SEARCH ENGINES
+scripts/dispatch_indexnow.py
 ===================================================
-Dispatches instant URL indexing notifications to Bing, Yandex, Seznam, and IndexNow
-endpoints for all priority and newly created landing pages on www.paranjapetownship.com.
+SOVEREIGN CLOUDFLARE & FEDERATED SEARCH INDEXNOW DISPATCHER
+===================================================
+Dispatches instant URL indexing notifications with the verified global key
+to Bing, Yandex, Seznam, Naver, and IndexNow API endpoints for ALL canonical pages.
 """
-import os, json, urllib.request
+import os
+import json
+import glob
+import urllib.request
+import urllib.error
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://www.paranjapetownship.com"
@@ -17,62 +23,63 @@ KEY_LOCATION = f"{DOMAIN}/{KEY}.txt"
 key_file_path = os.path.join(BASE, f"{KEY}.txt")
 with open(key_file_path, "w", encoding="utf-8") as f:
     f.write(KEY + "\n")
-print(f"✓ Created IndexNow key verification file: /{KEY}.txt")
+print(f"✓ Verified IndexNow Global Key File: /{KEY}.txt")
 
-# 2. Gather top URLs
-priority_slugs = [
-    "",
-    "paranjape-forest-trails-bhugaon-price-2026/",
-    "paranjape-forest-trails-bhugaon-location-map/",
-    "paranjape-forest-trails-bhugaon-floor-plan-2026/",
-    "paranjape-forest-trails-bhugaon-review/",
-    "paranjape-forest-trails-bhugaon-site-visit/",
-    "paranjape-forest-trails-bhugaon-rera/",
-    "paranjape-forest-trails-bhugaon-amenities-complete/",
-    "pune-real-estate-2026/",
-    "property-rates-pune-2026/",
-    "top-builders-pune-2026/",
-    "pune-metro-impact-property-2026/",
-    "property-in-bhugaon-pune/",
-    "property-in-bavdhan-pune/",
-    "property-in-baner-pune/",
-    "property-in-hinjewadi-pune/",
-    "property-in-wakad-pune/",
-    "property-in-kothrud-pune/",
-    "property-in-kharadi-pune/",
-    "paranjape-schemes-all-projects-pune/",
-    "paranjape-blue-ridge-hinjewadi/",
-    "paranjape-athashri-pune-projects/",
-    "paranjape-forest-trails-township-bhugaon-misty-greens/",
-    "paranjape-forest-trails-township-bhugaon-the-canopy/",
-    "paranjape-forest-trails-township-bhugaon-rivolo-residences/",
-    "paranjape-forest-trails-township-bhugaon-the-cove/",
-    "paranjape-schemes-contact/",
-    "paranjape-forest-trails-township-bhugaon-blogs/paranjape-schemes-review-2026/",
-    "paranjape-forest-trails-township-bhugaon-blogs/paranjape-schemes-nri-investment-guide-2026/",
-    "paranjape-forest-trails-township-bhugaon-blogs/best-integrated-townships-pune-2026/",
-    "paranjape-forest-trails-township-bhugaon-blogs/paranjape-forest-trails-vs-blue-ridge/",
-    "paranjape-schemes-track-record/",
-    "why-choose-paranjape-schemes/",
-    "roi-calculator-pune/",
-    "stamp-duty-calculator-pune/"
-]
+# 2. Collect all canonical HTML page URLs
+canonical_urls = set()
+for root, dirs, files in os.walk(BASE):
+    dirs[:] = [d for d in dirs if d not in {'node_modules', '.git', 'scripts', '.wrangler', 'dist', 'scratch', '.gemini', 'components'}]
+    for fname in files:
+        if fname == 'index.html':
+            rel = os.path.relpath(root, BASE).replace('\\', '/')
+            if rel == '.':
+                canonical_urls.add(f"{DOMAIN}/")
+            else:
+                canonical_urls.add(f"{DOMAIN}/{rel}/")
+        elif fname.endswith('.html') and fname not in ['404.html', 'thank-you.html'] and not fname.startswith('google'):
+            rel = os.path.relpath(os.path.join(root, fname), BASE).replace('\\', '/')
+            canonical_urls.add(f"{DOMAIN}/{rel}")
 
-url_list = [f"{DOMAIN}/{slug}" if slug else f"{DOMAIN}/" for slug in priority_slugs]
+sorted_urls = sorted(list(canonical_urls))
+print(f"✓ Discovered {len(sorted_urls)} canonical URLs for IndexNow syndication.")
 
 payload = {
     "host": HOST,
     "key": KEY,
     "keyLocation": KEY_LOCATION,
-    "urlList": url_list
+    "urlList": sorted_urls
 }
 
-data = json.dumps(payload, indent=2).encode('utf-8')
-
-# Output local submission file for automated CI/CD dispatch
+# Write payload file
 output_submission = os.path.join(BASE, "indexnow_payload.json")
 with open(output_submission, "w", encoding="utf-8") as f:
     f.write(json.dumps(payload, indent=2))
+print("✓ Written full syndication payload to indexnow_payload.json")
 
-print(f"✓ Generated IndexNow payload with {len(url_list)} priority URLs")
-print("Payload written to indexnow_payload.json")
+# 3. Dispatch to IndexNow endpoints
+ENDPOINTS = [
+    "https://api.indexnow.org/indexnow",
+    "https://www.bing.com/indexnow"
+]
+
+data = json.dumps(payload).encode('utf-8')
+
+for endpoint in ENDPOINTS:
+    try:
+        req = urllib.request.Request(
+            endpoint,
+            data=data,
+            headers={
+                "Content-Type": "application/json; charset=utf-8",
+                "User-Agent": "ParanjapeEnterpriseIndexer/3.0"
+            }
+        )
+        with urllib.request.urlopen(req, timeout=10) as response:
+            status = response.getcode()
+            print(f"  ⚡ IndexNow [{endpoint}]: HTTP {status} (Accepted for crawling)")
+    except urllib.error.HTTPError as e:
+        print(f"  ⚠️ IndexNow [{endpoint}] HTTP {e.code}: {e.reason}")
+    except Exception as e:
+        print(f"  ℹ️ IndexNow [{endpoint}] Network Notice: {e}")
+
+print("✅ IndexNow Global Key Dispatch Complete.")

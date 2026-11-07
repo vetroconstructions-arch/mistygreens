@@ -11731,3 +11731,140 @@ Sovereign Sweep Initiated: Tue Nov  3 01:00:00 IST 2026
 ✅ Search engine sitemap ping completed successfully.
 Sovereign Sweep Completed: Tue Nov  3 01:22:10 IST 2026
 =====================================================
+=====================================================
+Enterprise Sovereign Sweep Initiated: Wed Nov  4 01:00:00 IST 2026
+>> Running Enterprise Google & Multi-Engine Suite (Batch API + SHA-256 Differential + WebSub + IndexNow)...
+═══════════════════════════════════════════════════════════════════════
+ 🚀 SOVEREIGN ENTERPRISE GOOGLE INDEXING & MULTI-ENGINE SUITE v3.0
+═══════════════════════════════════════════════════════════════════════
+
+🔑 Key Pool Discovery: 2 Service Account(s) Found
+   Unique Google Cloud Projects: 1 (thematic-gift-461211-f1)
+   Total Daily Direct Google Quota: 200 URLs/day
+   ⚠️ Notice: Key "service-account.json" shares project_id "thematic-gift-461211-f1" with "service-account-2.json" (shared 200/day quota)
+
+📦 Site Inventory: 457 Canonical HTML Pages Discovered
+   ⚡ Unchanged / Cached Fresh: 0 URLs (0 quota consumed)
+   🆕 New / Unindexed URLs:     457 URLs
+   🔄 Content Modified URLs:    0 URLs
+   🎯 Total Pending Queue:      457 URLs (Prioritized by commercial revenue weight)
+
+📡 [WebSub Syndication] Firing Google PubSubHubbub RSS Push Notification...
+  ✅ WebSub Google Hub Accepted Feed: HTTP 204 (Real-time Googlebot crawl trigger)
+
+🚀 [IndexNow Cluster] Submitting 457 URLs to Bing, Yandex, DuckDuckGo & Seznam...
+  ✅ IndexNow Success: HTTP 200 (Submitted to federated search cluster)
+
+⚡ [Cloudflare Edge] Pre-warming edge cache for 10 high-priority URLs...
+  ✅ Cloudflare Edge pre-warmed for instant sub-50ms Googlebot response.
+
+🚀 [Google Indexing API] Commencing High-Throughput Batch Pipeline...
+
+  ✦ Active Google Cloud Project #1: thematic-gift-461211-f1 (indexing-api@thematic-gift-461211-f1.iam.gserviceaccount.com)
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 407)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 357)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 307)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 257)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 207)...
+    ✅ Batch Processed: 46 / 50 URLs indexed successfully.
+    ⚠️ Project thematic-gift-461211-f1 quota reached (HTTP 429 / Quota Exceeded).
+
+═══════════════════════════════════════════════════════════════════════
+ ✅ SOVEREIGN ENTERPRISE INDEXING PASS COMPLETE
+    URLs Successfully Published to Google: 246
+    URLs Syndicated to IndexNow Cluster:  457
+    Google WebSub Real-Time Feed Push:    ACTIVE
+    Cloudflare Edge Cache Status:         PRE-WARMED
+    Persistent Ledger:                    UPDATED (/Users/vikasyewle/paranjapeplots/scripts/.enterprise-indexing-ledger.json)
+═══════════════════════════════════════════════════════════════════════
+
+  ⚠️ IndexNow Notice: read ECONNRESET
+Enterprise Sovereign Sweep Completed: Wed Nov  4 01:04:04 IST 2026
+=====================================================
+=====================================================
+Enterprise Sovereign Sweep Initiated: Thu Nov  5 01:00:00 IST 2026
+>> Running Enterprise Google & Multi-Engine Suite (Batch API + SHA-256 Differential + WebSub + IndexNow)...
+═══════════════════════════════════════════════════════════════════════
+ 🚀 SOVEREIGN ENTERPRISE GOOGLE INDEXING & MULTI-ENGINE SUITE v3.0
+═══════════════════════════════════════════════════════════════════════
+
+🔑 Key Pool Discovery: 2 Service Account(s) Found
+   Unique Google Cloud Projects: 1 (thematic-gift-461211-f1)
+   Total Daily Direct Google Quota: 200 URLs/day
+   ⚠️ Notice: Key "service-account.json" shares project_id "thematic-gift-461211-f1" with "service-account-2.json" (shared 200/day quota)
+
+📦 Site Inventory: 457 Canonical HTML Pages Discovered
+   ⚡ Unchanged / Cached Fresh: 250 URLs (0 quota consumed)
+   🆕 New / Unindexed URLs:     207 URLs
+   🔄 Content Modified URLs:    0 URLs
+   🎯 Total Pending Queue:      207 URLs (Prioritized by commercial revenue weight)
+
+📡 [WebSub Syndication] Firing Google PubSubHubbub RSS Push Notification...
+  ✅ WebSub Google Hub Accepted Feed: HTTP 204 (Real-time Googlebot crawl trigger)
+
+🚀 [IndexNow Cluster] Submitting 457 URLs to Bing, Yandex, DuckDuckGo & Seznam...
+  ✅ IndexNow Success: HTTP 200 (Submitted to federated search cluster)
+
+⚡ [Cloudflare Edge] Pre-warming edge cache for 10 high-priority URLs...
+  ✅ Cloudflare Edge pre-warmed for instant sub-50ms Googlebot response.
+
+🚀 [Google Indexing API] Commencing High-Throughput Batch Pipeline...
+
+  ✦ Active Google Cloud Project #1: thematic-gift-461211-f1 (indexing-api@thematic-gift-461211-f1.iam.gserviceaccount.com)
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 157)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 107)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 57)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 50 URLs (Remaining queue: 7)...
+    ✅ Batch Processed: 50 / 50 URLs indexed successfully.
+  📦 Submitting multipart batch of 7 URLs (Remaining queue: 0)...
+    ✅ Batch Processed: 7 / 7 URLs indexed successfully.
+
+═══════════════════════════════════════════════════════════════════════
+ ✅ SOVEREIGN ENTERPRISE INDEXING PASS COMPLETE
+    URLs Successfully Published to Google: 207
+    URLs Syndicated to IndexNow Cluster:  457
+    Google WebSub Real-Time Feed Push:    ACTIVE
+    Cloudflare Edge Cache Status:         PRE-WARMED
+    Persistent Ledger:                    UPDATED (/Users/vikasyewle/paranjapeplots/scripts/.enterprise-indexing-ledger.json)
+═══════════════════════════════════════════════════════════════════════
+
+  ⚠️ IndexNow Notice: read ECONNRESET
+Enterprise Sovereign Sweep Completed: Thu Nov  5 01:04:03 IST 2026
+=====================================================
+=====================================================
+Enterprise Sovereign Sweep Initiated: Sat Nov  7 01:00:00 IST 2026
+>> Running Enterprise Google & Multi-Engine Suite (Batch API + SHA-256 Differential + WebSub + IndexNow)...
+═══════════════════════════════════════════════════════════════════════
+ 🚀 SOVEREIGN ENTERPRISE GOOGLE INDEXING & MULTI-ENGINE SUITE v3.0
+═══════════════════════════════════════════════════════════════════════
+
+🔑 Key Pool Discovery: 2 Service Account(s) Found
+   Unique Google Cloud Projects: 1 (thematic-gift-461211-f1)
+   Total Daily Direct Google Quota: 200 URLs/day
+   ⚠️ Notice: Key "service-account.json" shares project_id "thematic-gift-461211-f1" with "service-account-2.json" (shared 200/day quota)
+
+📦 Site Inventory: 457 Canonical HTML Pages Discovered
+   ⚡ Unchanged / Cached Fresh: 457 URLs (0 quota consumed)
+   🆕 New / Unindexed URLs:     0 URLs
+   🔄 Content Modified URLs:    0 URLs
+   🎯 Total Pending Queue:      0 URLs (Prioritized by commercial revenue weight)
+
+📡 [WebSub Syndication] Firing Google PubSubHubbub RSS Push Notification...
+  ✅ WebSub Google Hub Accepted Feed: HTTP 204 (Real-time Googlebot crawl trigger)
+
+🚀 [IndexNow Cluster] Submitting 457 URLs to Bing, Yandex, DuckDuckGo & Seznam...
+  ✅ IndexNow Success: HTTP 200 (Submitted to federated search cluster)
+
+⚡ [Cloudflare Edge] Pre-warming edge cache for 10 high-priority URLs...
+  ✅ Cloudflare Edge pre-warmed for instant sub-50ms Googlebot response.
+
+✅ Site is 100% up to date. All URLs have fresh SHA-256 hashes in ledger.
+Enterprise Sovereign Sweep Completed: Sat Nov  7 01:00:09 IST 2026
+=====================================================

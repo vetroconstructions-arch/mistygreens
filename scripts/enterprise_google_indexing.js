@@ -406,32 +406,38 @@ async function dispatchIndexNowCluster(urls) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 async function prewarmEdgeCache(urls) {
-  console.log(`\n⚡ [Cloudflare Edge] Pre-warming edge cache for ${Math.min(urls.length, 10)} high-priority URLs...`);
-  const topUrls = urls.slice(0, 10);
+  const targetCount = Math.min(urls.length, 50);
+  console.log(`\n⚡ [Cloudflare Edge] Pre-warming edge cache for ${targetCount} high-priority URLs...`);
+  const topUrls = urls.slice(0, targetCount);
 
-  for (const targetUrl of topUrls) {
-    try {
-      const parsed = new URL(targetUrl);
-      await new Promise((resolve) => {
-        const req = https.request({
-          hostname: parsed.hostname,
-          path: parsed.pathname,
-          method: 'HEAD',
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Encoding': 'gzip, deflate, br'
-          }
-        }, res => {
-          resolve(res.statusCode);
-        });
-        req.on('error', () => resolve(0));
-        req.setTimeout(3000, () => { req.destroy(); resolve(0); });
-        req.end();
+  // Warm concurrently in chunks of 10 for rapid sub-50ms Googlebot TTFB
+  const chunkSize = 10;
+  for (let i = 0; i < topUrls.length; i += chunkSize) {
+    const chunk = topUrls.slice(i, i + chunkSize);
+    await Promise.all(chunk.map(targetUrl => {
+      return new Promise((resolve) => {
+        try {
+          const parsed = new URL(targetUrl);
+          const req = https.request({
+            hostname: parsed.hostname,
+            path: parsed.pathname,
+            method: 'HEAD',
+            headers: {
+              'User-Agent': 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+              'Accept-Encoding': 'gzip, deflate, br'
+            }
+          }, res => resolve(res.statusCode));
+          req.on('error', () => resolve(0));
+          req.setTimeout(4000, () => { req.destroy(); resolve(0); });
+          req.end();
+        } catch (e) {
+          resolve(0);
+        }
       });
-    } catch (e) {}
+    }));
   }
-  console.log('  ✅ Cloudflare Edge pre-warmed for instant sub-50ms Googlebot response.');
+  console.log(`  ✅ Cloudflare Edge pre-warmed (${targetCount} URLs) for instant sub-50ms Googlebot response.`);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

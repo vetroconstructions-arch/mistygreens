@@ -35,15 +35,19 @@ jobs:
 
       - name: Generate Canonical Matrix & Sitemap
         run: |
-          echo "🗺️ Rebuilding Canonical Logic and Prioritized Sitemap..."
+          echo "🗺️ Rebuilding Canonical Logic, Feeds, and Prioritized Sitemaps..."
+          python3 scripts/enterprise_google_seo_hardening.py
           python3 scripts/generate_seo_matrix.py
+          python3 scripts/generate_google_merchant_feed.py
+          python3 scripts/generate_image_sitemap.py
+          python3 scripts/dispatch_indexnow.py
           node scripts/generate-sitemap.js || echo "Node sitemap generation skipped"
 
       - name: Auto-Commit SEO Infrastructure
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml robots.txt
+          git add sitemap*.xml google-merchant-feed.xml google-products.xml rss.xml indexnow_payload.json robots.txt
           git commit -m "🤖 Auto-sync: Regenerated SEO Sitemap and Canonical Matrix [skip ci]" || echo "No changes to commit"
           git push origin main || echo "Push skipped or failed"
 
