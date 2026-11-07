@@ -193,21 +193,36 @@ Disallow: /scripts/
 Disallow: /404.html
 Disallow: /thank-you.html
 
-# 2. Modern AI & LLM Search Crawlers
+# 2. Modern AI, LLM & Generative Search Crawlers (ChatGPT, Gemini, Claude, Perplexity, Apple Intelligence)
 User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: GoogleOther-Image
 User-agent: GPTBot
 User-agent: ChatGPT-User
-User-agent: PerplexityBot
+User-agent: OAI-SearchBot
 User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: PerplexityBot
 User-agent: Applebot
 User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Cohere-ai
+User-agent: Amazonbot
+User-agent: Bytespider
+User-agent: Diffbot
 User-agent: CCBot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /.well-known/ai-agent.json
+Allow: /ai-manifest.json
 Disallow: /components/
 Disallow: /scratch/
 Disallow: /scripts/
+Disallow: /404.html
+Disallow: /thank-you.html
 
 # 3. Default Rule for All Other Crawlers
 User-agent: *
