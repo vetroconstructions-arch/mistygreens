@@ -5,7 +5,7 @@ Generates 100% compliant Google Merchant Center & Google Shopping Product Feeds:
 1. google-merchant-feed.xml (RSS 2.0 with xmlns:g="http://base.google.com/ns/1.0")
 2. google-products.xml (Atom / Shopping XML Feed)
 3. sitemap-products.xml (Google Sitemaps XML for Products)
-Covers all 25 official inventory configurations, enclaves, and typologies of Paranjape Forest Trails.
+Covers all 25 verified inventory configurations, enclaves, and typologies of Paranjape Forest Trails.
 """
 
 import os
@@ -371,9 +371,9 @@ def build_merchant_feed():
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">',
         '  <channel>',
-        '    <title>Paranjape Forest Trails Township — Official Property &amp; Inventory Feed</title>',
+        '    <title>Paranjape Forest Trails Township — Verified Property &amp; Inventory Feed</title>',
         f'    <link>{DOMAIN}</link>',
-        '    <description>Official Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>',
+        '    <description>Verified Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>',
         f'    <lastBuildDate>{datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")}</lastBuildDate>'
     ]
 

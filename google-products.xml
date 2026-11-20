@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
   <channel>
-    <title>Paranjape Forest Trails Township — Official Property &amp; Inventory Feed</title>
+    <title>Paranjape Forest Trails Township — Verified Property &amp; Inventory Feed</title>
     <link>https://www.paranjapetownship.com</link>
+<<<<<<< HEAD
     <description>Official Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>
     <lastBuildDate>Fri, 20 Nov 2026 00:17:29 +0000</lastBuildDate>
+=======
+    <description>Verified Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>
+    <lastBuildDate>Wed, 18 Nov 2026 00:31:07 +0000</lastBuildDate>
+>>>>>>> f7f7b53d6 (fix(compliance & performance): remove all official wordings across ecosystem, fix GSC 404/robots.txt, and optimize CWV touch targets & images)
     <item>
       <g:id>PFT-MISTY-GREENS-1800</g:id>
       <g:title>Paranjape Misty Greens NA Bungalow Plot 1800 sq ft Bhugaon Pune — MahaRERA P52100053834</g:title>

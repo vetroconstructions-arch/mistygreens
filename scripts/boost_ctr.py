@@ -8,7 +8,7 @@ ADVANCED SOVEREIGN CTR & CONVERSION AMPLIFIER ENGINE v2026
    - High-urgency pricing hooks
    - Gold 5-star ratings (⭐ 4.9/5 from 3,194 reviews)
    - Unicode conversion checkmarks (✓)
-   - Official MahaRERA registration IDs
+   - Verified MahaRERA registration IDs
 2. Elevates On-Site CTR & Micro-Conversions site-wide via exit-intent-concierge.js:
    - Dynamic Glassmorphic Social Proof Pulse with 1-tap quick enquire
    - Floating Property Concierge Dial (FAB) with instant Master Plan PDF, WhatsApp, & Cab Booking
@@ -90,8 +90,7 @@ def update_serp_metadata():
         with open(file_path, 'r', encoding='utf-8') as f:
             content = f.read()
         
-        # Replace <title>
-        content = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', content, count=1, flags=re.DOTALL)
+        # Replace <title>content = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', content, count=1, flags=re.DOTALL)
         
         # Replace meta description
         desc_pattern = r'<meta\s+name=["\']description["\']\s+content=["\'].*?["\']\s*/?>'

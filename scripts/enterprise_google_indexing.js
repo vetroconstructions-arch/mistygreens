@@ -461,9 +461,9 @@ async function run() {
   console.log('═══════════════════════════════════════════════════════════════════════');
 
   if (isQuotaHelp) {
-    console.log('\n📋 OFFICIAL GOOGLE INDEXING API QUOTA EXPANSION GUIDE:');
+    console.log('\n📋 GOOGLE INDEXING API QUOTA EXPANSION GUIDE:');
     console.log('───────────────────────────────────────────────────────────────────────');
-    console.log('Official Google Cloud Quota Increase Form Link:');
+    console.log('Verified Google Cloud Quota Increase Form Link:');
     console.log('👉 https://docs.google.com/forms/d/e/1FAIpQLSc_mpLw3WnnCt3pVbUHYZZ6ZdOS-c0GIj-WZ_k54SG-jDqCXQ/viewform?entry.840738641=657035699673&entry.1781339011=propsmartrealty%40gmail.com&entry.1191128052=Vikas%20Yewle&entry.1492822222=5000&entry.838995858=https%3A%2F%2Fwww.paranjapetownship.com%2F\n');
     console.log('How to scale quota programmatically:');
     console.log('  Drop additional distinct Google Cloud service-account JSON keys into the keys/ directory.');

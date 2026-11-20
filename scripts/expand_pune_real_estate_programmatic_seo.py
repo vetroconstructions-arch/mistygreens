@@ -624,7 +624,7 @@ def generate_page(slug, title, meta_desc, h1, location_obj, typology_key, relate
 
   <!-- Header -->
   <header class="site-header">
-    <a href="{DOMAIN}/" class="site-brand" aria-label="Paranjape Schemes Official Home">
+    <a href="{DOMAIN}/" class="site-brand" aria-label="Paranjape Schemes & Forest Trails Township Home">
       <img src="/assets/branding/paranjape-corporate-logo.webp" alt="Paranjape Schemes" width="110" height="22" style="height:22px; width:auto; display:block;">
       <span style="width:1.5px; height:18px; background:#D4AF37;"></span>
       <img src="/assets/branding/forest-trails-emblem.webp" alt="Forest Trails Emblem" width="24" height="24" style="height:24px; width:auto; display:block;">
@@ -726,7 +726,7 @@ def generate_page(slug, title, meta_desc, h1, location_obj, typology_key, relate
 
       <h3>Featured Enclave: {enc['hero_enclave']}</h3>
       <p>
-        {enc['desc']} Designed for discerning buyers seeking lifelong serenity and substantial wealth creation, each residence or plot offers <strong>{enc['size']}</strong> with verified MahaRERA registration (<strong>{enc['rera']}</strong>).
+        {enc['desc']} Designed for discerning buyers seeking lifelong serenity and substantial wealth creation, each residence or plot offers <strong>{enc['size']}</strong> with registered MahaRERA registration (<strong>{enc['rera']}</strong>).
       </p>
       <p>
         {enc['usp']} Residents enjoy an unmatched lifestyle where mornings begin with birdsong from over 90 species of migratory birds, equestrian training sessions, and scenic hilltop sunset views over Manas Lake and the Western Ghats.

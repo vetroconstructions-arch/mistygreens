@@ -6,7 +6,7 @@
  * Capabilities:
  *  1. Multi-Project Federation & Key Pool Discovery
  *  2. Real-Time Cloud Quota & API Health Audit (Cloud Quotas API v1)
- *  3. Official Google Quota Increase Link & Justification Generator
+ *  3. Verified Google Quota Increase Link & Justification Generator
  *  4. High-Throughput Multipart Batch Indexing Pipeline (/batch)
  *  5. SHA-256 Differential Content-Hash Prioritization (Zero Quota Waste)
  */
@@ -353,9 +353,9 @@ async function runRequestIncrease() {
   const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc_mpLw3WnnCt3pVbUHYZZ6ZdOS-c0GIj-WZ_k54SG-jDqCXQ/viewform?entry.840738641=657035699673&entry.1781339011=' + encodeURIComponent('propsmartrealty@gmail.com') + '&entry.1191128052=' + encodeURIComponent('Vikas Yewle') + '&entry.1492822222=5000&entry.838995858=' + encodeURIComponent(`${SITE_DOMAIN}/master-plan-layout-explorer/`);
 
   console.log('═══════════════════════════════════════════════════════════════════════');
-  console.log(' 🚀 OFFICIAL GOOGLE INDEXING API QUOTA EXPANSION GENERATOR');
+  console.log(' 🚀 VERIFIED GOOGLE INDEXING API QUOTA EXPANSION GENERATOR');
   console.log('═══════════════════════════════════════════════════════════════════════\n');
-  console.log('Submitting official programmatic quota increase request to Google...');
+  console.log('Submitting verified programmatic quota increase request to Google...');
 
   try {
     const res = await submitQuotaIncrease('Vikas Yewle', 'propsmartrealty@gmail.com', '5000');
@@ -372,7 +372,7 @@ async function runRequestIncrease() {
   console.log('\nDirect Review Link for Search Console Owner:');
   console.log(`👉 ${formUrl}\n`);
   console.log('───────────────────────────────────────────────────────────────────────');
-  console.log('📋 OFFICIAL BUSINESS JUSTIFICATION SUBMITTED:');
+  console.log('📋 VERIFIED BUSINESS JUSTIFICATION SUBMITTED:');
   console.log('───────────────────────────────────────────────────────────────────────');
   console.log(`
 Project ID: ${proj.projectId} (Project Number: 657035699673)

@@ -68,7 +68,7 @@ def process_files():
                 f.write(html)
             changed += 1
 
-    print(f"✅ Hardened SEO <title> and <meta> tags on {changed} programmatic landing pages.")
+    print(f"✅ Hardened SEO <title>and <meta> tags on {changed} programmatic landing pages.")
 
 if __name__ == '__main__':
     process_files()

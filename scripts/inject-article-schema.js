@@ -41,7 +41,7 @@ blogs.forEach(blogDir => {
     }
 
     const title = titleMatch ? titleMatch[1] : 'Forest Trails Real Estate Insights';
-    const desc = descMatch ? descMatch[1] : 'Paranjape Schemes official blog offering insights into West Pune real estate, NA Bungalow Plots, and luxury villas.';
+    const desc = descMatch ? descMatch[1] : 'Paranjape Schemes verified blog offering insights into West Pune real estate, NA Bungalow Plots, and luxury villas.';
 
     // Check if Article block already exists
     if (!html.includes('"@type": "Article"')) {

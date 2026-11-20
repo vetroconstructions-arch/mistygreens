@@ -366,9 +366,9 @@ def generate_merchant_feeds():
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">',
         '  <channel>',
-        '    <title>Paranjape Forest Trails Township — Official Property &amp; Inventory Feed</title>',
+        '    <title>Paranjape Forest Trails Township — Verified Property &amp; Inventory Feed</title>',
         f'    <link>{DOMAIN}</link>',
-        '    <description>Official Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>',
+        '    <description>Verified Google Merchant Center Product Feed for Paranjape Forest Trails 190-Acre Integrated Township in Bhugaon, Pune West by Paranjape Schemes (Construction) Ltd. Verified MahaRERA inventory including NA Bungalow Plots, Luxury Villas, Twin Bungalows, and Premium Apartments.</description>',
         f'    <lastBuildDate>{datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")}</lastBuildDate>'
     ]
 

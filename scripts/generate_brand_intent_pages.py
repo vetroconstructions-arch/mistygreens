@@ -141,7 +141,7 @@ page(
     content_html=f"""
   <p style="color:#777;font-size:.9rem"><a href="/">Home</a> › Price List 2026</p>
   <h1>Paranjape Forest Trails Bhugaon — Complete Price List 2026</h1>
-  <p class="lead">Official price list for all 10 enclaves at Paranjape Forest Trails Bhugaon, Pune West. NA plots, luxury villas, 2/3/4/5BHK apartments, and senior living — all RERA registered.</p>
+  <p class="lead">Verified price list for all 10 enclaves at Paranjape Forest Trails Bhugaon, Pune West. NA plots, luxury villas, 2/3/4/5BHK apartments, and senior living — all RERA registered.</p>
 
   <h2>All Enclave Prices — Forest Trails Bhugaon 2026</h2>
   {ENCLAVES_TABLE}

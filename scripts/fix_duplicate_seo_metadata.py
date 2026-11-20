@@ -55,7 +55,7 @@ def process_file(filepath, rel_path):
     url_lower = rel_path.lower()
     
     title = f"{display_name} | Paranjape Forest Trails Bhugaon"
-    description = f"Detailed guide to {display_name} in the 190-acre nature-themed gated township of Paranjape Forest Trails, Bhugaon, Pune West. Get verified brochures and details."
+    description = f"Detailed guide to {display_name} in the 190-acre nature-themed gated township of Paranjape Forest Trails, Bhugaon, Pune West. Get verified project brochures and details."
     
     # Categorized metadata generation
     if any(x in url_lower for x in ["comparisons", "-vs-", "vs-"]):

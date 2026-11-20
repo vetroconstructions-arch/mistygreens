@@ -77,13 +77,13 @@ LEGAL_PROCEDURE_CONTENT = """
       <ul>
         <li><strong>Collector NA Sanction Order:</strong> Confirms non-agricultural land conversion under Section 44 of the Maharashtra Land Revenue Code with sanctioned layout demarcation.</li>
         <li><strong>Separate 7/12 (Saat Baara) Extract:</strong> Each plot at Misty Greens carries an independent 7/12 extract reflecting the individual buyer's name with mutation entry (Ferfar) post-registration.</li>
-        <li><strong>MahaRERA Project Registration:</strong> Verifies project title, escrow bank accounts, approved building plans, and structural completion dates on the official MahaRERA web portal.</li>
+        <li><strong>MahaRERA Project Registration:</strong> Verifies project title, escrow bank accounts, approved building plans, and structural completion dates on the registered MahaRERA web portal.</li>
         <li><strong>Title Clearance Certificate:</strong> Issued by an independent advocate with 30 years search of revenue records ensuring no encumbrances, bank liens, or legal disputes.</li>
         <li><strong>Index-2 (Suchi-2) Registration:</strong> Final registered deed summary issued by the Joint Sub-Registrar confirming legal stamp duty payment and registration completion.</li>
       </ul>
 
       <div style="background:#fdfcfb;border-left:4px solid #4A0808;padding:1.2rem;margin:1.8rem 0;border-radius:4px;">
-        <h4 style="margin:0 0 0.5rem 0;color:#4A0808;">Official MahaRERA Regulatory Advisory</h4>
+        <h4 style="margin:0 0 0.5rem 0;color:#4A0808;">MahaRERA Statutory Compliance & Advisory</h4>
         <p style="margin:0;font-size:0.92rem;">Paranjape Forest Trails is an authorized RERA-compliant project developed by Paranjape Schemes (Construction) Ltd. Authorized Channel Partner: PropSmart Realty (MahaRERA Agent Registration No: <strong>A031262401295</strong>).</p>
       </div>
     </section>
@@ -103,7 +103,7 @@ BLOG_ENRICHMENT_CONTENT = """
       </ol>
 
       <div style="background:#f8f4f0;border-left:4px solid #4A0808;padding:1.2rem;margin:1.8rem 0;border-radius:4px;">
-        <p style="margin:0;font-size:0.92rem;"><strong>Official Contact:</strong> For inquiries, floor plans, and verified pricing at Paranjape Forest Trails, call official sales advisory at <a href="tel:+917744009295" style="color:#4A0808;font-weight:700;">+91 7744009295</a> or email <!--email_off-->propsmartrealty@gmail.com<!--/email_off-->.</p>
+        <p style="margin:0;font-size:0.92rem;"><strong>Sales Advisory Contact:</strong> For inquiries, floor plans, and verified pricing at Paranjape Forest Trails, call direct sales advisory at <a href="tel:+917744009295" style="color:#4A0808;font-weight:700;">+91 7744009295</a> or email <!--email_off-->propsmartrealty@gmail.com<!--/email_off-->.</p>
       </div>
     </section>
 """

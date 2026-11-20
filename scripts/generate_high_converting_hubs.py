@@ -301,13 +301,13 @@ build_full_page(fin_slug, fin_title, fin_desc, fin_kws, fin_h1, fin_body, fin_sc
 # 4. RERA STATUS & POSSESSION TRACKER
 rera_slug = "rera-status-forest-trails"
 rera_title = "Paranjape Forest Trails MahaRERA Status & Possession Tracker 2026"
-rera_desc = "Official MahaRERA registration dashboard and possession timelines for all 10 enclaves at Paranjape Forest Trails Bhugaon Pune. Escrow compliance and verified certifications."
+rera_desc = "Verified MahaRERA registration dashboard and possession timelines for all 10 enclaves at Paranjape Forest Trails Bhugaon Pune. Escrow compliance and verified certifications."
 rera_kws = "Forest Trails RERA number, MahaRERA P52100053834, Forest Trails possession date 2026, Paranjape RERA certificate, Bhugaon RERA approved projects"
-rera_h1 = "Paranjape Forest Trails — Official MahaRERA Dashboard & Possession Schedules"
+rera_h1 = "Paranjape Forest Trails — Verified MahaRERA Dashboard & Possession Schedules"
 rera_body = """
   <p style="color:#777;font-size:.9rem"><a href="/">Home</a> › MahaRERA Transparency Portal</p>
-  <h1>Paranjape Forest Trails — Official MahaRERA Dashboard & Possession Schedules</h1>
-  <p class="lead">Complete regulatory transparency for every enclave in Paranjape Forest Trails, Bhugaon. Access verified MahaRERA registration IDs, sanctioned architectural plans, escrow banking compliance, and delivery milestones.</p>
+  <h1>Paranjape Forest Trails — Verified MahaRERA Dashboard & Possession Schedules</h1>
+  <p class="lead">Complete regulatory transparency for every enclave in Paranjape Forest Trails, Bhugaon. Access registered MahaRERA registration IDs, sanctioned architectural plans, escrow banking compliance, and delivery milestones.</p>
 
   <h2>MahaRERA Registration Directory (All 10 Enclaves)</h2>
   <table>

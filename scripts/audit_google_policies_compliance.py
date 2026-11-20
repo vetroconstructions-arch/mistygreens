@@ -7,7 +7,7 @@ COMPREHENSIVE AUDIT: GOOGLE WEB POLICIES & GOOGLE ADS COMPLIANCE
 Audits all 450 canonical pages against:
   1. Google Ads Misrepresentation & Pricing Disclaimers (asterisk *, ROI disclaimer)
   2. Google Ads Data Collection & Lead Form Privacy Disclosures (Privacy Policy link on forms)
-  3. MahaRERA Statutory Disclosure & Official Portal Links
+  3. MahaRERA Statutory Disclosure & Authorized Portal Links
   4. Google Search Essentials Structured Data Policy (no Product/Listing schema on utility pages)
   5. Google Ads Destination Requirements (popups, exit intent, click-to-call)
   6. Privacy Policy & Terms of Use Content Compliance (Google Ads tracking disclosure)

@@ -174,7 +174,7 @@ CONFIGURATION_HUBS = [
     {
         'slug': 'misty-greens-na-plots-price-list',
         'title': 'Misty Greens NA Plots Price List & Availability 2026 | Forest Trails',
-        'meta_desc': 'Official 2026 price list for Misty Greens NA Bungalow Plots at Paranjape Forest Trails Bhugaon. 1,930 – 3,500+ sq.ft. clear title plots starting ₹1.23 Cr*.',
+        'meta_desc': 'Verified 2026 price list for Misty Greens NA Bungalow Plots at Paranjape Forest Trails Bhugaon. 1,930 – 3,500+ sq.ft. clear title plots starting ₹1.23 Cr*.',
         'h1': 'Misty Greens NA Plots: 2026 Price List & Master Layout',
         'category': 'NA Bungalow Plots',
         'price': '₹1.23 Cr* – ₹2.50 Cr*',

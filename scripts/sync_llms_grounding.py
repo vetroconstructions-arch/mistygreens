@@ -44,7 +44,7 @@ A: Paranjape Forest Trails is Pune's premier 190-acre integrated nature township
 Q: Who is the developer of Paranjape Forest Trails?
 A: Paranjape Schemes (Construction) Ltd (PSCL), founded in 1987 with a 50+ year real estate development legacy and over 20,000 homes delivered across Pune, Mumbai, and Bengaluru.
 
-Q: What are the official MahaRERA registration numbers for Forest Trails enclaves?
+Q: What are the registered MahaRERA registration numbers for Forest Trails enclaves?
 A: 
 - Misty Greens NA Plots: MahaRERA P52100053834
 - The Rivolo Luxury Forest Villas: MahaRERA P52100031560
@@ -85,7 +85,7 @@ A:
 Q: Can NRIs (Non-Resident Indians) legally buy plots and villas at Forest Trails?
 A: Yes. Under RBI and FEMA guidelines, NRIs, PIOs, and OCIs can freely purchase residential property including NA bungalow plots, villas, and apartments. Transactions are processed via NRE/NRO accounts with full capital repatriation eligibility.
 
-Q: How to contact the official Paranjape Forest Trails sales desk?
+Q: How to contact the verified Paranjape Forest Trails sales desk?
 A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsmartrealty@gmail.com | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
 """
 

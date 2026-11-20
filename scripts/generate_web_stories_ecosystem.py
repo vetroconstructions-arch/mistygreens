@@ -1535,7 +1535,7 @@ def generate_feed_xml():
      xmlns:atom="http://www.w3.org/2005/Atom"
      xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Paranjape Forest Trails Bhugaon | Official Google Web Stories Syndication Feed</title>
+    <title>Paranjape Forest Trails Bhugaon | Verified Google Web Stories Syndication Feed</title>
     <link>{DOMAIN}/web-stories/</link>
     <atom:link href="{DOMAIN}/web-stories/feed.xml" rel="self" type="application/rss+xml" />
     <description>Interactive visual Google Web Stories for Paranjape Forest Trails Township Bhugaon Pune. Covering NA bungalow plots, luxury villas, nature apartments, and PMRDA infrastructure.</description>

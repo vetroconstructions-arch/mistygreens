@@ -59,7 +59,7 @@ HOWTO_MAP = {
             {"@type":"HowToStep","name":"Select Plot Configuration & Location","position":3,
              "text":"Choose your preferred sector, plot size (typically 1,800–3,600 sq ft), and orientation. Confirm the exact plot number on the MahaRERA-approved layout plan. Get the price quote in writing."},
             {"@type":"HowToStep","name":"Pay Token Amount & Receive Allotment Letter","position":4,
-             "text":"Pay the token/booking amount (typically 5–10% of plot cost). Receive the official Allotment Letter with plot number, price, payment schedule, possession date, and developer's MahaRERA obligations."},
+             "text":"Pay the token/booking amount (typically 5–10% of plot cost). Receive the verified Allotment Letter with plot number, price, payment schedule, possession date, and developer's MahaRERA obligations."},
             {"@type":"HowToStep","name":"Execute Agreement for Sale","position":5,
              "text":"Sign the MahaRERA-compliant Agreement for Sale within the prescribed period. This must be registered at the Sub-Registrar office. The agreement protects buyer rights including penalty clauses for delays."},
             {"@type":"HowToStep","name":"Complete Payments as per Schedule","position":6,
@@ -98,7 +98,7 @@ HOWTO_MAP = {
         "totalTime": "PT1H",
         "steps": [
             {"@type":"HowToStep","name":"Visit maharera.mahaonline.gov.in","position":1,
-             "text":"Go to the official MahaRERA portal at maharera.mahaonline.gov.in. Click on 'Projects' and search by developer name ('Paranjape Schemes') or project name ('Forest Trails' or 'Misty Greens')."},
+             "text":"Go to the MahaRERA statutory portal at maharera.mahaonline.gov.in. Click on 'Projects' and search by developer name ('Paranjape Schemes') or project name ('Forest Trails' or 'Misty Greens')."},
             {"@type":"HowToStep","name":"Verify Registration Status","position":2,
              "text":"Check that the project status shows 'Registration Granted' and the validity date is current. For Misty Greens: P52100053834. For Rivolo: P52100031560. For The Cove: P52100048536. For The Canopy: P52100079518."},
             {"@type":"HowToStep","name":"Review Escrow Account Details","position":3,

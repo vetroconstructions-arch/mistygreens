@@ -56,7 +56,7 @@ async function run() {
     await ping('Bing', `https://www.bing.com/ping?sitemap=${encodeURIComponent(SITEMAP_URL)}`);
     
     // Note: If you have a service-account.json, you would run the Google Indexing API here.
-    console.log("\n💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the official Indexing API.");
+    console.log("\n💡 PRO TIP: For instant indexing, configure YOUR_GOOGLE_API_KEY for the verified Indexing API.");
     
     console.log("\n🎯 Advanced Indexing Burst Complete.");
 }

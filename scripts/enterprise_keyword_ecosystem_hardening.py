@@ -331,7 +331,7 @@ def harden_html_keywords():
                 file_modified = True
                 updated_count += 1
         else:
-            # Inject meta keywords right after <title> or <meta name="description">
+            # Inject meta keywords right after <title>or <meta name="description">
             kw_tag = f'\n  <meta name="keywords" content="{page_kws}">'
             if '<meta name="description"' in content:
                 content = re.sub(r'(<meta name="description"[^>]*>)', r'\1' + kw_tag, content, count=1, flags=re.IGNORECASE)

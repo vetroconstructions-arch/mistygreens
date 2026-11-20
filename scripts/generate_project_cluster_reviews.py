@@ -30,7 +30,7 @@ PROJECT_REVIEWS = [
         "comp_price": "₹4.50–6.00 Cr*",
         "faqs": [
             ("What is the starting price for The Rivolo villas in 2026?", "The Rivolo luxury forest villas start from ₹3.89 Cr* for 4 BHK configurations and up to ₹5.50 Cr* for 5 BHK bespoke estate layouts. All prices are indicative and subject to plot size and customization."),
-            ("What is the MahaRERA registration number for The Rivolo?", "The Rivolo is officially registered under MahaRERA certificate number P52100031560, with all statutory land titles, environmental clearances, and layout approvals verified on the official MahaRERA portal."),
+            ("What is the MahaRERA registration number for The Rivolo?", "The Rivolo is officially registered under MahaRERA certificate number P52100031560, with all statutory land titles, environmental clearances, and layout approvals verified on the MahaRERA statutory portal."),
             ("What are the private amenities included with The Rivolo residences?", "Each villa features a private landscaped lawn, expansive viewing decks, double-height living spaces, dedicated staff quarters, covered parking for 3 vehicles, plus complete access to The Cliff Club, Equestrian Academy, and Olympic swimming facilities."),
             ("How accessible is The Rivolo from Chandani Chowk and Hinjewadi?", "Thanks to the newly operational multi-level Chandani Chowk interchange, The Rivolo is just 7 minutes from Bavdhan, 12 minutes from Kothrud, and 20 minutes from the Hinjewadi IT Park Phase 1 corridor.")
         ]
@@ -138,7 +138,7 @@ PROJECT_REVIEWS = [
         "comp_price": "₹60–75 L*",
         "faqs": [
             ("What configurations are available at Everglades?", "Everglades strictly offers 1 & 2 BHK PRO Homes with zero-wastage carpet floor plans designed for modern compact luxury."),
-            ("What is the starting price and MahaRERA number for Everglades?", "Starting from ₹48.50 L*, Everglades is registered under official MahaRERA certificate number P52100055711."),
+            ("What is the starting price and MahaRERA number for Everglades?", "Starting from ₹48.50 L*, Everglades is registered under registered MahaRERA certificate number P52100055711."),
             ("Do Everglades residents get access to Forest Trails township amenities?", "Yes, residents enjoy full access to township infrastructure including the 190-acre gated ecosystem, 24/7 security, walking trails, and club amenities."),
             ("Why is Everglades considered a top rental investment?", "Located just 7 minutes from Chandani Chowk and 20 minutes from Hinjewadi, Everglades yields strong rental demand from IT employees with estimated 5.2%–6.1% annual yields.")
         ]
@@ -538,7 +538,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       <a href="https://wa.me/917744009295?text=Hi%2C%20I%20am%20interested%20in%20{slug}." target="_blank" rel="noopener" class="btn-wa">💬 WhatsApp Sales Advisor</a>
     </div>
     <div style="margin-top: 1.2rem;">
-      <a href="{enclave_url}" style="color: #D4AF37; text-decoration: underline; font-weight: 600;">Visit Official {enclave_name} Landing Page &rarr;</a>
+      <a href="{enclave_url}" style="color: #D4AF37; text-decoration: underline; font-weight: 600;">Visit Verified {enclave_name} Landing Page &rarr;</a>
     </div>
   </div>
 
@@ -564,7 +564,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   <div style="max-width: 1200px; margin: 0 auto; text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.7);">
     <p style="margin-bottom: 0.6rem;">© 2026 Paranjape Forest Trails Township Bhugaon. All rights reserved.</p>
     <p style="margin-bottom: 0.6rem;">Contact Sales Desk: <a href="tel:+917744009295" style="color: #D4AF37; font-weight: 700;">+91 7744009295</a> | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--></p>
-    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">Disclaimer: All property rates, dimensions, specifications, and images are indicative (*) and subject to MahaRERA verification. Visit official MahaRERA website: <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="color: #D4AF37;">https://maharera.maharashtra.gov.in/</a>.</p>
+    <p style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">Disclaimer: All property rates, dimensions, specifications, and images are indicative (*) and subject to MahaRERA verification. Visit MahaRERA statutory portal: <a href="https://maharera.maharashtra.gov.in/" target="_blank" rel="noopener" style="color: #D4AF37;">https://maharera.maharashtra.gov.in/</a>.</p>
   </div>
 </footer>
 

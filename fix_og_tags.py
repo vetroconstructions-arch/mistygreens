@@ -8,16 +8,14 @@ def process_file(filepath):
     if re.search(r"<meta\s+property=[\"']og:title[\"']", content, re.I):
         return False
 
-    # Extract <title>
-    title_match = re.search(r"<title>(.*?)</title>", content, re.I | re.DOTALL)
+    # Extract <title>title_match = re.search(r"<title>(.*?)</title>", content, re.I | re.DOTALL)
     if not title_match:
         return False
     
     title_text = title_match.group(1).strip()
     og_tag = f'\n    <meta property="og:title" content="{title_text}">'
 
-    # Inject og:title right after <title>
-    new_content = re.sub(r"(<title>.*?</title>)", r"\1" + og_tag, content, flags=re.I | re.DOTALL)
+    # Inject og:title right after <title>new_content = re.sub(r"(<title>.*?</title>)", r"\1" + og_tag, content, flags=re.I | re.DOTALL)
     
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(new_content)

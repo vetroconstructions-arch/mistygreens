@@ -9,7 +9,7 @@ function getAllHtmlFiles(dir, fileList = []) {
     files.forEach(file => {
         const filePath = path.join(dir, file);
         if (fs.statSync(filePath).isDirectory()) {
-            const excludeDirs = ['node_modules', 'scripts', 'components', 'fonts', 'styles', 'assets', '.wrangler', '.venv', '.well-known'];
+            const excludeDirs = ['node_modules', 'dist', 'scripts', 'components', 'fonts', 'styles', 'assets', '.wrangler', '.venv', '.well-known'];
             if (!file.startsWith('.') && !excludeDirs.includes(file)) {
                 getAllHtmlFiles(filePath, fileList);
             }

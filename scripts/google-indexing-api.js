@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Official Google Indexing API Engine (Phase 51)
+ * Verified Google Indexing API Engine (Phase 51)
  * Purpose: Notifies Google of URL updates for instant crawling.
  * Required: service-account.json
  */

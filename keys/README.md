@@ -48,7 +48,7 @@ This directory is monitored by `scripts/enterprise_google_indexing.js`.
 
 ---
 
-## Official Google Quota Increase Request (Direct Form)
+## Verified Google Quota Increase Request (Direct Form)
 
 To request a permanent quota increase to **5,000 URLs/day** on your primary project (`thematic-gift-461211-f1`):
 👉 [Submit Google Indexing API Quota Request](https://docs.google.com/forms/d/e/1FAIpQLSc_mpLw3WnnCt3pVbUHYZZ6ZdOS-c0GIj-WZ_k54SG-jDqCXQ/viewform?entry.840738641=657035699673&entry.1781339011=propsmartrealty%40gmail.com&entry.1191128052=Vikas%20Yewle&entry.1492822222=5000&entry.838995858=https%3A%2F%2Fwww.paranjapetownship.com%2F)

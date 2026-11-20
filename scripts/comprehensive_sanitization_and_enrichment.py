@@ -23,29 +23,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 TITLE_DISAMBIGUATION = {
     'amenities/adventure-park-pune/index.html': 'Adventure Park & Eco Trails Amenities | Forest Trails Bhugaon Pune',
-    'paranjape-forest-trails-township-bhugaon-amenities/adventure-park-pune/index.html': 'Official Guide: Forest Trails Adventure Park & Nature Trails Bhugaon',
+    'paranjape-forest-trails-township-bhugaon-amenities/adventure-park-pune/index.html': 'Verified Guide: Forest Trails Adventure Park & Nature Trails Bhugaon',
     'amenities/olympic-sports-complex/index.html': 'Olympic Sports Complex Amenities | Tennis, Badminton & Gym at Forest Trails',
-    'paranjape-forest-trails-township-bhugaon-amenities/olympic-sports-complex/index.html': 'Official Guide: Olympic Sports Complex at Forest Trails Bhugaon Pune',
+    'paranjape-forest-trails-township-bhugaon-amenities/olympic-sports-complex/index.html': 'Verified Guide: Olympic Sports Complex at Forest Trails Bhugaon Pune',
     'amenities/forest-walks-trails/index.html': '30,000+ Forest Trees & Nature Walks | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-amenities/forest-walks-trails/index.html': 'Official: Forest Walks & 30,000 Trees Nature Sanctuary at Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-amenities/forest-walks-trails/index.html': 'Verified: Forest Walks & 30,000 Trees Nature Sanctuary at Forest Trails',
     'amenities/wellness-spa-retreat/index.html': 'Wellness Spa & Hydrotherapy Retreat | Forest Trails Bhugaon Pune',
-    'paranjape-forest-trails-township-bhugaon-amenities/wellness-spa-retreat/index.html': 'Official: Wellness Spa & Ayurvedic Rejuvenation at Forest Trails Bhugaon',
+    'paranjape-forest-trails-township-bhugaon-amenities/wellness-spa-retreat/index.html': 'Verified: Wellness Spa & Ayurvedic Rejuvenation at Forest Trails Bhugaon',
     'sectors/sector-c-riverview-plots/index.html': 'Sector C Riverview NA Plots Layout & Map | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-sectors/sector-c-riverview-plots/index.html': 'Official: Sector C Riverview Plots Pricing & Availability | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-sectors/sector-c-riverview-plots/index.html': 'Verified: Sector C Riverview Plots Pricing & Availability | Forest Trails',
     'sectors/sector-d-forest-edge/index.html': 'Sector D Forest Edge Enclave Layout & Map | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-sectors/sector-d-forest-edge/index.html': 'Official: Sector D Forest Edge Enclave Pricing & Availability | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-sectors/sector-d-forest-edge/index.html': 'Verified: Sector D Forest Edge Enclave Pricing & Availability | Forest Trails',
     'sectors/sector-a-skyline-villas/index.html': 'Sector A Skyline Villas Layout & Elevation | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-sectors/sector-a-skyline-villas/index.html': 'Official: Sector A Skyline Villas Pricing & Floor Plans | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-sectors/sector-a-skyline-villas/index.html': 'Verified: Sector A Skyline Villas Pricing & Floor Plans | Forest Trails',
     'sectors/sector-b-misty-heights/index.html': 'Sector B Misty Heights Enclave Layout | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-sectors/sector-b-misty-heights/index.html': 'Official: Sector B Misty Heights Pricing & Sanction Details | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-sectors/sector-b-misty-heights/index.html': 'Verified: Sector B Misty Heights Pricing & Sanction Details | Forest Trails',
     'sectors/sector-e-valley-residences/index.html': 'Sector E Valley Residences Layout | Forest Trails Bhugaon',
-    'paranjape-forest-trails-township-bhugaon-sectors/sector-e-valley-residences/index.html': 'Official: Sector E Valley Residences Pricing & Master Plan | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-sectors/sector-e-valley-residences/index.html': 'Verified: Sector E Valley Residences Pricing & Master Plan | Forest Trails',
     'investment/tax-benefits-nri-plots/index.html': 'NRI Tax Benefits on NA Plots Pune West | Investment Analysis',
-    'paranjape-forest-trails-township-bhugaon-investment/tax-benefits-nri-plots/index.html': 'Official: Tax Benefits NRI Plots ROI Forecast 2026 | Forest Trails',
+    'paranjape-forest-trails-township-bhugaon-investment/tax-benefits-nri-plots/index.html': 'Verified: Tax Benefits NRI Plots ROI Forecast 2026 | Forest Trails',
     'legal/na-plot-purchase-process/index.html': 'Legal Checklist: NA Plot Purchase Process in Pune Maharashtra',
-    'paranjape-forest-trails-township-bhugaon-legal/na-plot-purchase-process/index.html': 'Official: NA Plot Purchase Legal Process at Forest Trails Bhugaon',
+    'paranjape-forest-trails-township-bhugaon-legal/na-plot-purchase-process/index.html': 'Verified: NA Plot Purchase Legal Process at Forest Trails Bhugaon',
     'legal/rera-compliance-guide/index.html': 'MahaRERA Compliance Guide for Land Buyers in Pune West',
-    'paranjape-forest-trails-township-bhugaon-legal/rera-compliance-guide/index.html': 'Official: MahaRERA Compliance Guide & Project RERA Numbers | Forest Trails'
+    'paranjape-forest-trails-township-bhugaon-legal/rera-compliance-guide/index.html': 'Verified: MahaRERA Compliance Guide & Project RERA Numbers | Forest Trails'
 }
 
 COMPARISON_MATRIX_DATA = {
@@ -180,8 +180,8 @@ def generate_comparison_body(slug, comp_info):
       <p>Investing in West Pune offers substantial capital gains due to three high-impact infrastructure corridors: the <strong>Chandani Chowk multi-level flyover</strong> (now fully operational, reducing Kothrud transit to 7 minutes), the <strong>PMRDA Ring Road Package</strong> (providing direct expressway access to Hinjewadi Phase 3 in 18 minutes), and the planned <strong>Paud Road Metro Extension</strong>. While eastern corridors face severe traffic bottlenecks along Nagar Road and Hadapsar, Forest Trails residents enjoy clean air, protected green hillocks, and master-planned township appreciation.</p>
 
       <div style="background:#fdfcfb;border-left:4px solid #D4AF37;padding:1.2rem;margin:1.8rem 0;border-radius:4px;">
-        <h4 style="margin:0 0 0.5rem 0;color:#4A0808;">Official Developer Advisory & Site Visit Booking</h4>
-        <p style="margin:0;font-size:0.92rem;">Experience the 190-acre natural layout firsthand. Private chauffeured site visits available daily from Kothrud, Bavdhan, and Baner. Official Authorized MahaRERA Channel Partner: PropSmart Realty (Registration No: <strong>A031262401295</strong>).</p>
+        <h4 style="margin:0 0 0.5rem 0;color:#4A0808;">Direct Sales Advisory & Site Visit Booking</h4>
+        <p style="margin:0;font-size:0.92rem;">Experience the 190-acre natural layout firsthand. Private chauffeured site visits available daily from Kothrud, Bavdhan, and Baner. Authorized MahaRERA Channel Partner: PropSmart Realty (Registration No: <strong>A031262401295</strong>).</p>
         <p style="margin:0.8rem 0 0 0;font-weight:700;">
           Direct Sales Concierge: <a href="tel:+917744009295" style="color:#4A0808;">+91 7744009295</a> | WhatsApp: <a href="https://wa.me/917744009295?text=Hello%20I%20want%20to%20compare%20Forest%20Trails" style="color:#2e7d32;">Chat on WhatsApp</a>
         </p>

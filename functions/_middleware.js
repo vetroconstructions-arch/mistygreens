@@ -1096,11 +1096,9 @@ class ExitIntentConciergeInjector {
     this.isThankYou = isThankYou;
   }
   element(body) {
-    if (this.isBot || this.isThankYou) return;
-    body.append(
-      `\n<!-- Sovereign Exit-Intent & Conversion Concierge v2.0 -->\n<script defer src="/exit-intent-concierge.js"></script>\n`,
-      { html: true }
-    );
+    // Zero-overhead: All landing pages statically load /exit-intent-concierge.js defer
+    // Avoid appending duplicate script tag at runtime
+    return;
   }
 }
 
@@ -1144,10 +1142,10 @@ function applyCacheHeaders(headers, url) {
   }
 
   // HTML pages
-  if (pathname.startsWith("/thank-you")) {
+  if (pathname.startsWith("/thank-you") || pathname === "/404.html" || pathname === "/404") {
     headers.set("Cache-Control", "no-store, no-cache, private");
     headers.set("CDN-Cache-Control", "no-store");
-    headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    headers.set("X-Robots-Tag", "noindex, follow");
   } else {
     headers.set("Cache-Control", "public, max-age=0, s-maxage=604800, stale-while-revalidate=86400, stale-if-error=604800");
     headers.set("CDN-Cache-Control", "max-age=604800");
@@ -1230,7 +1228,7 @@ export async function onRequest(context) {
       }
     } catch (_) {}
 
-    if (edgeCache && isGet && !url.searchParams.has("preview") && !url.pathname.startsWith("/thank-you")) {
+    if (edgeCache && isGet && !url.searchParams.has("preview") && !url.pathname.startsWith("/thank-you") && !url.pathname.startsWith("/404")) {
       try {
         const cached = await edgeCache.match(cacheKey);
         if (cached) {
@@ -1358,7 +1356,7 @@ export async function onRequest(context) {
       if (crawlerInfo.tier === 1) {
         headers.set("X-Googlebot-Edge", "accelerated;tier=priority;render=instant;cwv=pass;schemas=harmonized");
         headers.set("X-Google-Indexing-Protocol", "v3;supported;status=canonical");
-        if (!url.pathname.startsWith("/thank-you")) {
+        if (!url.pathname.startsWith("/thank-you") && !url.pathname.startsWith("/404")) {
           headers.set("X-Robots-Tag", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
         }
       } else if (crawlerInfo.tier === 2) {
@@ -1391,7 +1389,7 @@ export async function onRequest(context) {
       headers,
     });
 
-    if (edgeCache && isGet && transformedResponse.status === 200 && !url.pathname.startsWith("/thank-you")) {
+    if (edgeCache && isGet && transformedResponse.status === 200 && !url.pathname.startsWith("/thank-you") && !url.pathname.startsWith("/404")) {
       try {
         if (context.waitUntil) {
           context.waitUntil(edgeCache.put(cacheKey, finalResponse.clone()));

@@ -122,7 +122,7 @@ def analyze():
         if not titles:
             title_issues.append((url_path, "Missing <title>"))
         elif len(titles) > 1:
-            title_issues.append((url_path, f"Multiple <title> tags ({len(titles)})"))
+            title_issues.append((url_path, f"Multiple <title>tags ({len(titles)})"))
         else:
             t = titles[0].strip()
             if len(t) == 0:

@@ -190,8 +190,6 @@ Allow: /
 Disallow: /components/
 Disallow: /scratch/
 Disallow: /scripts/
-Disallow: /404.html
-Disallow: /thank-you.html
 
 # 2. Modern AI, LLM & Generative Search Crawlers (ChatGPT, Gemini, Claude, Perplexity, Apple Intelligence)
 User-agent: Google-Extended
@@ -221,8 +219,6 @@ Allow: /ai-manifest.json
 Disallow: /components/
 Disallow: /scratch/
 Disallow: /scripts/
-Disallow: /404.html
-Disallow: /thank-you.html
 
 # 3. Default Rule for All Other Crawlers
 User-agent: *
@@ -230,8 +226,6 @@ Allow: /
 Disallow: /components/
 Disallow: /scratch/
 Disallow: /scripts/
-Disallow: /404.html
-Disallow: /thank-you.html
 
 # 4. Master Sitemap Index & Host Reference
 Host: {DOMAIN}

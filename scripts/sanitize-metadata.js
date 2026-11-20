@@ -7,7 +7,7 @@ function sanitizeFile(filePath) {
     let content = fs.readFileSync(filePath, 'utf8');
     let modified = false;
 
-    // 1. Sanitize <title> tags
+    // 1. Sanitize <title>tags
     content = content.replace(/<title>(.*?)<\/title>/gi, (match, titleContent) => {
         const plainText = titleContent.replace(/<[^>]*>/g, '').trim();
         if (titleContent !== plainText) {
