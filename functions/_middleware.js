@@ -1072,6 +1072,19 @@ class ExitIntentConciergeInjector {
   }
 }
 
+/**
+ * Handler 16: Privacy Email Sanitizer
+ * Replaces any exposed mailto or email anchor links with direct WhatsApp Desk
+ */
+class PrivacyFooterEmailSanitizer {
+  element(element) {
+    element.replace(
+      '<a href="https://wa.me/917744009295" target="_blank" rel="noopener" style="color: #25D366; text-decoration: underline;">+91 7744009295 ↗</a>',
+      { html: true }
+    );
+  }
+}
+
 // ─── Cache Strategy ──────────────────────────────────────────────────────────
 
 function applyCacheHeaders(headers, url) {
@@ -1190,7 +1203,10 @@ export async function onRequest(context) {
     // │ 1d. Cloudflare Edge Cache Lookup (GET requests)         │
     // └─────────────────────────────────────────────────────────┘
     const isGet = request.method === "GET";
-    const cacheKey = new Request(url.toString(), request);
+    const CACHE_VERSION = "2026.11.22.v6";
+    const cacheUrl = new URL(url.toString());
+    cacheUrl.searchParams.set("_cv", CACHE_VERSION);
+    const cacheKey = new Request(cacheUrl.toString(), request);
     let edgeCache = null;
     try {
       if (typeof caches !== "undefined" && caches.default) {
@@ -1269,7 +1285,10 @@ export async function onRequest(context) {
         // Handler 14: NRI & International Multi-Currency Personalization
         .on("body", new NRIPersonalizationOptimizer(cfData.country, currency, crawlerInfo.tier > 0))
         // Handler 15: Sovereign Exit-Intent & Conversion Concierge
-        .on("body", new ExitIntentConciergeInjector(crawlerInfo.tier > 0, url.pathname.startsWith("/thank-you")));
+        .on("body", new ExitIntentConciergeInjector(crawlerInfo.tier > 0, url.pathname.startsWith("/thank-you")))
+        // Handler 16: Privacy Email Sanitizer
+        .on('a[href*="propsmartrealty@gmail.com"]', new PrivacyFooterEmailSanitizer())
+        .on('a[href^="mailto:"]', new PrivacyFooterEmailSanitizer());
 
       transformedResponse = rewriter.transform(response);
     }
