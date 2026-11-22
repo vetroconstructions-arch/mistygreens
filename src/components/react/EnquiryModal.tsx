@@ -23,7 +23,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
           const leads = JSON.parse(queued);
           if (Array.isArray(leads) && leads.length > 0) {
             for (const lead of leads) {
-              await fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+              await fetch('/api/lead-capture', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                 body: JSON.stringify(lead)
@@ -113,7 +113,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
 
     try {
       // 2. Primary Direct Client-Side FormSubmit AJAX Dispatch
-      const clientDispatch = fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+      const clientDispatch = fetch('/api/lead-capture', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -404,7 +404,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({ initialProject = 'al
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="e.g. rahul@gmail.com"
+                  placeholder="Enter your email address"
                   style={{
                     width: '100%',
                     background: '#1c1c22',

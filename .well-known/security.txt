@@ -1,4 +1,4 @@
-Contact: mailto:propsmartrealty@gmail.com
+Contact: https://www.paranjapetownship.com/contact-us/
 Expires: 2027-03-15T00:00:00z
 Preferred-Languages: en, hi, mr
 Canonical: https://www.paranjapetownship.com/.well-known/security.txt

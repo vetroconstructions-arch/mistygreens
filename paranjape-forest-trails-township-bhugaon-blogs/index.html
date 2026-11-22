@@ -338,7 +338,6 @@ img{max-width:100%;height:auto}
       "legalName": "Paranjape Schemes (Construction) Ltd",
       "url": "https://www.paranjapetownship.com/",
       "telephone": "+91-7744009295",
-      "email": "<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->",
       "priceRange": "₹89 Lakhs* - ₹5.50 Crores*",
       "currenciesAccepted": "INR",
       "paymentAccepted": "Cash, Cheque, Credit Card, Bank Wire, Home Loan",
@@ -1620,6 +1619,7 @@ img{max-width:100%;height:auto}
   
 <meta property="og:locale" content="en_IN">
   <meta name="keywords" content="Paranjape Schemes, Paranjape Schemes Construction, Paranjape builder Pune, Paranjape Schemes projects Pune, Paranjape Schemes 2026, Paranjape real estate Pune, Paranjape Forest Trails, Paranjape Forest Trails Bhugaon, Forest Trails Pune, Paranjape Blue Ridge, Paranjape Athashri, Paranjape Aspire, Paranjape Schemes review, Paranjape Schemes track record, best builder Pune, Paranjape Schemes contact, Paranjape Schemes RERA, Paranjape Schemes NRI, Forest Trails Bhugaon price 2026, Paranjape township Pune">
+
     <link rel="canonical" href="https://www.paranjapetownship.com/paranjape-forest-trails-township-bhugaon-blogs/">
 </head>
 <body> <!-- Architectural Navigation (Global Sync v1.7) -->
@@ -1777,7 +1777,7 @@ img{max-width:100%;height:auto}
 <p id="enquiry-modal-desc" style="color: rgba(255, 255, 255, 0.72); font-size: 0.76rem; line-height: 1.35; margin: 0;">Direct developer pricing, master blueprints &amp; site visit guidance.</p>
 </div>
 <!-- Lead Capture Form (Compact 1-Screen) -->
-<form action="https://formsubmit.co/<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->" id="enquiry-form-modal" method="POST" style="display: flex; flex-direction: column; gap: 0.65rem;">
+<form action="/api/lead-capture" id="enquiry-form-modal" method="POST" style="display: flex; flex-direction: column; gap: 0.65rem;">
 <input name="_next" type="hidden" value="https://www.paranjapetownship.com/thank-you/"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="_subject" type="hidden" value="New Website Enquiry - Paranjape Forest Trails"/>
@@ -1820,7 +1820,7 @@ img{max-width:100%;height:auto}
 <!-- Email Address -->
 <div>
 <label style="display: block; color: rgba(255,255,255,0.85); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.25rem;">Email Address (For Instant PDF Brochure)</label>
-<input name="email" onblur="this.style.borderColor='rgba(255,255,255,0.15)';" onfocus="this.style.borderColor='#D4AF37';" placeholder="e.g. yourname@gmail.com" style="width: 100%; background: #1a1a1c; color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 0.55rem 0.8rem; font-size: 0.8rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;" type="email"/>
+<input name="email" onblur="this.style.borderColor='rgba(255,255,255,0.15)';" onfocus="this.style.borderColor='#D4AF37';" placeholder="Enter your email address" style="width: 100%; background: #1a1a1c; color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 8px; padding: 0.55rem 0.8rem; font-size: 0.8rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;" type="email"/>
 </div>
 <!-- WhatsApp Opt-in -->
 <div style="display: flex; align-items: center; gap: 8px; background: rgba(37, 211, 102, 0.08); padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid rgba(37, 211, 102, 0.25);">
@@ -1864,7 +1864,7 @@ img{max-width:100%;height:auto}
 <!-- Email Address -->
 <div>
 <label style="display: block; color: rgba(255,255,255,0.85); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem;">Email Address (For Instant PDF Brochure)</label>
-<input name="email" onblur="this.style.borderColor='rgba(255,255,255,0.15)';" onfocus="this.style.borderColor='#D4AF37';" placeholder="e.g. yourname@gmail.com" style="width: 100%; background: #1a1a1a; color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 0.8rem 1rem; font-size: 0.88rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;" type="email"/>
+<input name="email" onblur="this.style.borderColor='rgba(255,255,255,0.15)';" onfocus="this.style.borderColor='#D4AF37';" placeholder="Enter your email address" style="width: 100%; background: #1a1a1a; color: #ffffff; border: 1.5px solid rgba(255, 255, 255, 0.15); border-radius: 12px; padding: 0.8rem 1rem; font-size: 0.88rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;" type="email"/>
 </div>
 <!-- WhatsApp Opt-in Checkbox -->
 <div style="display: flex; align-items: center; gap: 10px; background: rgba(37, 211, 102, 0.08); padding: 0.65rem 0.9rem; border-radius: 10px; border: 1px solid rgba(37, 211, 102, 0.25);">
@@ -2624,7 +2624,7 @@ function switchPdmTab(tabName) {
     } catch(gerr){}
 
     // 3. Direct AJAX to FormSubmit
-    fetch('https://formsubmit.co/ajax/<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->', {
+    fetch('/api/lead-capture', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({

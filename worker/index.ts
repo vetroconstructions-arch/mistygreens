@@ -361,7 +361,6 @@ class HeadMetaInjector {
       "logo": "https://www.paranjapetownship.com/assets/branding/logo.png",
       "image": "https://www.paranjapetownship.com/images/hero-township.webp",
       "telephone": "+91-7744009295",
-      "email": "propsmartrealty@gmail.com",
       "priceRange": "₹₹₹₹",
       "geo": {
         "@type": "GeoCoordinates",

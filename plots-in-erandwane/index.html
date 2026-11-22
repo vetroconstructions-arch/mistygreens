@@ -497,7 +497,7 @@
         Direct developer booking with 0% brokerage. Get customized floor plans, latest 2026 pricing sheets, and arrange a complimentary AC cab site visit from Erandwane.
       </p>
 
-      <form action="https://formsubmit.co/ajax/propsmartrealty@gmail.com" method="POST" style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;" onsubmit="handleLeadSubmit(event)">
+      <form action="/api/lead-capture" method="POST" style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;" onsubmit="handleLeadSubmit(event)">
         <input type="hidden" name="_subject" value="🌟 New Lead from plots-in-erandwane: Erandwane - PMRDA NA Bungalow Plots">
         <input type="hidden" name="source_page" value="https://www.paranjapetownship.com/plots-in-erandwane/">
         <input type="hidden" name="location" value="Erandwane">
@@ -593,7 +593,7 @@
         });
       }
 
-      fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+      fetch('/api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)

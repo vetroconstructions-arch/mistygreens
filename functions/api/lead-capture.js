@@ -42,7 +42,7 @@ export async function onRequestPost(context) {
 
     const result = await formSubmitRes.json().catch(() => ({}));
 
-    return new Response(JSON.stringify({ success: true, message: 'Lead captured & dispatched to propsmartrealty@gmail.com', gateway: result }), {
+    return new Response(JSON.stringify({ success: true, message: 'Lead captured & dispatched successfully', gateway: result }), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',

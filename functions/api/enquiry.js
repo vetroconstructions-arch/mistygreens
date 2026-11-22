@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
       success: true,
       timestamp: timestamp,
       lead: { name, phone, email, project },
-      message: "Lead processed & dispatched to propsmartrealty@gmail.com successfully."
+      message: "Lead processed & dispatched successfully."
     };
 
     return new Response(JSON.stringify(responsePayload), {

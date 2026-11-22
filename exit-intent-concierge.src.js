@@ -353,7 +353,7 @@
       var payload = {
         name: name,
         phone: phone,
-        email: 'exit-concierge@paranjapetownship.com',
+        email: '',
         enclave: preference,
         source_url: window.location.href,
         page_title: document.title,
@@ -380,7 +380,7 @@
       }
 
       try {
-        fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+        fetch('/api/lead-capture', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload),
@@ -519,7 +519,7 @@
             '</div>' +
             '<div>' +
               '<label for="modal-email-address" style="display:block;color:rgba(255,255,255,0.85);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;">Email Address (Optional)</label>' +
-              '<input id="modal-email-address" placeholder="name@domain.com" style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="email"/>' +
+              '<input id="modal-email-address" placeholder="Enter your email address" style="width:100%;background:#1c1c22;color:#fff;border:1.5px solid rgba(255,255,255,0.18);border-radius:8px;padding:0.5rem 0.75rem;font-size:0.78rem;outline:none;box-sizing:border-box;" type="email"/>' +
             '</div>' +
             '<div style="display:flex;align-items:center;gap:8px;margin:0.2rem 0;">' +
               '<input checked id="wa-modal-optin" style="accent-color:#25D366;width:15px;height:15px;cursor:pointer;" type="checkbox"/>' +
@@ -659,7 +659,7 @@
     }
 
     try {
-      fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+      fetch('/api/lead-capture', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload),

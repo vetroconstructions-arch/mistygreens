@@ -315,7 +315,7 @@
       var payload = {
         name: name,
         phone: phone,
-        email: 'exit-concierge@paranjapetownship.com',
+        email: '',
         enclave: preference,
         source_url: window.location.href,
         page_title: document.title,
@@ -325,7 +325,7 @@
       };
 
       try {
-        fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
+        fetch('/api/lead-capture', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(payload)

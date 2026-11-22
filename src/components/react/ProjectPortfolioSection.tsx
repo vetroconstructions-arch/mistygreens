@@ -336,7 +336,7 @@ export const ProjectPortfolioSection: React.FC = () => {
                       href={project.reraLink || 'https://maharera.maharashtra.gov.in/'}
                       target="_blank"
                       rel="noopener"
-                      aria-label={`Verify MahaRERA registration for ${project.name} on official portal`}
+                      aria-label={`Verify MahaRERA registration for ${project.name} on MahaRERA portal`}
                       style={{ fontSize: '0.68rem', color: '#25D366', fontWeight: 800, textDecoration: 'underline' }}
                     >
                       Verify ↗
