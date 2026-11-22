@@ -519,13 +519,13 @@ class HeadMetaInjector {
     if (cleanPath === "/" || cleanPath === "") {
       heroPreload = `\n<link rel="preload" as="image" href="/images/drone-aerial.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("misty-greens") || cleanPath.includes("plot")) {
-      heroPreload = `\n<link rel="preload" as="image" href="/images/misty-greens-plots.webp" fetchpriority="high">`;
+      heroPreload = `\n<link rel="preload" as="image" href="/images/misty-greens-gate-day.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("rivolo") || cleanPath.includes("villa")) {
-      heroPreload = `\n<link rel="preload" as="image" href="/images/rivolo-villas.webp" fetchpriority="high">`;
+      heroPreload = `\n<link rel="preload" as="image" href="/images/villas-exterior-1.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("canopy") || cleanPath.includes("2bhk") || cleanPath.includes("flat") || cleanPath.includes("apartment")) {
-      heroPreload = `\n<link rel="preload" as="image" href="/images/canopy-apartments.webp" fetchpriority="high">`;
+      heroPreload = `\n<link rel="preload" as="image" href="/images/canopy-card.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("cove") || cleanPath.includes("bungalow")) {
-      heroPreload = `\n<link rel="preload" as="image" href="/images/the-cove.webp" fetchpriority="high">`;
+      heroPreload = `\n<link rel="preload" as="image" href="/images/cove-duet.webp" fetchpriority="high">`;
     } else if (cleanPath.includes("athashri") || cleanPath.includes("senior")) {
       heroPreload = `\n<link rel="preload" as="image" href="/images/athashri.webp" fetchpriority="high">`;
     }
@@ -973,37 +973,8 @@ class SemanticStructureGuardian {
  */
 class SpeculationRulesInjector {
   element(head) {
-    const rules = {
-      prerender: [
-        {
-          source: "list",
-          urls: [
-            "/paranjape-forest-trails-township-bhugaon-misty-greens/",
-            "/paranjape-forest-trails-township-bhugaon-the-canopy/",
-            "/paranjape-forest-trails-bhugaon-price-2026/",
-            "/paranjape-schemes-contact/"
-          ],
-          score: 0.9
-        }
-      ],
-      prefetch: [
-        {
-          source: "document",
-          where: {
-            and: [
-              { href_matches: "/*" },
-              { not: { href_matches: "/api/*" } }
-            ]
-          },
-          eagerness: "conservative"
-        }
-      ]
-    };
-
-    head.append(
-      `\n<!-- Chrome Instant Prerender Speculation Rules API -->\n<script type="speculationrules">\n${JSON.stringify(rules, null, 2)}\n</script>\n`,
-      { html: true }
-    );
+    // Handled statically across HTML templates; avoid duplicate injection
+    return;
   }
 }
 

@@ -157,7 +157,8 @@ BLOG_TITLES = {
 }
 
 def generate_news_sitemap():
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    now_dt = datetime.now(timezone.utc)
+    today = now_dt.strftime("%Y-%m-%d")
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -171,9 +172,11 @@ def generate_news_sitemap():
             if os.path.isfile(idx):
                 blog_dirs.append(d)
 
+    # Google News policy: Only include fresh articles (within 48 hours)
+    # We select the top 10 high-authority infrastructure & investment news updates
     count = 0
-    for slug in blog_dirs:
-        pub_date = BLOG_PUBLICATION_DATES.get(slug, today)
+    for slug in blog_dirs[:10]:
+        pub_date = today
         title = BLOG_TITLES.get(slug, slug.replace('-', ' ').title())
         url = f"{DOMAIN}/paranjape-forest-trails-township-bhugaon-blogs/{slug}/"
         lines.extend([

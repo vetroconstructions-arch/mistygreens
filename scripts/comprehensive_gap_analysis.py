@@ -153,7 +153,8 @@ def analyze():
                 desc_issues.append((url_path, f"Meta description too long ({len(d)} chars)"))
 
         # 3. Canonical tag
-        canonicals = re.findall(r'<link\s+rel=["\']canonical["\']\s+href=["\'](.*?)["\']', content, re.IGNORECASE)
+        canonicals = re.findall(r'<link\s+[^>]*rel=["\']canonical["\'][^>]*href=["\'](.*?)["\']|<link\s+[^>]*href=["\'](.*?)["\'][^>]*rel=["\']canonical["\']', content, re.IGNORECASE)
+        canonicals = [c[0] if c[0] else c[1] for c in canonicals]
         if not canonicals:
             canonical_issues.append((url_path, "Missing canonical tag"))
         elif len(canonicals) > 1:
