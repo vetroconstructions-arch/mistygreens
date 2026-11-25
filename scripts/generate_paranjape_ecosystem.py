@@ -44,7 +44,7 @@ HEAD_TEMPLATE = """<!DOCTYPE html>
 
 FOOTER = """<footer style="background:#1a1a1a;color:#999;padding:2rem;text-align:center;margin-top:3rem">
   <p><a href="/" style="color:#D4AF37;text-decoration:none">Paranjape Forest Trails</a> | Bhugaon, Paud Road, Pune West 412115</p>
-  <p>📞 <a href="tel:+917744009295" style="color:#ccc">+91 7744009295</a> | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--></p>
+  <p>📞 <a href="tel:+917744009295" style="color:#ccc">+91 7744009295</a> | Sales Advisory Desk</p>
   <p style="margin-top:.5rem;font-size:.85rem">All prices indicative (*) | <a href="/privacy-policy/" style="color:#aaa">Privacy</a> | <a href="/terms-of-use/" style="color:#aaa">Terms</a> | <a href="/sitemap-page/" style="color:#aaa">Sitemap</a></p>
 </footer>
 </body>

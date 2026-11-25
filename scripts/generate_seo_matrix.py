@@ -47,7 +47,7 @@ def generate_seo_matrix(base_dir):
                 
     # 2. Sync Canonicals
     modified_count = 0
-    canonical_pattern = re.compile(r'<link\s+rel="canonical"\s+href="[^"]*"\s*/?>', re.IGNORECASE)
+    canonical_pattern = re.compile(r'<link\b[^>]*?\brel=["\']canonical["\'][^>]*>', re.IGNORECASE)
     
     for file_path, strict_url, _, clean_slug in html_files:
         try:
@@ -61,10 +61,19 @@ def generate_seo_matrix(base_dir):
             else:
                 new_tag = f'<link rel="canonical" href="{strict_url}">'
             
-            if canonical_pattern.search(content):
-                new_content = canonical_pattern.sub(new_tag, content)
+            matches = list(canonical_pattern.finditer(content))
+            if matches:
+                parts = []
+                last_idx = 0
+                for i, m in enumerate(matches):
+                    parts.append(content[last_idx:m.start()])
+                    if i == 0:
+                        parts.append(new_tag)
+                    last_idx = m.end()
+                parts.append(content[last_idx:])
+                new_content = ''.join(parts)
             else:
-                new_content = re.sub(r'</head>', f'    {new_tag}\n</head>', content, flags=re.IGNORECASE)
+                new_content = re.sub(r'</head>', f'    {new_tag}\n</head>', content, count=1, flags=re.IGNORECASE)
             
             if new_content != content:
                 with open(file_path, 'w', encoding='utf-8') as f:
@@ -191,7 +200,7 @@ Disallow: /components/
 Disallow: /scratch/
 Disallow: /scripts/
 
-# 2. Modern AI, LLM & Generative Search Crawlers (ChatGPT, Gemini, Claude, Perplexity, Apple Intelligence)
+# 2. Modern AI, LLM & Generative Search Crawlers (ChatGPT, Gemini, Claude, Perplexity, DeepSeek, Apple Intelligence)
 User-agent: Google-Extended
 User-agent: GoogleOther
 User-agent: GoogleOther-Image
@@ -202,6 +211,7 @@ User-agent: ClaudeBot
 User-agent: anthropic-ai
 User-agent: Claude-Web
 User-agent: PerplexityBot
+User-agent: DeepSeekBot
 User-agent: Applebot
 User-agent: Applebot-Extended
 User-agent: Meta-ExternalAgent
@@ -214,7 +224,11 @@ User-agent: CCBot
 Allow: /
 Allow: /llms.txt
 Allow: /llms-full.txt
+Allow: /openapi.json
 Allow: /.well-known/ai-agent.json
+Allow: /.well-known/ai-plugin.json
+Allow: /api/inventory
+Allow: /api/township-knowledge
 Allow: /ai-manifest.json
 Disallow: /components/
 Disallow: /scratch/

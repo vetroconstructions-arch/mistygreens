@@ -26,7 +26,7 @@ HEADER = """<header style="background:#4A0808;padding:1rem 2rem;display:flex;ali
 
 FOOTER = """<footer style="background:#1a1a1a;color:#999;padding:2rem;text-align:center;margin-top:3rem">
   <p><a href="/" style="color:#D4AF37;text-decoration:none">Paranjape Forest Trails</a> — Pune's #1 Forest Township | Bhugaon, Paud Road, Pune West 412115</p>
-  <p>📞 <a href="tel:+917744009295" style="color:#ccc">+91 7744009295</a> | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--></p>
+  <p>📞 <a href="tel:+917744009295" style="color:#ccc">+91 7744009295</a> | Sales Advisory Desk</p>
   <p style="font-size:.82rem;margin-top:.5rem">
     MahaRERA: P52100053834 | P52100031560 | P52100048536 | P52100079518 | P52100053310 | P52100077686<br>
     <a href="/nri-property-pune-west/" style="color:#aaa">NRI Desk</a> |

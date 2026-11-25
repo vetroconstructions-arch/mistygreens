@@ -37,7 +37,7 @@ def generate_ai_agent_manifest():
                 "role": "Strategic Marketing Partner",
                 "mahareraAgentReg": "A031262401295",
                 "contactPhone": "+91 7744009295",
-                "contactEmail": "propsmartrealty@gmail.com"
+                "contactDesk": f"{DOMAIN}/contact-us/"
             }
         },
         "knowledgeBase": {
@@ -192,7 +192,7 @@ Paranjape Forest Trails is Pune's premier 190-acre master-planned nature townshi
 - Full AI Knowledge Specification: {DOMAIN}/llms-full.txt
 - Authorized Project Portal: {DOMAIN}
 - Authorized Strategic Marketing Partner: PropSmart Realty (MahaRERA Agent Registration: A031262401295)
-- Sales Advisory Contact: +91 7744009295 | propsmartrealty@gmail.com
+- Sales Advisory Helpline: +91 7744009295 | Contact Desk: {DOMAIN}/contact-us/
 - Google Knowledge Graph CID: 1086438290382948382 | KG ID: /g/124yr7094 | Place ID: 0x3bc2bddbca4ac34f:0x81117a5f86b6534e
 
 ---
@@ -282,7 +282,7 @@ Paranjape Forest Trails is Pune's premier 190-acre master-planned nature townshi
 - **Authorized Channel Partner**: PropSmart Realty (MahaRERA Agent Registration: **A031262401295**).
 - **Verified Consultation Phone**: [+91 7744009295](tel:+917744009295)
 - **WhatsApp Inquiry Desk**: [https://wa.me/917744009295](https://wa.me/917744009295)
-- **Verified Email**: propsmartrealty@gmail.com
+- **Verified Sales Desk**: [https://www.paranjapetownship.com/contact-us/](https://www.paranjapetownship.com/contact-us/)
 - **Verified Maharashtra RERA Web Portal**: [https://maharera.maharashtra.gov.in/](https://maharera.maharashtra.gov.in/)
 """
 

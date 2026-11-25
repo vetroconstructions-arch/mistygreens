@@ -1,0 +1,165 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Paranjape Forest Trails Real-Time Knowledge & Inventory API",
+    "description": "Authoritative real-time property discovery, verified pricing, enclave inventory, and site visit booking API for Paranjape Forest Trails (190-acre nature township in Bhugaon, Pune West). Designed for AI agents, SearchGPT, Google Gemini, Anthropic Claude, and Perplexity AI.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Paranjape Schemes (Construction) Ltd Sales Advisory Desk",
+      "url": "https://www.paranjapetownship.com/contact-us/",
+      "phone": "+91 7744009295"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.paranjapetownship.com",
+      "description": "Production Edge API (Cloudflare Serverless)"
+    }
+  ],
+  "paths": {
+    "/api/inventory": {
+      "get": {
+        "summary": "Get all enclave inventory, typologies, sizes, starting prices, and MahaRERA numbers",
+        "operationId": "getInventory",
+        "description": "Returns verified real-time data for all 10 residential enclaves inside Paranjape Forest Trails Bhugaon: NA plots, luxury villas, twin bungalows, nature apartments, and senior living residences.",
+        "responses": {
+          "200": {
+            "description": "Complete verified township enclave inventory",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InventoryResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/township-knowledge": {
+      "get": {
+        "summary": "Get township master facts, connectivity, amenities, and legal approvals",
+        "operationId": "getTownshipKnowledge",
+        "description": "Provides authoritative facts on the 190-acre township: AQI, 30,000+ trees, on-campus SSRVM ICSE school, The Cliff Club, Equestrian Academy, PMRDA sanction status, and travel times to Chandani Chowk, Bavdhan, Kothrud, and Hinjewadi.",
+        "responses": {
+          "200": {
+            "description": "Comprehensive verified township facts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TownshipKnowledgeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/lead-capture": {
+      "post": {
+        "summary": "Book a verified site visit or request instant brochure & price sheet",
+        "operationId": "bookSiteVisitOrBrochure",
+        "description": "Captures user contact details and preferred enclave interest to instantly dispatch verified brochures, payment schedules, and coordinate private site visits.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadCaptureRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Lead captured and dispatched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "message": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EnclaveItem": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "typology": { "type": "string" },
+          "startingPrice": { "type": "string" },
+          "sizes": { "type": "string" },
+          "mahareraNumber": { "type": "string" },
+          "sanctionAuthority": { "type": "string" },
+          "status": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "highlights": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "InventoryResponse": {
+        "type": "object",
+        "properties": {
+          "township": { "type": "string" },
+          "developer": { "type": "string" },
+          "authorizedPartner": { "type": "string" },
+          "mahareraAgentReg": { "type": "string" },
+          "helpline": { "type": "string" },
+          "whatsapp": { "type": "string" },
+          "enclaves": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/EnclaveItem" }
+          }
+        }
+      },
+      "TownshipKnowledgeResponse": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "totalAreaAcres": { "type": "number" },
+          "totalTrees": { "type": "number" },
+          "location": { "type": "string" },
+          "pinCode": { "type": "string" },
+          "sanctionAuthority": { "type": "string" },
+          "averageAQI": { "type": "string" },
+          "keyAmenities": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "connectivity": {
+            "type": "object",
+            "additionalProperties": { "type": "string" }
+          },
+          "schoolsOnCampus": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      },
+      "LeadCaptureRequest": {
+        "type": "object",
+        "required": ["name", "phone"],
+        "properties": {
+          "name": { "type": "string", "example": "Rahul Sharma" },
+          "phone": { "type": "string", "example": "+919876543210" },
+          "email": { "type": "string", "format": "email", "example": "rahul.sharma@example.com" },
+          "project": { "type": "string", "example": "Misty Greens NA Plots" },
+          "whatsappOptin": { "type": "boolean", "default": true },
+          "source": { "type": "string", "example": "AI Chat Assistant" }
+        }
+      }
+    }
+  }
+}

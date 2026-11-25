@@ -151,12 +151,6 @@ window.handleEnquirySubmit = function(e) {
     window.gtag('event', 'generate_lead', { 'send_to': 'AW-17430583486/2oseCKuOodYcEL6xxvdA', 'transaction_id': leadId, 'value': 1.0, 'currency': 'INR' });
   }
 
-  fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(function() {});
-
   fetch('/api/lead-capture', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

@@ -103,7 +103,7 @@ BLOG_ENRICHMENT_CONTENT = """
       </ol>
 
       <div style="background:#f8f4f0;border-left:4px solid #4A0808;padding:1.2rem;margin:1.8rem 0;border-radius:4px;">
-        <p style="margin:0;font-size:0.92rem;"><strong>Sales Advisory Contact:</strong> For inquiries, floor plans, and verified pricing at Paranjape Forest Trails, call direct sales advisory at <a href="tel:+917744009295" style="color:#4A0808;font-weight:700;">+91 7744009295</a> or email <!--email_off-->propsmartrealty@gmail.com<!--/email_off-->.</p>
+        <p style="margin:0;font-size:0.92rem;"><strong>Sales Advisory Contact:</strong> For inquiries, floor plans, and verified pricing at Paranjape Forest Trails, call direct sales advisory at <a href="tel:+917744009295" style="color:#4A0808;font-weight:700;">+91 7744009295</a> or WhatsApp <a href="https://wa.me/917744009295" style="color:#25D366;font-weight:700;" target="_blank" rel="noopener">+91 7744009295</a>.</p>
       </div>
     </section>
 """

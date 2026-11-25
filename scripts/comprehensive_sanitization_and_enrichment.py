@@ -296,10 +296,10 @@ def sanitize_and_enrich():
                     file_modified = True
                     thin_enriched_count += 1
 
-        # 4. Email Sanitization with <!--email_off-->
-        email_pattern = re.compile(r'(?<!<!--email_off-->)([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)(?!<!--/email_off-->)')
-        if "propsmartrealty@gmail.com" in content and "<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->" not in content:
-            content = content.replace("propsmartrealty@gmail.com", "<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->")
+        # 4. Email Sanitization - strip public exposure
+        if "propsmartrealty@gmail.com" in content:
+            content = content.replace("<!--email_off-->propsmartrealty@gmail.com<!--/email_off-->", "Sales Advisory Desk")
+            content = content.replace("propsmartrealty@gmail.com", "Sales Advisory Desk")
             file_modified = True
 
         if file_modified:

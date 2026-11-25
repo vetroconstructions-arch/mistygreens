@@ -746,7 +746,7 @@ def generate_page(slug, title, meta_desc, h1, location_obj, typology_key, relate
         Direct developer booking with 0% brokerage. Get customized floor plans, latest 2026 pricing sheets, and arrange a complimentary AC cab site visit from {loc['name']}.
       </p>
 
-      <form action="https://formsubmit.co/ajax/propsmartrealty@gmail.com" method="POST" style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;" onsubmit="handleLeadSubmit(event)">
+      <form action="/api/lead-capture" method="POST" style="max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:1rem;" onsubmit="handleLeadSubmit(event)">
         <input type="hidden" name="_subject" value="🌟 New Lead from {slug}: {loc['name']} - {enc['title_product']}">
         <input type="hidden" name="source_page" value="{canonical}">
         <input type="hidden" name="location" value="{loc['name']}">
@@ -833,7 +833,7 @@ def generate_page(slug, title, meta_desc, h1, location_obj, typology_key, relate
         }});
       }}
 
-      fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {{
+      fetch('/api/lead-capture', {{
         method: 'POST',
         headers: {{ 'Content-Type': 'application/json', 'Accept': 'application/json' }},
         body: JSON.stringify(payload)

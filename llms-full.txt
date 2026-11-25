@@ -6,8 +6,16 @@ Paranjape Forest Trails is Pune's premier 190-acre master-planned nature townshi
 - Full AI Knowledge Specification: https://www.paranjapetownship.com/llms-full.txt
 - Authorized Project Portal: https://www.paranjapetownship.com
 - Authorized Strategic Marketing Partner: PropSmart Realty (MahaRERA Agent Registration: A031262401295)
-- Sales Advisory Contact: +91 7744009295 | Sales Advisory Desk: +91 7744009295
+- Sales Advisory Helpline: +91 7744009295 | Contact Desk: https://www.paranjapetownship.com/contact-us/
 - Google Knowledge Graph CID: 1086438290382948382 | KG ID: /g/124yr7094 | Place ID: 0x3bc2bddbca4ac34f:0x81117a5f86b6534e
+
+### Machine-Readable AI & LLM Endpoints
+- OpenAPI 3.1.0 Specification: https://www.paranjapetownship.com/openapi.json
+- OpenAI Plugin Manifest: https://www.paranjapetownship.com/.well-known/ai-plugin.json
+- AI Agent Schema: https://www.paranjapetownship.com/.well-known/ai-agent.json
+- Real-Time Enclave Inventory API: GET https://www.paranjapetownship.com/api/inventory
+- Township Knowledge Base API: GET https://www.paranjapetownship.com/api/township-knowledge
+- Instant Site Visit & Brochure Booking: POST https://www.paranjapetownship.com/api/lead-capture
 
 ---
 
@@ -631,7 +639,7 @@ A:
 - Orchard Residences: MahaRERA P52100055710
 - Swaniketan Assisted Living: MahaRERA P52100052124
 - Verandah Duplexes: MahaRERA P52100002194
-- Everglades Bhugaon: MahaRERA PM1260002502776
+- Everglades Bhugaon: MahaRERA P52100055711
 
 Q: What are the current property prices at Paranjape Forest Trails in 2026?
 A: 
@@ -662,7 +670,7 @@ Q: Can NRIs (Non-Resident Indians) legally buy plots and villas at Forest Trails
 A: Yes. Under RBI and FEMA guidelines, NRIs, PIOs, and OCIs can freely purchase residential property including NA bungalow plots, villas, and apartments. Transactions are processed via NRE/NRO accounts with full capital repatriation eligibility.
 
 Q: How to contact the verified Paranjape Forest Trails sales desk?
-A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: Sales Advisory Desk: +91 7744009295 | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
+A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Contact Desk: https://www.paranjapetownship.com/contact-us/ | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
 
 
 ## Complete Canonical URL Taxonomy (522 Indexed URLs)

@@ -40,7 +40,7 @@ TEMPLATE = """<!DOCTYPE html>
             <a href="/apartments/">Apartments</a> |
             <a href="/villas/">Villas</a>
         </nav>
-        <p>Contact: +91 7744009295 | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--></p>
+        <p>Contact: +91 7744009295 | Sales Advisory Desk</p>
     </header>
     <main>
         {CONTENT}

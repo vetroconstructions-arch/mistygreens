@@ -55,7 +55,7 @@ const FULL_MODAL = `
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
                     <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Get exclusive <strong>Paranjape Forest Trails Price</strong> & Brochure.</p>
                 </div>
-                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
+                <form id="enquiry-form-modal" method="POST" action="/api/lead-capture">
                     <input type="hidden" name="_next" value="https://www.paranjapetownship.com/thank-you.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Website Enquiry - Paranjape Forest Trails">

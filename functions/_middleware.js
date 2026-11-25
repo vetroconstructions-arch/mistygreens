@@ -422,7 +422,7 @@ const CURRENCY_REGIONS = {
 const CRAWLER_TIERS = {
   tier1: /Googlebot|Google-InspectionTool|Googlebot-Image|Googlebot-Video|Googlebot-News|Mediapartners-Google|AdsBot-Google|Google-Safety|GoogleOther/i,
   tier2: /bingbot|BingPreview|Applebot|DuckDuckBot|Baiduspider|YandexBot|Slurp|SeznamBot/i,
-  tier3: /ChatGPT-User|GPTBot|PerplexityBot|ClaudeBot|Bytespider|CCBot|anthropic-ai|cohere-ai|Google-Extended|OAI-SearchBot/i,
+  tier3: /ChatGPT-User|GPTBot|PerplexityBot|ClaudeBot|Claude-Web|anthropic-ai|cohere-ai|Google-Extended|OAI-SearchBot|Applebot-Extended|Meta-ExternalAgent|Bytespider|CCBot|DeepSeekBot|Amazonbot/i,
   tier4: /WhatsApp|TelegramBot|Slackbot|Discordbot|facebookexternalhit|Twitterbot|LinkedInBot|Pinterestbot/i,
 };
 
@@ -439,7 +439,10 @@ const EARLY_HINTS_LINKS = [
 function classifyCrawler(ua) {
   if (CRAWLER_TIERS.tier1.test(ua)) return { tier: 1, label: "google", isSearch: true, isSocial: false };
   if (CRAWLER_TIERS.tier2.test(ua)) return { tier: 2, label: "major-search", isSearch: true, isSocial: false };
-  if (CRAWLER_TIERS.tier3.test(ua)) return { tier: 3, label: "ai-crawler", isSearch: false, isSocial: false };
+  if (CRAWLER_TIERS.tier3.test(ua)) {
+    const isRealTimeSearch = /ChatGPT-User|OAI-SearchBot|PerplexityBot|Claude-Web/i.test(ua);
+    return { tier: 3, label: "ai-crawler", isSearch: isRealTimeSearch, isSocial: false };
+  }
   if (CRAWLER_TIERS.tier4.test(ua)) return { tier: 4, label: "social-preview", isSearch: false, isSocial: true };
   return { tier: 0, label: "user", isSearch: false, isSocial: false };
 }
@@ -511,7 +514,13 @@ class HeadMetaInjector {
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/favicon.png?v=20261015">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/favicon.png?v=20261015">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/apple-touch-icon.png?v=20261015">
-<link rel="alternate" type="text/plain" href="${CANONICAL_ORIGIN}/llms.txt" title="LLM Knowledge Base">
+<link rel="alternate" type="text/markdown" href="${CANONICAL_ORIGIN}/llms.txt" title="LLM Knowledge Base">
+<link rel="alternate" type="text/markdown" href="${CANONICAL_ORIGIN}/llms-full.txt" title="Complete LLM Knowledge Graph">
+<link rel="service-desc" type="application/json" href="${CANONICAL_ORIGIN}/openapi.json" title="OpenAPI 3.1.0 Specification">
+<link rel="alternate" type="application/json" href="${CANONICAL_ORIGIN}/.well-known/ai-agent.json" title="AI Agent Discovery Schema">
+<meta name="ai-agent" content="${CANONICAL_ORIGIN}/.well-known/ai-agent.json">
+<meta name="ai-plugin" content="${CANONICAL_ORIGIN}/.well-known/ai-plugin.json">
+<meta name="openapi" content="${CANONICAL_ORIGIN}/openapi.json">
 <link rel="sitemap" type="application/xml" href="${CANONICAL_ORIGIN}/sitemap.xml">`;
 
     // Dynamic LCP Hero Image Preload (Sub-1.2s Google Core Web Vitals)
@@ -1203,7 +1212,7 @@ export async function onRequest(context) {
     // │ 1d. Cloudflare Edge Cache Lookup (GET requests)         │
     // └─────────────────────────────────────────────────────────┘
     const isGet = request.method === "GET";
-    const CACHE_VERSION = "2026.11.22.v6";
+    const CACHE_VERSION = "2026.11.25.v7";
     const cacheUrl = new URL(url.toString());
     cacheUrl.searchParams.set("_cv", CACHE_VERSION);
     const cacheKey = new Request(cacheUrl.toString(), request);
@@ -1308,7 +1317,11 @@ export async function onRequest(context) {
     const linkHeaders = [
       ...EARLY_HINTS_LINKS,
       `<${CANONICAL_ORIGIN}/sitemap.xml>; rel="sitemap"`,
-      `<${CANONICAL_ORIGIN}/llms.txt>; rel="alternate"; type="text/plain"`
+      `<${CANONICAL_ORIGIN}/llms.txt>; rel="alternate"; type="text/markdown"`,
+      `<${CANONICAL_ORIGIN}/llms-full.txt>; rel="alternate"; type="text/markdown"`,
+      `<${CANONICAL_ORIGIN}/openapi.json>; rel="service-desc"`,
+      `<${CANONICAL_ORIGIN}/.well-known/ai-agent.json>; rel="alternate"; type="application/json"`,
+      `<${CANONICAL_ORIGIN}/.well-known/ai-plugin.json>; rel="alternate"; type="application/json"`
     ];
     headers.set("Link", linkHeaders.join(", "));
 
@@ -1353,6 +1366,11 @@ export async function onRequest(context) {
       } else if (crawlerInfo.tier === 3) {
         headers.set("X-AI-Citation-Policy", "allowed;attribution=Paranjape Schemes (Construction) Ltd");
         headers.set("X-AI-Grounding-Source", `${CANONICAL_ORIGIN}/llms.txt`);
+        headers.set("X-AI-Agent-Manifest", `${CANONICAL_ORIGIN}/.well-known/ai-agent.json`);
+        headers.set("X-OpenAPI-Spec", `${CANONICAL_ORIGIN}/openapi.json`);
+        if (!url.pathname.startsWith("/thank-you") && !url.pathname.startsWith("/404")) {
+          headers.set("X-Robots-Tag", "all, index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1");
+        }
       }
     }
 

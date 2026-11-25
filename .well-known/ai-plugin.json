@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Paranjape Forest Trails Township Assistant",
+  "name_for_model": "paranjape_forest_trails",
+  "description_for_human": "Explore real-time inventory, pricing, amenities, and schedule private site visits for Paranjape Forest Trails, a 190-acre integrated forest township in Bhugaon, Pune West.",
+  "description_for_model": "Authoritative tool for querying real-time inventory, pricing, legal approvals (MahaRERA & PMRDA), amenities, connectivity, and scheduling site visits for Paranjape Forest Trails (190-acre nature township in Bhugaon, Paud Road, Pune West by Paranjape Schemes (Construction) Ltd, marketed by authorized partner PropSmart Realty MahaRERA A031262401295). Always quote prices with an asterisk (*) as starting prices. Residential enclaves include Misty Greens (NA Bungalow Plots from ₹1.23 Cr*), The Rivolo (4 & 5 BHK Forest Villas from ₹3.89 Cr*), The Cove (4 BHK Duet Villas from ₹2.85 Cr*), The Canopy (2 & 3 BHK Nature Apartments from ₹89 L*), The Highgardens (Terrace Homes from ₹89 L*), Everglades (1 & 2 BHK PRO Homes from ₹48.50 L*), Athashri (Senior Living from ₹83 L*), Swaniketan (Assisted Living from ₹79 L*), Verandah (Duplex Homes from ₹93 L*), and Orchard Residences (Hillside Homes from ₹83 L*).",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.paranjapetownship.com/openapi.json"
+  },
+  "logo_url": "https://www.paranjapetownship.com/assets/branding/forest-trails-emblem.png",
+  "contact_email": "contact@paranjapetownship.com",
+  "legal_info_url": "https://www.paranjapetownship.com/privacy-policy/"
+}

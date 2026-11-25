@@ -162,7 +162,7 @@ function propagate() {
                     <h3 style="font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-top: 0.5rem; color: #000; line-height: 1.1;">Request <i style="color: var(--pscl-gold);">Callback</i></h3>
                     <p style="color: #444; font-size: 0.95rem; margin-top: 1rem;">Secure exclusive pricing for <strong>${projectName}</strong>.</p>
                 </div>
-                <form id="enquiry-form-modal" method="POST" action="https://formsubmit.co/propsmartrealty@gmail.com">
+                <form id="enquiry-form-modal" method="POST" action="/api/lead-capture">
                     <input type="hidden" name="project_context" value="${projectName}">
                     <div class="advisory-step active" data-step="1">
                         <h4 style="font-family: var(--font-heading); color: #000; font-size: 1.35rem; font-weight: 700; margin-bottom: 20px;">What is your interest?</h4>

@@ -1524,7 +1524,7 @@ def generate_feed_xml():
       <media:content url="{img_url}" medium="image" width="720" height="960" type="image/webp" />
       <media:thumbnail url="{thumb_url}" width="720" height="720" />
       <enclosure url="{img_url}" length="85000" type="image/webp" />
-      <author><!--email_off-->propsmartrealty@gmail.com<!--/email_off--> (Paranjape Schemes)</author>
+      <author>info@paranjapetownship.com (Paranjape Schemes)</author>
     </item>"""
         items_xml.append(item)
 
@@ -2944,7 +2944,7 @@ def generate_hub_html():
       <a href="/sitemap-page/">HTML Sitemap</a>
     </p>
     <p style="margin-bottom: 0.5rem;">Paranjape Forest Trails Township, Paud Road, Bhugaon, Pune West 412115 | MahaRERA Registered</p>
-    <p style="margin: 0;">Contact: +91 7744009295 | <!--email_off-->propsmartrealty@gmail.com<!--/email_off--> | All prices indicative (*)</p>
+    <p style="margin: 0;">Contact: +91 7744009295 | Sales Advisory Desk | All prices indicative (*)</p>
   </footer>
 
   <script>

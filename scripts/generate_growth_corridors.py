@@ -579,7 +579,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         MahaRERA Registration Numbers: Misty Greens: P52100053834 | The Rivolo: P52100031560 | The Canopy: P52100079518 | The Cove: P52100048536
       </p>
       <p style="font-size: 0.7rem;">
-        *Disclaimer: Indicative rates only. Contact: <a href="tel:+917744009295" style="color: var(--gold); text-decoration: none;">+91 7744009295</a> | Email: <!--email_off-->propsmartrealty@gmail.com<!--/email_off--> | <a href="/privacy-policy/" style="color: rgba(255,255,255,0.5);">Privacy Policy</a>
+        *Disclaimer: Indicative rates only. Contact: <a href="tel:+917744009295" style="color: var(--gold); text-decoration: none;">+91 7744009295</a> | Sales Advisory Desk | <a href="/privacy-policy/" style="color: rgba(255,255,255,0.5);">Privacy Policy</a>
       </p>
     </div>
   </footer>
@@ -672,7 +672,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }}
       }} catch(gerr){{}}
 
-      fetch('https://formsubmit.co/ajax/propsmartrealty@gmail.com', {{
+      fetch('/api/lead-capture', {{
         method: 'POST',
         headers: {{ 'Content-Type': 'application/json', 'Accept': 'application/json' }},
         body: JSON.stringify({{

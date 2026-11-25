@@ -60,7 +60,6 @@ CONTACT_SCHEMA = {
         "@type": "LocalBusiness",
         "name": "Paranjape Forest Trails Sales Gallery",
         "telephone": "+91-7744009295",
-        "email": "propsmartrealty@gmail.com",
         "contactPoint": [
             {
                 "@type": "ContactPoint",

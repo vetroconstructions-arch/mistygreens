@@ -72,7 +72,6 @@ BRAND_SCHEMA = {
             "logo": {"@type": "ImageObject", "url": "https://www.paranjapetownship.com/images/paranjape-logo.png", "width": 400, "height": 120},
             "image": "https://www.paranjapetownship.com/images/hero-township.webp",
             "telephone": "+917744009295",
-            "email": "propsmartrealty@gmail.com",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Paranjape Forest Trails, Paud Road",

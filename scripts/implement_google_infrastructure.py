@@ -543,7 +543,6 @@ REAL_ESTATE_AGENT = {
     "legalName": "Paranjape Schemes (Construction) Ltd",
     "url": f"{DOMAIN}/",
     "telephone": "+91-7744009295",
-    "email": "propsmartrealty@gmail.com",
     "priceRange": "₹89 Lakhs - ₹5.50 Crores",
     "currenciesAccepted": "INR",
     "paymentAccepted": "Cash, Cheque, Credit Card, Bank Wire, Home Loan",

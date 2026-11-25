@@ -86,7 +86,7 @@ Q: Can NRIs (Non-Resident Indians) legally buy plots and villas at Forest Trails
 A: Yes. Under RBI and FEMA guidelines, NRIs, PIOs, and OCIs can freely purchase residential property including NA bungalow plots, villas, and apartments. Transactions are processed via NRE/NRO accounts with full capital repatriation eligibility.
 
 Q: How to contact the verified Paranjape Forest Trails sales desk?
-A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Email: propsmartrealty@gmail.com | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
+A: Phone: +91 7744009295 | WhatsApp: https://wa.me/917744009295 | Contact Desk: https://www.paranjapetownship.com/contact-us/ | Site Address: Forest Trails, Paud Road, Bhugaon, Pune West 412115.
 """
 
 def update_llms_files():
